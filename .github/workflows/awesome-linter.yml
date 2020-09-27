@@ -12,7 +12,7 @@ jobs:
       with:
         node-version: 12.18.4
     - run: npm install
-    - run: npm test-js
+    - run: npm run test-js
 
   lint-css:
     runs-on: ubuntu-latest
@@ -23,4 +23,4 @@ jobs:
       with:
         node-version: 12.18.4
     - run: npm install
-    - run: npm test-css
+    - run: npm run test-css
