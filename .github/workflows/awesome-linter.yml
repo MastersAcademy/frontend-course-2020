@@ -3,6 +3,19 @@ name: Awesome Linter
 on: pull_request
 
 jobs:
+  cache:
+    name: Awesome Cache Environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.18.4
+      - uses: actions/cache@v2
+        with:
+          key: cache-awesome-dependencies-${{ hashFiles('package-lock.json') }}
+          path: node_modules
+
   lint-js:
     name: Lint JS
     runs-on: ubuntu-latest
