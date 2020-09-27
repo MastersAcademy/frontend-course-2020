@@ -14,7 +14,7 @@ jobs:
     - uses: actions/cache@v2
       id: cache-awesome-dependencies
       with:
-        key: cache-awesome-dependencies-${{ hashFiles(package-lock.json) }}
+        key: cache-awesome-dependencies-${{ hashFiles('package-lock.json') }}
         path: node_modules
     - if: steps.cache-awesome-dependencies.outputs.cache-hit != 'true'
       run: npm install
@@ -31,7 +31,7 @@ jobs:
     - uses: actions/cache@v2
       id: cache-awesome-dependencies
       with:
-        key: cache-awesome-dependencies-${{ hashFiles(package-lock.json) }}
+        key: cache-awesome-dependencies-${{ hashFiles('package-lock.json') }}
         path: node_modules
     - if: steps.cache-awesome-dependencies.outputs.cache-hit != 'true'
       run: npm install
