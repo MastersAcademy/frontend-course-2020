@@ -8,7 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/awesome-prepare-environment@v1
+    - uses: actions/setup-node@v1
+        with:
+          node-version: 12.18.4
+    - uses: actions/cache@v2
+      id: cache-awesome-dependencies
+      with:
+        key: cache-awesome-dependencies-${{ hashFiles(./package-lock.json) }}
+        path: ./node_modules
+    - if: steps.cache-awesome-dependencies.outputs.cache-hit != 'true'
+      run: npm install
     - run: npm run test-js
 
   lint-css:
@@ -16,5 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/awesome-prepare-environment@v1
+    - uses: actions/setup-node@v1
+        with:
+          node-version: 12.18.4
+    - uses: actions/cache@v2
+      id: cache-awesome-dependencies
+      with:
+        key: cache-awesome-dependencies-${{ hashFiles(./package-lock.json) }}
+        path: ./node_modules
+    - if: steps.cache-awesome-dependencies.outputs.cache-hit != 'true'
+      run: npm install
     - run: npm run test-css
