@@ -30,8 +30,7 @@ jobs:
         with:
           key: cache-awesome-dependencies-${{ hashFiles('package-lock.json') }}
           path: node_modules
-      - if: steps.cache-awesome-dependencies.outputs.cache-hit != 'true'
-        run: npm install
+      - run: npm install
       - run: npm run test-js
 
   lint-css:
@@ -48,6 +47,5 @@ jobs:
         with:
           key: cache-awesome-dependencies-${{ hashFiles('package-lock.json') }}
           path: node_modules
-      - if: steps.cache-awesome-dependencies.outputs.cache-hit != 'true'
-        run: npm install
+      - run: npm install
       - run: npm run test-css
