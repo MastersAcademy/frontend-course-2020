@@ -1,0 +1,11 @@
+{
+  "name": "1-intro",
+  "version": "1.0.0",
+  "description": "node version 14.13.1, npm version 6.14.8",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
