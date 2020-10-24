@@ -1,0 +1,11 @@
+{
+  "name": "anna.vrana_anna1o1vrana",
+  "version": "1.0.0",
+  "description": "node -v v15.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anna Vrana",
+  "license": "ISC"
+}
