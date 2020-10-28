@@ -8,7 +8,6 @@ class SimpleChat {
         this._styleTextNode = null;
         this._wrapperForImage = null;
         this._counter = 0;
-        this.init();
     }
 
     init() {
@@ -90,7 +89,7 @@ class SimpleChat {
             styleForTime.innerHTML = timeNormilize();
 
             const avatar = this.img;
-            avatar.src = `img/avatar_2.png`;
+            avatar.src = 'img/avatar_2.png';
             avatar.classList.add('chat__user-avatar');
 
             const messageBlock = this.div;
@@ -110,7 +109,7 @@ class SimpleChat {
             this._mainContainer.appendChild(section);
         };
 
-        const opponentBlock = (textContent) => {
+        const opponentBlock = (text) => {
             const section = this.section;
             section.classList.add('chat__opponent');
 
@@ -118,10 +117,10 @@ class SimpleChat {
             messageBlock.classList.add('chat__opponent-message');
 
             const message = this.p;
-            message.textContent = textContent;
+            message.textContent = text;
 
             const avatar = this.img;
-            avatar.src = `img/avatar_1.png`;
+            avatar.src = 'img/avatar_1.png';
             avatar.classList.add('chat__opponent-avatar');
 
             const divForInfo = this.div;
@@ -148,7 +147,7 @@ class SimpleChat {
         if (flag === 'user') {
             return userBlock(textContent);
         }
-        if(flag === 'opponent'){
+        if (flag === 'opponent') {
             return opponentBlock(textContent);
         }
     }
@@ -175,4 +174,5 @@ class SimpleChat {
     }
 }
 
-new SimpleChat();
+const chat = new SimpleChat();
+chat.init();
