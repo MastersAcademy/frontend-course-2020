@@ -15,7 +15,11 @@ function gettingMessageAray() {
 function cereatingCell(text) {
     const elementNode = document.createElement('p');
     gettingMessageAray();
-    messages.length % 2 === 0 ? elementNode.classList.add('first-user') : elementNode.classList.add('second-user');
+    if (messages.length % 2 === 0) {
+        elementNode.classList.add('first-user');
+    } else {
+        elementNode.classList.add('second-user');
+    }
     elementNode.setAttribute('data-text', '');
     // Adding an avatar
     const userIconNode = document.createElement('i');
