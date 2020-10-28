@@ -85,13 +85,6 @@ h6 {
   --widt-main-block: 80%;
 }
 
-/** Font **/
-@font-face {
-  font-family: "Lato";
-  src: local("Lato"), url(../fonts/Lato/Lato-Regular.ttf);
-  font-style: normal;
-  font-weight: 400;
-}
 
 /** Chat Style **/
 
