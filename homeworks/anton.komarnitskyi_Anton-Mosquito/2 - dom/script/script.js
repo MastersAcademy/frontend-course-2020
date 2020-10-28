@@ -17,15 +17,15 @@ class SimpleChat {
     }
 
     createElement() {
-        const sectionNode = document.createElement("section");
+        const sectionNode = document.createElement('section');
 
-        const divNode = document.createElement("div");
+        const divNode = document.createElement('div');
 
-        const pNode = document.createElement("p");
+        const pNode = document.createElement('p');
 
-        const smallNode = document.createElement("small");
+        const smallNode = document.createElement('small');
 
-        const imgForUserNode = document.createElement("img");
+        const imgForUserNode = document.createElement('img');
 
         this._wrapperForAllNode = sectionNode;
         this._wrapperForInfoAndMessageBlock = divNode;
@@ -43,7 +43,7 @@ class SimpleChat {
     }
 
     get p() {
-        return this._parapgraphForNode.cloneNode(true)
+        return this._parapgraphForNode.cloneNode(true);
     }
 
     get small() {
@@ -51,7 +51,7 @@ class SimpleChat {
     }
 
     get img() {
-        return this._wrapperForImage.cloneNode(true)
+        return this._wrapperForImage.cloneNode(true);
     }
 
     createChatRows(flag, textContent) {
@@ -63,27 +63,27 @@ class SimpleChat {
             let seconds = now.getSeconds();
 
             if (hours < 10) {
-                hours = "0" + hours;
+                hours = '0' + hours;
             }
             if (minutes < 10) {
-                minutes = "0" + minutes;
+                minutes = '0' + minutes;
             }
             if (seconds < 10) {
-                seconds = "0" + seconds;
+                seconds = '0' + seconds;
             }
 
             return `${hours}:${minutes}:${seconds}`;
         };
 
-        const userBlock = (textContent) => {
+        const userBlock = (text) => {
             const section = this.section;
-            section.classList.add("chat__user");
+            section.classList.add('chat__user');
 
             const divForInfo = this.div;
-            divForInfo.classList.add("chat__user-info");
+            divForInfo.classList.add('chat__user-info');
 
             const nameOfUser = this.p;
-            nameOfUser.textContent = "Anie Smith";
+            nameOfUser.textContent = 'Anie Smith';
 
             const timeMessage = this.p;
             const styleForTime = this.small;
@@ -91,13 +91,13 @@ class SimpleChat {
 
             const avatar = this.img;
             avatar.src = `img/avatar_2.png`;
-            avatar.classList.add("chat__user-avatar");
+            avatar.classList.add('chat__user-avatar');
 
             const messageBlock = this.div;
-            messageBlock.classList.add("chat__user-message");
+            messageBlock.classList.add('chat__user-message');
 
             const message = this.p;
-            message.innerHTML = textContent;
+            message.innerHTML = text;
 
             messageBlock.appendChild(message);
             timeMessage.appendChild(styleForTime);
@@ -107,28 +107,28 @@ class SimpleChat {
             section.appendChild(avatar);
             section.appendChild(messageBlock);
 
-            this._mainContainer.appendChild(section)
+            this._mainContainer.appendChild(section);
         };
 
-        const opponentBlock = () => {
+        const opponentBlock = (textContent) => {
             const section = this.section;
-            section.classList.add("chat__opponent");
+            section.classList.add('chat__opponent');
 
             const messageBlock = this.div;
-            messageBlock.classList.add("chat__opponent-message");
+            messageBlock.classList.add('chat__opponent-message');
 
             const message = this.p;
             message.textContent = textContent;
 
             const avatar = this.img;
             avatar.src = `img/avatar_1.png`;
-            avatar.classList.add("chat__opponent-avatar");
+            avatar.classList.add('chat__opponent-avatar');
 
             const divForInfo = this.div;
-            divForInfo.classList.add("chat__opponent-info");
+            divForInfo.classList.add('chat__opponent-info');
 
             const nameOfUser = this.p;
-            nameOfUser.textContent = "Jack Silverston";
+            nameOfUser.textContent = 'Jack Silverston';
 
             const timeMessage = this.p;
             const styleForTime = this.small;
@@ -145,22 +145,22 @@ class SimpleChat {
             this._mainContainer.appendChild(section);
         };
 
-        switch (flag) {
-            case "user":
-                return userBlock(textContent);
-            case "opponent":
-                return opponentBlock(textContent);
-            }
+        if (flag === 'user') {
+            return userBlock(textContent);
+        }
+        if(flag === 'opponent'){
+            return opponentBlock(textContent);
+        }
     }
 
     eventListener() {
-        document.addEventListener("click", (e) => {
+        document.addEventListener('click', (e) => {
             const atributesForCheck = e.target.dataset.chat;
-            if (atributesForCheck !== "ActionButton") return;
+            if (atributesForCheck !== 'ActionButton') return;
             this.action();
         });
 
-        document.addEventListener("submit", (e) => {
+        document.addEventListener('submit', (e) => {
             e.preventDefault();
         });
     }
@@ -168,9 +168,9 @@ class SimpleChat {
     action() {
         const textContent = this._incomingData.value.trim();
         if (!textContent) return;
-        const superFlag = ["user", "opponent"][this._counter % 2];
+        const superFlag = ['user', 'opponent'][this._counter % 2];
         this.createChatRows(superFlag, textContent);
-        this._incomingData.value = "";
+        this._incomingData.value = '';
         this._counter++;
     }
 }
