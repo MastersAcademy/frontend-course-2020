@@ -1,27 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById('button')
+    const msgInput = document.getElementById('input');
+    const messageFlowList = document.getElementById('messages');
 
-    let button = document.getElementById('button')
+    function getMessage() {
+        return msgInput.value;
+    }
 
-    function getValue() {
-        let messege = document.getElementById('input').value;
-        let li = document.createElement('li');
+    function validateMessage(messege) {
+        try {
+            if (!messege) throw new Error('input should not be empty');
+            if (!(messege === messege.trim())) throw new Error('input must not contain spaces')
+            return messege;
+        } catch (error) {
+            alert(error);
+            throw error;
+        }
 
-        if (!messege) return alert('input should not be empty');
-        if (!(messege === messege.trim())) return alert('input must not contain spaces')
-        
-        li.innerHTML = messege;
-        
-        document.getElementById('messages').appendChild(li)
-        document.getElementById('input').value = "";
+    }
+
+    function createMessage(messege) {
+        const messageBubble = document.createElement('li');
+        messageBubble.innerHTML = messege;
+        return messageBubble;
+    }
+
+    function insertMessage(messageBubble) {
+        messageFlowList.appendChild(messageBubble)
+    }
+    
+    function clearInput() {
+        msgInput.value = '';
+    }
+
+    function mainAppFlow() {
+        let message = getMessage();
+        message = validateMessage(message);
+        const messageBubble = createMessage(message);
+        insertMessage(messageBubble);
+        clearInput();
     }
 
     function keyboardHandler(event) {
-        if (event.key === 'Enter') getValue();
+        if (event.key === 'Enter') mainAppFlow();
     }
 
     function clickHandler(event) {
-        if (event.type === 'mouseup') getValue()
+        if (event.type === 'mouseup') mainAppFlow()
     }
+
     button.addEventListener('mouseup', clickHandler);
-    input.addEventListener('keypress', keyboardHandler);
+    msgInput.addEventListener('keypress', keyboardHandler);
 });
