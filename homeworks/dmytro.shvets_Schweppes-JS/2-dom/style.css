@@ -46,7 +46,7 @@ messages-container {
 }
 
 .messages-container::-webkit-scrollbar-thumb {
-  background: #330033;
+  background: #303;
   border-radius: 10px;
 }
 

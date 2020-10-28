@@ -15,11 +15,11 @@ function gettingMessageAray() {
 function cereatingCell(text) {
     const elementNode = document.createElement('p');
     gettingMessageAray();
-    (messages.length % 2 === 0) ? elementNode.classList.add('first-user') : elementNode.classList.add('second-user');
+    messages.length % 2 === 0 ? elementNode.classList.add('first-user') : elementNode.classList.add('second-user');
     elementNode.setAttribute('data-text', '');
     // Adding an avatar
     const userIconNode = document.createElement('i');
-    if(elementNode.classList.contains('first-user')) {
+    if (elementNode.classList.contains('first-user')) {
         userIconNode.classList.add('fas', 'fa-user-astronaut');
     } else {
         userIconNode.classList.add('fas', 'fa-user-secret');
@@ -37,14 +37,14 @@ function cereatingCell(text) {
 function deletingStatus() {
     gettingMessageAray();
     messages.forEach((elem) => {
-        if(elem.lastChild.innerHTML === 'Typing . . .' ) {
+        if (elem.lastChild.innerHTML === 'Typing . . .') {
             elem.remove();
             statusTyping = !statusTyping;
         }
-    })
+    });
 }
 
-// Sending message 
+// Sending message
 function addingMessage(e) {
     e.preventDefault();
     deletingStatus();
@@ -57,7 +57,7 @@ function addingMessage(e) {
 // setting status on keydown and remove after 1 second
 function addingStatusTyping() {
     container.scrollBy(0, 50);
-    if(!statusTyping) {
+    if (!statusTyping) {
         cereatingCell('Typing . . .');
         statusTyping = !statusTyping;
     }
