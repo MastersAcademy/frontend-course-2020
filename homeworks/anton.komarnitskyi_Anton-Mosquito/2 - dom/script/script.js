@@ -148,10 +148,10 @@ class SimpleChat {
         return flag === 'user' ? userBlock(textContent) : opponentBlock(textContent);
     }
 
-    createTooltip(){
+    createTooltip() {
         const tooltipContainer = this.div;
-        tooltipContainer.className = "tooltip";
-        tooltipContainer.dataset.tooltip = "tooltip";
+        tooltipContainer.className = 'tooltip';
+        tooltipContainer.dataset.tooltip = 'tooltip';
         tooltipContainer.innerHTML = this._incomingData.dataset.tooltip;
 
         this._incomingData.parentElement.appendChild(tooltipContainer);
