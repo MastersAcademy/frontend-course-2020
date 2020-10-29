@@ -144,7 +144,7 @@ class SimpleChat {
             this._mainContainer.appendChild(mainBlock);
         };
 
-        return flag === 'user' ? userBlock(textContent):opponentBlock(textContent);
+        return flag === 'user' ? userBlock(textContent) : opponentBlock(textContent);
     }
 
     eventListener() {
