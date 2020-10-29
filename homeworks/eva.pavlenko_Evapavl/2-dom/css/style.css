@@ -14,11 +14,11 @@ body {
   height: 100%;
   width: 1000px;
 }
-#form {
+.form {
   width: 100%;
   margin-bottom: 8px;
 }
-#input {
+.input {
   width: 800px;
   font-size: 13px;
   padding: 10px 0 10px 10px;
@@ -26,8 +26,7 @@ body {
   background: #f6f6f6;
   border-radius: 8px;
 }
-
-#button {
+.button {
   cursor: pointer;
   border: 1px solid #cecece;
   background: #f6f6f6;
@@ -36,10 +35,10 @@ body {
   padding: 8px 14px;
   width: 100px;
 }
-#button:hover {
+.button:hover {
   box-shadow: inset 0px -20px 20px #ffffff;
 }
-#button:active {
+.button:active {
   margin-top: 1px;
   margin-bottom: -1px;
   zoom: 1;
