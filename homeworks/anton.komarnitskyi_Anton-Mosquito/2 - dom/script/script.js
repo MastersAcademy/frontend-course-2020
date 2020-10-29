@@ -62,21 +62,21 @@ class SimpleChat {
             let seconds = now.getSeconds();
 
             if (hours < 10) {
-                hours = '0' + hours;
+                hours = `0${hours}`;
             }
             if (minutes < 10) {
-                minutes = '0' + minutes;
+                minutes = `0${minutes}`;
             }
             if (seconds < 10) {
-                seconds = '0' + seconds;
+                seconds = `0${seconds}`;
             }
 
             return `${hours}:${minutes}:${seconds}`;
         };
 
         const userBlock = (text) => {
-            const section = this.section;
-            section.classList.add('chat__user');
+            const mainBlock = this.section;
+            mainBlock.classList.add('chat__user');
 
             const divForInfo = this.div;
             divForInfo.classList.add('chat__user-info');
@@ -102,16 +102,16 @@ class SimpleChat {
             timeMessage.appendChild(styleForTime);
             divForInfo.appendChild(nameOfUser);
             divForInfo.appendChild(timeMessage);
-            section.appendChild(divForInfo);
-            section.appendChild(avatar);
-            section.appendChild(messageBlock);
+            mainBlock.appendChild(divForInfo);
+            mainBlock.appendChild(avatar);
+            mainBlock.appendChild(messageBlock);
 
-            this._mainContainer.appendChild(section);
+            this._mainContainer.appendChild(mainBlock);
         };
 
         const opponentBlock = (text) => {
-            const section = this.section;
-            section.classList.add('chat__opponent');
+            const mainBlock = this.section;
+            mainBlock.classList.add('chat__opponent');
 
             const messageBlock = this.div;
             messageBlock.classList.add('chat__opponent-message');
@@ -139,9 +139,9 @@ class SimpleChat {
             timeMessage.appendChild(styleForTime);
             divForInfo.appendChild(nameOfUser);
             divForInfo.appendChild(timeMessage);
-            section.appendChild(divForInfo);
+            mainBlock.appendChild(divForInfo);
 
-            this._mainContainer.appendChild(section);
+            this._mainContainer.appendChild(mainBlock);
         };
 
         if (flag === 'user') {
