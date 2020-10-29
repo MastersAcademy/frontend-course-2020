@@ -1,26 +1,28 @@
-function stopTyping() {
-    const typingNowContainer = document.getElementById('typing-now-container');
+(function () {
+    function stopTyping() {
+        const typingNowContainer = document.getElementById('typing-now-container');
 
-    typingNowContainer.innerHTML = '';
-}
+        typingNowContainer.innerHTML = '';
+    }
 
-const debounce = (func, wait) => {
-    let timerId;
+    const debounce = (func, wait) => {
+        let timerId;
 
-    return function executedFunction() {
-        clearTimeout(timerId);
-        timerId = setTimeout(func, wait);
+        return function executedFunction() {
+            clearTimeout(timerId);
+            timerId = setTimeout(func, wait);
+        };
     };
-};
 
-const stopType = debounce(stopTyping, 1000);
+    const stopType = debounce(stopTyping, 1000);
 
-function setTyping() {
-    const typingNowContainer = document.getElementById('typing-now-container');
+    function setTyping() {
+        const typingNowContainer = document.getElementById('typing-now-container');
 
-    typingNowContainer.innerHTML = '<p>Typing...</p>';
-    stopType();
-}
+        typingNowContainer.innerHTML = '<p>Typing...</p>';
+        stopType();
+    }
 
-document.getElementById('inputted-text')
-    .addEventListener('input', setTyping);
+    document.getElementById('inputted-text')
+        .addEventListener('input', setTyping);
+}());
