@@ -134,8 +134,8 @@ class SimpleChat {
             styleForTime.innerHTML = timeNormilize();
 
             messageBlock.appendChild(message);
-            section.appendChild(messageBlock);
-            section.appendChild(avatar);
+            mainBlock.appendChild(messageBlock);
+            mainBlock.appendChild(avatar);
             timeMessage.appendChild(styleForTime);
             divForInfo.appendChild(nameOfUser);
             divForInfo.appendChild(timeMessage);
@@ -144,12 +144,7 @@ class SimpleChat {
             this._mainContainer.appendChild(mainBlock);
         };
 
-        if (flag === 'user') {
-            return userBlock(textContent);
-        }
-        if (flag === 'opponent') {
-            return opponentBlock(textContent);
-        }
+        return flag === 'user' ? userBlock(textContent):opponentBlock(textContent);
     }
 
     eventListener() {
