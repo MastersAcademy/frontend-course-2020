@@ -1,31 +1,44 @@
-let input = document.querySelector("input");
-let button = document.querySelector("button");
-let dialogWindow = document.querySelector("#dialogWindow");
+const input = document.querySelector('input');
+const button = document.querySelector('button');
+const dialogWindow = document.querySelector('.dialogWindow');
 
-button.addEventListener("click", createMessage);
-
-function createMessage(event){
+function createMessage(event) {
     event.preventDefault();
-    
+
     if (input.value.trim().length > 0) {
-        
-        let message = document.createElement("p");
-        
+        const message = document.createElement('p');
         message.innerText = input.value;
         dialogWindow.appendChild(message);
-        input.value = "";
+        input.value = '';
     }
 }
 
-input.addEventListener("keydown", sayTyping);
-let typing = document.querySelector("#typing");
+button.addEventListener('click', createMessage);
+
+const typing = document.querySelector('.typing');
 
 function sayTyping() {
-    typing.innerText = "Typing...";
-    if (self.TMR) clearTimeout (TMR); 
-    TMR = setTimeout (stopSayTyping, 1000); 
+    typing.innerText = 'Typing...';
 }
 
-function stopSayTyping() {
-    typing.innerText = "";  
-}
+input.addEventListener('keyup', sayTyping);
+
+const debounce = (func, wait) => {
+    let timeout;
+
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+const stopSayTyping = debounce(() => {
+    typing.innerText = '';
+}, 1000);
+
+input.addEventListener('keyup', stopSayTyping);

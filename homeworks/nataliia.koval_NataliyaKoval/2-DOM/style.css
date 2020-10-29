@@ -1,37 +1,36 @@
-#mainContainer {
-    border: 2px rgb(38, 38, 138) double;
-    width: 350px;
-    height: 500px;
-    margin: auto;
-    background-color: rgb(159, 192, 219);
-    position: relative;
+.mainContainer {
+  border: 2px rgb(38, 38, 138) double;
+  width: 350px;
+  height: 500px;
+  margin: auto;
+  background-color: rgb(159, 192, 219);
+  position: relative;
 }
 
-#InputBlock {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    text-align: center;
+.InputBlock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
-#dialogWindow {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 50px;
-    overflow: auto;
-    align-items: flex-end;
+.dialogWindow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50;
+  overflow: auto;
+  align-items: flex-end;
 }
 
-#dialogWindow p {
-    background-color: #fff;
-    word-wrap: break-word;
-    margin-bottom: 12px;
-    line-height: 24px;
-    padding:10px 20px;
-    border-radius:0px 20px 20px 20px;
-    display: table;
+.dialogWindow p {
+  background-color: #FFF;
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 0 20px 20px;
+  display: table;
 }
-
