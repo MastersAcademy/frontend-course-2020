@@ -13,6 +13,7 @@ class SimpleChat {
     init() {
         this.createElement();
         this.eventListener();
+        this.createTooltip();
     }
 
     createElement() {
@@ -86,7 +87,7 @@ class SimpleChat {
 
             const timeMessage = this.p;
             const styleForTime = this.small;
-            styleForTime.innerHTML = timeNormilize();
+            styleForTime.innerText = timeNormilize();
 
             const avatar = this.img;
             avatar.src = 'img/avatar_2.png';
@@ -96,7 +97,7 @@ class SimpleChat {
             messageBlock.classList.add('chat__user-message');
 
             const message = this.p;
-            message.innerHTML = text;
+            message.innerText = text;
 
             messageBlock.appendChild(message);
             timeMessage.appendChild(styleForTime);
@@ -131,7 +132,7 @@ class SimpleChat {
 
             const timeMessage = this.p;
             const styleForTime = this.small;
-            styleForTime.innerHTML = timeNormilize();
+            styleForTime.innerText = timeNormilize();
 
             messageBlock.appendChild(message);
             mainBlock.appendChild(messageBlock);
@@ -145,6 +146,15 @@ class SimpleChat {
         };
 
         return flag === 'user' ? userBlock(textContent) : opponentBlock(textContent);
+    }
+
+    createTooltip(){
+        const tooltipContainer = this.div;
+        tooltipContainer.className = "tooltip";
+        tooltipContainer.dataset.tooltip = "tooltip";
+        tooltipContainer.innerHTML = this._incomingData.dataset.tooltip;
+
+        this._incomingData.parentElement.appendChild(tooltipContainer);
     }
 
     eventListener() {
