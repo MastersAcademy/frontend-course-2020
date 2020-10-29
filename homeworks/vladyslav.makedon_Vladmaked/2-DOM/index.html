@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Simple single chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page__wrapper">
+    <div class="container">
+        <header class="page__header">
+            <h1 class="page__header-description">Simple single chat</h1>
+        </header>
+        <main class="content__wrapper">
+            <div data-messages-output class="messages-output__wrapper"></div>
+            <form data-input-form class="input-form__wrapper">
+                <div data-error-message class="input-form__error-message"></div>
+                <div data-typing-status hidden class="input-form__typing-status">Typing...</div>
+                <label class="messages-input__row">
+                    <input data-message-input type="text" class="messages-input"
+                           id="input"
+                           placeholder="Write a message..." autocomplete="off">
+                    <button class="btn-submit" type="submit">
+                        Submit
+                    </button>
+                </label>
+            </form>
+        </main>
+    </div>
+</div>
+
+<template data-message-output-template>
+    <div class="messages-output">
+        <p data-message-body class="messages-output__body"></p>
+    </div>
+</template>
+<script src="script.js"></script>
+</body>
+</html>
