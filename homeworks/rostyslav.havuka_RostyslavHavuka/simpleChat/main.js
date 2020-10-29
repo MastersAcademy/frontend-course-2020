@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createMessage(messege) {
         const messageBubble = document.createElement('li');
-        messageBubble.innerHTML = messege;
+        messageBubble.innerText = messege;
         return messageBubble;
     }
 
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter') mainAppFlow();
     }
 
-    function clickHandler(event) {
-        if (event.type === 'mouseup') mainAppFlow();
+    function clickHandler() {
+        mainAppFlow();
     }
 
-    button.addEventListener('mouseup', clickHandler);
+    button.addEventListener('click', clickHandler);
     msgInput.addEventListener('keypress', keyboardHandler);
 });
