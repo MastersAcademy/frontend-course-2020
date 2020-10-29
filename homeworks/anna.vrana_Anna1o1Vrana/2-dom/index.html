@@ -18,7 +18,7 @@
     <div class="container">
 
         <div class="chat-wrapper">
-            <template class="message-list">
+            <template id="message-list">
             <ul>
                 <li></li>
             </ul>
@@ -36,11 +36,11 @@
                 </li>
             </ul>
         </div>
+        <p id="result"></p>
+        <p id="valueResualt"></p>
 
-        <form class="input-area-wrapper">
-            <input type="text" id="txt-data" class="input-txt" data-inputTxt placeholder="Start write message" value="" />
-            <button class="send" data-send>  Send message</button>
-        </form>
+        <input type="text" id="user-text" class="input-txt" placeholder="Start write message" value="" />
+        <button class="send" id="btn-send" onclick="fun()">  Send message</button>
     </div>
     <script src="scripts.js "></script>
 </body>
