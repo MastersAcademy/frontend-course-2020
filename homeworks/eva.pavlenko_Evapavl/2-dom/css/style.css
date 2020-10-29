@@ -5,7 +5,8 @@ body{
   height: 100%;
   background-color: rgb(51, 51, 51);
 }
-.wrapper{
+
+.wrapper {
   margin: 0 auto;
   padding: 50px 25px;
   display: flex;
@@ -14,11 +15,13 @@ body{
   height: 100%;
   width: 1000px;
 }
-.form{
+
+.form {
   width: 100%;
   margin-bottom: 8px;
 }
-.input{
+
+.input {
   width: 800px;
   font-size: 13px;
   padding: 10px 0 10px 10px;
@@ -26,7 +29,8 @@ body{
   background: #F6F6F6;
   border-radius: 8px;
 }
-.button{
+
+.button {
   cursor: pointer;
   border: 1px solid #CECECE;
   background: #F6F6F6;
@@ -35,22 +39,26 @@ body{
   padding: 8px 14px;
   width: 100px;
 }
-.button:hover{
-  box-shadow: inset 0px -20px 20px #FFF;
+
+.button:hover {
+  box-shadow: inset 0 -20px 20px #FFF;
 }
-.button:active{
+
+.button:active {
   margin-top: 1px;
   margin-bottom: -1px;
   zoom: 1;
 }
-.chat{
+
+.chat {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   overflow-y: auto;
 }
-.message{
+
+.message {
   background: #F6F6F62A;
   box-shadow: -3px 3px 3px #FFF;
   border-radius: 8px;
@@ -58,7 +66,8 @@ body{
   margin-bottom: 15px;
   font-family: "Times New Roman", Times, serif;
 }
-.typing{
+
+.typing {
   font-style: italic;
   font-size: 18px;
 }
