@@ -45,14 +45,17 @@ body {
 
 .top_menu .buttons .button.close {
   background-color: #F5886E;
+  border: none;
 }
 
 .top_menu .buttons .button.minimize {
   background-color: #FDBF68;
+  border: none;
 }
 
 .top_menu .buttons .button.maximize {
   background-color: #A3D063;
+  border: none;
 }
 
 .top_menu .title {
