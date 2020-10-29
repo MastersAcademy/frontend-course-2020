@@ -16,3 +16,16 @@ function createMessage(event){
         input.value = "";
     }
 }
+
+input.addEventListener("keydown", sayTyping);
+let typing = document.querySelector("#typing");
+
+function sayTyping() {
+    typing.innerText = "Typing...";
+    if (self.TMR) clearTimeout (TMR); 
+    TMR = setTimeout (stopSayTyping, 1000); 
+}
+
+function stopSayTyping() {
+    typing.innerText = "";  
+}
