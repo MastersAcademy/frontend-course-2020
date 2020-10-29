@@ -2,10 +2,6 @@ function cleanText(text) {
     return text.trim();
 }
 
-function textCorrectCheck(text) {
-    return text.length > 0;
-}
-
 function addText(text) {
     const showMessagesContainer = document.getElementById('show-messages-container');
     const textContainer = document.createElement('div');
@@ -20,7 +16,7 @@ function addNewMessage() {
     const text = inputtedText.value;
 
     const cleanedText = cleanText(text);
-    if (textCorrectCheck(cleanedText)) {
+    if (cleanedText) {
         addText(cleanedText);
         inputtedText.value = '';
     } else {
