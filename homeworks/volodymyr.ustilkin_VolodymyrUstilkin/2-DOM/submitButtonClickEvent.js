@@ -6,7 +6,7 @@ function addText(text) {
     const showMessagesContainer = document.getElementById('show-messages-container');
     const textContainer = document.createElement('div');
 
-    textContainer.setAttribute('class', 'message-container');
+    textContainer.classList.add('message-container');
     textContainer.innerText = text;
     showMessagesContainer.appendChild(textContainer);
 }
