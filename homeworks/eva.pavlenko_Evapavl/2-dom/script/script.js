@@ -2,7 +2,7 @@ const button = document.querySelector('.button');
 const input = document.querySelector('.input');
 
 button.addEventListener('click', () => {
-    const chatNode = document.getElementById('chat');
+    const chatNode = document.querySelector('.chat');
     const messageNode = document.createElement('div');
 
     if (input.value) {
