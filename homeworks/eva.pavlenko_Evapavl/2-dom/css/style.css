@@ -1,0 +1,65 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(51, 51, 51);
+}
+#wrapper {
+  margin: 0 auto;
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 1000px;
+}
+#form {
+  width: 100%;
+  margin-bottom: 8px;
+}
+#input {
+  width: 800px;
+  font-size: 13px;
+  padding: 10px 0 10px 10px;
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  border-radius: 8px;
+}
+
+#button {
+  cursor: pointer;
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  box-shadow: inset 0px 20px 20px #ffffff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: 100px;
+}
+#button:hover {
+  box-shadow: inset 0px -20px 20px #ffffff;
+}
+#button:active {
+  margin-top: 1px;
+  margin-bottom: -1px;
+  zoom: 1;
+}
+#chat {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow-y: auto;
+}
+.message {
+  background: #f6f6f62a;
+  box-shadow: -3px 3px 3px #ffffff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  font-family: "Times New Roman", Times, serif;
+}
+.typing {
+  font-style: italic;
+  font-size: 18px;
+}
