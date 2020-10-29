@@ -1,0 +1,23 @@
+.chat {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid red;
+}
+
+.form-control {
+  width: 900px;
+  height: 50px;
+}
+
+.btn {
+  height: 50px;
+  width: 50px;
+}
+
+.chat-footer {
+  height: 98vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+}
