@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+textarea, button {
+  border: none;
+  resize: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.container {
+  background: #1A2835;
+  color: #FFF;
+  height: 100vh;
+  width: 100vw;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.content-container_pd {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.header-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  height: 50px;
+  background: #061F33;
+}
+
+.content {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.content_item {
+  display: flex;
+  max-width: 40vw;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #6BA1CE;
+  border-radius: 8px;
+}
+
+.content_item:first-child {
+  margin-top: auto;
+}
+
+.content_item:last-child {
+  margin-bottom: 0;
+}
+
+.content_item > span {
+  margin-left: 5px;
+  font-size: 10px;
+  color: #1A2835;
+}
+
+.content_item > span:hover {
+  cursor: pointer;
+}
+
+.write-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #233446;
+}
+
+.write-container_input-field {
+  font-size: 16px;
+  padding: 5px 10px 10px;
+  margin-right: 15px;
+  width: 100%;
+  background: inherit;
+  font-weight: 200;
+  color: #F5F5F5;
+  max-height: 30vh;
+}
+
+.submit-message {
+  background: none;
+}
+
+.submit-message:hover {
+  cursor: pointer;
+}
+
+.typing {
+  display: flex;
+  overflow: hidden;
+}
+
+.typing-text {
+  margin-left: 10px;
+}
+
+.typing-dots {
+  position: relative;
+}
+
+.typing.active > .typing-dots::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+  background: #061F33;
+  animation-name: typing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes typing {
+
+  0% {
+    right: 100%;
+  }
+
+  50% {
+    right: 0;
+  }
+
+  100% {
+    right: 100%;
+  }
+}
+
+.error {
+  display: none;
+}
+
+.error.active {
+  display: block;
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  color: #FFF;
+  padding: 5px;
+  border-radius: 6px;
+  animation-name: flashing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes flashing {
+
+  0% {
+    background: rgba(255, 5, 0, .3);
+  }
+
+  50% {
+    background: rgba(255, 5, 0, .8);
+  }
+
+  100% {
+    background: rgba(255, 5, 0, 1);
+  }
+}
