@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.page__wrapper {
+  background-color: #E7EAEF;
+}
+
+.container {
+  width: 50vw;
+  min-width: 400px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #F9F9F9;
+}
+
+.page__header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  background-color: #414040;
+  color: #FFF;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
+.page__header-description {
+  font-size: 18px;
+}
+
+.content__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+  width: 100%;
+}
+
+.messages-output__wrapper {
+  padding: 20px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.messages-output__body {
+  max-width: 50%;
+  width: fit-content;
+  background-color: #FFF;
+  border-radius: 22px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.input-form__wrapper {
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.input-form__typing-status {
+  font-size: 12px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  color: #414040;
+}
+
+.input-form__error-message {
+  min-height: 20px;
+  font-size: 12px;
+  color: #A52A2A;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.messages-input__row {
+  display: flex;
+  padding: 10px 15px;
+  border: 1px solid #DBDBDB;
+  border-radius: 22px;
+  background-color: #FFF;
+}
+
+.messages-input {
+  width: 100%;
+  border: none;
+  padding: 7px;
+  margin-right: 10px;
+}
+
+.btn-submit {
+  border: none;
+  color: #414040;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  color: #000;
+}
+
+.messages-input:focus, .btn-submit:focus {
+  outline: none;
+}
