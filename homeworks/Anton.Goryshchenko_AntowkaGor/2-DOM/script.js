@@ -1,7 +1,8 @@
-const massageText = document.querySelector('#massageText');
-const button = document.querySelector('#btn');
+const massageText = document.getElementById('massage-text');
+const form = document.getElementById('block');
 
-function Submit() {
+function submit(event) {
+    event.preventDefault();
     const text = massageText.value;
     if (!text) return;
     massageText.value = '';
@@ -9,7 +10,7 @@ function Submit() {
     const p = document.createElement('p');
     p.innerText = text.trim();
     p.classList.add('massage');
-    document.querySelector('.massageBlok').append(p);
+    document.querySelector('.js-massage-blok').append(p);
 }
 
 let timer = 0;
@@ -17,8 +18,8 @@ massageText.oninput = function () {
     const result = document.querySelector('.typing');
     result.innerHTML = 'typing...';
     clearTimeout(timer);
-    timer = setTimeout(() => { result.innerHTML = ''; }, 3000);
+    timer = setTimeout(() => { result.innerHTML = ''; }, 1000);
 };
 
-massageText.addEventListener('keyup', ({ key }) => key === 'Enter' && Submit());
-button.addEventListener('click', Submit);
+massageText.addEventListener('keyup', ({ key }) => key === 'Enter' && submit());
+form.addEventListener('submit', submit);
