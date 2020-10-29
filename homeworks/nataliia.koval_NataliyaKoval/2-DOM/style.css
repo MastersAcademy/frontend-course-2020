@@ -1,0 +1,21 @@
+#mainContainer {
+    border: 2px rgb(38, 38, 138) double;
+    width: 350px;
+    height: 500px;
+    margin: auto;
+    background-color: rgb(159, 192, 219);
+}
+
+#InputBlock {
+    position: relative;
+    left: 45px;
+}
+
+#dialogWindow {
+    height: 470px;
+    overflow: auto;
+}
+
+#dialogWindow p {
+    
+}
