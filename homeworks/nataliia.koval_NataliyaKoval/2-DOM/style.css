@@ -4,16 +4,25 @@
     height: 500px;
     margin: auto;
     background-color: rgb(159, 192, 219);
+    position: relative;
 }
 
 #InputBlock {
-    position: relative;
-    left: 45px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
 }
 
 #dialogWindow {
-    height: 420px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 50px;
     overflow: auto;
+    align-items: flex-end;
 }
 
 #dialogWindow p {
@@ -24,6 +33,7 @@
     line-height: 24px;
     padding:10px 20px;
     border-radius:0px 20px 20px 20px;
-    display: table;  
+    float: right;
+    align-self: flex-end;
 }
 
