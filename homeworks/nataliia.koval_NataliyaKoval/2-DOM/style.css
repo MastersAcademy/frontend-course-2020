@@ -17,5 +17,12 @@
 }
 
 #dialogWindow p {
-    
+    background-color: #fff;
+    max-width: 250px;
+    word-wrap: break-word;
+    margin-bottom: 12px;
+    line-height: 24px;
+    padding:10px 20px;
+    border-radius:0px 20px 20px 20px;
+    display: table;  
 }
