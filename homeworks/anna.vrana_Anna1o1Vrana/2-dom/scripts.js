@@ -1,10 +1,12 @@
 const btnSendNode = document.querySelector('#btn-send');
 const valueResualt = document.querySelector('#valueResualt');
+const typing = document.querySelector('.typing');
+const userInput = document.querySelector('#user-text');
 
 function sendMessage() {
     const newTxt = document.querySelector('#user-text').value;
 
-    if (newTxt.trim() !== '' && 'content' in document.createElement('template')) {
+    if (!newTxt.trim() && newTxt.trim().length !== 0 && 'content' in document.createElement('template')) {
         const template = document.querySelector('#template');
         const clone = template.content.cloneNode(true);
         const mesList = document.querySelector('#message-list');
