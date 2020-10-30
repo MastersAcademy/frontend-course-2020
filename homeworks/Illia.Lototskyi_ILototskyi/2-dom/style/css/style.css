@@ -12,8 +12,8 @@
   width: 500px;
   height: 500px;
   overflow: auto;
-  box-shadow: #dd3c20 0px 2px 20px;
-  border-radius: 0.625em;
+  box-shadow: #DD3C20 0 2px 20px;
+  border-radius: .625em;
 }
 
 form {
@@ -27,53 +27,56 @@ form {
 .clickButton {
   margin: 20px 0 0 15px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
   font-stretch: normal;
   line-height: 1em;
   width: 120px;
   height: 50px;
-  background-color: #f1563c;
-  border-radius: 0.625em 0;
+  background-color: #F1563C;
+  border-radius: .625em 0;
   letter-spacing: 1px;
-  color: #fff;
+  color: #FFF;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 0.2s;
+  transition: .2s;
   border: none;
   cursor: pointer;
 }
+
 .clickButton:hover {
-  background-color: #dd3c20;
-  transition: 0.1s all;
+  background-color: #DD3C20;
+  transition: .1s all;
   border: none;
 }
+
 .clickButton:focus {
-  background-color: #dd3c20;
+  background-color: #DD3C20;
 }
 
 .formMessage {
   width: 360px;
   height: 50px;
-  padding: 0 7px 0 7px;
+  padding: 0 7px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
   font-stretch: normal;
   line-height: 1em;
-  border-radius: 0.625em 0;
+  border-radius: .625em 0;
   letter-spacing: 1px;
-  color: #000000;
+  color: #000;
   text-decoration: none;
   box-sizing: border-box;
   text-align: center;
 }
+
 .formMessage:focus {
-  color: #dd3c20;
+  color: #DD3C20;
 }
 
 .warning {
-  color: #f1563c;
+  color: #F1563C;
 }
 
 .messageTyping {
@@ -103,9 +106,9 @@ ul li {
 
 .message {
   margin: 10px;
-  border-radius: 0.625em 0 0.625em 0;
-  background: #f1563c;
+  border-radius: .625em 0;
+  background: #F1563C;
   color: #FFF;
   overflow: auto;
-  box-shadow: #dd3c20 0px 2px 20px;
+  box-shadow: #DD3C20 0 2px 20px;
 }
