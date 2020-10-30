@@ -19,3 +19,4 @@ function sendMessage() {
 }
 
 btnSendNode.addEventListener('click', sendMessage);
+
