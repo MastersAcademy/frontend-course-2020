@@ -14,6 +14,7 @@ class SimpleChat {
         this.createElement();
         this.eventListener();
         this.createTooltip();
+        this.createAlertMessage();
     }
 
     createElement() {
@@ -83,7 +84,7 @@ class SimpleChat {
             divForInfo.classList.add('chat__user-info');
 
             const nameOfUser = this.p;
-            nameOfUser.textContent = 'Anie Smith';
+            nameOfUser.innerText = 'Anie Smith';
 
             const timeMessage = this.p;
             const styleForTime = this.small;
@@ -118,7 +119,7 @@ class SimpleChat {
             messageBlock.classList.add('chat__opponent-message');
 
             const message = this.p;
-            message.textContent = text;
+            message.innerText = text;
 
             const avatar = this.img;
             avatar.src = 'img/avatar_1.png';
@@ -128,7 +129,7 @@ class SimpleChat {
             divForInfo.classList.add('chat__opponent-info');
 
             const nameOfUser = this.p;
-            nameOfUser.textContent = 'Jack Silverston';
+            nameOfUser.innerText = 'Jack Silverston';
 
             const timeMessage = this.p;
             const styleForTime = this.small;
@@ -150,11 +151,20 @@ class SimpleChat {
 
     createTooltip() {
         const tooltipContainer = this.div;
-        tooltipContainer.className = 'tooltip';
+        tooltipContainer.className = 'interface__form-tooltip';
         tooltipContainer.dataset.tooltip = 'tooltip';
-        tooltipContainer.innerHTML = this._incomingData.dataset.tooltip;
+        tooltipContainer.innerText = this._incomingData.dataset.tooltip;
 
         this._incomingData.parentElement.appendChild(tooltipContainer);
+    }
+
+    createAlertMessage() {
+        const messageContainer = this.div;
+        messageContainer.className = 'interface__form-alert-message';
+        messageContainer.dataset.message = 'alert';
+        messageContainer.innerText = `This field can't be empty!`;
+
+        this._incomingData.parentElement.appendChild(messageContainer);
     }
 
     eventListener() {
@@ -167,15 +177,43 @@ class SimpleChat {
         document.addEventListener('submit', (e) => {
             e.preventDefault();
         });
+
+        document.addEventListener('input', (e) => {
+            const atributesForCheck = e.target.dataset.chat;
+            if (atributesForCheck !== 'dataInput') return;
+            this.actionWithToolTip();
+        });
     }
 
     action() {
         const textContent = this._incomingData.value.trim();
-        if (!textContent) return;
+        if (!textContent) {
+            this.actionAlerMessage();
+            return
+        }
         const superFlag = ['user', 'opponent'][this._counter % 2];
         this.createChatRows(superFlag, textContent);
         this._incomingData.value = '';
         this._counter++;
+    }
+
+    actionWithToolTip() {
+        const tooltip = document.querySelector('[data-tooltip="tooltip"]');
+
+        tooltip.style.display = 'block';
+
+        setTimeout(() => {
+            tooltip.style.display = 'none';
+        }, 1000);
+    }
+
+    actionAlerMessage() {
+        const alertMessage = document.querySelector('[data-message="alert"]');
+        alertMessage.style.display = 'block';
+
+        setTimeout(() => {
+            alertMessage.style.display = 'none';
+        }, 2000);
     }
 }
 

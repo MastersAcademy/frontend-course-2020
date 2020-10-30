@@ -172,7 +172,7 @@ body .chat {
 
 .interface {
   width: var(--widt-main-block);
-  margin: 3rem auto;
+  margin: 5rem auto;
   position: relative;
 }
 
@@ -211,12 +211,19 @@ body .chat {
   background-color: #FF5722;
 }
 
-
-.tooltip {
-  display: none;
-  position: fixed;
+.interface__form-tooltip {
   top: 10px;
   left: -150px;
+}
+
+.interface__form-alert-message {
+  top: -40px;
+  left: 65px;
+}
+
+.interface .interface__form .interface__form-tooltip,.interface__form-alert-message {
+  display: none;
+  position: fixed;
   padding: 5px 20px;
   border: 1px solid #B3C9CE;
   border-radius: 4px;
@@ -226,4 +233,3 @@ body .chat {
   background: #FFF;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
 }
-
