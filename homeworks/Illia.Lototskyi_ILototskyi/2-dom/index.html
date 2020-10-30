@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/css/style.css">
+    <title>Chat</title>
+</head>
+<body>
+    <img src="assets/icons/masters_academy.png" alt="Master Academy Logo" class="ma_logo">
+    <div class="container">
+        <div class="chatWapper" data-chat>
+            <ul class="chatList" data-list>
+            </ul>
+            <li class="message hide" data-message></li>
+        </div>
+    </div>
+    <form>
+        <div class="messageTyping" data-typing></div>
+        <input type="input" data-input class="formMessage" placeholder="Write a message...">
+        <input type="button" data-button class="clickButton" value="Send">
+    </form>
+    <script src="js/script.js"></script>
+</body>
+</html>
