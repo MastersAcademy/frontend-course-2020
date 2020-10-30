@@ -46,14 +46,35 @@
   overflow-y: scroll;
 }
 
+.messages-output__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .messages-output__body {
   max-width: 50%;
-  width: fit-content;
   background-color: #FFF;
   border-radius: 22px;
   padding: 10px 20px;
-  margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.btn-delete-message {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s;
+}
+
+.delete-icon {
+  width: 15px;
+  height: 15px;
 }
 
 .input-form__wrapper {
@@ -104,6 +125,11 @@
   color: #000;
 }
 
-.messages-input:focus, .btn-submit:focus {
+.messages-input:focus, .btn-submit:focus, .btn-delete-message:focus {
   outline: none;
+}
+
+.messages-output__item:hover .btn-delete-message {
+  opacity: 1;
+  visibility: visible;
 }
