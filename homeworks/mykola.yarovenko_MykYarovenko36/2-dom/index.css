@@ -13,7 +13,7 @@ li {
 
 .wrapper {
   margin: 2% auto;
-  border: 3px solid rgba(61, 57, 57, 0.534);
+  border: 3px solid rgba(61, 57, 57, .534);
   width: 294px;
   height: 500px;
   display: flex;
@@ -58,7 +58,7 @@ h1 {
   margin-bottom: 10px;
   width: 90%;
   border-radius: 2px;
-  border: 1px solid  rgba(61, 57, 57, 0.534);
+  border: 1px solid  rgba(61, 57, 57, .534);
   text-align: end;
 }
 
