@@ -23,11 +23,11 @@ function scrollMessagesOutput() {
 function checkMessage() {
     trimMessage();
     const errorMessage = [];
-    if (messageInputNode.value.length === 0) {
+    if (!messageInputNode.value) {
         errorMessage.push('Please enter your message.');
     }
     errorMessageNode.innerText = errorMessage.length > 0 ? errorMessage : '';
-    return messageInputNode.value.length !== 0;
+    return messageInputNode.value;
 }
 
 function debounce(callback, delay) {
@@ -56,4 +56,12 @@ inputFormNode.addEventListener('submit', (evt) => {
         scrollMessagesOutput();
     }
     inputFormNode.reset();
+});
+
+messagesOutputNode.addEventListener('click', (evt) => {
+    if (!evt.target.closest('[data-btn-delete-message]')) {
+        return;
+    }
+    const messageNode = evt.target.closest('[data-messages-output-item]');
+    messageNode.remove();
 });
