@@ -4,12 +4,15 @@ body {
   max-width: 960px;
   margin: 0 auto;
 }
-#wrap {
+
+.wrap {
   min-height: 100%;
 }
+
 main {
   padding-bottom: 100px;
 }
+
 footer {
   margin-top: -100px;
   height: 100px;
@@ -19,10 +22,10 @@ footer {
   width: 100%;
 }
 
-[data-form]> input:nth-child(1){
+[data-form] > input:nth-child(1) {
   width: 80%;
 }
 
-[data-form]> input:nth-child(2){
+[data-form] > input:nth-child(2) {
   width: 15%;
 }
