@@ -1,7 +1,5 @@
 const btnSendNode = document.querySelector('#btn-send');
 const valueResualt = document.querySelector('#valueResualt');
-const typing = document.querySelector('.typing');
-const userInput = document.querySelector('#user-text');
 
 function sendMessage() {
     const newTxt = document.querySelector('#user-text').value;
@@ -14,7 +12,7 @@ function sendMessage() {
         listItem.textContent = newTxt;
         mesList.appendChild(clone);
     } else {
-        const vlres = valueResualt.innerHTML = newTxt;
+        valueResualt.innerHTML = newTxt;
         valueResualt.classList.remove('hide');
     }
     document.querySelector('#user-text').value = '';
