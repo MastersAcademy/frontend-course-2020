@@ -10,7 +10,7 @@ const newDate = () => {
 const messageTemplateNode = (message, date = newDate()) => {
     const item = document.createElement('li');
     const messageText = document.createElement('p');
-    messageText.innerText = message;
+    messageText.innerText = message.trim();
     const messageDate = document.createElement('p');
     messageDate.style.fontSize = '12px';
     messageDate.innerText = `added: ${date}`;
