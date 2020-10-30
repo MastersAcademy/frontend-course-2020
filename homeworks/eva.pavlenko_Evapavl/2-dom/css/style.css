@@ -13,16 +13,17 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  width: 1000px;
+  width: 65%;
 }
 
 .form {
   width: 100%;
   margin-bottom: 8px;
+  flex-direction: row;
 }
 
 .input {
-  width: 800px;
+  width: 70%;
   font-size: 13px;
   padding: 10px 0 10px 10px;
   border: 1px solid #CECECE;
@@ -37,7 +38,7 @@ body {
   box-shadow: inset 0 20px 20px #FFF;
   border-radius: 8px;
   padding: 8px 14px;
-  width: 100px;
+  width: 25%;
 }
 
 .button:hover {
@@ -47,7 +48,7 @@ body {
 .button:active {
   margin-top: 1px;
   margin-bottom: -1px;
-  zoom: 1;
+  transform: scale(1)
 }
 
 .chat {

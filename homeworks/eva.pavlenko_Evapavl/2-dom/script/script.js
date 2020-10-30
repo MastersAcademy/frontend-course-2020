@@ -1,7 +1,7 @@
-const button = document.querySelector('.button');
+const form = document.querySelector('.form');
 const input = document.querySelector('.input');
 
-button.addEventListener('click', () => {
+form.addEventListener('click', () => {
     const chatNode = document.querySelector('.chat');
     const messageNode = document.createElement('div');
 
@@ -18,6 +18,6 @@ input.addEventListener('keyup', () => {
     typingText.hidden = false;
     setTimeout(() => {
         typingText.hidden = true;
-    }, 2000);
+    }, 1000);
     return typingText;
 });
