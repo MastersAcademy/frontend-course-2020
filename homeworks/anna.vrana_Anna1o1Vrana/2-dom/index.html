@@ -18,13 +18,11 @@
     <div class="container">
 
         <div class="chat-wrapper">
-            <template id="message-list">
-            <ul>
-                <li></li>
-            </ul>
+            <template id="template">
+                <li id="template-item" class="user-message"></li>
         </template>
-            <ul class="message-list">
-                <li class="message" data-message-line>
+            <ul id="message-list">
+                <li class="user-message" data-message-line>
                     1 text
                 </li>
                 <li class="message" data-message-line>
@@ -35,12 +33,15 @@
                     last text text text text
                 </li>
             </ul>
+            <p id="valueResualt" class="message hide"></p>
+            <div class="empty-container"></div>
         </div>
-        <p id="result"></p>
-        <p id="valueResualt"></p>
 
-        <input type="text" id="user-text" class="input-txt" placeholder="Start write message" value="" />
-        <button class="send" id="btn-send" onclick="fun()">  Send message</button>
+        <div class="input-area-wrapper">
+            <input type="text" id="user-text" class="input-txt" placeholder="Start write message" value="" />
+            <button class="send" id="btn-send">  Send message</button>
+        </div>
+
     </div>
     <script src="scripts.js "></script>
 </body>

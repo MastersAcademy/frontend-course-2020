@@ -18,7 +18,7 @@
     background-color: #05618d;
 }
 
-.message-list {
+#message-list {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -27,6 +27,7 @@
     border-bottom-right-radius: 5px;
 }
 
+.user-message,
 .message {
     margin: 10px 0 10px;
     padding: 15px 5px 10px 15px;
@@ -38,6 +39,10 @@
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
+}
+
+.empty-container {
+    height: 70px;
 }
 
 .input-txt {
@@ -74,4 +79,8 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.hide {
+    display: none;
 }
