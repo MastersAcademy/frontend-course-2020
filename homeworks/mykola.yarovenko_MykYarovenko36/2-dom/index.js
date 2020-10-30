@@ -40,8 +40,7 @@ function newMessage(event) {
     if (event.key === 'Enter' || event.type === 'click') {
         if (inputMessage.value === '') {
             event.preventDefault();
-        }
-        else {
+        } else {
             const item = { message: `${inputMessage.value}`, date: newDate() };
             messagesState.push(item);
             document.querySelector('[chat]').prepend(messageTemplateNode(item.message, item.date));
