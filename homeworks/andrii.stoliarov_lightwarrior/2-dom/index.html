@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wall" data-wall></div>
+
+    <div class="tooltip" data-tooltip>Typing...</div>    
+    <form name="publish">
+      <input type="text" name="message" placeholder="Enter text" maxlength="140" size="142">
+      <input type="button" name="button" value="Submit">
+    </form>
+
+    <template data-message-template>
+      <div>
+        <p class="message-body" data-message></p>
+      </div>
+    </template>
+    <script src="script.js"></script>
+</body>
+</html>

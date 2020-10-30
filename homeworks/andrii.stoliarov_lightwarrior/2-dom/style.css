@@ -1,0 +1,23 @@
+.wall {
+  border: 2px solid #dedede;    
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 5px;
+  width: 1080px;
+  height: 360px;        
+  overflow: auto;
+}         
+.message-body {
+  border-radius: 5px;
+  border: 2px solid #ccc;    
+  background-color: #ddd;
+  margin: 5px 0;    
+}
+input {    
+  border-radius: 5px;
+  border: 2px solid #ccc;    
+  background-color: #ddd;    
+}
+.tooltip {
+  visibility: hidden;
+}
