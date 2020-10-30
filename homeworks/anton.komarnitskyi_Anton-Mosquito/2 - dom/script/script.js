@@ -151,7 +151,7 @@ class SimpleChat {
 
     createTooltip() {
         const tooltipContainer = this.div;
-        tooltipContainer.className = 'interface__form-tooltip';
+        tooltipContainer.classList.add('interface__form-tooltip');
         tooltipContainer.dataset.tooltip = 'tooltip';
         tooltipContainer.innerText = this._incomingData.dataset.tooltip;
 
@@ -160,7 +160,7 @@ class SimpleChat {
 
     createAlertMessage() {
         const messageContainer = this.div;
-        messageContainer.className = 'interface__form-alert-message';
+        messageContainer.classList.add('interface__form-alert-message');
         messageContainer.dataset.message = 'alert';
         messageContainer.innerText = 'This field can not be empty!';
 

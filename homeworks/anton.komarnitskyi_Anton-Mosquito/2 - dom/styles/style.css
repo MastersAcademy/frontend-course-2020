@@ -90,7 +90,6 @@ h6 {
 
 body {
   background-color: hsl(0, 0%, 86%);
-  font-family: "Lato";
   position: relative;
 }
 
@@ -98,7 +97,7 @@ body .chat {
   width: var(--widt-main-block);
   margin: 1rem auto;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: repeat(1fr);
   justify-content: space-around;
   height: 400px;
