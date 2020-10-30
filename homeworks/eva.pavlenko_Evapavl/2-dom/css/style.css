@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: calc(100% - 65px);
   background-color: rgb(51, 51, 51);
 }
 
@@ -20,6 +20,7 @@ body {
   width: 100%;
   margin-bottom: 8px;
   flex-direction: row;
+  align-items: flex-end;
 }
 
 .input {
@@ -71,4 +72,5 @@ body {
 .typing {
   font-style: italic;
   font-size: 18px;
+  color: grey;
 }

@@ -1,7 +1,7 @@
 const form = document.querySelector('.form');
 const input = document.querySelector('.input');
 
-form.addEventListener('click', () => {
+form.addEventListener('submit', () => {
     const chatNode = document.querySelector('.chat');
     const messageNode = document.createElement('div');
 
