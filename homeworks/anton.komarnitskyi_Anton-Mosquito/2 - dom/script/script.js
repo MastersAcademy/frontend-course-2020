@@ -162,7 +162,7 @@ class SimpleChat {
         const messageContainer = this.div;
         messageContainer.className = 'interface__form-alert-message';
         messageContainer.dataset.message = 'alert';
-        messageContainer.innerText = `This field can't be empty!`;
+        messageContainer.innerText = 'This field can not be empty!';
 
         this._incomingData.parentElement.appendChild(messageContainer);
     }
@@ -189,7 +189,7 @@ class SimpleChat {
         const textContent = this._incomingData.value.trim();
         if (!textContent) {
             this.actionAlerMessage();
-            return
+            return;
         }
         const superFlag = ['user', 'opponent'][this._counter % 2];
         this.createChatRows(superFlag, textContent);
