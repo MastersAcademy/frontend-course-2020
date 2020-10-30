@@ -17,8 +17,9 @@ button.addEventListener('click', (e) => {
     e.preventDefault();
     const str = textInput.value.trim();
     if (str.length) {
-        const newMessages = document.createElement('li');
-        newMessages.innerHTML = textInput.value;
+        const newMessages = document.createElement('div');
+        newMessages.classList.add('messages-list-list');
+        newMessages.innerText = textInput.value;
         messages.appendChild(newMessages);
         messages.scrollTop = messages.scrollHeight;
         textInput.value = '';

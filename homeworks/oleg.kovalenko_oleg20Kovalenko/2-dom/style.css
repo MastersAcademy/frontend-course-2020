@@ -24,7 +24,7 @@ body {
   flex-direction: column;
 }
 
-.messages li {
+.messages-list-list {
   margin: 15px 10px;
   background-color: #FFC300;
   padding: 15px 10px;
