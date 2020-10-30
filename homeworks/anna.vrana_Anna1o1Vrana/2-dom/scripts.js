@@ -19,5 +19,4 @@ function sendMessage() {
     }
     document.querySelector('#user-text').value = '';
 }
-
 btnSendNode.addEventListener('click', sendMessage);
