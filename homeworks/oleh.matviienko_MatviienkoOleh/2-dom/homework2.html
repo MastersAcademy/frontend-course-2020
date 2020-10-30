@@ -148,9 +148,9 @@
     <script>
         let someMessage = document.getElementById("typePlace");
         let button = document.getElementById('button');
-        let a = document.getElementById('a');
-        let b = document.getElementById('b');
-        let c = document.getElementById('c');
+        let a = document.getElementById('dotOne');
+        let b = document.getElementById('dotTwo');
+        let c = document.getElementById('dotThree');
 
         function text_output(){
             let chat = document.getElementById('chat');
@@ -165,15 +165,15 @@
         };
         function Typing(){
             li.innerHTML = "Typing";
-            dotOne.innerHTML = ".";
-            dotTwo.innerHTML = ".";
-            dotThree.innerHTML = ".";
+            a.innerHTML = ".";
+            b.innerHTML = ".";
+            c.innerHTML = ".";
         };
         function noTyping(){
             li.innerHTML = "";
-            dotOne.innerHTML = "";
-            dotTwo.innerHTML = "";
-            dotThree.innerHTML = "";
+            a.innerHTML = "";
+            b.innerHTML = "";
+            c.innerHTML = "";
         };
 
         someMessage.addEventListener('keydown',Typing);
