@@ -1,94 +1,86 @@
 .container {
-    max-width: 580px;
-    margin: 0 auto;
-    height: 80vh;
-    overflow: auto;
+  max-width: 580px;
+  margin: 0 auto;
+  height: 80vh;
+  overflow: auto;
 }
 
 .chat-headline {
-    margin: 15px;
-    color: #33CC66;
-    text-align: center;
+  margin: 15px;
+  color: #3C6;
+  text-align: center;
 }
 
 .bright-line {
-    margin: 0 auto 15px;
-    height: 2px;
-    width: 200px;
-    background-color: #05618d;
+  margin: 0 auto 15px;
+  height: 2px;
+  width: 200px;
+  background-color: #05618D;
 }
 
-#message-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.message-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .user-message,
 .message {
-    margin: 10px 0 10px;
-    padding: 15px 5px 10px 15px;
-    font-family: 'Piazzolla', serif;
-    font-size: 20px;
-    color: #000000;
-    background: #dbf4ff;
-    border: 1px solid #747778;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
+  margin: 10px 0;
+  padding: 15px 5px 10px 15px;
+  font-family: "Piazzolla', serif";
+  font-size: 20px;
+  color: #000;
+  background: #DBF4FF;
+  border: 1px solid #747778;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .empty-container {
-    height: 70px;
+  height: 70px;
 }
 
 .input-txt {
-    width: 500px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    color: #747778;
-    font-size: 18px;
-    border: 1px solid #05618d;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  color: #747778;
+  font-size: 18px;
+  border: 1px solid #05618D;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .send {
-    width: 544px;
-    margin: 0 auto;
-    padding: 10px;
-    font-family: 'Piazzolla', serif;
-    font-size: 23px;
-    background-color: #05618d;
-    color: #ffffff;
-    border: 2px solid #05618d;
+  width: 544px;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: "Piazzolla', serif";
+  font-size: 23px;
+  background-color: #05618D;
+  color: #FFF;
+  border: 2px solid #05618D;
 }
 
 .send:hover {
-    background-color: #33CC66;
-    color: #ffffff;
-    border: 2px solid #33CC66;
+  background-color: #3C6;
+  color: #FFF;
+  border: 2px solid #3C6;
 }
 
 .input-area-wrapper {
-    position: fixed;
-    bottom: 0;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
-
-
-/*
-.typing {
-    margin: 10px;
-    display: none;
-    color: #747778
-}*/
