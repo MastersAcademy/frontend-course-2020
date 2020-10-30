@@ -16,7 +16,7 @@
   padding: 30px 30px 40px;
   border-radius: 3px;
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, .2) 0 0 .428571rem 0;
+  box-shadow: rgba(0, 0, 0, .2) 0 0 8px 0;
 }
 
 .messages-box {
@@ -48,13 +48,14 @@
   max-width: 85%;
   font-size: 14px;
   background: #F3F3F3;
-  padding: 10px 20px;
+  padding: 8px 15px;
   margin: 15px 0;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .typing-box {
   display: flex;
+  position: relative;
 }
 
 .input {
@@ -64,6 +65,7 @@
   width: 100%;
   margin-right: 10px;
   border: 1px solid #D8DCDE;
+  outline: none;
 }
 
 .send-button {
@@ -77,9 +79,41 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  outline: none;
+}
+
+.input:focus,
+.send-button:active {
+  box-shadow: rgba(0, 0, 0, .2) 0 0 7px 0;
 }
 
 .send-button svg {
   width: 22px;
   height: 22px;
+}
+
+.error {
+  margin: 0;
+  background: rgba(255, 0, 0, .5);
+  padding: 3px 10px;
+  border-radius: 0 15px 15px;
+  position: absolute;
+  left: 10px;
+  bottom: -30px;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: fade-in .4s linear forwards;
+}
+
+@keyframes fade-in {
+
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
