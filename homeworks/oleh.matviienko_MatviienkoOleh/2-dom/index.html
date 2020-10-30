@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id = "message" onsubmit="return false;">
+        <div id = 'header'>
+           <h1>Type!</h1>
+           <input id ="typePlace" type="text" placeholder="Type your massage!"></input>
+           <button id = "button">Submit</button> 
+           <span id = 'dotOne'></span>
+           <span id = 'dotTwo'></span>
+           <span id = 'dotThree'></span>
+           <span id = 'li'></span>
+        </div>
+        <div id = 'block'>
+            <ul id = "chat"></ul>
+        </div>
+    </form> 
+    <script>
+        let someMessage = document.getElementById("typePlace");
+        let button = document.getElementById('button');
+        let a = document.getElementById('dotOne');
+        let b = document.getElementById('dotTwo');
+        let c = document.getElementById('dotThree');
+
+        function text_output(){
+            let chat = document.getElementById('chat');
+            let li = document.getElementById('li');
+
+            if(!/^\s*$/.test(someMessage.value)){
+            let newLi = document.createElement('LI');
+            newLi.innerHTML = someMessage.value;
+            chat.prepend(newLi);   
+            };
+            someMessage.value = "";
+        };
+        function Typing(){
+            li.innerHTML = "Typing";
+            a.innerHTML = ".";
+            b.innerHTML = ".";
+            c.innerHTML = ".";
+        };
+        function noTyping(){
+            li.innerHTML = "";
+            a.innerHTML = "";
+            b.innerHTML = "";
+            c.innerHTML = "";
+        };
+
+        someMessage.addEventListener('keydown',Typing);
+        setInterval(noTyping,3000);
+        button.addEventListener('click',text_output);
+    </script>
+</body>    
+</html>
