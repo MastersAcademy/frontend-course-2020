@@ -1,4 +1,5 @@
-const clearInput = (item) => {
+const clearInput = (element) => {
+    const item = element;
     item.value = '';
     return item;
 };
@@ -7,7 +8,7 @@ const newDate = () => {
     return date.toLocaleTimeString();
 };
 const messageTemplateNode = (message, date = newDate()) => {
-		const item = document.createElement('li');
+    const item = document.createElement('li');
     const messageText = document.createElement('p');
     messageText.innerText = message;
     const messageDate = document.createElement('p');
@@ -38,15 +39,15 @@ function newMessage(event) {
     setCursor();
     if (event.key === 'Enter' || event.type === 'click') {
         if (inputMessage.value === '') {
-            return inputMessage.value = '';
-					}
-            else {
-                const item = { message: `${inputMessage.value}`, date: newDate() };
-								messagesState.push(item);
-                document.querySelector('[chat]').prepend(messageTemplateNode(item.message, item.date));
-                setCursor(sendCursor.message, sendCursor.timeout);
-                clearInput(inputMessage);
-              }
+            event.preventDefault();
+        }
+        else {
+            const item = { message: `${inputMessage.value}`, date: newDate() };
+            messagesState.push(item);
+            document.querySelector('[chat]').prepend(messageTemplateNode(item.message, item.date));
+            setCursor(sendCursor.message, sendCursor.timeout);
+            clearInput(inputMessage);
+        }
     }
 }
 document.querySelector('[submit-button]').addEventListener('click', newMessage);
