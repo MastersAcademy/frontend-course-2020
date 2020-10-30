@@ -46,14 +46,15 @@
         ]
     },
     "dependencies": {
-        "eslint": "^7.9.0",
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.0",
         "lint-staged": "^10.4.0",
         "stylelint": "^13.7.1"
     },
     "devDependencies": {
+        "eslint": "^7.12.1",
         "husky": "^4.3.0",
-        "jest": "^26.4.2"
+        "jest": "^26.4.2",
+        "stylint": "^2.0.0"
     }
 }
