@@ -6,7 +6,7 @@ const userInput = document.querySelector('#user-text');
 function sendMessage() {
     const newTxt = document.querySelector('#user-text').value;
 
-    if (!newTxt.trim() && newTxt.trim().length !== 0 && 'content' in document.createElement('template')) {
+    if (newTxt.trim() !== '' && 'content' in document.createElement('template')) {
         const template = document.querySelector('#template');
         const clone = template.content.cloneNode(true);
         const mesList = document.querySelector('#message-list');
