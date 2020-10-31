@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2-dom spavel-gh</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <article id="card">
+        <header class="card-header">
+            <!-- <h1>Product Title</h1> -->
+        </header>
+
+        <div class="card-content">
+            <div id="output-result" msg-body>
+                <template msg-tmlp>
+                    <div class="msg">
+                        <div class="msg-avatar">
+                            <div class="avatar"></div>
+                        </div>
+                        <div class="">
+                            <div class="msg-title"></div>
+                            <div class="msg-body"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="card-input">
+            <div hidden class="loader-container hidden">
+                <div class="loader-2"></div>
+            </div>
+            <div class="submit-form">
+                <div class="btn-target">
+                    <div msg-send2 class="btn-send" title="Ctrl+Enter"></div>
+                </div>
+
+                <input msg-input id="row-text" type="text" value="debug" placeholder="write here" />
+
+                <div msg-send class="btn-target">
+                    <div msg-send1 class="btn-send" title="Enter"></div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
