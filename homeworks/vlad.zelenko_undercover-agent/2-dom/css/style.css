@@ -65,7 +65,6 @@ body {
 }
 
 .chat-footer {
-  /* height: 90vh; */
   position: fixed;
   bottom: 10px;
   display: flex;

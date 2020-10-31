@@ -4,10 +4,14 @@ const messages = document.querySelector(".messages");
 const typingIndicator = document.querySelector(".typing");
 let timer;
 
-sendButton.addEventListener("click", (e) => sendForm(e) );
+sendButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if(inputData.value != "") {
+    sendForm()
+  }
+} );
 
 function sendForm(event) {
-    event.preventDefault();
     outMessageToScreen();
     inputData.value = "";
     typingIndicator.innerHTML = "";
@@ -20,7 +24,7 @@ function outMessageToScreen() {
 }
 
 inputData.oninput = function() {
-  typingIndicator.innerHTML = "typing";
+  typingIndicator.innerHTML = "Typing...";
   clearTimeout(timer);
   timer = setTimeout(() => {
     typingIndicator.innerHTML = "";
