@@ -48,7 +48,6 @@ content {
 
 header {
   height: 40px;
-  /* Высота слоя */
   background: #A6F19C;
   border-bottom: 2px solid #000;
 }
@@ -63,17 +62,13 @@ sidebar {
   background: #98CCC9;
   border-right: 1px solid #231F20;
   top: 42px;
-  /* Расстояние от верхнего края */
   bottom: 0;
-  /* Расстояние снизу  */
 }
 
 content {
   background-color: rgb(255, 255, 255);
   top: 42px;
-  /* Расстояние от верхнего края */
   left: 170px;
-  /* Расстояние от левого края */
   bottom: 0;
   right: 0;
 }
