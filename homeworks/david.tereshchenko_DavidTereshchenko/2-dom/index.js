@@ -2,7 +2,7 @@ const inputNode = document.querySelector('.input');
 const butNode = document.querySelector('.send-messages');
 const listNode = document.querySelector('.chat-list');
 
-butNode.addEventListener('click', function(event){
+function submitMessage(event){
     event.preventDefault();
     const vld = inputNode.value.trim();
     if(vld.length) {
@@ -11,9 +11,15 @@ butNode.addEventListener('click', function(event){
         addMessages.innerHTML = inputNode.value;
         listNode.appendChild(addMessages);
         inputNode.value = '';
-    
+    }
+}
+
+butNode.addEventListener('click', submitMessage)
+
+inputNode.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        submitMessage(event)
     }
 })
-function scroll() {
-    listNode.scrollTop = listNode.scrollHeight;
-}
+
