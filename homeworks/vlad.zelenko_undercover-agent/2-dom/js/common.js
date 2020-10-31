@@ -6,24 +6,24 @@ let timer;
 
 sendButton.addEventListener("click", (e) => {
   e.preventDefault();
-  if(inputData.value != "") {
+  if (inputData.value != "") {
     sendForm()
   }
-} );
+});
 
 function sendForm(event) {
-    outMessageToScreen();
-    inputData.value = "";
-    typingIndicator.innerHTML = "";
+  outMessageToScreen();
+  inputData.value = "";
+  typingIndicator.innerHTML = "";
 }
 
 function outMessageToScreen() {
   let div = document.createElement('div');
-  div.innerHTML =  inputData.value.trim();
+  div.innerHTML = inputData.value.trim();
   messages.appendChild(div);
 }
 
-inputData.oninput = function() {
+inputData.oninput = function () {
   typingIndicator.innerHTML = "Typing...";
   clearTimeout(timer);
   timer = setTimeout(() => {

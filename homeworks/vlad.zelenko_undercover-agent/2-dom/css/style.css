@@ -1,12 +1,12 @@
 body {
   background-color: #272935;
-  color: #ffffff;
+  color: #FFF;
 }
 
 .chat-info {
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #CCC;
 }
 
 .photo-interlocutor {
@@ -34,7 +34,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   padding: 10px;
-  background-color: #282a30;
+  background-color: #282A30;
 }
 
 .form-control {
@@ -46,7 +46,7 @@ body {
   outline: none;
   border: none;
   font-size: 16px;
-  color: #ffffff;
+  color: #FFF;
 }
 
 .btn {
@@ -56,13 +56,13 @@ body {
   cursor: pointer;
   font-size: 14px;
   border: 1px solid transparent;
-  background: #5a5c65;
+  background: #5A5C65;
   outline: none;
-  color: #ffffff;
+  color: #FFF;
 }
 
 .send-button {
-  background: #35995d;
+  background: #35995D;
 }
 
 .chat-footer {
@@ -83,7 +83,7 @@ body {
   margin: 10px 0;
   border-radius: 5px;
   padding: 10px 20px;
-  background-color: #2f5246;
+  background-color: #2F5246;
   font-family: Nunito, sans-serif;
   font-size: 14px;
   font-weight: 400;
