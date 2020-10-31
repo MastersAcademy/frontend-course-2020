@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 class Main {
     constructor() {
-        this.messageListModel = ['text 1', 'text 2'];
+        this.messageListModel = ['Test message', 'second message'];
         this.timerId = null;
         this.elementsList = {
             mainForm: document.querySelector('.chatbot-input form'),
@@ -12,6 +12,12 @@ class Main {
         };
         this.elementsList.mainForm.addEventListener('submit', this.submitValue.bind(this));
         this.elementsList.inputField.addEventListener('keyup', this.showTyping.bind(this));
+    }
+
+    createMessages() {
+        this.messageListModel.forEach((value) => {
+            this.addNewItem(value);
+        });
     }
 
     addNewItem(value) {
@@ -27,7 +33,7 @@ class Main {
         }
         this.timerId = setTimeout(() => {
             this.hideTyping();
-        }, 3000);
+        }, 500);
     }
 
     hideTyping() {
@@ -49,4 +55,5 @@ class Main {
 document.addEventListener('DOMContentLoaded', () => {
     // eslint-disable-next-line new-cap
     this.main = new Main();
+    this.main.createMessages();
 });
