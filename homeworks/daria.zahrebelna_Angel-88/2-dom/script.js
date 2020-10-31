@@ -10,7 +10,7 @@ button.addEventListener('click', (evt) => {
     if (!textbox.value) {
         alert('Type your messege!!');
     } else {
-    messages.appendChild(newMessage);
-    form.reset();
+        messages.appendChild(newMessage);
+        form.reset();
     }
 });
