@@ -1,6 +1,7 @@
 html {
   background-color: rgb(78, 75, 75);
 }
+
 body {
   background-color: rgb(78, 75, 75);
   position: fixed;
@@ -8,6 +9,7 @@ body {
   bottom: 0;
   padding: 10px;
 }
+
 li {
   margin-bottom: 50px;
   display: flex;
@@ -19,6 +21,7 @@ li {
   background-color: rgb(255, 255, 255);
   padding: 10px 10px 10px 10px;
 }
+
 .button {
   cursor: pointer;
   border: 1px solid #cecece;
@@ -28,6 +31,7 @@ li {
   padding: 10px 0 10px 10px;
   width: 55px;
 }
+
 .field {
   width: 70%;
   font-size: 13px;
