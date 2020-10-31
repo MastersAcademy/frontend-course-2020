@@ -11,10 +11,3 @@ elem.onclick = function (event) {
     }
     textContent.value = '';
 };
-  
-
-
-    
-           
-
-        
