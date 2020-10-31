@@ -20,7 +20,7 @@ html, body {
   transition-property: color, background-color;
 }
 
-.massage-blok {
+.js-massage-blok {
   flex-direction: column;
   width: 300px;
   height: 150px;
