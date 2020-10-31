@@ -10,7 +10,7 @@ butNode.addEventListener('click', function(event){
         addMessages.classList.add('msg');
         addMessages.innerHTML = inputNode.value;
         listNode.appendChild(addMessages);
-        butNode.value = '';
+        inputNode.value = '';
     
     }
 })
