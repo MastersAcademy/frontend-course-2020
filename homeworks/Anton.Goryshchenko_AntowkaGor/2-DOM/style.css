@@ -7,7 +7,7 @@ html, body {
   background-color: #1B202C;
 }
 
-button {
+.btn {
   background: none;
   color: #FFF;
   padding: 3px 10px;
@@ -20,7 +20,7 @@ button {
   transition-property: color, background-color;
 }
 
-.js-massage-blok {
+.massage-blok {
   flex-direction: column;
   width: 300px;
   height: 150px;

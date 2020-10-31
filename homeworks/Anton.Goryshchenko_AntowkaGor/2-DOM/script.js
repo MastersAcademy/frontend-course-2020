@@ -1,5 +1,5 @@
-const massageText = document.getElementById('massage-text');
-const form = document.getElementById('block');
+const massageText = document.getElementById('js-massage-text');
+const form = document.getElementById('js-block');
 
 function submit(event) {
     event.preventDefault();
@@ -15,7 +15,7 @@ function submit(event) {
 
 let timer = 0;
 massageText.oninput = function () {
-    const result = document.querySelector('.typing');
+    const result = document.querySelector('.js-typing');
     result.innerHTML = 'typing...';
     clearTimeout(timer);
     timer = setTimeout(() => { result.innerHTML = ''; }, 1000);
