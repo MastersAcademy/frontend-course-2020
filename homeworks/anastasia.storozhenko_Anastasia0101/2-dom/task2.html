@@ -15,7 +15,7 @@
             border-radius: 10%;
         }
 
-        .show-massage {
+        .show-message {
             margin: 0 auto;
             height: 60%;
             width: 50%;
@@ -39,7 +39,7 @@
             overflow-wrap: anywhere; 
         }
 
-        .input-massage {
+        .input-message {
             height: 25%;
             display: flex;
             justify-content: center;
@@ -60,10 +60,10 @@
 </head>
 <body>
     <div class="container">
-        <ul class="show-massage" massage-list>
+        <ul class="show-message" message-list>
         </ul>
-        <div class="input-massage">
-            <input type="text" class="input-js" placeholder="Input your massage...">
+        <div class="input-message">
+            <input type="text" class="input-js" placeholder="Input your message...">
             <button class="btn" btn>Submit</button>
         </div>
     </div>
@@ -71,25 +71,25 @@
         const btn = document.querySelector('[btn]');
 
         btn.addEventListener('click', () => {
-            var massageItems = [];
-            var massageNode = document.querySelector('.input-js').value;
-            const massageListNode = document.querySelector('[massage-list]');
+            var messageItems = [];
+            var messageNode = document.querySelector('.input-js').value;
+            const messageListNode = document.querySelector('[message-list]');
 
-            checkMassage();
+            checkMessage();
 
-            function checkMassage() {
-                if (massageNode.length == 0) {console.log("error");}
+            function checkMessage() {
+                if (messageNode.length == 0) {console.log("error");}
                 else {
-                    massageItems.push(massageNode.trim());
+                    messageItems.push(messageNode.trim());
                     createEl();  
                 }
             }   
 
             function createEl() {
-                massageItems.forEach((item) => {
+                messageItems.forEach((item) => {
                     const listItemNode = document.createElement('li');
                     listItemNode.innerText = item;
-                    massageListNode.appendChild(listItemNode);
+                    messageListNode.appendChild(listItemNode);
                     clear();
                 })
             }
