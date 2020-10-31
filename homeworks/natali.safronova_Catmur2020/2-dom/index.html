@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat 2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+    <body>
+      <div id="shapka">
+        <h1>   Простий чат</h1>
+
+<div id="osnova">
+<form onsubmit="submitform(event)" id="name" >
+        <input type="text" id="text"  autocomplete="off" placeholder="Введіть текст" >
+    <input style=margin:5px type="submit" id="submit" value="Відправити">
+  </form>
+<script>
+  function submitform(event) {
+    event.preventDefault();
+    const input = document.getElementById('text')
+    const string = input.value;
+    const result = document.createElement('p')
+    result.innerText = string;
+    form = document.getElementById("name");
+    document.getElementById('osnova').insertBefore(result, form)
+    input.value = "";
+  }
+</script>
+</div>
+</div>
+</body>
+</html>
