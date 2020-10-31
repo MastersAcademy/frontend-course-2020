@@ -1,4 +1,4 @@
-.mainContainer {
+.main-container {
   border: 2px rgb(38, 38, 138) double;
   width: 350px;
   height: 500px;
@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.InputBlock {
+.Input-block {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -15,17 +15,17 @@
   text-align: center;
 }
 
-.dialogWindow {
+.dialog-window {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 50;
-  overflow: auto;
+  bottom: 50px;
   align-items: flex-end;
+  overflow: auto;
 }
 
-.dialogWindow p {
+.new-message {
   background-color: #FFF;
   word-wrap: break-word;
   margin-bottom: 12px;

@@ -1,6 +1,6 @@
-const input = document.querySelector('input');
+const input = document.querySelector('[data-text]');
 const button = document.querySelector('button');
-const dialogWindow = document.querySelector('.dialogWindow');
+const dialogWindow = document.querySelector('.dialog-window');
 
 function createMessage(event) {
     event.preventDefault();
@@ -8,6 +8,7 @@ function createMessage(event) {
     if (input.value.trim().length > 0) {
         const message = document.createElement('p');
         message.innerText = input.value;
+        message.classList.add('new-message');
         dialogWindow.appendChild(message);
         input.value = '';
     }
