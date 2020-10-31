@@ -1,25 +1,23 @@
-function getNode(selector) {
-    return document.getElementsByClassName(selector)[0];
-}
+const getNode = (selector) => document.querySelector(selector);
+const formNode = getNode('[data-msger-inputarea]');
+const inputNode = getNode('[data-msger-input]');
+const chatNode = getNode('[data-msger-chat]');
+const typingTextNode = getNode('[data-msger-text-typing]');
 
-const formNode = getNode('msger-inputarea');
-const inputNode = getNode('msger-input');
-const chatNode = getNode('msger-chat');
-const typingTextNode = getNode('msger-text-typing');
+const user = {
+    name: 'Me',
+    avatar: './images/avatar.svg',
+};
 
-const PERSON_IMG = './images/avatar.svg';
-const PERSON_NAME = 'Me';
-
-function appendMessage(name, img, side, text) {
-    const formatedDate = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+const appendMessage = ({ name, avatar }, text, formatedTime) => {
     const msgHTML = `
-      <div class='msg ${side}-msg'>
-        <div class='msg-img' style='background-image: url(${img})'></div>
+      <div class='msg right-msg'>
+      <img class='msg-img' src="${avatar}" alt="avatar">
 
         <div class='msg-bubble'>
           <div class='msg-info'>
             <div class='msg-info-name'>${name}</div>
-            <div class='msg-info-time'>${formatedDate}</div>
+            <div class='msg-info-time'>${formatedTime}</div>
           </div>
 
           <div class='msg-text'>${text}</div>
@@ -29,7 +27,14 @@ function appendMessage(name, img, side, text) {
 
     chatNode.insertAdjacentHTML('beforeend', msgHTML);
     chatNode.scrollTo(0, chatNode.scrollHeight);
-}
+};
+
+const createFormatedTime = () => new Date().toLocaleTimeString(
+    [], {
+        hour: '2-digit',
+        minute: '2-digit',
+    },
+);
 
 formNode.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -38,27 +43,23 @@ formNode.addEventListener('submit', (event) => {
 
     if (!msgText) return;
 
-    appendMessage(PERSON_NAME, PERSON_IMG, 'right', msgText);
+    appendMessage(user, msgText, createFormatedTime());
     inputNode.value = '';
 });
 
-function debounce(func, wait) {
+const debounce = (func, wait) => {
     let timeout;
-
-    return function executedFunction(...args) {
-        typingTextNode.className = 'msger-text-typing-active';
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-
+    const later = () => {
         clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
+        func();
     };
-}
 
-const isTyping = debounce(() => {
-    typingTextNode.className = 'msger-text-typing';
-}, 1000);
+    timeout = setTimeout(later, wait);
+};
 
-inputNode.addEventListener('keypress', isTyping);
+const removeTypingActive = () => { typingTextNode.classList = 'msger-text-typing-not-active'; };
+
+inputNode.addEventListener('keypress', () => {
+    typingTextNode.classList = '';
+    debounce(removeTypingActive, 1000);
+});

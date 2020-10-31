@@ -2,7 +2,6 @@
   --body-bg: linear-gradient(135deg, #F5F7FA 0%, #C3CFE2 100%);
   --msger-bg: #FFF;
   --border: 2px solid #DDD;
-  --left-msg-bg: #ECECEC;
   --right-msg-bg: #579FFB;
 }
 
@@ -86,19 +85,12 @@ input:focus, button:focus {
 .msg-img {
   width: 50px;
   height: 50px;
-  margin-right: 10px;
-  background-image: url("https://image.flaticon.com/icons/svg/145/145867.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
 }
 
 .msg-bubble {
   max-width: 450px;
   padding: 15px;
   border-radius: 15px;
-  background: var(--left-msg-bg);
 }
 
 .msg-info {
@@ -117,10 +109,6 @@ input:focus, button:focus {
   font-size: .85em;
 }
 
-.left-msg .msg-bubble {
-  border-bottom-left-radius: 0;
-}
-
 .right-msg {
   flex-direction: row-reverse;
 }
@@ -132,7 +120,7 @@ input:focus, button:focus {
 }
 
 .right-msg .msg-img {
-  margin: 0 0 0 10px;
+  margin-left: 10px;
 }
 
 .msger-inputarea {
@@ -171,10 +159,6 @@ input:focus, button:focus {
   word-break: break-all;
 }
 
-.msger-text-typing {
+.msger-text-typing-not-active {
   visibility: hidden;
-}
-
-.msger-text-typing-active {
-  visibility: visible;
 }
