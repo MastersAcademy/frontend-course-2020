@@ -1,46 +1,43 @@
-const contentContainer = document.querySelector(".content-container");
-const inputForm = document.querySelector(".input-form");
-const input = document.querySelector(".input");
-const submitBtn = document.querySelector(".submit");
-const typingText = document.querySelector(".typing");
+const contentElem = document.querySelector('.content-container');
+const formElem = document.querySelector('.input-form');
+const inputElem = document.querySelector('.input');
+const typingElem = document.querySelector('.typing');
 let isMyMessage = true;
 let isTyped = false;
 
-inputForm.addEventListener("submit", (e) => {
+const addMessage = (message) => {
+    var div = document.createElement('div');
+    div.innerHTML = `<span>${message}</span>`;
+    div.classList.add(
+        isMyMessage ? 'message-wrapper-right' : 'message-wrapper'
+    );
+    contentElem.appendChild(div);
+    isMyMessage = !isMyMessage;
+    inputElem.value = '';
+    contentElem.scrollTo(0, contentElem.scrollHeight);
+};
+
+const checkMessage = (message) => {
+    if (!message) {
+        alert('Message can not be empty');
+        return;
+    }
+    addMessage(message.trim());
+};
+
+formElem.addEventListener('submit', (e) => {
     e.preventDefault();
-    checkMessage(input.value);
+    const message = new FormData(formElem).get('message');
+    checkMessage(message);
 });
 
-input.addEventListener("keydown", () => {
-    if(!isTyped){
+inputElem.addEventListener('keydown', () => {
+    if (!isTyped) {
         isTyped = true;
-        typingText.style = "display: flex;";
+        typingElem.style = 'visibility: visible;';
         setTimeout(() => {
-            typingText.style = "display: none;";
+            typingElem.style = 'visibility: hidden;';
             isTyped = false;
         }, 1000);
     }
 });
-
-const checkMessage = (message) => {
-    if (message === "") {
-        alert("Message can't be empty");
-    } else {
-        addMessage(message.trim());
-    }
-};
-
-const addMessage = (message) => {
-    const div = document.createElement("div");
-    const span = document.createElement("span");
-    span.innerText = message;
-    div.classList.add(
-        isMyMessage ? "message-wrapper-right" : "message-wrapper"
-    );
-    div.appendChild(span);
-    contentContainer.appendChild(div);
-    isMyMessage = !isMyMessage;
-    input.value = "";
-};
-
-
