@@ -1,15 +1,16 @@
-var messages = document.getElementById("messages");
-var textbox = document.getElementById("textbox");
-var button = document.getElementById("button");
+const button = document.getElementById('button');
 
-button.addEventListener("click", function() {
-    var newMessage = document.createElement("li");
-    newMessage.innerHTML = textbox.value;
+function createElem() {
+    const messages = document.getElementById('messages');
+    const textbox = document.getElementById('textbox');
+    const newMessage = document.createElement('li');
+    newMessage.innerText = textbox.value;
     if (!textbox.value) {
-        alert("Type your messege!!");
+        alert('Type your messege!!');
         return;
     }
     messages.appendChild(newMessage);
-    textbox.value = "";
+    textbox.value = '';
+}
 
-});
+button.addEventListener('click', createElem);
