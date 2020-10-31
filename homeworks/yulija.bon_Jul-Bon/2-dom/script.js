@@ -23,7 +23,7 @@ function removeError() {
     }
 }
 
-button.onclick = function () {
+function addMessage() {
     const inputText = input.value;
     const inputTextReplace = inputText.replace(/^\s*/, '').replace(/\s*$/, '');
     if (inputText !== '') {
@@ -36,4 +36,6 @@ button.onclick = function () {
     } else {
         createError();
     }
-};
+}
+
+button.addEventListener('click', addMessage);
