@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 for frontend</title>
+    <style>
+        .container {
+            width: 50%;
+            height: 100vh;
+            margin: 0 auto;
+            background-color: grey;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10%;
+        }
+
+        .show-massage {
+            margin: 0 auto;
+            height: 60%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background-color: white;
+            height: auto;
+            max-width: 60%;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 5px;
+            overflow-wrap: anywhere; 
+        }
+
+        .input-massage {
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input-js {
+            border: none;
+            width: 50%;
+            height: auto;
+        }
+
+        .btn {
+            height: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="show-massage" massage-list>
+        </ul>
+        <div class="input-massage">
+            <input type="text" class="input-js" placeholder="Input your massage...">
+            <button class="btn" btn>Submit</button>
+        </div>
+    </div>
+    <script>  
+        const btn = document.querySelector('[btn]');
+
+        btn.addEventListener('click', () => {
+            var massageItems = [];
+            var massageNode = document.querySelector('.input-js').value;
+            const massageListNode = document.querySelector('[massage-list]');
+
+            checkMassage();
+
+            function checkMassage() {
+                if (massageNode.length == 0) {console.log("error");}
+                else {
+                    massageItems.push(massageNode.trim());
+                    createEl();  
+                }
+            }   
+
+            function createEl() {
+                massageItems.forEach((item) => {
+                    const listItemNode = document.createElement('li');
+                    listItemNode.innerText = item;
+                    massageListNode.appendChild(listItemNode);
+                    clear();
+                })
+            }
+           
+            function clear(){
+                return document.querySelector('.input-js').value = "";
+            }
+        });     
+    </script>
+</body>
+</html>
