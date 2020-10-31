@@ -1,11 +1,11 @@
 body {
   background-color: #272935;
+  color: #ffffff;
 }
 
 .chat-info {
   width: 100%;
   height: 100px;
-  color: #ffffff;
   border-bottom: 1px solid #cccccc;
 }
 
@@ -42,11 +42,11 @@ body {
   height: 50px;
   padding: 10px;
   background-color: #464852;
-  color: #ffffff;
   border-radius: 5px;
   outline: none;
   border: none;
   font-size: 16px;
+  color: #ffffff;
 }
 
 .btn {
@@ -56,9 +56,9 @@ body {
   cursor: pointer;
   font-size: 14px;
   border: 1px solid transparent;
-  color: #ffffff;
   background: #5a5c65;
   outline: none;
+  color: #ffffff;
 }
 
 .send-button {
@@ -83,7 +83,6 @@ body {
   margin: 10px 0;
   border-radius: 5px;
   padding: 10px 20px;
-  color: #ffffff;
   background-color: #2f5246;
   font-family: Nunito, sans-serif;
   font-size: 14px;
