@@ -58,6 +58,7 @@ body {
   border: 1px solid transparent;
   color: #fff;
   background: #5a5c65;
+  outline: none;
 }
 
 .send-button {
