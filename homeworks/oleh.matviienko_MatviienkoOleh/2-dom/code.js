@@ -24,9 +24,9 @@
     }
     function noTyping() {
         whileTyping.innerHTML = '';
-        a.innerHTML = '.';
-        b.innerHTML = '.';
-        c.innerHTML = '.';
+        a.innerHTML = '';
+        b.innerHTML = '';
+        c.innerHTML = '';
     }
 
     someMessage.addEventListener('keydown', typing);
