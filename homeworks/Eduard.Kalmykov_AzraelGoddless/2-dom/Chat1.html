@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chatHomework</title>
+
+  <style type="text/css">
+
+    .out {
+      list-style-type: none;
+    }
+    body {
+      margin: 0;
+    }
+
+    output {
+      position: relative;
+      top: 0px;
+    }
+
+    button {
+      position: relative;
+      top: 750px;
+    }
+
+    input {
+      position: relative;
+      top: 750px;
+      left: -12px;
+    }
+
+    input[type=text]:focus {
+      background-color: lightblue;
+    }
+
+    .container {
+      border: 2px solid #dedede;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      height: 700px;
+      position: relative;
+      left: 0px;
+    }
+
+    #sidebar,
+    #content {
+      position: absolute;
+    }
+
+    #sidebar,
+    #content {
+      overflow: auto;
+      padding: 10px;
+    }
+
+    #header {
+      height: 40px;
+      /* Высота слоя */
+      background: #a6f19c;
+      border-bottom: 2px solid #000000;
+    }
+
+    #header h1 {
+      padding: 10px;
+      margin: 0;
+    }
+
+    #sidebar {
+      width: 150px;
+      background: #98ccc9;
+      border-right: 1px solid #231F20;
+      top: 42px;
+      /* Расстояние от верхнего края */
+      bottom: 0;
+      /* Расстояние снизу  */
+    }
+
+    #content {
+      background-color: rgb(255, 255, 255);
+      top: 42px;
+      /* Расстояние от верхнего края */
+      left: 170px;
+      /* Расстояние от левого края */
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <h1>Masters Academy chat</h1>
+  </div>
+
+  <div id="sidebar">
+    <p>select your chat</p>
+  </div>
+
+  <div id="content">
+    <div class="container">
+      <input type="text" class="input-in" size="80">
+      <button>Enter</button>
+      <ul class="out"></ul>
+      <div class="message"></div>
+    </div>
+
+    <script>
+      let inputIn = document.querySelector('.input-in');
+      let button = document.querySelector('button');
+      let ul = document.querySelector('.out');
+
+      button.onclick = function () {
+
+        let a = document.createElement('li');
+        a.innerHTML = inputIn.value;
+        ul.appendChild(a);
+        inputIn.value = "";
+      }
+    </script>
+</body>
+
+</html>
