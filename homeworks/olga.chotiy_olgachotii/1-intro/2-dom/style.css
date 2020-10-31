@@ -1,0 +1,37 @@
+html{
+  background-color: rgb(78, 75, 75);
+}
+body {
+  background-color: rgb(78, 75, 75);
+  position: fixed; 
+  left: 500px; bottom: 0; 
+  padding: 10px; 
+} 
+ li{
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #CECECE;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 10px 10px 10px;
+ }
+.button{
+  cursor: pointer;
+  border: 1px solid #CECECE;
+  background: #c7c4c4;
+  box-shadow: inset 0 20px 20px #FFF;
+  border-radius: 8px;
+  padding: 10px 0 10px 10px;
+  width: 55px;
+}
+.field{
+  width: 70%;
+  font-size: 13px;
+  padding: 10px 0 10px 10px;
+  border: 1px solid #CECECE;
+  background:#ebe9e9;
+  border-radius: 8px;
+}
