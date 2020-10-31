@@ -6,10 +6,10 @@ let isMyMessage = true;
 let isTyped = false;
 
 const addMessage = (message) => {
-    var div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = `<span>${message}</span>`;
     div.classList.add(
-        isMyMessage ? 'message-wrapper-right' : 'message-wrapper'
+        isMyMessage ? 'message-wrapper-right' : 'message-wrapper',
     );
     contentElem.appendChild(div);
     isMyMessage = !isMyMessage;
