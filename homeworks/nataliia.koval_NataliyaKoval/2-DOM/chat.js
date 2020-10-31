@@ -1,5 +1,5 @@
 const input = document.querySelector('[data-text]');
-const button = document.querySelector('button');
+const button = document.querySelector('[data-send-message]');
 const dialogWindow = document.querySelector('.dialog-window');
 
 function createMessage(event) {
