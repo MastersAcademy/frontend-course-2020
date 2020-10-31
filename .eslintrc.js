@@ -1,5 +1,10 @@
 module.exports = {
-    extends: ['airbnb-base', 'eslint:recommended'],
+    extends: [
+        'airbnb-base',
+        'eslint:recommended',
+        'plugin:no-jquery/deprecated',
+    ],
+    plugins: ['no-jquery'],
     env: {
         browser: true,
         es6: true,
