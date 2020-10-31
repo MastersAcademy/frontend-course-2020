@@ -6,5 +6,4 @@ button.onclick = function () {
     a.innerHTML = inputIn.value;
     ul.appendChild(a);
     inputIn.value = '';
-}
-
+};
