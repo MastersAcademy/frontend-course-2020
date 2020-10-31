@@ -11,9 +11,11 @@ function sendMessage() {
         const listItem = clone.querySelector('#template-item');
         listItem.textContent = newTxt;
         mesList.appendChild(clone);
+    } else {
+        valueResualt.innerHTML = newTxt;
+        valueResualt.classList.remove('hide');
     }
     document.querySelector('#user-text').value = '';
 }
 
 btnSendNode.addEventListener('click', sendMessage);
-
