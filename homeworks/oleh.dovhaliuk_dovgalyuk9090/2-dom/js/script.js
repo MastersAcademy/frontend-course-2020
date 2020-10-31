@@ -4,26 +4,26 @@ class Main {
         this.messageListModel = ['text 1', 'text 2'];
         this.timerId = null;
         this.elementsList = {
-            $mainForm: document.querySelector('.chatbot-input form'),
-            $inputField: document.querySelector('.chatbot-input-field'),
-            $submitBtn: document.querySelector('.chatbot-input-submit-button'),
-            $textArea: document.querySelector('.chatbot-body ul'),
-            $typingField: document.querySelector('.chatbox-typing-field'),
+            mainForm: document.querySelector('.chatbot-input form'),
+            inputField: document.querySelector('.chatbot-input-field'),
+            submitBtn: document.querySelector('.chatbot-input-submit-button'),
+            textArea: document.querySelector('.chatbot-body ul'),
+            typingField: document.querySelector('.chatbox-typing-field'),
         };
-        this.elementsList.$mainForm.addEventListener('submit', this.submitValue.bind(this));
-        this.elementsList.$inputField.addEventListener('keyup', this.showTyping.bind(this));
+        this.elementsList.mainForm.addEventListener('submit', this.submitValue.bind(this));
+        this.elementsList.inputField.addEventListener('keyup', this.showTyping.bind(this));
     }
 
     addNewItem(value) {
         const newLiNode = document.createElement('li');
         newLiNode.innerText = value;
-        this.elementsList.$textArea.appendChild(newLiNode);
+        this.elementsList.textArea.appendChild(newLiNode);
     }
 
     showTyping() {
         if (this.timerId) {
             clearTimeout(this.timerId);
-            this.elementsList.$typingField.classList.remove('hide');
+            this.elementsList.typingField.classList.remove('hide');
         }
         this.timerId = setTimeout(() => {
             this.hideTyping();
@@ -31,7 +31,7 @@ class Main {
     }
 
     hideTyping() {
-        this.elementsList.$typingField.classList.add('hide');
+        this.elementsList.typingField.classList.add('hide');
     }
 
     submitValue(event) {
@@ -40,7 +40,7 @@ class Main {
         const value = formData.get('value');
         if (value.trim()) {
             this.addNewItem(value);
-            this.elementsList.$mainForm.reset();
+            this.elementsList.mainForm.reset();
         }
         this.messageListModel.push(value);
     }
