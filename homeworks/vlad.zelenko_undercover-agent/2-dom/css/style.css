@@ -5,8 +5,8 @@ body {
 .chat-info {
   width: 100%;
   height: 100px;
-  color: #fff;
-  border-bottom: 1px solid #ccc;
+  color: #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 
 .photo-interlocutor {
@@ -34,15 +34,15 @@ body {
   height: 100vh;
   margin: 0 auto;
   padding: 10px;
-  background-color: rgb(44, 46, 53);
+  background-color: #282a30;
 }
 
 .form-control {
   width: 900px;
   height: 50px;
   padding: 10px;
-  background-color: rgb(70, 72, 82);
-  color: rgba(255, 255, 255, 0.7);
+  background-color: #464852;
+  color: #ffffff;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -56,7 +56,7 @@ body {
   cursor: pointer;
   font-size: 14px;
   border: 1px solid transparent;
-  color: #fff;
+  color: #ffffff;
   background: #5a5c65;
   outline: none;
 }
@@ -83,8 +83,8 @@ body {
   margin: 10px 0;
   border-radius: 5px;
   padding: 10px 20px;
-  color: #fff;
-  background-color: rgb(47, 82, 70);
+  color: #ffffff;
+  background-color: #2f5246;
   font-family: Nunito, sans-serif;
   font-size: 14px;
   font-weight: 400;
