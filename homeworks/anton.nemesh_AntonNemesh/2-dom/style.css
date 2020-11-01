@@ -9,23 +9,23 @@ body {
   min-height: 100%;
 }
 
-main {
+.main {
   padding-bottom: 100px;
 }
 
-footer {
+.footer {
   margin-top: -100px;
   height: 100px;
 }
 
-[data-form] {
+.senderForm {
   width: 100%;
 }
 
-[data-form] > input:nth-child(1) {
+.senderFormInput {
   width: 80%;
 }
 
-[data-form] > input:nth-child(2) {
+.senderFormButton {
   width: 15%;
 }

@@ -7,19 +7,16 @@
 </head>
 <body>
     <div class="wrap">
-        <main>
+        <div class="main">
             <div data-messages></div>
-        </main>
+        </div>
     </div>
-    <footer>
-        <form action="" data-form onsubmit="return false">
-            <input type="text" data-input>
-            <input type="submit">
+    <div class="footer">
+        <form class="senderForm" action="" data-form>
+            <input class="senderFormInput" type="text" data-input>
+            <button class="senderFormButton" type="submit">Send</button>
         </form>
-    </footer>
-    <template data-message-template>
-        <p></p>
-    </template>
-    <script src="main.js"></script>
+    </div>
+    <script src="main.js" defer></script>
 </body>
 </html>
