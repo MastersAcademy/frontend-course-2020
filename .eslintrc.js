@@ -1,6 +1,6 @@
 module.exports = {
     extends: ['airbnb-base', 'eslint:recommended'],
-    plugins: ['no-jquery'],
+    plugins: ['no-jquery', 'html'],
     env: {
         browser: true,
         es6: true,
@@ -8,6 +8,10 @@ module.exports = {
         mocha: true,
         jasmine: true,
         jest: true,
+    },
+    settings: {
+        'html/indent': '+4',
+        'html/report-bad-indent': 'error',
     },
     rules: {
         // enable additional rules
@@ -111,4 +115,12 @@ module.exports = {
         'no-jquery/no-sub': 'error',
         'no-jquery/no-text': 'error',
     },
+    overrides: [
+        {
+            files: ['*.html'],
+            rules: {
+                'no-multiple-empty-lines': 'off',
+            },
+        },
+    ],
 };
