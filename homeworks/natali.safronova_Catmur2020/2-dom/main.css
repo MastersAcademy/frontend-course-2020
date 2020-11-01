@@ -1,9 +1,21 @@
-form {
+.mold {
   width: 200px;
 }
 
-input {
-  background-color: #F0F8FF; 
+.submit {
+  margin: 5px;
+  background-color: #F0F8FF;
+  color: #000000;
+  border-color: #A9A9A9;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  height: 30px;
+  width: 300px;
+}
+
+.input {
+  margin-top: 5px;
+  background-color: #F0F8FF;
   color: #000000;
   border-color: #A9A9A9;
   border-style: solid;
@@ -13,13 +25,12 @@ input {
   width: 300px;
 }
 
-h1 {
-  padding: 15px;
-  padding-left: 15%;
+.title {
+  padding: 15px 15px 15px 25px;
   margin-bottom: 16px;
 }
 
-p {
+.p {
   border-top-left-radius: 10px 10px;
   border-bottom-left-radius: 10px 10px;
   border-top-right-radius: 10px 10px;
@@ -33,15 +44,15 @@ p {
   margin-left: 25px;
 }
 
-.shapka {
-    width: 300px;
-    height: 100px;
-    background-color: #F0F8FF;
-    border-top-left-radius: 20px 20px;
-    border-top-right-radius: 20px 20px;
-    border-color: #EAEAEB;
-    border-style: solid;
-    margin: 0;
+.hat {
+  width: 300px;
+  height: 100px;
+  background-color: #F0F8FF;
+  border-top-left-radius: 20px 20px;
+  border-top-right-radius: 20px 20px;
+  border-color: #EAEAEB;
+  border-style: solid;
+  margin: 0;
 }
- 
+
 

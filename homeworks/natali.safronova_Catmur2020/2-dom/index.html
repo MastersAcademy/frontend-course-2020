@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Chat 2</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
     <body>
-      <div class="shapka">
-        <h1>   Простий чат</h1>
-
-<div id="osnova">
-<form onsubmit="submitform(event)" id="name" >
-        <input type="text" id="text"  autocomplete="off" placeholder="Введіть текст" >
-    <input style=margin:5px type="submit" id="submit" value="Відправити">
-  </form>
+      <div class="hat">
+        <h1 class="title">Простий чат</h1>
+          <div id="basis">
+            <form data-name class="mold">
+              <input type="text" class="input" data-text autocomplete="off" placeholder="Введіть текст" >
+              <button type="submit" id="submit" class="submit">Відправити...</button>
+            </form>
 <script>
   function submitform(event) {
     event.preventDefault();
-    const input = document.getElementById('text')
+
+    const input = document.querySelector('[data-text]');
     const string = input.value;
-    const result = document.createElement('p')
+    const result = document.createElement('p class="p"');
     result.innerText = string;
-    form = document.getElementById("name");
-    document.getElementById('osnova').insertBefore(result, form)
+    form = document.querySelector('[data-name]');
+    document.getElementById('basis').insertBefore(result, form);
     input.value = "";
   }
+  document.querySelector('[data-name]').addEventListener("submit", submitform)
 </script>
 </div>
 </div>
