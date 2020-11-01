@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2-DOM</title>
     <link href="https://fonts.googleapis.com/css2?family=Piazzolla&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,10 +17,10 @@
     <div class="container">
 
         <div class="chat-wrapper">
-            <template id="template">
-                <li id="template-item" class="user-message"></li>
+            <template data-template>
+                <li data-template-item class="user-message"></li>
         </template>
-            <ul id="message-list" class="message-list">
+            <ul data-message-list class="message-list">
                 <li class="user-message" data-message-line>
                     1 text
                 </li>
@@ -33,14 +32,12 @@
                     last text text text text
                 </li>
             </ul>
-            <p id="valueResualt" class="message hide"></p>
             <div class="empty-container"></div>
         </div>
-        <div class="input-area-wrapper">
-            <div class="typing hide"> Somebody typing ...</div>
-            <input type="text" id="user-text" class="input-txt" placeholder="Start write message" value="" />
-            <button class="send" id="btn-send">  Send message</button>
-        </div>
+        <form class="input-area-wrapper" data-send-form>
+            <input type="text" data-user-text class="input-txt" placeholder="Start write message" value="" />
+            <button class="send" data-btn-send>  Send message</button>
+        </form>
     </div>
     <script src="scripts.js "></script>
 </body>

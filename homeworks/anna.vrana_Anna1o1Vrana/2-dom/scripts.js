@@ -1,21 +1,20 @@
-const btnSendNode = document.querySelector('#btn-send');
-const valueResualt = document.querySelector('#valueResualt');
+const btnSendNode = document.querySelector('[data-btn-send]');
+const template = document.querySelector('[data-template']);
 
 function sendMessage() {
-    const newTxt = document.querySelector('#user-text').value;
-
-    if (newTxt.trim() !== '' && 'content' in document.createElement('template')) {
-        const template = document.querySelector('#template');
+    const newTxt = document.querySelector('[data-user-text]').value.trim();
+if (!newTxt.length) return;
         const clone = template.content.cloneNode(true);
-        const mesList = document.querySelector('#message-list');
-        const listItem = clone.querySelector('#template-item');
+        const messageList = document.querySelector('[data-message-list]');
+        const listItem = clone.querySelector('[data-template-item]');
         listItem.textContent = newTxt;
-        mesList.appendChild(clone);
-    } else {
-        valueResualt.innerHTML = newTxt;
-        valueResualt.classList.remove('hide');
-    }
-    document.querySelector('#user-text').value = '';
+        messageList.appendChild(clone);
+    } 
+    document.querySelector('[data-user-text]').value = '';
 }
 
-btnSendNode.addEventListener('click', sendMessage);
+document.querySelector('[data-send-form]').addEventListener('submit', event => {
+    event.preventDefault();
+    sendMessage();
+});
+
