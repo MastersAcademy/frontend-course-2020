@@ -15,7 +15,7 @@ function submit(event) {
 
 let timer = 0;
 massageText.oninput = function () {
-    const result = document.querySelector('.js-typing');
+    const result = document.querySelector('.typing');
     result.innerHTML = 'typing...';
     clearTimeout(timer);
     timer = setTimeout(() => { result.innerHTML = ''; }, 1000);
