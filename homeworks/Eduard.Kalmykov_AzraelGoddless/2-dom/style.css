@@ -49,8 +49,9 @@ content {
 header {
   height: 40px;
   background: #A6F19C;
-  border-bottom: 2px solid #000;
-}
+    border-bottom: 2px solid #000;
+
+  }
 
 header h1 {
   padding: 10px;
@@ -63,6 +64,7 @@ sidebar {
   border-right: 1px solid #231F20;
   top: 42px;
   bottom: 0;
+
 }
 
 content {
@@ -70,5 +72,6 @@ content {
   top: 42px;
   left: 170px;
   bottom: 0;
-  right: 0;
+  right: 0; 
+
 }
