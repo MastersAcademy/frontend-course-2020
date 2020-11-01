@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 2 for frontend</title>
+    <title>Task 2</title>
     <style>
         .container {
             width: 50%;
@@ -25,11 +25,7 @@
             align-items: flex-end;
         }
 
-        ul {
-            list-style: none;
-        }
-
-        li {
+        .list-item {
             background-color: white;
             height: auto;
             max-width: 60%;
@@ -37,6 +33,7 @@
             border-radius: 10px;
             padding: 5px;
             overflow-wrap: anywhere; 
+            list-style: none;
         }
 
         .input-message {
@@ -46,7 +43,7 @@
             align-items: center;
         }
 
-        .input-js {
+        .user-input {
             border: none;
             width: 50%;
             height: auto;
@@ -59,45 +56,40 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <ul class="show-message" message-list>
+    <form class="container" data-message-form>
+        <ul class="show-message" data-message-list>
         </ul>
         <div class="input-message">
-            <input type="text" class="input-js" placeholder="Input your message...">
-            <button class="btn" btn>Submit</button>
+            <input type="text" class="user-input" placeholder="Input your message..." data-input>
+            <button type="submit" class="btn">Submit</button>
         </div>
-    </div>
+    </form>
     <script>  
-        const btn = document.querySelector('[btn]');
-
-        btn.addEventListener('click', () => {
-            var messageItems = [];
-            var messageNode = document.querySelector('.input-js').value;
-            const messageListNode = document.querySelector('[message-list]');
-
-            checkMessage();
-
-            function checkMessage() {
-                if (messageNode.length == 0) {console.log("error");}
-                else {
-                    messageItems.push(messageNode.trim());
-                    createEl();  
-                }
-            }   
+        document.querySelector('[data-message-form]').addEventListener('submit', event => {
+            event.preventDefault(); 
+            
+            let message = document.querySelector('[data-input]').value;
+            const messageListNode = document.querySelector('[data-message-list]');
+        
+            if (!message.trim().length) {
+                console.log("error");
+                return;
+            }
+             
+            createEl();
+            clear();
 
             function createEl() {
-                messageItems.forEach((item) => {
-                    const listItemNode = document.createElement('li');
-                    listItemNode.innerText = item;
-                    messageListNode.appendChild(listItemNode);
-                    clear();
-                })
+                const listItemNode = document.createElement('li');
+                listItemNode.className = "list-item";
+                listItemNode.innerText = message;
+                messageListNode.appendChild(listItemNode);
             }
            
             function clear(){
-                return document.querySelector('.input-js').value = "";
+                return document.querySelector('[data-input]').value = "";
             }
-        });     
+        });   
     </script>
 </body>
 </html>
