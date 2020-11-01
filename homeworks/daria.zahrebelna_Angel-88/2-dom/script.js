@@ -1,16 +1,15 @@
-const button = document.querySelector('[data-button]');
 const form = document.querySelector('[data-form]');
 
-button.addEventListener('click', (evt) => {
+form.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    const messages = document.getElementById('messages');
-    const textbox = document.getElementById('textbox');
+    const masseges = document.querySelector('[data-masseges]');
+    const textbox = document.querySelector('[data-textbox]');
     const newMessage = document.createElement('li');
     newMessage.innerText = textbox.value;
     if (!textbox.value) {
         alert('Type your messege!!');
     } else {
-        messages.appendChild(newMessage);
+        masseges.appendChild(newMessage);
         form.reset();
     }
 });

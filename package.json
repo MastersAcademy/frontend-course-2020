@@ -15,7 +15,6 @@
     "main": "index.js",
     "scripts": {
         "test": "lint-staged",
-        "test-all": "npm run test-js && npm run test-css",
         "test-js": "eslint --config .eslintrc.js ./homeworks/**/*.js",
         "test-css": "stylelint --config .stylelintrc ./homeworks/**/*.{css,scss}",
         "jest": "jest"
@@ -49,14 +48,12 @@
     "dependencies": {
         "eslint": "^7.9.0",
         "eslint-config-airbnb-base": "^14.2.0",
-        "eslint-plugin-html": "^6.1.0",
         "eslint-plugin-import": "^2.22.0",
-        "eslint-plugin-no-jquery": "^2.5.0",
+        "lint-staged": "^10.4.0",
         "stylelint": "^13.7.1"
     },
     "devDependencies": {
         "husky": "^4.3.0",
-        "jest": "^26.4.2",
-        "lint-staged": "^10.4.0"
+        "jest": "^26.4.2"
     }
 }
