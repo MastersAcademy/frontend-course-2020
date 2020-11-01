@@ -1,0 +1,201 @@
+@font-face {
+  font-family: "name-font1";
+  src: url("fonts/name-font1.eot?72113177");
+  src: url("fonts/name-font1.eot?72113177#iefix") format("embedded-opentype"), url("fonts/name-font1.woff?72113177") format("woff"), url("fonts/name-font1.ttf?72113177") format("truetype"), url("fonts/name-font1.svg?72113177#name-font1") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular");
+  src: url("fonts/Roboto-Regular.eot");
+  src: url("fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"),url("fonts/Roboto-Regular.woff") format("woff"),url("fonts/Roboto-Regular.ttf") format("truetype"),url("fonts/Roboto-Regular.svg#Roboto-Regular") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  src: local("Roboto"), local("Roboto-Bold");
+  src: url("fonts/Roboto-Bold.eot");
+  src: url("fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"),url("fonts/Roboto-Bold.woff") format("woff"),url("fonts/Roboto-Bold.ttf") format("truetype"),url("fonts/Roboto-Bold.svg#Roboto-Regular") format("svg");
+}
+
+body {
+  font-family: "Roboto";
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #D3D8DA;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1600px;
+  max-height: 1000px;
+  width: 100%;
+}
+
+.right-bar {
+  border-left: 1px solid #777;
+}
+
+.demo-icon {
+  font-family: "name-font1";
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]::before, [class*=" icon-"]::before {
+  font-family: "name-font1";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.chat-functional {
+  max-width: 655px;
+  width: 100%;
+  position: relative;
+  height: auto;
+  display: block;
+}
+
+.view-wrapper {
+  max-width: 655px;
+  width: 100%;
+  max-height: 920px;
+  height: 100%;
+  background-color: #EDEFF2;
+  position: relative;
+  padding: 20px 0 82px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.top-info {
+  border-bottom: 1px solid #D3D8DA;
+  padding: 29px 20px;
+}
+
+.view-wrapper::-webkit-scrollbar {
+  width: 12px;
+}
+
+.view-wrapper::-webkit-scrollbar-track {
+  background: #D3D8DA;
+}
+
+.view-wrapper::-webkit-scrollbar-thumb {
+  background-color: #303035;
+  border-radius: 10px;
+  border: 3px solid #D3D8DA;
+}
+
+.view-message {
+  padding: 0 20px;
+}
+
+.type-message {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid #D3D8DA;
+  font-size: 14px;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.invalid::placeholder {
+  color: #E64117;
+}
+
+.blink {
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  1% { opacity: 0;}
+  25% { opacity: .5;}
+  50% { opacity: 1;}
+  75% { opacity: .5;}
+  100% { opacity: 0;}
+}
+
+.new-message {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+textarea {
+  resize: none;
+  width: 80%;
+  border: transparent;
+  height: 90%;
+  outline: none;
+}
+
+.message-info {
+  margin-right: 20px;
+  max-width: 20%;
+}
+
+.message-text {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 0;
+  font-size: 14px;
+  position: relative;
+  max-width: 80%;
+}
+
+.message-text::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  background-color: #FFF;
+  transform: rotateZ(45deg);
+}
+
+.send-time {
+  font-size: 10px;
+  color: #96999A;
+}
+
+.send {
+  padding: 10px;
+  text-align: center;
+  border: transparent;
+  background-color: transparent;
+}
+
+.demo-icon {
+  width: 10%;
+}
+
+.send .demo-icon {
+  width: auto;
+  font-size: 18px;
+}
