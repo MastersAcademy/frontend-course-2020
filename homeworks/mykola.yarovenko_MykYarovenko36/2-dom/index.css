@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: #FFF;
+  background-color: rgb(255, 255, 255);
 }
 
 li {
@@ -12,78 +12,88 @@ li {
 }
 
 .wrapper {
-  margin: 2% auto;
-  border: 3px solid rgba(61, 57, 57, .534);
-  width: 294px;
-  height: 500px;
+  margin: 10px auto;
+  border: 5px solid rgba(61, 57, 57, .534);
+  width: 290px;
+  height: 490px;
   display: flex;
   flex-direction: column;
 }
 
 .header {
-  width: 294px;
-  height: 50px;
-  text-align: center;
-  margin-top: 0;
-  background-color: rgb(238, 99, 24);
+  width: 290px;
+  height: 35px;
+  border-bottom: 5px solid rgba(61, 57, 57, .534);
 }
 
-h1 {
+.header-text {
+  text-align: center;
   font-size: 26px;
   letter-spacing: 5px;
   color: rgb(255, 255, 255);
-}
-
-.chat_container {
-  width: 294px;
-  height: 410px;
-  display: flex;
-  flex-direction: column;
-}
-
-.chat {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
+  height: 35px;
+  width: 290px;
   margin: 0 auto;
-  padding: 0;
-  width: 294px;
-  height: 380px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.chat li {
-  padding: 5px;
-  margin-bottom: 10px;
-  width: 90%;
-  border-radius: 2px;
-  border: 1px solid  rgba(61, 57, 57, .534);
-  text-align: end;
-}
-
-.typing {
-  width: 292px;
-  height: 22px;
-  font-size: 18px;
-  letter-spacing: 5px;
-  text-align: end;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  border: 1px solid rgb(238, 99, 24);
   background-color: rgb(238, 99, 24);
 }
 
+.dialogs_container {
+  width: 290px;
+  height: 405px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 5px solid rgba(61, 57, 57, .534);
+}
+
+.dialogs_list {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  width: 290px;
+  height: 380px;
+  margin: 0 auto;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-bottom: 5px solid rgba(61, 57, 57, .534);
+}
+
+.dialogs_list_element {
+  padding: 5px;
+  margin: 5px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px solid  rgba(61, 57, 57, .534);
+  text-align: end;
+  background-color: rgb(255, 255, 255);
+}
+
+.message_pointer_container {
+  width: 290px;
+  height: 20px;
+  text-align: end;
+  background-color: rgb(238, 99, 24);
+}
+
+.message_status_pointer {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-left: 10px;
+}
+
 .input_message_container {
-  width: 294px;
+  width: 290px;
   height: 40px;
   display: inline-flex;
 }
 
 .input_message {
-  width: 70%;
+  width: 225px;
+  height: 34px;
 }
 
 .submit_button {
-  width: 30%;
+  width: 65px;
+  height: 40px;
 }
