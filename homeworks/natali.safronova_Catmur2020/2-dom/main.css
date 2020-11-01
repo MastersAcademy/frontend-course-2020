@@ -5,10 +5,10 @@
 .submit {
   margin: 5px;
   background-color: #F0F8FF;
-  color: #000000;
+  color: #000;
   border-color: #A9A9A9;
   border-style: solid;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   height: 30px;
   width: 300px;
 }
@@ -16,7 +16,7 @@
 .input {
   margin-top: 5px;
   background-color: #F0F8FF;
-  color: #000000;
+  color: #000;
   border-color: #A9A9A9;
   border-style: solid;
   border-bottom-left-radius: 10px 10px;
@@ -40,7 +40,7 @@
   text-align: right;
   padding: 10px;
   vertical-align: text-bottom;
-  color: #FFFFFF;
+  color: #FFF;
   margin-left: 25px;
 }
 
@@ -54,5 +54,3 @@
   border-style: solid;
   margin: 0;
 }
-
-
