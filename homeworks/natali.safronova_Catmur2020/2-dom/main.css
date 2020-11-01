@@ -3,51 +3,43 @@ form {
 }
 
 input {
-  background-color: #f0f8ff; 
-   color: black;
-border-color: darkgray;
-border-style: solid;
+  background-color: #F0F8FF; 
+  color: #000000;
+  border-color: #A9A9A9;
+  border-style: solid;
   border-bottom-left-radius: 10px 10px;
   border-bottom-right-radius: 10px 10px;
-   height: 30px;
-   width: 300px;
-
+  height: 30px;
+  width: 300px;
 }
-h1 {  
+
+h1 {
   padding: 15px;
   padding-left: 15%;
   margin-bottom: 16px;
- 
-  }
- p {
+}
+
+p {
   border-top-left-radius: 10px 10px;
   border-bottom-left-radius: 10px 10px;
   border-top-right-radius: 10px 10px;
-   background-color: #2184ff;
-   min-height: 25px;
-   width: 250px;
-   text-align: right;
-   padding: 10px;
-   vertical-align: text-bottom;
-   color: #ffffff;
-   margin-left: 25px;
-  
- }
-/*div#osnova {
-  width: 300px;
-  height: 250px;
-  background-color: #e9e9e9;
-  border-color: #eaeaeb;
-  border-style: solid;
-  }
-  */
-div#shapka {
-  width: 300px;
-  height: 100px;
-  background-color: #f0f8ff;
+  background-color: #2184FF;
+  min-height: 25px;
+  width: 250px;
+  text-align: right;
+  padding: 10px;
+  vertical-align: text-bottom;
+  color: #FFFFFF;
+  margin-left: 25px;
+}
+
+.shapka {
+    width: 300px;
+    height: 100px;
+    background-color: #F0F8FF;
     border-top-left-radius: 20px 20px;
     border-top-right-radius: 20px 20px;
-    border-color: #eaeaeb;
+    border-color: #EAEAEB;
     border-style: solid;
     margin: 0;
 }
