@@ -6,10 +6,7 @@ form.addEventListener('submit', (evt) => {
     const textbox = document.querySelector('[data-textbox]');
     const newMessage = document.createElement('li');
     newMessage.innerText = textbox.value;
-    if (!textbox.value) {
-        alert('Type your messege!!');
-    } else {
-        masseges.appendChild(newMessage);
-        form.reset();
-    }
+    if (!textbox.value.trim()) return;
+    masseges.appendChild(newMessage);
+    form.reset();
 });
