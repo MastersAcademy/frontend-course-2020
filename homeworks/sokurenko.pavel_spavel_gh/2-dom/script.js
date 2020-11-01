@@ -3,6 +3,7 @@ let send1Node;
 let send2Node;
 let typingIndicatorNode;
 
+// создание dom карточек сообщений
 function creater(btnID, text) {
     if ('content' in document.createElement('template')) {
         const avatarColorClass = ['color-one', 'color-two'];
@@ -24,11 +25,13 @@ function creater(btnID, text) {
     } else alert('Ошибка! Браузер не поддерживает <template>');
 }
 
+// проверка и вырезание пробелов
 function validator(text) {
     if (text.replace(/\s+/g, '').length === 0) return false;
     return text.replace(/\s+/g, ' ').trim();
 }
 
+// приём, обработка и передача входного текста
 function receiver(text, btnID) {
     inputNode.value = null;
     const validatedText = validator(text);
@@ -36,22 +39,21 @@ function receiver(text, btnID) {
     creater(btnID, validatedText);
 }
 
-// hiding
 // Индикатор ввода
 let timerId;
 let typingStatus = false;
 function typingIndicator() {
+    // если выключет - включаем
     if (typingStatus === false) {
         typingStatus = true;
-        console.log('do start');
         typingIndicatorNode.classList.remove('hidden');
     }
 
+    // повторное включение сбрасывает таймер выключения
     clearTimeout(timerId);
     timerId = setTimeout(() => {
         typingStatus = false;
         typingIndicatorNode.classList.add('hidden');
-        console.log('do stop');
     }, 1000);
 }
 
@@ -64,7 +66,7 @@ window.onload = function () {
     send2Node.addEventListener('click', () => receiver(inputNode.value, 1));
     typingIndicatorNode = document.querySelector('[hidden]');
 
-    // для сочетания клавиш (из инета)
+    // для сочетания клавиш + активация индикатора письма
     // https://www.gavsblog.com/blog/detect-single-and-multiple-keypress-events-javascript
     const keysPressed = {};
     inputNode.addEventListener('keydown', (event) => {
@@ -78,7 +80,7 @@ window.onload = function () {
             || event.which === 32
         ) typingIndicator();
 
-        // отправляем через Enter или Ctrl+Enter
+        // отправляем сообщение через Enter или Ctrl+Enter
         keysPressed[event.key] = true;
         if (!keysPressed.Control && event.key === 'Enter') receiver(inputNode.value, 0);
         else if (keysPressed.Control && event.key === 'Enter') receiver(inputNode.value, 1);
