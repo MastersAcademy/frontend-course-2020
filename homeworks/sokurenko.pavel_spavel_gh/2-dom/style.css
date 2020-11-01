@@ -74,8 +74,10 @@ h1 {
   border-radius: 50%;
   background: var(--nord2);
   /* margin-left: auto; */
+
   margin-right: auto;
 }
+
 .color-one {
   background: var(--nord14);
 }
@@ -104,7 +106,7 @@ h1 {
 }
 
 .submit-form {
-  padding-top: 0.5rem;
+  padding-top: .5rem;
   display: grid;
   grid-template-columns: 3em 1fr 3em;
   align-items: center;
@@ -113,12 +115,13 @@ h1 {
 #row-text {
   border-width: 0;
   border-radius: 1em;
-  padding: 0 0.8em;
-  margin: 0em;
+  padding: 0 .8em;
+  margin: 0;
   height: 2em;
   color: var(--nord6);
   background-color: var(--nord2);
 }
+
 #row-text::placeholder {
   color: var(--nord9);
 }
@@ -131,6 +134,7 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
 .btn-send {
   width: 2em;
   height: 2em;
@@ -139,29 +143,34 @@ h1 {
   cursor: pointer;
   display: inline-block;
   color: var(--nord8);
-  transition: 0.25s cubic-bezier(0, 0.5, 0.25, 0.99);
+  transition: .25s cubic-bezier(0, .5, .25, .99);
 }
+
 .btn-target:hover .btn-send {
   background-color: var(--nord9);
 }
 
 /* width */
+
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: .5rem;
 }
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-  background: RGBA(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0);
 }
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   background: var(--nord1);
 }
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--nord3);
 }
@@ -171,6 +180,7 @@ h1 {
 }
 
 /* https://codepen.io/ruslan_khomiak/pen/MbqWaK */
+
 .loader-container {
   top: -1em;
   position: relative;
@@ -186,45 +196,49 @@ h1 {
   top: 50%;
   border-radius: 50%;
   position: relative;
-  -webkit-animation: loader-2 0.9s 0.35s ease alternate infinite;
-  animation: loader-2 0.9s 0.35s ease alternate infinite;
+  -webkit-animation: loader-2 .9s .35s ease alternate infinite;
+  animation: loader-2 .9s .35s ease alternate infinite;
   margin: 0 auto;
 }
 
-.loader-2:after,
-.loader-2:before {
+.loader-2::after,
+.loader-2::before {
   content: "";
   position: absolute;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation: loader-2 0.9s ease alternate infinite;
-  -webkit-animation: loader-2 0.9s ease alternate infinite;
+  animation: loader-2 .9s ease alternate infinite;
+  -webkit-animation: loader-2 .9s ease alternate infinite;
 }
 
-.loader-2:before {
+.loader-2::before {
   left: -20px;
-  animation-delay: 0.2s;
+  animation-delay: .2s;
 }
 
-.loader-2:after {
+.loader-2::after {
   right: -20px;
-  animation-delay: 0.5s;
+  animation-delay: .5s;
 }
 
 @keyframes loader-2 {
+
   0% {
     box-shadow: 0 15px 0 -15px var(--nord2);
   }
+
   100% {
     box-shadow: 0 15px 0 var(--nord2);
   }
 }
 
 @-webkit-keyframes loader-2 {
+
   0% {
     box-shadow: 0 15px 0 -15px var(--nord2);
   }
+
   100% {
     box-shadow: 0 15px 0 var(--nord2);
   }
