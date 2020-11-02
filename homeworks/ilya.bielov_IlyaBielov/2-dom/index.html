@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>2-dom</title>
+</head>
+<body>
+    <div class="container-920">
+        <div class="messenger">
+            <ul data-place-for-message class="messenger__list list"></ul>
+
+            <div class="messenger__field">
+                <p data-typing-text class="messenger__typing-text">Typing...</p>
+                <input data-place-for-text type="text" placeholder="Type a message" class="messenger__place-for-text">
+                <button data-send-btn class="messenger__send-btn btn">&#10148</button>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js" async defer></script>
+</body>
+
+<template data-template>
+    <li class="list__item"></li>
+</template>
+</html>

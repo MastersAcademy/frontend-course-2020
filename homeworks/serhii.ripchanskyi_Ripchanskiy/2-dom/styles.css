@@ -1,0 +1,164 @@
+:root {
+  --body-bg: linear-gradient(135deg, #F5F7FA 0%, #C3CFE2 100%);
+  --msger-bg: #FFF;
+  --border: 2px solid #DDD;
+  --right-msg-bg: #579FFB;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: var(--body-bg);
+  font-family: Helvetica, sans-serif;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+.msger {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 867px;
+  margin: 25px 10px;
+  height: calc(100% - 50px);
+  border: var(--border);
+  border-radius: 5px;
+  background: var(--msger-bg);
+  box-shadow: 0 15px 15px -5px rgba(0, 0, 0, .2);
+}
+
+.msger-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: var(--border);
+  background: #EEE;
+  color: #666;
+}
+
+.msger-chat {
+  background-color: #FCFCFE;
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.msger-chat::-webkit-scrollbar {
+  width: 6px;
+}
+
+.msger-chat::-webkit-scrollbar-track {
+  background: #DDD;
+}
+
+.msger-chat::-webkit-scrollbar-thumb {
+  background: #BDBDBD;
+}
+
+.msg {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.msg:last-of-type {
+  margin: 0;
+}
+
+.msg-img {
+  width: 50px;
+  height: 50px;
+}
+
+.msg-bubble {
+  max-width: 450px;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.msg-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.msg-info-name {
+  margin-right: 10px;
+  font-weight: 800;
+}
+
+.msg-info-time {
+  font-size: .85em;
+}
+
+.right-msg {
+  flex-direction: row-reverse;
+}
+
+.right-msg .msg-bubble {
+  background: var(--right-msg-bg);
+  color: #FFF;
+  border-bottom-right-radius: 0;
+}
+
+.right-msg .msg-img {
+  margin-left: 10px;
+}
+
+.msger-inputarea {
+  display: flex;
+  padding: 10px;
+  border-top: var(--border);
+  background: #EEE;
+}
+
+.msger-inputarea * {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.msger-input {
+  flex: 1;
+  background: #DDD;
+}
+
+.msger-send-btn {
+  margin-left: 10px;
+  background: rgb(0, 196, 65);
+  color: #FFF;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .23s;
+}
+
+.msger-send-btn:hover {
+  background: rgb(0, 180, 50);
+}
+
+.msg-text {
+  word-break: break-all;
+}
+
+.msger-text-typing-not-active {
+  visibility: hidden;
+}
