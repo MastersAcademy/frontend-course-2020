@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW-1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container js-chat">
+        <div class="messages js-messages"></div>
+        <form class="form js-form">
+            <span class="form__txt js-form__txt">typing...</span>
+            <div class=form__wrap>
+                <input type="text" class="form__input js-input">
+                <button type="submit" title="click to send" class="form__btn">
+                    Send
+                </button>
+            </div>
+        </form>
+        <template class="js-message">
+            <div class="message-wrap js-message-wrap">
+                <span class="message__user-time js-user-time"></span>
+                <span class="message__txt js-message-txt"></span>
+            </div>
+        </template>
+    </section>
+    <script src="app.js" defer></script>
+</body>
+
+</html>
