@@ -1,0 +1,99 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  margin: 10px auto;
+  border: 5px solid rgba(61, 57, 57, .534);
+  width: 290px;
+  height: 490px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 290px;
+  height: 35px;
+  border-bottom: 5px solid rgba(61, 57, 57, .534);
+}
+
+.header-text {
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 5px;
+  color: rgb(255, 255, 255);
+  height: 35px;
+  width: 290px;
+  margin: 0 auto;
+  background-color: rgb(238, 99, 24);
+}
+
+.dialogs_container {
+  width: 290px;
+  height: 405px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 5px solid rgba(61, 57, 57, .534);
+}
+
+.dialogs_list {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  width: 290px;
+  height: 380px;
+  margin: 0 auto;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-bottom: 5px solid rgba(61, 57, 57, .534);
+}
+
+.dialogs_list_element {
+  padding: 5px;
+  margin: 5px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px solid  rgba(61, 57, 57, .534);
+  text-align: end;
+  background-color: rgb(255, 255, 255);
+}
+
+.message_pointer_container {
+  width: 290px;
+  height: 20px;
+  text-align: end;
+  background-color: rgb(238, 99, 24);
+}
+
+.message_status_pointer {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-left: 10px;
+}
+
+.input_message_container {
+  width: 290px;
+  height: 40px;
+  display: inline-flex;
+}
+
+.input_message {
+  width: 225px;
+  height: 34px;
+}
+
+.submit_button {
+  width: 65px;
+  height: 40px;
+}
