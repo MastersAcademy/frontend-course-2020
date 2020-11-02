@@ -31,11 +31,11 @@ function insertMessage() {
 }
 
 function showStatus() {
-    const hiddenStatus = document.querySelector('[data-status]');
+    const typingStatusEl = document.querySelector('[data-status]');
 
-    hiddenStatus.classList.remove('hidden-status');
+    typingStatusEl.classList.remove('hidden-status');
 
-    setTimeout(() => hiddenStatus.classList.add('hidden-status'), 1000);
+    setTimeout(() => typingStatusEl.classList.add('hidden-status'), 1000);
 }
 
 inputMessage.addEventListener('keydown', (event) => {
