@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.wrap {
+  min-height: 100%;
+}
+
+.main {
+  padding-bottom: 100px;
+}
+
+.footer {
+  margin-top: -100px;
+  height: 100px;
+}
+
+.senderForm {
+  width: 100%;
+}
+
+.senderFormInput {
+  width: 80%;
+}
+
+.senderFormButton {
+  width: 15%;
+}
