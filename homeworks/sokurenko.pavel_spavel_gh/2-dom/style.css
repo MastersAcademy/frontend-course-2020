@@ -1,10 +1,5 @@
 @import "style-nord.css";
 
-body,
-h1 {
-  margin: 0;
-}
-
 * {
   font-family: "Inter", sans-serif;
   font-size: 1em;
@@ -17,6 +12,7 @@ select:focus {
 }
 
 body {
+  margin: 0;
   background-color: var(--nord0);
   width: 100%;
   height: 100%;
@@ -48,20 +44,6 @@ body {
   text-align: center;
 }
 
-h1 {
-  font-size: larger;
-  color: var(--nord8);
-}
-
-.card > header > h1 ~ * {
-  color: var(--nord10);
-  text-decoration: none;
-}
-
-.card > header a:hover {
-  color: var(--nord8);
-}
-
 .msg {
   display: grid;
   grid-template-columns: 60px 1fr;
@@ -73,8 +55,6 @@ h1 {
   height: 3em;
   border-radius: 50%;
   background: var(--nord2);
-  /* margin-left: auto; */
-
   margin-right: auto;
 }
 
@@ -175,13 +155,13 @@ h1 {
   background: var(--nord3);
 }
 
-.hidden > div {
+.hidden {
   display: none !important;
 }
 
 /* https://codepen.io/ruslan_khomiak/pen/MbqWaK */
 
-.loader-container {
+.indicator-container {
   top: -1em;
   position: relative;
   height: 1.5em;
@@ -189,40 +169,40 @@ h1 {
   text-align: center;
 }
 
-.loader-2 {
+.indicator {
   width: 10px;
   height: 10px;
   position: absolute;
   top: 50%;
   border-radius: 50%;
   position: relative;
-  -webkit-animation: loader-2 .9s .35s ease alternate infinite;
-  animation: loader-2 .9s .35s ease alternate infinite;
+  -webkit-animation: indicator .9s .35s ease alternate infinite;
+  animation: indicator .9s .35s ease alternate infinite;
   margin: 0 auto;
 }
 
-.loader-2::after,
-.loader-2::before {
+.indicator::after,
+.indicator::before {
   content: "";
   position: absolute;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation: loader-2 .9s ease alternate infinite;
-  -webkit-animation: loader-2 .9s ease alternate infinite;
+  animation: indicator .9s ease alternate infinite;
+  -webkit-animation: indicator .9s ease alternate infinite;
 }
 
-.loader-2::before {
+.indicator::before {
   left: -20px;
   animation-delay: .2s;
 }
 
-.loader-2::after {
+.indicator::after {
   right: -20px;
   animation-delay: .5s;
 }
 
-@keyframes loader-2 {
+@keyframes indicator {
 
   0% {
     box-shadow: 0 15px 0 -15px var(--nord2);
@@ -233,7 +213,7 @@ h1 {
   }
 }
 
-@-webkit-keyframes loader-2 {
+@-webkit-keyframes indicator {
 
   0% {
     box-shadow: 0 15px 0 -15px var(--nord2);
