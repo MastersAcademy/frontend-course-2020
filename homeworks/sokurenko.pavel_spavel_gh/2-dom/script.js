@@ -1,9 +1,10 @@
-let inputNode;
-let send1Node;
-let send2Node;
-let typingIndicatorNode;
+/* initialization */
+const inputNode = document.querySelector('[data-msg-input]');
+const send1Node = document.querySelector('[data-msg-send1]');
+const send2Node = document.querySelector('[data-msg-send2]');
+const typingIndicatorNode = document.querySelector('[data-hidden]');
 
-// создание dom карточек сообщений
+// create dom-cards for messages
 function creater(btnID, text) {
     if ('content' in document.createElement('template')) {
         const avatarColorClass = ['color-one', 'color-two'];
@@ -25,31 +26,31 @@ function creater(btnID, text) {
     } else alert('Ошибка! Браузер не поддерживает <template>');
 }
 
-// проверка и вырезание пробелов
+// validation and trim spaces from the text
 function validator(text) {
     if (text.replace(/\s+/g, '').length === 0) return false;
     return text.replace(/\s+/g, ' ').trim();
 }
 
-// приём, обработка и передача входного текста
+// reception, processing and transmission of the input text
 function receiver(text, btnID) {
     inputNode.value = null;
     const validatedText = validator(text);
     if (!validatedText) return;
     creater(btnID, validatedText);
 }
+send1Node.addEventListener('click', () => receiver(inputNode.value, 0));
+send2Node.addEventListener('click', () => receiver(inputNode.value, 1));
 
-// Индикатор ввода
+// typing indicator
 let timerId;
 let typingStatus = false;
 function typingIndicator() {
-    // если выключет - включаем
     if (typingStatus === false) {
         typingStatus = true;
         typingIndicatorNode.classList.remove('hidden');
     }
 
-    // повторное включение сбрасывает таймер выключения
     clearTimeout(timerId);
     timerId = setTimeout(() => {
         typingStatus = false;
@@ -57,35 +58,25 @@ function typingIndicator() {
     }, 1000);
 }
 
-window.onload = function () {
-    /* Инициализация */
-    inputNode = document.querySelector('[data-msg-input]');
-    send1Node = document.querySelector('[data-msg-send1]');
-    send2Node = document.querySelector('[data-msg-send2]');
-    send1Node.addEventListener('click', () => receiver(inputNode.value, 0));
-    send2Node.addEventListener('click', () => receiver(inputNode.value, 1));
-    typingIndicatorNode = document.querySelector('[data-hidden]');
+// hot keys  and  activation of the typing indicator
+// https://www.gavsblog.com/blog/detect-single-and-multiple-keypress-events-javascript
+const keysPressed = {};
+inputNode.addEventListener('keydown', (event) => {
+    // activation of the typing indicator
+    // https://shikargar.files.wordpress.com/2010/10/keycodes.png
+    if (
+        (event.which >= 65 && event.which <= 90)
+        || (event.which >= 48 && event.which <= 57)
+        || (event.which >= 96 && event.which <= 111)
+        || (event.which >= 187 && event.which <= 192)
+        || event.which === 32
+    ) typingIndicator();
 
-    // для сочетания клавиш + активация индикатора письма
-    // https://www.gavsblog.com/blog/detect-single-and-multiple-keypress-events-javascript
-    const keysPressed = {};
-    inputNode.addEventListener('keydown', (event) => {
-        // активация индикатора ввода
-        // https://shikargar.files.wordpress.com/2010/10/keycodes.png
-        if (
-            (event.which >= 65 && event.which <= 90)
-            || (event.which >= 48 && event.which <= 57)
-            || (event.which >= 96 && event.which <= 111)
-            || (event.which >= 187 && event.which <= 192)
-            || event.which === 32
-        ) typingIndicator();
-
-        // отправляем сообщение через Enter или Ctrl+Enter
-        keysPressed[event.key] = true;
-        if (!keysPressed.Control && event.key === 'Enter') receiver(inputNode.value, 0);
-        else if (keysPressed.Control && event.key === 'Enter') receiver(inputNode.value, 1);
-    });
-    inputNode.addEventListener('keyup', (event) => {
-        delete keysPressed[event.key];
-    });
-};
+    // hot keys : Enter or Ctrl+Enter
+    keysPressed[event.key] = true;
+    if (!keysPressed.Control && event.key === 'Enter') receiver(inputNode.value, 0);
+    else if (keysPressed.Control && event.key === 'Enter') receiver(inputNode.value, 1);
+});
+inputNode.addEventListener('keyup', (event) => {
+    delete keysPressed[event.key];
+});
