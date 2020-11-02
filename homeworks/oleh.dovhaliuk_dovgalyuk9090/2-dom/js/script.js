@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-classes-per-file
 class Main {
     constructor() {
         this.messageListModel = ['Test message', 'second message'];
@@ -53,7 +52,6 @@ class Main {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // eslint-disable-next-line new-cap
     this.main = new Main();
     this.main.createMessages();
 });
