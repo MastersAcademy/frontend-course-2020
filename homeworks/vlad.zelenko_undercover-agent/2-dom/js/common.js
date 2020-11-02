@@ -5,7 +5,6 @@ const typingIndicator = document.querySelector('.typing');
 const scrollMessage = document.querySelector('.messages');
 let timer;
 
-
 function outMessageToScreen() {
     const div = document.createElement('div');
     div.innerHTML = inputData.value.trim();
@@ -18,6 +17,7 @@ function sendForm() {
     }
     inputData.value = '';
     typingIndicator.innerHTML = '';
+    scrollMessage.scrollBy(0, 100);
 }
 
 inputData.oninput = function () {
@@ -34,5 +34,3 @@ sendButton.addEventListener('click', (e) => {
         sendForm();
     }
 });
-
-

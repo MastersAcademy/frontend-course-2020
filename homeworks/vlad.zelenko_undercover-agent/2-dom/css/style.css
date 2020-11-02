@@ -1,92 +1,90 @@
 body {
-    background-color: #CCCCCC;
-    font-size: 16px;
+  background-color: #CCC;
+  font-size: 16px;
 }
 
 .chat {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 90vh;
-    /* box-shadow: 10px 10px 10px #000000; */
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 90vh;
 }
 
 .chat-info {
-    height: 100px;
-    padding: 10px 20px;
-    border: 1px solid #E6E6E6;
-    background-color: #FFFFFF;
+  height: 100px;
+  padding: 10px 20px;
+  border: 1px solid #E6E6E6;
+  background-color: #FFF;
 }
 
 .interlocutor {
-    max-width: 200px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+  max-width: 200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 .photo-interlocutor {
-    width: 75px;
-    height: auto;
-    border-radius: 50%;
+  width: 75px;
+  height: auto;
+  border-radius: 50%;
 }
 
 .info-interlocutor {
-    display: flex;
-    flex-flow: column nowrap;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .messages {
-    padding: 20px;
-    height: 80vh;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-end;
-    border: 1px solid #E6E6E6;
-    background-color: #FFFFFF;
-    overflow-y: scroll;
+  padding: 20px;
+  height: 80vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  border: 1px solid #E6E6E6;
+  background-color: #FFF;
+  overflow-y: scroll;
 }
 
 .messages div {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #FFA977;
-    color: #FFFFFF;
-    border-radius: 35px;
-    box-shadow: 5px 8px 12px #CCCCCC;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #FFA977;
+  color: #FFF;
+  border-radius: 35px;
+  box-shadow: 5px 8px 12px #CCC;
 }
 
 .chat-footer {
-    padding: 12px 0;
-    background-color: #FFFFFF;
+  padding: 12px 0;
+  background-color: #FFF;
 }
 
 .form-control {
-    max-width: 900px;
-    min-width: 250px;
-    width: 100%;
-    margin-right: 20px;
-    padding: 15px;
-    border-radius: 50px;
-    outline: none;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  max-width: 900px;
+  min-width: 250px;
+  width: 100%;
+  margin-right: 20px;
+  padding: 15px;
+  border-radius: 50px;
+  outline: none;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #FFF;
+  background-clip: padding-box;
+  border: 1px solid #CED4DA;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    outline: none;
-    border: none;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .send-button {
-    background-color: #FFA977;
+  background-color: #FFA977;
 }
-
