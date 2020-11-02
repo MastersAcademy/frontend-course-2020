@@ -21,5 +21,4 @@ inputNode.addEventListener('keyup', function(event) {
         event.preventDefault();
         submitMessage(event);
     }
-})
-
+});
