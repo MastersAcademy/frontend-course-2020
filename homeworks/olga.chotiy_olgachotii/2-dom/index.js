@@ -1,6 +1,6 @@
 const elem = document.getElementById('elem');
 const textContent = document.getElementById('textContent');
-elem.addEventListener('click', function(event) {
+elem.addEventListener('click', function submit(event) {
     event.preventDefault();
     const text = textContent.value;
     if (text) {
