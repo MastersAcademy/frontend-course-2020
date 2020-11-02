@@ -9,16 +9,15 @@
 <body>
     <div class="wall" data-wall></div>
 
-    <div class="tooltip" data-tooltip>Typing...</div>    
-    <form name="publish">
-      <input type="text" name="message" placeholder="Enter text" maxlength="140" size="142">
-      <input type="button" name="button" value="Submit">
+    <div class="hidden-status" data-status>Typing...</div>
+
+    <form name="publish" data-form-publish>
+      <input class="form-input" type="text" name="message" placeholder="Enter text" maxlength="140" size="142" data-input-message>
+      <input class="form-input" type="button" name="button" value="Submit" data-input-button>
     </form>
 
     <template data-message-template>
-      <div>
         <p class="message-body" data-message></p>
-      </div>
     </template>
     <script src="script.js"></script>
 </body>

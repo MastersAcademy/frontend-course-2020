@@ -1,4 +1,4 @@
-const formPublish = document.forms.publish;
+const inputMessage = document.querySelector('[data-input-message]');
 const wallNode = document.querySelector('[data-wall]');
 
 function autoScrollMessages() {
@@ -8,7 +8,7 @@ function autoScrollMessages() {
 }
 
 function insertMessage() {
-    const text = formPublish.message.value;
+    const text = inputMessage.value;
 
     // function trim to remove spaces at the beginning and end of a line
     const trimStr = text.trim();
@@ -17,34 +17,34 @@ function insertMessage() {
     if (trimStr.length === 0) return;
 
     const messageNode = document.querySelector('[data-message-template]');
-    const p = messageNode.content.querySelector('[data-message]');
+    const clone = messageNode.content.cloneNode(true);
+    const p = clone.querySelector('[data-message]');
 
     p.textContent = trimStr;
-    const clone = messageNode.content.cloneNode(true);
 
     wallNode.append(clone);
 
     autoScrollMessages();
 
     // clear the input field
-    formPublish.message.value = '';
+    inputMessage.value = '';
 }
 
 function showStatus() {
-    const tooltip = document.querySelector('[data-tooltip]');
+    const hiddenStatus = document.querySelector('[data-status]');
 
-    tooltip.classList.remove('tooltip');
+    hiddenStatus.classList.remove('hidden-status');
 
-    setTimeout(() => tooltip.classList.add('tooltip'), 1000);
+    setTimeout(() => hiddenStatus.classList.add('hidden-status'), 1000);
 }
 
-formPublish.message.addEventListener('keydown', (event) => {
+inputMessage.addEventListener('keydown', (event) => {
     if (event.code === 'Enter' || event.code === 'NumpadEnter') {
         event.preventDefault();
         insertMessage();
     }
 });
 
-formPublish.button.addEventListener('click', insertMessage);
+document.querySelector('[data-input-button]').addEventListener('click', insertMessage);
 
-formPublish.message.addEventListener('input', showStatus);
+inputMessage.addEventListener('input', showStatus);
