@@ -7,20 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id = "message" class = "message" onsubmit="return false;"> 
+    <div id = "message" class = "message"> 
         <div id = 'fistdiv' class = 'firstDiv'>     
-           <h1 class = "nameOfChat">Type!</h1>    
+           <h1 class = "nameOfChat">Type!</h1> 
+        <form onsubmit="return false;">    
            <input id ="typePlace" type="text" placeholder="Type your massage!" class = "input"></input>
-           <button id = "button" class = "button">Submit</button> 
-           <span id = 'dotOne' class = "dotOne"></span>
-           <span id = 'dotTwo' class = 'dotTwo'></span>
-           <span id = 'dotThree' class = 'dotThree'></span>
-           <span id = 'symbolTyping' class = "symbolTyping"></span>
+           <button id = "button" class = "button">Submit</button>
+        </form>   
         </div> 
         <div id = 'block' class = "block">
             <ul id = "chat" class = "chat"></ul>
         </div>
-    </form>     
+    </div>     
 
     <script src = 'code.js'></script>
 </body>    

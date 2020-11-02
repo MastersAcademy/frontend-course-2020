@@ -24,7 +24,7 @@ body {
   list-style-type: none;
 }
 
-li {
+.newElement {
   background-color: hsl(203, 92%, 75%);
   padding: 5px;
   float: left;
@@ -33,15 +33,6 @@ li {
   border-radius: 10px;
   color: hsl(0, 0%, 0%);
   margin-bottom: 10px;
-}
-
-.symbolTyping {
-  color: hsl(0, 0%, 100%);
-  margin-right: 40px;
-  margin-top: 20px;
-  width: 60px;
-  display: block;
-  float: right;
 }
 
 .button {
@@ -79,45 +70,4 @@ li {
   margin-right: 50px;
   margin-top: 10px;
   overflow: auto;
-}
-
-.dotOne {
-  color: rgb(255, 255, 255);
-  margin-left: 85px;
-  animation: mymove 1.2s infinite;
-  font-size: 25px;
-}
-
-.dotTwo {
-  color: rgb(255, 255, 255);
-  font-size: 25px;
-  animation: mymove 1.16s infinite;
-}
-
-.dotThree {
-  color: rgb(255, 255, 255);
-  font-size: 25px;
-  animation: mymove 1.1s infinite;
-}
-
-@keyframes mymove {
-  50% { color: rgb(0, 0, 0);}
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #002966;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
