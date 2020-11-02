@@ -16,16 +16,16 @@ body {
   align-items: flex-end;
   overflow-y: auto;
   border-radius: 8px;
-  border: 1px solid #cecece;
+  border: 1px solid #CECECE;
   background-color: rgb(255, 255, 255);
   padding: 10px;
 }
 
 .button {
   cursor: pointer;
-  border: 1px solid #cecece;
-  background: #c7c4c4;
-  box-shadow: inset 0 20px 20px #fff;
+  border: 1px solid #CECECE;
+  background: #C7C4C4;
+  box-shadow: inset 0 20px 20px #FFF;
   border-radius: 8px;
   padding: 10px;
   width: 55px;
@@ -36,7 +36,7 @@ body {
   width: 70%;
   font-size: 13px;
   padding: 10px 0 10px 10px;
-  border: 1px solid #cecece;
-  background: #ebe9e9;
+  border: 1px solid #CECECE;
+  background: #EBE9E9;
   border-radius: 8px;
 }
