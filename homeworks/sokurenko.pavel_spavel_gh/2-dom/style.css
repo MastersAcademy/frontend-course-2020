@@ -5,9 +5,17 @@
   font-size: 1em;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 input:focus,
 textarea:focus,
-select:focus {
+select:focus,
+button,
+button:focus,
+button:active {
   outline: none;
 }
 
