@@ -2,7 +2,9 @@ const inputData = document.querySelector('.form-control');
 const sendButton = document.querySelector('.send-button');
 const messages = document.querySelector('.messages');
 const typingIndicator = document.querySelector('.typing');
+const scrollMessage = document.querySelector('.messages');
 let timer;
+
 
 function outMessageToScreen() {
     const div = document.createElement('div');
@@ -11,7 +13,9 @@ function outMessageToScreen() {
 }
 
 function sendForm() {
-    outMessageToScreen();
+    if (inputData.value.trim() !== '') {
+        outMessageToScreen();
+    }
     inputData.value = '';
     typingIndicator.innerHTML = '';
 }
@@ -30,3 +34,5 @@ sendButton.addEventListener('click', (e) => {
         sendForm();
     }
 });
+
+
