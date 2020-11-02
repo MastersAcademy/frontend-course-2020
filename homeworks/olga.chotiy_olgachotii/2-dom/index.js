@@ -1,7 +1,7 @@
 const elem = document.getElementById('elem');
 const textContent = document.getElementById('textContent');
-elem.addEventListener('click', function submit(event) {
-    event.preventDefault();
+elem.addEventListener('click', (e) => {
+    e.preventDefault();
     const text = textContent.value;
     if (text) {
         const list = document.getElementById('list');
