@@ -9,8 +9,8 @@ function creater(btnID, text) {
         const avatarColorClass = ['color-one', 'color-two'];
         const authorName = ['Tom', 'Jerry'];
 
-        const msgBodyNode = document.querySelector('[msg-body]');
-        const msgTmlpNode = document.querySelector('[msg-tmlp]');
+        const msgBodyNode = document.querySelector('[data-msg-body]');
+        const msgTmlpNode = document.querySelector('[data-msg-tmlp]');
         const clone = msgTmlpNode.content.cloneNode(true);
         const msgAvatar = clone.querySelector('.avatar');
         const msgTitile = clone.querySelector('.msg-title');
@@ -59,12 +59,12 @@ function typingIndicator() {
 
 window.onload = function () {
     /* Инициализация */
-    inputNode = document.querySelector('[msg-input]');
-    send1Node = document.querySelector('[msg-send1]');
-    send2Node = document.querySelector('[msg-send2]');
+    inputNode = document.querySelector('[data-msg-input]');
+    send1Node = document.querySelector('[data-msg-send1]');
+    send2Node = document.querySelector('[data-msg-send2]');
     send1Node.addEventListener('click', () => receiver(inputNode.value, 0));
     send2Node.addEventListener('click', () => receiver(inputNode.value, 1));
-    typingIndicatorNode = document.querySelector('[hidden]');
+    typingIndicatorNode = document.querySelector('[data-hidden]');
 
     // для сочетания клавиш + активация индикатора письма
     // https://www.gavsblog.com/blog/detect-single-and-multiple-keypress-events-javascript
