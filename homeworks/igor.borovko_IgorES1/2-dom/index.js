@@ -1,12 +1,12 @@
-function sendMsg(){
-  var msgs = $('#msgs').html();
-  var msg = $("input[name=user_text]").val();
-  msg = msg.trim();
-  if(msg == ""){
-  alert('Empty');
-  return;
-  }
-  msg = "<div>" + msg + "</div>";
-  $('#msgs').html(msgs + '<br>' + msg);
-  $("input[name=user_text]").val("");
-  }
+const userText = document.querySelector('#userText');
+
+function Submit() {
+    const text = userText.value;
+    if (!text) return;
+    userText.value = '';
+    const li = document.createElement('li');
+    li.innerText = text.trim();
+    document.getElementById('pechat').appendChild(li);
+}
+
+document.getElementById('submit').addEventListener('click', Submit);

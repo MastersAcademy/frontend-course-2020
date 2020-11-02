@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.js"></script>
-<script type="text/javascript" src="index.js"></script>
-  <head>
-    <link rel="stylesheet" type="text/css" href='index.css'/>
-  </head>
- <body>
-  <div class="podtip">
-  <p><img style="display: block; margin-left: auto; margin-right: auto;" src="images/amc.png" alt="MA Frontend" /></p>
-  <div class="pichat">
-  <div id='msgs'></div>
-  </div>
-  <input type="text" name="user_text"><input type="submit" value="Отправить" onClick="sendMsg()">
-  <div class="centru">
-  <p>ДЗ-2 Боровко Игорь<p>
-  </div>
-  </div>
- </body>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Чат</title>
+        <link rel="stylesheet" type="text/css" href="index.css" />
+    </head>
+    <body>
+        <p>
+            <img
+                style="display: block; margin-left: auto; margin-right: auto"
+                src="images/amc.png"
+                alt="MA Frontend"
+            />
+        </p>
+        <div class="pichat">
+            <div id="pechat"></div>
+        </div>
+        <div id="msg">
+            <input id="userText" type="text" />
+            <button type="submit" id="submit">Submit</button>
+        </div>
+        <script src="index.js"></script>
+    </body>
 </html>
