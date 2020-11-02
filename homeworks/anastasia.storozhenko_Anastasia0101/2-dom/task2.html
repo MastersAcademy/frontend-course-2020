@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        .container {
+            width: 50%;
+            height: 100vh;
+            margin: 0 auto;
+            background-color: grey;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10%;
+        }
+
+        .show-message {
+            margin: 0 auto;
+            height: 60%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .list-item {
+            background-color: white;
+            height: auto;
+            max-width: 60%;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 5px;
+            overflow-wrap: anywhere; 
+            list-style: none;
+        }
+
+        .input-message {
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .user-input {
+            border: none;
+            width: 50%;
+            height: auto;
+        }
+
+        .btn {
+            height: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form class="container" data-message-form>
+        <ul class="show-message" data-message-list>
+        </ul>
+        <div class="input-message">
+            <input type="text" class="user-input" placeholder="Input your message..." data-input>
+            <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
+    <script>  
+        document.querySelector('[data-message-form]').addEventListener('submit', event => {
+            event.preventDefault(); 
+            
+            let message = document.querySelector('[data-input]').value;
+            const messageListNode = document.querySelector('[data-message-list]');
+        
+            if (!message.trim().length) {
+                console.log("error");
+                return;
+            }
+             
+            createEl();
+            clear();
+
+            function createEl() {
+                const listItemNode = document.createElement('li');
+                listItemNode.className = "list-item";
+                listItemNode.innerText = message;
+                messageListNode.appendChild(listItemNode);
+            }
+           
+            function clear(){
+                return document.querySelector('[data-input]').value = "";
+            }
+        });   
+    </script>
+</body>
+</html>
