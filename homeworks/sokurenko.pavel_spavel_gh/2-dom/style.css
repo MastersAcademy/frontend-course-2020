@@ -7,7 +7,6 @@
 
 button {
   border: none;
-  background: none;
 }
 
 input:focus,
@@ -131,7 +130,7 @@ body {
   cursor: pointer;
   display: inline-block;
   color: var(--nord8);
-  transition: .25s cubic-bezier(0, .5, .25, .99);
+  transition: 4s cubic-bezier(0, .5, .25, .99);
 }
 
 .btn-target:hover .btn-send {
