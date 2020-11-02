@@ -2,7 +2,7 @@ const inputNode = document.querySelector('.input');
 const butNode = document.querySelector('.send-messages');
 const listNode = document.querySelector('.chat-list');
 
-function submitMessage(event){
+function submitMessage(event) {
     event.preventDefault();
     const vld = inputNode.value.trim();
     if (vld.length) {
@@ -16,7 +16,7 @@ function submitMessage(event){
 
 butNode.addEventListener('click', submitMessage);
 
-inputNode.addEventListener('keyup', function(event) {
+inputNode.addEventListener('keyup', (event) => {
     if (event.keyCode === 13) {
         event.preventDefault();
         submitMessage(event);
