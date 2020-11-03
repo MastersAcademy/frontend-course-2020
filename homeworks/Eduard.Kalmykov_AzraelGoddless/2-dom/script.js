@@ -1,7 +1,7 @@
 const inputIn = document.querySelector('.input-in');
-const button = document.querySelector('button');
+const button = document.querySelector('button').addEventListener('click', myFunction);
 const ul = document.querySelector('.out');
-button.onclick = function () {
+function myFunction() {
     const message = document.createElement('li');
     message.innerHTML = inputIn.value;
     ul.appendChild(message);
