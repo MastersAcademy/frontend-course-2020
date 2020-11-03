@@ -8,38 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Piazzolla&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1 class="chat-headline">
-        Home chat
-    </h1>
-    <div class="bright-line"></div>
-    <div class="container">
-
-        <div class="chat-wrapper">
-            <template data-template>
-                <li data-template-item class="user-message"></li>
+<h1 class="chat-headline">
+    Home chat
+</h1>
+<div class="bright-line"></div>
+<div class="container">
+    <div class="chat-wrapper">
+        <template id="template" data-template>
+            <li id="template-item" class="user-message" data-template-item></li>
         </template>
-            <ul data-message-list class="message-list">
-                <li class="user-message" data-message-line>
-                    1 text
-                </li>
-                <li class="message" data-message-line>
-                    2 text text
-
-                </li>
-                <li class="message" data-message-line>
-                    last text text text text
-                </li>
-            </ul>
-            <div class="empty-container"></div>
-        </div>
-        <form class="input-area-wrapper" data-send-form>
-            <input type="text" data-user-text class="input-txt" placeholder="Start write message" value="" />
-            <button class="send" data-btn-send>  Send message</button>
-        </form>
+        <ul class="message-list" data-message-list>
+        </ul>
+        <div class="empty-container"></div>
     </div>
-    <script src="scripts.js "></script>
-</body>
 
+    <form class="input-area-wrapper" data-send-form>
+        <input type="text" data-user-text id="user-text" class="input-txt" placeholder="Start write message" value=""/>
+        <button class="send" id="btn-send"> Send message</button>
+    </form>
+</div>
+<script src="scripts.js "></script>
+</body>
 </html>

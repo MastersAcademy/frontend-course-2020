@@ -1,20 +1,17 @@
-const btnSendNode = document.querySelector('[data-btn-send]');
-const template = document.querySelector('[data-template']);
+const templateNode = document.querySelector('[data-template]');
 
 function sendMessage() {
     const newTxt = document.querySelector('[data-user-text]').value.trim();
-if (!newTxt.length) return;
-        const clone = template.content.cloneNode(true);
-        const messageList = document.querySelector('[data-message-list]');
-        const listItem = clone.querySelector('[data-template-item]');
-        listItem.textContent = newTxt;
-        messageList.appendChild(clone);
-    } 
-    document.querySelector('[data-user-text]').value = '';
+    if (!newTxt.length) return;
+    const clone = templateNode.content.cloneNode(true);
+    const messageListNode = document.querySelector('[data-message-list]');
+    const listItemNode = clone.querySelector('[data-template-item]');
+    listItemNode.textContent = newTxt;
+    messageListNode.appendChild(clone);
+    document.querySelector('#user-text').value = '';
 }
 
-document.querySelector('[data-send-form]').addEventListener('submit', event => {
+document.querySelector('[data-send-form]').addEventListener('submit', (event) => {
     event.preventDefault();
     sendMessage();
 });
-
