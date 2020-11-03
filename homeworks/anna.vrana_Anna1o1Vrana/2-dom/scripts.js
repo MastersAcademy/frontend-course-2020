@@ -10,12 +10,8 @@ function sendMessage() {
     messageListNode.appendChild(clone);
     document.querySelector('#user-text').value = '';
 }
-<<<<<<< HEAD
-btnSendNode.addEventListener('click', sendMessage);
-=======
 
 document.querySelector('[data-send-form]').addEventListener('submit', (event) => {
     event.preventDefault();
     sendMessage();
 });
->>>>>>> 2-dom
