@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2-dom spavel-gh</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style-nord.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <article class="card">
+        <div class="card-content">
+            <div data-msg-body class="output-result" >
+                <template data-msg-tmlp>
+                    <div class="msg">
+                        <div class="msg-avatar">
+                            <div class="avatar"></div>
+                        </div>
+                        <div>
+                            <div class="msg-title"></div>
+                            <div class="msg-body"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="card-input">
+            <div class="indicator-container">
+                <div data-hidden class="indicator hidden"></div>
+            </div>
+            <div class="submit-form">
+                <div class="btn-target">
+                    <button data-msg-send2 class="btn-send" title="Ctrl+Enter"></button>
+                </div>
+
+                <input data-msg-input class="row-text" type="text" placeholder="write here" />
+
+                <div class="btn-target">
+                    <button data-msg-send1 class="btn-send" title="Enter"></button>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
