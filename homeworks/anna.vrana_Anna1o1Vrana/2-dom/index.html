@@ -6,21 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2-DOM</title>
     <link href="https://fonts.googleapis.com/css2?family=Piazzolla&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h1 class="chat-headline">
-        Home chat
-    </h1>
-    <div class="bright-line"></div>
-    <div class="container">
-
-        <div class="chat-wrapper">
-            <template id="template">
-                <li id="template-item" class="user-message"></li>
+<h1 class="chat-headline">
+    Home chat
+</h1>
+<div class="bright-line"></div>
+<div class="container">
+    <div class="chat-wrapper">
+        <template id="template" data-template>
+            <li id="template-item" class="user-message" data-template-item></li>
         </template>
+<<<<<<< HEAD
             <ul id="message-list">
                 <li class="user-message" data-message-line>
                     1 text
@@ -41,8 +39,18 @@
             <input type="text" id="user-text" class="input-txt" placeholder="Start write message" value="" />
             <button class="send" id="btn-send">  Send message</button>
         </div>
+=======
+        <ul class="message-list" data-message-list>
+        </ul>
+        <div class="empty-container"></div>
+>>>>>>> 2-dom
     </div>
-    <script src="scripts.js "></script>
-</body>
 
+    <form class="input-area-wrapper" data-send-form>
+        <input type="text" data-user-text id="user-text" class="input-txt" placeholder="Start write message" value=""/>
+        <button class="send" id="btn-send"> Send message</button>
+    </form>
+</div>
+<script src="scripts.js "></script>
+</body>
 </html>
