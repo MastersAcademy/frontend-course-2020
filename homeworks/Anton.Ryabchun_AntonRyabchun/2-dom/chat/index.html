@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css"/>
+    <title>Chat</title>
+    <script src="script.js"></script>
+</head>
+<body>
+
+<section class="chat">
+
+    <div class="sms">
+        <div class="chat_box">
+            <div class=" cgatic_list">
+                <div class="worning"></div>
+                <div class="newmesaage">
+                    <form class="form_input" id="form">
+                        <input type="text" id="new_mes"  placeholder="write me">
+                        <button type="submit" id="chat_button" class="button">push</button>
+                    </form>
+                </div>
+                <div class="black-line"></div>
+                <ul class="chat-sms">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+   var form = document.getElementById("form")
+
+   var chatwrite = document.querySelector(".chat-sms")
+
+   var errorMessage = document.querySelector(".worning")
+
+
+    form.addEventListener("submit",function () {
+
+        event.preventDefault()
+
+       var message = document.createElement("li")
+
+        let newMessage = document.getElementById('new_mes');
+
+        message.innerText = newMessage.value.trim()
+
+        if (newMessage.value.length <= 0) {
+
+            errorMessage.style.opacity = "1"
+
+            newMessage.value = ""}
+
+        else {
+
+            errorMessage.style.opacity = "0"
+
+            chatwrite.appendChild(message)
+
+            newMessage.value = ""
+
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
+
+
