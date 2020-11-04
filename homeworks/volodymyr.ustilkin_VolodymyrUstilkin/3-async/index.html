@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-AsynchronousJS</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="main-container">
+
+    <div class="filter-sort-container gray-solid-border">
+        <div class="inline-block-container">
+            <label for="filterInput">Filter: </label>
+            <input id="filterInput" type="text" class="filter">
+        </div>
+
+        <div class="inline-block-container" style="float: right">
+            <label for="titleSortSelect">Sort by: </label>
+            <select id="titleSortSelect" class="titleSortSelect">
+                <option value="0">No sort</option>
+                <option value="1">A-Z</option>
+                <option value="-1">Z-A</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="showMessagesContainer" class="show-messages-container gray-solid-border">
+        <div id="loader" class="loader"></div>
+    </div>
+
+    <script src="createPostFromContent.js"></script>
+    <script src="post.js"></script>
+</div>
+</body>
+</html>
