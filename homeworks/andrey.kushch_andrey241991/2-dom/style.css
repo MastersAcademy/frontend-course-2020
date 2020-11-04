@@ -36,7 +36,7 @@
 }
 
 .typing {
-  color: #FFFF;
+  color: #ffff;
   padding-left: 8px;
   visibility: hidden;
 }
@@ -50,24 +50,21 @@
 }
 
 .message-wrapper {
-  border: 1px solid rgb(17, 192, 17);
   padding: 20px;
-  background: rgb(21, 7, 145);
   border-radius: 6px;
-  color: #FFFF;
+  color: #ffff;
   width: max-content;
   margin-bottom: 20px;
   max-width: 300px;
 }
 
+.message-wrapper-left {
+  border: 1px solid rgb(17, 192, 17);
+  background: rgb(21, 7, 145);
+}
+
 .message-wrapper-right {
   border: 1px solid rgb(21, 7, 145);
-  padding: 20px;
   background: rgb(17, 192, 17);
-  border-radius: 6px;
-  color: #FFFF;
-  width: max-content;
-  margin-bottom: 20px;
   align-self: flex-end;
-  max-width: 300px;
 }
