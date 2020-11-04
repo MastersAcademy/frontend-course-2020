@@ -1,0 +1,230 @@
+* {
+  font-family: "Inter", sans-serif;
+  font-size: 1em;
+}
+
+button {
+  border: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button,
+button:focus,
+button:active {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  background-color: var(--nord0);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  overflow: auto;
+  line-height: 1.5;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.card {
+  background-color: var(--nord0);
+  border: solid 2px var(--nord3);
+  color: var(--nord6);
+  border-radius: 1em;
+  display: inline-block;
+  padding: 1em;
+}
+
+.card-header {
+  display: block;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.msg {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  margin-bottom: 1em;
+}
+
+.avatar {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background: var(--nord2);
+  margin-right: auto;
+}
+
+.color-one {
+  background: var(--nord14);
+}
+
+.color-two {
+  background: var(--nord12);
+}
+
+.msg-title {
+  font-weight: 700;
+}
+
+.msg-body {
+  line-height: 1.25;
+}
+
+.output-result {
+  width: 25em;
+  color: var(--nord9);
+  max-height: 24em;
+  min-height: 24em;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: auto;
+}
+
+.submit-form {
+  padding-top: .5rem;
+  display: grid;
+  grid-template-columns: 3em 1fr 3em;
+  align-items: center;
+}
+
+.row-text {
+  border-width: 0;
+  border-radius: 1em;
+  padding: 0 .8em;
+  margin: 0;
+  height: 2em;
+  color: var(--nord6);
+  background-color: var(--nord2);
+}
+
+.row-text::placeholder {
+  color: var(--nord9);
+}
+
+.btn-target {
+  width: 3em;
+  height: 3em;
+  border-radius: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-send {
+  width: 2em;
+  height: 2em;
+  background-color: var(--nord2);
+  border-radius: 100%;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--nord8);
+  transition: 4s cubic-bezier(0, .5, .25, .99);
+}
+
+.btn-target:hover .btn-send {
+  background-color: var(--nord9);
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: .5rem;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  border-radius: .5rem;
+  background: var(--nord1);
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nord3);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* https://codepen.io/ruslan_khomiak/pen/MbqWaK */
+
+.indicator-container {
+  top: -1em;
+  position: relative;
+  height: 1.5em;
+  display: block;
+  text-align: center;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  position: relative;
+  -webkit-animation: indicator .9s .35s ease alternate infinite;
+  animation: indicator .9s .35s ease alternate infinite;
+  margin: 0 auto;
+}
+
+.indicator::after,
+.indicator::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: indicator .9s ease alternate infinite;
+  -webkit-animation: indicator .9s ease alternate infinite;
+}
+
+.indicator::before {
+  left: -20px;
+  animation-delay: .2s;
+}
+
+.indicator::after {
+  right: -20px;
+  animation-delay: .5s;
+}
+
+@keyframes indicator {
+
+  0% {
+    box-shadow: 0 15px 0 -15px var(--nord2);
+  }
+
+  100% {
+    box-shadow: 0 15px 0 var(--nord2);
+  }
+}
+
+@-webkit-keyframes indicator {
+
+  0% {
+    box-shadow: 0 15px 0 -15px var(--nord2);
+  }
+
+  100% {
+    box-shadow: 0 15px 0 var(--nord2);
+  }
+}
