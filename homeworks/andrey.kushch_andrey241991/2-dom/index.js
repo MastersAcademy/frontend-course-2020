@@ -12,7 +12,7 @@ const addMessage = (message) => {
     div.innerHTML = `<span>${message}</span>`;
     div.classList.add(
         'message-wrapper',
-        isMyMessage ? 'message-wrapper-right' : 'message-wrapper-left'
+        isMyMessage ? 'message-wrapper-right' : 'message-wrapper-left',
     );
     contentElem.appendChild(div);
     isMyMessage = !isMyMessage;
