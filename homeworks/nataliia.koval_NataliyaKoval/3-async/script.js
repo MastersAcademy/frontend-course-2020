@@ -14,6 +14,10 @@ async function getResponse() {
     text.innerText = post.body;
     list.appendChild(template.content.cloneNode(true));
   }
+
+  document.body.classList.add('loaded');
 }
 setTimeout(getResponse, 3000);
+
+
 
