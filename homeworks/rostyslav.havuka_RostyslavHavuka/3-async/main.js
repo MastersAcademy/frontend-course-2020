@@ -1,51 +1,78 @@
-let data = [];
-
+let store = [];
+let defaultData = [];
 document.addEventListener('DOMContentLoaded', async (event) => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  data = await response.json();
+  store = await response.json();
+  defaultData = [...store];
   document.body.innerHTML = `<div class="loader"></div>`;
 
   await timeout(3000);
-  document.body.innerHTML = `${prepareDropDownMenu()} ${preparePost()} `;
-  function renderPost() {
-    preparePost
-  }
+  document.body.innerHTML = `${prepareDropDownMenu()} ${prepareInput()} ${preparePost(store)}`;
 
   let select = document.getElementById('mySelect')
+  let input = document.getElementById('searchInput')
 
+  input.addEventListener('keydown', filterr)
+
+function filterr() {
+  const filterValues = (value) => {
+    return store.filter(data => {
+        return data.title.toLowerCase().indexOf(value.toLowerCase()) > -1;
+    });
+  }
+  const filtredData = filterValues(input.value)
+  document.getElementById('main').innerHTML = preparePost(filtredData);
+}
   select.onchange = () => {
     let onSelect = document.getElementById("mySelect").value;
-    let computedData = data
     switch (onSelect) {
       case 'default':
-        document.getElementById('main').innerHTML = preparePost(computedData)
+        cleanData()
         break;
       case 'az':
-        data = data.sort(function(a, b){
-          var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
-          if (nameA < nameB)
-            return -1
-          if (nameA > nameB)
-            return 1
-        })
-          document.getElementById('main').innerHTML = preparePost(data)
+        sortData()
         break;
       case 'za':
-        data = data.sort(function(a, b){
-          var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
-          if (nameA > nameB)
-            return -1
-          if (nameA < nameB)
-            return 1
-        })
-          document.getElementById('main').innerHTML = preparePost(data)
+        resortData()
         break;
     }
   }
 });
 
+function cleanData() {
+ document.getElementById('main').innerHTML = preparePost(defaultData);
+}
+
+function sortData() {
+  data = store.sort(function(a, b){
+    var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
+    if (nameA < nameB)
+      return -1 
+    if (nameA > nameB)
+      return 1
+  })
+    document.getElementById('main').innerHTML = preparePost(data)
+}
+
+function resortData() {
+  data = store.sort(function(a, b){
+    var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
+    if (nameA > nameB)
+      return -1
+    if (nameA < nameB)
+      return 1
+  })
+    document.getElementById('main').innerHTML = preparePost(data)
+}
+
 function timeout(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function prepareInput() {
+  return `
+  <input type="text" id="searchInput" placeholder="Search">  
+  `
 }
 
 function prepareDropDownMenu() {
@@ -59,8 +86,8 @@ function prepareDropDownMenu() {
 };
 
 
-function preparePost() {
-  const dataArray = `<div class="main" id="main">
+function preparePost(data) {
+  const storeArray = `<div class="main" id="main">
   ${data.map(element => {
     return `
     <div class="post">
@@ -70,6 +97,6 @@ function preparePost() {
 `
   }).join('\n')}
   </div>`
-  // console.log(data);
-  return dataArray;
+  // console.log(store);
+  return storeArray;
 };
