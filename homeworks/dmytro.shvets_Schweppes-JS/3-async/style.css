@@ -79,13 +79,9 @@
 }
 
 .middle-container {
-  display: flex;
   padding: 5px 15px 15px;
-  flex-direction: column;
-  justify-content: space-between;
   height: 88%;
   overflow-y: hidden;
-  gap: 10px;
 }
 
 .middle-container::-webkit-scrollbar {
@@ -107,11 +103,24 @@
   cursor: pointer;
 }
 
+.preloader-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.post-container {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 115px;
   padding: 10px;
   box-shadow: 0 0 5px 0 rgba(155, 96, 0, .85);
 }
@@ -120,6 +129,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .h2 {
@@ -129,6 +139,9 @@
 }
 
 .fas {
+  margin-top: 5px;
+  margin-left: 5px;
+  align-self: flex-start;
   color: #CA4A00;
   font-size: 1.27rem;
   cursor: pointer;
@@ -140,7 +153,7 @@
 
 .text {
   min-width: 100%;
-  min-height: 36px;
+  min-height: 38px;
 }
 
 .preloader {

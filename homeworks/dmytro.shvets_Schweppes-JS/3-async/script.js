@@ -1,25 +1,36 @@
 const middleContainer = document.querySelector('[data-middle-container]');
-const posts = document.querySelectorAll('[data-post]');
+const sort = document.querySelector('[data-sort]');
+const preloaderContainer = document.querySelector('[data-preloader-container]');
+const postContainer = document.querySelector('[data-post-container]');
 
-// Deleting preloading animation
-(function stoppingAnimation() {
+const requestsOnSort = {
+    defaul: 'https://jsonplaceholder.typicode.com/posts',
+    fromAtoZ: 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=asc',
+    fromZtoA: 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=desc',
+};
+
+// Hiding preloading animation
+function stoppingAnimation() {
     const timer = setTimeout(() => {
-        posts.forEach((post) => post.remove());
+        preloaderContainer.style.display = 'none';
+        postContainer.style.display = 'flex';
         middleContainer.style.overflowY = 'auto';
         clearTimeout(timer);
     }, 3000);
-}());
+}
+
+stoppingAnimation();
 
 // Rendering posts
-(async function setPosts() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+async function setPosts(url) {
+    const response = await fetch(url);
     const data = await response.json();
     data.forEach((post) => {
         // Creating cell fot post
         const postNode = document.createElement('div');
         postNode.classList.add('post');
         postNode.setAttribute('data-post', '');
-        middleContainer.append(postNode);
+        postContainer.append(postNode);
         // Creating title container
         const titleContainerNode = document.createElement('div');
         titleContainerNode.classList.add('title-container');
@@ -45,4 +56,41 @@ const posts = document.querySelectorAll('[data-post]');
         textNode.innerHTML = post.body;
         textContainerNode.append(textNode);
     });
-}());
+}
+
+setPosts(requestsOnSort.defaul);
+
+// Displaying preload animation
+function displayingAnimation() {
+    postContainer.style.display = 'none';
+    preloaderContainer.style.display = 'flex';
+    middleContainer.style.overflowY = 'hidden';
+}
+
+// Sorting posts by request 
+function sorting() {
+    // Getting the actual amount of posts
+    const posts = document.querySelectorAll('[data-post]');
+    switch (sort.value) {
+        case 'Default':
+            displayingAnimation();
+            stoppingAnimation();
+            posts.forEach((post) => post.remove());
+            setPosts(requestsOnSort.defaul);
+            break;
+        case 'From A to Z':
+            displayingAnimation();
+            stoppingAnimation();
+            posts.forEach((post) => post.remove());
+            setPosts(requestsOnSort.fromAtoZ);
+            break;
+        case 'From Z to A':
+            displayingAnimation();
+            stoppingAnimation();
+            posts.forEach((post) => post.remove());
+            setPosts(requestsOnSort.fromZtoA);
+            break;
+    }
+}
+
+sort.addEventListener('change', sorting);
