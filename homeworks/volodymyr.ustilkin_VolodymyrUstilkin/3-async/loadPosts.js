@@ -1,6 +1,4 @@
 (function () {
-    let loadedPosts;
-
     function reCreatePosts(posts) {
         const showMessagesContainer = document.getElementById('showMessagesContainer');
         showMessagesContainer.textContent = '';
@@ -14,6 +12,7 @@
     }
 
     function filterAndSortPosts() {
+        // eslint-disable-next-line no-undef
         const posts = loadedPosts;
         const sortType = parseInt(document.getElementById('titleSortSelect').value, 10);
         const filterString = document.getElementById('filterInput')
@@ -38,6 +37,7 @@
     }
 
     function savePosts(posts) {
+        // eslint-disable-next-line no-undef
         loadedPosts = posts;
         return posts;
     }

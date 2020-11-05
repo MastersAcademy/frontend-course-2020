@@ -1,3 +1,34 @@
+let loadedPosts;
+
+function removePost(event) {
+    function removePostErrorHandler(postContainer) {
+        const _postContainer = postContainer;
+        console.log(`Error on delete post with id: ${_postContainer.id}`);
+        _postContainer.style.display = 'block';
+        _postContainer.innerText = 'Something wrong';
+    }
+
+    function removePostFromLoadedPosts(id) {
+        loadedPosts = loadedPosts.filter((e) => e.id.toString() !== id);
+        return id;
+    }
+
+    function removePostFromServer(postContainer) {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postContainer.id}`, {
+            method: 'DELETE',
+        })
+            .then(() => removePostFromLoadedPosts(postContainer.id))
+            .catch(() => removePostErrorHandler(postContainer));
+    }
+
+    const button = event.target;
+    const postContainerHeader = button.parentNode;
+    const postContainer = postContainerHeader.parentNode;
+    postContainer.style.display = 'none';
+
+    setTimeout(removePostFromServer, 3000, postContainer);
+}
+
 // eslint-disable-next-line no-unused-vars
 function createPostFromContent(id, title, content) {
     function createTitleContainer(_title) {
@@ -18,6 +49,7 @@ function createPostFromContent(id, title, content) {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.classList.add('remove-button');
+        btn.addEventListener('click', removePost);
         return btn;
     }
 
