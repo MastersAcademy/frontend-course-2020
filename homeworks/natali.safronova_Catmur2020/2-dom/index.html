@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat 2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+    <body>
+      <div class="hat">
+        <h1 class="title">Простий чат</h1>
+          <div id="basis">
+            <form data-name class="mold">
+              <input type="text" class="input" data-text autocomplete="off" placeholder="Введіть текст" >
+              <button type="submit" id="submit" class="submit">Відправити...</button>
+            </form>
+<script>
+  function submitform(event) {
+    event.preventDefault();
+
+    const input = document.querySelector('[data-text]');
+    const string = input.value;
+    const result = document.createElement('p class="p"');
+    result.innerText = string;
+    form = document.querySelector('[data-name]');
+    document.getElementById('basis').insertBefore(result, form);
+    input.value = "";
+  }
+  document.querySelector('[data-name]').addEventListener("submit", submitform)
+</script>
+</div>
+</div>
+</body>
+</html>
