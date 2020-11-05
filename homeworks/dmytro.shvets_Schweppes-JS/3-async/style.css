@@ -31,6 +31,7 @@
 
 .top-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
@@ -39,10 +40,11 @@
 
 .filter-container {
   display: flex;
+  height: 23px;
 }
 
 .input {
-  width: 55%;
+  width: 180px;
   line-height: 1.17rem;
   font-size: 1.17rem;
   font-weight: 900;
@@ -57,6 +59,7 @@
 .sort-container {
   text-align: end;
   display: flex;
+  height: 23px;
 }
 
 .sort {
@@ -149,6 +152,10 @@
 
 .fas:hover {
   color: #9B3A00;
+}
+
+.preloader-container .fas:hover {
+  color: transparent;
 }
 
 .text {
