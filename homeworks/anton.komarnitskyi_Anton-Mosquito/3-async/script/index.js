@@ -147,6 +147,8 @@ class WorkWithPromise {
             this._containerForAppedPosts.classList.add('hidden');
 
             this._containerOriginal.classList.remove('hidden');
+
+            this.sortAction();
         } else {
             filterResult = this._dataBase.filter((obj) => {
                 const value = obj.title.toLowerCase().includes(filterItem);
@@ -169,7 +171,7 @@ class WorkWithPromise {
         const findSelectValue = () => {
             const select = this._sortField.selectedIndex;
             const option = this._sortField.options[select];
-
+            console.log(option.value);
             return option.value;
         };
 
@@ -199,6 +201,7 @@ class WorkWithPromise {
             // this._containerForAppedPosts.classList.add('hidden');
 
             // this._containerOriginal.classList.remove('hidden');
+
             return;
         }
 
