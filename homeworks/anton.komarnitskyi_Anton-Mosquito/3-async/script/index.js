@@ -8,6 +8,7 @@ class WorkWithPromise {
         this._containerOriginal = document.querySelector('[data-promise="post-wrapper-main"]');
         this._baseURL = 'https://jsonplaceholder.typicode.com/posts';
         this._dataBase = null;
+        this._intermediateResult = null;
         this._postContainer = null;
         this._postHeader = null;
         this._postDescription = null;
@@ -153,6 +154,8 @@ class WorkWithPromise {
             });
             // filterItem.split(" ").some(
             // (value) => new RegExp(value, "i").test(obj.title)
+            this._intermediateResult = filterResult;
+
             this._containerForAppedPosts.innerHTML = '';
             this._containerForAppedPosts.classList.remove('hidden');
 
@@ -173,12 +176,12 @@ class WorkWithPromise {
         const sortLetter = (flag) => {
             let result = null;
             if (flag === 'down') {
-                result = this._dataBase.sort((current, next) => {
+                result = this.howDataBaseUse().sort((current, next) => {
                     const value = current.title > next.title ? 1 : -1;
                     return value;
                 });
             } else if (flag === 'up') {
-                result = this._dataBase.sort((current, next) => {
+                result = this.howDataBaseUse().sort((current, next) => {
                     const value = current.title < next.title ? 1 : -1;
                     return value;
                 });
@@ -193,11 +196,13 @@ class WorkWithPromise {
         } else if (findSelectValue() === 'sort_to_biger') {
             sortObjects = sortLetter('up');
         } else if (findSelectValue() === '') {
-            this._containerForAppedPosts.classList.add('hidden');
+            // this._containerForAppedPosts.classList.add('hidden');
 
-            this._containerOriginal.classList.remove('hidden');
+            // this._containerOriginal.classList.remove('hidden');
             return;
         }
+
+        this._intermediateResult = sortObjects;
 
         this._containerForAppedPosts.innerHTML = '';
         this._containerForAppedPosts.classList.remove('hidden');
@@ -205,6 +210,17 @@ class WorkWithPromise {
         this._containerOriginal.classList.add('hidden');
 
         this.inputDataProcessing(sortObjects, this._containerForAppedPosts);
+    }
+
+    howDataBaseUse() {
+        let base = null;
+        if (!this._intermediateResult) {
+            base = this._dataBase;
+        } else {
+            base = this._intermediateResult;
+        }
+
+        return base;
     }
 
     closeAction(element) {
