@@ -6,10 +6,6 @@ body {
   margin: 0;
 }
 
-output {
-  position: relative;
-}
-
 button {
   position: relative;
   top: 750px;
@@ -33,31 +29,32 @@ input[type=text]:focus {
   margin: 10px 0;
   height: 700px;
   position: relative;
+  left: 0px;
 }
 
-sidebar,
-content {
+#sidebar,
+#content {
   position: absolute;
 }
 
-sidebar,
-content {
+#sidebar,
+#content {
   overflow: auto;
   padding: 10px;
 }
 
-header {
+#header {
   height: 40px;
   background: #A6F19C;
   border-bottom: 2px solid #000;
 }
 
-header h1 {
+#header h1 {
   padding: 10px;
   margin: 0;
 }
 
-sidebar {
+#sidebar {
   width: 150px;
   background: #98CCC9;
   border-right: 1px solid #231F20;
@@ -65,7 +62,7 @@ sidebar {
   bottom: 0;
 }
 
-content {
+#content {
   background-color: rgb(255, 255, 255);
   top: 42px;
   left: 170px;
