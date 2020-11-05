@@ -1,21 +1,24 @@
 const middleContainer = document.querySelector('[data-middle-container]');
+const input = document.querySelector('[data-input]');
 const sort = document.querySelector('[data-sort]');
 const preloaderContainer = document.querySelector('[data-preloader-container]');
 const postContainer = document.querySelector('[data-post-container]');
 
 const requestsOnSort = {
-    defaul: 'https://jsonplaceholder.typicode.com/posts',
+    default: 'https://jsonplaceholder.typicode.com/posts?',
     fromAtoZ: 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=asc',
     fromZtoA: 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=desc',
 };
 
+let animationTimer;
+
 // Hiding preloading animation
 function stoppingAnimation() {
-    const timer = setTimeout(() => {
+    clearTimeout(animationTimer);
+    animationTimer = setTimeout(() => {
         preloaderContainer.style.display = 'none';
         postContainer.style.display = 'flex';
         middleContainer.style.overflowY = 'auto';
-        clearTimeout(timer);
     }, 3000);
 }
 
@@ -58,7 +61,7 @@ async function setPosts(url) {
     });
 }
 
-setPosts(requestsOnSort.defaul);
+setPosts(requestsOnSort.default);
 
 // Displaying preload animation
 function displayingAnimation() {
@@ -68,29 +71,29 @@ function displayingAnimation() {
 }
 
 // Sorting posts by request 
-function sorting() {
-    // Getting the actual amount of posts
+function sorting(filter = '') {
+    console.log(`${requestsOnSort.default}`);
     const posts = document.querySelectorAll('[data-post]');
+    displayingAnimation();
+    stoppingAnimation();
+    posts.forEach((post) => post.remove());
     switch (sort.value) {
         case 'Default':
-            displayingAnimation();
-            stoppingAnimation();
-            posts.forEach((post) => post.remove());
-            setPosts(requestsOnSort.defaul);
+            setPosts(`${requestsOnSort.default}${filter}`);
             break;
         case 'From A to Z':
-            displayingAnimation();
-            stoppingAnimation();
-            posts.forEach((post) => post.remove());
-            setPosts(requestsOnSort.fromAtoZ);
+            setPosts(`${requestsOnSort.fromAtoZ}${filter}`);
             break;
         case 'From Z to A':
-            displayingAnimation();
-            stoppingAnimation();
-            posts.forEach((post) => post.remove());
-            setPosts(requestsOnSort.fromZtoA);
+            setPosts(`${requestsOnSort.fromZtoA}${filter}`);
             break;
     }
 }
 
-sort.addEventListener('change', sorting);
+function filtering() {
+    const queryString = `&title_like=${input.value}`;
+    sorting(queryString);
+}
+
+sort.addEventListener('change', filtering);
+input.addEventListener('input', filtering);
