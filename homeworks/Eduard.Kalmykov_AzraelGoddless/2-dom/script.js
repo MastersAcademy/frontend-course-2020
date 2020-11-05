@@ -6,5 +6,5 @@ button.addEventListener('click', function () {
     const massage = document.createElement('li');
     massage.innerHTML = inputIn.value;
     ul.appendChild(massage);
-    inputIn.value = "";
-})
+    inputIn.value = '';
+});
