@@ -7,62 +7,102 @@ document.addEventListener('DOMContentLoaded', async (event) => {
   document.body.innerHTML = `<div class="loader"></div>`;
 
   await timeout(3000);
-  document.body.innerHTML = `${prepareDropDownMenu()} ${prepareInput()} ${preparePost(store)}`;
+  document.body.innerHTML = `${prepareDropDownMenu()} ${prepareInput()} ${renderPosts(store)}`;
 
   let select = document.getElementById('mySelect')
   let input = document.getElementById('searchInput')
+  input.addEventListener('keydown', searchHandler)
 
-  input.addEventListener('keydown', filterr)
+  function searchHandler() {
+    const selected = select.value;
+    let inputValue = input.value;
 
-function filterr() {
-  const filterValues = (value) => {
-    return store.filter(data => {
+    if (selected === 'default') {
+      sortByDefault();
+      const result = search(store, inputValue);
+      renderPosts(defaultData);
+    }
+    if (selected === 'asc') {
+      const result = search(store, inputValue);
+      const filtrerResult = sortByAsc(result);
+      renderPosts(filtrerResult)
+    }
+    if( selected === 'desc') {
+      const result = search(store, inputValue);
+      const filtrerResult = sortByDesc(result);
+      renderPosts(filtrerResult)
+    }
+  }
+
+function search(data, value) {
+    return data.filter(data => {
         return data.title.toLowerCase().indexOf(value.toLowerCase()) > -1;
     });
-  }
-  const filtredData = filterValues(input.value)
-  document.getElementById('main').innerHTML = preparePost(filtredData);
+  // const filtredData = searchValues(input.value)
+  // document.getElementById('main').innerHTML = renderPosts(filtredData);
 }
   select.onchange = () => {
-    let onSelect = document.getElementById("mySelect").value;
-    switch (onSelect) {
+    let selected = select.value;
+    switch (selected) {
       case 'default':
         cleanData()
         break;
-      case 'az':
-        sortData()
+      case 'asc':
+        sortByAsc(store);
         break;
-      case 'za':
-        resortData()
-        break;
+      case 'desc':
+        sortByDesc(store)
     }
   }
 });
 
 function cleanData() {
- document.getElementById('main').innerHTML = preparePost(defaultData);
+ document.getElementById('main').innerHTML = renderPosts(defaultData);
 }
 
-function sortData() {
-  data = store.sort(function(a, b){
+// store
+// defaultStore
+
+// default sortByDefault(search())
+// asc search(sortByASC)
+// desc search(sortByDESC)
+
+// function ascFilter() {
+//   const searchValues = (value) => {
+//     return data.search(data => {
+//         return data.title.toLowerCase().indexOf(value.toLowerCase()) > -1;
+//     });
+//   }
+//   const filtredData = searchValues(input.value)
+
+// console.log(sortByAsc(searchValues));
+
+// }
+
+function sortByDefault() {
+  store = [...defaultData]
+}
+
+function sortByAsc(data) {
+  data = data.sort(function(a, b){
     var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
     if (nameA < nameB)
       return -1 
     if (nameA > nameB)
       return 1
   })
-    document.getElementById('main').innerHTML = preparePost(data)
+    document.getElementById('main').innerHTML = renderPosts(data)
 }
 
-function resortData() {
-  data = store.sort(function(a, b){
+function sortByDesc(data) {
+  data = data.sort(function(a, b){
     var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase()
     if (nameA > nameB)
       return -1
     if (nameA < nameB)
       return 1
   })
-    document.getElementById('main').innerHTML = preparePost(data)
+    document.getElementById('main').innerHTML = renderPosts(data)
 }
 
 function timeout(ms) {
@@ -79,14 +119,14 @@ function prepareDropDownMenu() {
   return `
   <select id="mySelect">
   <option value="default">Default</option>
-  <option value="az">A-z</option>
-  <option value="za">Z-a</option>
+  <option value="asc">A-z</option>
+  <option value="desc">Z-a</option>
   </select>
 `
 };
 
 
-function preparePost(data) {
+function renderPosts(data) {
   const storeArray = `<div class="main" id="main">
   ${data.map(element => {
     return `
