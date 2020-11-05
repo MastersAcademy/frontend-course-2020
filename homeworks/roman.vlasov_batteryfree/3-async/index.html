@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+    <link rel="stylesheet" href="./styles/loader.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div id="root">
+        <div class="wrap-loader">
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
+    <template data-ctrls-tmp>
+        <div data-ctrls class="container ctrls">
+            <label class="ctrls__label">
+                Find:
+                <input type="text" data-filter class="ctrls__input" placeholder="Please input text">
+            </label>
+            <label class="ctrls__label">
+                Sort:
+                <select data-sort class="ctrls__sort-list">
+                    <option>Unsorted</option>
+                    <option value="2">A-Z</option>
+                    <option value="3">Z-A</option>
+                </select>
+            </label>
+        </div>
+        <li data-post class="post">
+            <h2 data-post-header class="post__headline"></h2>
+            <p data-post-txt class="post__txt"></p>
+            <button type="button" data-post-del class="post__btn-del">X</button>
+        </li>
+    </template>
+    <script src="app/app.js" defer></script>
+
+</body>
+
+</html>
