@@ -1,0 +1,15 @@
+.filter-sort {
+  display: grid;
+  grid-template-columns: 1fr 5em;
+}
+
+.post-header {
+  display: grid;
+  grid-template-columns: 1fr 5em;
+}
+
+.post {
+  padding: 1rem;
+  margin-top: 1rem;
+  background: #EEE;
+}
