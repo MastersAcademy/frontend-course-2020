@@ -1,3 +1,4 @@
+/*eslint prefer-arrow-callback: 0*/
 const inputIn = document.querySelector('.input-in');
 const button = document.querySelector('.button');
 const ul = document.querySelector('.out');
