@@ -4,7 +4,8 @@ const loaderNode = getNode('[data-loader]');
 const dataSortNode = getNode('[data-sort]');
 const dataSearchInputNode = getNode('[data-search-input]');
 const posts = [];
-let sortBy = 'asc';
+const initialPosts = [];
+let sortBy = 'default';
 let searchValue = '';
 
 const handleErrors = (res) => {
@@ -24,12 +25,12 @@ const sortNamesByAsc = (a, b) => {
     return 0;
 };
 
-const search = (searchString) => {
+const search = (searchString, data) => {
     const keyWords = searchString.trim().toLowerCase().split(' ');
     const filteredPosts = [];
 
-    posts.forEach((post) => {
-        let previousSubWordPosition = 0;
+    data.forEach((post) => {
+        let previousSubWordPosition = -1;
         const postTitle = post.title.trim().toLowerCase();
         const isSubWordValid = (subWord) => {
             const currentSubWordPosition = postTitle.indexOf(subWord);
@@ -56,34 +57,42 @@ async function getPosts() {
 
 const renderPostsList = (postsData) => postsData.map(({ body, title }) => `<li>${title}<p>${body}</p></li>`).join('');
 
+const insertPosts = (postsData) => {
+    postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postsData));
+};
+
 const appendPosts = () => {
     getPosts()
         .then((data) => {
-            const sortedAscArray = data.sort(sortNamesByAsc);
-            postsListNode.insertAdjacentHTML('beforeend', renderPostsList(sortedAscArray));
+            postsListNode.insertAdjacentHTML('beforeend', renderPostsList(data));
             loaderNode.classList.toggle('loader-disable');
             posts.push(...data);
+            initialPosts.push(...data);
         })
         .catch((error) => {
             console.log(error.message);
         });
 };
 
-setTimeout(appendPosts, 3000);
+setTimeout(appendPosts, 200);
 
 dataSortNode.addEventListener('change', (event) => {
     const sortingPattern = event.currentTarget.value;
-    const searchedData = searchValue ? search(searchValue) : posts;
     postsListNode.querySelectorAll('li').forEach((n) => n.remove());
 
     if (sortingPattern === 'desc') {
         sortBy = 'desc';
+        const searchedData = searchValue ? search(searchValue, posts) : posts;
         const postSortedDesc = searchedData.sort(sortNamesByAsc).reverse();
-        postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postSortedDesc));
-    } else {
+        insertPosts(postSortedDesc);
+    } else if (sortingPattern === 'asc') {
         sortBy = 'asc';
+        const searchedData = searchValue ? search(searchValue, posts) : posts;
         const postSortedAsc = searchedData.sort(sortNamesByAsc);
-        postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postSortedAsc));
+        insertPosts(postSortedAsc);
+    } else {
+        sortBy = 'default';
+        insertPosts(searchValue ? search(searchValue, initialPosts) : initialPosts);
     }
 });
 
@@ -95,13 +104,15 @@ dataSortNode.addEventListener('change', (event) => {
     }
     postsListNode.querySelectorAll('li').forEach((n) => n.remove());
 
-    const searchedData = searchValue.length ? search(searchValue) : posts;
-
     if (sortBy === 'asc') {
+        const searchedData = searchValue.length ? search(searchValue, posts) : posts;
         const postSortedAsc = searchedData.sort(sortNamesByAsc);
-        postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postSortedAsc));
-    } else {
+        insertPosts(postSortedAsc);
+    } else if (sortBy === 'desc') {
+        const searchedData = searchValue.length ? search(searchValue, posts) : posts;
         const postSortedDesc = searchedData.sort(sortNamesByAsc).reverse();
-        postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postSortedDesc));
+        insertPosts(postSortedDesc);
+    } else {
+        insertPosts(searchValue ? search(searchValue, initialPosts) : initialPosts);
     }
 }));
