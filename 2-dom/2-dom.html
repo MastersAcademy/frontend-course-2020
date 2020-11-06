@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>CHAT</title>
+    <link rel="stylesheet" href="2-dom.css">
+</head>
+
+<body>
+    <section class="container js-chat">
+        <div class="messages js-messages"></div>
+        <form class="form js-form">
+            <span class="form__txt js-txt">admin typing...</span>
+            <div class=form__wrap>
+                <input type="text" class="input js-input">
+                <button type="submit" title="click to send" class="btn">
+                    Send
+                </button>
+            </div>
+        </form>
+        <template class="js-message">
+            <div class="message-wrap js-message-wrap">
+                <span class="message__user-time js-user-time"></span>
+                <span class="message__txt js-message-txt"></span>
+            </div>
+        </template>
+    </section>
+    <script src="2-dom.js"></script>
+</body>
+
+</html> 
