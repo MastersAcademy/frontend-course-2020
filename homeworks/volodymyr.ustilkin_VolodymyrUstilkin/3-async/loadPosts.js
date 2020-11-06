@@ -85,7 +85,6 @@
                 createPostFromContent(post.id, post.title, post.body),
             );
         });
-        return posts;
     }
 
     function filterAndSortPosts() {
@@ -115,7 +114,6 @@
 
     function savePosts(posts) {
         loadedPosts = posts;
-        return posts;
     }
 
     function loadData() {
@@ -125,7 +123,7 @@
             await fetch('https://jsonplaceholder.typicode.com/posts')
                 .then((response) => response.json())
                 .then((response) => savePosts(response))
-                .then((responseJson) => reCreatePosts(responseJson));
+                .then(() => reCreatePosts(loadedPosts));
             loaderEl.classList.add('hidden');
         }
 
