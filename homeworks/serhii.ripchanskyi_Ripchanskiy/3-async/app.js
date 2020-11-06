@@ -74,7 +74,7 @@ const appendPosts = () => {
         });
 };
 
-setTimeout(appendPosts, 200);
+setTimeout(appendPosts, 3000);
 
 dataSortNode.addEventListener('change', (event) => {
     const sortingPattern = event.currentTarget.value;
