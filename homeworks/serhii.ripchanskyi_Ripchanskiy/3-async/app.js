@@ -26,22 +26,12 @@ const sortNamesByAsc = (a, b) => {
 };
 
 const search = (searchString, data) => {
-    const keyWords = searchString.trim().toLowerCase().split(' ');
+    const keyWords = searchString.trim().toLowerCase();
     const filteredPosts = [];
 
     data.forEach((post) => {
-        let previousSubWordPosition = -1;
         const postTitle = post.title.trim().toLowerCase();
-        const isSubWordValid = (subWord) => {
-            const currentSubWordPosition = postTitle.indexOf(subWord);
-            if (currentSubWordPosition !== -1 && currentSubWordPosition > previousSubWordPosition) {
-                previousSubWordPosition = currentSubWordPosition;
-                return true;
-            }
-            return false;
-        };
-
-        if (keyWords.every(isSubWordValid)) {
+        if (postTitle.indexOf(keyWords) !== -1) {
             filteredPosts.push(post);
         }
     });
@@ -55,7 +45,11 @@ async function getPosts() {
     return response.json();
 }
 
-const renderPostsList = (postsData) => postsData.map(({ body, title }) => `<li>${title}<p>${body}</p></li>`).join('');
+const renderPostsList = (postsData) => postsData.map(({ body, title }) => {
+    const clearedTitle = title.replace(/[^\w\s]/gi, '');
+    const clearedBody = body.replace(/[^\w\s]/gi, '');
+    return `<li>${clearedTitle}<p>${clearedBody}</p></li>`;
+}).join('');
 
 const insertPosts = (postsData) => {
     postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postsData));
@@ -80,19 +74,17 @@ dataSortNode.addEventListener('change', (event) => {
     const sortingPattern = event.currentTarget.value;
     postsListNode.querySelectorAll('li').forEach((n) => n.remove());
 
-    if (sortingPattern === 'desc') {
-        sortBy = 'desc';
-        const searchedData = searchValue ? search(searchValue, posts) : posts;
-        const postSortedDesc = searchedData.sort(sortNamesByAsc).reverse();
-        insertPosts(postSortedDesc);
-    } else if (sortingPattern === 'asc') {
-        sortBy = 'asc';
-        const searchedData = searchValue ? search(searchValue, posts) : posts;
-        const postSortedAsc = searchedData.sort(sortNamesByAsc);
-        insertPosts(postSortedAsc);
-    } else {
-        sortBy = 'default';
+    sortBy = event.currentTarget.value;
+    postsListNode.querySelectorAll('li').forEach((n) => n.remove());
+
+    if (sortingPattern === 'default') {
+        sortBy = sortingPattern;
         insertPosts(searchValue ? search(searchValue, initialPosts) : initialPosts);
+    } else {
+        const searchedData = searchValue ? search(searchValue, posts) : posts;
+        const postSorted = sortBy === 'desc' ? searchedData.sort(sortNamesByAsc).reverse() : searchedData.sort(sortNamesByAsc);
+        insertPosts(postSorted);
+        sortBy = sortingPattern;
     }
 });
 
@@ -104,15 +96,11 @@ dataSortNode.addEventListener('change', (event) => {
     }
     postsListNode.querySelectorAll('li').forEach((n) => n.remove());
 
-    if (sortBy === 'asc') {
-        const searchedData = searchValue.length ? search(searchValue, posts) : posts;
-        const postSortedAsc = searchedData.sort(sortNamesByAsc);
-        insertPosts(postSortedAsc);
-    } else if (sortBy === 'desc') {
-        const searchedData = searchValue.length ? search(searchValue, posts) : posts;
-        const postSortedDesc = searchedData.sort(sortNamesByAsc).reverse();
-        insertPosts(postSortedDesc);
-    } else {
+    if (sortBy === 'default') {
         insertPosts(searchValue ? search(searchValue, initialPosts) : initialPosts);
+    } else {
+        const searchedData = searchValue ? search(searchValue, posts) : posts;
+        const postSorted = sortBy === 'desc' ? searchedData.sort(sortNamesByAsc).reverse() : searchedData.sort(sortNamesByAsc);
+        insertPosts(postSorted);
     }
 }));
