@@ -144,7 +144,7 @@ class WorkWithPromise {
         let filterResult = null;
 
         if (!filterItem) {
-            this._containerOriginal.innerHTML = '';
+            this.removeChildren();
 
             this.inputDataProcessing(this._dataBase, this._containerOriginal);
 
@@ -290,6 +290,16 @@ class WorkWithPromise {
         } else {
             deleteElement(this._dataBase);
         }
+    }
+
+    removeChildren() {
+        const children = this._containerOriginal.children;
+
+        const array = [...children];
+
+        array.forEach((element) => {
+            this._containerOriginal.removeChild(element);
+        });
     }
 }
 
