@@ -73,9 +73,6 @@ dataSortNode.addEventListener('change', (event) => {
     const sortingPattern = event.currentTarget.value;
     postsListNode.querySelectorAll('li').forEach((n) => n.remove());
 
-    sortBy = event.currentTarget.value;
-    postsListNode.querySelectorAll('li').forEach((n) => n.remove());
-
     if (sortingPattern === 'default') {
         sortBy = sortingPattern;
         renderPostsList(searchValue ? search(searchValue, initialPosts) : initialPosts);
