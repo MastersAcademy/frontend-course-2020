@@ -116,6 +116,7 @@ function addHandlers() {
 }
 function renderPosts(data) {
     document.getElementById('main').innerHTML = preparePosts(data);
+    addHandlers();
 }
 
 function searchHandler() {
