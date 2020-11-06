@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Posts</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="form_box">
+        <form class="form" onsubmit="return false">
+            <input class="input input_filter" placeholder="Enter Text" type="text"/>
+        </form>
+        <div class="select_box">
+            <select class="select">
+                <option value="default">звичайний режим</option>
+                <option value="fromAtoZ">From A to Z</option>
+                <option value="fromZtoA">From Z to A</option>
+            </select>
+        </div>
+    </div>
+    <div class="loading"><img class="loader_img" src="preloader/load.gif"></div>
+    <div class="posts"></div>
+</div>
+<script src="script/script.js"></script>
+</body>
+</html>
