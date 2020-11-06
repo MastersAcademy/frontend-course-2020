@@ -144,7 +144,7 @@ class WorkWithPromise {
         let filterResult = null;
 
         if (!filterItem) {
-            this._containerOriginal.innerHTML ='';
+            this._containerOriginal.innerHTML = '';
 
             this.inputDataProcessing(this._dataBase, this._containerOriginal);
 
@@ -277,16 +277,17 @@ class WorkWithPromise {
         }, 3000);
     }
 
-    removePost(desiredId){
+    removePost(desiredId) {
         const deleteElement = (base) => {
             const index = base.findIndex((element) => element.id === Number(desiredId));
 
             base.splice(index, 1);
-        }
-        if(this._intermediateResult){
+        };
+
+        if(this._intermediateResult) {
             deleteElement(this._intermediateResult);
             deleteElement(this._dataBase);
-        }else{
+        } else {
             deleteElement(this._dataBase);
         }
     }
