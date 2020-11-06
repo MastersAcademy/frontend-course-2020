@@ -148,6 +148,8 @@ class WorkWithPromise {
 
             this._containerOriginal.classList.remove('hidden');
 
+            this._intermediateResult = null;
+
             this.sortAction();
         } else {
             filterResult = this._dataBase.filter((obj) => {
