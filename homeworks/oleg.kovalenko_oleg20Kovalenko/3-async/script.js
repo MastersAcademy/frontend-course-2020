@@ -58,7 +58,6 @@ function sortByTitle(e) {
             case "Z":
                 return b["title"].localeCompare(a["title"]);
             default:
-                return false;
         }
     });
 
