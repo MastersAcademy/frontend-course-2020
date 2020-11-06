@@ -1,9 +1,7 @@
 const containerEl = document.querySelector('[data-container]');
 const templateEl = document.querySelector('[data-template]');
-const buttonSort = document.querySelector('[data-sort]');
-const buttonReverse = document.querySelector('[data-reverse]');
-const buttonDefault = document.querySelector('[data-default]');
-const inputSearch = document.querySelector('[data-search]');
+const dropdownSort = document.querySelector('[data-sort]');
+// const inputSearch = document.querySelector('[data-search]');
 
 function createPostItem(item, i) {
     const postClone = templateEl.content.cloneNode(true);
@@ -23,7 +21,7 @@ function createPostItem(item, i) {
 }
 
 function toggleLoader() {
-    const imageLoaderEl = document.querySelector('.loader');
+    const imageLoaderEl = document.querySelector('[data-loader]');
     if (imageLoaderEl.style.display === 'none') {
         imageLoaderEl.style.display = 'block';
     } else {
@@ -66,28 +64,41 @@ function sortDown(posts) {
     });
 }
 
-function dataSearch() {
-    const filter = inputSearch.value;
-    // const filterItems = document.querySelectorAll('.post');
-    // filterItems.forEach((item) => {
-    //     console.log(item.getElementsByTagName('h2')[0].textContent.toLowerCase());
-    // });
-    console.log(filter);
+function sortOff(posts) { return posts; }
+
+function sort(posts) {
+    switch (dropdownSort.value) {
+        case 'sort':
+            sortUp(posts);
+            break;
+        case 'reverse':
+            sortDown(posts);
+            break;
+        case 'default':
+            sortOff(posts);
+            break;
+        default: break;
+    }
 }
 
-async function showData(sort) {
+async function showData() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const posts = await response.json();
     deleteAllPosts();
-    if (sort === 'sort') { sortUp(posts); }
-    if (sort === 'reverse') { sortDown(posts); }
+    sort(posts);
     posts.forEach((item, i) => {
         createPostItem(item, i);
     });
 }
 
-buttonSort.addEventListener('click', () => { showData('sort').then(); });
-inputSearch.addEventListener('keyup', () => { dataSearch(); });
-buttonReverse.addEventListener('click', () => { showData('reverse').then(); });
-buttonDefault.addEventListener('click', () => { showData().then(); });
+// function dataSearch() {
+// const filter = inputSearch.value;
+// const filterItems = document.querySelectorAll('.post');
+// filterItems.forEach((item) => {
+//     console.log(item.getElementsByTagName('h2')[0].textContent.toLowerCase());
+// });
+// console.log(filter);
+// }
+dropdownSort.addEventListener('change', () => { showData(); });
+// inputSearch.addEventListener('keyup', () => { dataSearch(); });
 setTimeout(() => { showData().then(toggleLoader); }, 1000);

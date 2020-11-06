@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="main.js" defer></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
     <div class="container" data-container>
-        <div class="filter">
-            <input type="text" data-search>
-        </div>
-        <div class="sort">
-            <button data-sort>A-Z</button>
-            <button data-reverse>Z-A</button>
-            <button data-default>OFF</button>
+        <div class="header">
+            <div class="filter">
+                <input type="text" data-search>
+            </div>
+            <div class="sort">
+                <select data-sort>
+                    <option value="sort">A-Z
+                    <option value="reverse">Z-A
+                    <option value="default" selected>Default
+                </select>
+            </div>
         </div>
         <template data-template>
             <div class="post">
@@ -22,10 +27,9 @@
                 <p></p>
             </div>
         </template>
-        <div class="loader">
-            <img data-loader src="img/load.gif">
+        <div data-loader class="image-wrap">
+            <img class="image-center" src="img/load.gif">
         </div>
     </div>
-    <script src="main.js" defer></script>
 </body>
 </html>
