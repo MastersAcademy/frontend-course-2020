@@ -49,13 +49,13 @@ body {
 }
 
 .post-title-container {
-  font-size: x-large;
   display: inline-block;
+  font-size: x-large;
+  width: 97%;
 }
 
 .remove-button {
   display: inline-block;
-  float: right;
   background-image: url("img/remove.png");
   background-size: contain;
   width: 30px;
