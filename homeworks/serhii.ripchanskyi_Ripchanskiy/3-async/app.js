@@ -45,20 +45,19 @@ async function getPosts() {
     return response.json();
 }
 
-const renderPostsList = (postsData) => postsData.map(({ body, title }) => {
-    const clearedTitle = title.replace(/[^\w\s]/gi, '');
-    const clearedBody = body.replace(/[^\w\s]/gi, '');
-    return `<li>${clearedTitle}<p>${clearedBody}</p></li>`;
-}).join('');
-
-const insertPosts = (postsData) => {
-    postsListNode.insertAdjacentHTML('beforeend', renderPostsList(postsData));
-};
+const renderPostsList = (postsData) => postsData.forEach(({ body, title }) => {
+    const li = document.createElement('li');
+    const p = document.createElement('p');
+    li.innerText = title;
+    p.innerText = body;
+    li.appendChild(p);
+    postsListNode.appendChild(li);
+});
 
 const appendPosts = () => {
     getPosts()
         .then((data) => {
-            postsListNode.insertAdjacentHTML('beforeend', renderPostsList(data));
+            renderPostsList(data);
             loaderNode.classList.toggle('loader-disable');
             posts.push(...data);
             initialPosts.push(...data);
@@ -79,11 +78,11 @@ dataSortNode.addEventListener('change', (event) => {
 
     if (sortingPattern === 'default') {
         sortBy = sortingPattern;
-        insertPosts(searchValue ? search(searchValue, initialPosts) : initialPosts);
+        renderPostsList(searchValue ? search(searchValue, initialPosts) : initialPosts);
     } else {
         const searchedData = searchValue ? search(searchValue, posts) : posts;
         const postSorted = sortBy === 'desc' ? searchedData.sort(sortNamesByAsc).reverse() : searchedData.sort(sortNamesByAsc);
-        insertPosts(postSorted);
+        renderPostsList(postSorted);
         sortBy = sortingPattern;
     }
 });
@@ -97,10 +96,10 @@ dataSortNode.addEventListener('change', (event) => {
     postsListNode.querySelectorAll('li').forEach((n) => n.remove());
 
     if (sortBy === 'default') {
-        insertPosts(searchValue ? search(searchValue, initialPosts) : initialPosts);
+        renderPostsList(searchValue ? search(searchValue, initialPosts) : initialPosts);
     } else {
         const searchedData = searchValue ? search(searchValue, posts) : posts;
         const postSorted = sortBy === 'desc' ? searchedData.sort(sortNamesByAsc).reverse() : searchedData.sort(sortNamesByAsc);
-        insertPosts(postSorted);
+        renderPostsList(postSorted);
     }
 }));
