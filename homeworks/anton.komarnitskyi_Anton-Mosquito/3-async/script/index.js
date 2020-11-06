@@ -293,11 +293,9 @@ class WorkWithPromise {
     }
 
     removeChildren() {
-        const children = this._containerOriginal.children;
+        const [...children] = this._containerOriginal.children;
 
-        const array = [...children];
-
-        array.forEach((element) => {
+        children.forEach((element) => {
             this._containerOriginal.removeChild(element);
         });
     }
