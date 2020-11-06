@@ -21,17 +21,9 @@ body {
 
 .filter-sort-container {
   padding: 20px;
-}
-
-.filter-container {
-  width: 890px;
-  display: inline-block;
-}
-
-.sort-container {
-  width: 260px;
-  display: inline-block;
-  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .show-messages-container {
@@ -57,16 +49,16 @@ body {
 .post-container-header {
   border-bottom: 1px solid rgb(128, 128, 128);
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .post-title-container {
-  display: inline-block;
   font-size: x-large;
-  width: 97%;
 }
 
 .remove-button {
-  display: inline-block;
   background-image: url("img/remove.png");
   background-size: contain;
   width: 30px;
