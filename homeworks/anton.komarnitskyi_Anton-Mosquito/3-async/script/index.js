@@ -284,7 +284,7 @@ class WorkWithPromise {
             base.splice(index, 1);
         };
 
-        if(this._intermediateResult) {
+        if (this._intermediateResult) {
             deleteElement(this._intermediateResult);
             deleteElement(this._dataBase);
         } else {
