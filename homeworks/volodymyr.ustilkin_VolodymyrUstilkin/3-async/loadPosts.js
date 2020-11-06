@@ -21,8 +21,7 @@
         }
 
         const buttonEl = event.target;
-        const postContainerHeaderEl = buttonEl.parentNode;
-        const postContainerEl = postContainerHeaderEl.parentNode;
+        const postContainerEl = buttonEl.closest('.post-container');
         postContainerEl.style.display = 'none';
 
         setTimeout(removePostFromServer, 3000, postContainerEl);
