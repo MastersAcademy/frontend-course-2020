@@ -37,7 +37,6 @@ export const onClickSort = (getSort) => {
 
 export const changeSort = (getSort) => {
     searchElem.addEventListener('input', (e) => {
-        // сори, пытался сделать реюзабельной функцию sort, убил три часа, не вышло.
         const sorting = document.querySelector('.dropdown_title');
         const sortingAzElem = document.querySelector(
             '.dropdown_title.sortAzElem',
