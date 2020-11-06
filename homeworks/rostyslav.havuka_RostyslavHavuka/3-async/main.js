@@ -7,11 +7,6 @@ const Order = Object.freeze({
     DEFAULT: 'default',
 });
 
-/*
- *
- * @param {[]} data
- * @param {Order.ASC || Order.DESC} order
- */
 function sortByOrder(data, order) {
     const newData = data.sort((a, b) => {
         const nameA = a.title.toLowerCase();
@@ -93,17 +88,6 @@ function deletePostFromStore(id) {
 
     return deletedPost;
 }
-function addHandlers() {
-    const deleteButtons = document.querySelectorAll('.deletePost');
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', removePost);
-    });
-}
-
-function renderPosts(data) {
-    document.getElementById('main').innerHTML = preparePosts(data);
-    addHandlers();
-}
 
 async function removePost() {
     const id = Number(this.id);
@@ -119,6 +103,21 @@ async function removePost() {
         renderPosts(store);
         alert('error when delete post from API');
     }
+}
+
+function renderPosts(data) {
+    document.getElementById('main').innerHTML = preparePosts(data);
+    const deleteButtons = document.querySelectorAll('.deletePost');
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', removePost);
+    });
+}
+
+function addHandlers() {
+    const deleteButtons = document.querySelectorAll('.deletePost');
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', removePost);
+    });
 }
 
 function searchHandler() {
