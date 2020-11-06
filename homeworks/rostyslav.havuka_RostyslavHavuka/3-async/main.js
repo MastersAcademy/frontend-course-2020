@@ -36,7 +36,7 @@ function resetStoreToDefault() {
 
 function prepareInput() {
     return `
-        <input type="text" id="searchInput" placeholder="Search">  
+        <input class="type-1" type="text" id="searchInput" placeholder="Search">  
   `;
 }
 
