@@ -4,7 +4,7 @@
         function removePostErrorHandler(postContainerEl) {
             const postContainer = postContainerEl;
             console.log(`Error on delete post with id: ${postContainer.id}`);
-            postContainer.style.display = 'block';
+            postContainer.classList.remove('hidden');
             postContainer.innerText = 'Something wrong';
         }
 
@@ -22,7 +22,7 @@
 
         const buttonEl = event.target;
         const postContainerEl = buttonEl.closest('.post-container');
-        postContainerEl.style.display = 'none';
+        postContainerEl.classList.add('hidden');
 
         setTimeout(removePostFromServer, 3000, postContainerEl);
     }
