@@ -30,24 +30,19 @@ function sortByOrder(data, order) {
     return newData;
 }
 
-function resetStoreToDefault() {
-    store = [...defaultData];
-}
-
-function prepareInput() {
-    return `
-        <input class="type-1" type="text" id="searchInput" placeholder="Search">  
-  `;
-}
-
 function prepareDropDownMenu() {
     return `
-        <select id="mySelect">
-          <option value="${Order.DEFAULT}">Default</option>
-          <option value="${Order.ASC}">A-z</option>
-          <option value="${Order.DESC}">Z-a</option>
-        </select>
-`;
+    <div class="head">
+        <div class="nav">
+            <select id="mySelect">
+                <option value="${Order.DEFAULT}">Default</option>
+                <option value="${Order.ASC}">A-z</option>
+                <option value="${Order.DESC}">Z-a</option>
+            </select>
+            <input class="type-1" type="text" id="searchInput" placeholder="Search">  
+        </div>
+    </div>
+        `;
 }
 
 function preparePosts(data) {
@@ -55,17 +50,14 @@ function preparePosts(data) {
     <div class="main" id="main">
         ${data.map((element) => `
         <div class="post">
-            <p class="title">Title: ${element.title}</p>
-            <p>${element.body}</p>
+        <button type="button" class="deletePost" id="${element.id}">Delete</button>
+            <p class="title">${element.title}</p>
+            <p class="text">${element.body}</p>
         </div>
         `).join('\n')}
     </div>
     `;
     return storeArray;
-}
-
-function renderPosts(data) {
-    document.getElementById('main').innerHTML = preparePosts(data);
 }
 
 function timeout(ms) {
@@ -74,6 +66,59 @@ function timeout(ms) {
 
 function search(data, value) {
     return data.filter((item) => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1);
+}
+
+async function deletePostFromAPI(id) {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+        method: 'DELETE',
+    });
+}
+function resetStoreToDefault() {
+    store = [...defaultData];
+}
+
+function syncStores(newdData) {
+    defaultData = [...newdData];
+}
+
+function deletePostFromStore(id) {
+    let deletedPost;
+    store = store.map((post) => {
+        if (id === post.id) {
+            deletedPost = { ...post };
+            return null;
+        }
+        return post;
+    }).filter(Boolean);
+
+    return deletedPost;
+}
+function addHandlers() {
+    const deleteButtons = document.querySelectorAll('.deletePost');
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', removePost);
+    });
+}
+
+function renderPosts(data) {
+    document.getElementById('main').innerHTML = preparePosts(data);
+    addHandlers();
+}
+
+async function removePost() {
+    const id = Number(this.id);
+    const deletedPost = deletePostFromStore(id);
+    renderPosts(store);
+    alert('Deleted post');
+    try {
+        const result = await deletePostFromAPI(id);
+        if (!result.ok) throw new Error('post didn\'t deleted');
+        syncStores(store);
+    } catch (error) {
+        store.push(deletedPost);
+        renderPosts(store);
+        alert('error when delete post from API');
+    }
 }
 
 function searchHandler() {
@@ -96,15 +141,18 @@ function searchHandler() {
         renderPosts(filtrerResult);
     }
 }
-
-document.addEventListener('DOMContentLoaded', async () => {
+async function getData() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    store = await response.json();
+    return response.json();
+}
+document.addEventListener('DOMContentLoaded', async () => {
+    store = await getData();
     defaultData = [...store];
     document.body.innerHTML = '<div class="loader"></div>';
 
     await timeout(1000);
-    document.body.innerHTML = `${prepareDropDownMenu()} ${prepareInput()} ${preparePosts(store)}`;
+    document.body.innerHTML = `${prepareDropDownMenu()} ${preparePosts(store)}`;
+    addHandlers();
 
     document.getElementById('searchInput')
         .addEventListener('keydown', searchHandler);
@@ -115,6 +163,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const selected = selectElement.value;
         switch (selected) {
             case Order.DEFAULT:
+                resetStoreToDefault();
                 renderPosts(defaultData);
                 break;
             case Order.ASC:
