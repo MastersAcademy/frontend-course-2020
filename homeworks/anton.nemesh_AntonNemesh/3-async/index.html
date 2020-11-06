@@ -7,9 +7,14 @@
 </head>
 <body>
     <div class="container" data-container>
-        <button data-sort>A-Z</button>
-        <button data-reverse>Z-A</button>
-        <button data-default>OFF</button>
+        <div class="filter">
+            <input type="text" data-search>
+        </div>
+        <div class="sort">
+            <button data-sort>A-Z</button>
+            <button data-reverse>Z-A</button>
+            <button data-default>OFF</button>
+        </div>
         <template data-template>
             <div class="post">
                 <button class="deleteButton">X</button>

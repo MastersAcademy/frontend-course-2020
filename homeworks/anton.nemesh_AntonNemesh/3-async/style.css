@@ -32,3 +32,15 @@
 .deleteButton {
   font-weight: 700;
 }
+
+.sort {
+  float: right;
+  text-align: right;
+  width: 40%;
+}
+
+.filter {
+  float: left;
+  text-align: left;
+  width: 60%;
+}
