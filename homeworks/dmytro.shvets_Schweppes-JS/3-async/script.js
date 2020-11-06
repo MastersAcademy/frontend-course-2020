@@ -4,7 +4,7 @@
     const sort = document.querySelector('[data-sort]');
     const preloaderContainer = document.querySelector('[data-preloader-container]');
     const postContainer = document.querySelector('[data-post-container]');
-    const postTamplate = document.querySelector('[data-tamplate-post]')
+    const postTamplate = document.querySelector('[data-tamplate-post]');
 
     const requestsOnSort = {
         default: 'https://jsonplaceholder.typicode.com/posts?',
@@ -30,7 +30,6 @@
 
     // Deleting post on click
     function removingPost(e) {
-        debugger
         const parent = e.currentTarget.parentNode.parentNode;
         const postId = parent.getAttribute('data-post');
         parent.classList.add('hidden');
@@ -61,7 +60,7 @@
             const data = await response.json();
             data.forEach((post) => {
                 // Creating cell fot post
-                const content = postTamplate.content;
+                const { content: content } = postTamplate;
                 content.querySelector('[data-post]').setAttribute('data-post', `${post.id}`);
                 // Inserting title text
                 content.querySelector('[data-title]').innerText = post.title;
