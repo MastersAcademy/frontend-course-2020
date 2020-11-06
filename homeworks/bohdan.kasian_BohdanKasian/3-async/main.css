@@ -177,3 +177,9 @@ input, button {
     background: rgba(255, 5, 0, 1);
   }
 }
+
+.delete {
+  background: none;
+  color: #FFF;
+  cursor: pointer;
+}

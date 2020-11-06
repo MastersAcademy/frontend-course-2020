@@ -10,7 +10,7 @@ const createItemPost = (title, id, content) => {
     item.innerHTML = `
     <div class="content_item_header">
         <h3 class="content_item_header_title">${title}</h3>
-        <span class="delete">x</span>
+        <button class="delete">x</button>
     </div>
     <p class="content_item_text">${content}</p>
     `;
