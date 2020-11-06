@@ -90,7 +90,7 @@
 
     function filterAndSortPosts() {
         const posts = loadedPosts;
-        const sortType = parseInt(document.getElementById('titleSortSelect').value, 10);
+        const sortType = parseInt(document.getElementById('title-sort-select').value, 10);
         const filterString = document.getElementById('filterInput')
             .value
             .trim()
@@ -135,6 +135,6 @@
     window.addEventListener('load', loadData);
     document.getElementById('filterInput')
         .addEventListener('input', filterAndSortPosts);
-    document.getElementById('titleSortSelect')
+    document.getElementById('title-sort-select')
         .addEventListener('input', filterAndSortPosts);
 }());
