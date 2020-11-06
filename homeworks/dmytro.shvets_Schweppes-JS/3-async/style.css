@@ -87,6 +87,10 @@
   overflow-y: hidden;
 }
 
+.overflow-scroll {
+  overflow-y: auto;
+}
+
 .middle-container::-webkit-scrollbar {
   width: 10px;
 }
@@ -115,7 +119,7 @@
 }
 
 .post-container {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 15px;
 }
@@ -170,6 +174,10 @@
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+.hidden {
+  display: none !important;
 }
 
 @keyframes loading {

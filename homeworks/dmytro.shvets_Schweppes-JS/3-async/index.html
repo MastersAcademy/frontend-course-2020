@@ -82,7 +82,19 @@
                </div>
             </div>
          </div>
-         <div class="post-container" data-post-container></div>
+         <div class="post-container hidden" data-post-container>
+            <template data-tamplate-post>
+               <div class="post" data-post>
+                  <div class="title-container">
+                     <h2 class="h2" data-title></h2>
+                     <i class="fas fa-times-circle" data-delete-button></i>
+                  </div>
+                  <div class="text-container">
+                     <p class="text" data-text></p>
+                  </div>
+               </div>
+            </template>
+         </div>
       </div>
    </div>
 </body>

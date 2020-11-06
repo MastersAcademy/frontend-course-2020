@@ -4,6 +4,7 @@
     const sort = document.querySelector('[data-sort]');
     const preloaderContainer = document.querySelector('[data-preloader-container]');
     const postContainer = document.querySelector('[data-post-container]');
+    const postTamplate = document.querySelector('[data-tamplate-post]')
 
     const requestsOnSort = {
         default: 'https://jsonplaceholder.typicode.com/posts?',
@@ -11,7 +12,7 @@
         fromZtoA: 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=desc',
     };
 
-    let deleteButtons = [];
+    let deleteButtons;
     let animationTimer;
     let inputTimer;
 
@@ -19,9 +20,9 @@
     function stoppingAnimation() {
         clearTimeout(animationTimer);
         animationTimer = setTimeout(() => {
-            preloaderContainer.style.display = 'none';
-            postContainer.style.display = 'flex';
-            middleContainer.style.overflowY = 'auto';
+            preloaderContainer.classList.add('hidden');
+            postContainer.classList.remove('hidden');
+            middleContainer.classList.add('overflow-scroll');
         }, 3000);
     }
 
@@ -29,26 +30,26 @@
 
     // Deleting post on click
     function removingPost(e) {
-        console.log(e);
-        const parent = e.path[2];
+        debugger
+        const parent = e.currentTarget.parentNode.parentNode;
         const postId = parent.getAttribute('data-post');
-        parent.style.display = 'none';
+        parent.classList.add('hidden');
         (async function () {
             try {
                 const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
                     method: 'DELETE',
                 });
                 if (response.status === 200) {
-                    parent.children[0].style.display = 'none';
+                    parent.children[0].classList.add('hidden');
                     parent.children[1].innerText = 'Post deleted';
-                    parent.style.display = 'flex';
+                    parent.classList.remove('hidden');
                 } else {
                     alert('Something went wrong');
-                    parent.style.display = 'flex';
+                    parent.classList.remove('hidden');
                 }
             } catch (err) {
                 alert('Something went wrong');
-                parent.style.display = 'flex';
+                parent.classList.remove('hidden');
             }
         }());
     }
@@ -60,36 +61,18 @@
             const data = await response.json();
             data.forEach((post) => {
                 // Creating cell fot post
-                const postNode = document.createElement('div');
-                postNode.classList.add('post');
-                postNode.setAttribute('data-post', `${post.id}`);
+                const content = postTamplate.content;
+                content.querySelector('[data-post]').setAttribute('data-post', `${post.id}`);
+                // Inserting title text
+                content.querySelector('[data-title]').innerText = post.title;
+                // Inserting main post text
+                content.querySelector('[data-text]').innerHTML = post.body;
+                // Pushing in DOM
+                const postNode = content.cloneNode(true);
                 postContainer.append(postNode);
-                // Creating title container
-                const titleContainerNode = document.createElement('div');
-                titleContainerNode.classList.add('title-container');
-                postNode.append(titleContainerNode);
-
-                const h2Node = document.createElement('h2');
-                h2Node.classList.add('h2');
-                h2Node.innerText = post.title;
-                titleContainerNode.append(h2Node);
-
-                const deleteBtnNode = document.createElement('i');
-                deleteBtnNode.classList.add('fas', 'fa-times-circle');
-                deleteBtnNode.setAttribute('data-delete-button', '');
-                titleContainerNode.append(deleteBtnNode);
-                deleteButtons.push(deleteBtnNode);
-                // Creating text container
-                const textContainerNode = document.createElement('div');
-                textContainerNode.classList.add('text-container');
-                postNode.append(textContainerNode);
-
-                const textNode = document.createElement('p');
-                textNode.classList.add('text');
-                textNode.innerHTML = post.body;
-                textContainerNode.append(textNode);
             });
             // Adding event listener on all new posts
+            deleteButtons = document.querySelectorAll('[data-delete-button]');
             deleteButtons.forEach((button) => button.addEventListener('click', removingPost));
         } catch (error) {
             alert(error);
@@ -100,9 +83,9 @@
 
     // Displaying preload animation
     function displayingAnimation() {
-        postContainer.style.display = 'none';
-        preloaderContainer.style.display = 'flex';
-        middleContainer.style.overflowY = 'hidden';
+        postContainer.classList.add('hidden');
+        preloaderContainer.classList.remove('hidden');
+        middleContainer.classList.add('overflow-scroll');
     }
 
     // Sorting posts by request
@@ -114,7 +97,6 @@
         posts.forEach((post) => post.remove());
         // Сlearing all old Delete Button's event
         deleteButtons.forEach((button) => button.removeEventListener('click', removingPost));
-        deleteButtons = [];
         // Sending query string to get new posts
         switch (sort.value) {
             case 'Default':
