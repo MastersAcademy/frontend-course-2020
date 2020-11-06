@@ -12,11 +12,11 @@
     <div class="filter-sort-container gray-solid-border">
         <div class="filter-container">
             <label for="filter-input">Filter: </label>
-            <input id="filter-input" class="filter-input" type="text">
+            <input id="filter-input" data-filter-input class="filter-input" type="text">
         </div>
         <div class="sort-container">
             <label for="title-sort-select">Sort by: </label>
-            <select id="title-sort-select" class="title-sort-select">
+            <select id="title-sort-select" data-title-sort-select class="title-sort-select">
                 <option value="0">No sort</option>
                 <option value="1">A-Z</option>
                 <option value="-1">Z-A</option>
@@ -24,8 +24,8 @@
         </div>
     </div>
 
-    <div class="show-messages-container gray-solid-border"></div>
-    <div class="loaderContainer"></div>
+    <div class="show-messages-container gray-solid-border" data-show-messages-container></div>
+    <div class="loaderContainer" data-loader-container></div>
 </div>
 </body>
 </html>
