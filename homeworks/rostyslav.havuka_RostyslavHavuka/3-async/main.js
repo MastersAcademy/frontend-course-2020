@@ -92,6 +92,8 @@ function deletePostFromStore(id) {
 async function removePost() {
     const id = Number(this.id);
     const deletedPost = deletePostFromStore(id);
+    // порадьте будь ласка як це виправити
+    // eslint-disable-next-line no-use-before-define
     renderPosts(store);
     alert('Deleted post');
     try {
@@ -100,24 +102,20 @@ async function removePost() {
         syncStores(store);
     } catch (error) {
         store.push(deletedPost);
+        // порадьте будь ласка як це виправити
+        // eslint-disable-next-line no-use-before-define
         renderPosts(store);
         alert('error when delete post from API');
     }
 }
-
-function renderPosts(data) {
-    document.getElementById('main').innerHTML = preparePosts(data);
-    const deleteButtons = document.querySelectorAll('.deletePost');
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', removePost);
-    });
-}
-
 function addHandlers() {
     const deleteButtons = document.querySelectorAll('.deletePost');
     deleteButtons.forEach((button) => {
         button.addEventListener('click', removePost);
     });
+}
+function renderPosts(data) {
+    document.getElementById('main').innerHTML = preparePosts(data);
 }
 
 function searchHandler() {
@@ -147,9 +145,9 @@ async function getData() {
 document.addEventListener('DOMContentLoaded', async () => {
     store = await getData();
     defaultData = [...store];
-    document.body.innerHTML = '<div class="loader"></div>';
+    document.body.innerHTML = '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>';
 
-    await timeout(1000);
+    await timeout(3000);
     document.body.innerHTML = `${prepareDropDownMenu()} ${preparePosts(store)}`;
     addHandlers();
 
