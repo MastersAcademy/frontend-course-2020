@@ -27,15 +27,15 @@
         setTimeout(removePostFromServer, 3000, postContainerEl);
     }
 
-    function createPostFromContent(id, postTitle, postContent) {
-        function createTitleContainer(title) {
+    function createPostFromContent(id, title, content) {
+        function createTitleContainer() {
             const titleContainerEl = document.createElement('label');
             titleContainerEl.classList.add('post-title-container');
             titleContainerEl.innerText = title;
             return titleContainerEl;
         }
 
-        function createContentContainer(content) {
+        function createContentContainer() {
             const contentContainerEl = document.createElement('div');
             contentContainerEl.classList.add('post-content-container');
             contentContainerEl.innerText = content;
@@ -62,9 +62,9 @@
             return postHeaderEl;
         }
 
-        const titleContainerEl = createTitleContainer(postTitle);
+        const titleContainerEl = createTitleContainer();
         const removeButtonEl = createRemoveButton();
-        const contentContainerEl = createContentContainer(postContent);
+        const contentContainerEl = createContentContainer();
         const postContainerHeaderEl = createPostHeader();
         const postContainerEl = createPostContainer();
 
@@ -125,11 +125,11 @@
                 .then((response) => response.json())
                 .then((response) => savePosts(response))
                 .then((responseJson) => reCreatePosts(responseJson));
-            loaderEl.style.display = 'none';
+            loaderEl.classList.add('hidden');
         }
 
         setTimeout(getData, 3000);
-        loaderEl.style.display = 'block';
+        loaderEl.classList.remove('hidden');
     }
 
     window.addEventListener('load', loadData);
