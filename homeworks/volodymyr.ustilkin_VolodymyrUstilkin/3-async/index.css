@@ -23,6 +23,17 @@ body {
   padding: 20px;
 }
 
+.filter-container {
+  width: 890px;
+  display: inline-block;
+}
+
+.sort-container {
+  width: 260px;
+  display: inline-block;
+  margin: 0 0 0 auto;
+}
+
 .show-messages-container {
   padding: 10px;
   width: auto;
