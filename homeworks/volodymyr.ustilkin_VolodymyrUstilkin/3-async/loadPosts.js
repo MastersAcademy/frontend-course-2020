@@ -89,27 +89,28 @@
     }
 
     function filterAndSortPosts() {
-        const posts = loadedPosts;
+        function filterPosts(posts, filterString) {
+            return posts.filter((post) => post.title.toLowerCase()
+                .includes(filterString));
+        }
+
+        function sortPosts(posts, sortType) {
+            return posts.sort((post1, post2) => (post1.title > post2.title
+                ? sortType
+                : -sortType));
+        }
+
+        let posts = loadedPosts.slice(0);
         const sortType = parseInt(document.querySelector('.title-sort-select').value, 10);
         const filterString = document.querySelector('.filter-input')
             .value
             .trim()
             .toLowerCase();
-        let filteredPosts;
-        if (filterString) {
-            filteredPosts = posts.filter((post) => post.title.toLowerCase()
-                .includes(filterString));
-        } else {
-            filteredPosts = posts;
-        }
 
-        if (sortType !== 0) {
-            filteredPosts = filteredPosts.sort((post1, post2) => (post1.title > post2.title
-                ? sortType
-                : -sortType));
-        }
+        if (filterString) posts = filterPosts(posts, filterString);
+        if (sortType !== 0) posts = sortPosts(posts, sortType);
 
-        reCreatePosts(filteredPosts);
+        reCreatePosts(posts);
     }
 
     function savePosts(posts) {
