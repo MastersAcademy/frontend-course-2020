@@ -78,7 +78,7 @@
         return postContainerEl;
     }
     function reCreatePosts(posts) {
-        const showMessagesContainerEl = document.getElementById('showMessagesContainer');
+        const showMessagesContainerEl = document.querySelector('.show-messages-container');
         showMessagesContainerEl.textContent = '';
         posts.forEach((post) => {
             showMessagesContainerEl.appendChild(
@@ -90,8 +90,8 @@
 
     function filterAndSortPosts() {
         const posts = loadedPosts;
-        const sortType = parseInt(document.getElementById('title-sort-select').value, 10);
-        const filterString = document.getElementById('filterInput')
+        const sortType = parseInt(document.querySelector('.title-sort-select').value, 10);
+        const filterString = document.querySelector('.filter-input')
             .value
             .trim()
             .toLowerCase();
@@ -118,7 +118,7 @@
     }
 
     function loadData() {
-        const loaderEl = document.getElementById('loader');
+        const loaderEl = document.querySelector('.loader');
 
         async function getData() {
             await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -133,8 +133,8 @@
     }
 
     window.addEventListener('load', loadData);
-    document.getElementById('filterInput')
+    document.querySelector('.filter-input')
         .addEventListener('input', filterAndSortPosts);
-    document.getElementById('title-sort-select')
+    document.querySelector('.title-sort-select')
         .addEventListener('input', filterAndSortPosts);
 }());
