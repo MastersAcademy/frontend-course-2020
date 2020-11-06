@@ -14,30 +14,31 @@
         <div class="wrap-loader">
             <div class="loader">Loading...</div>
         </div>
+        <template data-controls-template>
+            <div data-controls class="container controls">
+                <label class="controls__label">
+                    Find:
+                    <input type="text" data-filter class="controls__input" placeholder="Please input text">
+                </label>
+                <label class="controls__label">
+                    Sort:
+                    <select data-sort class="controls__sort-list">
+                        <option>Unsorted</option>
+                        <option value="2">A-Z</option>
+                        <option value="3">Z-A</option>
+                    </select>
+                </label>
+            </div>
+        </template>
+        <template data-item-template>
+            <li data-post class="post">
+                <h2 data-post-header class="post__headline"></h2>
+                <p data-post-txt class="post__txt"></p>
+                <button type="button" data-post-del class="post__btn-del">X</button>
+            </li>
+        </template>
     </div>
-    <template data-ctrls-tmp>
-        <div data-ctrls class="container ctrls">
-            <label class="ctrls__label">
-                Find:
-                <input type="text" data-filter class="ctrls__input" placeholder="Please input text">
-            </label>
-            <label class="ctrls__label">
-                Sort:
-                <select data-sort class="ctrls__sort-list">
-                    <option>Unsorted</option>
-                    <option value="2">A-Z</option>
-                    <option value="3">Z-A</option>
-                </select>
-            </label>
-        </div>
-        <li data-post class="post">
-            <h2 data-post-header class="post__headline"></h2>
-            <p data-post-txt class="post__txt"></p>
-            <button type="button" data-post-del class="post__btn-del">X</button>
-        </li>
-    </template>
     <script src="app/app.js" defer></script>
-
 </body>
 
 </html>

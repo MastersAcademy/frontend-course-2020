@@ -12,7 +12,7 @@ body {
   margin: auto;
 }
 
-.ctrls {
+.controls {
   background-color: #3A524E;
   display: flex;
   justify-content: space-evenly;
@@ -20,12 +20,12 @@ body {
   height: 60px;
 }
 
-.ctrls__label {
+.controls__label {
   color: #F90;
   font-size: 16px;
 }
 
-.ctrls__input {
+.controls__input {
   height: 20px;
   margin: 16px;
   border: #3A524E 1px solid;
@@ -35,15 +35,15 @@ body {
   outline: none;
 }
 
-.ctrls__input:hover {
+.controls__input:hover {
   border: #F90 1px solid;
 }
 
-.ctrls__input:focus {
+.controls__input:focus {
   border: #F90 1px solid;
 }
 
-.ctrls__sort-list {
+.controls__sort-list {
   padding-left: 5px;
   margin: 16px;
   border-radius: 50px;
@@ -51,11 +51,11 @@ body {
   outline: none;
 }
 
-.ctrls__sort-list:hover {
+.controls__sort-list:hover {
   border: #F90 1px solid;
 }
 
-.ctrls__sort-list:focus {
+.controls__sort-list:focus {
   border: #F90 1px solid;
 }
 
