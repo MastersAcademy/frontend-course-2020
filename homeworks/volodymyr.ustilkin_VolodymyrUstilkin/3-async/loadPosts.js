@@ -131,7 +131,7 @@
         loaderEl.classList.remove('hidden');
     }
 
-    window.addEventListener('load', loadData);
+    loadData();
     document.querySelector('.filter-input')
         .addEventListener('input', filterAndSortPosts);
     document.querySelector('.title-sort-select')
