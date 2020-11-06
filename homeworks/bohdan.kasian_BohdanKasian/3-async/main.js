@@ -6,4 +6,4 @@ setTimeout(() => {
     getPosts('/posts');
     onClickSort(sortPosts('/posts'));
     changeSort(sortPosts('/posts'));
-}, 3);
+}, 3 * 1000);
