@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+  height: 90vh;
+  background-color: #EEE;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.messages {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: solid 2px #CCC;
+  overflow: auto
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #CCC;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #0A7899;
+}
+
+.messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.message-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message-right {
+  align-items: flex-end;
+}
+
+.message__user-time {
+  font-size: 12px;
+  color: #009AC9;
+  margin: 5px 25px;
+  display: block;
+  max-width: 60%;
+}
+
+.message__txt {
+  color: #555;
+  background-color: #CCC;
+  border-radius: 5px;
+  padding: 16px;
+  overflow: auto;
+  display: block;
+  max-width: 60%;
+}
+
+.message__txt::-webkit-scrollbar-track {
+  background: #CCC;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.message__txt::-webkit-scrollbar-thumb {
+  background: #0A7899;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.message__txt::-webkit-scrollbar {
+  height: 5px;
+}
+
+.form {
+  position: relative;
+  padding-top: 16px;
+}
+
+.form__txt {
+  position: absolute;
+  color: #777;
+  font-size: 12px;
+  left: 20px;
+  top: 0;
+  display: none;
+}
+
+.form__wrap {
+  display: flex;
+  align-items: center;
+}
+
+.form__input {
+  background-color: #DDD;
+  color: #555;
+  border: none;
+  border-radius: 50px;
+  border: solid 1px #CCC;
+  height: 40px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form__input:focus {
+  border: solid 1px #059CCA
+}
+
+.form__btn {
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(120deg, #66D4F5,  #059CCA);
+  color: #FFF;
+  width: 45px;
+  height: 40px;
+  outline: none;
+  margin: 5px;
+}
+
+.form__btn:hover {
+  border: solid 1px #023B4D;
+  background: linear-gradient(120deg, #009AC9,  #0A7899);
+}
+
+.form__btn:focus {
+  border: solid 1px #023B4D;
+}
+
+.visible-typing {
+  display: block;
+}
