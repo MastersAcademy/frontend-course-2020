@@ -60,7 +60,7 @@
             const data = await response.json();
             data.forEach((post) => {
                 // Creating cell fot post
-                const { content: content } = postTamplate;
+                const { content } = postTamplate;
                 content.querySelector('[data-post]').setAttribute('data-post', `${post.id}`);
                 // Inserting title text
                 content.querySelector('[data-title]').innerText = post.title;
