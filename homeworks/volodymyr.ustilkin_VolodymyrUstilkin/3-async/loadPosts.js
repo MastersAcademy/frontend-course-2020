@@ -10,7 +10,6 @@
 
         function removePostFromLoadedPosts(id) {
             loadedPosts = loadedPosts.filter((e) => e.id.toString() !== id);
-            return id;
         }
 
         async function removePostFromServer(postContainerEl) {
