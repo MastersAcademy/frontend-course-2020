@@ -61,26 +61,28 @@ export const changeSort = (getSort) => {
 export const onDeleteItem = (requestDelete) => {
     const responseText = document.querySelector('[data-response-text]');
     document.querySelectorAll('.content_item').forEach((item) => item.addEventListener('click', (e) => {
-        const target = e.currentTarget;
-        target.style = 'opacity: 0';
-        requestDelete(e.currentTarget.id)
-            .then(() => {
-                responseText.style = 'visibility: visible';
-                responseText.textContent = 'Success';
-                target.style = 'display: none';
-                setTimeout(() => {
-                    responseText.style = 'visibility: hidden';
-                }, 2 * 1000);
-            })
-            .catch(() => {
-                responseText.style = 'visibility: visible';
-                responseText.textContent = 'Something went wrong';
-                responseText.classList.add('error');
-                target.style = 'display: block; opacity: 1;';
-                setTimeout(() => {
-                    responseText.style = 'visibility: hidden';
-                    responseText.classList.remove('error');
-                }, 2 * 1000);
-            });
+        if (e.target.className.includes('delete')) {
+            const { target } = e;
+            target.style = 'opacity: 0';
+            requestDelete(e.currentTarget.id)
+                .then(() => {
+                    responseText.style = 'visibility: visible';
+                    responseText.textContent = 'Success';
+                    target.style = 'display: none';
+                    setTimeout(() => {
+                        responseText.style = 'visibility: hidden';
+                    }, 2 * 1000);
+                })
+                .catch(() => {
+                    responseText.style = 'visibility: visible';
+                    responseText.textContent = 'Something went wrong';
+                    responseText.classList.add('error');
+                    target.style = 'display: block; opacity: 1;';
+                    setTimeout(() => {
+                        responseText.style = 'visibility: hidden';
+                        responseText.classList.remove('error');
+                    }, 2 * 1000);
+                });
+        }
     }));
 };
