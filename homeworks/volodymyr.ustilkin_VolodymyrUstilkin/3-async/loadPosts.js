@@ -1,11 +1,11 @@
 (function () {
     let loadedPosts;
     function removePost(event) {
-        function removePostErrorHandler(postContainer) {
-            const _postContainer = postContainer;
-            console.log(`Error on delete post with id: ${_postContainer.id}`);
-            _postContainer.style.display = 'block';
-            _postContainer.innerText = 'Something wrong';
+        function removePostErrorHandler(postContainerEl) {
+            const postContainer = postContainerEl;
+            console.log(`Error on delete post with id: ${postContainer.id}`);
+            postContainer.style.display = 'block';
+            postContainer.innerText = 'Something wrong';
         }
 
         function removePostFromLoadedPosts(id) {
@@ -13,77 +13,77 @@
             return id;
         }
 
-        async function removePostFromServer(postContainer) {
-            await fetch(`https://jsonplaceholder.typicode.com/posts/${postContainer.id}`, {
+        async function removePostFromServer(postContainerEl) {
+            await fetch(`https://jsonplaceholder.typicode.com/posts/${postContainerEl.id}`, {
                 method: 'DELETE',
             })
-                .then(() => removePostFromLoadedPosts(postContainer.id))
-                .catch(() => removePostErrorHandler(postContainer));
+                .then(() => removePostFromLoadedPosts(postContainerEl.id))
+                .catch(() => removePostErrorHandler(postContainerEl));
         }
 
-        const button = event.target;
-        const postContainerHeader = button.parentNode;
-        const postContainer = postContainerHeader.parentNode;
-        postContainer.style.display = 'none';
+        const buttonEl = event.target;
+        const postContainerHeaderEl = buttonEl.parentNode;
+        const postContainerEl = postContainerHeaderEl.parentNode;
+        postContainerEl.style.display = 'none';
 
-        setTimeout(removePostFromServer, 3000, postContainer);
+        setTimeout(removePostFromServer, 3000, postContainerEl);
     }
 
-    function createPostFromContent(id, title, content) {
-        function createTitleContainer(_title) {
-            const titleContainer = document.createElement('label');
-            titleContainer.classList.add('post-title-container');
-            titleContainer.innerText = _title;
-            return titleContainer;
+    function createPostFromContent(id, postTitle, postContent) {
+        function createTitleContainer(title) {
+            const titleContainerEl = document.createElement('label');
+            titleContainerEl.classList.add('post-title-container');
+            titleContainerEl.innerText = title;
+            return titleContainerEl;
         }
 
-        function createContentContainer(_content) {
-            const contentContainer = document.createElement('div');
-            contentContainer.classList.add('post-content-container');
-            contentContainer.innerText = _content;
-            return contentContainer;
+        function createContentContainer(content) {
+            const contentContainerEl = document.createElement('div');
+            contentContainerEl.classList.add('post-content-container');
+            contentContainerEl.innerText = content;
+            return contentContainerEl;
         }
 
         function createRemoveButton() {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.classList.add('remove-button');
-            btn.addEventListener('click', removePost);
-            return btn;
+            const buttonEl = document.createElement('button');
+            buttonEl.type = 'button';
+            buttonEl.classList.add('remove-button');
+            buttonEl.addEventListener('click', removePost);
+            return buttonEl;
         }
 
         function createPostContainer() {
-            const element = document.createElement('div');
-            element.classList.add('post-container');
-            return element;
+            const postContainerEl = document.createElement('div');
+            postContainerEl.classList.add('post-container');
+            return postContainerEl;
         }
 
         function createPostHeader() {
-            const element = document.createElement('div');
-            element.classList.add('post-container-header');
-            return element;
+            const postHeaderEl = document.createElement('div');
+            postHeaderEl.classList.add('post-container-header');
+            return postHeaderEl;
         }
 
-        const titleContainer = createTitleContainer(title);
-        const removeButton = createRemoveButton();
-        const contentContainer = createContentContainer(content);
-        const postContainerHeader = createPostHeader();
-        const postContainer = createPostContainer();
+        const titleContainerEl = createTitleContainer(postTitle);
+        const removeButtonEl = createRemoveButton();
+        const contentContainerEl = createContentContainer(postContent);
+        const postContainerHeaderEl = createPostHeader();
+        const postContainerEl = createPostContainer();
 
-        postContainerHeader.appendChild(titleContainer);
-        postContainerHeader.appendChild(removeButton);
+        postContainerHeaderEl.appendChild(titleContainerEl);
+        postContainerHeaderEl.appendChild(removeButtonEl);
 
-        postContainer.id = id;
-        postContainer.appendChild(postContainerHeader);
-        postContainer.appendChild(contentContainer);
+        postContainerEl.id = id;
+        postContainerEl.appendChild(postContainerHeaderEl);
+        postContainerEl.appendChild(contentContainerEl);
 
-        return postContainer;
+        return postContainerEl;
     }
     function reCreatePosts(posts) {
-        const showMessagesContainer = document.getElementById('showMessagesContainer');
-        showMessagesContainer.textContent = '';
+        const showMessagesContainerEl = document.getElementById('showMessagesContainer');
+        showMessagesContainerEl.textContent = '';
         posts.forEach((post) => {
-            showMessagesContainer.appendChild(
+            showMessagesContainerEl.appendChild(
                 createPostFromContent(post.id, post.title, post.body),
             );
         });
@@ -120,18 +120,18 @@
     }
 
     function loadData() {
-        const loader = document.getElementById('loader');
+        const loaderEl = document.getElementById('loader');
 
         async function getData() {
             await fetch('https://jsonplaceholder.typicode.com/posts')
                 .then((response) => response.json())
                 .then((response) => savePosts(response))
                 .then((responseJson) => reCreatePosts(responseJson));
-            loader.style.display = 'none';
+            loaderEl.style.display = 'none';
         }
 
         setTimeout(getData, 3000);
-        loader.style.display = 'block';
+        loaderEl.style.display = 'block';
     }
 
     window.addEventListener('load', loadData);
