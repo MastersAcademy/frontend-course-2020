@@ -144,6 +144,10 @@ class WorkWithPromise {
         let filterResult = null;
 
         if (!filterItem) {
+            this._containerOriginal.innerHTML ='';
+
+            this.inputDataProcessing(this._dataBase, this._containerOriginal);
+
             this._containerForAppedPosts.classList.add('hidden');
 
             this._containerOriginal.classList.remove('hidden');
@@ -173,7 +177,7 @@ class WorkWithPromise {
         const findSelectValue = () => {
             const select = this._sortField.selectedIndex;
             const option = this._sortField.options[select];
-            console.log(option.value);
+
             return option.value;
         };
 
@@ -229,10 +233,11 @@ class WorkWithPromise {
     }
 
     closeAction(element) {
-        const succesAction = (response, parentElement) => {
+        const succesAction = (response, parentElement, id) => {
             this.showMessage('Your action completed successfully');
             if (response.status === 200) {
                 parentElement.remove();
+                this.removePost(id);
             }
         };
 
@@ -253,7 +258,7 @@ class WorkWithPromise {
 
         fetch(`${this._baseURL}/${id}`, { method: 'DELETE' })
             .then((response) => {
-                succesAction(response, parentElement);
+                succesAction(response, parentElement, id);
             })
             .catch((error) => {
                 errorAction(parentElement, error);
@@ -270,6 +275,20 @@ class WorkWithPromise {
             tooltip.classList.add('hidden');
             clearTimeout(timer);
         }, 3000);
+    }
+
+    removePost(desiredId){
+        const deleteElement = (base) => {
+            const index = base.findIndex((element) => element.id === Number(desiredId));
+
+            base.splice(index, 1);
+        }
+        if(this._intermediateResult){
+            deleteElement(this._intermediateResult);
+            deleteElement(this._dataBase);
+        }else{
+            deleteElement(this._dataBase);
+        }
     }
 }
 
