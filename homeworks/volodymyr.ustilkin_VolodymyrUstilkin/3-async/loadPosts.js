@@ -117,18 +117,18 @@
     }
 
     function loadData() {
-        const loaderEl = document.querySelector('.loader');
+        const loaderContainerEl = document.querySelector('.loaderContainer');
 
         async function getData() {
             await fetch('https://jsonplaceholder.typicode.com/posts')
                 .then((response) => response.json())
                 .then((response) => savePosts(response))
                 .then(() => reCreatePosts(loadedPosts));
-            loaderEl.classList.add('hidden');
+            loaderContainerEl.classList.add('hidden');
         }
 
         setTimeout(getData, 3000);
-        loaderEl.classList.remove('hidden');
+        loaderContainerEl.classList.remove('hidden');
     }
 
     loadData();

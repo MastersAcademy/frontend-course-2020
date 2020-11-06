@@ -71,7 +71,7 @@ body {
   display: block;
 }
 
-.loader {
+.loaderContainer {
   border: 16px solid rgb(243, 243, 243);
   border-top: 16px solid rgb(52, 152, 219);
   border-radius: 50%;
