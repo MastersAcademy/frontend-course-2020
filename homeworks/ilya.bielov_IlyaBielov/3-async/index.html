@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>3-AsynchronousJS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="spinner.css">
+</head>
+<body>
+<div class="container">
+    <div class="border fullHeight">
+        <div class="filters flex --space-evenly --center">
+            <div class="flex --column">
+                <label for="filter" class="font--big font--uppercase pointer">Filter</label>
+                <input id="filter" type="text" data-filter>
+            </div>
+
+            <div class="filters__sort sort">
+                <div class="sort__form">
+                    <label for="sort-1" class="font--big pointer">A to Z</label>
+                    <input id="sort-1" type="checkbox" class="pointer" data-sort-a-z>
+                </div>
+
+                <div class="sort__form">
+                    <label for="sort-2" class="font--big pointer">Z to A</label>
+                    <input id="sort-2" type="checkbox" class="pointer" data-sort-z-a>
+                </div>
+            </div>
+        </div>
+        <ul data-posts-place class="posts-place">
+            <li data-spinner class="spinner">loading...</li>
+        </ul>
+    </div>
+</div>
+
+<script src="script.js" async defer></script>
+</body>
+
+<template data-template>
+    <li data-post class="posts-place__post post border">
+        <h2 data-post-title class="post__title"></h2>
+        <p data-post-body class="post__body"></p>
+    </li>
+</template>
+</html>
