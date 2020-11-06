@@ -1,7 +1,7 @@
 const containerEl = document.querySelector('[data-container]');
 const templateEl = document.querySelector('[data-template]');
 const dropdownSort = document.querySelector('[data-sort]');
-// const inputSearch = document.querySelector('[data-search]');
+const inputSearch = document.querySelector('[data-search]');
 
 function createPostItem(item, i) {
     const postClone = templateEl.content.cloneNode(true);
@@ -91,14 +91,18 @@ async function showData() {
     });
 }
 
-// function dataSearch() {
-// const filter = inputSearch.value;
-// const filterItems = document.querySelectorAll('.post');
-// filterItems.forEach((item) => {
-//     console.log(item.getElementsByTagName('h2')[0].textContent.toLowerCase());
-// });
-// console.log(filter);
-// }
+function dataFilter() {
+    const titles = document.querySelectorAll('[data-post-title]');
+    titles.forEach((item) => {
+        const element = item;
+        if (item.textContent.includes(inputSearch.value)) {
+            element.parentElement.style.display = 'block';
+        } else {
+            element.parentElement.style.display = 'none';
+        }
+    });
+}
+
 dropdownSort.addEventListener('change', () => { showData(); });
-// inputSearch.addEventListener('keyup', () => { dataSearch(); });
+inputSearch.addEventListener('keyup', () => { dataFilter(); });
 setTimeout(() => { showData().then(toggleLoader); }, 1000);
