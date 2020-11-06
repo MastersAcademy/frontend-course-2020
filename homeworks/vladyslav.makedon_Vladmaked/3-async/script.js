@@ -19,7 +19,7 @@ async function delayAndGetPosts() {
             const posts = await getPosts();
             allPostsArray.push(...posts);
             resolve(allPostsArray);
-        }, 500,
+        }, 3000,
     ));
 }
 
