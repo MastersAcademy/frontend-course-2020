@@ -19,7 +19,7 @@ async function delayAndGetPosts() {
             const posts = await getPosts();
             allPostsArray.push(...posts);
             resolve(allPostsArray);
-        }, 3000,
+        }, 500,
     ));
 }
 
@@ -97,7 +97,7 @@ postsNode.addEventListener('click', (evt) => {
     }
     const postsItem = evt.target.closest('[data-posts-item]');
     postsItem.hidden = true;
-    const postId = evt.path[3].dataset.id;
+    const postId = postsItem.dataset.id;
     deletePost(postId)
         .then(() => {
             allPostsArray = allPostsArray.filter((p) => p.id !== +postId);
