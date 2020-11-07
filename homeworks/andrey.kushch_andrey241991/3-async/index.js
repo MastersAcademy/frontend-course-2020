@@ -70,7 +70,7 @@ function sortItemsList(sortType) {
         case ORIGIN:
             return [...itemsList];
         case FROM_A_Z:
-            return [...itemsList].sort(function (a, b) {
+            return [...itemsList].sort((a, b) => {
                 if (a.title > b.title) {
                     return 1;
                 }
@@ -80,7 +80,7 @@ function sortItemsList(sortType) {
                 return 0;
             });
         case FROM_Z_A:
-            return [...itemsList].sort(function (a, b) {
+            return [...itemsList].sort((a, b) => {
                 if (a.title < b.title) {
                     return 1;
                 }
@@ -90,7 +90,7 @@ function sortItemsList(sortType) {
                 return 0;
             });
         default:
-                return [...itemsList];
+            return [...itemsList];
     }
 }
 
