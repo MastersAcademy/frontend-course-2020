@@ -13,6 +13,75 @@ let searchedText = '';
 let deletedItem = '';
 let deletedItemIndex = '';
 
+function showData(list) {
+    contentContainerElem.innerHTML = '';
+    list.forEach(({ id, body, title }) => {
+        const itemContainerElem = document.createElement('div');
+        itemContainerElem.classList.add('item-container');
+        const spanElem = document.createElement('span');
+        spanElem.classList.add('grid-item1');
+        spanElem.innerText = title;
+        itemContainerElem.appendChild(spanElem);
+        const itemElem = document.createElement('img');
+        itemElem.classList.add('grid-item2');
+        itemElem.classList.add('img');
+        itemElem.src = './assets/delete.png';
+        itemElem.addEventListener('click', ()=>{removeItem(id)})
+        itemContainerElem.appendChild(itemElem);
+        const bodyElem = document.createElement('span');
+        bodyElem.classList.add('grid-item3');
+        bodyElem.innerText = body;
+        itemContainerElem.appendChild(bodyElem);
+        contentContainerElem.appendChild(itemContainerElem);
+    });
+}
+
+function searchInItemList(searchValue, sortedList) {
+    return sortedList.filter(
+        ({ title, body }) => title.indexOf(searchValue) >= 0 || body.indexOf(searchValue) >= 0,
+    );
+}
+
+function sortItemsList(sortType) {
+    switch (sortType) {
+        case ORIGIN:
+            return [...itemsList];
+        case FROM_A_Z:
+            return [...itemsList].sort((a, b) => {
+                if (a.title > b.title) {
+                    return 1;
+                }
+                if (a.title < b.title) {
+                    return -1;
+                }
+                return 0;
+            });
+        case FROM_Z_A:
+            return [...itemsList].sort((a, b) => {
+                if (a.title < b.title) {
+                    return 1;
+                }
+                if (a.title > b.title) {
+                    return -1;
+                }
+                return 0;
+            });
+        default:
+            return [...itemsList];
+    }
+}
+
+function updateItemList() {
+    let sortedSearchedList = sortItemsList(sortBy);
+    sortedSearchedList = searchInItemList(searchedText, sortedSearchedList);
+    showData(sortedSearchedList);
+}
+
+function returnItem() {
+    itemsList.splice(deletedItemIndex, 0, deletedItem[0]);
+    updateItemList();
+}
+
 class Api {
     constructor() {
         this.BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
@@ -60,64 +129,6 @@ class Api {
 }
 
 const api = new Api();
-
-function searchInItemList(searchValue, sortedList) {
-    return sortedList.filter(
-        ({ title, body }) => title.indexOf(searchValue) >= 0 || body.indexOf(searchValue) >= 0,
-    );
-}
-
-function sortItemsList(sortType) {
-    switch (sortType) {
-        case ORIGIN:
-            return [...itemsList];
-        case FROM_A_Z:
-            return [...itemsList].sort((a, b) => {
-                if (a.title > b.title) {
-                    return 1;
-                }
-                if (a.title < b.title) {
-                    return -1;
-                }
-                return 0;
-            });
-        case FROM_Z_A:
-            return [...itemsList].sort((a, b) => {
-                if (a.title < b.title) {
-                    return 1;
-                }
-                if (a.title > b.title) {
-                    return -1;
-                }
-                return 0;
-            });
-        default:
-            return [...itemsList];
-    }
-}
-
-function showData(list) {
-    contentContainerElem.innerHTML = '';
-    list.forEach(({ id, body, title }) => {
-        const itemContainerElem = document.createElement('div');
-        itemContainerElem.classList.add('item-container');
-        itemContainerElem.innerHTML = `<span class='grid-item1'>${title}</span>
-        <img class='grid-item2 img' src='./assets/delete.png' onClick='removeItem(${id})'</img>
-        <p class='grid-item3'>${body}</p>`;
-        contentContainerElem.appendChild(itemContainerElem);
-    });
-}
-
-function updateItemList() {
-    let sortedSearchedList = sortItemsList(sortBy);
-    sortedSearchedList = searchInItemList(searchedText, sortedSearchedList);
-    showData(sortedSearchedList);
-}
-
-function returnItem() {
-    itemsList.splice(deletedItemIndex, 0, deletedItem[0]);
-    updateItemList();
-}
 
 function toggleSort() {
     isToggleSort = !isToggleSort;
