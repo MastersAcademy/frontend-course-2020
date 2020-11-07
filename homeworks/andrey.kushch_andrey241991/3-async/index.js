@@ -128,13 +128,14 @@ function toggleSort() {
     }
 }
 
- // eslint-disable-next-line no-use-before-define
+/*eslint-disable */
 function removeItem(id) {
     api.removeItem(id);
     deletedItemIndex = itemsList.findIndex((item) => item.id === id);
     deletedItem = itemsList.splice(deletedItemIndex, 1);
     updateItemList();
 }
+/*eslint-disable */
 
 const showLoader = () => {
     loaderElem.style.display = 'flex';
