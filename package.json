@@ -55,8 +55,8 @@
         "stylelint": "^13.7.1"
     },
     "devDependencies": {
-        "lint-staged": "^10.4.0",
         "husky": "^4.3.0",
-        "jest": "^26.4.2"
+        "jest": "^26.4.2",
+        "lint-staged": "^10.4.0"
     }
 }

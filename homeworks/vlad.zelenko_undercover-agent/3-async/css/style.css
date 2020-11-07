@@ -1,41 +1,41 @@
-@import "./reset.css";
 @import "./preloader.css";
 
 
 body {
-    background-color: #222;
-    color: #FFF;
-    font-size: 18px;
+  background-color: #222;
+  color: #FFF;
+  font-size: 18px;
 }
 
 .wrapper {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 100px 0;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 100px 0;
 }
 
+.settings-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 
-.filter-post {
-    margin-bottom: 40px;
-    width: 200px;
-    font: 400 16px/50px sans-serif;
+.sort-post {
+  margin-bottom: 40px;
+  width: 200px;
+  font: 400 16px/50px sans-serif;
 }
 
 .post-container {
-    width: 100%;
+  width: 100%;
 }
 
 .post {
-    padding: 40px 0;
-    text-align: center;
+  padding: 40px 0;
+  text-align: center;
 }
 
 .post-title {
-    margin-bottom: 20px;
-    font-size: 22px;
-    text-transform: uppercase;
-}
-
-.post p {
- 
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-transform: uppercase;
 }
