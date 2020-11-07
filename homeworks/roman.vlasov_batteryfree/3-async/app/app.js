@@ -3,34 +3,44 @@ class App {
         this.el = el;
         this.posts = [];
         this.filtredPosts = [];
+        this.templateEl();
         this.findElements();
         this.initRequest();
         this.listenEvents();
         this.sortToggle = null;
     }
 
+    templateEl() {
+        this.templateElements = {
+            listPosts: document.createElement('ul'),
+            controls: this.el.querySelector('[data-controls-template]'),
+            post: this.el.querySelector('[data-item-template]'),
+        };
+    }
+
     findElements() {
-        const template = this.el.querySelector('[data-controls-template]').content.cloneNode(true);
+        const cloneElementControls = this.templateElements.controls.content.cloneNode(true);
         this.elements = {
             root: this.el,
             loader: this.el.querySelector('[data-loader]'),
-            controls: template.querySelector('[data-controls]'),
-            input: template.querySelector('[data-filter]'),
-            selectSort: template.querySelector('[data-sort]'),
-            postTemplate: this.el.querySelector('[data-item-template]').content,
-            listPosts: document.createElement('ul'),
+            controls: cloneElementControls.querySelector('[data-controls]'),
+            input: cloneElementControls.querySelector('[data-filter]'),
+            selectSort: cloneElementControls.querySelector('[data-sort]'),
+            listPosts: this.templateElements.listPosts.cloneNode(true),
         };
     }
 
     listenEvents() {
         this.elements.input.addEventListener('input', () => {
             this.removePosts();
+            this.clearListPosts();
             this.appendPosts();
         });
 
         this.elements.selectSort.addEventListener('change', (event) => {
             this.sortToggle = event.target.value;
             this.removePosts();
+            this.clearListPosts();
             this.appendPosts();
         });
     }
@@ -38,7 +48,7 @@ class App {
     initRequest() {
         setTimeout(() => {
             this.getPosts();
-        }, 3000);
+        }, 1000);
     }
 
     getPosts() {
@@ -53,7 +63,9 @@ class App {
                 this.appendControls();
                 this.appendPosts();
             })
-            .catch((error) => { alert(error); });
+            .catch((error) => {
+                alert(`Something went wrong ${error}`);
+            });
     }
 
     removeLoader() {
@@ -65,12 +77,17 @@ class App {
     }
 
     removePosts() {
-        this.elements.root.querySelector('[data-posts]').remove();
+        this.elements.listPosts.remove();
+    }
+
+    clearListPosts() {
+        this.elements.listPosts.innerHTML = '';
     }
 
     searchPosts(input) {
+        const query = input.value.toLowerCase();
         this.filtredPosts = this.posts.filter((post) => {
-            const result = post.title.toLowerCase().match(input.value.toLowerCase());
+            const result = post.title.toLowerCase().match(query);
             return result;
         });
     }
@@ -95,38 +112,37 @@ class App {
     }
 
     createListPosts(posts) {
-        const cloneElementPosts = this.elements.listPosts.cloneNode(true);
-        cloneElementPosts.classList.add('container', 'posts');
-        cloneElementPosts.setAttribute('data-posts', '');
+        this.elements.listPosts.classList.add('container', 'posts');
+        this.elements.listPosts.setAttribute('data-posts', '');
 
         posts.forEach((element) => {
-            cloneElementPosts.appendChild(this.renderPost(element));
+            this.elements.listPosts.appendChild(this.renderPost(element));
         });
-        return cloneElementPosts;
     }
 
     renderPost(element) {
-        const cloneElementPost = this.elements.postTemplate.cloneNode(true);
-        const buttonDelPost = cloneElementPost.querySelector('[data-post-del]');
+        const cloneElementPost = this.templateElements.post.content.cloneNode(true);
         cloneElementPost.querySelector('[data-post-header]').innerHTML = element.title;
         cloneElementPost.querySelector('[data-post-txt]').innerHTML = element.body;
         cloneElementPost.querySelector('[data-post]').dataset.post = element.id;
-        this.delPost(element, buttonDelPost);
+        this.deletePost(element, cloneElementPost.querySelector('[data-post]'));
         return cloneElementPost;
     }
 
-    delPost(element, button) {
-        const buttonDelPost = button;
-        buttonDelPost.addEventListener('click', () => {
-            buttonDelPost.parentNode.style.display = 'none';
+    deletePost(element, post) {
+        const postElement = post;
+        const buttonDeletePost = postElement.querySelector('[data-post-delete]');
+        buttonDeletePost.addEventListener('click', () => {
+            postElement.style.display = 'none';
             fetch(`https://jsonplaceholder.typicode.com/posts/${element.id}`, { method: 'DELETE' })
                 .then((response) => {
                     if (response.status === 200) {
                         this.posts.splice(this.posts.indexOf(element), 1);
                         this.removePosts();
+                        this.clearListPosts();
                         this.appendPosts();
                     } else {
-                        buttonDelPost.parentNode.style.display = 'block';
+                        postElement.style.display = 'block';
                         alert('Something went wrong');
                     }
                 }).catch(() => { alert('Something went wrong'); });
@@ -136,8 +152,8 @@ class App {
     appendPosts() {
         this.searchPosts(this.elements.input);
         this.sortPosts();
-        const posts = this.createListPosts(this.filtredPosts);
-        this.elements.root.appendChild(posts);
+        this.createListPosts(this.filtredPosts);
+        this.elements.root.appendChild(this.elements.listPosts);
     }
 }
 
