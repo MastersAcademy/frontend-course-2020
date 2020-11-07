@@ -14,7 +14,7 @@ let deletedItem = '';
 let deletedItemIndex = '';
 
 class Api {
-    constructor(){
+    constructor() {
         this.BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
         this.id = '';
         this.isError = false;
@@ -31,7 +31,7 @@ class Api {
             })
             .catch((error) => {
                 alert(
-                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`
+                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`,
                 );
                 returnItem();
             });
@@ -114,6 +114,11 @@ function updateItemList() {
     showData(sortedSearchedList);
 }
 
+function returnItem() {
+    itemsList.splice(deletedItemIndex, 0, deletedItem)[0];
+    updateItemList();
+}
+
 function toggleSort() {
     isToggleSort = !isToggleSort;
     if (isToggleSort) {
@@ -130,10 +135,7 @@ function removeItem(id) {
     updateItemList();
 }
 
-function returnItem() {
-    itemsList.splice(deletedItemIndex, 0, deletedItem)[0];
-    updateItemList();
-}
+
 
 const showLoader = () => {
     loaderElem.style.display = 'flex';
