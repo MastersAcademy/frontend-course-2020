@@ -18,15 +18,12 @@
     <div class = 'blockForPosts'>
         <label for="inputOne">Filter: </label>
         <input type= "text" class = 'inputOne' id = "inputOne" onkeyup = "myFunction()" placeholder="Search for titles.."></input>
-        <select id = 'selector' class = 'selector' onchange = 'sortPosts()'>
-            <option>Початковий варіант</option>
-            <option>Сортування від A до Z</option>
-            <option>Сортування від Z до A</option>
-        </select>
+        <button id = "butAtoZ" onclick = "sortList()">Sort from A to Z</button>
+        <button id = "butZtoA"onclick = "sortListDir()" >Sort from Z to A</button>
         <ul id = 'display' class = 'display'></ul>
     </div>
 
-    <script src = 'PostToBackEnd1.js'></script>
+    <script src = 'PostToBackEnd2.js'></script>
 
 </body>
 </html>

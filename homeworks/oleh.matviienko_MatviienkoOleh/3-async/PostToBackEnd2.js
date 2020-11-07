@@ -26,19 +26,6 @@ function createEl(data) {
     }
 }
 
-function sorty(arr) {
-    arr.sort((a, b) => {
-        const titleA = a.title.toLowerCase();
-        const titleB = b.title.toLowerCase();
-        if (titleA < titleB) {
-            return -1;
-        } if (titleA > titleB) {
-            return 1;
-        }
-        return 0;
-    });
-}
-
 async function displayPosts() {
     await delay(3000);
     fetchPosts()
@@ -50,33 +37,6 @@ async function displayPosts() {
         document.body.classList.add('loaded');
         document.body.classList.remove('loaded_hiding');
     }, 500);
-}
-
-function sortPosts() {
-    const indexOfSel = document.getElementById('selector').selectedIndex;
-
-    if (indexOfSel === 1) {
-        fetchPosts()
-            .then((data) => {
-                sorty(data);
-                display.innerHTML = '';
-                createEl(data);
-            });
-    } else if (indexOfSel === 0) {
-        display.innerHTML = '';
-        fetchPosts()
-            .then((data) => {
-                createEl(data);
-            });
-    } else if (indexOfSel === 2) {
-        fetchPosts()
-            .then((data) => {
-                sorty(data);
-                data.reverse();
-                display.innerHTML = '';
-                createEl(data);
-            });
-    }
 }
 
 function myFunction() {
@@ -96,6 +56,63 @@ function myFunction() {
     }
 }
 
+function sortList() {
+    let i;
+    let switching;
+    let b;
+    let shouldSwitch;
+    switching = true;
+    while (switching) {
+        switching = false;
+        b = display.getElementsByTagName('li');
+        for (i = 0; i < (b.length - 1); i++) {
+            shouldSwitch = false;
+
+            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
+    }
+}
+
+function sortListDir() {
+    let i;
+    let switching;
+    let b;
+    let shouldSwitch;
+    let dir;
+    switching = true;
+    dir = 'asc';
+    while (switching) {
+        switching = false;
+        b = display.getElementsByTagName('li');
+        for (i = 0; i < (b.length - 1); i++) {
+            shouldSwitch = false;
+            if (dir === 'asc') {
+                break;
+            } else if (dir === 'desc') {
+                if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        } else if (dir === 'asc') {
+            dir = 'desc';
+            switching = true;
+        }
+    }
+}
+
+sortList();
+sortListDir();
 displayPosts();
-sortPosts();
 myFunction();
