@@ -10,9 +10,10 @@ class App {
     }
 
     findElements() {
-        const template = document.importNode(this.el.querySelector('[data-controls-template]').content, true);
+        const template = this.el.querySelector('[data-controls-template]').content.cloneNode(true);
         this.elements = {
             root: this.el,
+            loader: this.el.querySelector('[data-loader]'),
             controls: template.querySelector('[data-controls]'),
             input: template.querySelector('[data-filter]'),
             selectSort: template.querySelector('[data-sort]'),
@@ -56,7 +57,7 @@ class App {
     }
 
     removeLoader() {
-        this.elements.root.removeChild(this.elements.root.firstElementChild);
+        this.elements.loader.remove();
     }
 
     appendControls() {
@@ -64,14 +65,11 @@ class App {
     }
 
     removePosts() {
-        this.elements.root.removeChild(this.elements.root.querySelector('[data-posts]'));
+        this.elements.root.querySelector('[data-posts]').remove();
     }
 
     searchPosts(input) {
-        this.filtredPosts = [].concat(this.posts.filter((post) => {
-            const result = post.title.toLowerCase().match(input.value.toLowerCase());
-            return result;
-        }));
+        this.filtredPosts = this.posts.filter(post => post.title.toLowerCase().match(input.value.toLowerCase()));
     }
 
     sortPosts() {
@@ -94,37 +92,41 @@ class App {
     }
 
     createListPosts(posts) {
-        const cloneElementPosts = document.importNode(this.elements.listPosts, true);
-
+        const cloneElementPosts = this.elements.listPosts.cloneNode(true);
         cloneElementPosts.classList.add('container', 'posts');
         cloneElementPosts.setAttribute('data-posts', '');
 
         posts.forEach((element) => {
-            const cloneElementPost = document.importNode(this.elements.postTemplate, true);
-            const buttonDelPost = cloneElementPost.querySelector('[data-post-del]');
-
-            cloneElementPost.querySelector('[data-post-header]').innerHTML = element.title;
-            cloneElementPost.querySelector('[data-post-txt]').innerHTML = element.body;
-            cloneElementPost.querySelector('[data-post]').dataset.post = element.id;
-
-            buttonDelPost.addEventListener('click', () => {
-                buttonDelPost.parentNode.style.display = 'none';
-                fetch(`https://jsonplaceholder.typicode.com/posts/${element.id}`, { method: 'DELETE' })
-                    .then((response) => {
-                        if (response.status === 200) {
-                            this.posts.splice(this.posts.indexOf(element), 1);
-                            this.removePosts();
-                            this.appendPosts();
-                        } else {
-                            buttonDelPost.parentNode.style.display = 'block';
-                            alert('Something went wrong');
-                        }
-                    }).catch(() => { alert('Something went wrong'); });
-            });
-
-            cloneElementPosts.appendChild(cloneElementPost);
+            cloneElementPosts.appendChild(this.renderPost(element));
         });
         return cloneElementPosts;
+    }
+
+    renderPost(element) {
+        const cloneElementPost = this.elements.postTemplate.cloneNode(true);
+        const buttonDelPost = cloneElementPost.querySelector('[data-post-del]');
+        cloneElementPost.querySelector('[data-post-header]').innerHTML = element.title;
+        cloneElementPost.querySelector('[data-post-txt]').innerHTML = element.body;
+        cloneElementPost.querySelector('[data-post]').dataset.post = element.id;
+        this.delPost(element, buttonDelPost);
+        return cloneElementPost;
+    }
+
+    delPost(element, buttonDelPost) {
+        buttonDelPost.addEventListener('click', () => {
+            buttonDelPost.parentNode.style.display = 'none';
+            fetch(`https://jsonplaceholder.typicode.com/posts/${element.id}`, { method: 'DELETE' })
+                .then((response) => {
+                    if (response.status === 200) {
+                        this.posts.splice(this.posts.indexOf(element), 1);
+                        this.removePosts();
+                        this.appendPosts();
+                    } else {
+                        buttonDelPost.parentNode.style.display = 'block';
+                        alert('Something went wrong');
+                    }
+                }).catch(() => { alert('Something went wrong'); });
+        });
     }
 
     appendPosts() {
