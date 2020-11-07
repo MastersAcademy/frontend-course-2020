@@ -18,20 +18,9 @@ function showData(list) {
     list.forEach(({ id, body, title }) => {
         const itemContainerElem = document.createElement('div');
         itemContainerElem.classList.add('item-container');
-        const spanElem = document.createElement('span');
-        spanElem.classList.add('grid-item1');
-        spanElem.innerText = title;
-        itemContainerElem.appendChild(spanElem);
-        const itemElem = document.createElement('img');
-        itemElem.classList.add('grid-item2');
-        itemElem.classList.add('img');
-        itemElem.src = './assets/delete.png';
-        itemElem.addEventListener('click', ()=>{removeItem(id)})
-        itemContainerElem.appendChild(itemElem);
-        const bodyElem = document.createElement('span');
-        bodyElem.classList.add('grid-item3');
-        bodyElem.innerText = body;
-        itemContainerElem.appendChild(bodyElem);
+        itemContainerElem.innerHTML = `<span class='grid-item1'>${title}</span>
+        <img class='grid-item2 img' src='./assets/delete.png' onClick='removeItem(${id})'</img>
+        <p class='grid-item3'>${body}</p>`;
         contentContainerElem.appendChild(itemContainerElem);
     });
 }
