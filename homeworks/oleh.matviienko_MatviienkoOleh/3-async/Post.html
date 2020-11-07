@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="PostStyle.css">
+</head>
+<body>
+
+    <div class="preloader">
+        <div class="preloader__row">
+          <div class="preloader__item"></div>
+          <div class="preloader__item"></div>
+        </div>    
+    </div>
+
+    <div class = 'blockForPosts'>
+        <label for="inputOne">Filter: </label>
+        <input type= "text" class = 'inputOne' id = "inputOne" onkeyup = "myFunction()" placeholder="Search for titles.."></input>
+        <select id = 'selector' class = 'selector' onchange = 'sortPosts()'>
+            <option>Початковий варіант</option>
+            <option>Сортування від A до Z</option>
+            <option>Сортування від Z до A</option>
+        </select>
+        <ul id = 'display' class = 'display'></ul>
+    </div>
+
+    <script src = 'PostToBackEnd1.js'></script>
+
+</body>
+</html>
