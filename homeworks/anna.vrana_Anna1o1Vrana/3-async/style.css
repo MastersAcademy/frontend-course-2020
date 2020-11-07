@@ -92,8 +92,6 @@
 .container {
   max-width: 460px;
   margin: 0 auto;
-  height: 70vh;
-  overflow: auto;
 }
 
 .border {
@@ -105,6 +103,11 @@
   padding: 15px 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.all-posts {
+  height: 70vh;
+  overflow: auto;
 }
 
 .sort {
@@ -127,15 +130,23 @@
   margin: 20px auto;
 }
 
-.post-tile {
+.post-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-title {
   margin: 0;
   padding: 0 30px 0 0;
   font-size: 21px;
 }
 
 .delete-btn {
-  font-size: 30px;
+  padding: 2px 10px;
+  height: 43px;
+  background-color: #FFF;
   color: #DD3C20;
+  font-size: 30px;
   font-weight: 800;
   font-family: "Itim", cursive;
 }

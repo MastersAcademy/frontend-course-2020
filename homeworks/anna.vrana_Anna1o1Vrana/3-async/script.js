@@ -1,61 +1,42 @@
-const postsTemplateNode = document.querySelector('[data-template]');
-const allPostsArray = [];
-console.log(allPostsArray);
+const FETCH_TIMEOUT = 3000;
+const allPosts = [];
 
-// STEP 1 - create preloader
-window.onload = function () {
-    document.body.classList.add('loaded_hiding');
-    window.setTimeout(() => {
-        document.querySelector('[data-preloader]')
-            .classList
-            .remove('preloader');
-        document.querySelector('[data-loader]')
-            .classList
-            .remove('loader');
-        document.body.classList.remove('loaded_hiding');
-    }, 500);
-};
+const templateContent = document.querySelector('#template').content;
+const templatePostTitle = templateContent.querySelector('[data-template-title]');
+const templatePostBody = templateContent.querySelector('[data-template-text]');
 
-// STEP 2 - get Post from ip with await
+const postsBody = document.querySelector('[data-all-posts]');
 
-setTimeout(async () => {
-    const getPost = await fetch('https://jsonplaceholder.typicode.com/posts');
+function hideLoader() {
+    document.querySelector('[data-preloader]').style.display = 'none';
+}
+
+function renderPosts(posts) {
+    postsBody.innerHTML = '';
+
+    posts.forEach((post) => {
+        templatePostTitle.textContent = post.title;
+        templatePostBody.textContent = post.body;
+        postsBody.appendChild(templateContent.cloneNode(true));
+    });
+}
+
+async function fetchPosts() {
+    const getPost = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=20');
     const data = await getPost.json();
-    allPostsArray.push(...data);
-}, 3000);
+    allPosts.push(...data);
 
-// alternative case to get Posts
-// async function getPosts() {
-//     const getPost = await fetch('https://jsonplaceholder.typicode.com/posts');
-//     const data = await getPost.json();
-//     console.log(data);
-// }
-// setTimeout(getPosts, 3000);
-
-// alternative case to get Posts
-
-// const posts = fetch('https://jsonplaceholder.typicode.com/posts')
-//     .then((response) => response.json())
-//     .then((json) => console.log(json));
-// console.log(posts.json);
-
-// console.log(posts); // return object Promise
-
-// STEP 3 - output post into html
-
-function getFullPost(item) {
-    const posticItem = [item.userId, item.id, item.title].join('');
-    return posticItem;
-    // console.log(posticItem);
+    renderPosts(allPosts);
+    hideLoader();
 }
 
-function myFunction() {
-    document.querySelector('[data-all-posts]').innerHTML = allPostsArray.map(getFullPost).join();
-}
-myFunction();
+document.querySelector('#input-filter').addEventListener('input', (event) => {
+    const patter = new RegExp(event.target.value, 'gi');
+    // eslint-disable-next-line max-len
+    const filteredPosts = allPosts.filter((post) => patter.test(post.title) || patter.test(post.body));
+    renderPosts(filteredPosts);
+});
 
-function fun() {
-    postsTemplateNode.innerHTML = allPostsArray.map(getFullPost).join('');
-}
-
-fun();
+setTimeout(() => {
+    fetchPosts();
+}, FETCH_TIMEOUT);
