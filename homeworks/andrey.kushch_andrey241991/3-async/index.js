@@ -19,7 +19,6 @@ function showData(list) {
         const itemContainerElem = document.createElement('div');
         itemContainerElem.classList.add('item-container');
         itemContainerElem.innerHTML = `<span class='grid-item1'>${title}</span>
-        // eslint-disable-next-line no-use-before-define
         <img class='grid-item2 img' src='./assets/delete.png' onClick='removeItem(${id})'</img>
         <p class='grid-item3'>${body}</p>`;
         contentContainerElem.appendChild(itemContainerElem);
@@ -129,6 +128,7 @@ function toggleSort() {
     }
 }
 
+ // eslint-disable-next-line no-use-before-define
 function removeItem(id) {
     api.removeItem(id);
     deletedItemIndex = itemsList.findIndex((item) => item.id === id);
