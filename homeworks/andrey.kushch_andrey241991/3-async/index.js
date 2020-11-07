@@ -46,7 +46,7 @@ class Api {
             })
             .catch((error) => {
                 alert(
-                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`
+                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`,
                 );
                 this.id = setTimeout(() => {
                     if (!this.isError) {
@@ -62,11 +62,7 @@ class Api {
 const api = new Api();
 
 function searchInItemList(searchValue, sortedList) {
-    return sortedList.filter(({ title, body }) => {
-        return (
-            title.indexOf(searchValue) >= 0 || body.indexOf(searchValue) >= 0
-        );
-    });
+    return sortedList.filter(({ title, body }) => title.indexOf(searchValue) >= 0 || body.indexOf(searchValue) >= 0);
 }
 
 function sortItemsList(sortType) {
@@ -93,6 +89,8 @@ function sortItemsList(sortType) {
                 }
                 return 0;
             });
+        default:
+                return [...itemsList];
     }
 }
 
@@ -135,8 +133,6 @@ function removeItem(id) {
     updateItemList();
 }
 
-
-
 const showLoader = () => {
     loaderElem.style.display = 'flex';
 };
@@ -170,6 +166,5 @@ sortContent.addEventListener('click', (e) => {
     updateItemList();
     toggleSort();
 });
-
 
 loadData();
