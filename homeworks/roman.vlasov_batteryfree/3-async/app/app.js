@@ -69,7 +69,10 @@ class App {
     }
 
     searchPosts(input) {
-        this.filtredPosts = this.posts.filter(post => post.title.toLowerCase().match(input.value.toLowerCase()));
+        this.filtredPosts = this.posts.filter((post) => {
+            const result = post.title.toLowerCase().match(input.value.toLowerCase());
+            return result;
+        });
     }
 
     sortPosts() {
@@ -112,7 +115,8 @@ class App {
         return cloneElementPost;
     }
 
-    delPost(element, buttonDelPost) {
+    delPost(element, button) {
+        const buttonDelPost = button;
         buttonDelPost.addEventListener('click', () => {
             buttonDelPost.parentNode.style.display = 'none';
             fetch(`https://jsonplaceholder.typicode.com/posts/${element.id}`, { method: 'DELETE' })
