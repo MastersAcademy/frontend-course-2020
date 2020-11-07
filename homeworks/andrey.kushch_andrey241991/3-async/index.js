@@ -13,23 +13,6 @@ let searchedText = '';
 let deletedItem = '';
 let deletedItemIndex = '';
 
-searchElem.addEventListener('input', (e) => {
-    searchedText = e.target.value;
-    updateItemList();
-});
-
-btnSortElem.addEventListener('click', toggleSort);
-
-sortContent.addEventListener('click', (e) => {
-    sortContent
-        .querySelectorAll('*')
-        .forEach((item) => item.classList.remove('sort-content__item-active'));
-    e.target.classList.add('sort-content__item-active');
-    sortBy = e.target.innerHTML;
-    updateItemList();
-    toggleSort();
-});
-
 function updateItemList() {
     let sortedSearchedList = sortItemsList(sortBy);
     sortedSearchedList = searchInItemList(searchedText, sortedSearchedList);
@@ -167,6 +150,23 @@ class Api {
             });
     }
 }
+
+searchElem.addEventListener('input', (e) => {
+    searchedText = e.target.value;
+    updateItemList();
+});
+
+btnSortElem.addEventListener('click', toggleSort);
+
+sortContent.addEventListener('click', (e) => {
+    sortContent
+        .querySelectorAll('*')
+        .forEach((item) => item.classList.remove('sort-content__item-active'));
+    e.target.classList.add('sort-content__item-active');
+    sortBy = e.target.innerHTML;
+    updateItemList();
+    toggleSort();
+});
 
 const api = new Api();
 loadData();
