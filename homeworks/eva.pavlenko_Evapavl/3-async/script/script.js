@@ -8,6 +8,9 @@ function start() {
     const fromAtoZ = 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=asc';
     const fromZtoA = 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=desc';
 
+    let timerId;
+    let timerPreloader;
+
     function drawPosts(title, body, id) {
         const postNode = document.createElement('div');
         postNode.classList.add('post');
@@ -26,13 +29,18 @@ function start() {
     async function getPosts(url) {
         const response = await fetch(url);
         const posts = await response.json();
-        if (posts) {
-            loadingNode.hidden = true;
-            posts.map((post) => drawPosts(post.title, post.body, post.id));
-        }
+        posts.map((post) => drawPosts(post.title, post.body, post.id));
     }
 
-    getPosts(defaultUrl);
+    function stopPreloader() {
+        clearTimeout(timerPreloader);
+        timerPreloader = setTimeout(() => {
+            loadingNode.hidden = true;
+            getPosts(defaultUrl);
+        }, 3000);
+    }
+
+    stopPreloader();
 
     function sorting(query) {
         const posts = document.querySelectorAll('.post');
@@ -45,8 +53,6 @@ function start() {
             getPosts(`${fromZtoA}${query}`);
         }
     }
-
-    let timerId;
 
     function filterPosts() {
         clearTimeout(timerId);
