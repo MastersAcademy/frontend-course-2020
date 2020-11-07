@@ -4,19 +4,16 @@ function start() {
     const postsNode = document.querySelector('[data-posts]');
     const loadingNode = document.querySelector('[data-loading]');
 
-    const defaultUrl = 'https://jsonplaceholder.typicode.com/posts?';
-    const fromAtoZ = `${defaultUrl}_sort=title&_order=asc`;
-    const fromZtoA = `${defaultUrl}_sort=title&_order=desc`;
+    const POSTS_API_URL = 'https://jsonplaceholder.typicode.com/posts?';
 
     let timerId;
     let timerPreloader;
 
     function drawPosts(posts) {
-        const rows = posts.map(({ body, title, id }) => `<div data-${id} class="post">
+        postsNode.innerHTML = posts.map(({ body, title, id }) => `<div data-post=“${id}” class="post">
             <h2 class="title">${title}</h2>
             <div class="description">${body}</div>
         </div>`).join('');
-        postsNode.innerHTML = rows;
     }
 
     async function getPosts(url) {
@@ -29,7 +26,7 @@ function start() {
         clearTimeout(timerPreloader);
         timerPreloader = setTimeout(() => {
             loadingNode.hidden = true;
-            getPosts(defaultUrl);
+            getPosts(POSTS_API_URL);
         }, 3000);
     }
 
@@ -40,13 +37,13 @@ function start() {
         posts.forEach((post) => post.remove());
         switch (selectEl.value) {
             case 'default':
-                getPosts(`${defaultUrl}${query}`);
+                getPosts(`${POSTS_API_URL}${query}`);
                 break;
             case 'fromAtoZ':
-                getPosts(`${fromAtoZ}${query}`);
+                getPosts(`${POSTS_API_URL}_sort=title&_order=asc${query}`);
                 break;
             case 'fromZtoA':
-                getPosts(`${fromZtoA}${query}`);
+                getPosts(`${POSTS_API_URL}_sort=title&_order=desc${query}`);
                 break;
             default:
                 break;
