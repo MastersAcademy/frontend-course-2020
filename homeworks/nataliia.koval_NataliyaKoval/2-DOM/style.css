@@ -1,0 +1,36 @@
+.main-container {
+  border: 2px rgb(38, 38, 138) double;
+  width: 350px;
+  height: 500px;
+  margin: auto;
+  background-color: rgb(159, 192, 219);
+  position: relative;
+}
+
+.input-block {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.dialog-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  align-items: flex-end;
+  overflow: auto;
+}
+
+.new-message {
+  background-color: #FFF;
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 0 20px 20px;
+  display: table;
+}
