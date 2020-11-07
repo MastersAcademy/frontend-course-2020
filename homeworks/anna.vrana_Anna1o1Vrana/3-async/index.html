@@ -19,21 +19,25 @@
 
     <form action="" class="top-options-container">
         <label for="input-filter">
-            <input type="text" id="input-filter" class="filter border" data-promise="filter"/>
+            <input type="search" id="input-filter" class="filter border" data-input-filter/>
         </label>
         <label for="select-sort">
-            <select id="select-sort" class="sort border option" data-promise="sort">
+            <select id="select-sort" class="sort border option" data-select-sort>
                 <option value="" selected></option>
                 <option value="sort_to_lower" class="option">A - Z</option>
                 <option value="sort_to_bigger" class="option">Z - A</option>
             </select>
         </label>
     </form>
-    <template id="template">
-        <li class="template-post" data-template-item></li>
+    <template id="template" data-template>
+        <div class="template-post" data-template-item></div>
+        <div class="post-title-wrapper">
+            <h4 class=".post-tile" data-template-title></h4>
+            <button class="delete-btn" data-template-delete>X</button>
+        </div>
+        <p data-template-text></p>
     </template>
-    <ul class="message-list" data-message-list>
-    </ul>
+    <div class="all-posts" data-all-posts></div>
     <section class="posts__wrapper" data-promise="post-wrapper">
         <div class="title" data-post-title></div>
         <div class="text" data-post-text></div>
