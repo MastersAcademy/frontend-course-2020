@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>3-async</title>
+  <script defer src="app.js"></script>
+</head>
+  <body>
+    <section class="posts">
+      <header class="posts-header">
+          <input type="text" data-search-input/>
+          <label>
+              <select data-sort>
+                  <option value="default">Default</option>
+                  <option value="asc">Ascent</option>
+                  <option value="desc">Descent</option>
+              </select>
+          </label>
+      </header>
+        <div class="sk-chase" data-loader>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+      <main class="posts-list">
+          <ul data-posts-list></ul>
+      </main>
+    </section>
+  </body>
+</html>
+
