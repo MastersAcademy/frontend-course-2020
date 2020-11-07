@@ -15,9 +15,10 @@
     "main": "index.js",
     "scripts": {
         "test": "lint-staged",
+        "fix": "npm run test-js && npm run test-css",
         "test-all": "npm run test-js && npm run test-css",
-        "test-js": "eslint --config .eslintrc.js ./homeworks/**/*.js",
-        "test-css": "stylelint --config .stylelintrc ./homeworks/**/*.{css,scss}"
+        "test-js": "eslint --config .eslintrc.js ./homeworks/**/*.js --fix",
+        "test-css": "stylelint --config .stylelintrc ./homeworks/**/*.{css,scss} --fix"
     },
     "eslintIgnore": [
         "*dist",
