@@ -177,6 +177,10 @@ document.querySelector('[data-search-filter]').addEventListener('keyup', (e) => 
 
 function sortAlphabet(sortOrder, itemsArray) {
     let newState = itemsArray;
+    if (sortOrder === 'default_filter') {
+        newState = [];
+        return newState;
+    }
     if (sortOrder === 'alphabet_filter') {
         newState = newState.sort((a, b) => {
             if (a.title > b.title) {
@@ -204,9 +208,13 @@ function sortAlphabet(sortOrder, itemsArray) {
 
 document.querySelectorAll('[data-sort-list]').forEach((item) => {
     item.addEventListener('change', (event) => {
-        const defaultState = state;
+        const defaultState = state.slice(0);
         const newState = sortAlphabet(event.currentTarget.value, defaultState);
-        renderPostsList(newState);
+        if (newState.length === 0) {
+            renderPostsList(state);
+        } else {
+            renderPostsList(newState);
+        }
     });
 });
 
