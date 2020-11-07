@@ -1,28 +1,28 @@
-const contentContainerElem = document.querySelector("[data-content-container]");
-const loaderElem = document.querySelector("[data-loader]");
-const btnSortElem = document.querySelector("[data-btn-sort]");
-const sortContent = document.querySelector("[data-sort-content]");
-const searchElem = document.querySelector("[data-search]");
+const contentContainerElem = document.querySelector('[data-content-container]');
+const loaderElem = document.querySelector('[data-loader]');
+const btnSortElem = document.querySelector('[data-btn-sort]');
+const sortContent = document.querySelector('[data-sort-content]');
+const searchElem = document.querySelector('[data-search]');
 let itemsList = [];
 let isToggleSort = false;
-const ORIGIN = "Origin";
-const FROM_A_Z = "A-z";
-const FROM_Z_A = "Z-a";
+const ORIGIN = 'Origin';
+const FROM_A_Z = 'A-z';
+const FROM_Z_A = 'Z-a';
 let sortBy = ORIGIN;
-let searchedText = "";
-let deletedItem = "";
-let deletedItemIndex = "";
+let searchedText = '';
+let deletedItem = '';
+let deletedItemIndex = '';
 
 class Api {
     constructor() {
-        this.BASE_URL = "https://jsonplaceholder.typicode.com/posts";
-        this.id = "";
+        this.BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
+        this.id = '';
         this.isError = false;
     }
 
     removeItem(id) {
         fetch(`${this.BASE_URL}/${id}`, {
-            method: "DELETE",
+            method: 'DELETE',
         })
             .then((response) => {
                 if (response.ok) {
@@ -98,10 +98,10 @@ function sortItemsList(sortType) {
 }
 
 function showData(list) {
-    contentContainerElem.innerHTML = "";
+    contentContainerElem.innerHTML = '';
     list.forEach(({ id, body, title }) => {
-        const itemContainerElem = document.createElement("div");
-        itemContainerElem.classList.add("item-container");
+        const itemContainerElem = document.createElement('div');
+        itemContainerElem.classList.add('item-container');
         itemContainerElem.innerHTML = `<span class='grid-item1'>${title}</span>
         <img class='grid-item2 img' src='./assets/delete.png' onClick='removeItem(${id})'</img>
         <p class='grid-item3'>${body}</p>`;
@@ -123,9 +123,9 @@ function returnItem() {
 function toggleSort() {
     isToggleSort = !isToggleSort;
     if (isToggleSort) {
-        sortContent.style.display = "flex";
+        sortContent.style.display = 'flex';
     } else {
-        sortContent.style.display = "none";
+        sortContent.style.display = 'none';
     }
 }
 
@@ -137,11 +137,11 @@ function removeItem(id) {
 }
 
 const showLoader = () => {
-    loaderElem.style.display = "flex";
+    loaderElem.style.display = 'flex';
 };
 
 const hideLoader = () => {
-    loaderElem.style.display = "none";
+    loaderElem.style.display = 'none';
 };
 
 const loadData = () => {
@@ -153,18 +153,18 @@ const loadData = () => {
     }, 3000);
 };
 
-searchElem.addEventListener("input", (e) => {
+searchElem.addEventListener('input', (e) => {
     searchedText = e.target.value;
     updateItemList();
 });
 
-btnSortElem.addEventListener("click", toggleSort);
+btnSortElem.addEventListener('click', toggleSort);
 
-sortContent.addEventListener("click", (e) => {
+sortContent.addEventListener('click', (e) => {
     sortContent
-        .querySelectorAll("*")
-        .forEach((item) => item.classList.remove("sort-content__item-active"));
-    e.target.classList.add("sort-content__item-active");
+        .querySelectorAll('*')
+        .forEach((item) => item.classList.remove('sort-content__item-active'));
+    e.target.classList.add('sort-content__item-active');
     sortBy = e.target.innerHTML;
     updateItemList();
     toggleSort();
