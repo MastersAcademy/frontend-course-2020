@@ -48,7 +48,7 @@ class App {
     initRequest() {
         setTimeout(() => {
             this.getPosts();
-        }, 1000);
+        }, 3000);
     }
 
     getPosts() {
