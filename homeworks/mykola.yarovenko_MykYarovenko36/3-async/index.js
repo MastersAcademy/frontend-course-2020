@@ -110,14 +110,10 @@ const renderPostsList = (stateArray) => {
     const itemsArray = stateArray;
     const postListEl = document.querySelector('.posts_list');
     postListEl.innerHTML = '';
-    if (itemsArray.length === 0) {
-        modalDisplay(modalContent.somthingError);
-    } else {
-        itemsArray.map((item) => {
-            postListEl.append(createPostElement(item));
-            return postListEl;
-        });
-    }
+    itemsArray.map((item) => {
+        postListEl.append(createPostElement(item));
+        return postListEl;
+    });
     return itemsArray;
 };
 
@@ -157,23 +153,13 @@ async function setDeleteItem(requestType, id) {
         }
     }).then((result) => {
         renderPostsList(state);
+        document.querySelector('[data-search-filter]').value = '';
         return result;
     }).catch((err) => {
         modalDisplay(modalContent.somthingError);
         console.error(err);
     });
 }
-
-document.querySelector('[data-search-filter]').addEventListener('keyup', (e) => {
-    const inputValue = e.target.value;
-    const regExp = new RegExp(inputValue, 'gi');
-    const newState = state.filter((item) => item.body.match(regExp) || item.title.match(regExp));
-    if (newState.length === 0) {
-        modalDisplay(modalContent.emptyState);
-    } else {
-        renderPostsList(newState);
-    }
-});
 
 function sortAlphabet(sortOrder, itemsArray) {
     let newState = itemsArray;
@@ -206,25 +192,29 @@ function sortAlphabet(sortOrder, itemsArray) {
     return newState;
 }
 
-document.querySelectorAll('[data-sort-list]').forEach((item) => {
-    item.addEventListener('change', (event) => {
-        const defaultState = state.slice(0);
-        const newState = sortAlphabet(event.currentTarget.value, defaultState);
-        if (newState.length === 0) {
-            renderPostsList(state);
-        } else {
-            renderPostsList(newState);
-        }
+document.querySelector('[data-search-filter]').addEventListener('keyup', (e) => {
+    const sortListEl = document.querySelectorAll('[data-sort-list]');
+    const inputValue = e.target.value;
+    const regExp = new RegExp(inputValue, 'gi');
+    const defaultState = state.slice(0);
+    const filteredState = defaultState.filter((item) => item.body.match(regExp)
+     || item.title.match(regExp));
+    sortListEl.forEach((item) => {
+        item.addEventListener('change', (event) => {
+            const newState = filteredState.slice(0);
+            const sortState = sortAlphabet(event.currentTarget.value, newState);
+            if (sortState.length === 0) {
+                renderPostsList(newState);
+            } else {
+                renderPostsList(sortState);
+            }
+        });
     });
+    renderPostsList(filteredState);
 });
 
-try {
-    setInterval(() => { document.querySelector('[data-loader-date]').innerText = `${new Date().toLocaleTimeString()}`; }, 1000);
-    setTimeout(() => {
-        renderPostsList(state);
-    }, 3000);
-    setStateData(REQUEST, state);
-} catch (err) {
-    console.error(err);
-    modalDisplay(modalContent.somthingError);
-}
+setInterval(() => { document.querySelector('[data-loader-date]').innerText = `${new Date().toLocaleTimeString()}`; }, 1000);
+setTimeout(() => {
+    renderPostsList(state);
+}, 3000);
+setStateData(REQUEST, state);
