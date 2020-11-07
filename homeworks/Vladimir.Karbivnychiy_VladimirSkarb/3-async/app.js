@@ -4,17 +4,17 @@ class Service {
         this.timer = 0;
         this.data = '';
         this.filterData = '';
+        this.onePost = '';
         this.url = 'https://jsonplaceholder.typicode.com/posts';
         this.post = document.querySelector('[data-post]');
         this.oneBtn = document.querySelector('[data-btn]');
         this.title = document.querySelector('[data-title]');
         this.option = document.querySelector('[data-sort]');
         this.loader = document.querySelector('[data-loader]');
-        this.input = document.querySelector('[data-inputText]');
         this.warning = document.querySelector('[data-warning]');
+        this.input = document.querySelector('[data-input-text]');
         this.container = document.querySelector('[data-container]');
         this.description = document.querySelector('[data-description]');
-        this.sortReq = 'https://jsonplaceholder.typicode.com/posts?_sort=title&_order=';
     }
 
     preloader() {
@@ -42,6 +42,7 @@ class Service {
 
     render(postList) {
         postList.forEach((post) => {
+            this.post.setAttribute('id', post.id);
             this.title.textContent = post.title;
             this.description.textContent = post.body;
             this.oneBtn.setAttribute('id', post.id);
@@ -62,6 +63,10 @@ class Service {
     }
 
     deletePostReq(id) {
+        const allPosts = document.querySelectorAll('[data-post]');
+        const allPostsArr = Array.from(allPosts);
+        this.onePost = allPostsArr.find((post) => post.childNodes[3].attributes[2].value === id);
+        this.onePost.classList.add('disabled');
         fetch(`${this.url}/${id}`, {
             method: 'DELETE',
         })
@@ -83,15 +88,12 @@ class Service {
             }, 2000);
             this.searchPost(this.input.value);
         } else {
-            const allPosts = document.querySelectorAll('[data-post]');
-            const onePost = allPosts.item(id - 1);
-            onePost.classList.add('disabled');
             this.warning.textContent = 'Something went wrong';
             this.warning.classList.remove('hidden');
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
                 this.warning.classList.add('hidden');
-                onePost.classList.remove('disabled');
+                this.onePost.classList.remove('disabled');
             }, 2000);
         }
     }
@@ -113,21 +115,24 @@ class Service {
         this.option.addEventListener('change', (event) => {
             const sortValue = event.target.value;
             if (sortValue === 'default') {
-                fetch(`${this.url}?`)
-                    .then((response) => response.json())
-                    .then((json) => {
-                        this.container.innerHTML = '';
-                        this.data = json;
-                        this.searchPost(this.input.value);
-                    });
+                this.data.sort((post, post2) => post.id - post2.id);
+                this.searchPost(this.input.value);
+            } else if (sortValue === 'desc') {
+                this.data.sort((post, post2) => {
+                    if (post.title > post2.title) {
+                        return -1;
+                    }
+                    return 0;
+                });
+                this.searchPost(this.input.value);
             } else {
-                fetch(`${this.sortReq}${sortValue}`)
-                    .then((response) => response.json())
-                    .then((json) => {
-                        this.container.innerHTML = '';
-                        this.data = json;
-                        this.searchPost(this.input.value);
-                    });
+                this.data.sort((post, post2) => {
+                    if (post.title < post2.title) {
+                        return -1;
+                    }
+                    return 0;
+                });
+                this.searchPost(this.input.value);
             }
         });
     }
