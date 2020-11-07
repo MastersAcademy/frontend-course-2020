@@ -122,9 +122,12 @@ const loadData = () => {
 };
 
 class Api {
-    BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
-    id = '';
-    isError = false;
+
+    constructor(){
+        this.BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
+        this.id = '';
+        this.isError = false;
+    }
 
     removeItem(id) {
         fetch(`${this.BASE_URL}/${id}`, {
