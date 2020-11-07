@@ -1,6 +1,6 @@
 const URL = 'https://jsonplaceholder.typicode.com/posts';
 const postContainer = document.querySelector('.post-container');
-const filterPost = document.querySelector('.filter-post');
+const formSortPosts = document.querySelector('.sort-post');
 let listPost;
 
 
@@ -29,23 +29,34 @@ function renderingElements(data) {
     }
 }
 
-// function sortPost(data) {
-//     filterPost.addEventListener('change', () => {
-//         if (filterPost.value === "ZA") {
-//             data.sort(function (a, b) {
-//                 return a.title == b.title ? 0 : +(a.title > b.title) || -1;
-//             });
-//             renderingElements(data);
-//         } else if (filterPost.value === "AZ") {
-//             data.sort(function (a, b) {
-//                 return a.title == b.title ? 0 : +(a.title < b.title) || -1;
-//             });
-//             renderingElements(data);
-//         } else {
+function sortAZ(data) {
+    data.sort((a, b) => a.title == b.title ? 0 : +(a.title < b.title) || -1);
+    renderingElements(data);
+}
 
-//         }
-//     })
-// }
+function sortZA(data) {
+    data.sort((a, b) => a.title == b.title ? 0 : +(a.title > b.title) || -1);
+    renderingElements(data);
+}
+
+
+function sortPost(data) {
+    formSortPosts.addEventListener('change', () => {
+        switch (formSortPosts.value) {
+            case "ZA":
+                sortZA(data);
+                break;
+            case "AZ":
+                sortAZ(data);
+                break;
+            case "noneSort":
+                requestToServer();
+                break;
+        }
+
+
+    })
+}
 
 setTimeout(() => {
     document.querySelector(".preloader").hidden = true
