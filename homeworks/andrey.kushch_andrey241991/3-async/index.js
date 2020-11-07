@@ -31,7 +31,7 @@ class Api {
             })
             .catch((error) => {
                 alert(
-                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`
+                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`,
                 );
                 returnItem();
             });
@@ -46,7 +46,7 @@ class Api {
             })
             .catch((error) => {
                 alert(
-                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`
+                    `Something went wrong. Error name: ${error.name}, Error message: ${error.message}`,
                 );
                 this.id = setTimeout(() => {
                     if (!this.isError) {
@@ -63,8 +63,7 @@ const api = new Api();
 
 function searchInItemList(searchValue, sortedList) {
     return sortedList.filter(
-        ({ title, body }) =>
-            title.indexOf(searchValue) >= 0 || body.indexOf(searchValue) >= 0
+        ({ title, body }) => title.indexOf(searchValue) >= 0 || body.indexOf(searchValue) >= 0,
     );
 }
 
