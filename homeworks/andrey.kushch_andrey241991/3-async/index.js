@@ -115,7 +115,7 @@ function updateItemList() {
 }
 
 function returnItem() {
-    itemsList.splice(deletedItemIndex, 0, deletedItem)[0];
+    itemsList.splice(deletedItemIndex, 0, deletedItem[0]);
     updateItemList();
 }
 
@@ -131,7 +131,7 @@ function toggleSort() {
 function removeItem(id) {
     api.removeItem(id);
     deletedItemIndex = itemsList.findIndex((item) => item.id === id);
-    deletedItem = itemsList.splice(deletedItemIndex, 1)[0];
+    deletedItem = itemsList.splice(deletedItemIndex, 1);
     updateItemList();
 }
 
