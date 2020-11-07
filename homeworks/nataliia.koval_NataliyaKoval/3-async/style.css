@@ -5,8 +5,7 @@
   right: 0;
   bottom: 0;
   overflow: hidden;
-  /* фоновый цвет */
-  background: #e0e0e0;
+  background: #E0E0E0;
   z-index: 1001;
 }
 
@@ -23,16 +22,48 @@
 }
 
 @keyframes preloader-rotate {
+
   100% {
     transform: rotate(360deg);
   }
 }
 
 .loaded_hiding .preloader {
-  transition: 0.3s opacity;
+  transition: .3s opacity;
   opacity: 0;
 }
 
 .loaded .preloader {
   display: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  margin: 20px;
+  height: 60px;
+}
+
+.wrapper {
+  width: 600px;
+  margin: auto;
+  background-color: rgb(206, 196, 196);
+  align-items: center;
+}
+
+.post {
+  padding: 10px;
+  margin: 20px;
+  width: 500px;
+  border: solid rgb(49, 44, 44) 1px;
+}
+
+.list {
+  padding: 20px;
 }
