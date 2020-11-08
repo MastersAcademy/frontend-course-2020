@@ -213,7 +213,22 @@ document.querySelector('[data-search-filter]').addEventListener('keyup', (e) => 
     renderPostsList(filteredState);
 });
 
-setInterval(() => { document.querySelector('[data-loader-date]').innerText = `${new Date().toLocaleTimeString()}`; }, 1000);
+document.querySelectorAll('[data-sort-list]').forEach((item) => {
+    item.addEventListener('change', (event) => {
+        const searchFilterEl = document.querySelector('[data-search-filter]');
+        if (searchFilterEl.value === '') {
+            const newState = state.slice(0);
+            const sortState = sortAlphabet(event.currentTarget.value, newState);
+            if (sortState.length === 0) {
+                renderPostsList(state);
+            } else {
+                renderPostsList(sortState);
+            }
+        }
+    });
+});
+
+setInterval(() => { document.querySelector('[data-loader-date-container]').innerHTML = `<p class="loader_date">${new Date().toLocaleTimeString()}</p>`; }, 1000);
 setTimeout(() => {
     renderPostsList(state);
 }, 3000);

@@ -251,14 +251,20 @@ li {
   background-color: rgb(73, 105, 131);
 }
 
-.loader_date {
+.loader_date_container {
   width: 115px;
   height: 26px;
+}
+
+.loader_date {
   color: rgb(238, 238, 238);
   letter-spacing: 1px;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
+  width: 105px;
+  height: 20px;
+  margin: 3px 5px;
 }
 
 .loader_point_wrapper {
