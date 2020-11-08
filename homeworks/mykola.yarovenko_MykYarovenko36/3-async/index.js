@@ -197,8 +197,7 @@ document.querySelector('[data-search-filter]').addEventListener('keyup', (e) => 
     const inputValue = e.target.value;
     const regExp = new RegExp(inputValue, 'gi');
     const defaultState = state.slice(0);
-    const filteredState = defaultState.filter((item) => item.body.match(regExp)
-     || item.title.match(regExp));
+    const filteredState = defaultState.filter((item) => item.title.match(regExp));
     sortListEl.forEach((item) => {
         item.addEventListener('change', (event) => {
             const newState = filteredState.slice(0);
