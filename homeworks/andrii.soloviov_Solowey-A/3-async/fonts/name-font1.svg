@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
+<defs>
+<font id="name-font1" horiz-adv-x="1000" >
+<font-face font-family="name-font1" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="cancel-outline" unicode="&#xe108;" d="M729 143q0-64-46-110t-110-47-110 47l-98 97-99-97q-43-44-110-44t-110 44q-46 46-46 110 0 65 46 111l98 98-98 97q-46 46-46 111 0 64 46 110 44 44 110 44t110-44l99-97 98 97q43 44 110 44t111-44q45-45 45-110 0-66-45-111l-99-97 99-98q45-45 45-111z m-364 135l171-171q15-15 37-15t37 15 15 36q0 22-15 37l-171 172 171 171q15 15 15 37 0 22-15 37t-37 15-37-15l-171-172-172 172q-15 15-37 15t-36-15q-16-17-16-37 0-21 16-37l171-171-171-172q-16-16-16-37 0-20 16-36 15-15 36-15t37 15z" horiz-adv-x="729" />
+
+<glyph glyph-name="search" unicode="&#x1f50d;" d="M746 209l254-255-105-105-254 254q-106-72-232-72-169 0-289 120t-120 289 120 289 289 120 289-120 120-289q0-127-72-231z m-65 231q0 113-79 193t-193 80-193-80-80-193 80-192 193-80 193 80 79 192z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>
