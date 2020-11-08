@@ -6,15 +6,9 @@ async function fetchPosts() {
 
 function createPost(title, body) {
     const postDiv = document.createElement('div');
-    const button = document.createElement('button');
-
     postDiv.className = 'postBlock';
-    button.innerText = 'click';
-
     const post = `<h5>${title}</h5> <div>${body}</div>`;
     postDiv.insertAdjacentHTML('beforeend', post);
-    postDiv.appendChild(button);
-
     return postDiv;
 }
 
