@@ -1,7 +1,7 @@
 const FETCH_TIMEOUT = 3000;
 const allPosts = [];
 
-const templateContent = document.querySelector('#template').content;
+const templateContent = document.querySelector('[data-template]').content;
 const templatePostTitle = templateContent.querySelector('[data-template-title]');
 const templatePostBody = templateContent.querySelector('[data-template-text]');
 
@@ -30,11 +30,15 @@ async function fetchPosts() {
     hideLoader();
 }
 
-document.querySelector('#input-filter').addEventListener('input', (event) => {
+document.querySelector('[data-input-filter]').addEventListener('input', (event) => {
     const patter = new RegExp(event.target.value, 'gi');
     // eslint-disable-next-line max-len
     const filteredPosts = allPosts.filter((post) => patter.test(post.title) || patter.test(post.body));
     renderPosts(filteredPosts);
+});
+
+document.querySelector('[data-select-sort]').addEventListener('input', (event) => {
+
 });
 
 setTimeout(() => {
