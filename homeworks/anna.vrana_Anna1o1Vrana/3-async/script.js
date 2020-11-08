@@ -37,9 +37,9 @@ document.querySelector('[data-input-filter]').addEventListener('input', (event) 
     renderPosts(filteredPosts);
 });
 
-document.querySelector('[data-select-sort]').addEventListener('input', (event) => {
-
-});
+// document.querySelector('[data-select-sort]').addEventListener('input', (event) => {
+//
+// });
 
 setTimeout(() => {
     fetchPosts();
