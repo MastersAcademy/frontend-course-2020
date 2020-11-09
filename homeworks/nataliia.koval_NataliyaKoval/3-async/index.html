@@ -16,7 +16,7 @@
         </svg>
     </div>
     
-    <div class="container" data-container></div>
+    <div class="container" data-container>
         <template data-template>
             <li class="post" data-post>
             <h2 data-title></h2>
@@ -33,11 +33,13 @@
             <div class="select">
             <label for="sort-select">Sort by: </label>
         
-            <select data-select id="sort-select" class="sort-select">
-                <option value="0" data-default>Default</option>
-                <option value="1" data-az>A-Z</option>
-                <option value="2" data-za>Z-A</option>
-            </select>
+            <form action="#">
+                <select data-select id="sort-select" class="sort-select">
+                    <option value="D" data-default>Default</option>
+                    <option value="A" data-az>A-Z</option>
+                    <option value="Z" data-za>Z-A</option>
+                </select>
+            </form>
             </div>
         </div>
 
