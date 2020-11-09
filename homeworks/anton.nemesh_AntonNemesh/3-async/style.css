@@ -9,10 +9,24 @@
   margin: 10px;
 }
 
-.post {
+.post, .message {
   margin: 20px 5px;
   padding: 10px;
   border: 4px solid #000;
+}
+
+.message {
+  text-align: center;
+}
+
+.message.green {
+  border: 4px solid #080;
+  color: #080;
+}
+
+.message.red {
+  border: 4px solid #F00;
+  color: #F00;
 }
 
 .deleteButton {

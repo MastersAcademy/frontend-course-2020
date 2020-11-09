@@ -20,13 +20,16 @@
                 </select>
             </div>
         </div>
-        <template data-template>
-            <div class="post">
-                <button class="deleteButton">X</button>
-                <h2 data-post-title></h2>
-                <p></p>
-            </div>
-        </template>
+        <div class="messages" data-message></div>
+        <div class="content" data-content>
+            <template data-template>
+                <div class="post">
+                    <button class="deleteButton">X</button>
+                    <h2 data-post-title></h2>
+                    <p></p>
+                </div>
+            </template>
+        </div>
         <div data-loader class="image-wrap">
             <img class="image-center" src="img/load.gif">
         </div>
