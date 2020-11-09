@@ -39,13 +39,12 @@ async function displayPosts() {
     }, 500);
 }
 
-function myFunction() {
-    let i;
+function sortByFilter() {
     const input = document.getElementById('inputOne');
     const filter = input.value.toUpperCase();
     const li = display.getElementsByTagName('li');
 
-    for (i = 0; i < li.length; i++) {
+    for (let i = 0; i < li.length; i++) {
         const a = li[i].getElementsByTagName('span')[0];
         const txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -57,62 +56,43 @@ function myFunction() {
 }
 
 function sortList() {
-    let i;
-    let switching;
-    let b;
-    let shouldSwitch;
-    switching = true;
-    while (switching) {
-        switching = false;
-        b = display.getElementsByTagName('li');
-        for (i = 0; i < (b.length - 1); i++) {
-            shouldSwitch = false;
-
-            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-                shouldSwitch = true;
-                break;
-            }
+    const li = display.getElementsByTagName('li');
+    const htmlArray = Array.from(li);
+    htmlArray.sort((a, b) => {
+        const titleA = a.innerHTML.toLowerCase();
+        const titleB = b.innerHTML.toLowerCase();
+        if (titleA < titleB) {
+            return -1;
+        } if (titleA > titleB) {
+            return 1;
         }
-        if (shouldSwitch) {
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
-            switching = true;
-        }
+        return 0;
+    });
+    for (let i = 0; i < htmlArray.length; i++) {
+        htmlArray[i].parentNode.insertBefore(htmlArray[i], htmlArray[i + 300]);
     }
 }
 
 function sortListDir() {
-    let i;
-    let switching;
-    let b;
-    let shouldSwitch;
-    let dir;
-    switching = true;
-    dir = 'asc';
-    while (switching) {
-        switching = false;
-        b = display.getElementsByTagName('li');
-        for (i = 0; i < (b.length - 1); i++) {
-            shouldSwitch = false;
-            if (dir === 'asc') {
-                break;
-            } else if (dir === 'desc') {
-                if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
+    const li = display.getElementsByTagName('li');
+    const htmlArray = Array.from(li);
+    htmlArray.sort((a, b) => {
+        const titleA = a.innerHTML.toLowerCase();
+        const titleB = b.innerHTML.toLowerCase();
+        if (titleA < titleB) {
+            return -1;
+        } if (titleA > titleB) {
+            return 1;
         }
-        if (shouldSwitch) {
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
-            switching = true;
-        } else if (dir === 'asc') {
-            dir = 'desc';
-            switching = true;
-        }
+        return 0;
+    });
+    htmlArray.reverse();
+    for (let i = 0; i < htmlArray.length; i++) {
+        htmlArray[i].parentNode.insertBefore(htmlArray[i], htmlArray[i + 300]);
     }
 }
 
 sortList();
 sortListDir();
 displayPosts();
-myFunction();
+sortByFilter();

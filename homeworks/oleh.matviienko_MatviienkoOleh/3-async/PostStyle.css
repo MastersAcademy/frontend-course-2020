@@ -91,7 +91,7 @@
   border-radius: 10px;
   list-style-type: none;
   height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .title {
