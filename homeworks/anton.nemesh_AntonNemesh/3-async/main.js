@@ -162,8 +162,20 @@ async function saveData() {
     });
 }
 
-dropdownSort.addEventListener('change', () => { sortData(); showData(); });
-inputSearch.addEventListener('keyup', () => { filterData(); sortData('reverse'); showData(); });
+dropdownSort.addEventListener('change', () => {
+    sortData();
+    showData();
+});
+
+inputSearch.addEventListener('keyup', () => {
+    filterData();
+    sortData('reverse');
+    showData();
+});
 
 saveData();
-setTimeout(() => { showData(); toggleLoader(); }, 3000);
+
+setTimeout(() => {
+    showData();
+    toggleLoader();
+}, 3000);
