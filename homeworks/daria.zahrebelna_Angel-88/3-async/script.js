@@ -45,6 +45,7 @@ let filterPostsArr = [];
 
 function filterPosts(text) {
     if (!text.trim()) {
+        filterPostsArr = posts;
         return posts;
     }
     filterPostsArr = posts.filter((post) => post.title.trim()
@@ -58,29 +59,28 @@ function sortPosts(options) {
     const newArray = [];
     if (filterPostsArr.length) {
         newArray.push(...filterPostsArr);
-    } else if (!filterInputNode) {
+    } else if (!filterInputNode.value) {
         newArray.push(...posts);
-    } else {
-        return newArray;
     }
-    if (filterPostsArr.length) {
-        if (options === 0) {
+
+    switch (options) {
+        case 0:
             return newArray;
-        }
-        if (options === 1) {
+        case 1:
             newArray.sort((a, b) => a.title.trim()
                 .toLocaleLowerCase()
                 .localeCompare(b.title.trim()
                     .toLocaleLowerCase()));
-        }
-        if (options === 2) {
+            return newArray;
+        case 2:
             newArray.sort((a, b) => b.title.trim()
                 .toLocaleLowerCase()
                 .localeCompare(a.title.trim()
                     .toLocaleLowerCase()));
-        }
+            return newArray;
+        default:
+            return newArray;
     }
-    return newArray;
 }
 
 function sortAndFilter() {
