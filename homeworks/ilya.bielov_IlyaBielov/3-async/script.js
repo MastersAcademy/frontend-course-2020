@@ -4,17 +4,20 @@
     const spinnerNode = document.querySelector('[data-spinner]');
     const sortAZNode = document.querySelector('[data-sort-a-z]');
     const sortZANode = document.querySelector('[data-sort-z-a]');
+    const sortDefaultNode = document.querySelector('[data-sort-default]');
     const inputSortNode = document.querySelector('[data-filter]');
 
     const URL = 'https://jsonplaceholder.typicode.com/posts';
 
+    const showNode = (node) => node.classList.remove('hide');
+    const hideNode = (node) => node.classList.add('hide');
     const timeOut = (delay) => new Promise((r) => setTimeout(() => r(), delay));
 
     const getPostsWithDelay = async () => {
         await timeOut(3000);
         const posts = await (await fetch(URL)).json();
 
-        spinnerNode.classList.add('hide');
+        hideNode(spinnerNode);
         return posts;
     };
 
@@ -41,40 +44,29 @@
 
         Array.from(postsTitleArrayNode).forEach((postNode) => {
             if (postNode.innerText.indexOf(string) !== -1) {
-                postNode.parentNode.classList.remove('hide');
+                showNode(postNode.parentNode);
                 return;
             }
 
-            postNode.parentNode.classList.add('hide');
+            hideNode(postNode.parentNode);
         });
     };
 
     const posts = await getPostsWithDelay();
     putPostsToPostsNode(posts);
 
-    sortAZNode.addEventListener('change', (e) => {
-        sortZANode.checked = false;
-
-        if (!e.target.checked) {
-            putPostsToPostsNode(posts);
-            filterByString(inputSortNode.value, postsPlaceNode);
-            return;
-        }
-
+    sortAZNode.addEventListener('change', () => {
         putPostsToPostsNode(sortAZ(posts));
         filterByString(inputSortNode.value, postsPlaceNode);
     });
 
-    sortZANode.addEventListener('change', (e) => {
-        sortAZNode.checked = false;
-
-        if (!e.target.checked) {
-            putPostsToPostsNode(posts);
-            filterByString(inputSortNode.value, postsPlaceNode);
-            return;
-        }
-
+    sortZANode.addEventListener('change', () => {
         putPostsToPostsNode(sortZA(posts));
+        filterByString(inputSortNode.value, postsPlaceNode);
+    });
+
+    sortDefaultNode.addEventListener('change', () => {
+        putPostsToPostsNode(posts);
         filterByString(inputSortNode.value, postsPlaceNode);
     });
 
