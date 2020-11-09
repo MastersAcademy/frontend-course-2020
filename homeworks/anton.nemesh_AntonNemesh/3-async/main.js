@@ -2,6 +2,7 @@ const containerEl = document.querySelector('[data-container]');
 const templateEl = document.querySelector('[data-template]');
 const dropdownSort = document.querySelector('[data-sort]');
 const inputSearch = document.querySelector('[data-search]');
+const dataBase = [];
 
 function createPostItem(item, i) {
     const postClone = templateEl.content.cloneNode(true);
@@ -36,8 +37,8 @@ function deleteAllPosts() {
     }
 }
 
-function sortUp(posts) {
-    return posts.sort((a, b) => {
+function sortSort() {
+    dataBase.sort((a, b) => {
         const nameA = a.title.toLowerCase();
         const nameB = b.title.toLowerCase();
         if (nameA < nameB) {
@@ -50,8 +51,8 @@ function sortUp(posts) {
     });
 }
 
-function sortDown(posts) {
-    return posts.sort((a, b) => {
+function sortReverse() {
+    dataBase.sort((a, b) => {
         const nameA = a.title.toLowerCase();
         const nameB = b.title.toLowerCase();
         if (nameA < nameB) {
@@ -64,45 +65,68 @@ function sortDown(posts) {
     });
 }
 
-function sortOff(posts) { return posts; }
+function sortDefault() {
+    dataBase.sort((a, b) => {
+        const nameA = a.id;
+        const nameB = b.id;
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    });
+}
 
-function sort(posts) {
-    switch (dropdownSort.value) {
+function showData() {
+    deleteAllPosts();
+    dataBase.forEach((item, i) => {
+        if (item.visibility) {
+            createPostItem(item, i);
+        }
+    });
+}
+
+function sortData(sort) {
+    const sortValue = sort || dropdownSort.value;
+    switch (sortValue) {
         case 'sort':
-            sortUp(posts);
+            sortSort();
             break;
         case 'reverse':
-            sortDown(posts);
+            sortReverse();
             break;
         case 'default':
-            sortOff(posts);
+            sortDefault();
             break;
         default: break;
     }
 }
 
-async function showData() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const posts = await response.json();
-    deleteAllPosts();
-    sort(posts);
-    posts.forEach((item, i) => {
-        createPostItem(item, i);
-    });
-}
-
-function dataFilter() {
-    const titles = document.querySelectorAll('[data-post-title]');
-    titles.forEach((item) => {
+function filterData() {
+    dataBase.forEach((item) => {
         const element = item;
-        if (item.textContent.includes(inputSearch.value)) {
-            element.parentElement.style.display = 'block';
+        if (element.title.includes(inputSearch.value)) {
+            element.visibility = true;
         } else {
-            element.parentElement.style.display = 'none';
+            element.visibility = false;
         }
     });
 }
 
-dropdownSort.addEventListener('change', () => { showData(); });
-inputSearch.addEventListener('keyup', () => { dataFilter(); });
-setTimeout(() => { showData().then(toggleLoader); }, 1000);
+async function saveData() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const posts = await response.json();
+    posts.forEach((item) => {
+        const element = item;
+        element.visibility = true;
+        dataBase.push(element);
+    });
+}
+
+dropdownSort.addEventListener('change', () => { sortData(); showData(); });
+inputSearch.addEventListener('keyup', () => { filterData(); sortData('reverse'); showData(); });
+
+saveData();
+setTimeout(() => { showData(); toggleLoader(); }, 1000);
