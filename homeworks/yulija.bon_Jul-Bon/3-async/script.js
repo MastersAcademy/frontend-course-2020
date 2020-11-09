@@ -4,7 +4,7 @@ const select = document.querySelector('#sorting');
 const loader = document.querySelector('#loader');
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function getDAtaFromApi() {
+async function getDataFromApi() {
     try {
         await delay(3000);
         const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
@@ -16,7 +16,7 @@ async function getDAtaFromApi() {
 }
 
 function render(data) {
-    const html = data.map((article) => `<article id="${article.id}">
+    const html = data.map((article) => `<article class="article" data-post="${article.id}">
                         <h2>${article.title}</h2>
                         <p>${article.body}</p>
                         </article>`).join('');
@@ -24,45 +24,47 @@ function render(data) {
 }
 
 async function renderApiData() {
-    const dataFromApi = await getDAtaFromApi();
+    const dataFromApi = await getDataFromApi();
     render(dataFromApi);
-    loader.style.display = 'none';
+    loader.classList.add('hidden');
 }
 
-getDAtaFromApi();
+getDataFromApi();
 renderApiData();
 
 async function sortApiData(selectValue) {
-    const dataFromApi = await getDAtaFromApi();
+    const dataFromApi = await getDataFromApi();
     let sortData;
-    if (selectValue === 'decrease') {
-        sortData = dataFromApi.sort((obj1, obj2) => {
-            if (obj1.title > obj2.title) return -1;
-            return 0;
-        });
-    }
-    if (selectValue === 'increase') {
-        sortData = dataFromApi.sort((obj1, obj2) => {
-            if (obj1.title < obj2.title) return -1;
-            return 0;
-        });
-    }
-    if (selectValue === 'none') {
-        sortData = dataFromApi;
+    switch (selectValue) {
+        case 'decrease':
+            sortData = dataFromApi.sort((obj1, obj2) => {
+                if (obj1.title < obj2.title) return -1;
+                return 0;
+            });
+            break;
+        case 'increase':
+            sortData = dataFromApi.sort((obj1, obj2) => {
+                if (obj1.title > obj2.title) return -1;
+                return 0;
+            });
+            break;
+        case 'none':
+            sortData = dataFromApi;
+            break;
+        default:
+            sortData = dataFromApi;
     }
 
     render(sortData);
 }
 
 async function filterApiData() {
-    const articles = await getDAtaFromApi();
+    const articles = await getDataFromApi();
     const filterValue = input.value.trim().toLowerCase();
 
     if (filterValue.length) {
         const filteredList = articles.filter((article) => {
-            let titleString = '';
-
-            titleString += `${article.title.toString().toLowerCase().trim()}`;
+            const titleString = article.title.toString().toLowerCase().trim();
 
             return titleString.match(filterValue);
         });
@@ -74,7 +76,6 @@ async function filterApiData() {
 input.addEventListener('input', (event) => {
     app.innerHTML = '';
     const filterValue = event.target.value;
-    console.log(filterValue);
     filterApiData(filterValue);
 });
 

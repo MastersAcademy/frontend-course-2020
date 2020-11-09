@@ -18,8 +18,12 @@
   min-width: 200px;
 }
 
-article {
+.article {
   margin-bottom: 50px;
+}
+
+.hidden {
+  display: none !important
 }
 
 .spinner {
