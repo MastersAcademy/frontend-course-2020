@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>3-sync</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="body">
+<aside class="head">
+    <label>
+        <input data-filter-input class="text" type="search" id="searchTerm">
+    </label>
+    <label>
+        <select data-sort class="sort" id="category">
+            <option>Default sort</option>
+            <option>A-Z</option>
+            <option>Z-A</option>
+        </select>
+    </label>
+</aside>
+<main data-posts class="posts">
+
+</main>
+<template data-template>
+    <div data-post class="post">
+        <p data-post-title class="post__title"></p>
+        <p data-post-body class="post__body"></p>
+    </div>
+</template>
+<script src="script.js"></script>
+</body>
+
+</html>
