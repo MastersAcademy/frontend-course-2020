@@ -10,7 +10,7 @@ const REQUEST = {
 };
 
 const modalContent = {
-    somthingError: {
+    somethingError: {
         message: '<p style="color : rgb(167, 13, 13);">something went wrong!</p>',
         header: 'Error',
     },
@@ -29,22 +29,21 @@ const modalContent = {
 };
 
 const state = [];
+let sortIndex = 0;
+let searchfilter = '';
 
 const loaderIteration = (counter) => {
     const loaderEl = document.querySelector('.loader_point');
     loaderEl.style.animationIterationCount = counter;
-    return loaderEl;
 };
 
 const setModalDisplay = (display) => {
     const modalEl = document.querySelector('.modal_wrapper');
     modalEl.style.display = display;
-    return modalEl;
 };
 
 const modalDisplay = (statusCode, postId) => {
     const { message, header } = statusCode;
-    const elementId = postId;
     document.querySelector('.modal_content').innerHTML = message;
     setModalDisplay('block');
     loaderIteration('infinite');
@@ -54,25 +53,12 @@ const modalDisplay = (statusCode, postId) => {
         buttonsEl.forEach((item) => {
             const elem = item;
             elem.hidden = hiddenValue;
-            return elem;
         });
         return buttonsEl;
     };
     if (header === 'Сonfirmation') {
         buttonsHidden(false);
-        document.querySelectorAll('[data-modal-btn-container]').forEach((buttons) => {
-            buttons.addEventListener('click', (e) => {
-                const btnCancelEl = document.querySelector('[data-modal-btn-cancel]');
-                const btnOkEl = document.querySelector('[data-modal-btn-ok]');
-                if (e.target === btnCancelEl) {
-                    loaderIteration('unset');
-                    setModalDisplay('none');
-                } else if (e.target === btnOkEl) {
-                    // eslint-disable-next-line no-use-before-define
-                    setDeleteItem(REQUEST, elementId);
-                }
-            });
-        });
+        document.querySelector('.modal_btn_ok').id = postId;
     } else {
         buttonsHidden(true);
         setTimeout(() => {
@@ -106,15 +92,48 @@ const createPostElement = (item) => {
     return listEl;
 };
 
-const renderPostsList = (stateArray) => {
-    const itemsArray = stateArray;
+const renderPostsList = (index, filter) => {
     const postListEl = document.querySelector('.posts_list');
     postListEl.innerHTML = '';
-    itemsArray.map((item) => {
-        postListEl.append(createPostElement(item));
-        return postListEl;
-    });
-    return itemsArray;
+    const itemsArray = state.slice(0);
+    const regExp = new RegExp(filter, 'gi');
+    const filteredState = itemsArray.filter((item) => item.title.match(regExp));
+    if (index === 0) {
+        filteredState.map((item) => {
+            postListEl.append(createPostElement(item));
+            return item;
+        });
+    }
+    if (index === 1) {
+        const newState = filteredState.sort((a, b) => {
+            if (a.title > b.title) {
+                return 1;
+            }
+            if (a.title < b.title) {
+                return -1;
+            }
+            return 0;
+        });
+        newState.map((item) => {
+            postListEl.append(createPostElement(item));
+            return item;
+        });
+    }
+    if (index === 2) {
+        const newState = filteredState.sort((a, b) => {
+            if (a.title < b.title) {
+                return 1;
+            }
+            if (a.title > b.title) {
+                return -1;
+            }
+            return 0;
+        });
+        newState.map((item) => {
+            postListEl.append(createPostElement(item));
+            return item;
+        });
+    }
 };
 
 async function requestData(adress, method) {
@@ -130,10 +149,9 @@ async function setStateData(requestType, stateArray) {
     const jsonData = response.json();
     jsonData.then((result) => {
         stateArray.push(...result);
-        return stateArray;
     }).catch((err) => {
         console.error(err);
-        modalDisplay(modalContent.somthingError);
+        modalDisplay(modalContent.somethingError);
     });
 }
 
@@ -151,84 +169,40 @@ async function setDeleteItem(requestType, id) {
                 return i;
             });
         }
-    }).then((result) => {
-        renderPostsList(state);
-        document.querySelector('[data-search-filter]').value = '';
-        return result;
+    }).then(() => {
+        renderPostsList(sortIndex, searchfilter);
     }).catch((err) => {
-        modalDisplay(modalContent.somthingError);
+        modalDisplay(modalContent.somethingError);
         console.error(err);
     });
 }
 
-function sortAlphabet(sortOrder, itemsArray) {
-    let newState = itemsArray;
-    if (sortOrder === 'default_filter') {
-        newState = [];
-        return newState;
-    }
-    if (sortOrder === 'alphabet_filter') {
-        newState = newState.sort((a, b) => {
-            if (a.title > b.title) {
-                return 1;
-            }
-            if (a.title < b.title) {
-                return -1;
-            }
-            return 0;
-        });
-    }
-    if (sortOrder === 'alphabet_filter_reverse') {
-        newState = newState.sort((a, b) => {
-            if (a.title < b.title) {
-                return 1;
-            }
-            if (a.title > b.title) {
-                return -1;
-            }
-            return 0;
-        });
-    }
-    return newState;
-}
-
 document.querySelector('[data-search-filter]').addEventListener('keyup', (e) => {
-    const sortListEl = document.querySelectorAll('[data-sort-list]');
-    const inputValue = e.target.value;
-    const regExp = new RegExp(inputValue, 'gi');
-    const defaultState = state.slice(0);
-    const filteredState = defaultState.filter((item) => item.title.match(regExp));
-    sortListEl.forEach((item) => {
-        item.addEventListener('change', (event) => {
-            const newState = filteredState.slice(0);
-            const sortState = sortAlphabet(event.currentTarget.value, newState);
-            if (sortState.length === 0) {
-                renderPostsList(newState);
-            } else {
-                renderPostsList(sortState);
-            }
-        });
-    });
-    renderPostsList(filteredState);
+    searchfilter = e.target.value;
+    renderPostsList(sortIndex, searchfilter);
 });
 
-document.querySelectorAll('[data-sort-list]').forEach((item) => {
-    item.addEventListener('change', (event) => {
-        const searchFilterEl = document.querySelector('[data-search-filter]');
-        if (searchFilterEl.value === '') {
-            const newState = state.slice(0);
-            const sortState = sortAlphabet(event.currentTarget.value, newState);
-            if (sortState.length === 0) {
-                renderPostsList(state);
-            } else {
-                renderPostsList(sortState);
-            }
+document.querySelector('[data-sort-list]').addEventListener('change', () => {
+    const currentIndex = document.querySelector('.sort_list').options.selectedIndex;
+    sortIndex = currentIndex;
+    renderPostsList(sortIndex, searchfilter);
+});
+
+document.querySelectorAll('[data-modal-btn-container]').forEach((buttons) => {
+    buttons.addEventListener('click', (e) => {
+        const btnCancelEl = document.querySelector('[data-modal-btn-cancel]');
+        const btnOkEl = document.querySelector('[data-modal-btn-ok]');
+        if (e.target === btnCancelEl) {
+            loaderIteration('unset');
+            setModalDisplay('none');
+        } else if (e.target === btnOkEl) {
+            setDeleteItem(REQUEST);
         }
     });
 });
 
 setInterval(() => { document.querySelector('[data-loader-date-container]').innerHTML = `<p class="loader_date">${new Date().toLocaleTimeString()}</p>`; }, 1000);
 setTimeout(() => {
-    renderPostsList(state);
+    renderPostsList(sortIndex, searchfilter);
 }, 3000);
 setStateData(REQUEST, state);

@@ -2,10 +2,6 @@ body {
   background-color: rgb(31, 23, 44);
 }
 
-li {
-  list-style: none;
-}
-
 .wrapper {
   width: 500px;
   height: 610px;
@@ -175,6 +171,7 @@ li {
   margin-bottom: 10px;
   background-color: rgba(238, 238, 238, .87);
   border-radius: 5px;
+  list-style: none;
 }
 
 .post_element {
