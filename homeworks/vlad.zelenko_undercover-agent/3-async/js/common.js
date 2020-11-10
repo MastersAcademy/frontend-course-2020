@@ -4,7 +4,7 @@ const formSortPosts = document.querySelector('.sort-post');
 const inputFilter = document.querySelector('.filter');
 
 function filterValues(data) {
-    return data.filter((val) => val.title.includes(inputFilter.value));
+    return data.filter((val) => val.title.toLowerCase().includes(inputFilter.value.toLowerCase()));
 }
 
 function sortAZ(data) {
