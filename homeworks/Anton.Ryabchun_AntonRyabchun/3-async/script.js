@@ -1,48 +1,3 @@
-async function deletePost(postId) {
-    const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
-    const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
-    if (promise.status === 200) {
-        delete dataBase[postId];
-        postDiv.remove();
-        showMessage(promise.status);
-    } else {
-        shownPost(postId);
-        showMessage(promise.status);
-    }
-}
-
-async function deletePost(postId) {
-    const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
-    const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
-    if (promise.status === 200) {
-        delete dataBase[postId];
-        postDiv.remove();
-        showMessage(promise.status);
-    } else {
-        shownPost(postId);
-        showMessage(promise.status);
-    }
-}
-
-
-
-
-
-
-async function deletePost(postId) {
-    const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
-    const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
-    if (promise.status === 200) {
-        delete dataBase[postId];
-        postDiv.remove();
-        showMessage(promise.status);
-    } else {
-        shownPost(postId);
-        showMessage(promise.status);
-    }
-}
-
-
 const contentEl = document.querySelector('[data-content]');
 const templateEl = document.querySelector('[data-template]');
 const dropdownSort = document.querySelector('[data-sort]');
@@ -58,12 +13,6 @@ function toggleLoader() {
         imageLoaderEl.style.display = 'none';
     }
 }
-
-
-
-
-
-
 
 function deleteAllPosts() {
     const elements = contentEl.getElementsByClassName('post');
@@ -124,6 +73,20 @@ function shownPost(i) {
     currentPost.style.display = 'block';
 }
 
+
+
+async function deletePost(postId) {
+    const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
+    const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
+    if (promise.status === 200) {
+        delete dataBase[postId];
+        postDiv.remove();
+        showMessage(promise.status);
+    } else {
+        shownPost(postId);
+        showMessage(promise.status);
+    }
+}
 
 function createPostItem(item, i) {
     const postClone = templateEl.content.cloneNode(true);
