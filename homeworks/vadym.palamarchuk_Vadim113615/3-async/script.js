@@ -24,7 +24,6 @@ setTimeout(async () => {
 function getFullPost(item) {
     const postieItem = [item.userId, item.id, item.title].join('');
     return postieItem;
-    // console.log(postieItem);
 }
 
 function myFunction() {
