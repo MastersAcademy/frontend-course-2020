@@ -1,11 +1,10 @@
 (function () {
-    const container = document.querySelector('[data-container]');
+    const containerNodes = document.querySelector('[data-container]');
+    const filterNodes = document.querySelector('[data-filter]');
+    const sortNodes = document.querySelector('[data-sort]');
 
-    let postsArray;
-
-    function initPostsArray(posts) {
-        postsArray = Array.from(posts);
-    }
+    let unsortedPostsArr;
+    let postsArr;
 
     function insertMessage(posts) {
         const messageNode = document.querySelector('[data-message-template]');
@@ -18,32 +17,40 @@
             h.textContent = item.title;
             p.textContent = item.body;
 
-            container.append(clone);
+            containerNodes.append(clone);
         });
     }
 
-    function sortPanes(event, posts) {
-        if (event === '19') {
-            posts.sort((a, b) => (a.title > b.title ? 1 : -1));
+    function sortAndFilterPanes(posts) {
+        let filterPostsArr = posts;
+
+        if (filterNodes.value !== '') {
+            const toLowerFilterText = filterNodes.value.toLowerCase();
+            filterPostsArr = posts.filter((item) => item.title.indexOf(toLowerFilterText) !== -1);
         }
 
-        if (event === '91') {
-            posts.sort((a, b) => (a.title < b.title ? 1 : -1));
+        containerNodes.innerHTML = '';
+
+        switch (sortNodes.value) {
+            case '19':
+                filterPostsArr.sort((a, b) => (a.title > b.title ? 1 : -1));
+                insertMessage(filterPostsArr);
+                break;
+            case '91':
+                filterPostsArr.sort((a, b) => (a.title < b.title ? 1 : -1));
+                insertMessage(filterPostsArr);
+                break;
+            case '0':
+                insertMessage(unsortedPostsArr);
+                break;
+            default:
+                break;
         }
 
-        container.innerHTML = '';
-
-        insertMessage(posts);
-    }
-
-    function filterPanes(posts) {
-        const toLowerFilterText = document.querySelector('[data-filter]').value.toLowerCase();
-
-        const filterPostsArr = posts.filter((item) => item.title.indexOf(toLowerFilterText) !== -1);
-
-        container.innerHTML = '';
-
-        insertMessage(filterPostsArr);
+        if (filterNodes.value !== '') {
+            containerNodes.innerHTML = '';
+            insertMessage(filterPostsArr);
+        }
     }
 
     async function loadData() {
@@ -51,25 +58,39 @@
 
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         const json = await response.json();
-        await initPostsArray(json);
-        await insertMessage(json);
+
+        unsortedPostsArr = Array.from(json);
+        postsArr = Array.from(json);
+        insertMessage(postsArr);
 
         document.querySelector('[data-loading]').remove();
     }
 
-    container.addEventListener('click', (event) => {
+    containerNodes.addEventListener('click', (event) => {
         if (event.target.className !== 'remove-button') return;
 
-        event.target.closest('.pane').remove();
+        event.target.closest('.pane').classList.add('hidden-pane');
+        const currentTitle = event.target.closest('.pane').querySelector('[data-title]').textContent;
+        const currentPaneId = postsArr.find((item) => item.title === currentTitle).id;
+
+        fetch(`https://jsonplaceholder.typicode.com/posts/${currentPaneId}`, {
+            method: 'DELETE',
+        }).then(() => {
+            setTimeout(() => event.target.closest('.pane').remove(), 1000);
+            alert('Element deleted');
+        }).catch(() => {
+            setTimeout(() => event.target.closest('.pane').classList.remove('hidden-pane'), 1000);
+            alert('Something went wrong');
+        });
     });
 
     window.addEventListener('load', loadData);
 
-    document.querySelector('[data-sort]').addEventListener('change', (event) => {
-        sortPanes(event.target.value, postsArray);
+    sortNodes.addEventListener('change', () => {
+        sortAndFilterPanes(postsArr);
     });
 
-    document.querySelector('[data-filter]').addEventListener('input', () => {
-        filterPanes(postsArray);
+    filterNodes.addEventListener('input', () => {
+        sortAndFilterPanes(postsArr);
     });
 }());
