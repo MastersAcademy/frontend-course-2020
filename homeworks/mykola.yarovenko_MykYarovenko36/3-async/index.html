@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="aplication">
+        <div class="filters_container">
+          <input data-search-filter type="text" class="search_filter">
+            <select data-sort-list class="sort_list">
+            <option value="default_filter">default list</option>
+            <option value="alphabet_filter">from "A" to "Z"</option>
+            <option value="alphabet_filter_reverse">from "Z" to "A"</option>
+          </select>
+        </div>
+    <div class="posts_container">
+      <ul data-post-list class="posts_list">
+      </ul>
+    </div>
+    <div data-loader-container class="loader_point_conteiner">
+      <div class='loader_point_wrapper'>
+        <div data-loader-point class="loader_point"></div>
+      </div>
+      <div data-loader-date-container class="loader_date_container"></div>
+    </div>
+    <div class="modal_wrapper">
+      <div class="modal_display">
+        <div class="modal_header"></div>
+        <div class="modal_content"></div>
+        <div data-modal-btn-container class="modal_btn_container" hidden>
+          <button data-modal-btn-cancel class="modal_btn_cancel modal_btn">CANCEL</button>
+          <button data-modal-btn-ok class="modal_btn_ok modal_btn">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="./index.js"></script>
+</body>
+</html>
