@@ -27,7 +27,7 @@ function filteringPosts() {
 function sortPosts(array) {
     const chosenMethodOfSort = document.querySelector('[data-sort]').value;
 
-    if (chosenMethodOfSort == 'a-z') {
+    if (chosenMethodOfSort === 'a-z') {
         array.sort((u1, u2) => {
             if (u1.title > u2.title) return 1;
             if (u2.title > u1.title) return -1;
@@ -35,7 +35,7 @@ function sortPosts(array) {
         });
         return;
     }
-    if (chosenMethodOfSort == 'z-a') {
+    if (chosenMethodOfSort === 'z-a') {
         array.sort((u1, u2) => {
             if (u1.title < u2.title) return 1;
             if (u2.title < u1.title) return -1;
