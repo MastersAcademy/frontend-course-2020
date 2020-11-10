@@ -1,23 +1,23 @@
-body {
+.body-page {
   margin: 10px auto;
   width: 470px;
 }
 
-h3 {
+.title-message {
   margin: 0;
   padding-bottom: .3em;
   padding-right: 20px;
   font-size: 1.1em;
 }
 
-p {
+.message {
   margin: 0;
   padding: 0 0 .5em;
 }
 
 .loading-window {
   font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
-  font-size: xx-large;
+  font-size: 32px;
   text-align: center;
   color: #000;
   position: absolute;
@@ -50,6 +50,10 @@ p {
   border: solid 2px #C4DF9B;
   position: relative;
   margin-top: 10px;
+}
+
+.hidden-pane {
+  visibility: hidden;
 }
 
 .remove-button {
