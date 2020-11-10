@@ -1,55 +1,9 @@
-@font-face {
-  font-family: "name-font1";
-  src: url("../../3-async/fonts/name-font1.eot?72113177");
-  src: url("../../3-async/fonts/name-font1.eot?72113177#iefix") format("embedded-opentype"),
-    url("../../3-async/fonts/name-font1.woff?72113177") format("woff"),
-    url("../../3-async/fonts/name-font1.ttf?72113177") format("truetype"),
-    url("../../3-async/fonts/name-font1.svg?72113177#name-font1") format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-
-.demo-icon {
-  font-family: "name-font1";
-  font-style: normal;
-  font-weight: 400;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-[class^="icon-"]::before, [class*=" icon-"]::before {
-  font-family: "name-font1";
-  font-style: normal;
-  font-weight: 400;
-}
-
-.loader span {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  background-color: #1B4577;
-  margin: 35px 5px;
-  opacity: 0;
-}
-
 .loader {
   width: 25px;
   height: 25px;
   border-radius: 100%;
   margin: 0 auto;
   position: relative;
-  /*position: absolute;*/
-  /*bottom: -55px;*/
-  /*left: 50%;*/
-  /*transform: translateX(-50%);*/
 }
 
 .loader::before, .loader::after {
@@ -101,4 +55,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.hidden {
+  display: none;
 }

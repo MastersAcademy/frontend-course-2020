@@ -12,10 +12,10 @@
 
 <div id="wrapper" class="wrapper">
     <div class="filters">
-    <label ><input placeholder="Search" id="search-users" class="search-users" type="text" autofocus></label>
+    <label ><input placeholder="Search" id="search-article" class="search-article" type="text" autofocus data-search-article></label>
 
     <label>
-    <select name='options' id="select">
+    <select name='options' id="select" data-select>
         <option value='st'>Default</option>
         <option value='az'>From: a to: z</option>
         <option value='za'>From: z to: a</option>
@@ -23,19 +23,19 @@
     </label>
 
     </div>
-    <template id="article-template">
+    <template id="article-template" data-article-template>
         <div class="article visible" id="article">
-            <h2 class="article-title">
+            <h2 class="article-title" data-atrticle-title>
 
             </h2>
             <p class="article-text"></p>
         </div>
     </template>
-    <div class="page-container" id="render-content-container">
+    <div class="page-container" id="render-content-container" data-render-content-container>
 
 
     </div>
-    <div class="loader" id="loader"></div>
+    <div class="loader" id="loader" data-loader></div>
 </div>
 <script src="js/index.js"></script>
 

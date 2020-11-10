@@ -1,68 +1,67 @@
 const requestURL = 'https://jsonplaceholder.typicode.com/posts';
-const articleTemplate = document.getElementById('article-template').content;
-const contentContainer = document.getElementById('render-content-container');
-const loader = document.getElementById('loader');
+const articleTemplateEl = document.querySelector('[data-article-template]').content;
+const contentContainerEl = document.querySelector('[data-render-content-container]');
+const loaderEl = document.querySelector('[data-loader]');
 async function getResponse() {
     const response = await fetch(requestURL);
-    const posts = await response.json();
-    let myArrayListCopy = [];
-    myArrayListCopy = posts.slice();
-    loader.style.display = 'none';
-
-    for (let i = 0; i < posts.length; i++) {
-        const copyTemplate = document.importNode(articleTemplate, true);
-        copyTemplate.querySelector('.article-title').textContent = posts[i].title;
-        copyTemplate.querySelector('.article-text').textContent = posts[i].body;
-        contentContainer.appendChild(copyTemplate);
+    const initialPosts = await response.json();
+    const posts = initialPosts.slice();
+    loaderEl.classList.add('hidden');
+    function renderInitialPosts() {
+        contentContainerEl.innerHTML = '';
+        for (let i = 0; i < initialPosts.length; i++) {
+            const copyTemplate = articleTemplateEl.cloneNode(true);
+            copyTemplate.querySelector('.article-title').textContent = initialPosts[i].title;
+            copyTemplate.querySelector('.article-text').textContent = initialPosts[i].body;
+            contentContainerEl.appendChild(copyTemplate);
+        }
     }
-    const select = document.getElementById('select');
     function compare(a, b) {
-        const optionVal = select.value;
-        if (optionVal === 'az') {
-            if (a.title < b.title) return -1;
-        } else if (optionVal === 'za') {
-            if (a.title > b.title) return -1;
+        if (a.title < b.title) {
+            return -1;
         }
         return 0;
     }
-    select.addEventListener('change', () => {
-        if (select.value ? 'az' : 'za') {
-            contentContainer.innerHTML = '';
-            for (let i = 0; i < posts.length; i++) {
-                posts.sort(compare);
-                const copyTemplate = document.importNode(articleTemplate, true);
-                copyTemplate.querySelector('.article-title').textContent = posts[i].title;
-                copyTemplate.querySelector('.article-text').textContent = posts[i].body;
-                contentContainer.appendChild(copyTemplate);
-            }
+    function renderPosts() {
+        contentContainerEl.innerHTML = '';
+        for (let i = 0; i < posts.length; i++) {
+            const copyTemplate = articleTemplateEl.cloneNode(true);
+            copyTemplate.querySelector('.article-title').textContent = posts[i].title;
+            copyTemplate.querySelector('.article-text').textContent = posts[i].body;
+            contentContainerEl.appendChild(copyTemplate);
         }
-        if (select.value === 'st') {
-            contentContainer.innerHTML = '';
-            for (let i = 0; i < myArrayListCopy.length; i++) {
-                const copyTemplate = document.importNode(articleTemplate, true);
-                copyTemplate.querySelector('.article-title').textContent = myArrayListCopy[i].title;
-                copyTemplate.querySelector('.article-text').textContent = myArrayListCopy[i].body;
-                contentContainer.appendChild(copyTemplate);
-            }
-        }
-    });
-
-    const searchArticle = document.querySelector('#search-users');
-    searchArticle.addEventListener('keyup', function () {
-        const articleData = document.querySelectorAll('.article-title');
-        const articles = document.querySelectorAll('.article');
-        const searchVal = this.value.toLowerCase();
-
-        for (let i = 0; i < articles.length; i++) {
-            if (!searchVal || articleData[i].textContent.toLowerCase().indexOf(searchVal) > -1) {
-                articles[i].style.display = 'block';
-                articles[i].classList.add('visible');
+    }
+    const searchArticleEl = document.querySelector('[data-search-article]');
+    function search() {
+        const articleDataEl = document.querySelectorAll('.article-title');
+        const articlesEl = document.querySelectorAll('.article');
+        const searchVal = searchArticleEl.value.toLowerCase();
+        for (let i = 0; i < articlesEl.length; i++) {
+            if (!searchVal || articleDataEl[i].textContent.toLowerCase().indexOf(searchVal) > -1) {
+                articlesEl[i].classList.remove('hidden');
             } else {
-                articles[i].style.display = 'none';
-                articles[i].classList.remove('visible');
+                articlesEl[i].classList.add('hidden');
             }
         }
+    }
+    const select = document.querySelector('[data-select]');
+    select.addEventListener('change', () => {
+        if (select.value === 'az') {
+            initialPosts.sort(compare);
+            renderInitialPosts();
+            search();
+        } else if (select.value === 'za') {
+            initialPosts.sort(compare).reverse();
+            renderInitialPosts();
+            search();
+        } else {
+            renderPosts();
+            search();
+        }
     });
+    searchArticleEl.addEventListener('keyup', () => {
+        search();
+    });
+    renderPosts();
 }
-
 window.setTimeout(getResponse, 3000);
