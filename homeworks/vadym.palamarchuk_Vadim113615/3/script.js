@@ -19,7 +19,7 @@ setTimeout(async () => {
     const getPost = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await getPost.json();
     allPostsArray.push(...data);
-}, 3000);
+}, 3001);
 
 function getFullPost(item) {
     const postieItem = [item.userId, item.id, item.title].join('');
