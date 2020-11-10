@@ -2,7 +2,6 @@ const contentEl = document.querySelector('[data-content]');
 const templateEl = document.querySelector('[data-template]');
 const dropdownSort = document.querySelector('[data-sort]');
 const inputSearch = document.querySelector('[data-search]');
-const messagesEl = document.querySelector('[data-message]');
 const dataBase = [];
 
 function toggleLoader() {
@@ -73,6 +72,18 @@ function shownPost(i) {
     currentPost.style.display = 'block';
 }
 
+async function deletePost(postId) {
+    const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
+    const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
+    if (promise.status === 200) {
+        delete dataBase[postId];
+        postDiv.remove();
+
+    } else {
+        shownPost(postId);
+
+    }
+}
 
 
 async function deletePost(postId) {
