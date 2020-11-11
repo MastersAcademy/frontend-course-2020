@@ -72,29 +72,30 @@ function shownPost(i) {
     currentPost.style.display = 'block';
 }
 
-async function deletePost(postId) {
+// eslint-disable-next-line no-unused-vars
+async function delePosters(postId) {
     const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
     const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
     if (promise.status === 200) {
         delete dataBase[postId];
         postDiv.remove();
-
     } else {
         shownPost(postId);
-
     }
 }
 
-
+// eslint-disable-next-line no-unused-vars
 async function deletePost(postId) {
     const promise = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' });
     const postDiv = document.querySelector(`[data-del-${postId}]`).parentNode;
     if (promise.status === 200) {
         delete dataBase[postId];
         postDiv.remove();
+        // eslint-disable-next-line no-undef
         showMessage(promise.status);
     } else {
         shownPost(postId);
+        // eslint-disable-next-line no-undef
         showMessage(promise.status);
     }
 }
@@ -112,7 +113,8 @@ function createPostItem(item, i) {
     buttonDel.addEventListener('click', (event) => {
         event.preventDefault();
         hiddenPost(i);
-        setTimeout(() => { deletePost(i); }, 1000);
+        // eslint-disable-next-line no-undef
+        setTimeout(() => { deletePoster(i); }, 1000);
     });
 }
 
