@@ -11,9 +11,8 @@ function fridaysInMonth() {
     const inputValue = document.getElementById('inputDate').value
     let month = new Date(inputValue).getMonth() + 1
     let year = new Date(inputValue).getFullYear()
-    let days = new Date(inputValue).getDate();
-    let fridays = [6 - (new Date(month + '/01/' + year).getDay())];
-    for (let i = fridays[0] + 7; i < days; i += 7) {
+    let fridays = [6 - (new Date(month + '/01/' +year).getDay())];
+    for (let i = fridays[0] + 7; i < 33; i += 7) {
         fridays.push(i);
     }
     return fridays;
@@ -25,7 +24,7 @@ function fridaysInMonth() {
  */
 export function isMonthLong() {
     const showIsLong = document.getElementById('showIsLong');
-    showIsLong.innerText = daysInMonthLong();
+    showIsLong.innerText = daysInMonthLong()
 }
 
 
