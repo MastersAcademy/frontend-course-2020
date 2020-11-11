@@ -18,6 +18,29 @@
             p.textContent = item.body;
 
             containerNodes.append(clone);
+
+            const removeButtonNodes = document.querySelectorAll('[data-remove-button]');
+
+            removeButtonNodes.forEach((node) => {
+                node.addEventListener('click', (event) => {
+                    event.stopImmediatePropagation();
+
+                    event.target.closest('.pane').classList.add('hidden-pane');
+                    const currentTitle = event.target.closest('.pane').querySelector('[data-title]').textContent;
+                    const currentPaneId = postsArr.find((elem) => elem.title === currentTitle).id;
+
+                    fetch(`https://jsonplaceholder.typicode.com/posts/${currentPaneId}`, {
+                        method: 'DELETE',
+                    }).then(() => {
+                        setTimeout(() => event.target.closest('.pane').remove(), 1000);
+                        alert('Element deleted');
+                    }).catch(() => {
+                        setTimeout(() => event.target.closest('.pane').classList.remove('hidden-pane'), 1000);
+                        alert('Something went wrong');
+                    });
+                    event.target.closest('.pane').classList.add('hidden-pane');
+                });
+            });
         });
     }
 
@@ -62,27 +85,8 @@
         unsortedPostsArr = Array.from(json);
         postsArr = Array.from(json);
         insertMessage(postsArr);
-
         document.querySelector('[data-loading]').remove();
     }
-
-    containerNodes.addEventListener('click', (event) => {
-        if (event.target.className !== 'remove-button') return;
-
-        event.target.closest('.pane').classList.add('hidden-pane');
-        const currentTitle = event.target.closest('.pane').querySelector('[data-title]').textContent;
-        const currentPaneId = postsArr.find((item) => item.title === currentTitle).id;
-
-        fetch(`https://jsonplaceholder.typicode.com/posts/${currentPaneId}`, {
-            method: 'DELETE',
-        }).then(() => {
-            setTimeout(() => event.target.closest('.pane').remove(), 1000);
-            alert('Element deleted');
-        }).catch(() => {
-            setTimeout(() => event.target.closest('.pane').classList.remove('hidden-pane'), 1000);
-            alert('Something went wrong');
-        });
-    });
 
     window.addEventListener('load', loadData);
 
