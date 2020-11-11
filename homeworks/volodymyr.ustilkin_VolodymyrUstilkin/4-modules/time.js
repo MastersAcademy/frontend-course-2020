@@ -83,3 +83,27 @@ export function getTimeWithBind(timeBind) {
 
     return currentTime;
 }
+
+/**
+ *
+ * @param date - Date object or a date string of any supported format
+ * @param hours - number of hours to subtract
+ * @returns {Date} resultDate: date - hours
+ */
+export function subtractHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() - hours);
+    return resultDate;
+}
+
+/**
+ *
+ * @param date - Date object or a date string of any supported format
+ * @param hours - number of hours to add
+ * @returns {Date} resultDate: date + hours
+ */
+export function addHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() + hours);
+    return resultDate;
+}
