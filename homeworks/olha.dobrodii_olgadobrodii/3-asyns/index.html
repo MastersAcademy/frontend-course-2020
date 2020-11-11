@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/index.css">
+
+  <title>Homework 3</title>
+</head>
+
+<body>
+  <header>
+    <form id="header-form" class="container header-wrapper">
+      <div class="filter">
+        <label>
+          Filter:
+          <input type="text" id="filter" class="filter__input">
+        </label>
+      </div>
+
+      <div class="sorting">
+        Sorting:
+
+        <label class="sorting__button">
+          <input type="radio" name="sorting" value="NONE" checked> None
+        </label>
+
+        <label class="sorting__button">
+          <input type="radio" name="sorting" value="ASC"> A=>Z
+        </label>
+
+        <label class="sorting__button">
+          <input type="radio" name="sorting" value="DESC"> Z=>A
+        </label>
+      </div>
+    </form>
+  </header>
+
+  <main class="container">
+    <div class="posts-wrapper"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  <script src="/index.js"></script>
+</body>
+</html>

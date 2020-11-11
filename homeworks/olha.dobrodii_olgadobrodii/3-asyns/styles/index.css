@@ -1,0 +1,64 @@
+/* global */
+
+:root {
+  --brand-color: #F0F8FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+
+/* header */
+
+header {
+  padding: 20px 0;
+  background-color: var(--brand-color);
+  border-bottom: 1px solid #000;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* content */
+
+main.container {
+  margin-top: 20px;
+}
+
+.posts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.post {
+  width: 32%;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: var(--brand-color);
+  border: 1px solid #000;
+}
+
+.post__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.post__remove {
+  color: #F00;
+  cursor: pointer;
+}
