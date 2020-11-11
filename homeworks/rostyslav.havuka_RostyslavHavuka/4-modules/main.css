@@ -1,0 +1,18 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 10px;
+  grid-template-areas: ". . . . ."
+    ". . input . ."
+    ". . button1 . ."
+    ". . button2 . ."
+    ". . button3 . ."
+    ". . button4 . ."
+    ". . . . .";
+}
+.input { grid-area: input; }
+.button1 { grid-area: button1; }
+.button2 { grid-area: button2; }
+.button3 { grid-area: button3; }
+.button4 { grid-area: button4; }
