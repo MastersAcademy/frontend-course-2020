@@ -5,25 +5,22 @@ function getDaysInMonth(date) {
 function getFridaysOfMonth(date) {
     const inputDate = new Date(date);
     const fridays = [];
-    const myDate = new Date(inputDate.getFullYear(), inputDate.getMonth(), 1);
-    const daysInMonth = getDaysInMonth(myDate);
+    const beginningOfTheMonth = new Date(inputDate.getFullYear(), inputDate.getMonth(), 1);
+    const daysInMonth = getDaysInMonth(beginningOfTheMonth);
     for (let i = 1; i <= daysInMonth; i++) {
-        let currentDate = myDate.getDate();
-        if (myDate.getDay() === 5) {
-            fridays.push(myDate.getDate());
+        let currentDate = beginningOfTheMonth.getDate();
+        if (beginningOfTheMonth.getDay() === 5) {
+            fridays.push(beginningOfTheMonth.getDate());
         }
         currentDate += 1;
-        myDate.setDate(currentDate);
+        beginningOfTheMonth.setDate(currentDate);
     }
     return fridays;
 }
 
 function isMonthLong(date) {
-    if (toString.call(date) !== '[object String]') {
-        console.error('isMonthLong: incorrect input format Date');
-    }
-    const myDate = new Date(date);
-    return getDaysInMonth(myDate) === 31;
+    const beginningOfTheMonth = new Date(date);
+    return getDaysInMonth(beginningOfTheMonth) === 31;
 }
 
 function fullWeeksNumberInMonth(date) {
