@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-modules</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer type="module" src="index.js"></script>
+</head>
+<body>
+<div class="main-container">
+    <div class="main-task-container">
+
+        <div>
+            <div>Date:</div>
+            <div>
+                <input id="main-task-input" type="date" class="main-task-input" data-main-task-input value="2020-11-11">
+            </div>
+        </div>
+
+        <div class="subtask-container">
+            <button type="button" class="main-task-button" data-get-month-fridays-button>Get month fridays</button>
+            <div class="main-task-result" data-month-fridays-result></div>
+        </div>
+
+        <div class="subtask-container">
+            <button type="button" class="main-task-button" data-is-month-long-button>Is month long?</button>
+            <div class="main-task-result" data-is-month-long-result></div>
+        </div>
+
+        <div class="subtask-container">
+            <button type="button" class="main-task-button" data-get-month-shortest-week-button>Days of shortest week in month</button>
+            <div class="main-task-result" data-get-month-shortest-week-result></div>
+        </div>
+
+        <div class="subtask-container">
+            <button type="button" class="main-task-button" data-get-month-full-weeks-button>Full weeks in month</button>
+            <div class="main-task-result" data-get-month-full-weeks-result></div>
+        </div>
+    </div>
+    <div class="star-task-container">
+        <div class="star-symbol-container">*</div>
+        <div class="time-display-container" data-time-display-container>Press enable JS</div>
+        <div class="country-select-container">
+            <select class="country-select" data-country-select>
+                <option value="" selected="selected" data-default-data-select-option>Current</option>
+                <option value="9">Tokyo</option>
+                <option value="0">London</option>
+                <option value="-5">New York</option>
+            </select>
+        </div>
+    </div>
+</div>
+</body>
+</html>
