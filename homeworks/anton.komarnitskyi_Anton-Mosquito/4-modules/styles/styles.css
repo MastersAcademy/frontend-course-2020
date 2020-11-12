@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+header,
+footer,
+aside {
+  display: block;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/** helper style */
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+/** main styles **/
+
+.date {
+  width: 60%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content;
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .4);
+}
+
+.date .date__function {
+  width: 100%;
+  background-color: #F5F5F5;
+  padding: 1rem;
+}
+
+.date .date__function .date__function-form {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 1rem;
+}
+
+.date .date__function .date__function-form .date__function-form-content {
+  position: relative;
+  display: grid;
+  grid-template-rows: max-content;
+  grid-row-gap: 1rem;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-content-tooltip {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 200px;
+  padding: 5px 20px;
+  border: 1px solid #B3C9CE;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  background: #FFF;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+
+.date .date__function .date__function-form .date__function-form-content label {
+  padding: .5rem;
+  font-size: 1.3rem;
+}
+
+.date .date__function .date__function-form .date__function-form-content [type=date] {
+  padding: .2rem .2rem .2rem .5rem;
+  font-size: 1.1rem;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button {
+  position: relative;
+  border-radius: 2rem;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button::before,.date .date__function .date__function-form .date__function-form-content .date__function-form-button::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid hsl(270, 50%, 40%);
+  top: -10px;
+  left: 50%;
+  z-index: 1;
+  transition: all .8s ease 0s;
+  margin: 0 0 0 -25px;
+  pointer-events: none;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button::before {
+  animation: animation 20s infinite linear;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button::after {
+  animation: animation 25s infinite linear;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button:hover::before,.date .date__function .date__function-form .date__function-form-content .date__function-form-button:hover::after {
+  left: 100%;
+  opacity: 0;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button .date__function-form-button-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  border-radius: 2rem;
+  font-size: .8rem;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, .4);
+  letter-spacing: .5px;
+  transition: all .3s ease 0s;
+  top: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button .date__function-form-button-text::before,.date .date__function .date__function-form .date__function-form-content .date__function-form-button .date__function-form-button-text::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #EEE;
+  transition: all .8s ease 0s;
+  pointer-events: none;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button .date__function-form-button-text::before {
+  left: 0;
+  z-index: 2;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button .date__function-form-button-text::after {
+  right: 0;
+}
+
+
+.date .date__time .date__time-wrapper .date__time-wrapper-time span {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 40px;
+  background: #A22D8C;
+  color: #FFF;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  z-index: 10;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .2);
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-time span:nth-child(2) {
+  height: 30px;
+  font-size: .7rem;
+  font-weight: 500;
+  z-index: 9;
+  box-shadow: none;
+  background: #3A1163;
+  text-transform: uppercase;
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-time div:last-child span {
+  background: #A22D8C;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button .date__function-form-button-text span {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button:hover .date__function-form-button-text::before {
+  width: 100%;
+  pointer-events: none;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button:hover .date__function-form-button-text::before, .date .date__function .date__function-form .date__function-form-content .date__function-form-button:hover .date__function-form-button-text::after {
+  background-color: hsl(270, 50%, 40%);
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button:hover .date__function-form-button-text {
+  color: #FFF;
+  top: -5px;
+  box-shadow: 5px 5px 0 0 rgb(68, 31, 104);
+  transition: all .3s ease .2s;
+  pointer-events: none;
+}
+
+.date .date__function .date__function-form .date__function-form-content .date__function-form-button:active .date__function-form-button-text {
+  box-shadow: 5px 2px 0 0 rgb(68, 31, 104);
+  top: -2px;
+  transition: all .1s ease 0s;
+  pointer-events: none;
+}
+
+@keyframes animation {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.date .date__time {
+  padding: 1.5rem;
+}
+
+.date .date__time .date__time-wrapper {
+  position: relative;
+  height: 220px;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+  background: #A681CC;
+  box-shadow: 5px 10px 5px 0 rgba(0, 0, 0, .5);
+  padding: 1rem;
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-time {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-time div {
+  position: relative;
+  margin: 0 5px;
+  -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(2, 2, 2, .933));
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-time div:last-child span:nth-child(2) {
+  background: #6A0F58;
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-drop {
+  position: absolute;
+  top: 85%;
+  left: 70%;
+  transform: translate(-85%,-70%);
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-drop .towns {
+  padding: 0 0 0 1rem;
+  height: 30px;
+  width: 150px;
+  background-color: hsl(270, 50%, 40%);
+  color: #FFF;
+  border: 0;
+  font-size: 1.5rem;
+  appearance: none;
+  cursor: pointer;
+  box-shadow: 0 5px 30px rgba(227, 216, 63, .5);
+}
+
+.date .date__time .date__time-wrapper .date__time-wrapper-drop::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 12.5px 0;
+  border-color: #E3D83F transparent transparent;
+  top: 20%;
+  left: 80%;
+  pointer-events: none;
+}
+
+.date .date__time .date__time-wrapper-timezone {
+  position: relative;
+  color: rgb(0, 0, 0);
+  text-align: justify;
+  font-weight: 600;
+  margin: 50px 0;
+}
