@@ -19,12 +19,12 @@
   margin: 20px 0;
 }
 
-h3 {
+.infoBlock h3 {
   margin-bottom: 0;
-  text-align: center;
+  text-align: left;
 }
 
-span {
+.infoBlock span {
   color: #F00;
 }
 

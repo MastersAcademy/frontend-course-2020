@@ -84,9 +84,9 @@ function addZero(i) {
 
 function getTime(timezone) {
     const timeNow = new Date();
-    let hours = addZero(timeNow.getHours());
     const minutes = addZero(timeNow.getMinutes());
     const seconds = addZero(timeNow.getSeconds());
+    let hours = addZero(timeNow.getHours());
     switch (timezone) {
         case 'tokyo':
             hours = addZero(timeNow.getHours() + 7);

@@ -23,6 +23,8 @@ const infoFullWeekEl = document.querySelector('[data-info-fullweek]');
 const timeEl = document.querySelector('[data-info-time]');
 const dropdownTimezoneEl = document.querySelector('[data-dropdown-timezone]');
 
+let cityTime = 'current';
+
 buttonFriEl.addEventListener('click', () => {
     const value = getFridaysOfMonth(dateInputEl.value);
     infoFriEl.textContent = `${value}`;
@@ -43,7 +45,6 @@ buttonFullWeekEl.addEventListener('click', () => {
     infoFullWeekEl.textContent = `${value}`;
 });
 
-let cityTime = 'current';
 dropdownTimezoneEl.addEventListener('change', () => {
     cityTime = dropdownTimezoneEl.value;
 });
