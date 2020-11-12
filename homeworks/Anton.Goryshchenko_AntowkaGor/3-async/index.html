@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Async</title>
+</head>
+<body>
+<div class="preloader">
+    <div class="preloader__row">
+        <div class="preloader__item"></div>
+        <div class="preloader__item"></div>
+    </div>
+</div>
+<fieldset>
+        <legend>Posts</legend>
+    <div class="js-posts" data-js-posts>
+        <div>
+            <input type="text" class="filter"  placeholder="Filter posts ...">
+            <span>Sort posts:</span>
+            <select class="sort">
+                <option value="none">None</option>
+                <option value="asc">A-Z</option>
+                <option value="desc">Z-A</option>
+            </select>
+        </div>
+    </div>
+</fieldset>
+
+<script src="script.js"></script>
+</body>
+</html>

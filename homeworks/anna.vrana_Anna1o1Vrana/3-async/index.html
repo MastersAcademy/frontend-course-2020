@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>3-async</title>
+</head>
+
+<body>
+<!-- Loader -->
+<div class="preloader" data-preloader>
+    <div class="loader" data-loader></div>
+</div>
+<!-- Title -->
+<h1 class="hw-header">3-async</h1>
+
+<div class="container border">
+    <form action="" class="top-options-container">
+        <label for="input-filter">
+            <input type="search" id="input-filter" class="filter border" data-input-filter />
+        </label>
+        <label for="select-sort">
+            <select id="select-sort" class="sort border option" data-select-sort>
+                <option value="" selected>Sort</option>
+                <option value="sort_to_lower" data-to-lower class="option">A - Z</option>
+                <option value="sort_to_bigger" class="option">Z - A</option>
+            </select>
+        </label>
+    </form>
+    <div class="all-posts" data-all-posts></div>
+</div>
+<template id="template" class="border" data-template>
+    <div class="post-wrapper border">
+        <div class="post-title-wrapper">
+            <h4 class="post-title" data-template-title></h4>
+            <button class="delete-btn" data-template-delete>X</button>
+        </div>
+        <p data-template-text></p>
+    </div>
+
+</template>
+<script src="script.js"></script>
+</body>
+
+</html>
