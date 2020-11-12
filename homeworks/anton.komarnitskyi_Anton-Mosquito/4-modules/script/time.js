@@ -1,5 +1,5 @@
 const getDate = (date) => {
-    return new Date(date);
+    return new Date(date)
 };
 
 const getfirstDay = (now) => {
@@ -14,8 +14,8 @@ const howManyDaysOfFirstWeek = (day, flag) => {
     let quantity = null;
 
     if (day === 0) return 1;
-    if (flag === "first") quantity = 7 - (day - 1);
-    else if (flag === "last") quantity = day;
+    if (flag === 'first') quantity = 7 - (day - 1);
+    else if (flag === 'last') quantity = day;
 
     return quantity;
 };
@@ -29,55 +29,19 @@ const timeDiference = (date, hours, flag) => {
         innerDate.getDate(),
         currenеDate.getHours(),
         currenеDate.getMinutes(),
-        currenеDate.getSeconds()
-        )
-    );
+        currenеDate.getSeconds(),
+    ));
 
     const currentHours = hours * (1000 * 60 * 60);
 
     let result = null;
 
-    switch (flag) {
-        case "add":
-            result = new Date(now + currentHours);
-        break;
-        case "subtract":
-            result = new Date(now - currentHours);
-            break;
-    }
+    if ( flag ==='add') result = new Date(now + currentHours);
+    if (flag === 'subtract') result = new Date(now - currentHours);
 
     return result;
 };
 
-/**
- * @param date - date string of any supported format
- * @returns array of Friday dates in a month the date from
- */
-function getFridaysOfMonth(date) {
-    const findFridays = (day) => {
-        for (let index = 1; index <= day; index++) {
-            let date = new Date(now.getFullYear(), now.getMonth(), index);
-            if (date.getDay() === 5) {
-                array.push(date.getDate());
-            }
-        }
-    };
-
-    const array = new Array();
-    const now = getDate(date);
-
-    switch (isMonthLong(now)) {
-        case true:
-            findFridays(31);
-        break;
-
-        case false:
-            findFridays(30);
-            break;
-        }
-
-        return array;
-}
 
 /**
  * @param date - date string of any supported format
@@ -93,6 +57,29 @@ function isMonthLong(date) {
 
 /**
  * @param date - date string of any supported format
+ * @returns array of Friday dates in a month the date from
+ */
+function getFridaysOfMonth(date) {
+    const array = [];
+    const now = getDate(date);
+
+    const findFridays = (day) => {
+        for (let index = 1; index <= day; index++) {
+            const newDate = new Date(now.getFullYear(), now.getMonth(), index);
+            if (newDate.getDay() === 5) {
+                array.push(newDate.getDate());
+            }
+        }
+    };
+
+    if (isMonthLong(now)) findFridays(31);
+    else findFridays(30);
+
+    return array;
+}
+
+/**
+ * @param date - date string of any supported format
  * @returns {number} number of days in a shortest week of the date month
  */
 function shortestWeekDaysNumber(date) {
@@ -103,10 +90,10 @@ function shortestWeekDaysNumber(date) {
 
     const quantityDaysFirstWeek = howManyDaysOfFirstWeek(
         firstDay.getDay(),
-        "first"
+        'first'
     );
 
-    const quantityDaysLastWeek = howManyDaysOfFirstWeek(lastDay.getDay(), "last");
+    const quantityDaysLastWeek = howManyDaysOfFirstWeek(lastDay.getDay(), 'last');
 
     if (quantityDaysFirstWeek < quantityDaysLastWeek)
     number = quantityDaysFirstWeek;
@@ -124,14 +111,11 @@ function shortestWeekDaysNumber(date) {
 function fullWeeksNumberInMonth(date) {
     let number = null;
     const now = getDate(date);
-    const firstDay = howManyDaysOfFirstWeek(getfirstDay(now).getDay(), "first");
-    const lastDay = howManyDaysOfFirstWeek(getlastDay(now).getDay(), "last");
+    const firstDay = howManyDaysOfFirstWeek(getfirstDay(now).getDay(), 'first');
+    const lastDay = howManyDaysOfFirstWeek(getlastDay(now).getDay(), 'last');
 
-    if (isMonthLong(now)) {
-        number = (31 - firstDay - lastDay) / 7;
-    } else {
-        number = (30 - firstDay - lastDay) / 7;
-    }
+    if (isMonthLong(now)) number = (31 - firstDay - lastDay) / 7;
+    else number = (30 - firstDay - lastDay) / 7;
 
     return Math.floor(number);
 }
@@ -143,7 +127,7 @@ function fullWeeksNumberInMonth(date) {
  * @returns {Date} resultDate: date - hours
  */
 function subtractHours(date, hours) {
-    const resultDate = timeDiference(date, hours, "subtract");
+    const resultDate = timeDiference(date, hours, 'subtract');
     return resultDate;
 }
 
@@ -154,7 +138,7 @@ function subtractHours(date, hours) {
  * @returns {Date} resultDate: date + hours
  */
 function addHours(date, hours) {
-    const resultDate = timeDiference(date, hours, "add");
+    const resultDate = timeDiference(date, hours, 'add');
     return resultDate;
 }
 
