@@ -82,27 +82,42 @@ function addZero(i) {
     return iteration;
 }
 
-function getTime(timezone) {
-    const timeNow = new Date();
-    const minutes = addZero(timeNow.getMinutes());
-    const seconds = addZero(timeNow.getSeconds());
-    let hours = addZero(timeNow.getHours());
+function addHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() + hours);
+    return resultDate;
+}
+
+function subtractHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() - hours);
+    return resultDate;
+}
+
+function showDate(timezone) {
+    let currentDate = new Date();
     switch (timezone) {
         case 'tokyo':
-            hours = addZero(timeNow.getHours() + 7);
+            currentDate = addHours(currentDate, 7);
             break;
         case 'london':
-            hours = addZero(timeNow.getHours() - 2);
+            currentDate = subtractHours(currentDate, 2);
             break;
         case 'newyork':
-            hours = addZero(timeNow.getHours() - 7);
+            currentDate = subtractHours(currentDate, 7);
             break;
         case 'current':
-            hours = addZero(timeNow.getHours());
+            currentDate = new Date();
             break;
         default: break;
     }
-    return `${hours}:${minutes}:${seconds}`;
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const date = currentDate.getDate();
+    const minutes = addZero(currentDate.getMinutes());
+    const seconds = addZero(currentDate.getSeconds());
+    const hours = addZero(currentDate.getHours());
+    return `${month}.${date}.${year} ${hours}:${minutes}:${seconds}`;
 }
 
 export {
@@ -110,5 +125,5 @@ export {
     isMonthLong,
     fullWeeksNumberInMonth,
     shortestWeekDaysNumber,
-    getTime,
+    showDate,
 };
