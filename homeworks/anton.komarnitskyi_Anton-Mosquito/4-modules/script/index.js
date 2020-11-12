@@ -120,11 +120,11 @@ class WorkWithDate {
             const hours = new Date().getHours() + this._diferenceHours;
             const minutes = new Date().getMinutes();
             const seconds = new Date().getSeconds();
+
             hoursContainer.textContent = timeNormilize(hours);
             minutesContainer.textContent = timeNormilize(minutes);
             secondsContainer.textContent = timeNormilize(seconds);
         }, 1000);
-
     }
 
     eventListener() {
@@ -208,7 +208,8 @@ class WorkWithDate {
             default:
                 if (this.checkInput()) {
                     this._timeZone.textContent = new Date();
-                    this._diferenceHours = 0;this.startClock();
+                    this._diferenceHours = 0;
+                    this.startClock();
                 }
                 break;
         }
