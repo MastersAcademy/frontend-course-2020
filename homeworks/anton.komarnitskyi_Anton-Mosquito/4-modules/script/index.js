@@ -20,7 +20,7 @@ class WorkWithDate {
         this._secondaryContainer = null;
         this._containerForClock = document.querySelector('[data-date="ContainerForClock"]');
         this._timeZone = document.querySelector('[data-date="timezone"]');
-        this._time = 'Current'
+        this._time = 'Current';
     }
 
     init() {
