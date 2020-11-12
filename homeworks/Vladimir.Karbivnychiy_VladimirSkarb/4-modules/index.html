@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<main class="main-content">
+    <section class="date-section">
+        <div class="container">
+            <div class="date-picker">
+                <p><label for="start">Date:</label></p>
+                <input type="date" id="start" data-date value="2020-11-11">
+            </div>
+            <div class="btn-wrapper">
+                <button class="btn" data-all-friday-btn>All Friday</button>
+                <div class="date-info"><p data-all-friday></p></div>
+                <button class="btn" data-long-month-btn>Is Month Long?</button>
+                <div class="date-info"><p data-long-month></p></div>
+                <button class="btn" data-shortest-week-btn>Shortest Week</button>
+                <div class="date-info"><p data-shortest-week></p></div>
+                <button class="btn" data-full-weeks-btn>Full Weeks</button>
+                <div class="date-info"><p data-full-weeks></p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="time-section">
+        <div class="time" data-time></div>
+        <label>
+            <select class="label" data-sort>
+                <option value="kyiv" selected>Default</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+                <option value="newYork">New York</option>
+            </select>
+        </label>
+    </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
