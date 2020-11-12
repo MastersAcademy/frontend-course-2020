@@ -9,17 +9,17 @@ import {
 
 class WorkWithDate {
     constructor() {
-        this._inputData = document.querySelector('[data-date="inputData"]'),
-        this._outPutBox1 = document.querySelector('[data-date="arrayMonth"]'),
-        this._outPutBox2 = document.querySelector('[data-date="lastDay"]'),
-        this._outPutBox3 = document.querySelector('[data-date="shortDay"]'),
-        this._outPutBox4 = document.querySelector('[data-date="fullWeek"]'),
-        this._dropDown = document.querySelector('[data-date="select"]'),
-        this._base = ['Current', 'Tokyo', 'London', 'New York'],
-        this._mainContainer = null,
-        this._secondaryContainer = null,
-        this._containerForClock = document.querySelector('[data-date="ContainerForClock"]'),
-        this._diferenceHours = 0,
+        this._inputData = document.querySelector('[data-date="inputData"]');
+        this._outPutBox1 = document.querySelector('[data-date="arrayMonth"]');
+        this._outPutBox2 = document.querySelector('[data-date="lastDay"]');
+        this._outPutBox3 = document.querySelector('[data-date="shortDay"]');
+        this._outPutBox4 = document.querySelector('[data-date="fullWeek"]');
+        this._dropDown = document.querySelector('[data-date="select"]');
+        this._base = ['Current', 'Tokyo', 'London', 'New York'];
+        this._mainContainer = null;
+        this._secondaryContainer = null;
+        this._containerForClock = document.querySelector('[data-date="ContainerForClock"]');
+        this._diferenceHours = 0;
         this._timeZone = document.querySelector('[data-date="timezone"]');
     }
 
@@ -124,7 +124,7 @@ class WorkWithDate {
             hoursContainer.textContent = timeNormilize(hours);
             minutesContainer.textContent = timeNormilize(minutes);
             secondsContainer.textContent = timeNormilize(seconds);
-        }, 1000);
+        },1000);
 
     }
 
@@ -157,66 +157,66 @@ class WorkWithDate {
     }
 
     arrayMonthAction() {
-        if (this.checkInput()){
-        this._outPutBox1.textContent = getFridaysOfMonth(this._inputData.value);
+        if (this.checkInput()) {
+            this._outPutBox1.textContent = getFridaysOfMonth(this._inputData.value);
         }
     }
 
     lastDayAction() {
-        if (this.checkInput()){
-        this._outPutBox2.textContent = isMonthLong(this._inputData.value);
+        if (this.checkInput()) {
+            this._outPutBox2.textContent = isMonthLong(this._inputData.value);
         }
     }
 
     shortDayAction() {
-        if (this.checkInput()){
-        this._outPutBox3.textContent = shortestWeekDaysNumber(this._inputData.value);
+        if (this.checkInput()) {
+            this._outPutBox3.textContent = shortestWeekDaysNumber(this._inputData.value);
         }
     }
 
     fullWeekAction() {
-        if (this.checkInput()){
-        this._outPutBox4.textContent = fullWeeksNumberInMonth(this._inputData.value);
+        if (this.checkInput()) {
+            this._outPutBox4.textContent = fullWeeksNumberInMonth(this._inputData.value);
         }
     }
 
     selectAction() {
         const select = this._dropDown.selectedIndex;
-        const options = this._dropDown.options;
+        const options = this._dropDown.options[select];
 
-        switch (options[select].text) {
+        switch (options.text) {
             case 'Tokyo':
                 if (this.checkInput()) {
                     this._timeZone.textContent = addHours(this._inputData.value, 7);
                     this._diferenceHours = 7;
                     this.startClock();
                 }
-            break;
+                break;
             case "London":
                 if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 2);
                     this._diferenceHours = -2;
                     this.startClock();
                 }
-            break;
+                break;
             case "New York":
                 if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 7);
                     this._diferenceHours = -7;
                     this.startClock();
                 }
-            break;
-            case "Current":
+                break;
+            default:
                 if (this.checkInput()) {
                     this._timeZone.textContent = new Date();
                     this._diferenceHours = 0;this.startClock();
                 }
-            break;
+                break;
         }
     }
 
     showMessage(text) {
-        const tooltip = this._inputData.parentElement.querySelector(`[data-date='tooltip']`);
+        const tooltip = this._inputData.parentElement.querySelector('[data-date="tooltip"]');
         tooltip.innerText = text;
         tooltip.classList.add('visible');
 
