@@ -137,9 +137,9 @@ class WorkWithDate {
                 seconds = subtractHours(this._inputData.value, 2).getSeconds();
             }
             if (this._time === 'New York') {
-                hours = new Date().getHours();
-                minutes = new Date().getMinutes();
-                seconds = new Date().getSeconds();
+                hours = subtractHours(this._inputData.value, 7).getHours();
+                minutes = subtractHours(this._inputData.value, 7).getMinutes();
+                seconds = subtractHours(this._inputData.value, 7).getSeconds();
             }
 
             hoursContainer.textContent = timeNormilize(hours);
