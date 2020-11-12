@@ -36,12 +36,11 @@ const timeDiference = (date, hours, flag) => {
 
     let result = null;
 
-    if ( flag ==='add') result = new Date(now + currentHours);
-    if (flag === 'subtract') result = new Date(now - currentHours);
+    if( flag === 'add') result = new Date(now + currentHours);
+    if(flag === 'subtract') result = new Date(now - currentHours);
 
     return result;
 };
-
 
 /**
  * @param date - date string of any supported format
@@ -51,8 +50,12 @@ function isMonthLong(date) {
     const now = getDate(date);
     const checkMonth = getlastDay(now);
 
-    if (checkMonth.getDate() === 31) return true;
-    else return false;
+    let result = null;
+
+    if (checkMonth.getDate() === 31) result = true;
+    else result = false;
+
+    return result
 }
 
 /**
@@ -95,10 +98,8 @@ function shortestWeekDaysNumber(date) {
 
     const quantityDaysLastWeek = howManyDaysOfFirstWeek(lastDay.getDay(), 'last');
 
-    if (quantityDaysFirstWeek < quantityDaysLastWeek)
-    number = quantityDaysFirstWeek;
-    else if (quantityDaysFirstWeek > quantityDaysLastWeek)
-    number = quantityDaysLastWeek;
+    if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysFirstWeek;
+    else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysLastWeek;
     else number = quantityDaysFirstWeek;
 
     return number;
@@ -111,8 +112,13 @@ function shortestWeekDaysNumber(date) {
 function fullWeeksNumberInMonth(date) {
     let number = null;
     const now = getDate(date);
-    const firstDay = howManyDaysOfFirstWeek(getfirstDay(now).getDay(), 'first');
-    const lastDay = howManyDaysOfFirstWeek(getlastDay(now).getDay(), 'last');
+    const firstDay = howManyDaysOfFirstWeek(
+        getfirstDay(now).getDay(),
+        'first'
+    );
+    const lastDay = howManyDaysOfFirstWeek(
+        getlastDay(now).getDay(),
+        'last');
 
     if (isMonthLong(now)) number = (31 - firstDay - lastDay) / 7;
     else number = (30 - firstDay - lastDay) / 7;

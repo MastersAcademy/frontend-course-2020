@@ -9,19 +9,19 @@ import {
 
 class WorkWithDate {
     constructor() {
-        this._inputData = document.querySelector(`[data-date='inputData']`),
-        this._outPutBox1 = document.querySelector(`[data-date='arrayMonth']`),
-        this._outPutBox2 = document.querySelector(`[data-date='lastDay']`),
-        this._outPutBox3 = document.querySelector(`[data-date='shortDay']`),
-        this._outPutBox4 = document.querySelector(`[data-date='fullWeek']`),
-        this._dropDown = document.querySelector(`[data-date='select']`),
+        this._inputData = document.querySelector('[data-date="inputData"]'),
+        this._outPutBox1 = document.querySelector('[data-date="arrayMonth"]'),
+        this._outPutBox2 = document.querySelector('[data-date="lastDay"]'),
+        this._outPutBox3 = document.querySelector('[data-date="shortDay"]'),
+        this._outPutBox4 = document.querySelector('[data-date="fullWeek"]'),
+        this._dropDown = document.querySelector('[data-date="select"]'),
         this._base = ['Current', 'Tokyo', 'London', 'New York'],
         this._mainContainer = null,
         this._secondaryContainer = null,
-        this._containerForClock = document.querySelector(`[data-date='ContainerForClock']`),
+        this._containerForClock = document.querySelector('[data-date="ContainerForClock"]'),
         this._diferenceHours = 0,
-        this._timeZone = document.querySelector(`[data-date='timezone']`);
-}
+        this._timeZone = document.querySelector('[data-date="timezone"]');
+    }
 
     init() {
         this.createElement();
@@ -30,7 +30,7 @@ class WorkWithDate {
         this.startClock();
         this.createTooltip();
         this.eventListener();
-}
+    }
 
     createElement() {
         const container = document.createElement('div');
@@ -39,29 +39,29 @@ class WorkWithDate {
 
         this._mainContainer = container;
         this._secondaryContainer = digitsContainer;
-}
+    }
 
     get mainContainerNode() {
         return this._mainContainer.cloneNode(true);
-}
+    }
 
     get secondaryContainerNode() {
         return this._secondaryContainer.cloneNode(true);
-}
+    }
 
     fillSelect() {
         this._base.forEach((element) => {
             this._dropDown.add(new Option(element));
         });
-}
+    }
 
     createTooltip() {
         const tooltipContainer = this.mainContainerNode;
-        tooltipContainer.classList.add('date__function-form-content-tooltip','hidden');
+        tooltipContainer.classList.add('date__function-form-content-tooltip', 'hidden');
         tooltipContainer.dataset.date = 'tooltip';
 
         this._inputData.parentElement.appendChild(tooltipContainer);
-}
+    }
 
     createClock() {
         const mainContainer = this.mainContainerNode;
@@ -101,21 +101,22 @@ class WorkWithDate {
         mainContainer.append(hourContainer, minutesContainer, secondsContainer);
 
         this._containerForClock.appendChild(mainContainer);
-}
+    }
 
     startClock() {
         const timeNormilize = (digits) => {
             let result = null;
             if (digits < 10) result = `0${digits}`;
+            else result = digits;
 
             return result;
         };
 
-        let hoursContainer = document.querySelector(`[data-date='Hours']`);
-        let minutesContainer = document.querySelector(`[data-date='Minutes']`);
-        let secondsContainer = document.querySelector(`[data-date='Seconds']`);
+        const hoursContainer = document.querySelector('[data-date="Hours"]');
+        const minutesContainer = document.querySelector('[data-date="Minutes"]');
+        const secondsContainer = document.querySelector('[data-date="Seconds"]');
 
-        const interval = setInterval(() => {
+        setInterval(() => {
             const hours = new Date().getHours() + this._diferenceHours;
             const minutes = new Date().getMinutes();
             const seconds = new Date().getSeconds();
@@ -124,7 +125,8 @@ class WorkWithDate {
             minutesContainer.textContent = timeNormilize(minutes);
             secondsContainer.textContent = timeNormilize(seconds);
         }, 1000);
-}
+
+    }
 
     eventListener() {
         document.addEventListener('submit', (e) => {
@@ -144,7 +146,7 @@ class WorkWithDate {
             if (atrributes !== 'select') return;
             this.selectAction();
         });
-}
+    }
 
     checkInput() {
         if (Boolean(this._inputData.value) === false) {
@@ -152,27 +154,31 @@ class WorkWithDate {
             return false;
         }
         return true;
-}
+    }
 
     arrayMonthAction() {
-        if (this.checkInput())
+        if (this.checkInput()){
         this._outPutBox1.textContent = getFridaysOfMonth(this._inputData.value);
-}
+        }
+    }
 
     lastDayAction() {
-        if (this.checkInput())
+        if (this.checkInput()){
         this._outPutBox2.textContent = isMonthLong(this._inputData.value);
-}
+        }
+    }
 
     shortDayAction() {
-        if (this.checkInput())
+        if (this.checkInput()){
         this._outPutBox3.textContent = shortestWeekDaysNumber(this._inputData.value);
-}
+        }
+    }
 
     fullWeekAction() {
-        if (this.checkInput())
+        if (this.checkInput()){
         this._outPutBox4.textContent = fullWeeksNumberInMonth(this._inputData.value);
-}
+        }
+    }
 
     selectAction() {
         const select = this._dropDown.selectedIndex;
@@ -207,7 +213,7 @@ class WorkWithDate {
                 }
             break;
         }
-}
+    }
 
     showMessage(text) {
         const tooltip = this._inputData.parentElement.querySelector(`[data-date='tooltip']`);
@@ -219,7 +225,7 @@ class WorkWithDate {
             tooltip.classList.add('hidden');
             clearTimeout(timer);
         }, 2000);
-}
+    }
 }
 
 const ex = new WorkWithDate();
