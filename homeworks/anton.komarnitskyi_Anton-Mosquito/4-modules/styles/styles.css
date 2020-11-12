@@ -328,8 +328,8 @@ h6 {
 .date .date__time .date__time-wrapper .date__time-wrapper-drop {
   position: absolute;
   top: 85%;
-  left: 70%;
-  transform: translate(-85%,-70%);
+  left: 65%;
+  transform: translate(-85%,-65%);
 }
 
 .date .date__time .date__time-wrapper .date__time-wrapper-drop .towns {

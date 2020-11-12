@@ -19,8 +19,8 @@ class WorkWithDate {
         this._mainContainer = null;
         this._secondaryContainer = null;
         this._containerForClock = document.querySelector('[data-date="ContainerForClock"]');
-        this._diferenceHours = 0;
         this._timeZone = document.querySelector('[data-date="timezone"]');
+        this._time = 'Current'
     }
 
     init() {
@@ -116,10 +116,31 @@ class WorkWithDate {
         const minutesContainer = document.querySelector('[data-date="Minutes"]');
         const secondsContainer = document.querySelector('[data-date="Seconds"]');
 
+        let hours = null;
+        let minutes = null;
+        let seconds = null;
+
         setInterval(() => {
-            const hours = new Date().getHours() + this._diferenceHours;
-            const minutes = new Date().getMinutes();
-            const seconds = new Date().getSeconds();
+            if (this._time === 'Current') {
+                hours = new Date().getHours();
+                minutes = new Date().getMinutes();
+                seconds = new Date().getSeconds();
+            }
+            if (this._time === 'Tokyo') {
+                hours = addHours(this._inputData.value, 7).getHours();
+                minutes = addHours(this._inputData.value, 7).getMinutes();
+                seconds = addHours(this._inputData.value, 7).getSeconds();
+            }
+            if (this._time === 'London') {
+                hours = subtractHours(this._inputData.value, 2).getHours();
+                minutes = subtractHours(this._inputData.value, 2).getMinutes();
+                seconds = subtractHours(this._inputData.value, 2).getSeconds();
+            }
+            if (this._time === 'New York') {
+                hours = new Date().getHours();
+                minutes = new Date().getMinutes();
+                seconds = new Date().getSeconds();
+            }
 
             hoursContainer.textContent = timeNormilize(hours);
             minutesContainer.textContent = timeNormilize(minutes);
@@ -150,6 +171,7 @@ class WorkWithDate {
     checkInput() {
         if (Boolean(this._inputData.value) === false) {
             this.showMessage('This field can not be empty!');
+            this._dropDown.options[0].selected = true;
             return false;
         }
         return true;
@@ -187,29 +209,25 @@ class WorkWithDate {
             case 'Tokyo':
                 if (this.checkInput()) {
                     this._timeZone.textContent = addHours(this._inputData.value, 7);
-                    this._diferenceHours = 7;
-                    this.startClock();
+                    this._time = 'Tokyo';
                 }
                 break;
             case 'London':
                 if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 2);
-                    this._diferenceHours = -2;
-                    this.startClock();
+                    this._time = 'London';
                 }
                 break;
             case 'New York':
                 if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 7);
-                    this._diferenceHours = -7;
-                    this.startClock();
+                    this._time = 'New York';
                 }
                 break;
             default:
                 if (this.checkInput()) {
                     this._timeZone.textContent = new Date();
-                    this._diferenceHours = 0;
-                    this.startClock();
+                    this._time = 'Current';
                 }
                 break;
         }
