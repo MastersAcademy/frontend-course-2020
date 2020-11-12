@@ -27,3 +27,22 @@ h3 {
 span {
   color: #F00;
 }
+
+.dateInput, .dropdownTimezone {
+  width: 150px;
+}
+
+.dropdownTimezone {
+  height: 25px;
+  padding-inline-start: 5px;
+  margin-left: auto;
+}
+
+.right .group {
+  margin-left: auto;
+  text-align: right;
+}
+
+.time {
+  margin: 0;
+}

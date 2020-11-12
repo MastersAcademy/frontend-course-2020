@@ -3,6 +3,7 @@ import {
     isMonthLong,
     fullWeeksNumberInMonth,
     shortestWeekDaysNumber,
+    getTime,
 } from './time.js';
 
 const dateInputEl = document.querySelector('[data-date]');
@@ -18,6 +19,9 @@ const infoShortWeekEl = document.querySelector('[data-info-shortweek]');
 
 const buttonFullWeekEl = document.querySelector('[data-button-fullweek]');
 const infoFullWeekEl = document.querySelector('[data-info-fullweek]');
+
+const timeEl = document.querySelector('[data-info-time]');
+const dropdownTimezoneEl = document.querySelector('[data-dropdown-timezone]');
 
 buttonFriEl.addEventListener('click', () => {
     const value = getFridaysOfMonth(dateInputEl.value);
@@ -38,3 +42,12 @@ buttonFullWeekEl.addEventListener('click', () => {
     const value = fullWeeksNumberInMonth(dateInputEl.value);
     infoFullWeekEl.textContent = `${value}`;
 });
+
+let cityTime = 'current';
+dropdownTimezoneEl.addEventListener('change', () => {
+    cityTime = dropdownTimezoneEl.value;
+});
+
+setInterval(() => {
+    timeEl.textContent = getTime(cityTime);
+}, 1000);

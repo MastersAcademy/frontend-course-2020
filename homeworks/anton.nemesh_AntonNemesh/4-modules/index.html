@@ -10,7 +10,9 @@
     <div class="container">
         <div class="row">
                 <div class="col">
-                    <input type="date" data-date name="trip-start" value="2020-11-11">
+                    <div class="group">
+                        <input class="dateInput" type="date" data-date name="trip-start" value="2020-11-11">
+                    </div>
                     <div class="group">
                         <button data-button-fridays>Get calendar dates of Fridays</button>
                         <h3>Fridays - <span data-info-fridays></span></h3>
@@ -26,6 +28,19 @@
                     <div class="group">
                         <button data-button-fullweek>Get the number of full weeks</button>
                         <h3>This month has - <span data-info-fullweek></span> full weeks</h3>
+                    </div>
+                </div>
+                <div class="col right">
+                    <div class="group">
+                        <h1 class="time" data-info-time></h1>
+                    </div>
+                    <div class="group">
+                        <select class="dropdownTimezone" data-dropdown-timezone>
+                            <option value="tokyo">Tokyo
+                            <option value="london">London
+                            <option value="newyork">New York
+                            <option value="current" selected>Current
+                        </select>
                     </div>
                 </div>
         </div>
