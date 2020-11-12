@@ -19,6 +19,18 @@
   margin-left: 900px;
 }
 
+.filter {
+  margin-left: 25px;
+  margin-top: 15px;
+}
+
+.sort select {
+  height: 20px;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-left: 647px;
+}
+
 .image-wrap {
   width: 100%;
   height: 100%;
