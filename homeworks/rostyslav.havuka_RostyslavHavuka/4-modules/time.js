@@ -2,15 +2,9 @@
  * @param date - date string of any supported format
  * @returns array of Friday dates in a month the date from
  */
-export function getFridaysOfMonth() {
-    const showMonth = document.getElementById('showMonth');
-    showMonth.innerText = fridaysInMonth()
-}
-
-function fridaysInMonth() {
-    const inputValue = document.getElementById('inputDate').value
-    let month = new Date(inputValue).getMonth() + 1
-    let year = new Date(inputValue).getFullYear()
+export function fridaysInMonth(date) {
+    let month = new Date(date).getMonth() + 1
+    let year = new Date(date).getFullYear()
     let fridays = [6 - (new Date(month + '/01/' +year).getDay())];
     for (let i = fridays[0] + 7; i < 33; i += 7) {
         fridays.push(i);
@@ -22,20 +16,11 @@ function fridaysInMonth() {
  * @param date - date string of any supported format
  * @returns {boolean} true if month of a date has 31 day, otherwise returns false
  */
-export function isMonthLong() {
-    const showIsLong = document.getElementById('showIsLong');
-    showIsLong.innerText = daysInMonthLong()
-}
-
-
-function daysInMonthLong() {
-    const inputValue = document.getElementById('inputDate').value
-    let date = new Date(inputValue);
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
+export function isMonthLong(date) {
+    let dates = new Date(date);
+    let month = dates.getMonth() + 1;
+    let year = dates.getFullYear();
     let daysInMonth = new Date(year, month, 0).getDate();
-    console.log(date);
-    console.log(daysInMonth);
     if (daysInMonth === 31) {
         return 'true'
     } else {
@@ -48,7 +33,35 @@ function daysInMonthLong() {
  * @returns {number} number of days in a shortest week of the date month
  */
 export function shortestWeekDaysNumber(date) {
-    return 1;
+    let dates = new Date(date);
+    let month = dates.getMonth() +1;
+    let year = dates.getFullYear();
+    let beginningOfTheMonth = new Date(dates.getFullYear(), dates.getMonth(), 1);
+    let daysInMonth = new Date(year, month, 0).getDate();
+    const weeks = [];
+    weeks[1] = [];
+    weeks[2] = [];
+    weeks[3] = [];
+    weeks[4] = [];
+    weeks[5] = [];
+    weeks[6] = [];
+    const result = [];
+    let currWeek = 1;
+    for (let i = 1; i <= daysInMonth; i++) {
+        let currDate = beginningOfTheMonth.getDate();
+        if (beginningOfTheMonth.getDay() === 1) {
+            currWeek += 1;
+        }
+        weeks[currWeek].push(beginningOfTheMonth.getDay());
+        currDate += 1;
+        beginningOfTheMonth.setDate(currDate);
+    }
+    weeks.forEach((value) => {
+        if (value.length !== 0) {
+            result.push(value.length);
+        }
+    });
+    return Math.min(...result);
 }
 
 /**
@@ -56,5 +69,18 @@ export function shortestWeekDaysNumber(date) {
  * @returns {number} number of full weeks in the date month. To be full, week should start and end in the same month
  */
 export function fullWeeksNumberInMonth(date) {
-    return 4;
-}
+    let month = new Date(date).getMonth() + 1;
+    let year = new Date(date).getFullYear();
+    var firstOfMonth = new Date(year, month, 1);
+    var day = firstOfMonth.getDay() || 6;
+    day = day === 1 ? 0 : day;
+    if (day) { day-- }
+    var diff = 9 - day;
+    var lastOfMonth = new Date(year, month, 0);
+    var lastDate = lastOfMonth.getDate();
+    if (lastOfMonth.getDay() === 1) {
+        diff--;
+    }
+    var result = Math.ceil((lastDate - diff) / 7);
+    return result;
+  };

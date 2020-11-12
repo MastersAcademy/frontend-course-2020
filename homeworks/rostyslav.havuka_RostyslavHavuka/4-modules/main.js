@@ -1,14 +1,29 @@
-import {getFridaysOfMonth, isMonthLong} from './time.js';
+import { fridaysInMonth, isMonthLong, shortestWeekDaysNumber, fullWeeksNumberInMonth } from './time.js';
+
 const getMonthButton = document.getElementById('getMonth')
 const getIsLongButton = document.getElementById('getIsLong')
 const getShortestButton = document.getElementById('getShortest')
 const getFullWeeksButton = document.getElementById('getFullWeeks')
-const showIsLong = document.getElementById('showIsLong')
-const showShortest = document.getElementById('showShortest')
-const showFullWeeks = document.getElementById('showFullWeeks')
 
-getMonthButton.addEventListener('click', getFridaysOfMonth);
-getIsLongButton.addEventListener('click', isMonthLong)
-// getShortestButton.addEventListener('click',)
-// getFullWeeksButton.addEventListener('click',)
+getMonthButton.addEventListener('click', () => {
+    const showMonth = document.getElementById('showMonth');
+    const inputValue = document.getElementById('inputDate').value;
+    showMonth.innerText = fridaysInMonth(inputValue);
+});
+getIsLongButton.addEventListener('click', () => {
+    const showIsLong = document.getElementById('showIsLong');
+    const inputValue = document.getElementById('inputDate').value;
+    showIsLong.innerText = isMonthLong(inputValue);
+})
+getShortestButton.addEventListener('click', () => {
+    const showShortest = document.getElementById('showShortest');
+    const inputValue = document.getElementById('inputDate').value;
+    showShortest.innerHTML = shortestWeekDaysNumber(inputValue);
+})
+
+getFullWeeksButton.addEventListener('click', () => {
+    const showFullWeeks = document.getElementById('showFullWeeks');
+    const inputValue = document.getElementById('inputDate').value;
+    showFullWeeks.innerHTML = fullWeeksNumberInMonth(inputValue);
+})
 
