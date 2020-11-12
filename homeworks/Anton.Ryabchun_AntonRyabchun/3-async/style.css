@@ -20,6 +20,7 @@
 }
 
 .filter {
+  position: fixed;
   margin-left: 25px;
   margin-top: 15px;
 }
@@ -28,7 +29,7 @@
   height: 20px;
   font-size: 15px;
   margin-top: 15px;
-  margin-left: 647px;
+  margin-left: 928px;
 }
 
 .image-wrap {
