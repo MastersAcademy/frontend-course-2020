@@ -1,8 +1,8 @@
-const getDate = (date) => { return new Date(date); };
+const getDate = (date) => new Date(date);
 
-const getfirstDay = (now) => { return new Date(now.getFullYear(), now.getMonth(), 1); };
+const getfirstDay = (now) => new Date(now.getFullYear(), now.getMonth(), 1);
 
-const getlastDay = (now) => { return new Date(now.getFullYear(), now.getMonth() + 1, 0); };
+const getlastDay = (now) => new Date(now.getFullYear(), now.getMonth() + 1, 0);
 
 const howManyDaysOfFirstWeek = (day, flag) => {
     let quantity = null;
