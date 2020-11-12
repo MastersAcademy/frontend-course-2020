@@ -5,7 +5,7 @@ import {
     fullWeeksNumberInMonth,
     addHours,
     subtractHours,
-} from './time';
+} from './time.js';
 
 const getMonthButton = document.getElementById('getMonth');
 const getIsLongButton = document.getElementById('getIsLong');
