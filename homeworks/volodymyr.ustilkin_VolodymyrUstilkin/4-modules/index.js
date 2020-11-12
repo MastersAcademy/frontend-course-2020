@@ -31,6 +31,9 @@ import * as time from './time.js';
             document.querySelector('[data-get-month-full-weeks-result]').innerText = time.fullWeeksNumberInMonth(date);
         });
 
+    document.querySelector('[data-country-select]')
+        .addEventListener('change', updateTime);
+
     document.querySelector('[data-default-data-select-option]').value = new Date(Date.now()).getTimezoneOffset() / -60;
     updateTime();
 
