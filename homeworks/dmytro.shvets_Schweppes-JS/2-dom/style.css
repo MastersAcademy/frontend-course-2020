@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Karla, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #303;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  width: 30vw;
+  background-color: rgba(0, 0, 0, .65);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .65);
+  overflow: hidden;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 100%;
+  padding: 10px;
+  color: rgb(245, 245, 245);
+  overflow: auto;
+}
+
+.messages-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background-color: rgba(124, 63, 221, .35);
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: #303;
+  border-radius: 10px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(63, 221, 155, .35);
+  cursor: pointer;
+}
+
+.messages-container p {
+  padding: 5px;
+  display: flex;
+}
+
+.first-user i {
+  margin-right: 10px;
+}
+
+.second-user i {
+  margin-left: 10px;
+}
+
+.messages-container i {
+  font-size: 2.5rem;
+  align-self: flex-end;
+  color: rgba(245, 245, 245, .85);
+}
+
+.first-user span {
+  background-color: rgba(124, 63, 221, .35);
+}
+
+.second-user span {
+  background-color: rgba(63, 221, 155, .35);
+}
+
+.second-user {
+  flex-direction: row-reverse;
+}
+
+.messages-container span {
+  word-wrap: break-word;
+  align-self: center;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+.input-container {
+  display: flex;
+  height: 10%;
+  min-height: 56px;
+  width: 100%;
+  background-color: rgba(124, 63, 221, .35);
+  padding: 0 10px;
+}
+
+form {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+input {
+  height: 100%;
+  width: 85%;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 1.1rem;
+  color: rgb(245, 245, 245);
+}
+
+button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 15%;
+  min-width: 39px;
+  height: 100%;
+  background: transparent;
+  text-decoration: none;
+  border: none;
+  color: rgba(245, 245, 245, .65);
+  font-size: 2.5rem;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgba(245, 245, 245, .85);
+  border: none;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+
+  .chat {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .chat {
+    width: 65vw;
+  }
+}
+
+@media screen and (max-width: 375px) {
+
+  .chat {
+    width: 85vw;
+  }
+}
