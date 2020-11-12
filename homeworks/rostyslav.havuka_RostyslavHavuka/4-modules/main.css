@@ -1,18 +1,56 @@
+body {
+  background: #E0E0E0;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   gap: 10px;
   grid-template-areas: ". . . . ."
-    ". . input . ."
+    ". . input time ."
     ". . button1 . ."
     ". . button2 . ."
     ". . button3 . ."
-    ". . button4 . ."
-    ". . . . .";
+    ". . button4 . .";
 }
+
 .input { grid-area: input; }
 .button1 { grid-area: button1; }
 .button2 { grid-area: button2; }
 .button3 { grid-area: button3; }
 .button4 { grid-area: button4; }
+.time { grid-area: time; }
+
+.button {
+  background-color: rgb(248, 245, 245);
+  color: rgb(8, 8, 8);
+  padding: 12px 21px;
+  text-align: center;
+  font-size: 14px;
+  transition-duration: .2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #575656;
+  color: rgb(255, 253, 253);
+}
+
+.span {
+  font-size: 18px;
+  font-family: cursive;
+  font-weight: 500;
+  font-style: initial;
+}
+
+.inputDate {
+  min-height: 33px;
+  border: 2.5px solid rgb(0, 0, 0);
+  border-radius: 4%;
+}
+
+.select {
+  width: 40%;
+  min-height: 30px;
+}

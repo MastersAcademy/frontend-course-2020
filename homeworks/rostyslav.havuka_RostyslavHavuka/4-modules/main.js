@@ -1,4 +1,4 @@
-import { fridaysInMonth, isMonthLong, shortestWeekDaysNumber, fullWeeksNumberInMonth } from './time.js';
+import { fridaysInMonth, isMonthLong, shortestWeekDaysNumber, fullWeeksNumberInMonth, addHours, subtractHours } from './time.js';
 
 const getMonthButton = document.getElementById('getMonth')
 const getIsLongButton = document.getElementById('getIsLong')
@@ -18,12 +18,51 @@ getIsLongButton.addEventListener('click', () => {
 getShortestButton.addEventListener('click', () => {
     const showShortest = document.getElementById('showShortest');
     const inputValue = document.getElementById('inputDate').value;
-    showShortest.innerHTML = shortestWeekDaysNumber(inputValue);
+    showShortest.innerText = shortestWeekDaysNumber(inputValue);
 })
 
 getFullWeeksButton.addEventListener('click', () => {
     const showFullWeeks = document.getElementById('showFullWeeks');
     const inputValue = document.getElementById('inputDate').value;
-    showFullWeeks.innerHTML = fullWeeksNumberInMonth(inputValue);
+    showFullWeeks.innerText = fullWeeksNumberInMonth(inputValue);
 })
 
+const selectTime = document.getElementById('timeList')
+const showTime = document.getElementById('showTime');
+
+function getTime() {    
+const selectedTime = selectTime.value;
+    switch(selectedTime) {
+        case 'current':
+            showTime.innerText = new Date()
+            .toTimeString()
+            .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+            break;
+        case 'tokyo':
+            showTime.innerText = addHours(new Date(), 7)
+            .toTimeString()
+            .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+            break;
+        case 'london':
+            showTime.innerText = subtractHours(new Date(), 2)
+            .toTimeString()
+            .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+            break;
+        case 'new-york':
+            showTime.innerText = subtractHours(new Date(), 7)
+            .toTimeString()
+            .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+            break;
+    
+        default:
+             showTime.innerText = new Date()
+            .toTimeString()
+            .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+            break;
+    }
+}
+
+selectTime.addEventListener('change', getTime);
+setInterval(() => {
+    getTime();
+}, 1000);

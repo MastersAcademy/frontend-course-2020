@@ -85,3 +85,26 @@ export function fullWeeksNumberInMonth(date) {
     }
     return week;
 };
+/**
+ *
+ * @param date - Date object or a date string of any supported format
+ * @param hours - number of hours to subtract
+ * @returns {Date} resultDate: date - hours 
+ */
+export function subtractHours(date, hour) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() - hour);
+    return resultDate;
+}
+
+/**
+ *
+ * @param date - Date object or a date string of any supported format
+ * @param hours - number of hours to add
+ * @returns {Date} resultDate: date + hours
+ */
+export function addHours(date, hour) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() + hour);
+    return resultDate;
+}

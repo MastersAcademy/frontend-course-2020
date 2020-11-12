@@ -10,15 +10,25 @@
 
 <body>
     <div class="grid-container">
-        <div class="input"><input id="inputDate" type="date"></div>
-        <div class="button1"><button id="getMonth" type="button">Get Month Fridays</button></br><span
-                id="showMonth"></span></div>
-        <div class="button2"><button id="getIsLong" type="button">Is Month Long?</button></br><span
-                id="showIsLong"></span></div>
-        <div class="button3"><button id="getShortest" type="button">Shortest Day Month</button></br><span
-                id="showShortest"></span></div>
-        <div class="button4"><button id="getFullWeeks" type="button">Full Weeks in Month</button></br><span
-                id="showFullWeeks"></span></div>
+        <div class="input"><input class="inputDate" id="inputDate" type="date" value="2020-11-11"></div>
+        <div class="button1"><button class="button" id="getMonth" type="button">Get Month Fridays</button></br></br><span
+            class="span" id="showMonth"></span></div>
+        <div class="button2"><button class="button" id="getIsLong" type="button">Is Month Long?</button></br></br><span
+            class="span" id="showIsLong"></span></div>
+        <div class="button3"><button class="button" id="getShortest" type="button">Shortest Day Month</button></br></br><span
+            class="span" id="showShortest"></span></div>
+        <div class="button4"><button class="button" id="getFullWeeks" type="button">Full Weeks in Month</button></br></br><span
+            class="span" id="showFullWeeks"></span></div>
+        <div class="time">
+            <select class="select" id="timeList">
+                <option value="current">Current</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+                <option value="new-york">New-York</option>
+            </select>
+            </br>
+            <span id="showTime"></span>
+        </div>
     </div>
     <script type="module" src="./main.js"></script>
 </body>
