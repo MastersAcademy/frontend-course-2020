@@ -53,15 +53,15 @@ function fullWeeksNumberInMonth(date) {
 }
 
 function subtractHours(date, hours) {
-  const resultDate = date;
-  resultDate.setHours((date.getUTCHours() + hours));
-  return resultDate;
+    const resultDate = date;
+    resultDate.setHours((date.getUTCHours() + hours));
+    return resultDate;
 }
 
-export function addHours(date, hours) {
-  const resultDate = date;
-  resultDate.setHours((date.getUTCHours() + hours));
-  return resultDate;
+function addHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours((date.getUTCHours() + hours));
+    return resultDate;
 }
 
 export {
