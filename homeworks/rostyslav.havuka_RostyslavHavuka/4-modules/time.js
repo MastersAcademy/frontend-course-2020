@@ -3,9 +3,9 @@
  * @returns array of Friday dates in a month the date from
  */
 export function fridaysInMonth(date) {
-    let month = new Date(date).getMonth() + 1
-    let year = new Date(date).getFullYear()
-    let fridays = [6 - (new Date(month + '/01/' + year).getDay())];
+    const month = new Date(date).getMonth() + 1;
+    const year = new Date(date).getFullYear();
+    const fridays = [6 - (new Date(`${month}/01/${year}`).getDay())];
     for (let i = fridays[0] + 7; i < 33; i += 7) {
         fridays.push(i);
     }
@@ -17,15 +17,14 @@ export function fridaysInMonth(date) {
  * @returns {boolean} true if month of a date has 31 day, otherwise returns false
  */
 export function isMonthLong(date) {
-    let dates = new Date(date);
-    let month = dates.getMonth() + 1;
-    let year = dates.getFullYear();
-    let daysInMonth = new Date(year, month, 0).getDate();
+    const dates = new Date(date);
+    const month = dates.getMonth() + 1;
+    const year = dates.getFullYear();
+    const daysInMonth = new Date(year, month, 0).getDate();
     if (daysInMonth === 31) {
-        return 'true'
-    } else {
-        return 'false'
+        return 'true';
     }
+    return 'false';
 }
 
 /**
@@ -33,11 +32,11 @@ export function isMonthLong(date) {
  * @returns {number} number of days in a shortest week of the date month
  */
 export function shortestWeekDaysNumber(date) {
-    let dates = new Date(date);
-    let month = dates.getMonth() + 1;
-    let year = dates.getFullYear();
-    let beginningOfTheMonth = new Date(dates.getFullYear(), dates.getMonth(), 1);
-    let daysInMonth = new Date(year, month, 0).getDate();
+    const dates = new Date(date);
+    const month = dates.getMonth() + 1;
+    const year = dates.getFullYear();
+    const beginningOfTheMonth = new Date(dates.getFullYear(), dates.getMonth(), 1);
+    const daysInMonth = new Date(year, month, 0).getDate();
     const weeks = [];
     weeks[1] = [];
     weeks[2] = [];
@@ -66,7 +65,8 @@ export function shortestWeekDaysNumber(date) {
 
 /**
  * @param date - date string of any supported format
- * @returns {number} number of full weeks in the date month. To be full, week should start and end in the same month
+ * @returns {number} number of full weeks in the date month. To be full,
+ *  week should start and end in the same month
  */
 export function fullWeeksNumberInMonth(date) {
     const year = new Date(date).getFullYear();
@@ -84,12 +84,12 @@ export function fullWeeksNumberInMonth(date) {
         }
     }
     return week;
-};
+}
 /**
  *
  * @param date - Date object or a date string of any supported format
  * @param hours - number of hours to subtract
- * @returns {Date} resultDate: date - hours 
+ * @returns {Date} resultDate: date - hours
  */
 export function subtractHours(date, hour) {
     const resultDate = date;
