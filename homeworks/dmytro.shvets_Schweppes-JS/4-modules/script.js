@@ -5,7 +5,7 @@ import {
     fullWeeksNumberInMonth,
     subtractHours,
     addHours,
-} from './time';
+} from './time.js';
 
 (function () {
     const formNode = document.querySelector('[data-form]');
