@@ -1,14 +1,8 @@
-const getDate = (date) => {
-    return new Date(date);
-};
+const getDate = (date) => {return new Date(date);};
 
-const getfirstDay = (now) => {
-    return new Date(now.getFullYear(), now.getMonth(), 1);
-};
+const getfirstDay = (now) => {return new Date(now.getFullYear(), now.getMonth(), 1);};
 
-const getlastDay = (now) => {
-    return new Date(now.getFullYear(), now.getMonth() + 1, 0);
-};
+const getlastDay = (now) => {return new Date(now.getFullYear(), now.getMonth() + 1, 0);};
 
 const howManyDaysOfFirstWeek = (day, flag) => {
     let quantity = null;
@@ -119,7 +113,7 @@ function fullWeeksNumberInMonth(date) {
     );
     const lastDay = howManyDaysOfFirstWeek(
         getlastDay(now).getDay(),
-        'last'
+        'last',
     );
 
     if (isMonthLong(now)) number = (31 - firstDay - lastDay) / 7;

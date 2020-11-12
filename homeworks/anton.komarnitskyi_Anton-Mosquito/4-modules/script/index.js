@@ -120,11 +120,10 @@ class WorkWithDate {
             const hours = new Date().getHours() + this._diferenceHours;
             const minutes = new Date().getMinutes();
             const seconds = new Date().getSeconds();
-
             hoursContainer.textContent = timeNormilize(hours);
             minutesContainer.textContent = timeNormilize(minutes);
             secondsContainer.textContent = timeNormilize(seconds);
-        },1000);
+        }, 1000);
 
     }
 
@@ -192,14 +191,14 @@ class WorkWithDate {
                     this.startClock();
                 }
                 break;
-            case "London":
+            case 'London':
                 if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 2);
                     this._diferenceHours = -2;
                     this.startClock();
                 }
                 break;
-            case "New York":
+            case 'New York':
                 if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 7);
                     this._diferenceHours = -7;
