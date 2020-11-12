@@ -3,7 +3,8 @@ import {
     isMonthLong,
     shortestWeekDaysNumber,
     fullWeeksNumberInMonth,
-    calculationTimeZone,
+    subtractHours,
+    addHours,
 } from './time';
 
 (function () {
@@ -82,7 +83,11 @@ import {
         if (inputZoneNode.value) {
             timeDifference = parseInt(inputZoneNode.value, 10);
             today = new Date();
-            timeZoneTime = calculationTimeZone(today, timeDifference);
+            if (timeDifference < 0) {
+                timeZoneTime = subtractHours(today, timeDifference);
+            } else {
+                timeZoneTime = addHours(today, timeDifference);
+            }
             settingTime(timeZoneTime);
         } else settingTime(); // if chose current time
     }

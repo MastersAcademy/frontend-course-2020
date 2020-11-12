@@ -52,10 +52,16 @@ function fullWeeksNumberInMonth(date) {
     return amountWeeks;
 }
 
-function calculationTimeZone(date, hours) {
-    const resultDate = date;
-    resultDate.setHours((date.getUTCHours() + hours));
-    return resultDate;
+function subtractHours(date, hours) {
+  const resultDate = date;
+  resultDate.setHours((date.getUTCHours() + hours));
+  return resultDate;
+}
+
+export function addHours(date, hours) {
+  const resultDate = date;
+  resultDate.setHours((date.getUTCHours() + hours));
+  return resultDate;
 }
 
 export {
@@ -63,5 +69,6 @@ export {
     isMonthLong,
     shortestWeekDaysNumber,
     fullWeeksNumberInMonth,
-    calculationTimeZone,
+    subtractHours,
+    addHours,
 };
