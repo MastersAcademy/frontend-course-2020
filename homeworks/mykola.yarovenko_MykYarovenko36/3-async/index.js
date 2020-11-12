@@ -31,6 +31,7 @@ const modalContent = {
 const state = [];
 let sortIndex = 0;
 let searchfilter = '';
+let deleteElementId = null;
 
 const loaderIteration = (counter) => {
     const loaderEl = document.querySelector('.loader_point');
@@ -42,7 +43,7 @@ const setModalDisplay = (display) => {
     modalEl.style.display = display;
 };
 
-const modalDisplay = (statusCode, postId) => {
+const modalDisplay = (statusCode) => {
     const { message, header } = statusCode;
     document.querySelector('.modal_content').innerHTML = message;
     setModalDisplay('block');
@@ -58,7 +59,6 @@ const modalDisplay = (statusCode, postId) => {
     };
     if (header === 'Сonfirmation') {
         buttonsHidden(false);
-        document.querySelector('.modal_btn_ok').id = postId;
     } else {
         buttonsHidden(true);
         setTimeout(() => {
@@ -86,7 +86,8 @@ const createPostElement = (item) => {
         if (e.target.className === 'hide_element_point') {
             listEl.hidden = true;
         } else if (e.target.className === 'remove_element_point') {
-            modalDisplay(modalContent.deleteConfirm, post.id);
+            modalDisplay(modalContent.deleteConfirm);
+            deleteElementId = post.id;
         }
     });
     return listEl;
@@ -157,13 +158,12 @@ async function setStateData(requestType, stateArray) {
 
 async function setDeleteItem(requestType, id) {
     const { adress, method } = requestType.delete;
-    const postId = id;
-    const deleteURL = `${adress}${postId}`;
+    const deleteURL = `${adress}${id}`;
     await requestData(deleteURL, method).then((result) => {
         if (result.status === 200) {
             modalDisplay(modalContent.deleteSuccess);
             state.map((i, index) => {
-                if (i.id === postId) {
+                if (i.id === id) {
                     state.splice(index, 1);
                 }
                 return i;
@@ -188,17 +188,19 @@ document.querySelector('[data-sort-list]').addEventListener('change', () => {
     renderPostsList(sortIndex, searchfilter);
 });
 
-document.querySelectorAll('[data-modal-btn-container]').forEach((buttons) => {
-    buttons.addEventListener('click', (e) => {
-        const btnCancelEl = document.querySelector('[data-modal-btn-cancel]');
-        const btnOkEl = document.querySelector('[data-modal-btn-ok]');
-        if (e.target === btnCancelEl) {
-            loaderIteration('unset');
-            setModalDisplay('none');
-        } else if (e.target === btnOkEl) {
-            setDeleteItem(REQUEST);
-        }
-    });
+document.querySelectorAll('[data-modal-button]').forEach((item) => {
+    if (item.hidden === false) {
+        item.addEventListener('click', (e) => {
+            const btnCancelEl = document.querySelector('.modal_btn_cancel');
+            const btnOkEl = document.querySelector('.modal_btn_ok');
+            if (e.target === btnCancelEl) {
+                loaderIteration('unset');
+                setModalDisplay('none');
+            } else if (e.target === btnOkEl) {
+                setDeleteItem(REQUEST, deleteElementId);
+            }
+        });
+    }
 });
 
 setInterval(() => { document.querySelector('[data-loader-date-container]').innerHTML = `<p class="loader_date">${new Date().toLocaleTimeString()}</p>`; }, 1000);
