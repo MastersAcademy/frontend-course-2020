@@ -111,9 +111,9 @@ function showDate(timezone) {
             break;
         default: break;
     }
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const date = currentDate.getDate();
+    const year = addZero(currentDate.getFullYear());
+    const month = addZero(currentDate.getMonth() + 1);
+    const date = addZero(currentDate.getDate());
     const minutes = addZero(currentDate.getMinutes());
     const seconds = addZero(currentDate.getSeconds());
     const hours = addZero(currentDate.getHours());
