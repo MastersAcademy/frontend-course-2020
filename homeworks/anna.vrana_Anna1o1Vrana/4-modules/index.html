@@ -6,8 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>4-modulesgi</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-
+<div class="container">
+    <div class="date-wrapper">
+        <h4 class="date-header">Date:</h4>
+        <label for="input-date"></label>
+        <input type="date" id="input-date" class="input-date" data-date>
+        <button class="btn" data-get-fridays>Get month fridays</button>
+        <p class="result" date-fridays></p>
+        <button class="btn">Is month long?</button>
+        <p class="result"></p>
+        <button class="btn">Days of shortest week in month</button>
+        <p class="result"></p>
+        <button class="btn">Full weeks in month</button>
+        <p class="result"></p>
+    </div>
+    <div class="time-wrapper">
+    </div>
+</div>
+<script src="scripts/main.js"></script>
 </body>
 </html>
