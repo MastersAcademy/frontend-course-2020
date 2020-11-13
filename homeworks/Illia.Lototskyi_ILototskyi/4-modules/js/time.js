@@ -2,8 +2,9 @@
 // eslint-disable-next-line no-unused-vars
 export function getFridays(date) {
     const friday = [];
+    const monthData = daysOfMonth(date);
     // eslint-disable-next-line no-undef
-    for (let i = 1; i <= daysOfMonth(date); i++) {
+    for (let i = 1; i <= monthData; i++) {
         // eslint-disable-next-line no-undef
         const dateFridays = new Date(date.getFullYear(), date.getMonth(), i);
         if (dateFridays.getDay() === 5) {
