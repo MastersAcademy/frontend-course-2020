@@ -1,6 +1,4 @@
-import {
-    shortestWeekDaysNumber, isMonthLong, getFridaysOfMonth, fullWeeksNumberInMonth,
-} from './time.js';
+import * as timeModules from './time.js';
 
 const locations = {
     Kiev: { timeZone: 'Europe/Kiev' },
@@ -48,14 +46,14 @@ document.querySelector('[data-input-field]').addEventListener('input', (e) => {
 });
 
 document.querySelector('[data-month-fridays-btn]').addEventListener('click', () => {
-    document.querySelector('.month_fridays').innerText = `[${getFridaysOfMonth(currentDate)}]`;
+    document.querySelector('.month_fridays').innerText = `[${timeModules.getFridaysOfMonth(currentDate)}]`;
 });
 document.querySelector('[data-month-long-btn]').addEventListener('click', () => {
-    document.querySelector('.month_long').innerText = `${isMonthLong(currentDate)}`;
+    document.querySelector('.month_long').innerText = `${timeModules.isMonthLong(currentDate)}`;
 });
 document.querySelector('[data-month-shortest-week-btn]').addEventListener('click', () => {
-    document.querySelector('.month_shortest_week').innerText = `${shortestWeekDaysNumber(currentDate)}`;
+    document.querySelector('.month_shortest_week').innerText = `${timeModules.shortestWeekDaysNumber(currentDate)}`;
 });
 document.querySelector('[data-month-full-weeks-btn]').addEventListener('click', () => {
-    document.querySelector('.month_full-weeks').innerText = `${fullWeeksNumberInMonth(currentDate)}`;
+    document.querySelector('.month_full-weeks').innerText = `${timeModules.fullWeeksNumberInMonth(currentDate)}`;
 });
