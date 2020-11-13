@@ -116,10 +116,9 @@ function fullWeeksNumberInMonth(date) {
         'last',
     );
 
-    if (isMonthLong(now)) number = (31 - firstDay - lastDay) / 7;
-    else number = (30 - firstDay - lastDay) / 7;
+    number = (getlastDay(now).getDate() - firstDay - lastDay) / 7;
 
-    return Math.floor(number);
+    return Math.ceil(number);
 }
 
 /**
