@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class="container" data-container>
+        <header class="header">
+            <div class="filter">
+                <input type="text" data-search>
+            </div>
+            <div class="sort">
+                <select data-sort>
+                    <option value="sort">A-Z
+                    <option value="reverse">Z-A
+                    <option value="default" selected>Default
+                </select>
+            </div>
+        </header>
+        <div class="messages" data-message></div>
+        <main class="content" data-content>
+            <template data-template>
+                <div class="post">
+                    <button class="deleteButton">X</button>
+                    <h2 data-post-title></h2>
+                    <p></p>
+                </div>
+            </template>
+        </main>
+        <div data-loader class="image-wrap">
+            <img class="image-center" src="img/load.gif">
+        </div>
+    </div>
+</body>
+</html>
