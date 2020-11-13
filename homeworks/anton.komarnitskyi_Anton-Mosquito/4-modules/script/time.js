@@ -4,12 +4,22 @@ const getfirstDay = (now) => new Date(now.getFullYear(), now.getMonth(), 1);
 
 const getlastDay = (now) => new Date(now.getFullYear(), now.getMonth() + 1, 0);
 
-const howManyDaysOfFirstWeek = (day, flag) => {
+const howManyDaysOfWeek = (day, flag) => {
     let quantity = null;
 
-    if (day === 0) return 1;
-    if (flag === 'first') quantity = 7 - (day - 1);
-    else if (flag === 'last') quantity = day;
+    switch (flag) {
+        case 'first':
+            if (day === 0) quantity = 1;
+            else if (day === 1) quantity = 0;
+            else quantity = 7 - (day - 1);
+            break;
+        case 'last':
+            if (day === 0) quantity = 0;
+            else quantity = day;
+            break;
+        default:
+            break;
+    }
 
     return quantity;
 };
@@ -85,16 +95,16 @@ function shortestWeekDaysNumber(date) {
     const firstDay = getfirstDay(now);
     const lastDay = getlastDay(now);
 
-    const quantityDaysFirstWeek = howManyDaysOfFirstWeek(
+    const quantityDaysFirstWeek = howManyDaysOfWeek(
         firstDay.getDay(),
         'first',
     );
 
-    const quantityDaysLastWeek = howManyDaysOfFirstWeek(lastDay.getDay(), 'last');
+    const quantityDaysLastWeek = howManyDaysOfWeek(lastDay.getDay(), 'last');
 
-    if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysFirstWeek;
-    else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysLastWeek;
-    else number = quantityDaysFirstWeek;
+    if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysLastWeek;
+    else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysFirstWeek;
+    else number = quantityDaysFirstWeek || quantityDaysLastWeek;
 
     return number;
 }
@@ -107,18 +117,18 @@ function shortestWeekDaysNumber(date) {
 function fullWeeksNumberInMonth(date) {
     let number = null;
     const now = getDate(date);
-    const firstDay = howManyDaysOfFirstWeek(
+    const firstDay = howManyDaysOfWeek(
         getfirstDay(now).getDay(),
         'first',
     );
-    const lastDay = howManyDaysOfFirstWeek(
+    const lastDay = howManyDaysOfWeek(
         getlastDay(now).getDay(),
         'last',
     );
 
     number = (getlastDay(now).getDate() - firstDay - lastDay) / 7;
 
-    return Math.ceil(number);
+    return number;
 }
 
 /**
