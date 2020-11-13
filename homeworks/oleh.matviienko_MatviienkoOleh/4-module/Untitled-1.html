@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules</title>
+    <link rel="stylesheet" href="styleModules.css">
+    <script type = "module" src = "./main.js" defer></script>
+</head>
+</head>
+<body>
+    <div class = "block">
+        <label for="inputData">Date:</label>
+        <input class = "inputData" id = "inputData" type="date" placeholder="type data" onchange = "myFun()">
+        </br>>
+
+        <button class = "getFridays" id = "getFridays" onclick = "getMonthFridays()">Get month fridays</button>
+        <div class = "space" id = "setFridays"></div>
+
+        <button class = "getMonthLong" id = "getMonthLong" onclick = "daysOfMonth()">Is month long?</button>
+        <div class = "space" id = "daysOfMonth"></div>
+
+        <button class = "shortestWeek" onclick = "daysOfShortestWeekInMonth()">Days of shortest week in month</button>
+        <div class = "space" id = "daysOfShortestWeek"></div>
+
+        <button class = "weekInMonth" onclick = "fullWeeksInMonth()">Full weeks in month</button>
+        <div class = "space" id = "fullWeeksInMonth"></div>
+    </div>
+</html>
