@@ -5,7 +5,6 @@ import {
     shortestWeekDaysNumber,
 } from './time.js';
 
-(function () {
 function myFun() {
     const input = document.getElementById('inputData').value;
     const data = new Date(input);
@@ -44,5 +43,3 @@ daysOfMonth();
 getMonthFridays();
 daysOfShortestWeekInMonth();
 fullWeeksInMonth();
-
-}());
