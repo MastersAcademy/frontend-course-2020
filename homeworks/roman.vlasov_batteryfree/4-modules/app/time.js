@@ -67,7 +67,6 @@ export function getFridaysOfMonth(date) {
 
 export function isMonthLong(date) {
     const parseDate = Date.parse(date);
-    console.log(getDaysInMonth(new Date(parseDate)) === 31)
     const result = parseDate >= 0 ? (getDaysInMonth(new Date(parseDate)) === 31) : undefined;
     return result;
 }
