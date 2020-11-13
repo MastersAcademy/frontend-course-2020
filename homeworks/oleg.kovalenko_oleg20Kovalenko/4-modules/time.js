@@ -2,8 +2,9 @@
 // eslint-disable-next-line no-unused-vars
 export function getFridaysOfMonth(date) {
     const friday = [];
+    const fridayMonth = getDaysOfMonth(date);
     // eslint-disable-next-line no-undef
-    for (let i = 1; i <= getDaysOfMonth(date); i++) {
+    for (let i = 1; i <= fridayMonth; i++) {
         // eslint-disable-next-line no-undef
         const dateFridaysOfMonth = new Date(date.getFullYear(), date.getMonth(), i);
         if (dateFridaysOfMonth.getDay() === 5) {
@@ -44,9 +45,9 @@ export function shortestWeekDaysNumber(date) {
 export function fullWeeksNumberInMonth(date) {
     let fullWeeksInMonth = 0;
     // eslint-disable-next-line no-shadow
-    const getDaysOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const dataDaysOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 
-    for (let i = 1; i <= getDaysOfMonth; i++) {
+    for (let i = 1; i <= dataDaysOfMonth; i++) {
         const newData = new Date(date.getFullYear(), date.getMonth(), i);
         if (newData.getDay() === 1) {
             newData.setDate(newData.getDate() + 6);
