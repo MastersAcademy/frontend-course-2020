@@ -14,10 +14,8 @@ function getWeeksOfMonth(date) {
 
     for (let i = 1; i <= daysNumberInMonth; i++) {
         const newDate = new Date(currentYear, currentMonth, i);
-        if (newDate.getDay() > SUNDAY_VALUE) {
-            weeks[weeks.length - 1].push(newDate.getDate());
-        } else {
-            weeks[weeks.length - 1].push(newDate.getDate());
+        weeks[weeks.length - 1].push(newDate.getDate());
+        if (newDate.getDay() === SUNDAY_VALUE) {
             weeks.push([]);
         }
     }
