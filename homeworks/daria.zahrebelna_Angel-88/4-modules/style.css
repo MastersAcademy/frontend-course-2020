@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.page {
+.body {
   background-color: #E9967A;
   font-size: 25px;
   width: 800px;
@@ -13,7 +13,7 @@
   font-family: "Georgia", sans-serif;
 }
 
-.body {
+.content {
   display: flex;
   flex-direction: column;
 }
