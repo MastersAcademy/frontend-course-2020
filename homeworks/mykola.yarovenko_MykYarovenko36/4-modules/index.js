@@ -1,5 +1,4 @@
 import * as TimesModules from './time.js';
-import './index.css';
 
 const locations = {
     Kiev: { timeZone: 'Europe/Kiev' },
