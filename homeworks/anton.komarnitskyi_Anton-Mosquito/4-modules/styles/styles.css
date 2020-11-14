@@ -1,31 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-:focus,
-:active {
-  outline: none;
-}
 
 a,
 a:visited {
   text-decoration: none;
 }
 
-a:focus,
-a:active {
-  outline: none;
-}
 
 nav,
 header,
@@ -65,14 +51,6 @@ button::-moz-focus-inner {
 
 a:hover {
   text-decoration: none;
-}
-
-ul li {
-  list-style: none;
-}
-
-img {
-  vertical-align: top;
 }
 
 h1,

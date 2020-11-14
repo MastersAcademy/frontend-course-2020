@@ -54,12 +54,7 @@ function isMonthLong(date) {
     const now = getDate(date);
     const checkMonth = getlastDay(now);
 
-    let result = null;
-
-    if (checkMonth.getDate() === 31) result = true;
-    else result = false;
-
-    return result;
+    return checkMonth.getDate() === 31;
 }
 
 /**

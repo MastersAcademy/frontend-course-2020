@@ -121,25 +121,29 @@ class WorkWithDate {
         let seconds = null;
 
         setInterval(() => {
-            if (this._time === 'Current') {
-                hours = new Date().getHours();
-                minutes = new Date().getMinutes();
-                seconds = new Date().getSeconds();
-            }
-            if (this._time === 'Tokyo') {
-                hours = addHours(this._inputData.value, 7).getHours();
-                minutes = addHours(this._inputData.value, 7).getMinutes();
-                seconds = addHours(this._inputData.value, 7).getSeconds();
-            }
-            if (this._time === 'London') {
-                hours = subtractHours(this._inputData.value, 2).getHours();
-                minutes = subtractHours(this._inputData.value, 2).getMinutes();
-                seconds = subtractHours(this._inputData.value, 2).getSeconds();
-            }
-            if (this._time === 'New York') {
-                hours = subtractHours(this._inputData.value, 7).getHours();
-                minutes = subtractHours(this._inputData.value, 7).getMinutes();
-                seconds = subtractHours(this._inputData.value, 7).getSeconds();
+            switch (this._time) {
+                case 'Current':
+                    hours = new Date().getHours();
+                    minutes = new Date().getMinutes();
+                    seconds = new Date().getSeconds();
+                    break;
+                case 'Tokyo':
+                    hours = addHours(this._inputData.value, 7).getHours();
+                    minutes = addHours(this._inputData.value, 7).getMinutes();
+                    seconds = addHours(this._inputData.value, 7).getSeconds();
+                    break;
+                case  'London':
+                    hours = subtractHours(this._inputData.value, 2).getHours();
+                    minutes = subtractHours(this._inputData.value, 2).getMinutes();
+                    seconds = subtractHours(this._inputData.value, 2).getSeconds();
+                    break;
+                case 'New York':
+                    hours = subtractHours(this._inputData.value, 7).getHours();
+                    minutes = subtractHours(this._inputData.value, 7).getMinutes();
+                    seconds = subtractHours(this._inputData.value, 7).getSeconds();
+                    break;
+                default:
+                    break;
             }
 
             hoursContainer.textContent = timeNormilize(hours);
@@ -155,6 +159,7 @@ class WorkWithDate {
 
         document.addEventListener('click', (e) => {
             const atrributes = e.target.dataset.date;
+            if (!this.checkInput()) return;
             if (atrributes === 'arrayMonthAction') this.arrayMonthAction();
             if (atrributes === 'lastDayAction') this.lastDayAction();
             if (atrributes === 'shortDayAction') this.shortDayAction();
@@ -178,57 +183,43 @@ class WorkWithDate {
     }
 
     arrayMonthAction() {
-        if (this.checkInput()) {
             this._outPutBox1.textContent = getFridaysOfMonth(this._inputData.value);
-        }
     }
 
     lastDayAction() {
-        if (this.checkInput()) {
             this._outPutBox2.textContent = isMonthLong(this._inputData.value);
-        }
     }
 
     shortDayAction() {
-        if (this.checkInput()) {
             this._outPutBox3.textContent = shortestWeekDaysNumber(this._inputData.value);
-        }
     }
 
     fullWeekAction() {
-        if (this.checkInput()) {
             this._outPutBox4.textContent = fullWeeksNumberInMonth(this._inputData.value);
-        }
     }
 
     selectAction() {
         const select = this._dropDown.selectedIndex;
         const options = this._dropDown.options[select];
 
+        if (!this.checkInput()) return;
+
         switch (options.text) {
             case 'Tokyo':
-                if (this.checkInput()) {
                     this._timeZone.textContent = addHours(this._inputData.value, 7);
                     this._time = 'Tokyo';
-                }
                 break;
             case 'London':
-                if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 2);
                     this._time = 'London';
-                }
                 break;
             case 'New York':
-                if (this.checkInput()) {
                     this._timeZone.textContent = subtractHours(this._inputData.value, 7);
                     this._time = 'New York';
-                }
                 break;
             default:
-                if (this.checkInput()) {
                     this._timeZone.textContent = new Date();
                     this._time = 'Current';
-                }
                 break;
         }
     }
