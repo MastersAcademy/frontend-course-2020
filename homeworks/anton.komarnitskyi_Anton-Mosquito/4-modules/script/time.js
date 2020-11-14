@@ -104,7 +104,7 @@ function shortestWeekDaysNumber(date) {
     if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysFirstWeek;
     else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysLastWeek;
     else number = quantityDaysFirstWeek;
-
+console.log(number);
     return number;
 }
 
