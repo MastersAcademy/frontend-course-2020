@@ -23,20 +23,20 @@ export function isMonthLong(date) {
 export function getWeeks(date) {
     const year = date.getFullYear();
     const month = date.getMonth();
+    const daysName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const weeks = [];
-    let start = 1;
-    const firstDate = new Date(year, month, 1);
     const lastDate = new Date(year, month + 1, 0);
-    let end = 7 - firstDate.getDay();
+    let start = 0;
+    let end;
 
-    const numDays = lastDate.getDate();
-
-    while (start <= numDays) {
-        weeks.push({ start, end });
-        start = end + 1;
-        end += 7;
-        if (end > numDays) {
-            end = numDays;
+    for (let i = 1; i < lastDate.getDate() + 1; i++) {
+        if (daysName[Number(new Date(year, month, i).getDay())] === 'Sunday' || i === lastDate.getDate()) {
+            end = i;
+            weeks.push({
+                start: start + 1,
+                end,
+            });
+            start = i;
         }
     }
     return weeks;
@@ -48,9 +48,12 @@ export function getShortestWeek(date) {
     // eslint-disable-next-line no-restricted-syntax
     for (const week of weeks) {
         const length = week.end - week.start + 1;
-        lengthOfWeeks.push(length);
+        if (length > 0) {
+            lengthOfWeeks.push(length);
+        }
     }
     const min = Math.min.apply(null, lengthOfWeeks);
+    console.log(weeks);
     return min;
 }
 
