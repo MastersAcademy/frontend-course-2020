@@ -1,9 +1,3 @@
-const getWeek = (date) => {
-    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-    const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
-    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
-};
-
 const getDaysInMonth = (date) => {
     const monthStart = new Date(date.getFullYear(), date.getMonth(), 1);
     const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -26,9 +20,13 @@ const getDateOfDay = (date, numDay) => date.getDate() - ((date.getDay() - numDay
 
 const convertDeyOfWeek = (day) => {
     let result;
-    day ? result = day - 1 : result = 6
+    if (day > 0) {
+        result = day - 1;
+    } else {
+        result = 6;
+    }
     return result;
-}
+};
 
 function getFridays(date) {
     let result = [];
@@ -52,7 +50,7 @@ function getFridays(date) {
         }
     }
     return result;
-}
+};
 
 /**
  * @param date - date string of any supported format
