@@ -1,9 +1,4 @@
-import {
-    getFridays,
-    getMonthIsLong,
-    getDaysShortestWeek,
-    getFullWeekInMonth,
-} from './time';
+import * as time from './time.js';
 
 const inputElem = document.querySelector('[data-input]');
 const fridaysElem = document.querySelector('[data-get-fridays]');
@@ -13,24 +8,25 @@ const fullWeeksElem = document.querySelector('[data-full-weeks]');
 let selectedDate = new Date();
 
 inputElem.lastElementChild.addEventListener('change', () => {
+    console.log('selectedDate');
     selectedDate = new Date(inputElem.lastElementChild.valueAsDate);
     inputElem.firstElementChild.innerText = selectedDate.toDateString();
 });
 
 fridaysElem.firstElementChild.addEventListener('click', () => {
-    fridaysElem.lastElementChild.innerText = getFridays(selectedDate);
+    fridaysElem.lastElementChild.innerText = time.getFridays(selectedDate);
 });
 
 monthLongElem.firstElementChild.addEventListener('click', () => {
-    monthLongElem.lastElementChild.innerText = getMonthIsLong(selectedDate);
+    monthLongElem.lastElementChild.innerText = time.getMonthIsLong(selectedDate);
 });
 
 shortestWeekElem.firstElementChild.addEventListener('click', () => {
-    shortestWeekElem.lastElementChild.innerText = getDaysShortestWeek(
+    shortestWeekElem.lastElementChild.innerText = time.getDaysShortestWeek(
         selectedDate
     );
 });
 
 fullWeeksElem.firstElementChild.addEventListener('click', () => {
-    fullWeeksElem.lastElementChild.innerText = getFullWeekInMonth(selectedDate);
+    fullWeeksElem.lastElementChild.innerText = time.getFullWeekInMonth(selectedDate);
 });
