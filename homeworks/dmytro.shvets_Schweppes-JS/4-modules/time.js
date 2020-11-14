@@ -31,7 +31,15 @@ function shortestWeekDaysNumber(date) {
     const lastDay = new Date(year, month + 1, 0).getDay();
     const firstDay = new Date(year, month, 1).getDay();
     // comparing position first day and last day of month
-    return lastDay < 6 - firstDay ? lastDay + 1 : 7 - firstDay;
+    if (firstDay === 0) {
+        return 1;
+    }
+    else if (lastDay === 0) {
+        return  8 - firstDay;
+    }
+    else {
+        return lastDay < 8 - firstDay ? lastDay : 8 - firstDay;
+    }
 }
 
 // Calculation how many full weeks in month
@@ -44,7 +52,7 @@ function fullWeeksNumberInMonth(date) {
     const amountDays = new Date(year, month + 1, 0).getDate();
     for (let i = 1; i <= amountDays; i++) {
         day = new Date(year, month, i).getDay();
-        if (day === 0) { // '0' means monday in Date object
+        if (day === 1) { // '1' means monday in Date object
             mondays.push(new Date(year, month, i).getDate());
         }
     }
