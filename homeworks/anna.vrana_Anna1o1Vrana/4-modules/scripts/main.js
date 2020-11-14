@@ -84,30 +84,34 @@ function shortestWeekDaysNumber() {
     return shortestWeek;
 }
 
-// function getDaysOfMonth(date) {
-//     const sdate = inputNode.value;
-//     const someDay = new Date(sdate.getFullYear(), sdate.getMonth(), 32).getDate();
-//     console.log(someDay);
-//     return 32 - new Date(date.getFullYear(), date.getMonth(), 32).getDate();
-// }
-//
-// function shortestWeek(date) {
-//     // eslint-disable-next-line no-undef
-//     const weekDaysNumber = getDaysOfMonth(date);
-//     let weekDays = 0;
-//     let daysNumber = 7;
-//     for (let i = 1; i <= weekDaysNumber; i++) {
-//         // eslint-disable-next-line no-undef
-//         const dateFridays = new Date(date.getFullYear(), date.getMonth(), i);
-//         // eslint-disable-next-line no-cond-assign
-//         if (dateFridays.getDay() === 1 ? daysNumber > weekDays : daysNumber = weekDays) {
-//             weekDays = 0;
-//         }
-//         weekDays++;
-//     }
-//     console.log(daysNumber);
-//     return daysNumber;
-// }
-
 document.querySelector('[data-shortest-week]')
     .addEventListener('click', shortestWeekDaysNumber);
+
+function fullWeeksNumberInMonth() {
+    const currentDate = new Date(inputNode.value);
+    const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+    const firstWeek = 7 - firstDay.getDay();
+    console.log(firstWeek);
+    const lastWeek = lastDay.getDay() + 1;
+    console.log(lastWeek);
+    console.log(lastDay);
+    // eslint-disable-next-line max-len
+    const monthLength = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    console.log(monthLength);
+    const fullWeeks = (monthLength - firstWeek - lastWeek) / 7;
+    console.log(fullWeeks);
+    let countFullWeeks = 0;
+    if (firstWeek || lastWeek === 7) {
+        countFullWeeks = fullWeeks + 1;
+    } else if (lastWeek + firstWeek === 14) {
+        countFullWeeks = fullWeeks + 2;
+    } else {
+        countFullWeeks = fullWeeks;
+    }
+    document.querySelector('[data-result-full-weeks]').innerHTML = countFullWeeks;
+    return countFullWeeks;
+}
+
+document.querySelector('[data-full-weeks]')
+    .addEventListener('click', fullWeeksNumberInMonth);
