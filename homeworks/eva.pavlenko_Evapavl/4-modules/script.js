@@ -45,11 +45,10 @@ function cutString(str) {
 }
 
 function getTime() {
-    const date = new Date();
-    const strCurrent = date.toTimeString();
-    const strTokyo = addHours(date, 7).toTimeString();
-    const strLondon = subtractHours(date, 2).toTimeString();
-    const strNewYork = subtractHours(date, 7).toTimeString();
+    const strCurrent = new Date().toTimeString();
+    const strTokyo = addHours(new Date(), 7).toTimeString();
+    const strLondon = subtractHours(new Date(), 2).toTimeString();
+    const strNewYork = subtractHours(new Date(), 7).toTimeString();
     switch (selectNode.value) {
         case 'Current':
             currentHourNode.innerText = cutString(strCurrent);
