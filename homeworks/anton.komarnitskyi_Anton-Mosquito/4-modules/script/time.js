@@ -87,8 +87,8 @@ function getFridaysOfMonth(date) {
 function shortestWeekDaysNumber(date) {
     // let number = null;
     const now = getDate(date);
-    const firstDay = getfirstDay(now);
-    const lastDay = getlastDay(now);
+    const firstDay = getfirstDay(now).getDay();
+    const lastDay = getlastDay(now).getDay();
 
     // This solution for Mac
     return lastDay < 6 - firstDay ? lastDay + 1 : 7 - firstDay;
