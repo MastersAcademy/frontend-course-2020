@@ -191,7 +191,7 @@ class WorkWithDate {
     }
 
     shortDayAction() {
-            this._outPutBox3.textContent = shortestWeekDaysNumber(this._inputData.value);
+        this._outPutBox3.textContent = shortestWeekDaysNumber(this._inputData.value);
     }
 
     fullWeekAction() {
