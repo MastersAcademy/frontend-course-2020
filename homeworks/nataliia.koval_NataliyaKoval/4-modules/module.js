@@ -45,13 +45,14 @@ export function getWeeks(date) {
 export function getShortestWeek(date) {
     const weeks = getWeeks(date);
     const lengthOfWeeks = [];
-    // eslint-disable-next-line no-restricted-syntax
-    for (const week of weeks) {
+
+    weeks.forEach((week) => {
         const length = week.end - week.start + 1;
         if (length > 0) {
             lengthOfWeeks.push(length);
         }
-    }
+    });
+
     const min = Math.min.apply(null, lengthOfWeeks);
     console.log(weeks);
     return min;
@@ -60,12 +61,13 @@ export function getShortestWeek(date) {
 export function getFullWeeks(date) {
     const weeks = getWeeks(date);
     let fullWeeks = 0;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const week of weeks) {
+
+    weeks.forEach((week) => {
         const length = week.end - week.start + 1;
         if (length === 7) {
             fullWeeks += 1;
         }
-    }
+    });
+
     return fullWeeks;
 }
