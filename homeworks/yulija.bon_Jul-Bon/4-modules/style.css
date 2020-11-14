@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 900px;
+  margin: 80px auto;
+}
+
+.button {
+  margin: 25px 0;
+}
