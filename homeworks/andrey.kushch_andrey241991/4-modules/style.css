@@ -1,0 +1,146 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  background: gray;
+  font-family: "Noto Sans", sans-serif;
+}
+
+button,
+select,
+input {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.container {
+  padding-top: 30px;
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid #484141;
+  background: #ffff;
+}
+
+.inner-container {
+  margin: 30px 20px;
+  display: grid;
+  position: relative;
+}
+
+.inner-container button,
+input,
+select {
+  box-sizing: content-box;
+  width: 210px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.inner-container input,
+select {
+  margin: 8px 0 0 0;
+}
+
+.time-container-inner {
+  border: 1px solid #484141;
+  margin: 30px 20px;
+  padding: 0 10px 20px 10px;
+}
+select {
+  appearance: none;
+  border-radius: 4px;
+}
+
+.select-arrow {
+  transition: all 0.2s;
+  right: 28px;
+  bottom: 6px;
+  position: absolute;
+}
+
+.select-arrow:hover{
+  transform: rotate(180deg);
+}
+
+/* .container :first-child */
+
+/*
+.input {
+}
+
+.date-container {
+}
+
+.date-container__inner-container {
+  display: grid;
+  margin: 20px 10px;
+}
+
+.inner-container {
+  border: 1px solid rgb(21, 7, 145);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 40px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.input-wrapper {
+  background: rgb(21, 7, 145);
+}
+
+.input-form {
+  display: flex;
+  height: 50px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.typing {
+  color: #ffff;
+  padding-left: 8px;
+  visibility: hidden;
+}
+
+.input {
+  flex: 4;
+}
+
+.submit {
+  flex: 1;
+}
+
+.message-wrapper {
+  padding: 20px;
+  border-radius: 6px;
+  color: #ffff;
+  width: max-content;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.message-wrapper-left {
+  border: 1px solid rgb(17, 192, 17);
+  background: rgb(21, 7, 145);
+}
+
+.message-wrapper-right {
+  border: 1px solid rgb(21, 7, 145);
+  background: rgb(17, 192, 17);
+  align-self: flex-end;
+} */
