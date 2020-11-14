@@ -1,4 +1,4 @@
-function getFridays(selectedDate) {
+export function getFridays(selectedDate) {
     const daysCount = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
@@ -20,7 +20,7 @@ function getFridays(selectedDate) {
     return fridayArray;
 }
 
-function getMonthIsLong(selectedDate) {
+export function getMonthIsLong(selectedDate) {
     let daysCont = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
@@ -29,7 +29,7 @@ function getMonthIsLong(selectedDate) {
     return daysCont >= 31;
 }
 
-function getDaysShortestWeek(selectedDate) {
+export function getDaysShortestWeek(selectedDate) {
     const daysCount = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
@@ -53,7 +53,7 @@ function getDaysShortestWeek(selectedDate) {
     return firstWeek > lastDay ? lastDay : firstDay;
 }
 
-function getFullWeekInMonth(selectedDate) {
+export function getFullWeekInMonth(selectedDate) {
     const daysCount = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
@@ -76,10 +76,3 @@ function getFullWeekInMonth(selectedDate) {
 
     return (daysCount - (firstWeek + lastDay)) / 7;
 }
-
-export default {
-    getFridays,
-    getMonthIsLong,
-    getDaysShortestWeek,
-    getFullWeekInMonth
-};
