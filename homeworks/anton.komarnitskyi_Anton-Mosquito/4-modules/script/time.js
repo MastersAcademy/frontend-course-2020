@@ -90,18 +90,22 @@ function shortestWeekDaysNumber(date) {
     const firstDay = getfirstDay(now);
     const lastDay = getlastDay(now);
 
-    const quantityDaysFirstWeek = howManyDaysOfWeek(
-        firstDay.getDay(),
-        'first',
-    );
+    // This solution for Mac
+    return lastDay < 6 - firstDay ? lastDay + 1 : 7 - firstDay;
 
-    const quantityDaysLastWeek = howManyDaysOfWeek(lastDay.getDay(), 'last');
+     // This solution for Windows
+    // const quantityDaysFirstWeek = howManyDaysOfWeek(
+    //     firstDay.getDay(),
+    //     'first',
+    // );
 
-    if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysLastWeek;
-    else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysFirstWeek;
-    else number = quantityDaysFirstWeek || quantityDaysLastWeek;
+    // const quantityDaysLastWeek = howManyDaysOfWeek(lastDay.getDay(), 'last');
 
-    return number;
+    // if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysLastWeek;
+    // else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysFirstWeek;
+    // else number = quantityDaysFirstWeek || quantityDaysLastWeek;
+
+    // return number;
 }
 
 /**
