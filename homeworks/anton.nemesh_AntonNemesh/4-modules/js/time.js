@@ -74,9 +74,56 @@ function shortestWeekDaysNumber(date) {
     return Math.min(...result);
 }
 
+function addZero(i) {
+    let iteration = i;
+    if (iteration < 10) {
+        iteration = `0${iteration}`;
+    }
+    return iteration;
+}
+
+function addHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() + hours);
+    return resultDate;
+}
+
+function subtractHours(date, hours) {
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() - hours);
+    return resultDate;
+}
+
+function showDate(timezone) {
+    let currentDate = new Date();
+    switch (timezone) {
+        case 'tokyo':
+            currentDate = addHours(currentDate, 7);
+            break;
+        case 'london':
+            currentDate = subtractHours(currentDate, 2);
+            break;
+        case 'newyork':
+            currentDate = subtractHours(currentDate, 7);
+            break;
+        case 'current':
+            currentDate = new Date();
+            break;
+        default: break;
+    }
+    const year = addZero(currentDate.getFullYear());
+    const month = addZero(currentDate.getMonth() + 1);
+    const date = addZero(currentDate.getDate());
+    const minutes = addZero(currentDate.getMinutes());
+    const seconds = addZero(currentDate.getSeconds());
+    const hours = addZero(currentDate.getHours());
+    return `${month}.${date}.${year} ${hours}:${minutes}:${seconds}`;
+}
+
 export {
     getFridaysOfMonth,
     isMonthLong,
     fullWeeksNumberInMonth,
     shortestWeekDaysNumber,
+    showDate,
 };
