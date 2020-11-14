@@ -33,7 +33,7 @@ function getFridays(date) {
     const amountDaysInMonth = getDaysInMonth(date);
 
     if (date.getDate() <= amountDaysInMonth) {
-        const friday = getDateOfDay(date, 6);
+        const friday = getDateOfDay(date, 5);
         const nextFriday = friday + 7;
 
         if (friday >= date.getDate() && amountDaysInMonth >= friday) {
@@ -50,7 +50,7 @@ function getFridays(date) {
         }
     }
     return result;
-};
+}
 
 /**
  * @param date - date string of any supported format
