@@ -1,0 +1,66 @@
+.page-container {
+  max-width: 800px;
+  width: 100%;
+  height: 65vh;
+  margin: 0 auto;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 25px;
+  font-family: sans-serif;
+  background: linear-gradient(0deg, rgba(190,190,190,1) 0%, rgb(242, 242, 242) 60%);
+}
+
+.calendar-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.clock {
+  border: 1px solid #333;
+  padding: 15px;
+}
+
+.button {
+  cursor: pointer;
+  background: linear-gradient(0deg, rgba(190,190,190,1) 0%, rgba(230,230,230,1) 60%);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #444;
+  border: 1px solid #D6D6D6;
+  color: #333;
+  position: relative;
+  z-index: 1;
+  transition: .5s;
+  outline: none;
+  max-width: 140px;
+  width: 100%;
+  padding: 5px 20px;
+  margin: 10px 0;
+}
+
+.over {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(41, 143, 200, .36);
+  border: 1px solid rgba(41, 143, 200, .36);
+  border-radius: 3px;
+  z-index: -1;
+  opacity: 0;
+}
+
+.button:hover {
+  color: #FFF;
+  border: 1px solid transparent;
+}
+
+.button:hover .over {
+  opacity: 1;
+  color: #FFF;
+  border: 1px solid transparent;
+}
