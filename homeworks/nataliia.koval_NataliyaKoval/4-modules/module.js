@@ -16,7 +16,6 @@ export function getFridaysOfMonth(date) {
 }
 
 export function isMonthLong(date) {
-    console.log(date);
     return getDaysOfMonth(date) === 31;
 }
 
@@ -54,7 +53,6 @@ export function getShortestWeek(date) {
     });
 
     const min = Math.min.apply(null, lengthOfWeeks);
-    console.log(weeks);
     return min;
 }
 
