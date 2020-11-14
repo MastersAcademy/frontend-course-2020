@@ -34,12 +34,10 @@ function shortestWeekDaysNumber(date) {
     if (firstDay === 0) {
         return 1;
     }
-    else if (lastDay === 0) {
-        return  8 - firstDay;
+    if (lastDay === 0) {
+        return 8 - firstDay;
     }
-    else {
-        return lastDay < 8 - firstDay ? lastDay : 8 - firstDay;
-    }
+    return lastDay < 8 - firstDay ? lastDay : 8 - firstDay;
 }
 
 // Calculation how many full weeks in month

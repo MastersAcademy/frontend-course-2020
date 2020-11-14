@@ -53,6 +53,7 @@ import {
                 case 'fullWeeks':
                     weeksAmountNode.innerText = fullWeeksNumberInMonth(date);
                     break;
+                default: break;
             }
         } else alert('please, choose date');
     }
