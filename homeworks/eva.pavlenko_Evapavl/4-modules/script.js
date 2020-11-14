@@ -27,12 +27,7 @@ btnFridaysNode.addEventListener('click', () => {
 });
 
 btnBooleanNode.addEventListener('click', () => {
-    const lastDay = isMonthLong(inputNode);
-    if (lastDay.getDate() === 31) {
-        paragBooleanNode.innerHTML = 'true';
-    } else {
-        paragBooleanNode.innerHTML = 'false';
-    }
+    paragBooleanNode.innerHTML = isMonthLong(inputNode);
 });
 
 btnShortestWeekNode.addEventListener('click', () => {

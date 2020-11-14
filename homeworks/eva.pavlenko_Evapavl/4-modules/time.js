@@ -15,68 +15,69 @@ function inputParse(date) {
     }
 }
 
+function getLastDayOfMonth(y, m) {
+    const d = new Date(y, m + 1, 0);
+    return d.getDate();
+}
+
+function getNumsOfDay(y, m, numDay) {
+    let d = new Date(y, m, numDay);
+    d = d.getDay();
+    if (d === 0) d = 7;
+    return d;
+}
+
+function firstElem(arr, firstD) {
+    const count = firstD - 1;
+    for (let i = 0; i < count; i++) {
+        arr.unshift('');
+    }
+}
+
+function lastElem(arr, lastD) {
+    const count = 7 - lastD;
+    for (let i = 0; i < count; i++) {
+        arr.push('');
+    }
+}
+
+function segmentArr(arr, resArr) {
+    const iterationCount = arr.length / 7;
+    for (let i = 0; i < iterationCount; i++) {
+        resArr.push(arr.splice(0, 7));
+    }
+}
+
+function createArr(countDays, firstDay, lastDay) {
+    const newArr = [];
+    const resArr = [];
+    for (let i = 0; i < countDays; i++) {
+        let index = i;
+        newArr[i] = ++index;
+    }
+    firstElem(newArr, firstDay);
+    lastElem(newArr, lastDay);
+    segmentArr(newArr, resArr);
+    return resArr;
+}
+
 function arrCalendar(date) {
     inputParse(date);
-
-    function getLastDayOfMonth(y, m) {
-        const d = new Date(y, m + 1, 0);
-        return d.getDate();
-    }
-
-    function getNumsOfDay(y, m, numDay) {
-        let d = new Date(y, m, numDay);
-        d = d.getDay();
-        if (d === 0) d = 7;
-        return d;
-    }
 
     const countDaysInMonth = getLastDayOfMonth(year, month);
     const firstDayInMonth = getNumsOfDay(year, month, 1);
     const lastDayInMonth = getNumsOfDay(year, month, countDaysInMonth);
-
-    function createArr(countDays, firstDay, lastDay) {
-        const newArr = [];
-        const resArr = [];
-        for (let i = 0; i < countDays; i++) {
-            let index = i;
-            newArr[i] = ++index;
-        }
-
-        function firstElem(arr, firstD) {
-            const count = firstD - 1;
-            for (let i = 0; i < count; i++) {
-                newArr.unshift('');
-            }
-        }
-
-        firstElem(newArr, firstDay);
-
-        function lastElem(arr, lastD) {
-            const count = 7 - lastD;
-            for (let i = 0; i < count; i++) {
-                arr.push('');
-            }
-        }
-
-        lastElem(newArr, lastDay);
-
-        function segmentArr(arr) {
-            const iterationCoint = arr.length / 7;
-            for (let i = 0; i < iterationCoint; i++) {
-                resArr.push(arr.splice(0, 7));
-            }
-        }
-
-        segmentArr(newArr);
-        return resArr;
-    }
 
     return createArr(countDaysInMonth, firstDayInMonth, lastDayInMonth);
 }
 
 export function isMonthLong(date) {
     inputParse(date);
-    return new Date(year, month + 1, 0);
+    const lastDay = new Date(year, month + 1, 0);
+    if (lastDay.getDate() === 31) {
+        return 'true';
+    }
+    return 'false';
 }
 
 export function getFridaysOfMonth(date) {
