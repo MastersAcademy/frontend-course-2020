@@ -85,7 +85,7 @@ function getFridaysOfMonth(date) {
  * @returns {number} number of days in a shortest week of the date month
  */
 function shortestWeekDaysNumber(date) {
-    // let number = null;
+    let number = null; // if use Mac solution this string must be commited!
     const now = getDate(date);
     const firstDay = getfirstDay(now);
     const lastDay = getlastDay(now);
