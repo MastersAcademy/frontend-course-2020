@@ -17,7 +17,8 @@
         "test": "lint-staged",
         "test-all": "npm run test-js && npm run test-css",
         "test-js": "eslint --config .eslintrc.js ./homeworks/**/*.js",
-        "test-css": "stylelint --config .stylelintrc ./homeworks/**/*.{css,scss}"
+        "test-css": "stylelint --config .stylelintrc ./homeworks/**/*.{css,scss}",
+        "jest": "jest"
     },
     "eslintIgnore": [
         "*dist",
@@ -38,6 +39,13 @@
             "pre-commit": "lint-staged"
         }
     },
+    "jest": {
+        "clearMocks": true,
+        "testEnvironment": "node",
+        "testMatch": [
+            "**/*.test.js"
+        ]
+    },
     "dependencies": {
         "eslint": "^7.9.0",
         "eslint-config-airbnb-base": "^14.2.0",
@@ -47,7 +55,8 @@
         "stylelint": "^13.7.1"
     },
     "devDependencies": {
+        "lint-staged": "^10.4.0",
         "husky": "^4.3.0",
-        "lint-staged": "^10.4.0"
+        "jest": "^26.4.2"
     }
 }
