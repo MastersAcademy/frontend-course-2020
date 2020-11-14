@@ -54,14 +54,12 @@ getDataJSON(postsURL);
 filterInputNode.addEventListener('input', (event) => {
     lock('lock');
     const filterValue = event.target.value.toLowerCase().trim();
-    if (filterValue.length) {
-        renderPosts(
-            posts.filter((post) => {
-                const titleString = post.title.toLowerCase().trim();
-                return titleString.match(filterValue);
-            }), // <- зачем тут ESLint просит ставить запятую? \_ о_О) _/
-        );
-    }
+    renderPosts(
+        posts.filter((post) => {
+            const titleString = post.title.toLowerCase().trim();
+            return titleString.match(filterValue);
+        }), // <- зачем тут ESLint просит ставить запятую? \_ о_О) _/
+    );
     lock('unlock');
 });
 
