@@ -22,10 +22,12 @@ function createPost(title, body) {
     templatePostNode.parentNode.appendChild(clone);
 }
 
-function renderPosts() {
+function renderPosts(somePosts) {
     if ('content' in document.createElement('template')) {
+        let incoming = false;
+        if (typeof somePosts !== 'undefined' && somePosts.length >= 0) incoming = true;
         document.querySelectorAll('[data-post="article"]').forEach((post) => post.remove());
-        posts.forEach((post) => createPost(post.title, post.body));
+        (incoming ? somePosts : posts).forEach((post) => createPost(`${post.id} - ${post.title}`, post.body));
     } else alert('Error! This browser does not support <template>');
 }
 
@@ -51,9 +53,15 @@ getDataJSON(postsURL);
 // filtering the output
 filterInputNode.addEventListener('input', (event) => {
     lock('lock');
-
-    console.log(event);
-
+    const filterValue = event.target.value.toLowerCase().trim();
+    if (filterValue.length) {
+        renderPosts(
+            posts.filter((post) => {
+                const titleString = post.title.toLowerCase().trim();
+                return titleString.match(filterValue);
+            }), // <- зачем тут ESLint просит ставить запятую? \_ о_О) _/
+        );
+    }
     lock('unlock');
 });
 
