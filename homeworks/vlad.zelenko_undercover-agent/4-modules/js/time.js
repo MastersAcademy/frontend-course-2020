@@ -1,5 +1,5 @@
 function daysInMonth(obj) {
-    return new Date(obj.year, obj.month, 0).getDate();
+    return new Date(obj.year, obj.month + 1, 0).getDate();
 }
 
 function parseInputDate(date) {
@@ -22,16 +22,8 @@ export function getFridaysOfMonth(date) {
 
 export function isMonthLong(date) {
     const days = daysInMonth(parseInputDate(date));
-    if (days <= 30) return true;
-    return false;
-}
-
-export function shortestWeekDaysNumber(date) {
-    //  найти дни первой недели и сравнить
-    const objMonthAndYear = parseInputDate(date);
-    const lastWeek = new Date(objMonthAndYear.year, objMonthAndYear.month + 1, 0);
-    console.log(lastWeek.getDay());
-    return lastWeek.getDay();
+    if (days <= 30) return false;
+    return true;
 }
 
 export function fullWeeksNumberInMonth(date) {
@@ -53,4 +45,23 @@ export function fullWeeksNumberInMonth(date) {
         }
     }
     return result;
+}
+
+export function shortestWeekDaysNumber(date) {
+    let shortestWeekDays;
+    const week = 7;
+    const numberOfDaysInMonth = daysInMonth(parseInputDate(date));
+    const objMonthAndYear = parseInputDate(date);
+    let daysLastWeek = new Date(objMonthAndYear.year, objMonthAndYear.month + 1, 0);
+    daysLastWeek = daysLastWeek.getDay();
+    const allDaysFullWeeks = fullWeeksNumberInMonth(date) * week;
+    const daysFirstWeek = numberOfDaysInMonth - (allDaysFullWeeks + daysLastWeek);
+    if (daysLastWeek > daysFirstWeek) {
+        shortestWeekDays = daysFirstWeek;
+    } else if (daysLastWeek < daysFirstWeek) {
+        shortestWeekDays = daysLastWeek;
+    } else {
+        shortestWeekDays = 'no shortest week in month';
+    }
+    return shortestWeekDays;
 }
