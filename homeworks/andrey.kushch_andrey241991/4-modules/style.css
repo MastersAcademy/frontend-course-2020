@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 8px;
   box-sizing: border-box;
-  background: gray;
+  background: rgb(133, 131, 131);
   font-family: "Noto Sans", sans-serif;
 }
 
@@ -27,7 +27,7 @@ input {
   max-width: 700px;
   margin: 0 auto;
   border: 1px solid #484141;
-  background: #ffff;
+  background: #FFFF;
 }
 
 .inner-container {

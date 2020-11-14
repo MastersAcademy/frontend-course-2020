@@ -2,16 +2,15 @@ export function getFridays(selectedDate) {
     const daysCount = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
-        0
+        0,
     ).getDate();
 
     const fridayArray = [];
     for (let i = 0; i <= daysCount; i++) {
-        debugger;
         const day = new Date(
             selectedDate.getFullYear(),
             selectedDate.getMonth(),
-            i
+            i,
         );
         if (day.getDay() === 5) {
             fridayArray.push(new Date(day).getDate());
