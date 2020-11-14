@@ -21,10 +21,10 @@ export function getFridays(selectedDate) {
 }
 
 export function getMonthIsLong(selectedDate) {
-    let daysCont = new Date(
+    const daysCont = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
-        0
+        0,
     ).getDate();
     return daysCont >= 31;
 }
@@ -33,19 +33,19 @@ export function getDaysShortestWeek(selectedDate) {
     const daysCount = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
-        0
+        0,
     ).getDate();
 
     const firstDay = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
-        1
+        1,
     ).getDay();
 
     const lastDay = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
-        daysCount
+        daysCount,
     ).getDay();
 
     const firstWeek = firstDay === 0 ? 1 : 8 - firstDay;
@@ -57,19 +57,19 @@ export function getFullWeekInMonth(selectedDate) {
     const daysCount = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
-        0
+        0,
     ).getDate();
 
     const firstDay = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
-        1
+        1,
     ).getDay();
 
     const lastDay = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
-        daysCount
+        daysCount,
     ).getDay();
 
     const firstWeek = firstDay === 0 ? 1 : 8 - firstDay;

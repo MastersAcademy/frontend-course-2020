@@ -23,7 +23,7 @@ monthLongElem.firstElementChild.addEventListener('click', () => {
 
 shortestWeekElem.firstElementChild.addEventListener('click', () => {
     shortestWeekElem.lastElementChild.innerText = time.getDaysShortestWeek(
-        selectedDate
+        selectedDate,
     );
 });
 
