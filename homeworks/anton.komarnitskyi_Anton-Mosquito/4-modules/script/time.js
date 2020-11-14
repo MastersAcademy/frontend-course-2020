@@ -101,10 +101,12 @@ function shortestWeekDaysNumber(date) {
 
     const quantityDaysLastWeek = howManyDaysOfWeek(lastDay.getDay(), 'last');
 
-    if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysFirstWeek;
+    if (quantityDaysLastWeek === 0) number = quantityDaysFirstWeek;
+    else if (quantityDaysFirstWeek === 0) number = quantityDaysLastWeek;
+    else if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysFirstWeek;
     else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysLastWeek;
     else number = quantityDaysFirstWeek;
-console.log(number);
+
     return number;
 }
 
