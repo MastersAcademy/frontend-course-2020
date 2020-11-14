@@ -1,4 +1,11 @@
-import * as timeModule from './modules/time.js';
+import {
+    getFridays,
+    isMonthLong,
+    shortestWeekDaysNumber,
+    fullWeeksNumberInMonth,
+    subtractHours,
+    addHours,
+} from './modules/time.js';
 
 let optionValue = '';
 const date = document.querySelector('[data-date]');
@@ -14,19 +21,19 @@ const shortestWeekP = document.querySelector('[data-shortest-week]');
 const shortestWeek = document.querySelector('[data-shortest-week-btn]');
 
 allFridayBtn.addEventListener('click', () => {
-    allFridayP.innerText = `[${timeModule.getFridays(date)}]`;
+    allFridayP.innerText = `[${getFridays(date)}]`;
 });
 
 longMonth.addEventListener('click', () => {
-    longMonthP.innerText = timeModule.isMonthLong(date);
+    longMonthP.innerText = isMonthLong(date);
 });
 
 shortestWeek.addEventListener('click', () => {
-    shortestWeekP.innerText = timeModule.shortestWeekDaysNumber(date);
+    shortestWeekP.innerText = shortestWeekDaysNumber(date);
 });
 
 fullWeeks.addEventListener('click', () => {
-    fullWeeksP.innerText = timeModule.fullWeeksNumberInMonth(date);
+    fullWeeksP.innerText = fullWeeksNumberInMonth(date);
 });
 
 option.addEventListener('change', (event) => {
@@ -34,5 +41,10 @@ option.addEventListener('change', (event) => {
 });
 
 setInterval(() => {
-    time.innerText = timeModule.updateTime(optionValue);
+    const resultDate = new Date();
+    if (optionValue >= 0) {
+        time.innerText = addHours(resultDate, optionValue);
+    } else {
+        time.innerText = subtractHours(resultDate, optionValue);
+    }
 }, 1000);

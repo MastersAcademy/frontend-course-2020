@@ -45,16 +45,18 @@ export function fullWeeksNumberInMonth(date) {
     return fullWeeksInMonth;
 }
 
-export function updateTime(optionValue) {
-    const resultDate = new Date();
-    if (optionValue === 'kyiv') {
-        resultDate.setHours(resultDate.getHours());
-    } else if (optionValue === 'tokyo') {
-        resultDate.setHours(resultDate.getHours() + 7);
-    } else if (optionValue === 'london') {
-        resultDate.setHours(resultDate.getHours() + 2);
-    } else if (optionValue === 'newYork') {
-        resultDate.setHours(resultDate.getHours() - 7);
-    }
-    return resultDate.toTimeString().replace(/ .*/, '');
+export function subtractHours(date, hours) {
+    const optionValue = Number(hours);
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() + optionValue);
+    return resultDate.toTimeString()
+        .replace(/ .*/, '');
+}
+
+export function addHours(date, hours) {
+    const optionValue = Number(hours);
+    const resultDate = date;
+    resultDate.setHours(resultDate.getHours() + optionValue);
+    return resultDate.toTimeString()
+        .replace(/ .*/, '');
 }
