@@ -48,19 +48,6 @@ export function getFridays() {
 
 // Is month long?
 export function isMonthLong() {
-    // const currentDate = new Date(inputNode.value);
-    // const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-    // console.log(lastDay);
-    // let resultMonthLong = '';
-    // if (lastDay === 31) {
-    //     resultMonthLong = 'month long';
-    // } else {
-    //     resultMonthLong = 'month short';
-    // }
-    // document.querySelector('[data-result-month-long]').innerHTML = (resultMonthLong);
-    //
-    // return resultMonthLong;
-
     const currentDate = new Date(inputNode.value);
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
