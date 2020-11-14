@@ -1,5 +1,4 @@
 export function shortestWeekDaysNumber(date) {
-    const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const inputDate = new Date(date);
     const month = inputDate.getMonth();
     const year = inputDate.getFullYear();
@@ -8,26 +7,21 @@ export function shortestWeekDaysNumber(date) {
         return item;
     };
     const monthLength = daysInMonth(year, month);
-    const monthWeeks = [];
-    let fullWeek = [];
-    for (let i = 0; i <= monthLength; i++) {
-        const monthDay = new Date(year, month, i).getDay();
-        fullWeek.push(weekDays[monthDay]);
-        if (weekDays[monthDay] === 'Sunday' || fullWeek.length === 7 || i === monthLength - 1) {
-            monthWeeks.push(fullWeek);
-            fullWeek = [];
+    const dayInMs = 86400000;
+    const weekInMs = 604800000;
+    const weeks = [];
+    let currentWeek = 0;
+    for (let i = 1; i <= monthLength; i++) {
+        const dayNumber = new Date(year, month, i).getDay();
+        currentWeek += dayInMs;
+        if (currentWeek === weekInMs || dayNumber === 0 || i === monthLength) {
+            weeks.push(currentWeek);
+            currentWeek = 0;
         }
     }
-    const shortestWeek = monthWeeks.sort((a, b) => {
-        if (a.length > b.length) {
-            return 1;
-        }
-        if (a.length < b.length) {
-            return -1;
-        }
-        return 0;
-    });
-    return shortestWeek[0].length;
+    const result = weeks[0] < weeks[weeks.length - 1] ? weeks[0]
+     / dayInMs : weeks[weeks.length - 1] / dayInMs;
+    return result;
 }
 
 export function isMonthLong(date) {
@@ -70,7 +64,6 @@ export function getFridaysOfMonth(date) {
 }
 
 export function fullWeeksNumberInMonth(date) {
-    const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const inputDate = new Date(date);
     const month = inputDate.getMonth();
     const year = inputDate.getFullYear();
@@ -79,12 +72,18 @@ export function fullWeeksNumberInMonth(date) {
         return item;
     };
     const monthLength = daysInMonth(year, month);
-    const monthDays = [];
+    const dayInMs = 86400000;
+    const weekInMs = 604800000;
+    const weeks = [];
+    let currentWeek = 0;
     for (let i = 1; i <= monthLength; i++) {
-        const monthDay = new Date(year, month, i).getDay();
-        monthDays.push(weekDays[monthDay]);
+        const dayNumber = new Date(year, month, i).getDay();
+        currentWeek += dayInMs;
+        if (currentWeek === weekInMs || dayNumber === 0 || i === monthLength) {
+            weeks.push(currentWeek);
+            currentWeek = 0;
+        }
     }
-    const regExp = new RegExp('Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday', 'gi');
-    const result = monthDays.toString().match(regExp);
+    const result = weeks.filter((item) => item === weekInMs);
     return result.length;
 }

@@ -17,8 +17,8 @@ setInterval(() => {
     document.querySelector('.current-time').innerText = `${setTime(currentTimeZone)}`;
 }, 1000);
 
-document.querySelector('[data-sort-list]').addEventListener('change', () => {
-    const currentIndex = document.querySelector('.sort_list').options.selectedIndex;
+document.querySelector('[data-time-zone]').addEventListener('change', () => {
+    const currentIndex = document.querySelector('.time-zone').options.selectedIndex;
     switch (currentIndex) {
         case 0: currentTimeZone = locations.Kiev;
             break;
