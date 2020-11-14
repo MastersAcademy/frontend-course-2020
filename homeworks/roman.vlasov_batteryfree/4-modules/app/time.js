@@ -18,12 +18,17 @@ const getLastDayOfMonth = (date) => {
 };
 
 const getAmountOfWeeks = (date) => {
-    const startWeek = getWeek(new Date(date.getFullYear(), date.getMonth(), 1));
-    const lastWeek = getWeek(new Date(date.getFullYear(), date.getMonth() + 1, 0));
-    return lastWeek - startWeek + 1;
+    const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    return Math.ceil((lastDate.getDate() - (lastDate.getDay() ? lastDate.getDay() : 7)) / 7) + 1;
 };
 // numDay: 0:sun...6:sat
 const getDateOfDay = (date, numDay) => date.getDate() - ((date.getDay() - numDay) % 7);
+
+const convertDeyOfWeek = (day) => {
+    let result;
+    day ? result = day - 1 : result = 6
+    return result;
+}
 
 function getFridays(date) {
     let result = [];
@@ -71,7 +76,7 @@ export function isMonthLong(date) {
     return result;
 }
 
-/** US Calendar format
+/*
  * @param date - date string of any supported format
  * @returns {number} number of days in a shortest week of the date month
  */
@@ -81,8 +86,8 @@ export function shortestWeekDaysNumber(date) {
     let result;
     if (parseDate >= 0) {
         const data = new Date(parseDate);
-        const countDaysInFirstWeek = 7 - getFirstDayOfMonth(data);
-        const countDaysInLastWeek = getLastDayOfMonth(data) + 1;
+        const countDaysInFirstWeek = 7 - convertDeyOfWeek(getFirstDayOfMonth(data));
+        const countDaysInLastWeek = convertDeyOfWeek(getLastDayOfMonth(data)) + 1;
         if (countDaysInFirstWeek >= countDaysInLastWeek) {
             result = countDaysInLastWeek;
         } else {
@@ -92,7 +97,7 @@ export function shortestWeekDaysNumber(date) {
     return result;
 }
 
-/** US Calendar format
+/*
  * @param date - date string of any supported format
  * @returns {number} number of full weeks in the date month.
  * To be full, week should start and end in the same month
@@ -104,8 +109,8 @@ export function fullWeeksNumberInMonth(date) {
     if (parseDate >= 0) {
         const data = new Date(parseDate);
         let fullWeeks = getAmountOfWeeks(data);
-        if (getFirstDayOfMonth(data) !== 0) fullWeeks--;
-        if (getLastDayOfMonth(data) !== 6) fullWeeks--;
+        if (getFirstDayOfMonth(data) !== 1) fullWeeks--;
+        if (getLastDayOfMonth(data) !== 0) fullWeeks--;
         result = fullWeeks;
     }
     return result;

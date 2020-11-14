@@ -54,4 +54,3 @@ class App {
 }
 
 const app = new App(document.querySelector('#root'));
-console.dir(app);
