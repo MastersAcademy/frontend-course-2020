@@ -35,14 +35,11 @@ function getFridays(date) {
     if (date.getDate() <= amountDaysInMonth) {
         const friday = getDateOfDay(date, 5);
         const nextFriday = friday + 7;
+        result.push(friday);
 
-        if (friday >= date.getDate() && amountDaysInMonth >= friday) {
-            result.push(friday);
-
-            if (nextFriday <= amountDaysInMonth) {
-                date.setDate(nextFriday);
-                result = result.concat(getFridays(date));
-            }
+        if (nextFriday <= amountDaysInMonth) {
+            date.setDate(nextFriday);
+            result = result.concat(getFridays(date));
         }
         if (nextFriday <= amountDaysInMonth) {
             date.setDate(nextFriday);
@@ -59,7 +56,12 @@ function getFridays(date) {
 
 export function getFridaysOfMonth(date) {
     const parseDate = Date.parse(date);
-    const result = parseDate >= 0 ? (getFridays(new Date(parseDate))) : undefined;
+    const data = new Date(parseDate);
+    let result;
+    if (parseDate >= 0) {
+        result = getFridays(new Date(data.getFullYear(), data.getMonth(), 1));
+    }
+    console.log(result);
     return result;
 }
 
