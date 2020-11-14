@@ -19,7 +19,7 @@ btnGetMonthFridays.addEventListener('click', () => {
     const date = new Date(inputDate.value);
     textGetMonth.innerHTML = getFridaysOfMonth(date);
 });
-
+//
 btnIsMonthLong.addEventListener('click', () => {
     const date = new Date(inputDate.value);
     textIsMonth.innerHTML = isMonthLong(date);
