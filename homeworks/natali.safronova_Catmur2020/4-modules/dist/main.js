@@ -1,0 +1,1 @@
+(()=>{"use strict";document.querySelector("input").addEventListener("input",(function(){document.getElementById("friday").innerText=[6,13,20,27],document.getElementById("long").innerText=!0,document.getElementById("shortesweek").innerText=1,document.getElementById("fullweeks").innerText=4}))})();
