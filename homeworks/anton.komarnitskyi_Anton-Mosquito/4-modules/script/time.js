@@ -85,7 +85,7 @@ function getFridaysOfMonth(date) {
  * @returns {number} number of days in a shortest week of the date month
  */
 function shortestWeekDaysNumber(date) {
-    let number = null;
+    // let number = null;
     const now = getDate(date);
     const firstDay = getfirstDay(now);
     const lastDay = getlastDay(now);
@@ -93,7 +93,7 @@ function shortestWeekDaysNumber(date) {
     // This solution for Mac
     return lastDay < 6 - firstDay ? lastDay + 1 : 7 - firstDay;
 
-     // This solution for Windows
+    // This solution for Windows
     // const quantityDaysFirstWeek = howManyDaysOfWeek(
     //     firstDay.getDay(),
     //     'first',
