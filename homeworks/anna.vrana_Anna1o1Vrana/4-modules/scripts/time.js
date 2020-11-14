@@ -16,8 +16,6 @@ export function getFridays() {
     const currentMonth = currentDate.getMonth();
     const monthFridays = [];
     const fridaysResultNode = document.querySelector('[data-fridays]');
-
-
     currentDate.setDate(1);
 
     // Get the first Monday in the month
@@ -104,10 +102,10 @@ export function shortestWeekDaysNumber() {
     return shortestWeek;
 }
 
-
 /**
  * @param date - date string of any supported format
- * @returns {number} number of full weeks in the date month. To be full, week should start and end in the same month
+ * @returns {number} number of full weeks in the date month.
+ * To be full, week should start and end in the same month
  */
 // export function fullWeeksNumberInMonth (date) {
 //     return 4;
