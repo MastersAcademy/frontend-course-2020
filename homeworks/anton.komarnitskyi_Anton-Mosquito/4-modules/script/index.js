@@ -132,7 +132,7 @@ class WorkWithDate {
                     minutes = addHours(this._inputData.value, 7).getMinutes();
                     seconds = addHours(this._inputData.value, 7).getSeconds();
                     break;
-                case  'London':
+                case 'London':
                     hours = subtractHours(this._inputData.value, 2).getHours();
                     minutes = subtractHours(this._inputData.value, 2).getMinutes();
                     seconds = subtractHours(this._inputData.value, 2).getSeconds();
@@ -183,11 +183,11 @@ class WorkWithDate {
     }
 
     arrayMonthAction() {
-            this._outPutBox1.textContent = getFridaysOfMonth(this._inputData.value);
+        this._outPutBox1.textContent = getFridaysOfMonth(this._inputData.value);
     }
 
     lastDayAction() {
-            this._outPutBox2.textContent = isMonthLong(this._inputData.value);
+        this._outPutBox2.textContent = isMonthLong(this._inputData.value);
     }
 
     shortDayAction() {
@@ -195,7 +195,7 @@ class WorkWithDate {
     }
 
     fullWeekAction() {
-            this._outPutBox4.textContent = fullWeeksNumberInMonth(this._inputData.value);
+        this._outPutBox4.textContent = fullWeeksNumberInMonth(this._inputData.value);
     }
 
     selectAction() {
@@ -206,20 +206,20 @@ class WorkWithDate {
 
         switch (options.text) {
             case 'Tokyo':
-                    this._timeZone.textContent = addHours(this._inputData.value, 7);
-                    this._time = 'Tokyo';
+                this._timeZone.textContent = addHours(this._inputData.value, 7);
+                this._time = 'Tokyo';
                 break;
             case 'London':
-                    this._timeZone.textContent = subtractHours(this._inputData.value, 2);
-                    this._time = 'London';
+                this._timeZone.textContent = subtractHours(this._inputData.value, 2);
+                this._time = 'London';
                 break;
             case 'New York':
-                    this._timeZone.textContent = subtractHours(this._inputData.value, 7);
-                    this._time = 'New York';
+                this._timeZone.textContent = subtractHours(this._inputData.value, 7);
+                this._time = 'New York';
                 break;
             default:
-                    this._timeZone.textContent = new Date();
-                    this._time = 'Current';
+                this._timeZone.textContent = new Date();
+                this._time = 'Current';
                 break;
         }
     }
