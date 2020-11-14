@@ -1,44 +1,83 @@
-// const delay = 1 * 1000;
-// setTimeout(() => { console.log(`Таймер сработал спустя ${delay}`); }, delay);
-// console.log('Lets start!');
-// console.log(delay);
-// setTimeout(() => { console.log(dataJSON); }, delay);
-
+const delay = 1000 * 0.3;
+const lockNode = document.querySelector('[data-lock]');
 const templatePostNode = document.querySelector('[data-post="template"]');
+const filterInputNode = document.querySelector('[data-filter-input]');
+const sortSelectNode = document.querySelector('[data-sort-select]');
+const postsURL = 'https://jsonplaceholder.typicode.com/posts';
+const posts = [];
 // const articlePostNode = document.querySelector('[data-post="article"]');
 // const titlePostNode = document.querySelector('[data-post="title"]');
 // const bodyPostNode = document.querySelector('[data-post="body"]');
 
-function createPost(title, body) {
-    if ('content' in document.createElement('template')) {
-        const clone = templatePostNode.content.cloneNode(true);
-        clone.querySelector('[data-post="title"]').textContent = title;
-        clone.querySelector('[data-post="body"]').textContent = body;
-        templatePostNode.parentNode.appendChild(clone);
-    } else alert('Ошибка! Браузер не поддерживает <template>');
+function lock(action) {
+    if (action === 'lock') lockNode.classList.replace('lock-off', 'lock-on');
+    else if (action === 'unlock') lockNode.classList.replace('lock-on', 'lock-off');
+    else console.log('error -> function lock(action)');
 }
 
-const postsURL = 'https://jsonplaceholder.typicode.com/posts';
-const arrr = [];
+function createPost(title, body) {
+    const clone = templatePostNode.content.cloneNode(true);
+    clone.querySelector('[data-post="title"]').textContent = title;
+    clone.querySelector('[data-post="body"]').textContent = body;
+    templatePostNode.parentNode.appendChild(clone);
+}
+
+function renderPosts() {
+    if ('content' in document.createElement('template')) {
+        document.querySelectorAll('[data-post="article"]').forEach((post) => post.remove());
+        posts.forEach((post) => createPost(post.title, post.body));
+    } else alert('Error! This browser does not support <template>');
+}
+
 async function getDataJSON(url) {
+    lock('lock');
+
     const promise = new Promise((resolve) => {
-        setTimeout(() => resolve('готово!'), 2000);
+        setTimeout(() => resolve('готово!'), delay);
     });
     await promise;
 
     const response = await fetch(url);
     const dataJSON = await response.json();
-    arrr.push(...dataJSON);
+    posts.push(...dataJSON);
 
-    arrr.forEach((post) => {
-        createPost(post.title, post.body);
-    });
+    renderPosts();
+
+    lock('unlock');
 }
 
 getDataJSON(postsURL);
 
-// var arr = ["Яблоко", "Апельсин", "Груша"];
+// filtering the output
+filterInputNode.addEventListener('input', (event) => {
+    lock('lock');
 
-// arr.forEach(function(item, i, arr) {
-//     alert( i + ": " + item + " (массив:" + arr + ")" );
-// });
+    console.log(event);
+
+    lock('unlock');
+});
+
+// sorting the output
+sortSelectNode.addEventListener('change', (event) => {
+    lock('lock');
+    let sorted = false;
+    switch (event.target.value) {
+        case 'az':
+            posts.sort((a, b) => (a.title > b.title ? 1 : -1));
+            sorted = true;
+            break;
+        case 'za':
+            posts.sort((a, b) => (a.title < b.title ? 1 : -1));
+            sorted = true;
+            break;
+        case 'default':
+            posts.sort((a, b) => (a.id > b.id ? 1 : -1));
+            sorted = true;
+            break;
+        default:
+            console.log('error -> switch (event.target.value)');
+            break;
+    }
+    if (sorted) renderPosts();
+    lock('unlock');
+});
