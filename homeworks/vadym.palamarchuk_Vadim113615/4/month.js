@@ -16,7 +16,7 @@ function getDaysOfMonth(date) {
 export function isMonthLong(date) {
     return getDaysOfMonth(date) === 31;
 }
-//
+
 export function shortestWeekDaysNumber(date) {
     const weekDaysNumber = getDaysOfMonth(date);
     let weekDays = 0;
