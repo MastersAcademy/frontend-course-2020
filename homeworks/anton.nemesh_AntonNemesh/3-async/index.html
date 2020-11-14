@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container" data-container>
-        <div class="header">
+        <header class="header">
             <div class="filter">
                 <input type="text" data-search>
             </div>
@@ -19,9 +19,9 @@
                     <option value="default" selected>Default
                 </select>
             </div>
-        </div>
+        </header>
         <div class="messages" data-message></div>
-        <div class="content" data-content>
+        <main class="content" data-content>
             <template data-template>
                 <div class="post">
                     <button class="deleteButton">X</button>
@@ -29,7 +29,7 @@
                     <p></p>
                 </div>
             </template>
-        </div>
+        </main>
         <div data-loader class="image-wrap">
             <img class="image-center" src="img/load.gif">
         </div>
