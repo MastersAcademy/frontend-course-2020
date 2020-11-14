@@ -87,25 +87,25 @@ function getFridaysOfMonth(date) {
 function shortestWeekDaysNumber(date) {
     // let number = null;
     const now = getDate(date);
-    const firstDay = getfirstDay(now).getDay();
-    const lastDay = getlastDay(now).getDay();
+    const firstDay = getfirstDay(now);
+    const lastDay = getlastDay(now);
 
     // This solution for Mac
-    return lastDay < 6 - firstDay ? lastDay + 1 : 7 - firstDay;
+    // return lastDay < 6 - firstDay ? lastDay + 1 : 7 - firstDay;
 
     // This solution for Windows
-    // const quantityDaysFirstWeek = howManyDaysOfWeek(
-    //     firstDay.getDay(),
-    //     'first',
-    // );
+    const quantityDaysFirstWeek = howManyDaysOfWeek(
+        firstDay.getDay(),
+        'first',
+    );
 
-    // const quantityDaysLastWeek = howManyDaysOfWeek(lastDay.getDay(), 'last');
+    const quantityDaysLastWeek = howManyDaysOfWeek(lastDay.getDay(), 'last');
 
-    // if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysLastWeek;
-    // else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysFirstWeek;
-    // else number = quantityDaysFirstWeek || quantityDaysLastWeek;
+    if (quantityDaysFirstWeek < quantityDaysLastWeek) number = quantityDaysLastWeek;
+    else if (quantityDaysFirstWeek > quantityDaysLastWeek) number = quantityDaysFirstWeek;
+    else number = quantityDaysFirstWeek || quantityDaysLastWeek;
 
-    // return number;
+    return number;
 }
 
 /**
