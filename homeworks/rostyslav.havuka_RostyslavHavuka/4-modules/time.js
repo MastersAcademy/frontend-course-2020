@@ -38,15 +38,10 @@ export function shortestWeekDaysNumber(date) {
     const beginningOfTheMonth = new Date(dates.getFullYear(), dates.getMonth(), 1);
     const daysInMonth = new Date(year, month, 0).getDate();
     const weeks = [];
-    weeks[1] = [];
-    weeks[2] = [];
-    weeks[3] = [];
-    weeks[4] = [];
-    weeks[5] = [];
-    weeks[6] = [];
     const result = [];
     let currWeek = 1;
     for (let i = 1; i <= daysInMonth; i++) {
+        weeks[i] = [];
         let currDate = beginningOfTheMonth.getDate();
         if (beginningOfTheMonth.getDay() === 1) {
             currWeek += 1;
