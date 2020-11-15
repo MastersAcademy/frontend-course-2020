@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  width: 50%;
+  height: 100vh;
+  margin: auto;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+}
+
