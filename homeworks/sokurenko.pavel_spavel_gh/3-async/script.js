@@ -1,13 +1,10 @@
-const delay = 1000 * 0.3;
+const delay = 1000 * 3;
 const lockNode = document.querySelector('[data-lock]');
 const templatePostNode = document.querySelector('[data-post="template"]');
 const filterInputNode = document.querySelector('[data-filter-input]');
 const sortSelectNode = document.querySelector('[data-sort-select]');
 const postsURL = 'https://jsonplaceholder.typicode.com/posts';
 const posts = [];
-// const articlePostNode = document.querySelector('[data-post="article"]');
-// const titlePostNode = document.querySelector('[data-post="title"]');
-// const bodyPostNode = document.querySelector('[data-post="body"]');
 
 function lock(action) {
     if (action === 'lock') lockNode.classList.replace('lock-off', 'lock-on');
@@ -23,9 +20,9 @@ function createPost(title, body) {
 }
 
 function renderPosts(somePosts) {
+    let incoming = false;
+    if (typeof somePosts !== 'undefined' && somePosts.length >= 0) incoming = true;
     if ('content' in document.createElement('template')) {
-        let incoming = false;
-        if (typeof somePosts !== 'undefined' && somePosts.length >= 0) incoming = true;
         document.querySelectorAll('[data-post="article"]').forEach((post) => post.remove());
         (incoming ? somePosts : posts).forEach((post) => createPost(`${post.id} - ${post.title}`, post.body));
     } else alert('Error! This browser does not support <template>');
@@ -33,22 +30,18 @@ function renderPosts(somePosts) {
 
 async function getDataJSON(url) {
     lock('lock');
-
-    const promise = new Promise((resolve) => {
-        setTimeout(() => resolve('готово!'), delay);
-    });
-    await promise;
-
+    await new Promise((resolve) => setTimeout(resolve, delay));
     const response = await fetch(url);
     const dataJSON = await response.json();
     posts.push(...dataJSON);
-
-    renderPosts();
-
     lock('unlock');
 }
 
-getDataJSON(postsURL);
+// main
+(async function () {
+    await getDataJSON(postsURL);
+    renderPosts();
+}());
 
 // filtering the output
 filterInputNode.addEventListener('input', (event) => {
@@ -64,9 +57,10 @@ filterInputNode.addEventListener('input', (event) => {
 });
 
 // sorting the output
-sortSelectNode.addEventListener('change', (event) => {
+sortSelectNode.addEventListener('change', async (event) => {
     lock('lock');
     let sorted = false;
+    await new Promise((resolve) => setTimeout(resolve, delay / 2));
     switch (event.target.value) {
         case 'az':
             posts.sort((a, b) => (a.title > b.title ? 1 : -1));
