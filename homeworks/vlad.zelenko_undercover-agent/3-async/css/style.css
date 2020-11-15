@@ -1,0 +1,47 @@
+@import "./preloader.css";
+
+
+body {
+  background-color: #222;
+  color: #FFF;
+  font-size: 18px;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.settings-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.sort-post {
+  margin-bottom: 40px;
+  width: 200px;
+  font: 400 16px/50px sans-serif;
+}
+
+.post-container {
+  width: 100%;
+}
+
+.post {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.post-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.filter {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}
