@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<section class="posts-section">
+    <header class="header">
+        <input type="text" data-input-text class="input" placeholder="Please, write text">
+        <p class="hidden" data-warning></p>
+        <label>
+            <select class="label" data-sort>
+                <option value="default">Default</option>
+                <option value="asc">A - Z</option>
+                <option value="desc">Z - A</option>
+            </select>
+        </label>
+    </header>
+    <main>
+        <div class="container" data-container>
+            <div class="lds-ring" data-loader>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </main>
+    <div class="post-wrapper hidden" data-post>
+        <div class="text-wrapper">
+            <div class="post-title">
+                <p data-title></p>
+            </div>
+            <div class="post-description">
+                <p data-description></p>
+            </div>
+        </div>
+        <button class="btn" data-btn>×</button>
+    </div>
+</section>
+<script src="app.js"></script>
+</body>
+</html>

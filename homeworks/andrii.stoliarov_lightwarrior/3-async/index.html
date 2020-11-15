@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+</head>
+
+<body class="body-page">
+
+    <div class="loading-window" data-loading>
+        <span>Loading...</span>
+    </div>
+
+    <form>
+        <input class="filter" type="text" name="filter" placeholder="Enter text" data-filter>
+        <select class="sort" data-sort>
+          <option value="0" selected>Without sorting</option>
+          <option value="19">Sort from A to Z</option>
+          <option value="91">Sort from Z to A</option>
+        </select>
+    </form>
+
+    <div class="container" data-container></div>
+
+    <template data-message-template>
+      <div class="pane" data-pane>
+        <h3 class="title-message" data-title></h3>
+        <p class="message" data-message></p>
+        <button class="remove-button" data-remove-button>[x]</button>
+      </div>
+    </template>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
