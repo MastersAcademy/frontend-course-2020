@@ -83,7 +83,7 @@ function fullWeeksNumberInMonth(date) {
 }
 
 function subtractHours(date, hours) {
-    const currentHours = date - 2 - hours;
+    const currentHours = date - hours;
     const resultDate = new Date();
     resultDate.setHours(currentHours);
 
@@ -91,7 +91,7 @@ function subtractHours(date, hours) {
 }
 
 function addHours(date, hours) {
-    const currentHours = date - 2 + hours;
+    const currentHours = date + hours;
     const resultDate = new Date();
     resultDate.setHours(currentHours);
 
