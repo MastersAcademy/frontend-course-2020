@@ -10,13 +10,24 @@ import {
 const inputNode = document.querySelector('[data-date]');
 
 document.querySelector('[data-get-fridays]')
-    .addEventListener('click', getFridays);
+    .addEventListener('click', () => {
+        document.querySelector('[data-fridays]')
+            .classList
+            .add('result-friday');
+        document.querySelector('[data-fridays]').innerHTML = (getFridays(inputNode.value));
+    });
 
 document.querySelector('[data-month-long]')
-    .addEventListener('click', isMonthLong);
+    .addEventListener('click', () => {
+        document.querySelector('[data-result-month-long]').innerHTML = (isMonthLong(inputNode.value));
+    });
 
 document.querySelector('[data-shortest-week]')
-    .addEventListener('click', shortestWeekDaysNumber);
+    .addEventListener('click', () => {
+        document.querySelector('[data-result-shortest-week]').innerHTML = (shortestWeekDaysNumber(inputNode.value));
+    });
 
 document.querySelector('[data-full-weeks]')
-    .addEventListener('click', fullWeeksNumberInMonth);
+    .addEventListener('click', () => {
+        document.querySelector('[data-result-full-weeks]').innerHTML = (fullWeeksNumberInMonth(inputNode.value));
+    });
