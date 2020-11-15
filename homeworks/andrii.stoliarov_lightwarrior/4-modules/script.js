@@ -41,17 +41,17 @@ import {
         const currentHour = new Date().getHours();
 
         switch (selectCityNodes.value) {
-            case '+2':
-                time = addHours(currentHour, 2);
-                break;
-            case '+9':
-                time = addHours(currentHour, 9);
-                break;
             case '0':
                 time = addHours(currentHour, 0);
                 break;
-            case '-5':
-                time = subtractHours(currentHour, 5);
+            case '+7':
+                time = addHours(currentHour, 7);
+                break;
+            case '-2':
+                time = subtractHours(currentHour, 2);
+                break;
+            case '-7':
+                time = subtractHours(currentHour, 7);
                 break;
             default:
                 break;
