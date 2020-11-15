@@ -16,10 +16,10 @@ body {
 }
 
 .input { grid-area: input; }
-.getMonth { grid-area: getMonth; }
-.getIsLong { grid-area: getIsLong; }
-.getShortest { grid-area: getShortest; }
-.getFullWeeks { grid-area: getFullWeeks; }
+.get-month { grid-area: getMonth; }
+.get-isLong { grid-area: getIsLong; }
+.get-shortest { grid-area: getShortest; }
+.get-full-weeks { grid-area: getFullWeeks; }
 .time { grid-area: time; }
 
 .button {
@@ -44,7 +44,7 @@ body {
   font-style: initial;
 }
 
-.inputDate {
+.input-date {
   min-height: 33px;
   border: 2.5px solid #1B1B1B;
   border-radius: 4%;
