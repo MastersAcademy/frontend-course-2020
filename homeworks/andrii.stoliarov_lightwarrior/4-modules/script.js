@@ -5,7 +5,7 @@ import {
     fullWeeksNumberInMonth,
     subtractHours,
     addHours,
-} from './time';
+} from './time.js';
 
 (function () {
     const buttonFridayNode = document.querySelector('[data-button-month-friday]');
