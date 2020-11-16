@@ -99,11 +99,19 @@ export function fullWeeksNumberInMonth(date) {
     const monthLength = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
 
     let firstWeek = 0;
+    let countOfFullWeeks = 0;
 
     if (firstDay === 0) {
         firstWeek = 1;
     } else if (firstDay > 1) {
         firstWeek = 7 - firstDay + 1;
     }
-    return ((monthLength - firstWeek) / 7).toFixed();
+
+    if (firstWeek === 7) {
+        countOfFullWeeks = ((monthLength - firstWeek) / 7).toFixed() + 1;
+    } else {
+        countOfFullWeeks = ((monthLength - firstWeek) / 7).toFixed();
+    }
+
+    return countOfFullWeeks;
 }
