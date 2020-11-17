@@ -1,7 +1,7 @@
 function isMonthLong(data) {
     const year = data.getFullYear();
     const month = data.getMonth();
-    return const numberOfDays = 32 - new Date(year, month, 32).getDate() === 31;
+    return 32 - new Date(year, month, 32).getDate() === 31;
 }
 
 function getFridays(time) {
