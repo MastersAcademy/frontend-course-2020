@@ -56,10 +56,15 @@ export function shortestWeekDaysNumber(date) {
     const allDaysFullWeeks = fullWeeksNumberInMonth(date) * week;
     const daysFirstWeek = numberOfDaysInMonth - (allDaysFullWeeks + daysLastWeek);
     if (daysLastWeek > daysFirstWeek) {
-        if (daysFirstWeek === 0) return daysLastWeek;
+        if (daysFirstWeek === 0) {
+            return daysLastWeek;
+        }
         return daysFirstWeek;
     }
     else if (daysLastWeek < daysFirstWeek) {
+        if (daysLastWeek === 0) {
+            return daysFirstWeek;
+        }
         return daysLastWeek;
     } else {
         return 'no shortest week in month';
