@@ -1,11 +1,9 @@
 function isMonthLong(data) {
     const year = data.getFullYear();
     const month = data.getMonth();
-    const numberOfDays = 32 - new Date(year, month, 32).getDate();
-    if (numberOfDays === 31) {
-        return true;
-    }
-    return false;
+    const numberOfDays;
+    return numberOfDays = 32 - new Date(year, month, 32).getDate() === 31;
+    
 }
 
 function getFridays(time) {
@@ -14,30 +12,15 @@ function getFridays(time) {
     const day = time.getDate();
     const newData = new Date(year, month, day);
     const fridays = [];
-    const array = [];
     newData.setDate(1);
     while (newData.getDay() !== 5) {
         newData.setDate(newData.getDate() + 1);
     }
     while (newData.getMonth() === month) {
-        fridays.push(new Date(newData.getTime()));
+        fridays.push(new Date(newData.getTime()).getDate());
         newData.setDate(newData.getDate() + 7);
     }
-    if (fridays.length === 5) {
-        array.push(fridays[0].getDate());
-        array.push(fridays[1].getDate());
-        array.push(fridays[2].getDate());
-        array.push(fridays[3].getDate());
-        array.push(fridays[4].getDate());
-        return array;
-    } if (fridays.length === 4) {
-        array.push(fridays[0].getDate());
-        array.push(fridays[1].getDate());
-        array.push(fridays[2].getDate());
-        array.push(fridays[3].getDate());
-        return array;
-    }
-    return array;
+    return fridays;
 }
 
 function fullWeeksNumberInMonth(data) {
@@ -72,50 +55,27 @@ function fullWeeksNumberInMonth(data) {
 }
 
 function shortestWeekDaysNumber(data) {
-    const y = data.getFullYear();
-    const m = data.getMonth();
-    const firstDay = new Date(y, m, 1);
-    const dayOfWeek = firstDay.getDay();
-    const numberOfDays = 32 - new Date(y, m, 32).getDate();
-    const aDay = [];
-    if (dayOfWeek === 0 && numberOfDays === 28) {
-        aDay.push(7);
-    } if (dayOfWeek === 0 && numberOfDays === 29) {
-        aDay.push(1);
-    } if (dayOfWeek === 0 && numberOfDays === 30) {
-        aDay.push(2);
-    } if (dayOfWeek === 0 && numberOfDays === 31) {
-        aDay.push(3);
-    } if (dayOfWeek === 1 && numberOfDays === 28) {
-        aDay.push(1);
-    } if (dayOfWeek === 1 && numberOfDays === 29) {
-        aDay.push(2);
-    } if (dayOfWeek === 1 && numberOfDays === 30) {
-        aDay.push(3);
-    } if (dayOfWeek === 1 && numberOfDays === 31) {
-        aDay.push(4);
-    } if (dayOfWeek === 2 && numberOfDays === 28) {
-        aDay.push(2);
-    } if (dayOfWeek === 2 && numberOfDays === 29) {
-        aDay.push(3);
-    } if (dayOfWeek === 2 && numberOfDays === 30) {
-        aDay.push(4);
-    } if (dayOfWeek === 2 && numberOfDays === 31) {
-        aDay.push(5);
-    } if (dayOfWeek === 3 && numberOfDays === 28) {
-        aDay.push(3);
-    } if (dayOfWeek === 3) {
-        aDay.push(4);
-    } if (dayOfWeek === 4) {
-        aDay.push(3);
-    } if (dayOfWeek === 5 && numberOfDays === 31) {
-        aDay.push(1);
-    } if (dayOfWeek === 5) {
-        aDay.push(2);
-    } if (dayOfWeek === 6) {
-        aDay.push(1);
+    const year = data.getFullYear();
+    const month = data.getMonth();
+    const lastDay = new Date(year, month + 1, 0).getDay();
+    const firstDayOfMonth = new Date(year, month, 1).getDay();
+    let firstWeek;
+    let lastWeek;
+    if (firstDayOfMonth === 0){
+        firstWeek = 1;
+    } else {
+        firstWeek = 8 - firstDayOfMonth;
     }
-    return aDay;
+    if (lastDay === 0){
+        lastWeek = 7;
+    } else {
+        lastWeek = lastDay;
+    }
+    if (firstWeek >= lastWeek) {
+        return lastWeek;
+    }
+    return firstWeek;
+
 }
 
 export {
