@@ -61,12 +61,11 @@ export function shortestWeekDaysNumber(date) {
         }
         return daysFirstWeek;
     }
-    else if (daysLastWeek < daysFirstWeek) {
+    if (daysLastWeek < daysFirstWeek) {
         if (daysLastWeek === 0) {
             return daysFirstWeek;
         }
         return daysLastWeek;
-    } else {
-        return 'no shortest week in month';
     }
+    return 'no shortest week in month';
 }
