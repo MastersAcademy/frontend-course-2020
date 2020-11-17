@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>spavel 4-modules</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="module" src="index.js" defer></script>
+        <!-- run [npx serve] for <script type="module" ...> -->
+    </head>
+
+    <body>
+        <main>
+            <input data-date-input type="date" class="input-date">
+
+            <div class="description">Get month fridays</div>
+            <div data-time="getFridaysOfMonth" class="ans"> </div>
+
+            <div class="description">Is month long?</div>
+            <div data-time="isMonthLong" class="ans"> </div>
+
+            <div class="description">Days of shortest week in month</div>
+            <div data-time="shortestWeekDaysNumber" class="ans"> </div>
+
+            <div class="description">Full weeks in month</div>
+            <div data-time="fullWeeksNumberInMonth" class="ans"> </div>
+        </main>
+    </body>
+</html>
