@@ -47,20 +47,21 @@ export function fullWeeksNumberInMonth(date) {
 }
 
 export function shortestWeekDaysNumber(date) {
-    let shortestWeekDays;
     const week = 7;
     const numberOfDaysInMonth = daysInMonth(parseInputDate(date));
     const objMonthAndYear = parseInputDate(date);
     let daysLastWeek = new Date(objMonthAndYear.year, objMonthAndYear.month + 1, 0);
     daysLastWeek = daysLastWeek.getDay();
+
     const allDaysFullWeeks = fullWeeksNumberInMonth(date) * week;
     const daysFirstWeek = numberOfDaysInMonth - (allDaysFullWeeks + daysLastWeek);
-    if (daysLastWeek > daysFirstWeek || daysLastWeek === 0) {
-        shortestWeekDays = daysFirstWeek;
-    } else if (daysLastWeek < daysFirstWeek || daysFirstWeek === 0) {
-        shortestWeekDays = daysLastWeek;
-    } else {
-        shortestWeekDays = 'no shortest week in month';
+    if (daysLastWeek > daysFirstWeek) {
+        if (daysFirstWeek === 0) return daysLastWeek;
+        return daysFirstWeek;
     }
-    return shortestWeekDays;
+    else if (daysLastWeek < daysFirstWeek) {
+        return daysLastWeek;
+    } else {
+        return 'no shortest week in month';
+    }
 }
