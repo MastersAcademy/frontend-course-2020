@@ -1,6 +1,6 @@
 import {
-    getFridays,
     isMonthLong,
+    getFridays,
     fullWeeksNumberInMonth,
     shortestWeekDaysNumber,
 } from './time.js';
