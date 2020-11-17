@@ -22,34 +22,20 @@ function getFridays(time) {
 }
 
 function fullWeeksNumberInMonth(data) {
-    const y = data.getFullYear();
-    const m = data.getMonth();
-    const firstDay = new Date(y, m, 1);
-    const dayOfWeek = firstDay.getDay();
-    const numberOfDays = 32 - new Date(y, m, 32).getDate();
-    let aDay;
-    if (dayOfWeek === 1) {
-        aDay = 3;
-    } if (dayOfWeek === 2 || dayOfWeek === 3) {
-        aDay = 3;
-    } if (dayOfWeek === 4 && numberOfDays === 31) {
-        aDay = 4;
-    } if (dayOfWeek === 4) {
-        aDay = 3;
-    } if (dayOfWeek === 5 && numberOfDays === 31) {
-        aDay = 4;
-    } if (dayOfWeek === 5 && numberOfDays === 30) {
-        aDay = 4;
-    } if (dayOfWeek === 5) {
-        aDay = 3;
-    } if (dayOfWeek === 6 && numberOfDays === 28) {
-        aDay = 3;
-    } if (dayOfWeek === 6) {
-        aDay = 4;
-    } if (dayOfWeek === 0) {
-        aDay = 4;
+    const year = data.getFullYear();
+    const month = data.getMonth();
+    const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+    let fullWeekskNumber = 0;
+    for (let i = 1; i <= lastDayOfMonth; i++) {
+        const allDays = new Date(year, month, i);
+        if (allDays.getDay() === 1) {
+            allDays.setDate(allDays.getDate() + 6);
+            if (allDays.getMonth() === month) {
+                fullWeekskNumber++;
+            }
+        }
     }
-    return aDay;
+    return fullWeekskNumber;
 }
 
 function shortestWeekDaysNumber(data) {
