@@ -1,9 +1,7 @@
 function isMonthLong(data) {
     const year = data.getFullYear();
     const month = data.getMonth();
-    const numberOfDays;
-    return numberOfDays = 32 - new Date(year, month, 32).getDate() === 31;
-    
+    return const numberOfDays = 32 - new Date(year, month, 32).getDate() === 31;
 }
 
 function getFridays(time) {
@@ -75,7 +73,6 @@ function shortestWeekDaysNumber(data) {
         return lastWeek;
     }
     return firstWeek;
-
 }
 
 export {
