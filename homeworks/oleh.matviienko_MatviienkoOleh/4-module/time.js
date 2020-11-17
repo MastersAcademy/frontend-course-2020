@@ -59,12 +59,12 @@ function shortestWeekDaysNumber(data) {
     const firstDayOfMonth = new Date(year, month, 1).getDay();
     let firstWeek;
     let lastWeek;
-    if (firstDayOfMonth === 0){
+    if (firstDayOfMonth === 0) {
         firstWeek = 1;
     } else {
         firstWeek = 8 - firstDayOfMonth;
     }
-    if (lastDay === 0){
+    if (lastDay === 0) {
         lastWeek = 7;
     } else {
         lastWeek = lastDay;
