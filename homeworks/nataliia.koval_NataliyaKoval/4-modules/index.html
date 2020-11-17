@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div>
+            <form action="#">
+            <p>
+            <label for="dateInput">Date:</label>
+            </p>
+            <input class="input" type="date" id="dateInput" data-input value="">
+            </form>
+        </div>
+        
+        <div class="allButtons">
+            <button class="button" data-button="fridays">Get month fridays</button>
+            <p data-fridays></p>
+        </div>
+
+        <div class="allButtons">
+            <button class="button" data-button="long">Is month long?</button>
+            <p data-long></p>
+        </div>
+
+        <div class="allButtons">
+            <button class="button" data-button="shortest">Days of shortest week in month</button>
+            <p data-shortest></p>
+        </div>
+
+        <div class="allButtons">
+            <button class="button" data-button="full">Full weeks in month</button>
+            <p data-full></p>
+        </div>
+        
+    </div>
+    <script type="module" src="script.js"></script>
+    
+</body>
+</html>
