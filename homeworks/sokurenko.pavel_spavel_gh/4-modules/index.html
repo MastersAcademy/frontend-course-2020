@@ -10,7 +10,20 @@
     </head>
 
     <body>
-        <main>
+        <aside class="aside">
+            <span>
+                <span data-time="hours"></span>
+                <span>:</span>
+                <span data-time="minutes"></span>
+            </span>
+            <select data-timezone-selector style="display: inline;">
+                <option value="current">Current</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+                <option value="newyork">New York</option>
+            </select>
+        </aside>
+        <main class="main">
             <input data-date-input type="date" class="input-date">
 
             <div class="description">Get month fridays</div>

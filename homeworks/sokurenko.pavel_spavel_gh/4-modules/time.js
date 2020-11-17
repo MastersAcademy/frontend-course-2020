@@ -63,3 +63,21 @@ export function fullWeeksNumberInMonth(date) {
     if (getDayId(date, 1) !== 1) tmp -= 8 - getDayId(date, 1);
     return tmp / 7;
 }
+
+/**
+ * @param date - Date object or a date string of any supported format
+ * @param hours - number of hours to subtract
+ * @returns {Date} resultDate: date - hours
+ */
+export function subtractHours(date, hours) {
+    return new Date(date.setHours(date.getHours() - hours));
+}
+
+/**
+ * @param date - Date object or a date string of any supported format
+ * @param hours - number of hours to add
+ * @returns {Date} resultDate: date + hours
+ */
+export function addHours(date, hours) {
+    return new Date(date.setHours(date.getHours() + hours));
+}
