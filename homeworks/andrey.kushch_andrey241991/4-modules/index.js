@@ -47,11 +47,13 @@ function onCloseSelect() {
 }
 
 timeSelectedElem.addEventListener('change', () => {
-    for (let [key, value] of Object.entries(locations)) {
+    /* stylelint-disable */
+    for (const [key, value] of Object.entries(locations)) {
         if (key === timeSelectedElem.value) {
             currentLocation = value;
         }
     }
+    /* stylelint-enable */
     onCloseSelect();
 });
 
