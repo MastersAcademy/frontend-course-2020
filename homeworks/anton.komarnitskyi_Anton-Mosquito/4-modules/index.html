@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+    <main class="date">
+        <section class="date__function">
+            <form action="" method="get" class="date__function-form">
+                <div class="date__function-form-content">
+                    <label for="date">Date :</label>
+                    <input type="date" id="date" data-date="inputData" />
+                    <button class="date__function-form-button" data-date="arrayMonthAction">
+                        <span class="date__function-form-button-text">
+                            <span>Get month fridays</span>
+                        </span>
+                    </button>
+                    <div data-date="arrayMonth"></div>
+                </div>
+                <div class="date__function-form-content">
+                    <button class="date__function-form-button" data-date="lastDayAction">
+                        <span class="date__function-form-button-text">
+                            <span>Is month long?</span>
+                        </span>
+                    </button>
+                    <p data-date="lastDay"></p>
+                </div>
+                <div class="date__function-form-content">
+                    <button class="date__function-form-button" data-date="shortDayAction">
+                        <span class="date__function-form-button-text">
+                            <span>Days of shortest week in month?</span>
+                        </span>
+                    </button>
+                    <p data-date="shortDay"></p>
+                </div>
+                <div class="date__function-form-content">
+                    <button class="date__function-form-button" data-date="fullWeekAction">
+                        <span class="date__function-form-button-text">
+                            <span>Full week in month</span>
+                        </span>
+                    </button>
+                    <p data-date="fullWeek"></p>
+                </div>
+            </form>
+        </section>
+        <section class="date__time">
+            <div class="date__time-wrapper" data-date="ContainerForClock">
+                <p class="date__time-wrapper-drop">
+                    <select class="towns" data-date="select"></select>
+                </p>
+            </div>
+            <p class="date__time-wrapper-timezone" data-date="timezone"></p>
+        </section>
+    </main>
+    <script src="./script/index.js" type="module"></script>
+</body>
+</html>

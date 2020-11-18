@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  padding-right: 10px;
+  margin-top: 13px;
+  text-transform: uppercase;
+  color: #F1563C;
+}
+
+body {
+  background-color: #FAE4E0;
+}
+
+.maLogo {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 75px;
+  height: 75px;
+  margin-top: 75px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #F04834;
+  margin: 0 auto;
+  margin-top: 70px;
+  padding: 50px;
+  width: 500px;
+  min-height: 50vh;
+  border-radius: .625em;
+  background: #FFF;
+  box-shadow: inset 3px 3px 5px #F04834, 1px 1px 5px #F04834;
+}
+
+.modules-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.current-date {
+  width: 170px;
+  height: 30px;
+  font-weight: 700;
+  background-color: #FFF;
+  border-radius: .625em;
+  letter-spacing: 1px;
+  color: #F1563C;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 0;
+  padding-left: 10px;
+}
+
+.button-friday,
+.button-month-long,
+.button-shortest-week,
+.button-full-weeks {
+  margin-top: 15px;
+  margin-bottom: 0;
+  width: 300px;
+  height: 50px;
+  font-weight: 700;
+  background-color: #F1563C;
+  border-radius: .625em;
+  letter-spacing: 1px;
+  color: #FFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #DD3C20;
+  transition: .1s all;
+  border: none;
+  transition: .7s;
+}
+
+button:focus {
+  background-color: #DD3C20;
+}
+
+.text-get-friday,
+.text-month-long,
+.text-shortest-week,
+.text-full-weeks {
+  margin-top: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
