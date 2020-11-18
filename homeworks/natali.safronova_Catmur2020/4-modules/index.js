@@ -5,10 +5,10 @@ import {
     fullWeeksNumberInMonth,
 } from './time';
 
-function updateData() {
-    document.getElementById('friday').innerText = getFridaysOfMonth();
-    document.getElementById('long').innerText = isMonthLong();
-    document.getElementById('shortesweek').innerText = shortestWeekDaysNumber();
-    document.getElementById('fullweeks').innerText = fullWeeksNumberInMonth();
-}
-document.querySelector('input').addEventListener('input', updateData);
+document.querySelector('input').addEventListener('input', (event) => {
+    window.e = (event.target.value);
+    document.getElementById('friday').innerText = getFridaysOfMonth(event.target.value);
+    document.getElementById('long').innerText = isMonthLong(event.target.value);
+    document.getElementById('shortesweek').innerText = shortestWeekDaysNumber(event.target.value);
+    document.getElementById('fullweeks').innerText = fullWeeksNumberInMonth(event.target.value);
+});
