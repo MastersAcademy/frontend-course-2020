@@ -3,12 +3,13 @@
         fromEvent,
     } = window.rxjs;
     const {
+        tap,
         filter,
-        // map,
+        map,
         // throttleTime,
         // distinctUntilChanged,
-        // pairwise,
-        // debounceTime,
+        pairwise,
+        debounceTime,
         // switchMap,
     } = window.rxjs.operators;
 
@@ -17,36 +18,40 @@
 
     const headerEl = document.querySelector('[data-header]');
     const contentEl = document.querySelector('[data-main-container]');
-    let lastKnownScrollPosition = contentEl.scrollTop;
 
-    function changeHeader() {
-        if (contentEl.scrollTop < 1) {
-            headerEl.classList.remove(headerHideClass);
-            headerEl.classList.remove(headerShowClass);
-            lastKnownScrollPosition = contentEl.scrollTop;
-        } else if (lastKnownScrollPosition > contentEl.scrollTop
-            && !headerEl.classList.contains(headerShowClass)) {
-            headerEl.classList.remove(headerHideClass);
-            headerEl.classList.add(headerShowClass);
-            lastKnownScrollPosition = contentEl.scrollTop;
-        } else if (lastKnownScrollPosition < contentEl.scrollTop
-            && headerEl.classList.contains(headerShowClass)) {
-            headerEl.classList.remove(headerShowClass);
-            headerEl.classList.add(headerHideClass);
-            lastKnownScrollPosition = contentEl.scrollTop;
-        }
-
-        lastKnownScrollPosition = contentEl.scrollTop;
-        console.log(`old/new: ${lastKnownScrollPosition}/${contentEl.scrollTop}`);
+    function showHeader() {
+        headerEl.classList.remove(headerHideClass);
+        headerEl.classList.add(headerShowClass);
     }
+
+    function hideHeader() {
+        headerEl.classList.remove(headerShowClass);
+        headerEl.classList.add(headerHideClass);
+    }
+
+    // function resetHeader() {
+    //     headerEl.classList.remove(headerHideClass);
+    //     headerEl.classList.remove(headerShowClass);
+    // }
 
     fromEvent(contentEl, 'scroll')
         .pipe(
-            filter(() => Math.abs(lastKnownScrollPosition - contentEl.scrollTop) > 50
-                || contentEl.scrollTop < 1),
-            // map((event) => `Event time: ${event.timeStamp}`),
-            // throttleTime(200),
-            // tap()
+            map((e) => e.currentTarget.scrollTop),
+            debounceTime(500),
+            pairwise(),
+            filter((e) => e[0] - e[1] > 50 && e[1] > 1),
+            tap((e) => console.log(e)),
         )
-        .subscribe(() => changeHeader());
+        .subscribe(() => showHeader());
+
+    fromEvent(contentEl, 'scroll')
+        .pipe(
+            map((e) => e.currentTarget.scrollTop),
+            debounceTime(500),
+            filter(() => headerEl.classList.contains(headerShowClass)),
+            pairwise(),
+            filter((e) => e[1] - e[0] > 50),
+            tap((e) => console.log(e)),
+        )
+        .subscribe(() => hideHeader());
 }());
