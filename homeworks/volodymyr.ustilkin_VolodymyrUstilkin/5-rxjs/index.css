@@ -1,24 +1,75 @@
 body {
   width: 100%;
+  height: 100%;
+  margin-top: 0;
+  padding: 0;
 }
 
 .main-container {
   width: 1200px;
-  height: 99vh;
+  height: 95vh;
   margin: 0 auto;
   background-color: #B3C9CE;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.header {
-  width: 90%;
+.header-default {
+  position: relative;
+  height: 100px;
+  width: 1100px;
   background-color: #90EE90;
   margin: 0 auto;
   font-size: 6em;
 }
 
 .content {
-  width: 90%;
+  width: 1100px;
   background-color: #999898;
   margin: 0 auto;
+}
+
+.header-show {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: showHeader;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+}
+
+.header-hide {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: hideHeader;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+}
+
+@keyframes showHeader {
+
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes hideHeader {
+
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -100px;
+  }
 }
