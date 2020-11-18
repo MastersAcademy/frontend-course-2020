@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="root">
+        <div class="container">
+            <label class="label">
+                Date:
+                <input class="input" type="text" data-input>
+            </label>
+            <div class="wrap-block">
+                <button class="button" type="button" data-get-fridays>Get month fridays</button>
+                <span class="text" data-fridays></span>
+            </div>
+            <div class="wrap-block">
+                <button class="button" type="button" data-get-month-long>Is month long?</button>
+                <span class="text" data-month-long></span>
+            </div>
+            <div class="wrap-block">
+                <button class="button" type="button" data-get-shortest-week>Days of week in month</button>
+                <span class="text" data-shortest-week></span>
+            </div>
+            <div class="wrap-block">
+                <button class="button" type="button" data-get-full-weeks>Full weeks in month</button>
+                <span class="text" data-full-week></span>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./app/app.js" defer></script>
+
+</body>
+
+</html>
