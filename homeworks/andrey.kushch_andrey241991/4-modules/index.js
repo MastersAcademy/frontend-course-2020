@@ -33,7 +33,7 @@ monthLongElem.firstElementChild.addEventListener('click', () => {
 
 shortestWeekElem.firstElementChild.addEventListener('click', () => {
     shortestWeekElem.lastElementChild.innerText = time.getDaysShortestWeek(
-        selectedDate
+        selectedDate,
     );
 });
 
@@ -41,13 +41,13 @@ fullWeeksElem.firstElementChild.addEventListener('click', () => {
     fullWeeksElem.lastElementChild.innerText = time.getFullWeekInMonth(selectedDate);
 });
 
-function onCloseSelect(){
+function onCloseSelect() {
     selectedArrowElem.classList.remove('select-arrow-open');
     timeSelectedElem.blur();
 }
 
 timeSelectedElem.addEventListener('change', () => {
-    for ([key, value] of Object.entries(locations)) {
+    for (let [key, value] of Object.entries(locations)) {
         if (key === timeSelectedElem.value) {
             currentLocation = value;
         }
@@ -60,7 +60,7 @@ timeSelectedElem.addEventListener('focus', () => {
 });
 
 timeSelectedElem.addEventListener('blur', () => {
-    onCloseSelect()
+    onCloseSelect();
 });
 
 setInterval(() => {
@@ -68,6 +68,3 @@ setInterval(() => {
         timeZone: currentLocation,
     });
 }, 1000);
-
-
-

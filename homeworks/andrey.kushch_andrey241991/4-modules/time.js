@@ -2,25 +2,25 @@ function getDaysInMonthCount(selectedDate) {
     return new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
-        0
+        0,
     ).getDate();
 }
 
 function getFirstDayInMonth(selectedDate) {
-    let firstDay = new Date(
+    const firstDay = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
-        1
+        1,
     ).getDay();
 
     return firstDay === 0 ? 7 : firstDay;
 }
 
 function getLastDayInMonth(selectedDate) {
-    let lastDay = new Date(
+    const lastDay = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
-        getDaysInMonthCount(selectedDate)
+        getDaysInMonthCount(selectedDate),
     ).getDay();
 
     return lastDay === 0 ? 7 : lastDay;
@@ -30,7 +30,7 @@ export function getMonthIsLong(selectedDate) {
     return getDaysInMonthCount(selectedDate) >= 31;
 }
 
-function getFridays(selectedDate) {
+export function getFridays(selectedDate) {
     const FRIDAY = 5;
     const daysCount = getDaysInMonthCount(selectedDate);
 
@@ -39,7 +39,7 @@ function getFridays(selectedDate) {
         const day = new Date(
             selectedDate.getFullYear(),
             selectedDate.getMonth(),
-            i
+            i,
         );
         if (day.getDay() === FRIDAY) {
             fridayArray.push(new Date(day).getDate());
