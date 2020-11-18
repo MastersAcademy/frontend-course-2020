@@ -1,0 +1,24 @@
+body {
+  width: 100%;
+}
+
+.main-container {
+  width: 1200px;
+  height: 99vh;
+  margin: 0 auto;
+  background-color: #B3C9CE;
+  overflow-y: scroll;
+}
+
+.header {
+  width: 90%;
+  background-color: #90EE90;
+  margin: 0 auto;
+  font-size: 6em;
+}
+
+.content {
+  width: 90%;
+  background-color: #999898;
+  margin: 0 auto;
+}
