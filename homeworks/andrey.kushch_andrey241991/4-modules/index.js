@@ -5,10 +5,19 @@ const fridaysElem = document.querySelector('[data-get-fridays]');
 const monthLongElem = document.querySelector('[data-month-long]');
 const shortestWeekElem = document.querySelector('[data-shortest-week]');
 const fullWeeksElem = document.querySelector('[data-full-weeks]');
+const timeElem = document.querySelector('[data-time]');
+const timeSelectedElem = document.querySelector('[data-time-select]');
 let selectedDate = new Date();
+let currentLocation = 'Europe/Kiev';
+
+const locations = {
+    current: 'Europe/Kiev',
+    london: 'Europe/London',
+    tokyo: 'Asia/Tokyo',
+    'new-york': 'America/New_York',
+};
 
 inputElem.lastElementChild.addEventListener('change', () => {
-    console.log('selectedDate');
     selectedDate = new Date(inputElem.lastElementChild.valueAsDate);
     inputElem.firstElementChild.innerText = selectedDate.toDateString();
 });
@@ -23,10 +32,24 @@ monthLongElem.firstElementChild.addEventListener('click', () => {
 
 shortestWeekElem.firstElementChild.addEventListener('click', () => {
     shortestWeekElem.lastElementChild.innerText = time.getDaysShortestWeek(
-        selectedDate,
+        selectedDate
     );
 });
 
 fullWeeksElem.firstElementChild.addEventListener('click', () => {
     fullWeeksElem.lastElementChild.innerText = time.getFullWeekInMonth(selectedDate);
 });
+
+timeSelectedElem.addEventListener('change', () => {
+    for ([key, value] of Object.entries(locations)) {
+        if (key === timeSelectedElem.value) {
+            currentLocation = value;
+        }
+    }
+});
+
+setInterval(() => {
+    timeElem.innerText = new Date().toLocaleTimeString('en-US', {
+        timeZone: currentLocation,
+    });
+}, 1000);

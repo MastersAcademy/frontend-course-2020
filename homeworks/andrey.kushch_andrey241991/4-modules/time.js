@@ -1,77 +1,74 @@
-export function getFridays(selectedDate) {
-    const daysCount = new Date(
+function getDaysInMonthCount(selectedDate) {
+    return new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth() + 1,
-        0,
+        0
     ).getDate();
+}
+
+function getFirstDayInMonth(selectedDate) {
+    let firstDay = new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth(),
+        1
+    ).getDay();
+
+    return firstDay === 0 ? 7 : firstDay;
+}
+
+function getLastDayInMonth(selectedDate) {
+    let lastDay = new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth(),
+        getDaysInMonthCount(selectedDate)
+    ).getDay();
+
+    return lastDay === 0 ? 7 : lastDay;
+}
+
+export function getMonthIsLong(selectedDate) {
+    return getDaysInMonthCount(selectedDate) >= 31;
+}
+
+function getFridays(selectedDate) {
+    const FRIDAY = 5;
+    const daysCount = getDaysInMonthCount(selectedDate);
 
     const fridayArray = [];
     for (let i = 0; i <= daysCount; i++) {
         const day = new Date(
             selectedDate.getFullYear(),
             selectedDate.getMonth(),
-            i,
+            i
         );
-        if (day.getDay() === 5) {
+        if (day.getDay() === FRIDAY) {
             fridayArray.push(new Date(day).getDate());
         }
     }
     return fridayArray;
 }
 
-export function getMonthIsLong(selectedDate) {
-    const daysCont = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth() + 1,
-        0,
-    ).getDate();
-    return daysCont >= 31;
-}
-
 export function getDaysShortestWeek(selectedDate) {
-    const daysCount = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth() + 1,
-        0,
-    ).getDate();
-
-    const firstDay = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth(),
-        1,
-    ).getDay();
-
-    const lastDay = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth(),
-        daysCount,
-    ).getDay();
-
-    const firstWeek = firstDay === 0 ? 1 : 8 - firstDay;
-
-    return firstWeek > lastDay ? lastDay : firstDay;
+    const FULL_WEEK_INCLUSIVE = 8;
+    const firstWeek = FULL_WEEK_INCLUSIVE - getFirstDayInMonth(selectedDate);
+    const lastDay = getLastDayInMonth(selectedDate);
+    return firstWeek > lastDay ? lastDay : firstWeek;
 }
 
 export function getFullWeekInMonth(selectedDate) {
-    const daysCount = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth() + 1,
-        0,
-    ).getDate();
+    const FULL_WEEK = 7;
+    const FULL_WEEK_INCLUSIVE = 8;
+    const daysCount = getDaysInMonthCount(selectedDate);
+    let firstWeek = FULL_WEEK_INCLUSIVE - getFirstDayInMonth(selectedDate);
+    let lastDay = getLastDayInMonth(selectedDate);
 
-    const firstDay = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth(),
-        1,
-    ).getDay();
+    if (firstWeek === FULL_WEEK) {
+        firstWeek = 0;
+    }
 
-    const lastDay = new Date(
-        selectedDate.getFullYear(),
-        selectedDate.getMonth(),
-        daysCount,
-    ).getDay();
-
-    const firstWeek = firstDay === 0 ? 1 : 8 - firstDay;
+    if (lastDay === FULL_WEEK) {
+        lastDay = 0;
+    }
 
     return (daysCount - (firstWeek + lastDay)) / 7;
 }
