@@ -1,0 +1,30 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: ". logo logo logo ."
+    ". pharagraph pharagraph pharagraph  ."
+    ". pharagraph pharagraph pharagraph  .";
+}
+
+.logo {
+  grid-area: logo;
+  background: #BABBBB;
+}
+
+.txt {
+  grid-area: pharagraph;
+}
+
+.text {
+  font-size: 19px;
+  font-family: monospace;
+}
+
+.header-logo {
+  background: #BABBBB;
+  color: #0B0C0C;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+}
