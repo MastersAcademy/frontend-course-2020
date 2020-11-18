@@ -44,6 +44,17 @@ export const shortestWeekDaysNumber = (date) => {
 };
 
 export const fullWeeksNumberInMonth = (date) => {
-    const newDate = new Date(date);
-    return Math.floor((33 - new Date(newDate.getFullYear(), newDate.getMonth(), 33).getDate()) / 7);
+    let result = 0;
+    const daysMonthArr = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+    for (let i = 1; i <= daysMonthArr; i++) {
+        const dayDate = new Date(date.getFullYear(), date.getMonth(), i);
+        if (dayDate.getDay() === 1) {
+            dayDate.setDate(dayDate.getDate() + 6);
+            if (dayDate.getMonth() === date.getMonth()) {
+                result++;
+            }
+        }
+    }
+    return result;
 };
