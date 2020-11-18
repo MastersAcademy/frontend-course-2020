@@ -68,6 +68,6 @@ select {
   position: absolute;
 }
 
-.select-arrow:hover {
+.select-arrow-open {
   transform: rotate(180deg);
 }

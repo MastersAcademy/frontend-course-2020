@@ -7,6 +7,7 @@ const shortestWeekElem = document.querySelector('[data-shortest-week]');
 const fullWeeksElem = document.querySelector('[data-full-weeks]');
 const timeElem = document.querySelector('[data-time]');
 const timeSelectedElem = document.querySelector('[data-time-select]');
+const selectedArrowElem = document.querySelector('[data-select-arrow]');
 let selectedDate = new Date();
 let currentLocation = 'Europe/Kiev';
 
@@ -40,12 +41,26 @@ fullWeeksElem.firstElementChild.addEventListener('click', () => {
     fullWeeksElem.lastElementChild.innerText = time.getFullWeekInMonth(selectedDate);
 });
 
+function onCloseSelect(){
+    selectedArrowElem.classList.remove('select-arrow-open');
+    timeSelectedElem.blur();
+}
+
 timeSelectedElem.addEventListener('change', () => {
     for ([key, value] of Object.entries(locations)) {
         if (key === timeSelectedElem.value) {
             currentLocation = value;
         }
     }
+    onCloseSelect();
+});
+
+timeSelectedElem.addEventListener('focus', () => {
+    selectedArrowElem.classList.add('select-arrow-open');
+});
+
+timeSelectedElem.addEventListener('blur', () => {
+    onCloseSelect()
 });
 
 setInterval(() => {
@@ -53,3 +68,6 @@ setInterval(() => {
         timeZone: currentLocation,
     });
 }, 1000);
+
+
+
