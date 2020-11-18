@@ -1,13 +1,13 @@
-const { fromEvent } = window.rxjs;
+const { fromEvent, animationFrameScheduler } = window.rxjs;
 const {
-    pairwise, map, distinctUntilChanged, animationFrame, throttleTime,
+    pairwise, map, distinctUntilChanged, throttleTime,
 } = window.rxjs.operators;
 
 const scroll = fromEvent(window, 'scroll');
 const header = document.querySelector('header');
 
 const watchScroll = scroll.pipe(
-    throttleTime(100, animationFrame),
+    throttleTime(150, animationFrameScheduler),
     map(() => window.pageYOffset),
     pairwise(),
     map(([y1, y2]) => (y2 < y1 ? 'Up' : 'Down')),
