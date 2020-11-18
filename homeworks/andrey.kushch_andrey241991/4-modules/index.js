@@ -47,13 +47,13 @@ function onCloseSelect() {
 }
 
 timeSelectedElem.addEventListener('change', () => {
-    /* stylelint-disable */
+    /*eslint-disable */
     for (const [key, value] of Object.entries(locations)) {
         if (key === timeSelectedElem.value) {
             currentLocation = value;
         }
     }
-    /* stylelint-enable */
+    /*eslint-disable */
     onCloseSelect();
 });
 
