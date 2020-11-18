@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>4-modules</title>
+  <script defer src="./app.js" type="module"></script>
+</head>
+  <body>
+      <main>
+        <div class="date__container">
+            <div>
+                <label for="date-picker" class="date__label">Date:</label>
+                <input data-date-picker type="date" id="date-picker" class="date__input" name="trip-start">
+                <br>
+                <button class="date__btn" data-date-get-fridays-of-month-btn>Get month fridays</button>
+                <p data-date-fridays-list></p>
+
+                <button class="date__btn" data-date-is-month-long-btn>Is month long?</button>
+                <p data-date-is-month-long></p>
+
+                <button class="date__btn" data-date-shortest-week-btn>Days of shortest week in month</button>
+                <p data-date-shortest-week></p>
+
+                <button class="date__btn" data-date-full-weeks-btn>Full weeks in month</button>
+                <p data-date-full-weeks></p>
+
+                <label>
+                    <input data-date-subtract-hours-input class="date__input" type="number" name="subtract-hours">
+                </label>
+                <br>
+                <button class="date__btn" data-date-subtract-hours-btn>Subtract Hours</button>
+                <p data-date-subtract-hours></p>
+
+                <label>
+                    <input data-date-add-hours-input class="date__input" type="number" name="add-hours">
+                </label>
+                <br>
+                <button class="date__btn" data-date-add-hours-btn>Add Hours</button>
+                <p data-date-add-hours></p>
+
+            </div>
+            <div class="date-city-time">
+                <p data-date-city-time></p>
+                <label>
+                    <select data-date-city>
+                        <option value="Kyiv" selected>Current</option>
+                        <option value="Tokyo">Tokyo</option>
+                        <option value="London">London</option>
+                        <option value="NewYork">New York</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+      </main>
+  </body>
+</html>
+
