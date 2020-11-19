@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  background-color: #FFF;
+  height: 100px;
+  position: sticky;
+  top: -100px;
+  align-items: center;
+  transition: top .3s;
+}
+
+.header.active {
+  top: 0;
+  transition: top .3s;
+}
+
+.logo {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  text-align: justify;
+}
