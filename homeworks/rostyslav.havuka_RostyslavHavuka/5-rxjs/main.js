@@ -20,7 +20,7 @@
 
     function watchScroll() {
         return scroll.pipe(
-            throttleTime(100, animationFrameScheduler),
+            throttleTime(0, animationFrameScheduler),
             map(() => window.pageYOffset),
             pairwise(),
             filter(([x]) => x < button.offsetTop),
