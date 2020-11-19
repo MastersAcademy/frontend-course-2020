@@ -23,35 +23,21 @@ function getArrScrollPos() {
     );
 }
 
-function getScrollStatus() {
-    return (source) => source.pipe(
-        map((array) => array[0] > array[1]),
-    );
-}
-
-function getMoreThan15px() {
-    return (source) => source.pipe(
-        filter((array) => {
-            let numbOfPix;
-            if (array[0] > array[1]) {
-                numbOfPix = array[0] - array[1];
-            } else {
-                numbOfPix = array[1] - array[0];
-            }
-            return numbOfPix > 15;
-        }),
-    );
+function filterFuncPx([preLastNumb, lastNumb]) {
+    let numbOfPix;
+    if (preLastNumb > lastNumb) {
+        numbOfPix = preLastNumb - lastNumb;
+    } else {
+        numbOfPix = lastNumb - preLastNumb;
+    }
+    return numbOfPix > 15;
 }
 
 fromEvent(window, 'scroll').pipe(
     getScrollPos(),
     getArrScrollPos(),
-    getMoreThan15px(),
-    getScrollStatus(),
+    filter(filterFuncPx),
+    map(([preLastNumb, lastNumb]) => preLastNumb > lastNumb),
 ).subscribe((scrollStatus) => {
-    if (scrollStatus) {
-        headerEl.classList.add('active');
-    } else {
-        headerEl.classList.remove('active');
-    }
+    headerEl.classList.toggle('active', scrollStatus);
 });
