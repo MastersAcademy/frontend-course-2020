@@ -21,10 +21,36 @@
   font-family: monospace;
 }
 
-.header-logo {
+.header-first-logo {
   background: #BABBBB;
   color: #0B0C0C;
   padding: 10px;
   position: sticky;
   top: 0;
 }
+
+.header-second-logo {
+  display: block;
+  background: #BABBBB;
+  color: #0B0C0C;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+}
+
+.header-third-logo {
+  display: block;
+  background: #BABBBB;
+  color: #0B0C0C;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+}
+
+.buy-now {
+  min-width: 250px;
+  min-height: 60px;
+  background: #FFFF5F;
+  justify-content: center;
+}
+
