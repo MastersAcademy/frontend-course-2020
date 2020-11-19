@@ -10,6 +10,7 @@
         distinctUntilChanged,
         throttleTime,
         filter,
+        debounceTime,
     } = window.rxjs.operators;
 
     const scroll = fromEvent(window, 'scroll');
@@ -26,6 +27,7 @@
             filter(([x]) => x < button.offsetTop),
             map(([y1, y2]) => (y2 < y1 ? 'Up' : 'Down')),
             distinctUntilChanged(),
+            debounceTime(100),
         );
     }
 
@@ -35,13 +37,11 @@
                 thirdHeader.classList.remove('header-third-logo');
                 secondHeader.classList.remove('header-second-logo');
                 firstHeader.classList.add('header-first-logo');
-                console.log('up before button');
                 break;
             case 'Down':
                 thirdHeader.classList.remove('header-third-logo');
                 secondHeader.classList.remove('header-second-logo');
                 firstHeader.classList.remove('header-first-logo');
-                console.log('down before button');
                 break;
             default: // do nothing
                 break;
@@ -50,12 +50,13 @@
 
     function secondWatchScroll() {
         return scroll.pipe(
-            throttleTime(100, animationFrameScheduler),
+            throttleTime(0, animationFrameScheduler),
             map(() => window.pageYOffset),
             pairwise(),
             filter(([x]) => x > button.offsetTop),
             map(([y1, y2]) => (y2 < y1 ? 'Up' : 'Down')),
             distinctUntilChanged(),
+            debounceTime(100),
         );
     }
     secondWatchScroll().subscribe((event) => {
@@ -64,13 +65,11 @@
                 firstHeader.classList.remove('header-first-logo');
                 secondHeader.classList.remove('header-second-logo');
                 thirdHeader.classList.add('header-third-logo');
-                console.log('up after button');
                 break;
             case 'Down':
                 firstHeader.classList.remove('header-first-logo');
                 thirdHeader.classList.remove('header-third-logo');
                 secondHeader.classList.add('header-second-logo');
-                console.log('down after button');
                 break;
             default: // do nothing
                 break;
