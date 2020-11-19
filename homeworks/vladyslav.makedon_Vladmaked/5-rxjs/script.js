@@ -7,7 +7,7 @@ const {
 } = window.rxjs.operators;
 
 const defaultHeaderNode = document.querySelector('[data-header]');
-const additionalHeaderNode = document.querySelector('[data-header-with-btn]');qq
+const additionalHeaderNode = document.querySelector('[data-header-with-btn]');
 const btnNode = document.querySelector('[data-btn]');
 const btnInHeader = document.querySelector('[data-btn-in-header]');
 const btnPosition = btnNode.getBoundingClientRect().top + window.pageYOffset;
