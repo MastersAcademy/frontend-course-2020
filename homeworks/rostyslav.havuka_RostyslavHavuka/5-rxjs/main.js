@@ -16,7 +16,7 @@
     const firstHeader = document.querySelector('[data-first-header]');
     const secondHeader = document.querySelector('[data-second-header]');
     const thirdHeader = document.querySelector('[data-third-header]');
-    const button = document.querySelector('[button]');
+    const button = document.querySelector('[data-button]');
 
     const watchScroll = scroll.pipe(
         throttleTime(100, animationFrameScheduler),
@@ -43,7 +43,7 @@
     });
 
     const secondWatchScroll = scroll.pipe(
-        throttleTime(50, animationFrameScheduler),
+        throttleTime(400, animationFrameScheduler),
         map(() => window.pageYOffset),
         pairwise(),
         filter(([x]) => x > button.offsetTop),
