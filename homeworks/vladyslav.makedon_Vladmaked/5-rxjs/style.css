@@ -44,14 +44,6 @@
   visibility: visible;
 }
 
-.hiddenText {
-  display: none;
-}
-
-.visibleText {
-  display: block;
-}
-
 .content {
   display: flex;
   flex-direction: column;

@@ -7,10 +7,9 @@ const {
 } = window.rxjs.operators;
 
 const defaultHeaderNode = document.querySelector('[data-header]');
-const additionalHeaderNode = document.querySelector('[data-header-with-btn]');
-const headerDescriptionNode = document.querySelector('[data-header-description]');
-const additionalHeaderDescriptionLogoNode = document.querySelector('[data-additional-header-description-logo]');
+const additionalHeaderNode = document.querySelector('[data-header-with-btn]');qq
 const btnNode = document.querySelector('[data-btn]');
+const btnInHeader = document.querySelector('[data-btn-in-header]');
 const btnPosition = btnNode.getBoundingClientRect().top + window.pageYOffset;
 
 fromEvent(window, 'scroll')
@@ -31,7 +30,7 @@ fromEvent(window, 'scroll')
                 return 'additionalHeaderVisible';
             }
             if (scrolledHeight < 0 && window.pageYOffset >= btnPosition) {
-                return 'additionalHeaderDescriptionVisible';
+                return 'defaultHeaderPlusBtnVisible';
             }
             return '';
         }),
@@ -45,16 +44,16 @@ fromEvent(window, 'scroll')
             case 'defaultHeaderVisible':
                 defaultHeaderNode.className = 'header visible';
                 additionalHeaderNode.className = 'header hidden';
+                btnInHeader.className = 'btn hidden';
                 break;
             case 'additionalHeaderVisible':
                 defaultHeaderNode.className = 'header hidden';
                 additionalHeaderNode.className = 'header visible';
-                headerDescriptionNode.className = 'header__description visibleText';
-                additionalHeaderDescriptionLogoNode.className = 'header__description hiddenText';
                 break;
-            case 'additionalHeaderDescriptionVisible':
-                additionalHeaderDescriptionLogoNode.className = 'header__description visibleText';
-                headerDescriptionNode.className = 'header__description hiddenText';
+            case 'defaultHeaderPlusBtnVisible':
+                defaultHeaderNode.className = 'header visible';
+                additionalHeaderNode.className = 'header hidden';
+                btnInHeader.className = 'btn visible';
                 break;
             default:
                 break;
