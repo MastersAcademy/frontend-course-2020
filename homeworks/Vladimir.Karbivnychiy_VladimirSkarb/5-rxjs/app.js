@@ -1,6 +1,5 @@
 const { fromEvent } = window.rxjs;
 const {
-    tap,
     pairwise,
     distinctUntilChanged,
     map,
@@ -27,7 +26,6 @@ scrollEvent.pipe(
         return res;
     }),
     distinctUntilChanged(),
-    tap((data) => console.log(data)),
 ).subscribe((event) => {
     switch (event) {
         case 'scrollUp':
