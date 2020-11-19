@@ -3,6 +3,8 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .container {
@@ -16,9 +18,11 @@ body {
   background-color: #FFF;
   height: 100px;
   position: sticky;
-  top: -100px;
+  top: -105px;
   align-items: center;
   transition: top .3s;
+  border: 2px solid #CCC;
+  padding: 0 15px;
 }
 
 .header.active {
@@ -32,6 +36,10 @@ body {
 }
 
 .main {
+  padding: 15px;
   text-align: justify;
   font-size: 1.5em;
+  border-bottom: 2px solid #CCC;
+  border-right: 2px solid #CCC;
+  border-left: 2px solid #CCC;
 }
