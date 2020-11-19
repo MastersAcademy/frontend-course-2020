@@ -3,12 +3,12 @@ body {
 }
 
 header {
-  background-color: rgb(206, 168, 241);
+  background-color: rgb(182, 158, 204);
   height: 60px;
   padding-left: 15px;
   position: fixed;
   top: 0;
-  transition: top .7s ;
+  transition: top .4s ;
   width: 100%;
 }
 
