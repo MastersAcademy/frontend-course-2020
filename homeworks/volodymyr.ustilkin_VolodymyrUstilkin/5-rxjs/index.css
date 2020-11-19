@@ -3,28 +3,37 @@ body {
   height: 100%;
   margin-top: 0;
   padding: 0;
+  background-color: #000;
 }
 
 .main-container {
-  width: 1200px;
+  width: 700px;
   height: 95vh;
   margin: 0 auto;
-  background-color: #B3C9CE;
+  background-color: #BBB;
   overflow-y: auto;
 }
 
 .header-default {
   position: relative;
   height: 100px;
-  width: 1100px;
-  background-color: #90EE90;
+  width: 600px;
+  background-color: #FFF;
   margin: 0 auto;
-  font-size: 6em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-inner {
+  margin: 20px;
+  font-size: 2em;
+  width: 40%;
 }
 
 .content {
-  width: 1100px;
-  background-color: #999898;
+  width: 600px;
+  background-color: #FFF;
   margin: 0 auto;
 }
 
@@ -34,10 +43,15 @@ body {
   left: 50%;
   transform: translateX(-50%);
   animation: showHeader;
-  animation-duration: 1s;
+  animation-duration: 500ms;
   animation-timing-function: ease;
   animation-direction: normal;
   animation-iteration-count: 1;
+}
+
+.buy-button {
+  width: 300px;
+  height: 50px;
 }
 
 .header-hide {
@@ -46,7 +60,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   animation: hideHeader;
-  animation-duration: 1s;
+  animation-duration: 500ms;
   animation-timing-function: ease;
   animation-direction: normal;
   animation-iteration-count: 1;
