@@ -1,6 +1,22 @@
-header {
-  position: sticky;
-  top: 0;
-  background-color: #FFF;
+body {
+  padding-top: 60px;
 }
 
+header {
+  background-color: rgb(206, 168, 241);
+  height: 60px;
+  padding-left: 15px;
+  position: fixed;
+  top: 0;
+  transition: top .7s ;
+  width: 100%;
+}
+
+.hide {
+  top: -60px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+}

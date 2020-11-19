@@ -15,6 +15,6 @@ scroll.pipe(
     distinctUntilChanged(),
 )
     .subscribe((event) => {
-        if (event === 'up') header.style.display = 'block';
-        else header.style.display = 'none';
+        if (event === 'up') header.classList.remove('hide');
+        else header.classList.add('hide');
     });
