@@ -29,20 +29,22 @@ body {
 }
 
 header {
+  transition: .5s cubic-bezier(0, .5, .25, 1);
+  position: fixed;
+}
+
+header > div {
   font-size: 2em;
   padding-top: .5em;
   padding-bottom: .25em;
   padding-left: .5em;
-  background-color: #202121;
+  background-color: #300000;
   color: #FF4E4E;
-  /* height: 2em; */
 }
-
 
 main {
   padding: 1em .5em 1em 1em;
 }
-
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -66,4 +68,8 @@ main {
     -webkit-box-shadow: 0 8px 10px -8px rgba(0,0,0,.2);
     box-shadow: 0 8px 10px -8px rgba(0,0,0,.1);
   }
+
+  /* header {
+    width: 360px;
+  } */
 }
