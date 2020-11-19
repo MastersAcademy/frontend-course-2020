@@ -4,40 +4,54 @@ const {
     map,
     distinctUntilChanged,
     pairwise,
+    filter,
 } = window.rxjs.operators;
 
 const headerEl = document.querySelector('[data-header]');
 
-function getScrollPosition() {
+function getScrollPos() {
     return (source) => source.pipe(
         map((event) => event.path[1].pageYOffset),
         distinctUntilChanged(),
     );
 }
 
-function createArrayForScrollPositions() {
+function getArrScrollPos() {
     return (source) => source.pipe(
         pairwise(),
         throttleTime(100),
     );
 }
 
-function headerVisibility() {
+function getScrollStatus() {
     return (source) => source.pipe(
-        getScrollPosition(),
-        createArrayForScrollPositions(),
-        map((array) => {
+        map((array) => array[0] > array[1]),
+    );
+}
+
+function getMoreThan15px() {
+    return (source) => source.pipe(
+        filter((array) => {
+            let numbOfPix;
             if (array[0] > array[1]) {
-                headerEl.classList.add('active');
+                numbOfPix = array[0] - array[1];
             } else {
-                headerEl.classList.remove('active');
+                numbOfPix = array[1] - array[0];
             }
+            return numbOfPix > 15;
         }),
     );
 }
 
-const stream$ = fromEvent(window, 'scroll');
-
-stream$.pipe(
-    headerVisibility(),
-).subscribe();
+fromEvent(window, 'scroll').pipe(
+    getScrollPos(),
+    getArrScrollPos(),
+    getMoreThan15px(),
+    getScrollStatus(),
+).subscribe((scrollStatus) => {
+    if (scrollStatus) {
+        headerEl.classList.add('active');
+    } else {
+        headerEl.classList.remove('active');
+    }
+});
