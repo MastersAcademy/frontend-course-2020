@@ -35,7 +35,8 @@ body, html {
 }
 
 .header {
-  width: 96.5%;
+  width: 53%;
+  position: fixed;
   padding: 10px 18px;
   background: #555;
   color: #F1F1F1;
@@ -43,24 +44,12 @@ body, html {
   justify-content: space-between;
 }
 
-.header_static {
-  display: flex;
-}
-
 .header_active {
-  position: fixed;
-  top: 0;
-  width: 53%;
-  background: #555;
-  animation: translate-up .5s forwards;
-}
-
-.header_show_anim {
   animation: translate-up .5s forwards;
 }
 
 .header_hidden {
-  animation: translate-out 1.2s forwards;
+  animation: translate-out .5s forwards;
 }
 
 .content_box {
@@ -68,6 +57,7 @@ body, html {
   padding: 5px;
   display: flex;
   justify-content: center;
+  margin-top: 70px;
 }
 
 .content {
@@ -75,10 +65,6 @@ body, html {
   text-align: justify;
   display: flex;
   flex-direction: column;
-}
-
-.header_active + .content {
-  padding-top: 60px;
 }
 
 .logo {

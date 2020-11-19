@@ -4,67 +4,28 @@ const buttonNode = document.createElement('button');
 
 const { fromEvent, operators } = window.rxjs;
 const {
-    map, throttleTime, pairwise,
+    map, throttleTime, pairwise, filter,
 } = operators;
 
 fromEvent(document, 'scroll').pipe(
-    map((e) => e.path[1].pageYOffset),
-    throttleTime(200),
+    throttleTime(100),
+    map(() => window.pageYOffset),
     pairwise(),
-    map((nums) => {
-        if (nums[0] < 100 || nums[1] < 100) {
-            return 'static';
-        }
-        if (nums[0] - nums[1] >= 50 || nums[1] - nums[0] >= 50) {
-            return 'active';
-        }
-        return 'hidden';
-    }),
+    map((nums) => nums[0] - nums[1]),
+    filter((num) => num >= 50 || num <= -50),
+    map((num) => num > 0),
 )
-    .subscribe((data) => {
-        switch (data) {
-            case 'active':
-                headerNode.classList.add('header_active');
-                headerNode.classList.remove('header_hidden');
-                break;
-            case 'hidden':
-                headerNode.classList.add('header_hidden');
-                headerNode.classList.remove('header_active');
-                break;
-            case 'static':
-                headerNode.classList.add('header_static');
-                headerNode.classList.remove('header_hidden');
-                headerNode.classList.remove('header_active');
-                break;
-            default:
-                headerNode.classList.add('header_static');
-                break;
-        }
-    });
-
-fromEvent(document, 'scroll').pipe(
-    map((e) => e.path[1].pageYOffset),
-    throttleTime(200),
-    pairwise(),
-    // eslint-disable-next-line consistent-return
-    map((nums) => {
+    .subscribe((bool) => {
         const scrollHeight = document.body.scrollHeight / 2;
-        if (nums[0] > scrollHeight || nums[1] > scrollHeight) {
-            return 'change';
-        }
-        if (nums[0] < scrollHeight || nums[1] < scrollHeight) {
-            return 'default';
-        }
-        return 'default';
-    }),
-)
-    .subscribe((data) => {
-        if (data === 'change') {
-            logoNode.innerText = 'Get an amazing discount';
+        headerNode.className = bool ? 'header header_active' : 'header header_hidden';
+        if (window.pageYOffset > scrollHeight) {
+            logoNode.innerText = bool ? 'Logo' : 'Get an amazing discount';
             headerNode.appendChild(buttonNode);
-            buttonNode.innerHTML = 'BUY NOW';
-            buttonNode.classList.add('button_header');
-        } else if (data === 'default') {
+            buttonNode.className = 'button_header';
+            buttonNode.innerText = 'BUY NOW';
+            headerNode.className = 'header header_active';
+            headerNode.classList.remove('header_hidden');
+        } else {
             logoNode.innerText = 'Logo';
             buttonNode.remove();
         }
