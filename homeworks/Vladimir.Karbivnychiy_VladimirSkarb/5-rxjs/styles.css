@@ -1,0 +1,26 @@
+.post-section {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: #FFF;
+}
+
+.hidden {
+  display: none;
+}
+
+.header-btn {
+  margin: 20px;
+  width: 100px;
+  height: 20px;
+}
