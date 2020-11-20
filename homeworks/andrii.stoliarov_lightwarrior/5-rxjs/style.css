@@ -1,0 +1,38 @@
+.body-page {
+  margin: 10px auto;
+  width: 470px;
+}
+
+.container {
+  padding: 10px 20px;
+  border: solid 2px #C4DF9B;
+  background: #EDF5E1;
+}
+
+.wall {
+  padding: 10px 20px;
+  border: solid 2px #C4DF9B;
+  margin: 10px 0;
+  background: #FFF;
+  position: relative;
+  height: 720px;
+  overflow: auto;
+}
+
+.pane-header {
+  padding: 0 20px;
+  border-bottom: solid 2px #C4DF9B;
+  background: #FFF;
+  color: #8B0000;
+  position: fixed;
+  width: 382px;
+  margin-top: -10px;
+  margin-left: -20px;
+  opacity: 1;
+  transition: opacity .3s linear 0s;
+}
+
+.container .wall .hidden-pane-header {
+  opacity: 0;
+  transition: opacity .3s linear 0s;
+}
