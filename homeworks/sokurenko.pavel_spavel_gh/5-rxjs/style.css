@@ -28,12 +28,20 @@ body {
   overflow: auto;
 }
 
+.transition-0x-sec {
+  transition: all 200ms cubic-bezier(.165, .84, .44, 1);
+}
+
+/* thanks to @Bohdan_Kasian for the "overflow: hidden" */
+
 header {
-  transition: .5s cubic-bezier(0, .5, .25, 1);
-  position: fixed;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
 }
 
 header > div {
+  position: relative;
   font-size: 2em;
   padding-top: .5em;
   padding-bottom: .25em;
@@ -44,6 +52,32 @@ header > div {
 
 main {
   padding: 1em .5em 1em 1em;
+}
+
+.lalala {
+  background-color: #FF4E4E;
+  border-radius: .25em;
+  padding: 1em;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.lalala div {
+  display: inline-block;
+}
+
+button {
+  font-size: 1rem;
+  background-color: #FF4E4E;
+  color: #300000;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 3px;
+  border: 3px solid #300000;
+  font-weight: 600;
 }
 
 ::-webkit-scrollbar {
@@ -68,8 +102,4 @@ main {
     -webkit-box-shadow: 0 8px 10px -8px rgba(0,0,0,.2);
     box-shadow: 0 8px 10px -8px rgba(0,0,0,.1);
   }
-
-  /* header {
-    width: 360px;
-  } */
 }
