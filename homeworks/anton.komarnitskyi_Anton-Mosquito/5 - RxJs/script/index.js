@@ -84,9 +84,7 @@ const anotherStream$ = fromEvent(document, 'scroll')
     distinctUntilChanged(),
     debounceTime(100)
   )
-  .subscribe((position) => {
-    checkFlag(position, 'secondary');
-  });
+  .subscribe((position) => checkFlag(position, 'secondary'));
 
 
 
