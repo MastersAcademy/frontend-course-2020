@@ -39,7 +39,12 @@ const streamHead = fromEvent(window, 'scroll').pipe(
     pairwise(),
     throttleTime(100),
     filter(filterFuncPx),
-    map(([preLastNumb, lastNumb]) => preLastNumb > lastNumb),
+    map(([preLastNumb, lastNumb]) => {
+        if (buyBlockEl.getBoundingClientRect().y < 0) {
+            return true;
+        }
+        return preLastNumb > lastNumb;
+    }),
     distinctUntilChanged(),
 );
 
