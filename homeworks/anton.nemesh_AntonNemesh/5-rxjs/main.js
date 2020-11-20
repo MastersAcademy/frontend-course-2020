@@ -34,18 +34,27 @@ fromEvent(window, 'scroll').pipe(
     headerEl.classList.toggle('active', scrollStatus);
 });
 
-let logoButton = false;
 fromEvent(window, 'scroll').pipe(
-    map(() => {
-        if (logoButton === false
-            && buyBlockEl.getBoundingClientRect().y < 0) {
-            logoButton = true;
-        }
-        return buyBlockEl.getBoundingClientRect().y > 0;
+    map((event) => event.path[1].pageYOffset),
+    pairwise(),
+    throttleTime(100),
+    map(([preLastNumb, lastNumb]) => {
+        const scrollDirection = preLastNumb > lastNumb;
+        const partOfThePage = buyBlockEl.getBoundingClientRect().y < 0;
+        return [scrollDirection, partOfThePage];
     }),
-    distinctUntilChanged(),
-).subscribe((headerStatus) => {
-    headerLogoEl.classList.toggle('hidden', !headerStatus);
-    headerBuyEl.classList.toggle('hidden', headerStatus);
-    addButtonEl.classList.toggle('hidden', !logoButton);
+).subscribe(([scrollDirection, partOfThePage]) => {
+    if (!partOfThePage) {
+        headerBuyEl.classList.add('hidden');
+        headerLogoEl.classList.remove('hidden');
+        addButtonEl.classList.add('hidden');
+    } else if (scrollDirection) {
+        headerBuyEl.classList.add('hidden');
+        headerLogoEl.classList.remove('hidden');
+        addButtonEl.classList.remove('hidden');
+    } else {
+        headerBuyEl.classList.remove('hidden');
+        headerLogoEl.classList.add('hidden');
+        addButtonEl.classList.remove('hidden');
+    }
 });
