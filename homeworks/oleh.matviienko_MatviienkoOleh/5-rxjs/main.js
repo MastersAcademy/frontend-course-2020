@@ -1,9 +1,9 @@
-const { fromEvent } = window.rxjs;
+const { fromEvent } = rxjs;
 const {
     map,
     throttleTime,
     pairwise,
-} = window.rxjs.operators;
+} = rxjs.operators;
 
 const header = document.getElementById('header');
 fromEvent(window, 'scroll').pipe(
