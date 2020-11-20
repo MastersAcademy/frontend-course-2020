@@ -1,4 +1,4 @@
-const { fromEvent } = window.rxjs;
+const { fromEvent, combineLatest } = window.rxjs;
 const {
     throttleTime,
     map,
@@ -7,11 +7,10 @@ const {
     filter,
 } = window.rxjs.operators;
 
-const headerEl = document.querySelector('[data-header]');
-const headerLogoEl = document.querySelector('[data-header-section-logo]');
-const headerBuyEl = document.querySelector('[data-header-section-buy]');
-const buyBlockEl = document.querySelector('[data-section-buy]');
+const headerLogoEl = document.querySelector('[data-header-logo]');
+const headerBuyEl = document.querySelector('[data-header-buy]');
 const addButtonEl = document.querySelector('[data-add-button]');
+const buyBlockEl = document.querySelector('[data-section-buy]');
 
 function filterFuncPx([preLastNumb, lastNumb]) {
     let numbOfPix;
@@ -23,38 +22,43 @@ function filterFuncPx([preLastNumb, lastNumb]) {
     return numbOfPix > 30;
 }
 
-fromEvent(window, 'scroll').pipe(
+const streamPage = fromEvent(window, 'scroll').pipe(
+    map((event) => event.path[1].pageYOffset),
+    pairwise(),
+    throttleTime(100),
+    map(([preLastNumb, lastNumb]) => {
+        const scrollDirection = preLastNumb > lastNumb;
+        const partOfThePage = buyBlockEl.getBoundingClientRect().y > 0;
+        const topOfThePage = buyBlockEl.getBoundingClientRect().y > 1000;
+        return [scrollDirection, partOfThePage, topOfThePage];
+    }),
+);
+
+const streamHead = fromEvent(window, 'scroll').pipe(
     map((event) => event.path[1].pageYOffset),
     pairwise(),
     throttleTime(100),
     filter(filterFuncPx),
     map(([preLastNumb, lastNumb]) => preLastNumb > lastNumb),
     distinctUntilChanged(),
-).subscribe((scrollStatus) => {
-    headerEl.classList.toggle('active', scrollStatus);
-});
+);
 
-fromEvent(window, 'scroll').pipe(
-    map((event) => event.path[1].pageYOffset),
-    pairwise(),
-    throttleTime(100),
-    map(([preLastNumb, lastNumb]) => {
-        const scrollDirection = preLastNumb > lastNumb;
-        const partOfThePage = buyBlockEl.getBoundingClientRect().y < 0;
-        return [scrollDirection, partOfThePage];
-    }),
-).subscribe(([scrollDirection, partOfThePage]) => {
-    if (!partOfThePage) {
-        headerBuyEl.classList.add('hidden');
-        headerLogoEl.classList.remove('hidden');
+combineLatest(
+    streamPage,
+    streamHead,
+).subscribe(([[scrollDirection, partOfThePage, topOfThePage], scrollStatus]) => {
+    headerBuyEl.classList.toggle('hidden', topOfThePage);
+    if (partOfThePage) {
+        headerLogoEl.classList.toggle('active', scrollStatus);
+        headerBuyEl.classList.remove('active');
         addButtonEl.classList.add('hidden');
     } else if (scrollDirection) {
-        headerBuyEl.classList.add('hidden');
-        headerLogoEl.classList.remove('hidden');
+        headerBuyEl.classList.remove('active');
+        headerLogoEl.classList.add('active');
         addButtonEl.classList.remove('hidden');
     } else {
-        headerBuyEl.classList.remove('hidden');
-        headerLogoEl.classList.add('hidden');
+        headerBuyEl.classList.add('active');
+        headerLogoEl.classList.remove('active');
         addButtonEl.classList.remove('hidden');
     }
 });
