@@ -23,8 +23,8 @@ fromEvent(window, 'scroll')
             isScrolledBuyButton: btnNode.getBoundingClientRect().top < 0,
         })),
     )
-    .subscribe((evt) => {
-        defaultHeaderNode.classList.toggle('hidden', !evt.isScrolledToTop);
-        additionalHeaderNode.classList.toggle('hidden', !evt.isScrolledBuyButton || evt.isScrolledToTop);
-        btnInHeaderNode.classList.toggle('hidden', !evt.isScrolledBuyButton);
+    .subscribe((statePosition) => {
+        defaultHeaderNode.classList.toggle('hidden', !statePosition.isScrolledToTop);
+        additionalHeaderNode.classList.toggle('hidden', !statePosition.isScrolledBuyButton || statePosition.isScrolledToTop);
+        btnInHeaderNode.classList.toggle('hidden', !statePosition.isScrolledBuyButton);
     });
