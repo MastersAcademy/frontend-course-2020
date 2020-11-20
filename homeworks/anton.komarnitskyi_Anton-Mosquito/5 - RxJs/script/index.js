@@ -18,7 +18,7 @@ const element = document.documentElement;
 const checkDirection = (last, current) => {
   if (current - last >= 50) {
     return 'downDircetion';
-  } else if (current - last <= -50) {
+  } else if (last - current >= 50) {
     return 'UpDircetion';
   } else {
     return 'withOutAction';
