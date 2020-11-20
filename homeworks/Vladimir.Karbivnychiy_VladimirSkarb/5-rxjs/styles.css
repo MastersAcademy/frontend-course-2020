@@ -4,6 +4,7 @@
 }
 
 .header {
+  top: 0;
   height: 50px;
   display: flex;
   width: 500px;
@@ -32,5 +33,5 @@
 }
 
 .main-content {
-  padding-top: 55px;
+  padding-top: 50px;
 }
