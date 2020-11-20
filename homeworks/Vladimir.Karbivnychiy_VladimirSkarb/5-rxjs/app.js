@@ -8,14 +8,13 @@ const {
 } = window.rxjs.operators;
 const scrollEvent = fromEvent(window, 'scroll');
 const button = document.querySelector('[data-btn]');
-const header = document.querySelector('[data-header]');
-const headerButton = document.querySelector('[data-header-btn]');
 const firstHeader = document.querySelector('[data-first-header]');
 const thirdHeader = document.querySelector('[data-third-header]');
+const secondHeader = document.querySelector('[data-second-header]');
 
 scrollEvent.pipe(
     map((event) => event.path[1].pageYOffset),
-    throttleTime(500),
+    throttleTime(300),
     pairwise(),
     filter(([num1, num2]) => (num1 - num2) > 50 || (num2 - num1) > 50),
     map(([num1, num2]) => {
@@ -31,24 +30,19 @@ scrollEvent.pipe(
 ).subscribe((event) => {
     switch (event) {
         case 'scrollUp':
-            header.classList.add('sticky');
-            headerButton.classList.add('hidden');
+            firstHeader.classList.remove('hidden');
             thirdHeader.classList.add('hidden');
+            secondHeader.classList.add('hidden');
             break;
         case 'scrollDown':
-            header.classList.remove('sticky');
+            firstHeader.classList.add('hidden');
             break;
         case 'showBtn':
-            header.classList.add('sticky');
-            firstHeader.classList.remove('hidden');
-            headerButton.classList.remove('hidden');
+            secondHeader.classList.remove('hidden');
             thirdHeader.classList.add('hidden');
             break;
         default:
-            header.classList.add('sticky');
-            firstHeader.classList.add('hidden');
             thirdHeader.classList.remove('hidden');
-            headerButton.classList.remove('hidden');
             break;
     }
 });

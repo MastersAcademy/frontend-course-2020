@@ -4,12 +4,14 @@
 }
 
 .header {
-  top: -55px;
   height: 50px;
   display: flex;
-  position: sticky;
-  transition: top .5s;
+  width: 500px;
+  position: fixed;
   background-color: #FFF;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .2s;
 }
 
 .sticky {
@@ -18,11 +20,17 @@
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
 }
 
 .header-btn {
   margin: 20px;
   width: 100px;
   height: 20px;
+}
+
+.main-content {
+  padding-top: 55px;
 }
