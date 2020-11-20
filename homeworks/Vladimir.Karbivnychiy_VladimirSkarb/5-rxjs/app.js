@@ -4,18 +4,20 @@ const {
     distinctUntilChanged,
     map,
     throttleTime,
+    filter,
 } = window.rxjs.operators;
-const header = document.querySelector('[data-header]');
 const scrollEvent = fromEvent(window, 'scroll');
 const button = document.querySelector('[data-btn]');
+const header = document.querySelector('[data-header]');
 const headerButton = document.querySelector('[data-header-btn]');
 const firstHeader = document.querySelector('[data-first-header]');
 const thirdHeader = document.querySelector('[data-third-header]');
 
 scrollEvent.pipe(
     map((event) => event.path[1].pageYOffset),
-    throttleTime(200),
+    throttleTime(500),
     pairwise(),
+    filter(([num1, num2]) => (num1 - num2) > 50 || (num2 - num1) > 50),
     map(([num1, num2]) => {
         let res = '';
         if (num2 < button.offsetTop) {
@@ -47,7 +49,6 @@ scrollEvent.pipe(
             firstHeader.classList.add('hidden');
             thirdHeader.classList.remove('hidden');
             headerButton.classList.remove('hidden');
-            console.log('showThirdHeader');
             break;
     }
 });
