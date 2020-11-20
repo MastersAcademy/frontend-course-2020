@@ -7,7 +7,7 @@
         filter,
         map,
         pairwise,
-        debounceTime,
+        throttleTime,
     } = window.rxjs.operators;
 
     const headerShowClass = 'header-show';
@@ -45,8 +45,8 @@
 
     fromEvent(contentEl, 'scroll') // scroll up (show header)
         .pipe(
+            throttleTime(100),
             map((e) => e.currentTarget.scrollTop),
-            debounceTime(100),
             pairwise(),
             filter((e) => ((e[0] - e[1] > 50 && e[1] > 1) || (buttonEl.offsetTop < e[1]))),
             tap((e) => (buttonEl.offsetTop < e[1] ? setHeaderButton() : setHeaderLogo())),
@@ -55,8 +55,8 @@
 
     fromEvent(contentEl, 'scroll') // scroll down (hide header)
         .pipe(
+            throttleTime(100),
             map((e) => e.currentTarget.scrollTop),
-            debounceTime(100),
             filter((e) => headerEl.classList.contains(headerShowClass) && buttonEl.offsetTop > e),
             pairwise(),
             filter((e) => e[1] - e[0] > 50),
@@ -65,8 +65,8 @@
 
     fromEvent(contentEl, 'scroll')
         .pipe(
+            throttleTime(100),
             map((e) => e.currentTarget.scrollTop),
-            debounceTime(100),
             filter((e) => e <= 1),
             tap((e) => console.log(e)),
         )
