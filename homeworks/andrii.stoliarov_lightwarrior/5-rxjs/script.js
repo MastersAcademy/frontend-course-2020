@@ -1,6 +1,6 @@
 const { fromEvent } = window.rxjs;
 const {
-    debounceTime,
+    throttleTime,
     map,
     filter,
     pairwise,
@@ -12,17 +12,10 @@ const paneHeaderNode = document.querySelector('[data-pane-header]');
 const source = fromEvent(wallNode, 'scroll');
 
 source.pipe(
-    debounceTime(50),
-    map(() => wallNode.scrollTop),
+    throttleTime(150),
+    map((event) => event.target.scrollTop),
     pairwise(),
-    filter((pxArr) => pxArr[1] - pxArr[0] >= 50),
+    filter(([previousY, currentY]) => Math.abs(currentY - previousY) >= 50),
+    map(([previousY, currentY]) => currentY > previousY),
 )
-    .subscribe(() => paneHeaderNode.classList.add('hidden-pane-header'));
-
-source.pipe(
-    debounceTime(50),
-    map(() => wallNode.scrollTop),
-    pairwise(),
-    filter((pxArr) => pxArr[0] - pxArr[1] >= 50),
-)
-    .subscribe(() => paneHeaderNode.classList.remove('hidden-pane-header'));
+    .subscribe((isActive) => paneHeaderNode.classList.toggle('hidden-pane-header', isActive));
