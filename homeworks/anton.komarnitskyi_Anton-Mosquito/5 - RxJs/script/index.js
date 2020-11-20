@@ -3,7 +3,6 @@ const {
     pairwise,
     map,
     distinctUntilChanged,
-    tap,
     debounceTime,
     filter,
 } = window.rxjs.operators;
@@ -14,7 +13,7 @@ const button = document.querySelector('[data-rxjs="button-visible"]');
 const element = document.documentElement;
 
 const checkDirection = (last, current) => {
-    const value = null;
+    let value = null;
     if (current - last >= 50) {
         value = 'downDircetion';
     } else if (last - current >= 50) {
@@ -23,7 +22,7 @@ const checkDirection = (last, current) => {
         value = 'withOutAction';
     }
 
-    return value
+    return value;
 };
 
 const checkFlag = (position, flag) => {
@@ -32,16 +31,16 @@ const checkFlag = (position, flag) => {
             case 'downDircetion':
                 headerMain.classList.remove('sticky');
                 headerMain.classList.add('hidden');
-            break;
+                break;
             case 'UpDircetion':
                 headerMain.classList.add('sticky');
                 headerMain.classList.remove('hidden');
                 button.classList.add('hidden');
                 headerSecondary.classList.add('hidden');
                 headerSecondary.classList.remove('sticky');
-            break;
+                break;
             default:
-            break;
+                break;
         }
     } else if (flag === 'secondary') {
         switch (position) {
@@ -50,39 +49,39 @@ const checkFlag = (position, flag) => {
                 headerSecondary.classList.remove('hidden');
                 headerMain.classList.add('hidden');
                 headerSecondary.classList.add('sticky');
-            break;
+                break;
             case 'UpDircetion':
                 headerMain.classList.remove('hidden');
                 button.classList.remove('hidden');
                 headerSecondary.classList.remove('sticky');
                 headerMain.classList.add('sticky');
                 headerSecondary.classList.add('hidden');
-            break;
+                break;
             default:
-            break;
+                break;
         }
     }
 };
 
 fromEvent(document, 'scroll')
-.pipe(
-    map((event) => event.target.scrollingElement.scrollTop),
-    filter((scroll) => scroll > 50),
-    pairwise(),
-    map((scroll) => checkDirection(scroll[0], scroll[1])),
-    distinctUntilChanged(),
-    debounceTime(50),
-    )
+    .pipe(
+        map((event) => event.target.scrollingElement.scrollTop),
+        filter((scroll) => scroll > 50),
+        pairwise(),
+        map((scroll) => checkDirection(scroll[0], scroll[1])),
+        distinctUntilChanged(),
+        debounceTime(50),
+        )
     .subscribe((position) => checkFlag(position, 'main'));
 
 
 fromEvent(document, 'scroll')
-.pipe(
-    map((event) => event.target.scrollingElement.scrollTop),
-    filter((currentScroll) => currentScroll > element.offsetHeight / 2),
-    pairwise(),
-    map((scroll) => checkDirection(scroll[0], scroll[1])),
-    distinctUntilChanged(),
-    debounceTime(50),
-    )
+    .pipe(
+        map((event) => event.target.scrollingElement.scrollTop),
+        filter((currentScroll) => currentScroll > element.offsetHeight / 2),
+        pairwise(),
+        map((scroll) => checkDirection(scroll[0], scroll[1])),
+        distinctUntilChanged(),
+        debounceTime(50),
+        )
     .subscribe((position) => checkFlag(position, 'secondary'));
