@@ -16,33 +16,34 @@ scrollEvent.pipe(
     map((event) => event.path[1].pageYOffset),
     throttleTime(300),
     pairwise(),
-    filter(([num1, num2]) => (num1 - num2) > 50 || (num2 - num1) > 50),
-    map(([num1, num2]) => {
+    filter(([previousHeight, currentHeight]) => Math.abs(previousHeight - currentHeight) > 50),
+    map(([previousHeight, currentHeight]) => {
         let res = '';
-        if (num2 < button.offsetTop) {
-            res = num1 > num2 ? 'scrollUp' : 'scrollDown';
+        if (currentHeight < button.offsetTop) {
+            res = previousHeight > currentHeight ? 'scrollUp' : 'scrollDown';
         } else {
-            res = num1 > num2 ? 'showBtn' : 'showThirdHeader';
+            res = previousHeight > currentHeight ? 'showBtn' : 'showThirdHeader';
         }
         return res;
     }),
     distinctUntilChanged(),
-).subscribe((event) => {
-    switch (event) {
-        case 'scrollUp':
-            firstHeader.classList.remove('hidden');
-            thirdHeader.classList.add('hidden');
-            secondHeader.classList.add('hidden');
-            break;
-        case 'scrollDown':
-            firstHeader.classList.add('hidden');
-            break;
-        case 'showBtn':
-            secondHeader.classList.remove('hidden');
-            thirdHeader.classList.add('hidden');
-            break;
-        default:
-            thirdHeader.classList.remove('hidden');
-            break;
-    }
-});
+)
+    .subscribe((event) => {
+        switch (event) {
+            case 'scrollUp':
+                firstHeader.classList.remove('hidden');
+                thirdHeader.classList.add('hidden');
+                secondHeader.classList.add('hidden');
+                break;
+            case 'scrollDown':
+                firstHeader.classList.add('hidden');
+                break;
+            case 'showBtn':
+                secondHeader.classList.remove('hidden');
+                thirdHeader.classList.add('hidden');
+                break;
+            default:
+                thirdHeader.classList.remove('hidden');
+                break;
+        }
+    });
