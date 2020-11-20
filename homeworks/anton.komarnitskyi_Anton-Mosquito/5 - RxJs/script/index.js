@@ -70,7 +70,7 @@ const stream$ = fromEvent(document, 'scroll')
     pairwise(),
     map((scroll) => checkDirection(scroll[0], scroll[1])),
     distinctUntilChanged(),
-    debounceTime(100)
+    debounceTime(50)
   )
   .subscribe((position) => checkFlag(position, 'main'));
 
@@ -82,7 +82,7 @@ const anotherStream$ = fromEvent(document, 'scroll')
     pairwise(),
     map((scroll) => checkDirection(scroll[0], scroll[1])),
     distinctUntilChanged(),
-    debounceTime(100)
+    debounceTime(50)
   )
   .subscribe((position) => checkFlag(position, 'secondary'));
 
