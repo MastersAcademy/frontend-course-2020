@@ -74,6 +74,7 @@ const stream$ = fromEvent(document, 'scroll')
   )
   .subscribe((position) => checkFlag(position, 'main'));
 
+
 const anotherStream$ = fromEvent(document, 'scroll')
   .pipe(
     map((event) => event.target.scrollingElement.scrollTop),
@@ -89,14 +90,14 @@ const anotherStream$ = fromEvent(document, 'scroll')
 
 
 
-const element = document.documentElement;
-console.log("Высота всего документа ", element.offsetHeight);
-console.log("Текущая прокрутка сверху ", window.pageYOffset);
-console.log("Размер экрана юзера", element.clientHeight);
-console.log(
-  "Точка нижней границы документа",
-  element.getBoundingClientRect().bottom
-);
+// const element = document.documentElement;
+// console.log("Высота всего документа ", element.offsetHeight);
+// console.log("Текущая прокрутка сверху ", window.pageYOffset);
+// console.log("Размер экрана юзера", element.clientHeight);
+// console.log(
+//   "Точка нижней границы документа",
+//   element.getBoundingClientRect().bottom
+// );
 
 // console.log(element.scrollHeight - window.innerHeight - element.scrollTop);
 // console.log(element.scrollTop);
