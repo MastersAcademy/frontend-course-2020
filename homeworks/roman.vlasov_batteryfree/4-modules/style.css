@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: auto;
+  width: 1024px;
+  border: solid 1px #000;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 16px;
+}
+
+.input {
+  width: 145px;
+  height: 25px;
+  margin-bottom: 16px;
+}
+
+.wrap-block {
+  margin-top: 10px;
+  margin-left: 16px;
+  flex: auto;
+  height: 60px;
+  flex-direction: column;
+  justify-content: first baseline;
+}
+
+.button {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.text {
+  margin-top: 5px;
+  display: block;
+}

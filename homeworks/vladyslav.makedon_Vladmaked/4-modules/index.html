@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4-modules</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body">
+<div class="page">
+    <div data-main-tasks-block class="main-tasks-block">
+        <label>
+            <input data-input type="date" class="input">
+            <span data-error-message class="error-message"></span>
+        </label>
+
+        <button data-btn-get-all-fridays class="btn" type="button">
+            Get all Fridays of the month
+        </button>
+        <p data-output-get-all-fridays class="output-result"></p>
+
+        <button data-btn-is-month-long class="btn" type="button">
+            Is month Long?
+        </button>
+        <p data-output-is-month-long class="output-result"></p>
+
+        <button data-btn-shortest-week-days-number class="btn" type="button">
+            Days of shortest week in month
+        </button>
+        <p data-output-shortest-week-days-number class="output-result"></p>
+
+        <button data-btn-full-weeks-number-in-month class="btn" type="button">
+            Full weeks in month
+        </button>
+        <p data-output-full-weeks-number-in-month class="output-result"></p>
+    </div>
+
+    <div class="additional-tasks-block">
+        <p data-clock-output class="clock__output"></p>
+        <label>
+            <select data-select class="select">
+                <option value="Current">
+                    Current time
+                </option>
+                <option value="Tokyo">
+                    Tokyo
+                </option>
+                <option value="London">
+                    London
+                </option>
+                <option value="NewYork">
+                    New York
+                </option>
+            </select>
+        </label>
+    </div>
+</div>
+
+<script src="script.js" type="module"></script>
+</body>
+</html>
