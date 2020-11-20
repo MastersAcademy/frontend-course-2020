@@ -28,11 +28,11 @@
   width: 382px;
   margin-top: -10px;
   margin-left: -20px;
+  display: inline;
   opacity: 1;
-  transition: opacity .3s linear 0s;
+  transition: opacity .15s linear 0s;
 }
 
-.container .wall .hidden-pane-header {
+.hidden-pane-header {
   opacity: 0;
-  transition: opacity .3s linear 0s;
 }
