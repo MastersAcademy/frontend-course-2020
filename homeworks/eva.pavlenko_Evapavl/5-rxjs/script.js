@@ -16,7 +16,6 @@ fromEvent(document, 'scroll').pipe(
     map((num) => num > 0),
 )
     .subscribe((result) => {
-        console.log(result);
         const scrollHeight = document.body.scrollHeight / 2;
         headerNode.classList.toggle('header_active', result);
         headerNode.classList.toggle('header_hidden', !result);
