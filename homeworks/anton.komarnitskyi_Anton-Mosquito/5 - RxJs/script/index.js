@@ -89,14 +89,14 @@ const anotherStream$ = fromEvent(document, 'scroll')
 
 
 
-// const element = document.documentElement;
-// console.log("Высота всего документа ", element.offsetHeight);
-// console.log("Текущая прокрутка сверху ", window.pageYOffset);
-// console.log("Размер экрана юзера", element.clientHeight);
-// console.log(
-//   "Точка нижней границы документа",
-//   element.getBoundingClientRect().bottom
-// );
+const element = document.documentElement;
+console.log("Высота всего документа ", element.offsetHeight);
+console.log("Текущая прокрутка сверху ", window.pageYOffset);
+console.log("Размер экрана юзера", element.clientHeight);
+console.log(
+  "Точка нижней границы документа",
+  element.getBoundingClientRect().bottom
+);
 
 // console.log(element.scrollHeight - window.innerHeight - element.scrollTop);
 // console.log(element.scrollTop);
