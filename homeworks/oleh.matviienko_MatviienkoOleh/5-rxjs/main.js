@@ -1,5 +1,6 @@
 const { fromEvent } = window.rxjs;
-const { map,
+const {
+    map,
     throttleTime,
     pairwise,
 } = window.rxjs.operators;
@@ -9,11 +10,11 @@ fromEvent(window, 'scroll').pipe(
     map(() => window.pageYOffset),
     throttleTime(300),
     pairwise(),
-    map(([a,b]) => {
-        if (a > b) {
-            if ((a - b) >= 50) return 'Up';   
+    map(([a, b]) => {
+        if ( a > b ) {
+            if ((a - b) >= 50) return 'Up';
         }
-        if (a < b) {
+        if ( a < b ) {
             if ((b - a) >= 50) return 'Down';
         }
     }),
@@ -26,6 +27,6 @@ fromEvent(window, 'scroll').pipe(
             header.classList.remove('header-show');
             break;
         default:
-            break;    
+            break;
     }
 });
