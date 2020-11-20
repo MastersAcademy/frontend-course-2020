@@ -16,16 +16,16 @@ fromEvent(document, 'scroll').pipe(
     map((num) => num > 0),
 )
     .subscribe((result) => {
+        console.log(result);
         const scrollHeight = document.body.scrollHeight / 2;
         headerNode.classList.toggle('header_active', result);
         headerNode.classList.toggle('header_hidden', !result);
         if (window.pageYOffset > scrollHeight) {
+            headerNode.classList.remove('header_hidden');
             logoNode.innerText = result ? 'Logo' : 'Get an amazing discount';
             headerNode.appendChild(buttonNode);
             buttonNode.className = 'button_header';
             buttonNode.innerText = 'BUY NOW';
-            headerNode.className = 'header header_active';
-            headerNode.classList.remove('header_hidden');
         } else {
             logoNode.innerText = 'Logo';
             buttonNode.remove();
