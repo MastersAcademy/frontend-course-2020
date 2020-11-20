@@ -71,9 +71,8 @@ fromEvent(document, 'scroll')
         map((scroll) => checkDirection(scroll[0], scroll[1])),
         distinctUntilChanged(),
         debounceTime(50),
-        )
+    )
     .subscribe((position) => checkFlag(position, 'main'));
-
 
 fromEvent(document, 'scroll')
     .pipe(
@@ -83,5 +82,5 @@ fromEvent(document, 'scroll')
         map((scroll) => checkDirection(scroll[0], scroll[1])),
         distinctUntilChanged(),
         debounceTime(50),
-        )
+    )
     .subscribe((position) => checkFlag(position, 'secondary'));
