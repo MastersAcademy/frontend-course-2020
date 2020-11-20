@@ -15,11 +15,12 @@ fromEvent(document, 'scroll').pipe(
     filter((num) => num >= 50 || num <= -50),
     map((num) => num > 0),
 )
-    .subscribe((bool) => {
+    .subscribe((result) => {
         const scrollHeight = document.body.scrollHeight / 2;
-        headerNode.className = bool ? 'header header_active' : 'header header_hidden';
+        headerNode.classList.toggle('header_active', result);
+        headerNode.classList.toggle('header_hidden', !result);
         if (window.pageYOffset > scrollHeight) {
-            logoNode.innerText = bool ? 'Logo' : 'Get an amazing discount';
+            logoNode.innerText = result ? 'Logo' : 'Get an amazing discount';
             headerNode.appendChild(buttonNode);
             buttonNode.className = 'button_header';
             buttonNode.innerText = 'BUY NOW';
