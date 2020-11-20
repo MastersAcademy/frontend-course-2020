@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  width: 600px;
+  border-left: solid #000;
+  border-right: solid #000;
+}
+
+.header-logo {
+  background-color: rgb(235, 72, 86);
+}
+
+.header-title {
+  padding: 15px;
+}
+
+.header-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.header-text {
+  padding: 0 15px;
+  background-color: rgb(115, 191, 212);
+}
+
+.header-sticky {
+  position: sticky;
+  animation: 2s showScroll;
+  top: 0;
+  background-color: rgb(235, 72, 86);
+}
+
+@keyframes showScroll {
+
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
