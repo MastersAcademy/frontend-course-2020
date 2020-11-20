@@ -12,10 +12,10 @@ fromEvent(window, 'scroll').pipe(
     pairwise(),
     map(([a, b]) => {
         let direction;
-        if ( a > b ) {
+        if (a > b) {
             if ((a - b) >= 50) direction = 'Up';
         }
-        if ( a < b ) {
+        if (a < b) {
             if ((b - a) >= 50) direction = 'Down';
         }
         return direction;
