@@ -1,18 +1,18 @@
 .block {
-    width: 600px;
-    margin-left: 33%;
+  width: 600px;
+  margin-left: 33%;
 }
 
 .header {
-    background-color: rgb(170, 170, 170);
-    height: 50px;
-    text-align: center;
-    padding: 20px;
+  background-color: rgb(170, 170, 170);
+  height: 50px;
+  text-align: center;
+  padding: 20px;
 }
 
 .header-show {
-    position: sticky;
-    top: 0;
-    background-color: rgb(128, 128, 128);
-    transition: all .4s ease-in-out;
+  position: sticky;
+  top: 0;
+  background-color: rgb(128, 128, 128);
+  transition: all .4s ease-in-out;
 }
