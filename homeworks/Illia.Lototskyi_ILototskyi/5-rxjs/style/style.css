@@ -15,6 +15,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  transition: top .5s;
 }
 
 main {
