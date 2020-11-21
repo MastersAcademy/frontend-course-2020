@@ -51,22 +51,33 @@ body {
 }
 
 .main {
-  padding: 1em .5em 1em 1em;
+  padding: 1em 0;
+}
+
+.main p {
+  padding-left: 1em;
+  padding-right: .5em;
+  margin-bottom: 1em;
+}
+
+.offer-wrapper {
+  position: sticky;
+  top: 0;
+  margin: 1em 0;
 }
 
 .offer {
   background-color: #FF4E4E;
-  border-radius: .25em;
   padding: 1em;
   font-weight: 600;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
   align-items: center;
-  margin: 1em 0;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
 }
 
-.offer .offer-title {
-  display: inline-block;
+.hidden {
+  display: none !important;
 }
 
 .offer-button {

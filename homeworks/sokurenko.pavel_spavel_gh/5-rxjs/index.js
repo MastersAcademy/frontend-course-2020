@@ -1,6 +1,11 @@
 const headerNode = document.querySelector('[data-heaader-content]');
 const scrollNode = document.querySelector('[data-scroll]');
 
+const offerWrapperNode = document.querySelector('[data-offer-wrapper]');
+const offerNode = document.querySelector('[data-offer]');
+const offerTextContentNode = document.querySelector('[data-offer-text]');
+const yOfferConst = offerWrapperNode.offsetTop;
+
 const wayLength = 50;
 let wayPointer = 'up';
 let yPointer = 0;
@@ -12,6 +17,20 @@ const {
 } = window.rxjs.operators;
 
 const scroll = fromEvent(scrollNode, 'scroll');
+
+function offerContent(toHide) {
+    if (toHide) offerTextContentNode.classList.add('hidden');
+    else offerTextContentNode.classList.remove('hidden');
+}
+
+function offerMover(offerPosition) {
+    if (offerPosition === 'top') {
+        offerNode.style.top = '0px';
+    }
+    if (offerPosition === 'second') {
+        offerNode.style.top = `${(headerNode.offsetHeight)}px`;
+    }
+}
 
 function headerHideShow(action) {
     headerNode.style.top = '0px';
@@ -71,7 +90,16 @@ const scrollStream = scroll.pipe(
             wayPointer = getScrollDirection(yOld, yNew);
             headerHideShow(wayPointer === 'down' ? 'hide' : 'show');
             setTrackingStatus(false);
+
+            // here offer follows header
+            if (yNew > yOfferConst) offerMover(wayPointer === 'down' ? 'top' : 'second');
         }
+    }),
+
+    tap(([yOld, yNew]) => {
+        // the offer must be on top if we are higher this
+        offerContent((yNew - (yOld - yNew)) < yOfferConst);
+        if ((yNew - (yOld - yNew)) < yOfferConst) offerMover('top');
     }),
 
     distinctUntilChanged(),
