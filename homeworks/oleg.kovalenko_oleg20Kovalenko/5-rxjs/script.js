@@ -12,10 +12,9 @@ const headerLogo = document.querySelector('.header-logo');
 let pixel;
 
 fromEvent(window, 'scroll').pipe(
-    map(() => window.pageYOffset),
-    distinctUntilChanged(),
-    pairwise(),
     throttleTime(300),
+    map(() => window.pageYOffset),
+    pairwise(),
     filter(([num1, num2]) => {
         if (num1 > num2) {
             pixel = num1 - num2;
@@ -24,7 +23,8 @@ fromEvent(window, 'scroll').pipe(
         }
         return pixel > 50;
     }),
-    map(([num1, num2]) => num1 > num2),
+    map(([num1, num2]) => num1 < num2),
+    distinctUntilChanged(),
 ).subscribe((v) => {
     headerLogo.classList.toggle('header-sticky', v);
 });
