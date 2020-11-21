@@ -1,7 +1,3 @@
-body {
-  background-color: rgb(255, 255, 255);
-}
-
 .wrapper {
   width: 800px;
   height: 580px;
@@ -61,7 +57,7 @@ body {
   font-size: 18px;
 }
 
-.wpapper-sale_btn {
+.wrapper-sale_btn {
   width: 736px;
   height: 36px;
   letter-spacing: 2px;

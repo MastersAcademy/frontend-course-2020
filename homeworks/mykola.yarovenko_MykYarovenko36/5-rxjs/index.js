@@ -5,9 +5,9 @@ const {
 
 const wrapperScroll$ = fromEvent(document.querySelector('[data-wrapper]'), 'scroll');
 const headerEl = document.querySelector('.wrapper_header');
-const saleBtnPosition = document.querySelector('.wpapper-sale_btn').offsetTop;
+const saleBtnPosition = document.querySelector('.wrapper-sale_btn').offsetTop;
 const headerSaleContent = (pairScrollValue, btnPosition) => {
-    if (pairScrollValue[1] > btnPosition || pairScrollValue[1] > btnPosition - 20) {
+    if (pairScrollValue[1] > btnPosition) {
         if (pairScrollValue[0] > pairScrollValue[1]) {
             headerEl.innerHTML = `
             <p class='header_logo'>Logo</p>
@@ -31,9 +31,9 @@ wrapperScroll$.pipe(
     (val) => {
         headerSaleContent(val, saleBtnPosition);
         if (val[0] < val[1] && val[1] < saleBtnPosition) {
-            headerEl.classList.toggle('active', false);
+            headerEl.classList.remove('active');
         } else {
-            headerEl.classList.toggle('active', true);
+            headerEl.classList.add('active');
         }
     },
 );
