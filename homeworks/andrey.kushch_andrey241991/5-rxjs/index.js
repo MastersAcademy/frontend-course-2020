@@ -1,11 +1,11 @@
 (function () {
     const { Observable, fromEvent } = window.rxjs;
 
-    const headerElem = document.querySelector("[data-header]");
+    const headerElem = document.querySelector('[data-header]');
 
     let scrollPossition = 0;
     let currentScrollPossition = 0;
-    fromEvent(window, "scroll").subscribe(() => {
+    fromEvent(window, 'scroll').subscribe(() => {
         currentScrollPossition = window.scrollY;
     });
 
@@ -15,21 +15,20 @@
         }, 400);
     });
 
-    stream.subscribe((val) => toggleHeader(val));
-
-    function toggleHeader(currentScrollPossition) {
-        if (scrollPossition - currentScrollPossition <= -50) {
-            scrollPossition = currentScrollPossition;
-            console.log("Event: hide ");
-            headerElem.classList.add("header__not-active");
-            headerElem.classList.remove("header__active");
+    function toggleHeader(currentSP) {
+        if (scrollPossition - currentSP <= -50) {
+            scrollPossition = currentSP;
+            headerElem.classList.add('header__not-active');
+            headerElem.classList.remove('header__active');
         }
 
-        if (scrollPossition - currentScrollPossition >= 50) {
-            scrollPossition = currentScrollPossition;
-            console.log("Event: show ");
-            headerElem.classList.add("header__active");
-            headerElem.classList.remove("header__not-active");
+        if (scrollPossition - currentSP >= 50) {
+            scrollPossition = currentSP;
+            headerElem.classList.add('header__active');
+            headerElem.classList.remove('header__not-active');
         }
     }
+
+    stream.subscribe((val) => toggleHeader(val));
+
 })();

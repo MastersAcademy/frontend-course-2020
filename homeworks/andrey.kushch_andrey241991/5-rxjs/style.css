@@ -14,16 +14,16 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  background: #2b2828;
+  background: #2B2828;
   position: sticky;
 }
 
 .header__active {
   top: 0;
-  transition: top 0.2s;
+  transition: top .2s;
 }
 
 .header__not-active {
   top: -60px;
-  transition: top 0.2s;
+  transition: top .2s;
 }
