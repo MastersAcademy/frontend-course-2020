@@ -1,6 +1,5 @@
 const { fromEvent } = window.rxjs;
-const { filter, map, pairwise, startWith } = window.rxjs.operators;
-
+const { map, pairwise } = window.rxjs.operators;
 const header = document.querySelector('[data-header]');
 const scrollEvent = fromEvent(window, 'scroll');
 

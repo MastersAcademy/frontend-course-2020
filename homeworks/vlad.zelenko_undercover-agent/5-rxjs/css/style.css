@@ -1,45 +1,45 @@
 body {
-    font: 400 18px/20px sans-serif;
-    padding: 0;
-    margin: 0;
-    text-align: justify;
-    text-indent: 30px;
+  font: 400 18px/20px sans-serif;
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+  text-indent: 30px;
 }
 
 .wrapper {
-    max-width: 992px;
-    margin: 0 auto;
+  max-width: 992px;
+  margin: 0 auto;
 }
 
 .header {
-    height: 100px;
-    padding: 0 10px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    background: darkorange;
+  height: 100px;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #FF6347;
 }
 
 .mobile-menu-btn {
-    height: 20px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    cursor: pointer;
+  height: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .mobile-menu-btn span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background: #000000;
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #000;
 }
 
 .active-menu {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
 }
