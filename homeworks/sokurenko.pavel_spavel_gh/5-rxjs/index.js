@@ -5,55 +5,44 @@ const headerTextNode = document.querySelector('[data-header-text]');
 const headerButtonNode = document.querySelector('[data-header-button]');
 let headerContentStatus = 0;
 
-const scrollNode = document.querySelector('[data-scroll]');
-
+// offer variables
 const offerWrapperNode = document.querySelector('[data-offer-wrapper]');
-// const offerNode = document.querySelector('[data-offer]');
-// const offerTextContentNode = document.querySelector('[data-offer-text]');
+let yOffer = 0;
 
-const yOfferConst = offerWrapperNode.offsetTop; // <---------- до этого момента по старому
-
+// scroll variables
+const scrollNode = document.querySelector('[data-scroll]');
 const wayLength = 50;
 let wayPointer = 'up';
 let yPointer = 0;
 let watch = false;
 
+// RxJS initialization
 const { fromEvent } = window.rxjs;
 const {
     throttleTime, pairwise, distinctUntilChanged, map, tap, debounceTime, filter,
 } = window.rxjs.operators;
-
 const scroll = fromEvent(scrollNode, 'scroll');
 
-// function offerContent(toHide) {
-//     if (toHide) offerTextContentNode.classList.add('hidden');
-//     else offerTextContentNode.classList.remove('hidden');
-// }
-
-// function offerMover(offerPosition) {
-//     if (offerPosition === 'top') {
-//         offerNode.style.top = '0px';
-//     }
-//     if (offerPosition === 'second') {
-//         offerNode.style.top = `${(headerNode.offsetHeight)}px`;
-//     }
-// }
-
-function headerHideShow(action) {
-    headerNode.style.top = '0px';
-    if (action === 'hide') {
-        headerNode.style.top = `${(headerNode.offsetHeight + 2) * -1}px`;
-    }
+function getYOffer() {
+    if (yOffer === 0) yOffer = offerWrapperNode.offsetTop;
+    return yOffer;
 }
 
+/**
+ * @param {*} action - 'hide' or 'show'
+ */
+function headerHideShow(action) {
+    headerNode.style.top = '0px';
+    if (action === 'hide') headerNode.style.top = `${(headerNode.offsetHeight + 2) * -1}px`;
+}
+/**
+ * This function creates a header content for the context.
+ */
 function changeHeaderContent(yOld, yNew) {
     let id;
-    // (yNew - (yOld - yNew))
-    if (yNew < yOfferConst) id = 0;
-    if (yNew > yOfferConst && yOld > yNew) id = 1;
-    if (yNew > yOfferConst && yOld < yNew) id = 2;
-
-    console.log(id, yOld, yNew);
+    if (yNew < getYOffer()) id = 0; // before offer
+    if (yNew > getYOffer() && yOld > yNew) id = 1;
+    if (yNew > getYOffer() && yOld < yNew) id = 2;
 
     if (id === 0 && id !== headerContentStatus) {
         headerLogoNode.classList.remove('hidden');
@@ -93,36 +82,30 @@ const opener = scroll.pipe(
     map(() => scrollNode.scrollTop),
     map((y) => y < 20),
 );
-
 opener.subscribe((event) => {
-    if (event) {
-        setTrackingStatus(false);
-        wayPointer = 'up';
-        headerHideShow('show');
-        console.log('Yeah!');
-    }
+    if (!event) return;
+    setTrackingStatus(false);
+    wayPointer = 'up';
+    headerHideShow('show');
 });
 
-const scrollStream = scroll.pipe(
+const scrollStreamBeforeOffer = scroll.pipe(
     throttleTime(80),
     map(() => scrollNode.scrollTop),
     map((y) => Math.round(y)),
-    filter((y) => y < yOfferConst),
+    filter((y) => y < getYOffer()), // before offer
     distinctUntilChanged(),
     pairwise(),
-
     tap(([yOld, yNew]) => { // start tracking trigger
         if (wayPointer !== getScrollDirection(yOld, yNew)) {
             if (watch === false) setTrackingStatus(true, yNew);
         }
     }),
-
     tap((yOld, yNew) => { // stop tracking trigger
         if (!watch) return;
         if (wayPointer === 'down' && yNew > yPointer) setTrackingStatus(false);
         if (wayPointer === 'up' && yNew < yPointer) setTrackingStatus(false);
     }),
-
     tap(([yOld, yNew]) => { // stop tracking trigger  and release header
         if (!watch) return;
         if (Math.abs(yPointer - yNew) > wayLength) {
@@ -130,35 +113,20 @@ const scrollStream = scroll.pipe(
             headerHideShow(wayPointer === 'down' ? 'hide' : 'show');
             setTrackingStatus(false);
             changeHeaderContent(yOld, yNew);
-
-            // // here offer follows header
-            // if (yNew > yOfferConst) offerMover(wayPointer === 'down' ? 'top' : 'second');
         }
     }),
     tap(([yOld, yNew]) => changeHeaderContent(yOld, yNew)),
-
-    // tap(([yOld, yNew]) => {
-    //     // the offer must be on top if we are higher this
-    //     offerContent((yNew - (yOld - yNew)) < yOfferConst);
-    //     if ((yNew - (yOld - yNew)) < yOfferConst) offerMover('top');
-    // }),
-
-    tap((([yOld, yNew]) => console.log(`yOld : ${yOld}\t\tнапр : ${getScrollDirection(yOld, yNew)}\nyNew : ${yNew}    \tотслеж : ${watch}`))),
 );
+scrollStreamBeforeOffer.subscribe();
 
-scrollStream.subscribe();
-
-const dddd = scroll.pipe(
+const scrollStreamAfterOffer = scroll.pipe(
     throttleTime(80),
     map(() => scrollNode.scrollTop),
     map((y) => Math.round(y)),
-    filter((y) => y > yOfferConst),
+    filter((y) => y > getYOffer()), // after offer
     distinctUntilChanged(),
     pairwise(),
     tap(([yOld, yNew]) => changeHeaderContent(yOld, yNew)),
 
 );
-
-dddd.subscribe((event) => {
-    console.log(event);
-});
+scrollStreamAfterOffer.subscribe();
