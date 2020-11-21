@@ -34,20 +34,28 @@ body {
 
 /* thanks to @Bohdan_Kasian for the "overflow: hidden" */
 
-.header {
+.header-wrapper {
   overflow: hidden;
   position: sticky;
+  z-index: 999;
   top: 0;
 }
 
-.header > div {
+
+.header-content {
+  height: 2.5rem;
+  font-weight: 600;
   position: relative;
-  font-size: 2em;
-  padding-top: .5em;
-  padding-bottom: .25em;
-  padding-left: .5em;
+  padding: 1rem;
   background-color: #300000;
   color: #FF4E4E;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-size: 2em;
 }
 
 .main {
@@ -61,8 +69,6 @@ body {
 }
 
 .offer-wrapper {
-  position: sticky;
-  top: 0;
   margin: 1em 0;
 }
 
