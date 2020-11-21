@@ -36,44 +36,104 @@ function whereScroll(oldY, newY) {
     return (newY > oldY ? 'down' : 'up');
 }
 
-// 2
-// 2
-// 2
-// 2
+const wayLength = 50;
+let wayPointer = 'up';
+let yPointer = 0;
+let watch = false;
+function makeTrackingStatus(command, newYPointer) {
+    switch (command) {
+        case true:
+            watch = true;
+            yPointer = newYPointer;
+            break;
+        case false:
+            watch = false;
+            break;
+        default: break;
+    }
+}
 
 const { fromEvent } = window.rxjs;
 const {
-    throttleTime, pairwise, distinctUntilChanged, map, /* tap */
+    throttleTime, pairwise, distinctUntilChanged, map, tap, debounceTime,
 } = window.rxjs.operators;
 
 const scroll = fromEvent(scrollNode, 'scroll');
 
-// let scrollPointer = scrollNode.scrollTop;
+const opener = scroll.pipe(
+    debounceTime(100),
+    map(() => scrollNode.scrollTop),
+    map((y) => y < 20),
+);
 
-// let wP = "up";
-// let pointerY = 0;
-// let watch = false;
+opener.subscribe((event) => {
+    if (event) {
+        makeTrackingStatus(false);
+        wayPointer = 'up';
+        doLittleMagic('open');
+        console.log('Yeah!');
+    }
+});
 
-const ddd = scroll.pipe(
+const scrollStream = scroll.pipe(
     throttleTime(80),
     map(() => scrollNode.scrollTop),
+    map((y) => Math.round(y)),
     distinctUntilChanged(),
     pairwise(),
 
-    // tap(([oldY, newY]) => {
-    //     if (wP !== whereScroll(oldY, newY)) { //если новое направление
-    //         if (watch === false) { // если мы еще не отслеживаем
-    //             watch = true; // начинаем отслеживать
-    //             wP = newY;
-    //         }
-    //     }
-    // }),
+    tap(([oldY, newY]) => { // тригер начала отслеживания
+        if (wayPointer !== whereScroll(oldY, newY)) { // если новое направление
+        // ? направление будет новым, пока не пройдём по нему 50пкс
+            if (watch === false) { // если еще не отслеживаем
+                makeTrackingStatus(true, newY);
+            }
+        }
+    }),
 
+    tap((oldY, newY) => { // прекратить отслеживать если движимся как раньше
+        if (watch === true) {
+            if (wayPointer === 'down') { // если базовое направление вниз
+                if (newY > yPointer) { // если мы ниже точки
+                    makeTrackingStatus(false);
+                }
+            } else if (wayPointer === 'up') { // если базовое направление вверх
+                if (newY < yPointer) { // мы выше точки
+                    makeTrackingStatus(false);
+                }
+            }
+        }
+    }),
+
+    tap((oldY, newY) => {
+        if (oldY > newY) {
+            if (newY <= (oldY - newY)) {
+                makeTrackingStatus(false);
+                wayPointer = 'up';
+                doLittleMagic('open');
+                console.log('yeah!');
+            }
+        }
+    }),
+
+    tap(([oldY, newY]) => {
+        if (watch === true) {
+            if (Math.abs(yPointer - newY) > wayLength) { // если прошли путь
+                wayPointer = whereScroll(oldY, newY);
+                // открываем/закрываем хеадер
+                doLittleMagic(wayPointer === 'down' ? 'close' : 'open');
+                makeTrackingStatus(false);
+            }
+        }
+    }),
+
+    distinctUntilChanged(),
+    tap((([oldY, newY]) => console.log(`oldY : ${oldY}\t\tнапр : ${whereScroll(oldY, newY)}\nnewY : ${newY}    \tотслеж : ${watch}`))),
     map(([oldY, newY]) => whereScroll(oldY, newY)),
-    // distinctUntilChanged(),
 );
 
-ddd.subscribe((event) => {
-    if (event === 'up') doLittleMagic('open');
-    if (event === 'down') doLittleMagic('close');
+scrollStream.subscribe((/* event */) => {
+    // todo: do pretty code
+    // if (event === 'up') doLittleMagic('open');
+    // if (event === 'down') doLittleMagic('close');
 });
