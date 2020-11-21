@@ -1,0 +1,27 @@
+img {
+  width: 35px;
+  height: 35px;
+  margin: 7px 20px;
+}
+
+body {
+  padding-top: 50px;
+}
+
+header {
+  background-color: #FAE4E0;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+main {
+  padding: 0 5px;
+  font-size: 20px;
+}
+
+.hide {
+  top: -60px;
+}
