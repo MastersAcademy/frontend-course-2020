@@ -15,7 +15,7 @@ fromEvent(window, 'scroll').pipe(
     map(() => window.pageYOffset),
     distinctUntilChanged(),
     pairwise(),
-    throttleTime(30),
+    throttleTime(300),
     filter(([num1, num2]) => {
         if (num1 > num2) {
             pixel = num1 - num2;
