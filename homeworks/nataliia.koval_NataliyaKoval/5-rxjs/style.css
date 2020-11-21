@@ -1,0 +1,22 @@
+body {
+  padding-top: 60px;
+}
+
+header {
+  background-color: rgb(182, 158, 204);
+  height: 60px;
+  padding-left: 15px;
+  position: fixed;
+  top: 0;
+  transition: top .4s ;
+  width: 100%;
+}
+
+.hide {
+  top: -60px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+}
