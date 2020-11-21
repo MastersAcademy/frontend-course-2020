@@ -13,22 +13,13 @@ fromEvent(window, 'scroll').pipe(
     map(([a, b]) => {
         let direction;
         if (a > b) {
-            if ((a - b) >= 50) direction = 'Up';
+            if (a - b >= 50) direction = 'Up';
         }
         if (a < b) {
-            if ((b - a) >= 50) direction = 'Down';
+            if (b - a >= 50) direction = 'Down';
         }
         return direction;
     }),
 ).subscribe((event) => {
-    switch (event) {
-        case 'Up':
-            header.classList.add('header-show');
-            break;
-        case 'Down':
-            header.classList.remove('header-show');
-            break;
-        default:
-            break;
-    }
+    header.classList[event === 'Up' ? 'add' : 'remove']('header-show');
 });

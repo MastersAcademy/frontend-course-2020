@@ -8,11 +8,11 @@
   height: 50px;
   text-align: center;
   padding: 20px;
+  transition: all .4s ease-in-out;
 }
 
 .header-show {
   position: sticky;
   top: 0;
   background-color: rgb(128, 128, 128);
-  transition: all .4s ease-in-out;
 }
