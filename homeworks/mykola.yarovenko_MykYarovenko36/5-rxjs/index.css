@@ -22,7 +22,7 @@ body {
   border-bottom: 4px solid rgb(155, 152, 152);
   height: 60px;
   top: -64px;
-  transition: top .4s;
+  transition: top .2s;
 }
 
 .header_logo {
@@ -51,7 +51,7 @@ body {
 
 .wrapper_header.active {
   top: 0;
-  transition: top .4s;
+  transition: top .2s;
 }
 
 .wrapper_text-content {
