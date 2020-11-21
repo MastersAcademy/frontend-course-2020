@@ -1,7 +1,7 @@
-import { fromEvent } from 'rxjs';
-import {
+const { fromEvent } = window.rxjs;
+const {
     debounceTime, map, pairwise, filter, distinctUntilChanged,
-} from 'rxjs/operators';
+} = window.rxjs.operators;
 
 const documentEl = document.querySelector('[data-sticky-header]');
 fromEvent(window, 'scroll')
