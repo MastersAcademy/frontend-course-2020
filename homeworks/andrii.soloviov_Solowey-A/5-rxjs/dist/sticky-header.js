@@ -9,7 +9,7 @@ fromEvent(window, 'scroll')
         map(() => window.pageYOffset),
         debounceTime(100),
         pairwise(),
-        filter(([prevPos, curPos]) => (prevPos - curPos) > 50 || (curPos - prevPos) > 50),
+        filter(([prevPos, curPos]) => Math.abs(prevPos - curPos) > 50),
         map(([prevPos, curPos]) => prevPos < curPos),
         distinctUntilChanged(),
     )
