@@ -34,13 +34,13 @@ body {
 
 /* thanks to @Bohdan_Kasian for the "overflow: hidden" */
 
-header {
+.header {
   overflow: hidden;
   position: sticky;
   top: 0;
 }
 
-header > div {
+.header > div {
   position: relative;
   font-size: 2em;
   padding-top: .5em;
@@ -50,11 +50,11 @@ header > div {
   color: #FF4E4E;
 }
 
-main {
+.main {
   padding: 1em .5em 1em 1em;
 }
 
-.lalala {
+.offer {
   background-color: #FF4E4E;
   border-radius: .25em;
   padding: 1em;
@@ -65,11 +65,11 @@ main {
   margin: 1em 0;
 }
 
-.lalala div {
+.offer .offer-title {
   display: inline-block;
 }
 
-button {
+.offer-button {
   font-size: 1rem;
   background-color: #FF4E4E;
   color: #300000;
