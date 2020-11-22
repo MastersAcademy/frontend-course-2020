@@ -8,7 +8,7 @@ body {
 
 .wrapper {
   max-width: 992px;
-  margin: 0 auto;
+  margin: 120px auto;
 }
 
 .header {
@@ -18,7 +18,13 @@ body {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background: #FF6347;
+  background: #FF4500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top .5s;
+  box-sizing: border-box;
 }
 
 .mobile-menu-btn {
@@ -37,9 +43,5 @@ body {
 }
 
 .active-menu {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
+  top: -100px;
 }
