@@ -1,32 +1,20 @@
-const header = document.querySelector('[data-header]');
+const headerEl = document.querySelector('[data-header]');
 
 const { fromEvent } = window.rxjs;
-/**
- * Оператори які можуть бути корисні:
- * fromEvent +
- * map +
- * filter +
- * throttleTime +
- * distinctUntilChanged +
- * pairwise +
- * debounceTime
- * switchMap
- */
-
 const {
     throttleTime,
     pairwise,
     map,
-    distinctUntilChanged,
     filter,
 } = window.rxjs.operators;
 
 fromEvent(document, 'scroll').pipe(
     throttleTime(100),
     map(() => window.pageYOffset),
-    distinctUntilChanged(),
     pairwise(),
-    filter(([a, b]) => Math.abs(a - b) >= 50),
-    map(([a, b]) => a > b),
+    // eslint-disable-next-line max-len
+    filter(([previousScrollPosition, currentScrollPosition]) => Math.abs(previousScrollPosition - currentScrollPosition) >= 50),
+    // eslint-disable-next-line max-len
+    map(([previousScrollPosition, currentScrollPosition]) => previousScrollPosition > currentScrollPosition),
 )
-    .subscribe((active) => header.classList.toggle('sticky', active));
+    .subscribe((active) => headerEl.classList.toggle('sticky', active));
