@@ -10,7 +10,6 @@
         distinctUntilChanged,
         throttleTime,
         filter,
-        debounceTime,
     } = window.rxjs.operators;
 
     const scroll = fromEvent(window, 'scroll');
@@ -21,54 +20,46 @@
 
     function watchScroll() {
         return scroll.pipe(
-            throttleTime(0, animationFrameScheduler),
+            throttleTime(100, animationFrameScheduler),
             map(() => window.pageYOffset),
             pairwise(),
-            filter(([x]) => x < button.offsetTop),
-            map(([y1, y2]) => (y2 < y1 ? 'Up' : 'Down')),
+            map(([prev, curr]) => {
+                if (prev > button.offsetTop) {
+                    return curr < prev ? 'showBuyNow' : 'showLogoBuyNow';
+                }
+                if (Math.abs((prev - curr)) > 50) {
+                    return prev < curr ? 'hideLogo' : 'showLogo';
+                }
+                return null;
+            }),
+            filter(Boolean),
             distinctUntilChanged(),
-            debounceTime(100),
         );
     }
 
-    watchScroll().subscribe((event) => {
-        switch (event) {
-            case 'Up':
-                thirdHeader.classList.remove('header-third-logo');
-                secondHeader.classList.remove('header-second-logo');
+    watchScroll().subscribe((eventName) => {
+        switch (eventName) {
+            case 'showLogo':
+                thirdHeader.classList.add('hidden');
+                secondHeader.classList.add('hidden');
+                firstHeader.classList.remove('hidden');
                 firstHeader.classList.add('header-first-logo');
                 break;
-            case 'Down':
-                thirdHeader.classList.remove('header-third-logo');
-                secondHeader.classList.remove('header-second-logo');
-                firstHeader.classList.remove('header-first-logo');
+            case 'hideLogo':
+                thirdHeader.classList.add('hidden');
+                secondHeader.classList.add('hidden');
+                firstHeader.classList.add('hidden');
                 break;
-            default: // do nothing
-                break;
-        }
-    });
-
-    function secondWatchScroll() {
-        return scroll.pipe(
-            throttleTime(0, animationFrameScheduler),
-            map(() => window.pageYOffset),
-            pairwise(),
-            filter(([x]) => x > button.offsetTop),
-            map(([y1, y2]) => (y2 < y1 ? 'Up' : 'Down')),
-            distinctUntilChanged(),
-            debounceTime(100),
-        );
-    }
-    secondWatchScroll().subscribe((event) => {
-        switch (event) {
-            case 'Up':
-                firstHeader.classList.remove('header-first-logo');
-                secondHeader.classList.remove('header-second-logo');
+            case 'showBuyNow':
+                firstHeader.classList.add('hidden');
+                secondHeader.classList.add('hidden');
+                thirdHeader.classList.remove('hidden');
                 thirdHeader.classList.add('header-third-logo');
                 break;
-            case 'Down':
-                firstHeader.classList.remove('header-first-logo');
-                thirdHeader.classList.remove('header-third-logo');
+            case 'showLogoBuyNow':
+                firstHeader.classList.add('hidden');
+                thirdHeader.classList.add('hidden');
+                secondHeader.classList.remove('hidden');
                 secondHeader.classList.add('header-second-logo');
                 break;
             default: // do nothing
