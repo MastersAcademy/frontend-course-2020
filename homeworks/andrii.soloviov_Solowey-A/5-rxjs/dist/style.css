@@ -27,7 +27,7 @@
   top: 0;
   left: 0;
   right: 0;
-  transition: .4s;
+  transition: transform .3s ease-in-out;
 }
 
 .main-nav-list {
@@ -46,16 +46,15 @@
 
 .main-nav-list__item:hover {
   border-bottom: 2px solid #1A2835;
-  transition: .4s;
+  transition: border-bottom-color .4s;
 }
 
 .content {
   max-width: 768px;
 }
 
-.sticky-header {
+.hide-header {
   top: 0;
-  opacity: 0;
   transform: translateX(-100%);
 }
 
