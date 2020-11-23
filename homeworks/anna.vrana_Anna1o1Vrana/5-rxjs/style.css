@@ -4,9 +4,14 @@
 }
 
 .header {
-  padding: 25px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: -123px;
+  align-items: center;
+  background-color: #FFF;
+  transition: .5s ease-in-out;
 }
 
 .logo {
@@ -36,6 +41,7 @@
 }
 
 .btn {
+  margin: 18px;
   padding: 15px 25px;
   background-color: #4BA6DE;
   color: #FFF;
@@ -47,15 +53,7 @@
   border: 2px solid #3FAB89;
 }
 
-.sticky {
-  position: sticky;
+.header.sticky {
   top: 0;
-  background: #FFF;
-  -o-transform: skewX(20deg);
-  -ms-transform: skewX(20deg);
-  -moz-transform: skewX(20deg);
-  -webkit-transform: skewX(20deg);
-  transform: skewX(20deg);
-  transition: 3s;
-  opacity: 1;
+  transition: top .5s ease-in-out;
 }

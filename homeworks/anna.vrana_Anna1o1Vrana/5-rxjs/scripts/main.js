@@ -6,15 +6,15 @@ const {
     pairwise,
     map,
     filter,
+    distinctUntilChanged,
 } = window.rxjs.operators;
 
 fromEvent(document, 'scroll').pipe(
     throttleTime(100),
     map(() => window.pageYOffset),
     pairwise(),
-    // eslint-disable-next-line max-len
     filter(([previousScrollPosition, currentScrollPosition]) => Math.abs(previousScrollPosition - currentScrollPosition) >= 50),
-    // eslint-disable-next-line max-len
     map(([previousScrollPosition, currentScrollPosition]) => previousScrollPosition > currentScrollPosition),
+    distinctUntilChanged(),
 )
     .subscribe((active) => headerEl.classList.toggle('sticky', active));
