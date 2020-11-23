@@ -24,9 +24,8 @@
 .header-first-logo {
   background: #BABBBB;
   color: #0B0C0C;
-  padding: 10px;
-  position: sticky;
   top: 0;
+  position: sticky;
   transform: translateY(0);
   transition: transform .5s;
 }
@@ -35,7 +34,6 @@
   display: block;
   background: #BABBBB;
   color: #0B0C0C;
-  padding: 10px;
   position: sticky;
   top: 0;
   transform: translateY(0);
@@ -46,7 +44,6 @@
   display: block;
   background: #BABBBB;
   color: #0B0C0C;
-  padding: 10px;
   position: sticky;
   top: 0;
   transform: translateY(0);

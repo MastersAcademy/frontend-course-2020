@@ -46,9 +46,9 @@
                 firstHeader.classList.add('header-first-logo');
                 break;
             case 'hideLogo':
+                firstHeader.classList.add('hidden');
                 thirdHeader.classList.add('hidden');
                 secondHeader.classList.add('hidden');
-                firstHeader.classList.add('hidden');
                 break;
             case 'showBuyNow':
                 firstHeader.classList.add('hidden');
@@ -62,7 +62,8 @@
                 secondHeader.classList.remove('hidden');
                 secondHeader.classList.add('header-second-logo');
                 break;
-            default: // do nothing
+            default:
+                // do Nothing
                 break;
         }
     });
