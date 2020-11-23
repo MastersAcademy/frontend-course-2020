@@ -13,7 +13,6 @@ fromEvent(document, 'scroll').pipe(
     throttleTime(100),
     map(() => window.pageYOffset),
     pairwise(),
-    // eslint-disable-next-line max-len
     filter(([previousPosition, currPosition]) => Math.abs(previousPosition - currPosition) >= 50),
     map(([previousPosition, currScrollPosition]) => previousPosition > currScrollPosition),
     distinctUntilChanged(),
