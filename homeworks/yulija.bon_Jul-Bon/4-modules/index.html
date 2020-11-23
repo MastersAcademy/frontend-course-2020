@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework 4</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section class="container">
+    <h2>Date:</h2>
+    <input type="date" id="date" class="input-date">
+
+    <div class="data-wrap">
+        <button class="button" data-fridays-action>Get month fridays</button>
+        <div data-fridays-info></div>
+
+        <button class="button" data-longes-montht-action>Is month long?</button>
+        <div data-longes-montht-info></div>
+
+        <button class="button" data-shotest-week-action>Days of shortest week in month</button>
+        <div data-shotest-week-info></div>
+
+        <button class="button" data-number-full-week-action>Full weeks in month</button>
+        <div data-number-full-week-info></div>
+    </div>
+</section>
+
+<div class="loader" id="loader">
+    <span class="spinner spinner-large spinner-blue spinner-slow"></span>
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
