@@ -27,9 +27,8 @@
   padding: 10px;
   position: sticky;
   top: 0;
-  transition: margin-right 2s ease-in-out;
-  animation-name: show-header;
-  animation-duration: .5s;
+  transform: translateY(0);
+  transition: transform .5s;
 }
 
 .header-second-logo {
@@ -39,8 +38,8 @@
   padding: 10px;
   position: sticky;
   top: 0;
-  animation-name: show-header;
-  animation-duration: .5s;
+  transform: translateY(0);
+  transition: transform .5s;
 }
 
 .header-third-logo {
@@ -50,8 +49,8 @@
   padding: 10px;
   position: sticky;
   top: 0;
-  animation-name: show-header;
-  animation-duration: .5s;
+  transform: translateY(0);
+  transition: transform .5s;
 }
 
 .buy-now {
@@ -62,18 +61,5 @@
 }
 
 .hidden {
-  display: none;
-}
-
-@keyframes show-header {
-
-  0% {
-    opacity: 0;
-    top: -70px;
-  }
-
-  100% {
-    opacity: 1;
-    top: 0;
-  }
+  transform: translateY(-100%);
 }
