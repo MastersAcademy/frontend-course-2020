@@ -13,8 +13,9 @@ fromEvent(document, 'scroll').pipe(
     throttleTime(100),
     map(() => window.pageYOffset),
     pairwise(),
-    filter(([previousScrollPosition, currentScrollPosition]) => Math.abs(previousScrollPosition - currentScrollPosition) >= 50),
-    map(([previousScrollPosition, currentScrollPosition]) => previousScrollPosition > currentScrollPosition),
+    // eslint-disable-next-line max-len
+    filter(([previousPosition, currPosition]) => Math.abs(previousPosition - currPosition) >= 50),
+    map(([previousPosition, currScrollPosition]) => previousPosition > currScrollPosition),
     distinctUntilChanged(),
 )
     .subscribe((active) => headerEl.classList.toggle('sticky', active));
