@@ -42,6 +42,6 @@ body {
   background: #000;
 }
 
-.active-menu {
+.hide-header {
   top: -100px;
 }
