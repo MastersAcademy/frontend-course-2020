@@ -21,12 +21,10 @@
     function setHeaderButton() {
         headerEl.innerHTML = '<div class="header-inner">Get an amazing<br>discount</div>'
             + '<button class="buy-button header-inner" type="button">BUY NOW</button>';
-        console.log('setted button');
     }
 
     function setHeaderLogo() {
         headerEl.innerHTML = '<div class="header-inner">LOGO</div>';
-        console.log('setted logo');
     }
 
     function showHeader() {
@@ -68,7 +66,6 @@
             throttleTime(100),
             map((e) => e.currentTarget.scrollTop),
             filter((e) => e <= 1),
-            tap((e) => console.log(e)),
         )
         .subscribe(() => resetHeader());
 }());
