@@ -69,21 +69,21 @@ body {
 @keyframes showHeader {
 
   0% {
-    top: -100px;
+    transform: translate(-50%, -100px);
   }
 
   100% {
-    top: 0;
+    transform: translate(-50%, 0);
   }
 }
 
 @keyframes hideHeader {
 
   0% {
-    top: 0;
+    transform: translate(-50%, 0);
   }
 
   100% {
-    top: -100px;
+    transform: translate(-50%, -100px);
   }
 }
