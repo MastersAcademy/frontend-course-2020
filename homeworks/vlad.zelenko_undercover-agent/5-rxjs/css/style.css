@@ -42,6 +42,6 @@ body {
   background: #000;
 }
 
-.hide-header {
+.header--hidden {
   top: -100px;
 }
