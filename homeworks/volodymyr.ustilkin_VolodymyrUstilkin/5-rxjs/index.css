@@ -46,24 +46,20 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+  animation-direction: normal;
+  animation-iteration-count: 1;
 }
 
 .header-show {
   top: 0;
-  animation: showHeader;
-  animation-duration: 500ms;
-  animation-timing-function: ease;
-  animation-direction: normal;
-  animation-iteration-count: 1;
+  animation-name: showHeader;
 }
 
 .header-hide {
   top: -100px;
-  animation: hideHeader;
-  animation-duration: 500ms;
-  animation-timing-function: ease;
-  animation-direction: normal;
-  animation-iteration-count: 1;
+  animation-name: hideHeader;
 }
 
 @keyframes showHeader {
