@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+  background-color: #F4F7F6;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.wrapper {
+  background-color: #FFF;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: auto;
+}
+
+.main {
+  padding: 1em 0;
+}
+
+.main p {
+  padding-left: 1em;
+  padding-right: .5em;
+  margin-bottom: 1em;
+}
+
+.transition-0x-sec {
+  transition: all 200ms cubic-bezier(.165, .84, .44, 1);
+}
+
+.button {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* thanks to @Bohdan_Kasian for the "overflow: hidden" */
+
+.header-wrapper {
+  overflow: hidden;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+}
+
+.header-content {
+  height: 2.5rem;
+  font-weight: 600;
+  position: relative;
+  padding: 1rem;
+  background-color: #300000;
+  color: #FF4E4E;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-size: 2em;
+}
+
+.header-button {
+  background-color: #300000;
+  color: #FF4E4E;
+  border-color: #FF4E4E;
+}
+
+.offer-wrapper {
+  margin: 1em 0;
+}
+
+.offer {
+  background-color: #FF4E4E;
+  padding: 1em;
+  font-weight: 600;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.offer-button {
+  background-color: #FF4E4E;
+  color: #300000;
+  border-color: #300000;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #E6EAEA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF4E4E;
+}
+
+
+@media (min-width: 700px) {
+
+  .wrapper {
+    max-height: 640px;
+    width: 360px;
+    margin: auto;
+    -webkit-box-shadow: 0 8px 10px -8px rgba(0,0,0,.2);
+    box-shadow: 0 8px 10px -8px rgba(0,0,0,.1);
+  }
+}
