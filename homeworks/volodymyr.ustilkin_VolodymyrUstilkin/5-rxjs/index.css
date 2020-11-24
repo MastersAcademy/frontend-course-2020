@@ -37,11 +37,19 @@ body {
   margin: 0 auto;
 }
 
-.header-show {
+.buy-button {
+  width: 300px;
+  height: 50px;
+}
+
+.header-change {
   position: absolute;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.header-show {
+  top: 0;
   animation: showHeader;
   animation-duration: 500ms;
   animation-timing-function: ease;
@@ -49,16 +57,8 @@ body {
   animation-iteration-count: 1;
 }
 
-.buy-button {
-  width: 300px;
-  height: 50px;
-}
-
 .header-hide {
-  position: absolute;
   top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
   animation: hideHeader;
   animation-duration: 500ms;
   animation-timing-function: ease;

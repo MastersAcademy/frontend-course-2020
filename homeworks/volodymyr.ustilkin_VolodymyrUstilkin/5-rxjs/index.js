@@ -12,6 +12,7 @@
 
     const headerShowClass = 'header-show';
     const headerHideClass = 'header-hide';
+    const headerChangeClass = 'header-change';
 
     const headerEl = document.querySelector('[data-header]');
     const contentEl = document.querySelector('[data-main-container]');
@@ -30,17 +31,16 @@
 
     function showHeader() {
         headerEl.classList.remove(headerHideClass);
-        headerEl.classList.add(headerShowClass);
+        headerEl.classList.add(headerChangeClass, headerShowClass);
     }
 
     function hideHeader() {
         headerEl.classList.remove(headerShowClass);
-        headerEl.classList.add(headerHideClass);
+        headerEl.classList.add(headerChangeClass, headerHideClass);
     }
 
     function resetHeader() {
-        headerEl.classList.remove(headerHideClass);
-        headerEl.classList.remove(headerShowClass);
+        headerEl.classList.remove(headerHideClass, headerShowClass, headerChangeClass);
     }
 
     fromEvent(contentEl, 'scroll') // scroll up (show header)
