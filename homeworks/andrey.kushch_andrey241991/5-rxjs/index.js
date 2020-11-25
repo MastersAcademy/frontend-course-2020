@@ -1,14 +1,14 @@
 const { fromEvent } = window.rxjs;
 const { throttleTime, map, pairwise } = window.rxjs.operators;
 
-const headerElem = document.querySelector("[data-header]");
-const btnElem = document.querySelector("[data-btn]");
-const txtElem = document.querySelector("[data-text]");
+const headerElem = document.querySelector('[data-header]');
+const btnElem = document.querySelector('[data-btn]');
+const txtElem = document.querySelector('[data-text]');
 
 function createNewSubscription() {
-    headerElem.classList.add("header__active");
-    headerElem.classList.remove("header__not-active");
-    const subscription = fromEvent(window, "scroll")
+    headerElem.classList.add('header__active');
+    headerElem.classList.remove('header__not-active');
+    const subscription = fromEvent(window, 'scroll')
         .pipe(
             throttleTime(100),
             map((ev) => {
@@ -33,9 +33,9 @@ function createNewSubscription() {
 }
 
 function createSubscription() {
-    btnElem.style = "visibility: hidden;";
-    txtElem.style = "visibility: hidden;";
-    const subscription = fromEvent(window, "scroll")
+    btnElem.style = 'visibility: hidden;';
+    txtElem.style = 'visibility: hidden;';
+    const subscription = fromEvent(window, 'scroll')
         .pipe(
             throttleTime(100),
             map((ev) => {
@@ -58,17 +58,17 @@ function createSubscription() {
                 }
 
                 return undefined;
-            })
+            }),
         )
         .subscribe((show) => {
             if (show) {
-                headerElem.classList.add("header__active");
-                headerElem.classList.remove("header__not-active");
+                headerElem.classList.add('header__active');
+                headerElem.classList.remove('header__not-active');
             }
 
             if (show === false) {
-                headerElem.classList.add("header__not-active");
-                headerElem.classList.remove("header__active");
+                headerElem.classList.add('header__not-active');
+                headerElem.classList.remove('header__active');
             }
         });
 }
