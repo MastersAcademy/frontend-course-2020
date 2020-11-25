@@ -20,7 +20,7 @@ fromEvent(window, 'scroll')
             }
 
             return undefined;
-        })
+        }),
     )
     .subscribe((show) => {
         if (show) {
