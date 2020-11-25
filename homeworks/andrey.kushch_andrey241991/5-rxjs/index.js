@@ -14,12 +14,14 @@ function createNewSubscription() {
             map((ev) => {
                 if (ev.path[1].scrollY < window.outerHeight / 2) {
                     subscription.unsubscribe();
+                    /*eslint-disable */
                     createSubscription();
+                    /*eslint-disable */
                 }
                 return ev.path[1].scrollY;
             }),
             pairwise(),
-            map((v) => v[1] > v[0])
+            map((v) => v[1] > v[0]),
         )
         .subscribe((up) => {
             if (up) {
