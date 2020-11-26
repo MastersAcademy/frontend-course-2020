@@ -3,13 +3,15 @@ const cubeElement = document.querySelector('[data-cube]') as HTMLDivElement;
 const cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement;
 const keyElement = document.querySelector('[data-key]') as HTMLDivElement;
 const progressBarElement = document.querySelector('[data-progress-bar]') as HTMLDivElement;
+const startButtonElement = document.querySelector('[data-game-start-btn]') as HTMLButtonElement;
+const stopButtonElement = document.querySelector('[data-game-stop-btn]') as HTMLButtonElement;
+const restartButtonElement = document.querySelector('[data-game-restart-btn]') as HTMLButtonElement;
 
 class Game {
     private score: number = 100;
-    private currentKey: string = '';
     private interval: number = 2000;
-    private intervalId : number = 0;
-    private intervalEventDelay: number = 100;
+    private intervalId: number = null;
+    private intervalEventDelay: number = 10;
     private currentEventTime: number = 0;
 
     constructor(
@@ -19,39 +21,45 @@ class Game {
         private cubeElement: HTMLDivElement,
         private progressBarElement: HTMLDivElement,
     ) {
+        this.subscribeOnKeyPress();
     }
 
     start() {
-        this.subscribeOnKeyPress();
+        if (this.intervalId != null) {
+            return;
+        }
+
         this.startKeysInterval();
-        this.generateKey();
+        Game.generateKey();
     }
 
     private startKeysInterval() {
-        this.intervalId = window.setInterval(this.intervalEvent, this.intervalEventDelay, this);
+        this.intervalId = window.setInterval(Game.intervalEvent, this.intervalEventDelay, this);
     }
 
-    private intervalEvent(current : Game) {
+    stopKeysInterval() {
+        window.clearInterval(this.intervalId);
+        this.intervalId = null;
+    }
+
+    private static intervalEvent(current: Game) {
         current.currentEventTime += current.intervalEventDelay;
-        current.changeProgressBar();
+        current.updateProgressBar();
         if (current.currentEventTime > current.interval) {
-            current.addScore(current.generateNumber(-10, -15));
+            current.addScore(Game.generateNumber(-10, -15));
             current.resetEvent();
-            console.log('time failed');
         }
     }
 
-    private changeProgressBar() {
-        let maxSize : number = 200 / this.interval;
-        let step = this.interval / maxSize;
-        let size : number = 200;
-        this.progressBarElement.style.width = String(100 - this.currentEventTime/this.interval*100) +'%';
-        console.log(this.currentEventTime/this.interval);
-
+    private updateProgressBar() {
+        this.progressBarElement.style.width = String(100 - this.currentEventTime / this.interval * 100) + '%';
     }
 
     private setScore(score: number) {
-        this.scoreElement.innerHTML = score >= 0 ? '+' + score.toString() : score.toString();
+        this.scoreElement.innerHTML = score.toString();
+        let cubeSize: string = String(100 + score / 2) + 'px';
+        this.cubeElement.style.width = cubeSize;
+        this.cubeElement.style.height = cubeSize;
         if (score > 200) {
             alert('victory');
             this.restartGame();
@@ -62,25 +70,27 @@ class Game {
         }
     }
 
-    private restartGame() {
-        this.scoreElement.innerHTML = this.score.toString();
+    restartGame() {
+        this.stopKeysInterval();
+        this.setScore(this.score);
+        this.resetEvent();
         this.cubeScoreElement.innerHTML = '';
-        window.clearInterval(this.intervalId);
     }
 
     private setKey(key: string) {
         if (key.toUpperCase() === keyElement.innerHTML) {
-            let score: number = this.generateNumber(5, 10);
+            let score: number = Game.generateNumber(5, 10);
             this.addScore(score);
         } else {
-            this.addScore(this.generateNumber(-20, -25));;
+            this.addScore(Game.generateNumber(-20, -25));
         }
         this.resetEvent();
     }
 
     private resetEvent() {
         this.currentEventTime = 0;
-        this.generateKey();
+        this.updateProgressBar();
+        Game.generateKey();
     }
 
     private addScore(score: number) {
@@ -91,21 +101,25 @@ class Game {
     }
 
     private subscribeOnKeyPress() {
-        document.addEventListener('keypress', (event: KeyboardEvent) => {this.setKey(event.key)})
+        document.addEventListener('keypress', (event: KeyboardEvent) => {
+            this.setKey(event.key)
+        })
     }
 
-    private generateKey(): void {
-        let aCode :number = 'A'.charCodeAt(0);
-        let zCode :number = 'Z'.charCodeAt(0);
-        let generatedCode: number = this.generateNumber(aCode, zCode);
+    private static generateKey(): void {
+        let aCode: number = 'A'.charCodeAt(0);
+        let zCode: number = 'Z'.charCodeAt(0);
+        let generatedCode: number = Game.generateNumber(aCode, zCode);
         keyElement.innerHTML = String.fromCharCode(generatedCode);
     }
 
-    private generateNumber (min: number, max : number) : number {
+    private static generateNumber(min: number, max: number): number {
         return Math.floor(Math.random() * Math.floor(max - min)) + min;
     }
 }
 
 const game = new Game(scoreElement, cubeScoreElement, keyElement, cubeElement, progressBarElement);
 
-game.start();
+startButtonElement.addEventListener('click', () => game.start());
+stopButtonElement.addEventListener('click', () => game.stopKeysInterval());
+restartButtonElement.addEventListener('click', () => game.restartGame());
