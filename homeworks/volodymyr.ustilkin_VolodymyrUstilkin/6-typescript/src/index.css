@@ -54,8 +54,29 @@ section, div {
   align-items: center;
 }
 
-.progress-bar {
+.progress-bar-container {
+  width: 150px;
   height: 20px;
-  width: 50px;
+  border-color: #0A2BA1;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 50%;
   background-color: #0A2BA1;
+}
+
+.control-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+button {
+  width: 200px;
+  height: 50px;
 }

@@ -8,14 +8,24 @@
 </head>
 <body>
 <section class="score-container" data-score>100</section>
+
 <section class="red-cube-score-container">
     <div class="cube-score" data-cube-score>0</div>
     <div class="cube-score" style="background-color: #F00" data-cube></div>
     <div class="cube-score"></div>
 </section>
+
 <section class="key-container">
     <div class="key" data-key>KEY</div>
-    <div class="progress-bar"></div>
+    <div class="progress-bar-container">
+        <div class="progress-bar" data-progress-bar></div>
+    </div>
+</section>
+
+<section class="control-container">
+    <button type="button" data-game-start>START</button>
+    <button type="button" data-game-stop>STOP</button>
+    <button type="button" data-game-restart>RESTART</button>
 </section>
 </body>
 </html>
