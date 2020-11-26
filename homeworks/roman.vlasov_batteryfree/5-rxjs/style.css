@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: 700px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  margin-bottom: 5px;
+  background-color: #CCC;
+  transition: top .4s;
+}
+
+.headline {
+  margin-top: 10px;
+  margin-left: 25px;
+  font-size: 25px;
+}
+
+.header--hiden {
+  top: -55px;
+  transition: top .4s;
+}
+
+.text {
+  text-align: justify;
+  margin-top: 50px;
+}
