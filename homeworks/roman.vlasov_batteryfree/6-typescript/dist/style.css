@@ -1,0 +1,84 @@
+:root {
+  --cube-color: #CCC;
+  --progress: 0;
+  --content-cube: "";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+.score {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.cube-score {
+  font-size: 20px;
+  font-weight: 600;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cube-score:before {
+  content: var(--content-cube);
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.cube-score--opacity:before {
+  opacity: 1;
+}
+
+.cube-score:after {
+  content: "";
+  background-color: #F00;
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.cube {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cube-color);
+  width: 75px;
+  height: 75px;
+}
+
+.key {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #EEE;
+  width: 75px;
+}
+
+.progress-bar:before {
+  content: "";
+  height: 100%;
+  display: block;
+  margin: auto;
+  width: var(--progress);
+  background-color: #00F;
+}
