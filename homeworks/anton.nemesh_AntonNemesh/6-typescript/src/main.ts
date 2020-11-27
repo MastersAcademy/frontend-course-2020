@@ -12,12 +12,11 @@ class Game {
     private score: number = 100;
     private currentKey: string = '';
     private interval: number = 2000;
-    private intervalStatus: any;
-    private currentRun = this.startGame.bind(this);
+    private intervalStatus: NodeJS.Timeout;
 
     constructor(
         private keyElement: HTMLDivElement,
-        private scoreElement: HTMLHeadingElement,
+        private scoreElement: HTMLDivElement,
         private infoMessageElement: HTMLDivElement,
         private visionElement: HTMLDivElement,
         private loaderElement: HTMLDivElement,
@@ -25,11 +24,15 @@ class Game {
         private startButtonElement: HTMLDivElement,
         private restartButtonElement: HTMLDivElement,
         private stopButtonElement: HTMLDivElement,
-    ) {}
+
+    ) {
+        this.startGame = this.startGame.bind(this);
+        this.setKey = this.setKey.bind(this);
+    }
 
     start() {
         this.setKey();
-        this.intervalStatus = setInterval(this.setKey.bind(this), this.interval);
+        this.intervalStatus = setInterval(this.setKey, this.interval);
         this.infoMessageElement.classList.remove('finish');
         this.updateScore();
         this.resizeBlockVision();
@@ -52,7 +55,7 @@ class Game {
         this.stopButtonElement.setAttribute('disabled', 'true');
     }
 
-    private startGame(event: any) {
+    private startGame(event: KeyboardEvent) {
         this.currentKey = event.key;
         if (this.currentKey.toUpperCase() === this.keyElement.textContent.toUpperCase()) {
             this.addScore();
@@ -64,14 +67,14 @@ class Game {
         }
         this.updateScore();
         this.limitScoreGame();
-        window.removeEventListener('keydown', this.currentRun);
+        window.removeEventListener('keydown', this.startGame);
     }
 
     private finishGame(): void {
         clearInterval(this.intervalStatus);
         this.stopButtonElement.setAttribute('disabled', 'true');
         this.restartButtonElement.removeAttribute('disabled');
-        window.removeEventListener('keydown', this.currentRun);
+        window.removeEventListener('keydown', this.startGame);
     }
 
     private updateScore():void {
@@ -128,7 +131,7 @@ class Game {
         this.loader();
         const currentScore = this.score;
         this.keyElement.innerHTML = `&#00${Game.getRandomNumb(65, 90)}`;
-        window.addEventListener('keydown', this.currentRun);
+        window.addEventListener('keydown', this.startGame);
         setTimeout(() => {
             if (currentScore === this.score) {
                 this.removeScore();
@@ -143,18 +146,18 @@ class Game {
         setTimeout(() => this.blockKeyElement.classList.toggle(colorClass), 500);
     }
 
-    private loader():void {
-        let counter = 0;
-        let loader = this.loaderElement;
-        const percents = 100;
-        function progressLoader() {
-            counter++;
-            loader.style.width = counter + '%';
-            if( counter == percents ) {
-                clearInterval( timer );
-            }
+    private static progressLoader(counter: number, loader: HTMLDivElement, percents: number, timer: NodeJS.Timeout):void {
+        counter++;
+        loader.style.width = counter + '%';
+        if( counter == percents ) {
+            clearInterval( timer );
         }
-        let timer = setInterval( progressLoader, this.interval/percents );
+    }
+
+    private loader():void {
+        const percents = 100;
+        const timer = setInterval( Game.progressLoader, this.interval/percents );
+        Game.progressLoader(0, this.loaderElement, percents, timer);
     }
 }
 
