@@ -8,6 +8,7 @@ const resultElement = document.querySelector<HTMLDivElement>('[data-result]');
 class Game {
     private score: number = 100;
     private interval: number = 2000;
+    private scoreCurrent: number = 100;
 
     constructor(
         private scoreElement: HTMLHeadingElement,
@@ -26,8 +27,7 @@ class Game {
         let id: NodeJS.Timeout = setInterval(() => {
             Game.drawProgressBar();
             Game.randAZ();
-            const scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
-            if (scoreCurr === 200 || scoreCurr === 0) {
+            if (this.scoreCurrent > 200 || this.scoreCurrent < 0) {
                 clearInterval(id);
             }
         }, this.interval);
@@ -46,6 +46,7 @@ class Game {
     }
 
     private setScore(score: number) {
+        this.scoreCurrent = score;
         this.scoreElement.innerHTML = score.toString();
         if (score >= 200) this.stopGame('Победа', '200');
         if (score < 0) this.stopGame('Проигрыш', '0');
@@ -84,9 +85,8 @@ class Game {
     }
 
     private addScore(score: number) {
-        const scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
         this.cubeScoreElement.innerHTML = score.toString();
-        this.setScore(scoreCurr + score);
+        this.setScore(this.scoreCurrent + score);
     }
 
     private subscribeOnKeyPress() {
