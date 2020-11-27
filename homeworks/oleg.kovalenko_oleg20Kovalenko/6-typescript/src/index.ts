@@ -26,30 +26,30 @@ class Game {
   }
 
   start() {
-    this.startKeysInterval();
+    this.autoSaveInterval();
     this.subscribeOnKeyPress();
   }
 
-  private autoSaveInterval = setInterval( ()=>{
-    this.cubeScore.style.background = '#eee';
-    this.setChar();
-    this.setScore(this.score);
-    this.progressBar();
-  }, this.interval);
+    private startKeysInterval = setInterval(() => {
+        this.cubeScore.style.background = '#eee';
+        this.setChar();
+        this.setScore(this.score);
+        this.progressBar();
+    }, this.interval);
 
+    private autoSaveInterval() {
+        this.startKeysInterval
+    }
 
-  private startKeysInterval() {
-    this.autoSaveInterval
-  }
 
   private setScore(score: number) {
     if (score >= 200) {
         alert('player win');
-        clearInterval(this.autoSaveInterval);
+        clearInterval(this.startKeysInterval);
     }
     if (score <= 0) {
         alert('player lost');
-        clearInterval(this.autoSaveInterval);
+        clearInterval(this.startKeysInterval);
     }
   }
 
@@ -69,7 +69,8 @@ class Game {
             }
           }
         }
-  }
+    }
+
 
   private setKey(key: string) {
         let v = 0;
