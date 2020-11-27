@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://s2.googleusercontent.com/s2/favicons?domain=www.nasa.gov">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js" integrity="sha512-JnZPWAckMDks0CCIeGznqEo7ifmYK7VowHq/NVFlSXGkwxv4OBCJFy7nouOtJZmVldHo7FQLIdeWTI55yyZc4Q==" crossorigin="anonymous"></script>
+    <script src="./script.js" defer></script>
+    <title>NASA Pictures</title>
+</head>
+<body class="body">
+    <!-- Loader -->
+    <div class="loader hidden" data-loader>
+        <img src="./rocket.svg" alt="Rocket Animation">
+    </div>
+    <!-- Container -->
+    <div class="container">
+        <!-- Navigation -->
+        <div class="navigation-container slideOutDown" data-navigation>
+            <!-- Results nav -->
+            <span class="navigation-items" data-results-nav>
+                <h3 class="clickable" data-clickable-favorites>Favorites</h3>
+                <h3>&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</h3>
+                <h3 class="clickable" data-clickable-load>Load More</h3>
+            </span>
+            <!-- Favorites Nav -->
+            <span class="navigation-items hidden" data-favorites-nav>
+                <h3 class="clickable">Load more NASA images</h3>
+            </span>
+        </div>
+        <!-- Images container -->
+        <div class="images-container" data-images-container></div>
+    </div>
+    <!-- Save Confirmation -->
+    <div class="save-confirmed" data-save-confirmed hidden>
+        <h1>ADDED!</h1>
+    </div>
+</body>
+</html>
