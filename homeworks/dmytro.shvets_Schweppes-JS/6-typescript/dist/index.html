@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Typing Game</title>
+</head>
+<body class="body">
+    <div class="container">
+        <p class="notification" data-notification>Welcome to <br>the game!</p>
+        <h1 class="score h1" data-score>100</h1>
+        <div class="cube" data-cube></div>
+        <h1 class="cube-score h1" data-cube-score>0</h1>
+        <div class="key">
+            <h1 class="hidden-animated h1" data-key></h1>
+            <div class="progress-bar-top">
+                <div class="progress" data-progress-top></div>
+            </div>
+            <div class="progress-bar-left">
+                <div class="progress-side" data-progress-left></div>
+            </div>
+            <div class="progress-bar-right">
+                <div class="progress-side" data-progress-right></div>
+            </div>
+            <div class="progress-bar-bottom">
+                <div class="progress" data-progress-bottom></div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="button" data-start>Start</button>
+            <button class="button" data-new>New Game</button>
+            <button class="button" data-stop disabled>Stop</button>
+        </div>
+    </div>
+</body>
+</html>
