@@ -1,5 +1,4 @@
-.container,
-.buttonsGroup {
+.container {
   width: 960px;
   display: flex;
   flex-direction: column;
@@ -9,8 +8,11 @@
 }
 
 .buttonsGroup {
-  flex-direction: row;
-  margin-bottom: 30px;
+  width: 960px;
+  display: flex;
+  margin: 0 auto 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .blockKey {
