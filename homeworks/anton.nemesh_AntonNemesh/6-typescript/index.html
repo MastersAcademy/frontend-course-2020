@@ -7,14 +7,16 @@
     <script src="./dist/main.js" defer></script>
 </head>
 <body>
-    <button data-button-start>Start</button>
-    <button data-button-stop disabled="true">Stop</button>
-    <button data-button-restart disabled="true">Restart</button>
+    <header class="buttonsGroup">
+        <button data-button-start>Start</button>
+        <button data-button-stop disabled="true">Stop</button>
+        <button data-button-restart disabled="true">Restart</button>
+    </header>
     <main class="container">
         <h1 class="total-scores" data-total-scores></h1>
         <div class="blockInfo">
-            <h2 class="currentScore" data-current-score></h2>
             <div class="blockVision" data-vision></div>
+            <h2 class="currentScore" data-current-score></h2>
         </div>
         <div class="blockKey" data-block-key>
             <h1 data-key></h1>

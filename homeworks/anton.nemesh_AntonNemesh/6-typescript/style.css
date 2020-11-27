@@ -1,10 +1,16 @@
-.container {
+.container,
+.buttonsGroup {
   width: 960px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+}
+
+.buttonsGroup {
+  flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .blockKey {
@@ -19,8 +25,8 @@
 }
 
 .total-scores {
-  min-height: 50px;
-  font-size: 2.6em;
+  min-height: 60px;
+  font-size: 3em;
 }
 
 .blockVision {
@@ -82,4 +88,8 @@
 
 button {
   font-size: 1.5em;
+}
+
+.buttonsGroup {
+
 }
