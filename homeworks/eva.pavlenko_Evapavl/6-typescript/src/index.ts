@@ -26,8 +26,8 @@ class Game {
         let id: NodeJS.Timeout = setInterval(() => {
             Game.drawProgressBar();
             Game.randAZ();
-            let scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
-            if (scoreCurr == 200 || scoreCurr == 0) {
+            const scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
+            if (scoreCurr === 200 || scoreCurr === 0) {
                 clearInterval(id);
             }
         }, this.interval);
@@ -37,46 +37,48 @@ class Game {
         return barElement.classList.toggle('active-mybar');
     }
 
+    private stopGame(resultStr: string, resultNum: string) {
+        this.resultElement.innerHTML = resultStr;
+        this.scoreElement.innerHTML = resultNum;
+        this.cubeScoreElement.innerHTML = '0';
+        this.cubeElement.style.width = '100px';
+        this.cubeElement.style.height = '100px';
+    }
+
     private setScore(score: number) {
         this.scoreElement.innerHTML = score.toString();
+
         if (score >= 200) {
-            this.resultElement.innerHTML = 'Победа';
-            this.scoreElement.innerHTML = '200';
-            this.cubeScoreElement.innerHTML = '0';
-            this.cubeElement.style.width = '100px';
-            this.cubeElement.style.height = '100px';
+            this.stopGame('Победа', '200');
         }
         if (score < 0) {
-            this.resultElement.innerHTML = 'Проигрыш';
-            this.scoreElement.innerHTML = '0';
-            this.cubeScoreElement.innerHTML = '0';
-            this.cubeElement.style.width = '100px';
-            this.cubeElement.style.height = '100px';
+            this.stopGame('Проигрыш', '0');
         }
     }
 
     private static randAZ(): string {
-        let str: string = 'abcdefghijklmnopqrstuwvxyz';
+        const str: string = 'abcdefghijklmnopqrstuwvxyz';
         return keyElement.innerHTML = str.charAt(this.getRandomArbitrary(0, 25)).toUpperCase();
     }
 
     private setSizeCube(score: number, randomNum: number) {
-        let size = String(score + randomNum) + 'px';
+        const size = String(score + randomNum) + 'px';
         this.cubeElement.style.width = size;
         this.cubeElement.style.height = size;
     }
 
+    private setPlusMinusKeyAndSizeCube(num1: number, num2: number, dividNum: number) {
+        const randomNum: number = Game.getRandomArbitrary(num1, num2);
+        this.addScore(randomNum);
+        cubeScoreElement.style.display = 'block';
+        this.setSizeCube(this.score, randomNum / dividNum);
+    }
+
     private setKey(key: string) {
         if (key === keyElement.innerHTML) {
-            let randomNumPlus: number = Game.getRandomArbitrary(5, 10);
-            this.addScore(randomNumPlus);
-            cubeScoreElement.style.display = 'block';
-            this.setSizeCube(this.score, randomNumPlus / 4);
+            this.setPlusMinusKeyAndSizeCube(5, 10, 4);
         } else {
-            let randNumMinus: number = Game.getRandomArbitrary(-20, -25);
-            this.addScore(randNumMinus);
-            this.setSizeCube(this.score, randNumMinus / 8);
-            cubeScoreElement.style.display = 'block';
+            this.setPlusMinusKeyAndSizeCube(-20, -25, 8);
         }
     }
 
@@ -86,7 +88,7 @@ class Game {
     }
 
     private addScore(score: number) {
-        let scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
+        const scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
         this.cubeScoreElement.innerHTML = score.toString();
         this.setScore(scoreCurr + score);
     }
