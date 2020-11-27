@@ -8,12 +8,12 @@ class Game {
     private score: number = 100;
     private progressBarValue: number = 0;
     private currentKey: string = '';
-    private el: HTMLHeadingElement;
+    private el: HTMLElement;
     private elements: ElementsHTML;
     private timerProgressBar$: any;
     private timerKeysInterval$: any;
 
-    constructor(el: HTMLHeadingElement) {
+    constructor(el: HTMLElement) {
         this.el = el;
         this.setKey(this.getCurrentKey());
         this.findElements();
@@ -28,11 +28,11 @@ class Game {
 
     private findElements(): void {
         this.elements = {
-            scoreEl: this.el.querySelector<HTMLHeadingElement>('[data-score]'),
-            cubeScoreEl: this.el.querySelector<HTMLHeadingElement>('[data-cube-score]'),
-            cubeEl: this.el.querySelector<HTMLHeadingElement>('[data-cube]'),
-            keyEl: this.el.querySelector<HTMLHeadingElement>('[data-key]'),
-            progressBarEl: this.el.querySelector<HTMLHeadingElement>('[data-progress]'),
+            scoreEl: this.el.querySelector<HTMLParagraphElement>('[data-score]'),
+            cubeScoreEl: this.el.querySelector<HTMLDivElement>('[data-cube-score]'),
+            cubeEl: this.el.querySelector<HTMLDivElement>('[data-cube]'),
+            keyEl: this.el.querySelector<HTMLSpanElement>('[data-key]'),
+            progressBarEl: this.el.querySelector<HTMLDivElement>('[data-progress]'),
         };
     }
 
@@ -127,30 +127,30 @@ class Game {
         return score;
     }
 
-    static renderCubeColor(el: HTMLHeadingElement, color: string): void {
+    static renderCubeColor(el: HTMLElement, color: string): void {
         el.style.setProperty('--cube-color', color);
     }
 
-    static renderKeyEl(el: HTMLHeadingElement, currentKey: string): void {
+    static renderKeyEl(el: HTMLElement, currentKey: string): void {
         el.innerHTML = currentKey;
     }
 
-    static renderProgressBar(el: HTMLHeadingElement, value: number): void {
+    static renderProgressBar(el: HTMLElement, value: number): void {
         let progress: number = value;
         if (progress > 100) progress = 100;
         if (progress < 0) progress = 0;
         el.style.setProperty('--progress', `${progress}%`);
     }
 
-    static renderScore(el: HTMLHeadingElement, score: number): void {
+    static renderScore(el: HTMLElement, score: number): void {
         el.innerHTML = score.toString();
     }
 
-    static renderPointsReceived(el: HTMLHeadingElement, points: number): void {
+    static renderPointsReceived(el: HTMLElement, points: number): void {
         el.style.setProperty('--content-cube', points < 0 ? `"${points}"` : `"+${points}"`);
     }
 
-    static renderPointsReceivedVisible(el: HTMLHeadingElement, toggle: boolean): void {
+    static renderPointsReceivedVisible(el: HTMLElement, toggle: boolean): void {
         el.classList.toggle('cube-score--opacity', toggle);
     }
 }
