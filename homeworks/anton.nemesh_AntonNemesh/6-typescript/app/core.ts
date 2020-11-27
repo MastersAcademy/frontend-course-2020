@@ -152,11 +152,11 @@ class Game {
         function progressLoader() {
             counter++;
             loader.style.width = counter + '%';
-            if( counter == percents ) {
-                clearInterval( timer );
+            if(counter == percents) {
+                clearInterval(timer);
             }
         }
-        let timer = setInterval( progressLoader, this.interval/percents );
+        let timer = setInterval(progressLoader, this.interval/percents);
     }
 }
 

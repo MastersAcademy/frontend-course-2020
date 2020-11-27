@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/main.ts',
+    entry: './app/core.ts',
     module: {
         rules: [
             {
@@ -20,14 +20,13 @@ module.exports = {
         extensions: [ '.tsx', '.ts', '.js', '.css' ],
     },
     devServer: {
-        contentBase: path.resolve(__dirname, './'),
+        port: 8080,
+        contentBase: path.resolve(__dirname, 'dist'),
         clientLogLevel: 'error',
-        open: {
-            app: ['google-chrome', '--incognito', '--other-flag']
-        }
+        open: { app: ['google-chrome'] },
     },
     output: {
-        filename: 'main.js',
+        filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
     },
 };
