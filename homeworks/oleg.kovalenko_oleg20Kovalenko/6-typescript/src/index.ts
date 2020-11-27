@@ -54,20 +54,19 @@ class Game {
   }
 
   private progressBar() {
-    let i = 0;
-    if (i == 0) {
-        i = 1;
-        let width = 1;
-        let id = setInterval(frame, 10);
-        function frame() {
-            if (width >= 100) {
-              clearInterval(id);
-              i = 0;
-            } else {
-              width++;
-              myBar.style.width = width + "px";
-            }
-          }
+        this.frame()
+    }
+
+    private width = 1;
+
+    private id = setInterval(this.frame, 10);
+
+    private frame() {
+        if (this.width >= 100) {
+          clearInterval(this.id);
+        } else {
+          this.width++;
+          myBar.style.width = this.width + "px";
         }
     }
 
