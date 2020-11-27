@@ -47,13 +47,9 @@ class Game {
 
     private setScore(score: number) {
         this.scoreElement.innerHTML = score.toString();
+        if (score >= 200) this.stopGame('Победа', '200');
+        if (score < 0) this.stopGame('Проигрыш', '0');
 
-        if (score >= 200) {
-            this.stopGame('Победа', '200');
-        }
-        if (score < 0) {
-            this.stopGame('Проигрыш', '0');
-        }
     }
 
     private static randAZ(): string {
