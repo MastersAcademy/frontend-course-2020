@@ -1,10 +1,10 @@
-const scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement;
-const cubeElement = document.querySelector('[data-cube]') as HTMLDivElement;
-const cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement;
-const keyElement = document.querySelector('[data-key]') as HTMLDivElement;
-const progressBarElement = document.querySelector('[data-progress-bar]') as HTMLDivElement;
-const elemBar = document.querySelector('[data-my-bar]') as HTMLDivElement;
-const resultElement = document.querySelector('[data-result]') as HTMLDivElement;
+const scoreElement = document.querySelector<HTMLHeadingElement>('[data-score]');
+const cubeElement = document.querySelector<HTMLDivElement>('[data-cube]');
+const cubeScoreElement = document.querySelector<HTMLDivElement>('[data-cube-score]');
+const keyElement = document.querySelector<HTMLDivElement>('[data-key]');
+const progressBarElement = document.querySelector<HTMLDivElement>('[data-progress-bar]');
+const elemBar = document.querySelector<HTMLDivElement>('[data-my-bar]');
+const resultElement = document.querySelector<HTMLDivElement>('[data-result]');
 
 class Game {
     private score: number = 100;
