@@ -1,17 +1,16 @@
 .red-square {
-  background-color: rgb(255, 0, 0);
+  background-color: #EE0606;
   position: fixed;
   right: 49%;
   top: 33%;
 }
 
-input[data-key] {
+.key {
   position: fixed;
-  right: 41%;
-  top: 34%;
-  width: 60px;
-  height: 60px;
-  font-size: 30px;
+  right: 41.8%;
+  top: 34.7%;
+  font-size: 40px;
+  color: #020202
 }
 
 span[data-cube-score] {
