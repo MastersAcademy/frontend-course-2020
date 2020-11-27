@@ -72,7 +72,6 @@ class Game {
         if (this.score === 200) {
             scoreElement.innerText = 'You win!';
             clearInterval(this.timerId);
-            scoreElement.innerText;
             cubeScoreElement.innerText = '';
             keyElement.innerText = '';
         } else if (this.score <= 0) {
