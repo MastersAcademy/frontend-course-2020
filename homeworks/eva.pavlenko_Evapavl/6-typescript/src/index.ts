@@ -1,9 +1,8 @@
-const scoreElement = document.querySelector<HTMLHeadingElement>('[data-score]');
+const scoreElement = document.querySelector<HTMLDivElement>('[data-score]');
 const cubeElement = document.querySelector<HTMLDivElement>('[data-cube]');
 const cubeScoreElement = document.querySelector<HTMLDivElement>('[data-cube-score]');
 const keyElement = document.querySelector<HTMLDivElement>('[data-key]');
-const progressBarElement = document.querySelector<HTMLDivElement>('[data-progress-bar]');
-const elemBar = document.querySelector<HTMLDivElement>('[data-my-bar]');
+const barElement = document.querySelector<HTMLDivElement>('[data-my-bar]');
 const resultElement = document.querySelector<HTMLDivElement>('[data-result]');
 
 class Game {
@@ -16,8 +15,7 @@ class Game {
         private keyElement: HTMLDivElement,
         private cubeElement?: HTMLDivElement,
         private resultElement?: HTMLDivElement,
-    ) {
-    }
+    ) {}
 
     start() {
         this.startKeysInterval();
@@ -25,7 +23,7 @@ class Game {
 
     private startKeysInterval() {
         this.subscribeOnKeyPress();
-          let id : NodeJS.Timeout  = setInterval(() => {
+        let id: NodeJS.Timeout = setInterval(() => {
             Game.drawProgressBar();
             Game.randAZ();
             let scoreCurr = Number.parseInt(this.scoreElement.innerHTML);
@@ -36,7 +34,7 @@ class Game {
     }
 
     private static drawProgressBar() {
-        return elemBar.classList.toggle('active_mybar');
+        return barElement.classList.toggle('active-mybar');
     }
 
     private setScore(score: number) {

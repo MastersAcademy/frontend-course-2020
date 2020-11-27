@@ -17,7 +17,7 @@ html, body {
   padding-top: 20px;
 }
 
-.cube_container {
+.cube-container {
   width: 100%;
   height: 300px;
   display: flex;
@@ -26,13 +26,13 @@ html, body {
   justify-content: center;
 }
 
-.cube_section {
+.cube-section {
   width: 33%;
   display: flex;
   align-items: center;
 }
 
-.cube_box {
+.cube-box {
   justify-content: center;
 }
 
@@ -44,16 +44,16 @@ html, body {
   justify-content: flex-start;
 }
 
-.cube_score_container {
+.cube-score-container {
   justify-content: flex-end;
 }
 
-.cube_score {
+.cube-score {
   width: 30%;
   justify-content: flex-start;
 }
 
-.key_box {
+.key-box {
   width: 100%;
   height: 100%;
   display: flex;
@@ -72,21 +72,21 @@ html, body {
   align-items: center;
 }
 
-.my_progress {
+.my-progress {
   display: flex;
   flex-direction: row;
   width: 100px;
   height: 30px;
 }
 
-.my_bar {
+.my-bar {
   width: 10%;
   background-color: #1373E7;
   height: 100%;
   transition: width 2s;
 }
 
-.active_mybar {
+.active-mybar {
   width: 100%;
 }
 
