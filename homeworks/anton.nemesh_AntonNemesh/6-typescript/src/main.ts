@@ -30,7 +30,7 @@ class Game {
         this.setKey = this.setKey.bind(this);
     }
 
-    start() {
+    start(): void {
         this.setKey();
         this.intervalStatus = setInterval(this.setKey, this.interval);
         this.infoMessageElement.classList.remove('finish');
@@ -41,12 +41,12 @@ class Game {
         this.stopButtonElement.removeAttribute('disabled');
     }
 
-    restart() {
+    restart(): void {
         this.score = 100;
         this.start();
     }
 
-    stop() {
+    stop(): void {
         this.updateScore();
         this.resizeBlockVision();
         this.finishGame();
@@ -55,7 +55,7 @@ class Game {
         this.stopButtonElement.setAttribute('disabled', 'true');
     }
 
-    private startGame(event: KeyboardEvent) {
+    private startGame(event: KeyboardEvent): void {
         this.currentKey = event.key;
         if (this.currentKey.toUpperCase() === this.keyElement.textContent.toUpperCase()) {
             this.addScore();
@@ -77,16 +77,16 @@ class Game {
         window.removeEventListener('keydown', this.startGame);
     }
 
-    private updateScore():void {
+    private updateScore(): void {
         this.scoreElement.innerHTML = String(this.score);
     }
 
-    private resizeBlockVision() {
+    private resizeBlockVision(): void {
         this.visionElement.style.height = String(this.score + 'px');
         this.visionElement.style.width = String(this.score + 'px');
     }
 
-    private showMessage(messageText: string, finishMessage: boolean):void {
+    private showMessage(messageText: string, finishMessage: boolean): void {
         this.infoMessageElement.textContent = messageText;
         if (finishMessage) {
             this.startButtonElement.setAttribute('disabled', 'true');
@@ -103,21 +103,21 @@ class Game {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    private addScore():void {
+    private addScore(): void {
         const randomScore = Game.getRandomNumb(5, 10);
         this.score = this.score + randomScore;
         this.showMessage(`+${String(randomScore)}`, false);
         this.resizeBlockVision();
     }
 
-    private removeScore():void {
+    private removeScore(): void {
         const randomScore = Game.getRandomNumb(20, 25);
         this.score = this.score - randomScore;
         this.showMessage(`-${String(randomScore)}`, false);
         this.resizeBlockVision();
     }
 
-    private limitScoreGame():void {
+    private limitScoreGame(): void {
         if (this.score >= 200) {
             this.finishGame();
             this.showMessage('You are \n winner!', true);
@@ -127,7 +127,7 @@ class Game {
         }
     }
 
-    private setKey():void {
+    private setKey(): void {
         this.loader();
         const currentScore = this.score;
         this.keyElement.innerHTML = `&#00${Game.getRandomNumb(65, 90)}`;
@@ -141,12 +141,12 @@ class Game {
         }, this.interval - 10)
     }
 
-    private changeColorBlockKey(colorClass: string) {
+    private changeColorBlockKey(colorClass: string): void {
         this.blockKeyElement.classList.toggle(colorClass);
         setTimeout(() => this.blockKeyElement.classList.toggle(colorClass), 500);
     }
 
-    private static progressLoader(counter: number, loader: HTMLDivElement, percents: number, timer: NodeJS.Timeout):void {
+    private static progressLoader(counter: number, loader: HTMLDivElement, percents: number, timer: NodeJS.Timeout): void {
         counter++;
         loader.style.width = counter + '%';
         if( counter == percents ) {
@@ -154,7 +154,7 @@ class Game {
         }
     }
 
-    private loader():void {
+    private loader(): void {
         const percents = 100;
         const timer = setInterval( Game.progressLoader, this.interval/percents );
         Game.progressLoader(0, this.loaderElement, percents, timer);
