@@ -127,7 +127,7 @@ class Game {
     private setKey():void {
         this.loader();
         const currentScore = this.score;
-        this.keyElement.innerHTML = `&#00${Game.getRandomNumb(66, 91)}`;
+        this.keyElement.innerHTML = `&#00${Game.getRandomNumb(65, 90)}`;
         window.addEventListener('keydown', this.currentRun);
         setTimeout(() => {
             if (currentScore === this.score) {
