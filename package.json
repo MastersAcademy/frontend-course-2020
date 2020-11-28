@@ -53,6 +53,7 @@
         "stylelint": "^13.7.1"
     },
     "devDependencies": {
+        "eslint-plugin-no-jquery": "^2.5.0",
         "husky": "^4.3.0",
         "jest": "^26.4.2"
     }
