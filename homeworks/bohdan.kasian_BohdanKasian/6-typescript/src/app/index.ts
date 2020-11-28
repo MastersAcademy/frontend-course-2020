@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
   const endBtnElement = document.querySelector('.end') as HTMLParagraphElement;
 
   class Game {
-    private startInterval!: NodeJS.Timeout;
+    private startInterval!: number;
 
     constructor(
       private score: number,
