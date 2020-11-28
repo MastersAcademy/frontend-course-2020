@@ -14,6 +14,7 @@ window.addEventListener('load', () => {
 
   class Game {
     // number because Node is an error (I attach a screen)
+    private letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     private startInterval!: number;
 
     constructor(
@@ -36,7 +37,7 @@ window.addEventListener('load', () => {
       this.startInterval = setInterval(() => this.startKeysInterval(), this.interval);
 
       window.addEventListener('keydown', (e: KeyboardEvent) => {
-        this.currentKeyPress = e.key.charCodeAt(0);
+        this.currentKeyPress = e.key.toUpperCase().charCodeAt(0);
 
         this.subscribeOnKeyPress();
       });
@@ -50,7 +51,7 @@ window.addEventListener('load', () => {
     private startKeysInterval = () => {
       let counterProgress: number = 0;
       let keyToPress: number = this.currentKeyPress;
-      const currentKeyRandom: string = Math.random().toString(36).substr(3, 1);
+      const currentKeyRandom: string = this.letters[Math.floor(Math.random() * this.letters.length)].toUpperCase();
 
       this.progressBarElement.style.width = '0%';
       this.keyElement.innerText = currentKeyRandom;
