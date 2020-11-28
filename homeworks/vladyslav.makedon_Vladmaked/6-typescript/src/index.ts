@@ -111,7 +111,7 @@ class Game {
   }
 
   private static getRandomAddScore(): number {
-    return Math.floor((Math.random() * 5) + 25);
+    return Math.floor((Math.random() * 5) + 5);
   }
 
   private static getRandomDecreaseScore(): number {
