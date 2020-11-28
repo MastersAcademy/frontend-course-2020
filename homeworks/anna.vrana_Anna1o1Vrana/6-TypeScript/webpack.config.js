@@ -1,12 +1,12 @@
 const path = require('path');
 
 module.exports = {
+    entry: './src/scripts/index.ts',
     mode: "production",
     devtool: "source-map",
     resolve: {
         extensions: [".ts"]
     },
-    // entry: './src/index.ts',
     module: {
         rules: [
             {
@@ -20,9 +20,6 @@ module.exports = {
             }
         ]
     },
-//     resolve: {
-//         extensions: ['.tsx', '.ts', '.js'],
-//     },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
