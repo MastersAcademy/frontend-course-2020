@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 const merge = require('webpack-merge');
 
 const common = require('./webpack.config.js');
