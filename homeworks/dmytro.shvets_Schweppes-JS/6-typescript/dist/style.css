@@ -52,7 +52,6 @@ body {
     border: 1px solid rgba(138, 182, 88, 0.8);
     border-radius: 3px;
     background-color: rgba(139, 69, 19, 0.5);
-    transition: all 1s;
 }
 
 .cube-score {

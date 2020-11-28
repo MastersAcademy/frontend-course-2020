@@ -16,21 +16,21 @@ const newGameBtn = document.querySelector('[data-new]') as HTMLButtonElement;
 
 class Game {
     // main game variables
+    private score: number = 100;
     private interval: number = 2000;
     private animationInterval: number = 480;
     private characters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     private charactersLength: number = this.characters.length;
     // timers for animation
-    private textTimer: any;
+    private timerBottom: any;
     private animationTimer: any;
     private timerRight: any;
     private timerTop: any;
     private timerleft: any;
-    
     private disableAnimation: any;
+
     private randomCharacters: string = '';
     private isKeyPress: boolean = false;
-
 
     constructor (
         private scoreElement: HTMLHeadingElement,
@@ -41,48 +41,17 @@ class Game {
         private progressLeft: HTMLDivElement,
         private progressTop: HTMLDivElement,
         private progressRight: HTMLDivElement,
+        private startBtn: HTMLButtonElement,
+        private stoptBtn: HTMLButtonElement,
     ) {}
 
-    start() {
-        this.textAnimate();
-        this.cyclProgressAnimation();
-        document.addEventListener('keydown', this.submitting.bind(this));
-        notification.textContent = '';
-    }
-
-    stopGame() {
-        keyElement.textContent = '';
-        notification.textContent = '';
-        this.stopAnimation();
-        this.stoppingTimers();
-        document.removeEventListener('keydown', this.submitting.bind(this));
-    }
-
-    restart() {
-        scoreElement.textContent = '100';
-        cubeScoreElement.textContent = '0';
-        cubeElement.style.width = `100px`;
-        cubeElement.style.height = `100px`;
-        this.stopGame();
-    }
-
-    // start text animation
-    textAnimate() {
-        this.textTimer = setTimeout(() => {
-            notification.textContent = '1';
-        }, 500);
-        this.textTimer = setTimeout(() => {
-            notification.textContent = '2';
-        }, 1000);
-        this.textTimer = setTimeout(() => {
-            notification.textContent = '3';
-        }, 1500);
-        this.textTimer = setTimeout(() => {
-            notification.textContent = 'Start typing!';
-        }, 2000);
-        this.textTimer = setTimeout(() => {
-            notification.textContent = '';
-        }, 3000);
+    // start text counting
+    counting() {
+        setTimeout(() => notification.textContent = '1', 500);
+        setTimeout(() => notification.textContent = '2', 1000);
+        setTimeout(() => notification.textContent = '3', 1500);
+        setTimeout(() => notification.textContent = 'Start typing!', 2000);
+        setTimeout(() => notification.textContent = '', 3000);
     }
 
     // perform animation every 2 seconds
@@ -101,13 +70,17 @@ class Game {
 
     // checking current score
     private checkingScore(currentScore: number) {
-        if (currentScore > 200) {
+        if (currentScore >= 200) {
             this.stopGame();
-            scoreElement.textContent = 'You Win!'
-        } else if (currentScore < 0) {
+            scoreElement.textContent = 'You Win!';
+            startBtn.disabled = true;
+            stopBtn.disabled = true;
+        } else if (currentScore <= 0) {
             this.stopGame();
-            scoreElement.textContent = 'You Lose!'
-        }
+            scoreElement.textContent = 'You Lose!';
+            startBtn.disabled = true;
+            stopBtn.disabled = true;
+        } else this.restartCycle();
     }
 
     // setting random point and change cube size
@@ -118,14 +91,14 @@ class Game {
             const min: number = 5;
             const max: number = 10;
             const point: number = Math.floor((Math.random() * (max - min + 1)) + min);
+            // changing cube size 
+            this.score = this.score + point;
+            cubeElement.style.width = `${this.score}px`;
+            cubeElement.style.height = `${this.score}px`;
             // inserting this amount in DOM
             cubeScoreElement.textContent = `+${point}`;
-            const totalScore: number = parseInt(scoreElement.textContent!);
-            scoreElement.textContent = `${totalScore + point}`;
-            // changing cube size 
-            const cubeSize: number = parseInt(getComputedStyle(cubeElement,).width);
-            cubeElement.style.width = `${cubeSize + point}px`;
-            cubeElement.style.height = `${cubeSize + point}px`;
+            scoreElement.textContent = `${this.score}`;
+            this.checkingScore(this.score);
         // if fail to press
         } else {
             // generate random number between min and max
@@ -139,17 +112,15 @@ class Game {
                 max = 15;
             }
             const point: number = Math.floor((Math.random() * (max - min + 1)) + min);
+            // changing cube size 
+            this.score = this.score - point;
+            cubeElement.style.width = `${this.score}px`;
+            cubeElement.style.height = `${this.score}px`;
+            this.isKeyPress = false;
             // inserting this amount in DOM
             cubeScoreElement.textContent = `-${point}`;
-            const totalScore: number = parseInt(scoreElement.textContent!);
-            scoreElement.textContent = `${totalScore - point}`;
-            // changing cube size 
-            const cubeSize: number = parseInt(getComputedStyle(cubeElement,).width);
-            const pointSum: number = cubeSize - point;
-            cubeElement.style.width = `${pointSum}px`;
-            cubeElement.style.height = `${pointSum}px`;
-            this.checkingScore(pointSum);
-            this.isKeyPress = false;
+            scoreElement.textContent = `${this.score}`;
+            this.checkingScore(this.score);
         }
     }
 
@@ -181,49 +152,18 @@ class Game {
         // ganerate characters every two second
         this.generateLetter();
         // start progress bar animations with deley for each / bottom line
-        new Promise((resolve: (value?: any) => void, reject: (reason?: any) => void): void => {
-                progressBottom.style.width = '100%';
-            resolve();
-        })
-        // left line
-        .then(() => {
-            return new Promise((resolve: (value?: any) => void, reject: (reason?: any) => void): void => {
-                this.timerleft = setTimeout(() => {
-                    progressLeft.style.height = '100%';
-                    resolve();
-                }, this.animationInterval);
-            });
-        })
-        // top line
-        .then(() => {
-            return new Promise((resolve: (value?: any) => void, reject: (reason?: any) => void): void => {
-                this.timerTop = setTimeout(() => {
-                    progressTop.style.width = '100%';
-                    resolve();
-                }, this.animationInterval);
-            });
-        })
-        // right line
-        .then(() => {
-            return new Promise((resolve: (value?: any) => void, reject: (reason?: any) => void): void => {
-                this.timerRight = setTimeout(() => {
-                    keyElement.classList.replace('animated-onPress', 'hidden-animated');
-                    keyElement.classList.replace('animated', 'hidden-animated');
-                    progressRight.style.height = '100%';
-                    resolve();
-                }, this.animationInterval);
-            });
-        })
-        // disable animation
-        .then(() => {
-            return new Promise((resolve: (value?: any) => void, reject: (reason?: any) => void): void => {
-                this.disableAnimation = setTimeout(() => {
-                    this.stopAnimation();
-                    this.ganeratePoint(false);
-                    resolve();
-                }, this.animationInterval);
-            });
-        })
+        this.timerBottom = setTimeout(() => progressBottom.style.width = '100%', 50);
+        this.timerleft = setTimeout(() => progressLeft.style.height = '100%', 480);
+        this.timerTop = setTimeout(() => progressTop.style.width = '100%', 960);
+        this.timerRight = setTimeout(() => {
+            progressRight.style.height = '100%';
+            keyElement.classList.replace('animated-onPress', 'hidden-animated');
+            keyElement.classList.replace('animated', 'hidden-animated');
+        }, 1440);
+        this.disableAnimation = setTimeout(() => {
+            this.stopAnimation();
+            this.ganeratePoint(false);
+        }, 1920);
     }
 
     // cleat all timer to start new cicl animation or stop the game
@@ -233,6 +173,7 @@ class Game {
         clearInterval(this.timerRight);
         clearInterval(this.timerTop);
         clearInterval(this.timerleft);
+        clearInterval(this.timerBottom);
     }
 
     // restart cycle of animation whe key pressed
@@ -254,18 +195,41 @@ class Game {
     }
 
     // identify the key that was pressed
-    private submitting(e: any) {
+    private submitting = (e: any) => {
         const pressedKey: string = e.key;
         const showedCharacters: string = this.randomCharacters.toLocaleLowerCase();
         if (pressedKey === showedCharacters) {
-            this.restartCycle();
             this.ganeratePoint(true);
         }
         else {
             this.isKeyPress = true;
-            this.restartCycle();
             this.ganeratePoint(false);
         }
+    }
+
+    start() {
+        this.counting();
+        this.cyclProgressAnimation();
+        notification.textContent = '';
+        document.addEventListener('keypress', this.submitting);
+    }
+
+    stopGame() {
+        keyElement.textContent = '';
+        notification.textContent = '';
+        this.stoppingTimers();
+        progressBottom.style.width = '0';
+        this.stopAnimation();
+        document.removeEventListener('keypress', this.submitting);
+    }
+
+    restart() {
+        this.score = 100;
+        scoreElement.textContent = '100';
+        cubeScoreElement.textContent = '0';
+        cubeElement.style.width = `100px`;
+        cubeElement.style.height = `100px`;
+        this.stopGame();
     }
 }
 
@@ -277,7 +241,9 @@ const game = new Game(
     progressBottom,
     progressLeft,
     progressTop,
-    progressRight
+    progressRight,
+    startBtn,
+    stopBtn
 );
 
 function start() {
