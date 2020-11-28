@@ -1,0 +1,82 @@
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(#E4EAA9, #B8D460);
+}
+
+.container {
+  background: #FFF;
+  padding: 20px 100px;
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.gamester-wrapper {
+  margin: 30px auto;
+}
+
+.result {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.gamester-cube {
+  margin: 0 auto;
+  width: 7em;
+  height: 7em;
+  background-color: #DD5154;
+}
+
+.key-wrapper {
+  margin: 80px auto 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.key-box {
+  margin: 0 auto;
+  width: 95px;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  background-color: #7ECE3A;
+}
+
+.progress-bar {
+  width: 95px;
+  background-color: #FFF;
+}
+
+.time-progress {
+  margin: 0 auto;
+  width: 1%;
+  height: 1em;
+  background-color: #0A6141;
+}
+
+.btn {
+  margin: 40px auto;
+  padding: 10px 35px;
+  display: block;
+  color: #FFF;
+  font-size: 17px;
+  font-family: "Calibri", "Roboto", sans-serif;
+  font-weight: 700;
+  background-color: #5B0;
+  border: 1px solid #5B0;
+  border-radius: 30px;
+}
+
+.btn:hover {
+  background-color: #DD8100;
+  border: 1px solid #DD8100;
+}
