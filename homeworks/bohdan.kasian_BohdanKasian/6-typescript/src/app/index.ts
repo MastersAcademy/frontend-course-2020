@@ -1,5 +1,4 @@
 // Your code
-import Timeout = NodeJS.Timeout;
 
 window.addEventListener('load', () => {
   const scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement;
@@ -14,7 +13,7 @@ window.addEventListener('load', () => {
   const endBtnElement = document.querySelector('.end') as HTMLParagraphElement;
 
   class Game {
-    private startInterval!: Timeout;
+    private startInterval: number;
 
     constructor(
       private score: number,
