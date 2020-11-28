@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Goldman', cursive;
 }
 
-body {
+.body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,6 +13,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
+    box-sizing: border-box;
+    font-family: 'Goldman', cursive;
 }
 
 .container {
@@ -36,6 +34,8 @@ body {
     text-align: center;
     line-height: 2.2rem;
     color: rgba(139, 19, 19, 0.671);
+    padding: 0;
+    margin: 0;
 }
 
 .score {
@@ -52,14 +52,18 @@ body {
     border: 1px solid rgba(138, 182, 88, 0.8);
     border-radius: 3px;
     background-color: rgba(139, 69, 19, 0.5);
+    transition: 0.4s all;
 }
 
 .cube-score {
     transform: translate(-135px, 30px);
 }
 
-.h1 {
+.title {
+    font-size: 2rem;
     opacity: 0.85;
+    padding: 0;
+    margin: 0;
 }
 
 .key {
@@ -93,14 +97,14 @@ body {
     }
 }
 
-.animated-onPress {
+.animated-on-press {
     opacity: 0;
-    animation: onPeress;
+    animation: on-press;
     animation-duration: .4s;
     animation-fill-mode: forwards;
 }
 
-@keyframes onPeress {
+@keyframes on-press {
 
     0% {
         opacity: 0;
@@ -191,6 +195,7 @@ body {
     border: none;
     border-radius: 2px;
     box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.5);
+    font-family: 'Goldman', cursive;
 }
 
 .button:active {
