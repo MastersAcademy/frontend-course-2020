@@ -89,18 +89,19 @@ window.addEventListener('load', () => {
     private subscribeOnKeyPress = () => {
       if (this.currentKey === this.currentKeyPress) {
         const randomAddScore: number = Math.floor(Math.random() * (10 - 5) + 5);
-
         clearInterval(this.startInterval);
         this.addScore(randomAddScore);
         // @ts-ignore need to build a project
         this.startInterval = setInterval(this.startKeysInterval, this.interval);
+        this.startKeysInterval();
+
       } else {
         const randomRemoveScore: number = Math.floor(Math.random() * (25 - 20) + 20);
-
         clearInterval(this.startInterval);
         this.removeScore(randomRemoveScore);
         // @ts-ignore need to build a project
         this.startInterval = setInterval(this.startKeysInterval, this.interval);
+        this.startKeysInterval();
       }
       this.endGame()
     };
