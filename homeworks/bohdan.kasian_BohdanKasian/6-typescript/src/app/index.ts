@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
   const endBtnElement = document.querySelector('.end') as HTMLParagraphElement;
 
   class Game {
+    // number because Node is an error (I attach a screen)
     private startInterval!: number;
 
     constructor(
@@ -31,6 +32,7 @@ window.addEventListener('load', () => {
     start() {
       this.endGameElem.innerText = '';
       this.scoreElement.innerText = String(this.score);
+      // @ts-ignore need to build a project
       this.startInterval = setInterval(() => this.startKeysInterval(), this.interval);
 
       window.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -90,12 +92,14 @@ window.addEventListener('load', () => {
 
         clearInterval(this.startInterval);
         this.addScore(randomAddScore);
+        // @ts-ignore need to build a project
         this.startInterval = setInterval(this.startKeysInterval, this.interval);
       } else {
         const randomRemoveScore: number = Math.floor(Math.random() * (25 - 20) + 20);
 
         clearInterval(this.startInterval);
         this.removeScore(randomRemoveScore);
+        // @ts-ignore need to build a project
         this.startInterval = setInterval(this.startKeysInterval, this.interval);
       }
       this.endGame()
