@@ -71,6 +71,7 @@ select {
 .select-arrow:hover {
   transform: rotate(180deg);
 }
+
 html {
   height: 100%;
 }
