@@ -230,7 +230,7 @@ class Game {
   }
 
   private resetScore(string: string) {
-    this.scoreElement.innerText = string;
+   return this.scoreElement.innerText = string;
   }
 }
 
