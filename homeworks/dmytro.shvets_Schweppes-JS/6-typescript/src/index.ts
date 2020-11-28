@@ -15,15 +15,18 @@ const stopBtn = document.querySelector('[data-stop]') as HTMLButtonElement;
 const newGameBtn = document.querySelector('[data-new]') as HTMLButtonElement;
 
 class Game {
-    private interval: number = 4000;
-    private animationInterval: number = 980;
+    // main game variables
+    private interval: number = 2000;
+    private animationInterval: number = 480;
     private characters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     private charactersLength: number = this.characters.length;
-
+    // timers for animation
+    private textTimer: any;
     private animationTimer: any;
     private timerRight: any;
     private timerTop: any;
     private timerleft: any;
+    
     private disableAnimation: any;
     private randomCharacters: string = '';
     private isKeyPress: boolean = false;
@@ -34,7 +37,6 @@ class Game {
         private cubeScoreElement: HTMLHeadingElement,
         private cubeElement: HTMLDivElement,
         private keyElement: HTMLDivElement,
-
         private progressBottom: HTMLDivElement,
         private progressLeft: HTMLDivElement,
         private progressTop: HTMLDivElement,
@@ -42,11 +44,7 @@ class Game {
     ) {}
 
     start() {
-        notification.textContent = 'Get ready!';
-        notification.textContent = '1';
-        notification.textContent = '2';
-        notification.textContent = '3';
-        notification.textContent = 'Start typing';
+        this.textAnimate();
         this.cyclProgressAnimation();
         document.addEventListener('keydown', this.submitting.bind(this));
         notification.textContent = '';
@@ -54,6 +52,7 @@ class Game {
 
     stopGame() {
         keyElement.textContent = '';
+        notification.textContent = '';
         this.stopAnimation();
         this.stoppingTimers();
         document.removeEventListener('keydown', this.submitting.bind(this));
@@ -62,15 +61,45 @@ class Game {
     restart() {
         scoreElement.textContent = '100';
         cubeScoreElement.textContent = '0';
+        cubeElement.style.width = `100px`;
+        cubeElement.style.height = `100px`;
         this.stopGame();
     }
 
+    // start text animation
+    textAnimate() {
+        this.textTimer = setTimeout(() => {
+            notification.textContent = '1';
+        }, 500);
+        this.textTimer = setTimeout(() => {
+            notification.textContent = '2';
+        }, 1000);
+        this.textTimer = setTimeout(() => {
+            notification.textContent = '3';
+        }, 1500);
+        this.textTimer = setTimeout(() => {
+            notification.textContent = 'Start typing!';
+        }, 2000);
+        this.textTimer = setTimeout(() => {
+            notification.textContent = '';
+        }, 3000);
+    }
+
+    // perform animation every 2 seconds
+    private cyclProgressAnimation() {
+        this.animationTimer = setInterval(() => {
+            this.startAnimation();
+        }, this.interval);
+    }
+
+    // getting random character
     private generateLetter() {
         const index: number = Math.floor((Math.random() * this.charactersLength) + 1);
         this.randomCharacters = this.characters[index - 1];
         keyElement.textContent = this.randomCharacters;
     }
 
+    // checking current score
     private checkingScore(currentScore: number) {
         if (currentScore > 200) {
             this.stopGame();
@@ -81,7 +110,7 @@ class Game {
         }
     }
 
-
+    // setting random point and change cube size
     private ganeratePoint(isCorrectKey: boolean) {
         // if pressed successfully
         if (isCorrectKey) {
@@ -99,9 +128,9 @@ class Game {
             cubeElement.style.height = `${cubeSize + point}px`;
         // if fail to press
         } else {
+            // generate random number between min and max
             let min: number;
             let max: number;
-            // generate random number
             if (this.isKeyPress) {
                 min = 20;
                 max = 25;
@@ -126,21 +155,22 @@ class Game {
 
     // stopping animation with little deley to apply styles correctly
     private stopAnimation() {
+        // set transition 0 second to disable smoothness
         progressBottom.style.transition = 'none';
         progressLeft.style.transition = 'none';
         progressTop.style.transition = 'none';
         progressRight.style.transition = 'none';
-
+        // return the progress line to the default position
         progressBottom.style.width = '0';
         progressLeft.style.height = '0';
         progressTop.style.width = '0';
         progressRight.style.height = '0';
-
+        // turn on smoothness
         setTimeout(() => {
-            progressBottom.style.transition = '.98s all linear';
-            progressLeft.style.transition = '.98s all linear';
-            progressTop.style.transition = '.98s all linear';
-            progressRight.style.transition = '.98s all linear';
+            progressBottom.style.transition = '.48s all linear';
+            progressLeft.style.transition = '.48s all linear';
+            progressTop.style.transition = '.48s all linear';
+            progressRight.style.transition = '.48s all linear';
         }, 40);
     }
 
@@ -196,12 +226,6 @@ class Game {
         })
     }
 
-    private cyclProgressAnimation() {
-        this.animationTimer = setInterval(() => {
-            this.startAnimation();
-        }, this.interval);
-    }
-
     // cleat all timer to start new cicl animation or stop the game
     private stoppingTimers() {
         clearInterval(this.disableAnimation);
@@ -211,14 +235,17 @@ class Game {
         clearInterval(this.timerleft);
     }
 
+    // restart cycle of animation whe key pressed
     private restartCycle() {
         keyElement.textContent = '';
+        // setting the same animation but with different animation name to correctly work
         if (keyElement.classList.contains('animated-onPress')) {
             keyElement.classList.replace('animated-onPress', 'animated');
         } else {
             keyElement.classList.replace('animated', 'animated-onPress');
         }
         this.stopAnimation();
+        // needed a little delay for all styles to be set in order and work correctly
         setTimeout(() => {
             this.stoppingTimers();
             this.startAnimation();
@@ -226,6 +253,7 @@ class Game {
         }, 50);
     }
 
+    // identify the key that was pressed
     private submitting(e: any) {
         const pressedKey: string = e.key;
         const showedCharacters: string = this.randomCharacters.toLocaleLowerCase();
@@ -255,11 +283,12 @@ const game = new Game(
 function start() {
     game.start();
     startBtn.disabled = true;
-    stopBtn.disabled = false;
+    setTimeout(() => stopBtn.disabled = false, 2000);
 }
 
 function stop() {
     startBtn.disabled = false;
+    stopBtn.disabled = true;
     game.stopGame();
 }
 
