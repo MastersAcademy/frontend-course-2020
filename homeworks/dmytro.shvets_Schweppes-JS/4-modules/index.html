@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://img.icons8.com/officel/16/000000/date-to.png">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./script.js" defer></script>
+  <title>Date information</title>
+</head>
+<body class="body">
+  <div class="container">
+    <div class="content">
+      <form  class="form" data-form>
+        <h4>Choose date</h4>
+        <input type="date" class="input" data-input>
+        <button class="button" type="submit" value="getFridays">Get month offridays</button>
+        <p>Fridays: <span data-amount-fridays></span></p>
+        <button class="button" type="submit" value="isLong">Is month long?</button>
+        <p data-is-long>Unknown</p>
+        <button class="button" type="submit" value="shortestWeek">How much days of shortest week in month?</button>
+        <p>Amount: <span data-size-week></span></p>
+        <button class="button" type="submit" value="fullWeeks">How much full weeks in month</button>
+        <p>Amount: <span data-weeks-amount></span></p>
+      </form>
+      <p></p>
+    </div>
+    <div class="content">
+      <h4>Choose time zone</h4>
+      <select class="select" data-select>
+        <option class="option" value="">Current</option>
+        <option class="option" value="9">Tokyo</option>
+        <option class="option" value="0">London</option>
+        <option class="option" value="-5">New York</option>
+      </select>
+      <p data-time>Time</p>
+    </div>
+  </div>
+</body>
+</html>

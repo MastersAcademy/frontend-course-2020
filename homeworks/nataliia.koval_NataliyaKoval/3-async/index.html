@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="preloader" data-preloader>
+        <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor"
+            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+          </path>
+        </svg>
+    </div>
+    
+    <div class="container" data-container>
+        <template data-template>
+            <li class="post" data-post>
+            <h2 data-title></h2>
+            <p data-text></p>
+            </li>
+        </template>
+    
+        <div class="sort-container">
+            <div class="filter">
+                <label for="filter-input">Filter: </label>
+                <input id="filter-input" type="text" class="filter" data-filter>
+            </div>
+
+            <div class="select">
+            <label for="sort-select">Sort by: </label>
+        
+            <form action="#">
+                <select data-select id="sort-select" class="sort-select">
+                    <option value="D" data-default>Default</option>
+                    <option value="A" data-az>A-Z</option>
+                    <option value="Z" data-za>Z-A</option>
+                </select>
+            </form>
+            </div>
+        </div>
+
+        <ul class="list" data-list></ul>
+
+    </div>
+</div>
+    <script src = "script.js"></script>
+</body>
+</html>
