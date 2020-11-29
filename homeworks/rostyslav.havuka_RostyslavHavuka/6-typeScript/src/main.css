@@ -13,14 +13,14 @@
   color: #020202
 }
 
-span[data-cube-score] {
+.cube-score {
   position: fixed;
   right: 41.5%;
   top: 28%;
   font-size: 30px;
 }
 
-span[data-score] {
+.score {
   position: fixed;
   right: 41.5%;
   top: 43%;
@@ -33,7 +33,7 @@ span[data-score] {
   top: 20%;
 }
 
-.myProgress {
+.progress-bar {
   width: 100%;
   max-width: 190px;
   position: fixed;
@@ -42,7 +42,7 @@ span[data-score] {
   background: #AECFBC;
 }
 
-.myBar {
+.progress-bar__value {
   width: 0%;
   height: 30px;
   background-color: #4CAF50;

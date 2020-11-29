@@ -31,23 +31,14 @@ class Game {
 
   start() {
     this.randomKeyInterval()
-
     this.subscribeOnKeyPress()
-
-    this.keyStart.addEventListener('click', (): void => {
-      this.subscribeOnKeyStartClick();
-    })
-
-    this.keyStop.addEventListener('click', (): void => {
-      this.subscribeOnKeyStopClick();
-    })
-
-    this.keyAgain.addEventListener('click', (): void => {
-      this.subscribeOnKeyAgainClick();
-    })
+    this.subscribeOnKeyStartClick();
+    this.subscribeOnKeyStopClick();
+    this.subscribeOnKeyAgainClick();
   }
 
   private subscribeOnKeyStartClick(): void {
+    this.keyStart.addEventListener('click', (): void => {
     if (this.gameState === false) {
       this.squareWidth = 1;
       this.progressBar();
@@ -61,9 +52,11 @@ class Game {
       }, 3000);
     }
     this.gameState = true;
+    })
   }
 
   private subscribeOnKeyStopClick(): void {
+    this.keyStop.addEventListener('click', (): void => {
     this.gameState = false;
     this.progressBarElement.classList.add('hidden');
     clearInterval(this.intervalStatusBarId);
@@ -74,8 +67,10 @@ class Game {
     this.score = 100;
     this.setCubeScore(this.score);
     this.resetScore('');
+    })
   }
   private subscribeOnKeyAgainClick(): void {
+    this.keyAgain.addEventListener('click', (): void => {
     if (this.gameState === true) {
       this.score = 100;
       this.squareWidth = 1;
@@ -91,12 +86,14 @@ class Game {
       }, 3000);
       this.gameState = true;
     }
+    })
   }
   private randomKeyInterval(): void {
     let possible: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-    for (var i = 0; i < 1; i++)
+    for (var i = 0; i < 1; i++) {
       this.currentKey = possible.charAt(Math.floor(Math.random() * possible.length));
-    keyElement.innerText = this.currentKey.toUpperCase();
+      this.keyElement.innerText = this.currentKey.toUpperCase();
+    }
   }
 
   private pressCorrectKey(): void {
@@ -155,14 +152,14 @@ class Game {
     let rndom: number = this.randomNumber(5, 10)
     this.score = this.score + rndom;
     this.setCubeScore(this.score);
-    scoreElement.innerText = `+${rndom}`;
+    this.scoreElement.innerText = `+${rndom}`;
   }
 
   private subScore(): void {
     let rndom: number = this.randomNumber(20, 25);
     this.score = this.score - rndom;
     this.setCubeScore(this.score);
-    scoreElement.innerText = `-${rndom}`;
+    this.scoreElement.innerText = `-${rndom}`;
   }
 
   private subScoreTimer(score: number): void {
@@ -170,7 +167,7 @@ class Game {
     this.score = this.score - rndom;
     this.finishGame();
     this.setCubeScore(this.score);
-    scoreElement.innerText = `-${rndom}`;
+    this.scoreElement.innerText = `-${rndom}`;
   }
 
   private subscribeOnKeyPress(): void {
@@ -208,7 +205,7 @@ class Game {
           this.timerProgressBar = 0;
         } else {
           this.squareWidth++;
-          progressBarElement.style.width = this.squareWidth + "%";
+          this.progressBarElement.style.width = this.squareWidth + "%";
         }
       }, 30);
     }
