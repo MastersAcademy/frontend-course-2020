@@ -1,13 +1,3 @@
-const scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement;
-const cubeElement = document.querySelector('[data-cube]') as HTMLDivElement;
-const cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement;
-const keyElement = document.querySelector('[data-key]') as HTMLInputElement;
-const progressBarElement = document.querySelector('[data-progress-bar]') as HTMLElement;
-const keyStart = document.querySelector('[data-key-start]') as HTMLButtonElement;
-const keyStop = document.querySelector('[data-key-stop]') as HTMLButtonElement;
-const keyAgain = document.querySelector('[data-key-again]') as HTMLButtonElement;
-const square = document.getElementById("box") as HTMLElement;
-
 class Game {
   private currentKey: string = '';
   private score: number = 100;
@@ -18,15 +8,14 @@ class Game {
   private squareWidth: number;
 
   constructor(
-    private scoreElement: HTMLHeadingElement,
-    private cubeScoreElement: HTMLDivElement,
-    private keyElement: HTMLInputElement,
-    private cubeElement?: HTMLDivElement,
-    private progressBarElement?: HTMLElement,
-    private square?: HTMLElement,
-    private keyStart?: HTMLButtonElement,
-    private keyStop?: HTMLButtonElement,
-    private keyAgain?: HTMLButtonElement
+    private scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement,
+    private cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement,
+    private keyElement = document.querySelector('[data-key]') as HTMLInputElement,
+    private progressBarElement = document.querySelector('[data-progress-bar]') as HTMLElement,
+    private keyStart = document.querySelector('[data-key-start]') as HTMLButtonElement,
+    private keyStop = document.querySelector('[data-key-stop]') as HTMLButtonElement,
+    private keyAgain = document.querySelector('[data-key-again]') as HTMLButtonElement,
+    private square = document.getElementById("box") as HTMLElement,
   ) { }
 
   start() {
@@ -39,53 +28,53 @@ class Game {
 
   private subscribeOnKeyStartClick(): void {
     this.keyStart.addEventListener('click', (): void => {
-    if (this.gameState === false) {
-      this.squareWidth = 1;
-      this.progressBar();
-      this.progressBarElement.classList.remove('hidden');
-      clearInterval(this.intervalId);
-      this.intervalId = setInterval(() => {
-        this.subScoreTimer(this.score);
-        this.sizeDown();
+      if (this.gameState === false) {
         this.squareWidth = 1;
         this.progressBar();
-      }, 3000);
-    }
-    this.gameState = true;
+        this.progressBarElement.classList.remove('hidden');
+        clearInterval(this.intervalId);
+        this.intervalId = setInterval(() => {
+          this.subScoreTimer(this.score);
+          this.sizeDown();
+          this.squareWidth = 1;
+          this.progressBar();
+        }, 3000);
+      }
+      this.gameState = true;
     })
   }
 
   private subscribeOnKeyStopClick(): void {
     this.keyStop.addEventListener('click', (): void => {
-    this.gameState = false;
-    this.progressBarElement.classList.add('hidden');
-    clearInterval(this.intervalStatusBarId);
-    this.timerProgressBar = 0;
-    this.squareWidth = 99;
-    clearInterval(this.intervalId);
-    alert('your Score:' + this.score);
-    this.score = 100;
-    this.setCubeScore(this.score);
-    this.resetScore('');
+      this.gameState = false;
+      this.progressBarElement.classList.add('hidden');
+      clearInterval(this.intervalStatusBarId);
+      this.timerProgressBar = 0;
+      this.squareWidth = 99;
+      clearInterval(this.intervalId);
+      alert('your Score:' + this.score);
+      this.score = 100;
+      this.setCubeScore(this.score);
+      this.resetScore('');
     })
   }
   private subscribeOnKeyAgainClick(): void {
     this.keyAgain.addEventListener('click', (): void => {
-    if (this.gameState === true) {
-      this.score = 100;
-      this.squareWidth = 1;
-      this.progressBar();
-      this.setCubeScore(this.score);
-      this.resetScore('');
-      clearInterval(this.intervalId);
-      this.intervalId = setInterval(() => {
-        this.subScoreTimer(this.score);
-        this.sizeDown();
+      if (this.gameState === true) {
+        this.score = 100;
         this.squareWidth = 1;
         this.progressBar();
-      }, 3000);
-      this.gameState = true;
-    }
+        this.setCubeScore(this.score);
+        this.resetScore('');
+        clearInterval(this.intervalId);
+        this.intervalId = setInterval(() => {
+          this.subScoreTimer(this.score);
+          this.sizeDown();
+          this.squareWidth = 1;
+          this.progressBar();
+        }, 3000);
+        this.gameState = true;
+      }
     })
   }
   private randomKeyInterval(): void {
@@ -127,7 +116,7 @@ class Game {
   }
 
   private setKey(key: string): void {
-    if (key === keyElement.textContent.toLowerCase()) {
+    if (key === this.keyElement.textContent.toLowerCase()) {
       this.pressCorrectKey();
     } else {
       this.pressUncorrectKey();
@@ -227,10 +216,10 @@ class Game {
   }
 
   private resetScore(string: string) {
-   return this.scoreElement.innerText = string;
+    return this.scoreElement.innerText = string;
   }
 }
 
-const game = new Game(scoreElement, cubeScoreElement, keyElement, cubeElement, progressBarElement, square, keyStart, keyStop, keyAgain);
+const game = new Game();
 
 game.start();
