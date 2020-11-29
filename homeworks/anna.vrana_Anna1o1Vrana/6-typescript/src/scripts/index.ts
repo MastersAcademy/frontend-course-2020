@@ -85,9 +85,11 @@ class Game {
         document.addEventListener('keypress', (event: KeyboardEvent) => {
         if (this.score >= 200) {
             containerElement.innerHTML = 'Congratulations!!! You awesome!!! ( ͡❛ ͜ʖ ͡❛)✌';
+            containerElement.classList.add('finish');
             this.isGameStarted = false;
         } else if (this.score <= 0) {
             containerElement.innerHTML ='You lose ( ͡❛ ͜ʖ ͡❛)';
+            containerElement.classList.add('finish');
             this.isGameStarted = false;
         } else {
             this.isGameStarted = true;
