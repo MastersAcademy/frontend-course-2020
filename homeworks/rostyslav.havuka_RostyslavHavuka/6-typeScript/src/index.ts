@@ -1,3 +1,11 @@
+const scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement;
+const cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement;
+const keyElement = document.querySelector('[data-key]') as HTMLInputElement;
+const progressBarElement = document.querySelector('[data-progress-bar]') as HTMLElement;
+const keyStart = document.querySelector('[data-key-start]') as HTMLButtonElement;
+const keyStop = document.querySelector('[data-key-stop]') as HTMLButtonElement;
+const keyAgain = document.querySelector('[data-key-again]') as HTMLButtonElement;
+const square = document.getElementById("box") as HTMLElement;
 
 class Game {
   private currentKey: string = '';
@@ -9,15 +17,14 @@ class Game {
   private squareWidth: number;
 
   constructor(
-    private scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement,
-    private cubeElement = document.querySelector('[data-cube]') as HTMLDivElement,
-    private cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement,
-    private keyElement = document.querySelector('[data-key]') as HTMLInputElement,
-    private progressBarElement = document.querySelector('[data-progress-bar]') as HTMLElement,
-    private keyStart = document.querySelector('[data-key-start]') as HTMLButtonElement,
-    private keyStop = document.querySelector('[data-key-stop]') as HTMLButtonElement,
-    private keyAgain = document.querySelector('[data-key-again]') as HTMLButtonElement,
-    private square = document.getElementById("box") as HTMLElement,
+    private scoreElement: HTMLHeadingElement,
+    private cubeScoreElement: HTMLDivElement,
+    private keyElement: HTMLInputElement,
+    private progressBarElement?: HTMLElement,
+    private square?: HTMLElement,
+    private keyStart?: HTMLButtonElement,
+    private keyStop?: HTMLButtonElement,
+    private keyAgain?: HTMLButtonElement
   ) { }
 
   start() {
@@ -227,6 +234,6 @@ class Game {
   }
 }
 
-const game = new Game();
+const game = new Game(scoreElement, cubeScoreElement, keyElement, progressBarElement, square, keyStart, keyStop, keyAgain);
 
 game.start();
