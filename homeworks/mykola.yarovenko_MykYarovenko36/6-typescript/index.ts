@@ -100,7 +100,7 @@ class Game {
         let currentPoints: number = Number(this.currentScore.innerText);
         let plusPoints: number = this.setPoints();
         this.plusScore.innerText = '+' + plusPoints;
-        if (currentPoints >= 300) {
+        if (currentPoints >= 200) {
             this.setGameMessage('You WIN!');
         } else {
             this.currentScore.innerText = `${currentPoints + plusPoints}`;
