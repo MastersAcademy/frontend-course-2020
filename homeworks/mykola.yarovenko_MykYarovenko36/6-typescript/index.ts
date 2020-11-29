@@ -13,6 +13,7 @@ class Game {
     private interval: number = 2000;
     private timeInterval: NodeJS.Timeout;
     private itemKeys: string[] = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'];
+    private inputKey: string;
 
     constructor(
         private playBtn: HTMLButtonElement,
@@ -69,6 +70,12 @@ class Game {
     private startKeysInterval() {
         this.timeInterval = setInterval((): void => {
             this.setKey(this.itemKeys);
+            this.inputKey = '';
+            setTimeout(():void => {
+                if (this.inputKey === '') {
+                    this.minusPoints();
+                }
+            }, 1900);
         }, this.interval);
         this.timerLoader.style.animation = '2s infinite slidein';
     }
@@ -78,13 +85,13 @@ class Game {
     }
 
     private setPoints():number {
-        return Math.floor(Math.random() * 10) + 2;
+        return Math.floor(Math.random() * 10) + 4;
     }
 
     private setGameMessage(text: string) {
         alert(text);
         this.gameStop();
-        setTimeout(() => {
+        setTimeout(():void => {
             this.scoreClear();
         }, 1000);
     }
@@ -93,12 +100,12 @@ class Game {
         let currentPoints: number = Number(this.currentScore.innerText);
         let plusPoints: number = this.setPoints();
         this.plusScore.innerText = '+' + plusPoints;
-        if (currentPoints >= 200) {
+        if (currentPoints >= 300) {
             this.setGameMessage('You WIN!');
         } else {
             this.currentScore.innerText = `${currentPoints + plusPoints}`;
         }
-        setTimeout(() => {
+        setTimeout(():void => {
             this.plusScore.innerText = '';
         }, 600);
     }
@@ -112,7 +119,7 @@ class Game {
         } else {
             this.currentScore.innerText = `${currentPoints - minusPoints}`;
         }
-        setTimeout(() => {
+        setTimeout(():void => {
             this.minusScore.innerText = '';
         }, 600);
     }
@@ -121,9 +128,11 @@ class Game {
         document.addEventListener('keyup', (e: KeyboardEvent) => {
             if (e.key.match(/[a-z]/i) && e.key.toUpperCase() === this.gameKey.innerText) {
                 this.plusPoints();
+                this.inputKey = e.key.toUpperCase();
             }
             if (e.key.toUpperCase() !== this.gameKey.innerText) {
                 this.minusPoints();
+                this.inputKey = '';
             }
         })
     }
@@ -132,6 +141,7 @@ class Game {
         this.desktopKeyboard.forEach((el): void => {
             el.addEventListener('click', (e): void => {
                 const targetEl = e.target as HTMLParagraphElement;
+                this.inputKey = targetEl.innerText;
                 if (targetEl.innerText === this.gameKey.innerText) {
                     this.plusPoints();
                 }
