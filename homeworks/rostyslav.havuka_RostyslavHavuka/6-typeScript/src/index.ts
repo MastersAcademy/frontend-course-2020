@@ -1,3 +1,4 @@
+
 class Game {
   private currentKey: string = '';
   private score: number = 100;
@@ -9,6 +10,7 @@ class Game {
 
   constructor(
     private scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement,
+    private cubeElement = document.querySelector('[data-cube]') as HTMLDivElement,
     private cubeScoreElement = document.querySelector('[data-cube-score]') as HTMLDivElement,
     private keyElement = document.querySelector('[data-key]') as HTMLInputElement,
     private progressBarElement = document.querySelector('[data-progress-bar]') as HTMLElement,
@@ -28,55 +30,60 @@ class Game {
 
   private subscribeOnKeyStartClick(): void {
     this.keyStart.addEventListener('click', (): void => {
-      if (this.gameState === false) {
+    if (this.gameState === false) {
+      this.squareWidth = 1;
+      this.progressBar();
+      this.progressBarElement.classList.remove('hidden');
+      clearInterval(this.intervalId);
+      this.intervalId = setInterval(() => {
+        this.subScoreTimer(this.score);
+        this.sizeDown();
         this.squareWidth = 1;
         this.progressBar();
-        this.progressBarElement.classList.remove('hidden');
-        clearInterval(this.intervalId);
-        this.intervalId = setInterval(() => {
-          this.subScoreTimer(this.score);
-          this.sizeDown();
-          this.squareWidth = 1;
-          this.progressBar();
-        }, 3000);
-      }
-      this.gameState = true;
+      }, 3000);
+    }
+    this.gameState = true;
     })
   }
 
   private subscribeOnKeyStopClick(): void {
     this.keyStop.addEventListener('click', (): void => {
-      this.gameState = false;
-      this.progressBarElement.classList.add('hidden');
-      clearInterval(this.intervalStatusBarId);
-      this.timerProgressBar = 0;
-      this.squareWidth = 99;
-      clearInterval(this.intervalId);
-      alert('your Score:' + this.score);
-      this.score = 100;
-      this.setCubeScore(this.score);
-      this.resetScore('');
+    this.gameState = false;
+    this.progressBarElement.classList.add('hidden');
+    clearInterval(this.intervalStatusBarId);
+    this.timerProgressBar = 0;
+    this.squareWidth = 99;
+    clearInterval(this.intervalId);
+    alert('your Score:' + this.score);
+    this.score = 100;
+    this.setCubeScore(this.score);
+    this.resetScore('');
     })
   }
   private subscribeOnKeyAgainClick(): void {
     this.keyAgain.addEventListener('click', (): void => {
-      if (this.gameState === true) {
-        this.score = 100;
-        this.squareWidth = 1;
-        this.progressBar();
-        this.setCubeScore(this.score);
-        this.resetScore('');
-        clearInterval(this.intervalId);
-        this.intervalId = setInterval(() => {
-          this.subScoreTimer(this.score);
-          this.sizeDown();
-          this.squareWidth = 1;
-          this.progressBar();
-        }, 3000);
-        this.gameState = true;
-      }
+    this.gameAgain()
     })
   }
+
+  private gameAgain(): void {
+    if (this.gameState === true) {
+      this.score = 100;
+      this.squareWidth = 1;
+      this.progressBar();
+      this.setCubeScore(this.score);
+      this.resetScore('');
+      clearInterval(this.intervalId);
+      this.intervalId = setInterval(() => {
+        this.subScoreTimer(this.score);
+        this.sizeDown();
+        this.squareWidth = 1;
+        this.progressBar();
+      }, 3000);
+      this.gameState = true;
+    }
+  }
+
   private randomKeyInterval(): void {
     let possible: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
     for (var i = 0; i < 1; i++) {
@@ -203,11 +210,11 @@ class Game {
   private finishGame(): void {
     if (this.score >= 200) {
       alert('You WON! Your Score: 200');
-      this.subscribeOnKeyAgainClick();
+      this.gameAgain();
     }
     if (this.score <= 0) {
       alert('Try Again! Your Score:0');
-      this.subscribeOnKeyAgainClick();
+      this.gameAgain();
     }
   }
 
@@ -216,7 +223,7 @@ class Game {
   }
 
   private resetScore(string: string) {
-    return this.scoreElement.innerText = string;
+   return this.scoreElement.innerText = string;
   }
 }
 
