@@ -12,6 +12,8 @@ const startButton = document.querySelector('[data-game="start"]') as HTMLButtonE
 const endButton = document.querySelector('[data-game="end"]') as HTMLButtonElement;
 const reloadButton = document.querySelector('[data-game="reload"]') as HTMLButtonElement;
 const timeElement = document.querySelector('[data-game="time"]') as HTMLDivElement;
+const paranjaElement = document.querySelector('[data-game="paranja"]') as HTMLDivElement;
+const resultElement = document.querySelector('[data-game="result"]') as HTMLParagraphElement;
 
 class Game {
     private score: number = 100;
@@ -19,8 +21,8 @@ class Game {
     private interval: number = 2000;
     private base : string[] = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'];
     private eventHappend :boolean = false;
-    private timerInterval : any = null;
-    private timerTime : any = null;
+    protected timerInterval : any = null;
+    protected timerTime : any = null;
 
     constructor(
         private scoreElement :HTMLHeadingElement,
@@ -33,7 +35,9 @@ class Game {
         private startButton :HTMLButtonElement,
         private endButton :HTMLButtonElement,
         private reloadButton :HTMLButtonElement,
-        private timeElement :HTMLDivElement,) {
+        private timeElement :HTMLDivElement,
+        private paranjaElement: HTMLDivElement,
+        private resultElement : HTMLParagraphElement,) {
     }
 
     protected start() :void{
@@ -63,10 +67,12 @@ class Game {
             const durationHandMAde = setTimeout(() => {
                 if (this.eventHappend || Number(this.scoreElement.textContent) === 0) {
                     clearTimeout(durationHandMAde);
-                    this.eventHappend = false;
                 } else {
                     this.setScore(this.getRandomInteger(10, 15), "subtract");
                 }
+
+                this.eventHappend = false;
+
             }, this.interval);
         }, this.interval);
     }
@@ -163,16 +169,16 @@ class Game {
     };
 
     protected getCssStyle(flag:string) :string {
-        let digitOfStyle : string = ''
+        let digitOfStyle : string = '';
 
         switch (flag) {
             case 'width':
-                let getElementCssWidth = window.getComputedStyle(this.cubeScoreElement);
+                const getElementCssWidth = window.getComputedStyle(this.cubeScoreElement);
                 const getWidthElement = getElementCssWidth.getPropertyValue("width");
                 digitOfStyle = getWidthElement.replace("px", "");
                 break;
             case 'height':
-                let getElementCssHeight = window.getComputedStyle(this.cubeScoreElement);
+                const getElementCssHeight = window.getComputedStyle(this.cubeScoreElement);
                 const getHeightElement = getElementCssHeight.getPropertyValue("height");
                 digitOfStyle = getHeightElement.replace("px", "");
                 break;
@@ -185,50 +191,61 @@ class Game {
 
     protected checkResult() :void {
         if (Number(this.scoreElement.textContent) <= 0) {
-            this.cubeElement.textContent = this.currentKey;
-            this.scoreElement.textContent = String(0);
-            console.log("You are lose!");
+            this.showResult(false);
             this.stopGame();
         } else if (Number(this.scoreElement.textContent) >= 200) {
-            console.log("You are win!");
+            this.showResult(true);
             this.stopGame();
         }
     }
 
-    protected eventListener() :void{
+    protected showResult(flag:boolean) :void{
+        if (flag) this.resultElement.textContent = 'You are win!';
+        else this.resultElement.textContent = 'You are lose!';
+        this.paranjaElement.classList.remove('hidden');
+
+    }
+
+    protected eventListener() :void {
+
         document.addEventListener("submit", (e) => {
             e.preventDefault();
         });
 
         document.addEventListener("keydown", (e) => {
+            if (this.eventHappend) return;
+
             if (e.code === this.addKeyWord(this.cubeElement.textContent)()) {
                 this.setScore(this.getRandomInteger(5, 10), "add");
                 this.keyElement.classList.add("green");
-                this.eventHappend = true;
-            } else {
-                this.setScore(this.getRandomInteger(20, 25), "subtract");
-                this.keyElement.classList.add("red");
-                this.eventHappend = true;
-            }
+                } else {
+                    this.setScore(this.getRandomInteger(20, 25), "subtract");
+                    this.keyElement.classList.add("red");
+                }
+
+            this.eventHappend = true;
+
         });
 
-        // document.addEventListener("click", (e) => {
-        //     if (!(e.target instanceof HTMLButtonElement)) {
-        //         return;
-        //     } else {
-        //         const attributes = e.target.dataset.game;
-        //         if (attributes === "start") this.startGame();
-        //         if (attributes === "end") this.stopGame();
-        //         if (attributes === "reload") this.reloadGame();
-        //     }
-        // });
+        document.addEventListener('click', (e) => {
+            if (!(e.target instanceof HTMLButtonElement)) {
+                return;
+            } else {
+                const attributes = e.target.dataset.game;
+                if (attributes === "close") this.close();
+            }
+        })
     }
 
     protected addKeyWord(keyboardKey:string | null) :any {
         const word = "Key";
-        return function () :string{
+        return function () :string {
             return word + keyboardKey;
         };
+    }
+
+    protected close() :void{
+        this.paranjaElement.classList.add('hidden');
     }
 
     public startGame() :void {
@@ -242,10 +259,10 @@ class Game {
         this.startButton.removeAttribute("disabled");
         this.endButton.setAttribute("disabled", "true");
         this.reloadButton.removeAttribute("disabled");
-        this.cubeElement.textContent = this.currentKey;
-        this.scoreElement.textContent = String(0);
         clearInterval(this.timerInterval);
         clearInterval(this.timerTime);
+        this.cubeElement.textContent = this.currentKey;
+        this.scoreElement.textContent = '';
     }
 
     public reloadGame() :void {
@@ -258,7 +275,7 @@ class Game {
 
 }
 
-const game = new Game(scoreElement ,cubeScoreElement, keyElement, cubeElement ,progressBarLeftElement, progressBarRightElement ,cubeResultElement ,startButton ,endButton ,reloadButton ,timeElement);
+const game = new Game(scoreElement ,cubeScoreElement, keyElement, cubeElement ,progressBarLeftElement, progressBarRightElement ,cubeResultElement ,startButton ,endButton ,reloadButton ,timeElement,paranjaElement,resultElement);
 
 startButton.addEventListener('click', (e)=> {
     game.startGame()
