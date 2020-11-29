@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
 
 * {
+    box-sizing: border-box;
 }
 
 .body {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +15,6 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
-    box-sizing: border-box;
     font-family: 'Goldman', cursive;
 }
 
