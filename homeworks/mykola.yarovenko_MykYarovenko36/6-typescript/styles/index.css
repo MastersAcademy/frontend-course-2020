@@ -106,6 +106,7 @@ body {
 
 .score__current-points {
   color: rgb(57, 145, 172);
+  border-radius: 5px;
 }
 
 .score__minus-points {
