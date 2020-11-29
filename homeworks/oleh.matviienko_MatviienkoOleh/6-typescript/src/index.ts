@@ -1,20 +1,19 @@
 const randomSymbol = document.getElementById('randomSymbol') as HTMLDivElement;
-const randomInt = document.getElementById('ranodomInt') as HTMLDivElement;
+const randomInt = document.getElementById('randomInt') as HTMLDivElement;
 const notification = document.getElementById('notification') as HTMLDivElement;
 
 class Game {
-    private score: number = 100;
-    private random: number;
     private interval: any;
     
     constructor (
+      private score: number,
       private randomSymbol: HTMLDivElement,
       private randomInt: HTMLDivElement,
       private notification: HTMLDivElement
     ) {}
   
     start() {
-        this.interval = setInterval(this.setChar, 2000);
+        this.interval = setInterval(this.setChar.bind(this), 2000);
         this.pressTheButton();
     }
 
@@ -24,16 +23,18 @@ class Game {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
+    private showEndMessage(message: string) {
+          notification.classList.add("endGame");
+          notification.innerHTML = message;
+          clearInterval(this.interval);
+    }
+
     private endGame() {
         if (this.score >= 200) {
-          notification.classList.add("victory");
-          notification.innerHTML = 'Victory!';
-          clearInterval(this.interval);
+          this.showEndMessage("Victory!");
         }
         if (this.score <= 0) {
-          notification.classList.add('gameOver');
-          notification.innerHTML = 'Game Over!';
-          clearInterval(this.interval);
+          this.showEndMessage("Game Over!");
         }
     }
     
@@ -46,24 +47,25 @@ class Game {
     }
 
     private compareSymbols (event:any) {
+      let random: number = 0;
         if (event.key.toUpperCase() === randomSymbol.innerHTML) {
             randomSymbol.style.backgroundColor = 'green';
-            this.random = this.getRandomInt(5, 10);
-            this.score += this.random;
-            randomInt.innerHTML = '+' + this.random;
+            random = this.getRandomInt(5,10);
+            this.score += random;
+            randomInt.innerHTML = '+' + random;
           } else {
             randomSymbol.style.backgroundColor = 'red';
-            this.random = this.getRandomInt(20, 25);
-            this.score -= this.random;
-            randomInt.innerHTML = '-' + this.random;
+            random = this.getRandomInt(15,25);
+            this.score -= random;
+            randomInt.innerHTML = '-' + random;
           }
     }
 
     private pressTheButton() {
-        document.addEventListener('keydown', this.compareSymbols);
+        document.addEventListener('keydown', this.compareSymbols.bind(this));
     }
 }
 
-const game = new Game(randomSymbol, randomInt, notification);
+const game = new Game(100, randomSymbol, randomInt, notification);
 
 game.start();
