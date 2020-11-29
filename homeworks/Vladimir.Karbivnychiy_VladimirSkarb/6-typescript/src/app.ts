@@ -26,7 +26,7 @@ class Game {
     }
 
     private startKeysInterval(): void {
-        this.scoreElement.innerText = String(this.score);
+        this.updateScore(String(this.score));
         this.timer = setInterval(() => {
             this.setKey();
         }, this.interval);
@@ -35,7 +35,7 @@ class Game {
     private setKey(): string {
         const letter: string = 'abcdefghijklmnopqrstuvwxyz';
         this.currentKey = letter.charAt(Math.floor(Math.random() * letter.length));
-        this.keyElement.innerText = this.currentKey.toUpperCase();
+        this.updateRandomValue(this.currentKey.toUpperCase());
         return this.currentKey
     }
 
@@ -58,21 +58,21 @@ class Game {
 
     private sameKey(): void {
         this.score += this.randomInteger(5, 10)
-        this.cubeScoreElement.innerText = `+${this.randomNumber}`;
+        this.updateCubeScore(`+${this.randomNumber}`);
         setTimeout(() => {
-            this.cubeScoreElement.innerText = ''
+            this.updateCubeScore('');
         }, 1000);
-        this.scoreElement.innerText = String(this.score);
+        this.updateScore(String(this.score));
         this.cubeSize();
     }
 
     private differentKey(): void {
         this.score -= this.randomInteger(20, 25)
-        this.cubeScoreElement.innerText = `-${this.randomNumber}`;
+        this.updateCubeScore(`-${this.randomNumber}`);
         setTimeout(() => {
-            this.cubeScoreElement.innerText = ''
+            this.updateCubeScore('');
         }, 1000);
-        this.scoreElement.innerText = String(this.score);
+        this.updateScore(String(this.score));
         this.cubeSize();
     }
 
@@ -84,21 +84,33 @@ class Game {
 
     private gameEnd(): void {
         if (this.score >= 200) {
-            this.scoreElement.innerText = 'You are win!';
+            this.updateScore('You are win!');
             clearInterval(this.timer);
-            this.cubeScoreElement.innerText = '';
-            this.keyElement.innerText = '';
+            this.updateCubeScore('');
+            this.updateRandomValue('');
         } else if (this.score <= 0) {
-            this.scoreElement.innerText = 'You are lose!';
+            this.updateScore('You are lose!');
             clearInterval(this.timer);
-            this.cubeScoreElement.innerText = '';
-            this.keyElement.innerText = '';
+            this.updateCubeScore('');
+            this.updateRandomValue('');
         }
     }
 
     private cubeSize(): void {
         this.cubeElement.style.width = String(this.score + 50 + 'px');
         this.cubeElement.style.height = String(this.score + 50 + 'px');
+    }
+
+    private updateScore(score: string): void {
+        this.scoreElement.innerText = score;
+    }
+
+    private updateRandomValue(value: string): void {
+        this.keyElement.innerText = value;
+    }
+
+    private updateCubeScore(score: string): void {
+        this.cubeScoreElement.innerText = score;
     }
 }
 
