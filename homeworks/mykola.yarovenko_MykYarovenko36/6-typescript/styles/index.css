@@ -200,3 +200,22 @@ body {
   font-size: 18px;
   font-weight: 800;
 }
+
+.loader_point {
+  background-color: rgb(57, 145, 172);
+  height: 30px;
+  margin: 0 auto;
+}
+
+@keyframes slidein {
+
+  from {
+    width: 120px;
+    background-color: rgb(4, 218, 32);
+  }
+
+  to {
+    background-color: rgb(231, 55, 10);
+    width: 1px;
+  }
+}

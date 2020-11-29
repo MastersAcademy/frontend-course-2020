@@ -6,10 +6,10 @@ const playBtnEl= document.querySelector('[data-btn-play]') as HTMLButtonElement;
 const stopBtnEl = document.querySelector('[data-btn-stop]') as HTMLButtonElement;
 const clearBtnEl = document.querySelector('[data-btn-clear-score]') as HTMLButtonElement;
 const desktopKeyboardElements = document.querySelectorAll('[date-desktop-keyboard-key]') as NodeList;
+const timerLoaderEl = document.querySelector('.loader_point') as HTMLDivElement;
 
 class Game {
     private score: number = 100;
-    private currentKey: string = '';
     private interval: number = 2000;
     private timeInterval: NodeJS.Timeout;
     private itemKeys: string[] = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'];
@@ -23,6 +23,7 @@ class Game {
         private currentScore: HTMLParagraphElement,
         private plusScore : HTMLParagraphElement,
         private minusScore: HTMLParagraphElement,
+        private timerLoader: HTMLDivElement,
     ) {}
 
     start() {
@@ -48,6 +49,7 @@ class Game {
             el.disabled = false;
         });
         clearInterval(this.timeInterval);
+        this.timerLoader.style.animation = '';
     }
 
     private scoreClear() {
@@ -68,6 +70,7 @@ class Game {
         this.timeInterval = setInterval((): void => {
             this.setKey(this.itemKeys);
         }, this.interval);
+        this.timerLoader.style.animation = '2s infinite slidein';
     }
 
     private setKey(key: string[]) {
@@ -75,16 +78,23 @@ class Game {
     }
 
     private setPoints():number {
-        return Math.floor(Math.random() * 10) + 4;
+        return Math.floor(Math.random() * 10) + 2;
+    }
+
+    private setGameMessage(text: string) {
+        alert(text);
+        this.gameStop();
+        setTimeout(() => {
+            this.scoreClear();
+        }, 1000);
     }
 
     private plusPoints() {
         let currentPoints: number = Number(this.currentScore.innerText);
         let plusPoints: number = this.setPoints();
         this.plusScore.innerText = '+' + plusPoints;
-        if (currentPoints >= 300) {
-            alert('You WIN!');
-            this.gameStop();
+        if (currentPoints >= 200) {
+            this.setGameMessage('You WIN!');
         } else {
             this.currentScore.innerText = `${currentPoints + plusPoints}`;
         }
@@ -98,8 +108,7 @@ class Game {
         let minusPoints: number = this.setPoints();
         this.minusScore.innerText = '-' + minusPoints;
         if (currentPoints <= 0) {
-            alert('You LOSE!');
-            this.gameStop();
+            this.setGameMessage('You LOSE!');
         } else {
             this.currentScore.innerText = `${currentPoints - minusPoints}`;
         }
@@ -134,5 +143,5 @@ class Game {
     }
 }
 
-const game = new Game(playBtnEl, stopBtnEl, clearBtnEl, desktopKeyboardElements, gameKeyEl, currentScoreEl, plusScoreEl, minusScoreEl);
+const game = new Game(playBtnEl, stopBtnEl, clearBtnEl, desktopKeyboardElements, gameKeyEl, currentScoreEl, plusScoreEl, minusScoreEl, timerLoaderEl);
 game.start();
