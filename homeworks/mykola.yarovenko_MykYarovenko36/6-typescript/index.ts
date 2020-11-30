@@ -5,6 +5,7 @@ const gameKeyEl = document.querySelector<HTMLParagraphElement>('[data-game__key]
 const playBtnEl= document.querySelector<HTMLButtonElement>('[data-btn-play]');
 const stopBtnEl = document.querySelector<HTMLButtonElement>('[data-btn-stop]');
 const clearBtnEl = document.querySelector<HTMLButtonElement>('[data-btn-clear-score]');
+const cubeEl = document.querySelector<HTMLParagraphElement>('.game__key');
 const desktopKeyboardElements = document.querySelectorAll('[date-desktop-keyboard-key]') as NodeList;
 const timerLoaderEl = document.querySelector<HTMLDivElement>('.loader_point');
 
@@ -25,6 +26,7 @@ class Game {
         private plusScore : HTMLParagraphElement,
         private minusScore: HTMLParagraphElement,
         private timerLoader: HTMLDivElement,
+        private cube: HTMLParagraphElement,
     ) {}
 
     start() {
@@ -51,17 +53,18 @@ class Game {
         });
         clearInterval(this.timeInterval);
         this.timerLoader.style.animation = '';
-        this.currentScore.style.boxShadow = '';
     }
 
     private scoreClear() {
         this.gameKey.innerText = '';
         this.currentScore.innerText = '' + this.score;
+        this.setGameProgress();
     }
 
     private gameStart() {
         this.subscribeDesktopInput();
         this.subscribeKeyboardInput();
+        this.setGameProgress();
         [this.playBtn, this.clearBtn].forEach((el) => {
             el.disabled = true;
         });
@@ -72,7 +75,6 @@ class Game {
         this.timeInterval = setInterval((): void => {
             this.setKey(this.itemKeys);
             this.inputKey = '';
-            this.setGameProgress();
             setTimeout(():void => {
                 if (this.inputKey === '') {
                     this.minusPoints();
@@ -90,9 +92,11 @@ class Game {
         return Math.floor(Math.random() * 10) + 4;
     }
 
-    private setGameProgress():void {
-        const points: number = +this.currentScore.innerText;
-        points >= 100 ? this.currentScore.style.boxShadow = '0 0 5px 5px rgb(4, 218, 32)' : this.currentScore.style.boxShadow = '0 0 5px 5px rgb(231, 55, 10)';
+    private setGameProgress(item: number = 0):void {
+        const cubeSize:string =  (+this.currentScore.innerText + item / 5).toFixed() + 'px';
+        +this.currentScore.innerText > 40 ? (this.cube.style.width = cubeSize,
+            this.cube.style.height = cubeSize) : (this.cube.style.width = '40px',
+                this.cube.style.height = '40px');
     }
 
     private setGameMessage(text: string) {
@@ -107,6 +111,7 @@ class Game {
         const currentPoints: number = +this.currentScore.innerText;
         const plusPoints: number = this.setPoints();
         this.plusScore.innerText = '+' + plusPoints;
+        this.setGameProgress(plusPoints);
         if (currentPoints >= 200) {
             this.setGameMessage('You WIN!');
         } else {
@@ -120,6 +125,7 @@ class Game {
     private minusPoints() {
         const currentPoints: number = +this.currentScore.innerText;
         const minusPoints: number = this.setPoints();
+        this.setGameProgress(minusPoints);
         this.minusScore.innerText = '-' + minusPoints;
         if (currentPoints <= 0) {
             this.setGameMessage('You LOSE!');
@@ -155,5 +161,5 @@ class Game {
     }
 }
 
-const game = new Game(playBtnEl, stopBtnEl, clearBtnEl, desktopKeyboardElements, gameKeyEl, currentScoreEl, plusScoreEl, minusScoreEl, timerLoaderEl);
+const game = new Game(playBtnEl, stopBtnEl, clearBtnEl, desktopKeyboardElements, gameKeyEl, currentScoreEl, plusScoreEl, minusScoreEl, timerLoaderEl, cubeEl);
 game.start();
