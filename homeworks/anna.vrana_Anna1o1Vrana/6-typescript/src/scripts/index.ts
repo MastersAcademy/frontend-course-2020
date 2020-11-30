@@ -1,5 +1,5 @@
+import 'normalize.css/normalize.css'
 import '../styles/style.css';
-import '../styles/normalize.css';
 
 const containerElement = document.querySelector('[data-container]') as HTMLDivElement;
 const scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement;
@@ -11,7 +11,6 @@ const letters: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'
 class Game {
     private score: number = 100;
     private currentKey: string = '';
-    private pressedKey: string = ';'
     private interval: number = 2000;
     private isGameStarted: boolean = false;
 
@@ -19,88 +18,78 @@ class Game {
         private containerElement: HTMLDivElement,
         private scoreElement: HTMLHeadingElement,
         private keyElement: HTMLDivElement,
-        private progressBarElement?: HTMLDivElement,
+        private progressBarElement: HTMLDivElement,
     ) {
     }
-
 
     start() {
         this.isGameStarted = true;
         this.scoreElement.innerHTML = String(this.score);
-                this.getLetters();
-                this.subscribeOnKeyPress();
-                this.startKeysInterval();
-                this.endGame();
-    }
-
-    private startKeysInterval() {
-        let counterProgress: number = 0;
-        const progress = setInterval(() => {
-            counterProgress++;
-            this.progressBarElement.style.width = `${Number(this.progressBarElement.style.width.slice(0, -1)) + 1}%`
-            if (counterProgress === 100) {
-                this.progressBarElement.style.width = '0%';
-            }
-                if (this.pressedKey === this.currentKey) {
-                    this.progressBarElement.style.width = '0%';
-                }
-        }, this.interval / 100);
-
-    }
-    private setScore(score: number) {
-        // code...
-    }
-
-    private setKey(key: string) {
-        // code...
+        this.getLetters();
+        this.subscribeOnKeyPress();
+        this.move(progressBarElement);
     }
 
     private getLetters(): void {
         setInterval(() => {
             this.currentKey = letters[Math.floor(Math.random() * letters.length)];
-            keyElement.innerHTML = this.currentKey;
+            this.keyElement.innerHTML = this.currentKey;
         }, this.interval)
+        console.log(this.currentKey);
+        console.log(this.progressBarElement);
+        this.progressBarElement.innerHTML = 'test';
     }
 
-    private getRandom(min: number, max: number) {
+    private move(progressBarElement: HTMLDivElement): void {
+        let barWidth: number = 0;
+        const id = setInterval(frame, this.interval / 100);
+
+        function frame() {
+            if (barWidth >= 100) {
+                clearInterval(id);
+            } else {
+                barWidth++;
+                progressBarElement.style.width = barWidth + "%";
+            }
+        }
+    }
+
+    private static getRandom(min: number, max: number): number {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    private subscribeOnKeyPress() {
-        setInterval(() => {
-        document.addEventListener('keypress', (event: KeyboardEvent) => {
-            const keyName = event.key;
-            if (keyName.toLowerCase() === this.currentKey.toLowerCase()) {
-                this.scoreElement.innerHTML = String(this.score += this.getRandom(5, 10));
-            } else if (keyName.toLowerCase() !== this.currentKey.toLowerCase()) {
-                this.scoreElement.innerHTML = String(this.score -= this.getRandom(20, 25));
-            } else {
-                this.scoreElement.innerHTML = String(this.score -= this.getRandom(10, 15));
-            }
-        });
-        }, this.interval)
-    }
+    private subscribeOnKeyPress(): void {
+        let timerId = setInterval(() => {
+            document.addEventListener('keypress', (event: KeyboardEvent) => {
+                const keyName = event.key.toUpperCase();
+                console.log(keyName);
+                console.log(this.currentKey);
+                if (keyName === this.currentKey) {
+                    this.scoreElement.innerHTML = String(this.score += Game.getRandom(5, 10));
+                } else {
+                    this.scoreElement.innerHTML = String(this.score -= Game.getRandom(20, 25));
+                }
 
-    private endGame() {
-        document.addEventListener('keypress', (event: KeyboardEvent) => {
-        if (this.score >= 200) {
-            containerElement.innerHTML = 'Congratulations!!! You awesome!!! ( ͡❛ ͜ʖ ͡❛)✌';
-            containerElement.classList.add('finish');
-            this.isGameStarted = false;
-        } else if (this.score <= 0) {
-            containerElement.innerHTML ='You lose ( ͡❛ ͜ʖ ͡❛)';
-            containerElement.classList.add('finish');
-            this.isGameStarted = false;
-        } else {
-            this.isGameStarted = true;
-        }
-    })
+                if (this.score >= 200) {
+                    alert('Congratulations!!! You awesome!!! ( ͡❛ ͜ʖ ͡❛)✌');
+                    containerElement.classList.add('finish');
+                    this.isGameStarted = false;
+                } else if (this.score <= 0) {
+                    alert('You lose ( ͡❛ ͜ʖ ͡❛)');
+                    this.isGameStarted = false;
+                } else {
+                    this.isGameStarted = true;
+                }
+            });
+        }, this.interval);
+        setTimeout(() => {
+            clearInterval(timerId)
+        }, this.interval);
     }
 }
 
 const game = new Game(containerElement, scoreElement, keyElement, progressBarElement);
 
-// startBtnElement.addEventListener('click', game.start();
+startBtnElement.addEventListener('click', () => game.start());
 
-game.start();
 
