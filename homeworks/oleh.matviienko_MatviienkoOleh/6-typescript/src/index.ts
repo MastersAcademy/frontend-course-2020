@@ -15,13 +15,8 @@ class Game {
     ) {}
   
     start() {
-        this.interval = setInterval(this.funContainer.bind(this), 2000);
+        this.interval = setInterval(this.setChar.bind(this), 2000);
         this.pressTheButton();
-    }
-
-    private funContainer() {
-        this.compareSymbols();
-        this.endGame();
     }
 
     private getRandomInt(min: number, max: number): number {
@@ -42,9 +37,7 @@ class Game {
         }
         if (this.score <= 0) {
           this.showEndMessage("Game Over!");
-        } else {
-          this.setChar();
-        }
+        } 
     }
     
     private setChar() {
@@ -72,7 +65,12 @@ class Game {
     }
 
     private takeKeyFromTheKeyborde(event: any) {
-      this.key = event.key.toUpperCase();
+        this.key = event.key.toUpperCase();
+        this.compareSymbols();
+        clearInterval(this.interval);
+        this.setChar();
+        this.interval = setInterval(this.setChar.bind(this), 2000);
+        this.endGame(); 
     }
 
     private pressTheButton() {
