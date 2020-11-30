@@ -6,6 +6,8 @@ class Game {
     private interval: any;
     
     constructor (
+      private text: string,
+      private key: string,
       private score: number,
       private randomSymbol: HTMLDivElement,
       private randomInt: HTMLDivElement,
@@ -13,8 +15,13 @@ class Game {
     ) {}
   
     start() {
-        this.interval = setInterval(this.setChar.bind(this), 2000);
+        this.interval = setInterval(this.funContainer.bind(this), 2000);
         this.pressTheButton();
+    }
+
+    private funContainer() {
+        this.compareSymbols();
+        this.endGame();
     }
 
     private getRandomInt(min: number, max: number): number {
@@ -35,37 +42,44 @@ class Game {
         }
         if (this.score <= 0) {
           this.showEndMessage("Game Over!");
+        } else {
+          this.setChar();
         }
     }
     
     private setChar() {
-        let text: string = '';
+        this.text = '';
         const possible: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-        randomSymbol.innerHTML = text;
-        this.endGame();
+        this.text += possible.charAt(Math.floor(Math.random() * possible.length));
+        randomSymbol.innerHTML = this.text;
     }
 
-    private compareSymbols (event:any) {
-      let random: number = 0;
-        if (event.key.toUpperCase() === randomSymbol.innerHTML) {
-            randomSymbol.style.backgroundColor = 'green';
-            random = this.getRandomInt(5,10);
-            this.score += random;
-            randomInt.innerHTML = '+' + random;
-          } else {
-            randomSymbol.style.backgroundColor = 'red';
-            random = this.getRandomInt(15,25);
-            this.score -= random;
-            randomInt.innerHTML = '-' + random;
-          }
+    private compareSymbols () {
+        let random: number = 0;
+        if(this.text) {
+            if (this.key === this.text) {
+                randomSymbol.style.backgroundColor = 'green';
+                random = this.getRandomInt(5,10);
+                this.score += random;
+                randomInt.innerHTML = '+' + random;
+            } else {
+                randomSymbol.style.backgroundColor = 'red';
+                random = this.getRandomInt(15,25);
+                this.score -= random;
+                randomInt.innerHTML = '-' + random;
+            }
+        }    
+    }
+
+    private takeKeyFromTheKeyborde(event: any) {
+      this.key = event.key.toUpperCase();
     }
 
     private pressTheButton() {
-        document.addEventListener('keydown', this.compareSymbols.bind(this));
+        document.addEventListener('keydown', this.takeKeyFromTheKeyborde.bind(this));
     }
 }
 
-const game = new Game(100, randomSymbol, randomInt, notification);
+const game = new Game("", "", 100, randomSymbol, randomInt, notification);
 
 game.start();
