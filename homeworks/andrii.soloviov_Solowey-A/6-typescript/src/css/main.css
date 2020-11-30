@@ -36,10 +36,10 @@
   transform: translateY(-100%);
 }
 
-.true {
+.correctSymbol {
   background: #008500;
 }
 
-.false, .cube {
+.wrongSymbol, .cube {
   background: #DE2D2D;
 }

@@ -8,7 +8,7 @@ class Game {
     private score: number = 100;
     private currentKey: string = '';
     private interval: number = 2000;
-
+    private symbol: string = '';
     constructor(
         private scoreElement: HTMLHeadingElement,
         private cubeScoreElement: HTMLDivElement,
@@ -17,26 +17,13 @@ class Game {
         private progressBarElement?: HTMLDivElement,
     ) {}
 
-    start() {
-        this.startKeysInterval(game.interval);
-        this.setScore(game.score);
-        this.subscribeOnKeyPress();
-    }
-
-    private getRandom(min, max) {
+    private getRandom(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
-    public startKeysInterval(interval) {
-        setInterval( ()=>{
-            let result = '';
-            let str = '1234567890qwertyuiopasdfghjklzxcvbnm';
-            for (let i = 0; i < 1; i++) {
-                result += str[game.getRandom(0, str.length - 1)];
-            }
-            cubeElement.innerHTML = result.toUpperCase();
-            cubeElement.classList.remove('true');
-            cubeElement.classList.remove('false');
+    private startKeysInterval(interval: number) {
+        setInterval( (event)=>{
+            this.setKey(this.symbol);
         },interval);
     }
 
@@ -44,40 +31,52 @@ class Game {
         scoreElement.innerHTML = score.toString();
     }
 
-    private addScore(score: number) {
-        let currentScore = Number.parseInt(scoreElement.innerHTML);
-        this.setScore(currentScore + score);
+    private setKey(key: string) {
+        let generatedSymbol = '';
+        let str = '1234567890qwertyuiopasdfghjklzxcvbnm';
+        for (let i = 0; i < 1; i++) {
+            generatedSymbol += str[game.getRandom(0, str.length - 1)];
+        }
+        cubeElement.innerHTML = generatedSymbol.toUpperCase();
+        cubeElement.classList.remove('correctSymbol', 'wrongSymbol');
+        this.symbol = generatedSymbol;
     }
 
-    private changeScore(event) {
-        let keyNum;
-        keyNum = event.keyCode;
-        let symbol = String.fromCharCode(keyNum).toUpperCase();
-        if(symbol === cubeElement.innerHTML) {
-            let score = game.getRandom(5, 10)
-            this.addScore(score);
-            cubeScoreElement.innerHTML = '+' + score.toString();
-            cubeElement.classList.remove('false');
-            cubeElement.classList.add('true');
-
+    private compare (key: string, generatedSymbol: string) {
+        if (generatedSymbol.toUpperCase() === key.toUpperCase()) {
+            cubeElement.classList.add('correctSymbol');
+            this.setScore(this.addScore(this.score));
         } else {
-            let score = game.getRandom(-20, -25)
-            this.addScore(score);
-            cubeScoreElement.innerHTML = score.toString();
-            cubeElement.classList.remove('true');
-            cubeElement.classList.add('false');
+            cubeElement.classList.add('wrongSymbol');
+            this.setScore(this.minusScore(this.score));
         }
     }
+    private addScore(score: number) {
+        this.score = score;
+        this.score = this.score + this.getRandom(5, 10);
+        if (this.score >= 200){
+            alert('You win')
+        }
+        return this.score
+    }
+    private minusScore(score: number) {
+        this.score = this.score + this.getRandom(-20, -25);
+        if (this.score <= 0){
+            alert('You looooose))')
+        }
+        return this.score
+    }
+
     private subscribeOnKeyPress() {
-        window.addEventListener("keypress", (event) => {
-            game.changeScore(event)
-            let currentScore = Number.parseInt(scoreElement.innerHTML);
-            if (currentScore >= 200){
-                alert('You win');
-            } else if (currentScore <= 0) {
-                alert('You loss');
-            }
+        document.addEventListener('keypress', (event: KeyboardEvent) => {
+            this.compare(event.key, this.symbol);
         })
+    }
+
+    start() {
+        this.startKeysInterval(this.interval);
+        this.setScore(this.score);
+        this.subscribeOnKeyPress();
     }
 }
 

@@ -28,15 +28,15 @@ optimization();
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
-    entry: {
-        main: ['@babel/polyfill', './index.js'],
-    },
+    entry: './index.ts',
+    devtool: 'inline-source-map',
     output: {
-        filename: './js/[name].js',
-        path: path.resolve(__dirname, './dist'),
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist'),
     },
+
     resolve: {
-        extensions: ['.js', '.ts', '.json', '.css', '.scss'],
+        extensions: ['.tsx', '.ts', '.js', '.json', '.css'],
     },
     devServer: {
         open: true,
@@ -54,8 +54,6 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.join(__dirname, 'dist') },
-                // { from: path.resolve(__dirname, 'src/assets/images'), to: 'images' },
-                // { from: path.resolve(__dirname, 'src/assets/fonts'), to: 'fonts' },
             ],
         }),
         new MiniCssExtractPlugin({
@@ -74,57 +72,12 @@ module.exports = {
                         },
                     },
                     'css-loader',
-                    'sass-loader',
                 ],
             },
             {
-                test: /\.s[ac]ss$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: './dist/css',
-                        },
-                    },
-                    'css-loader',
-                    'sass-loader',
-                ],
-            },
-            {
-                test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader'],
-            },
-            {
-                test: /\.(woff|woff2|ttf)(\?v=\d+\.\d+\.\d+)?$/,
-                use: ['file-loader'],
-            },
-            {
-                test: /\.m?js$/,
+                test: /\.tsx?$/,
+                use: 'ts-loader',
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                        plugins: ['@babel/plugin-proposal-class-properties'],
-                    },
-
-                },
-            },
-            {
-                test: /\.m?ts$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/preset-typescript'
-                        ],
-                        plugins: [
-                            '@babel/plugin-proposal-class-properties'
-                        ],
-                    },
-                },
             },
         ],
     },
