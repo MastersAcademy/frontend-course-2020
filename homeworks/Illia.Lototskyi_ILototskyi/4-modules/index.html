@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modules</title>
+	<link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+	<img src="assets/icons/ma_logo.png" alt="Master Academy Logo" class="maLogo">
+
+    <div class="container">
+
+		<div class="modules-wrapper">
+			<h2 class="title">Enter the date:</h2>
+			<input class="current-date" type="date" data-input value="yyyy-MM-dd">
+		</div>
+		
+		<button class="button-friday" type="button" data-get-friday>Show all Fridays</button>
+		<div class="text-get-friday" data-text-friday></div>
+		
+		<button class="button-month-long" type="button" data-month-long>Is month long?</button>
+		<div class="text-month-long" data-text-month-long></div>
+		
+		<button class="button-shortest-week" type="button" data-shortest-week>Shortest week</button>
+		<div class="text-shortest-week" data-text-shortest-week></div>
+		
+		<button class="button-full-weeks" type="button" data-full-weeks>Number of full weeks</button>
+		<div class="text-full-weeks" data-text-full-weeks></div>
+	
+	</div>
+
+    <script type="module" src="js/script.js"></script>
+</body>
+
+</html>
