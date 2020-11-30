@@ -27,7 +27,7 @@ class Game {
         this.scoreElement.innerHTML = String(this.score);
         this.getLetters();
         this.subscribeOnKeyPress();
-        this.move(progressBarElement);
+        this.move();
     }
 
     private getLetters(): void {
@@ -35,12 +35,9 @@ class Game {
             this.currentKey = letters[Math.floor(Math.random() * letters.length)];
             this.keyElement.innerHTML = this.currentKey;
         }, this.interval)
-        console.log(this.currentKey);
-        console.log(this.progressBarElement);
-        this.progressBarElement.innerHTML = 'test';
     }
 
-    private move(progressBarElement: HTMLDivElement): void {
+    private move(): void {
         let barWidth: number = 0;
         const id = setInterval(frame, this.interval / 100);
 
@@ -62,8 +59,6 @@ class Game {
         let timerId = setInterval(() => {
             document.addEventListener('keypress', (event: KeyboardEvent) => {
                 const keyName = event.key.toUpperCase();
-                console.log(keyName);
-                console.log(this.currentKey);
                 if (keyName === this.currentKey) {
                     this.scoreElement.innerHTML = String(this.score += Game.getRandom(5, 10));
                 } else {
