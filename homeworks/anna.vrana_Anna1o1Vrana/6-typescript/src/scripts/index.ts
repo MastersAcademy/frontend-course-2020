@@ -34,6 +34,7 @@ class Game {
         setInterval(() => {
             this.currentKey = letters[Math.floor(Math.random() * letters.length)];
             this.keyElement.innerHTML = this.currentKey;
+            this.move();
         }, this.interval)
     }
 
@@ -44,6 +45,7 @@ class Game {
         function frame() {
             if (barWidth >= 100) {
                 clearInterval(id);
+                barWidth = 0;
             } else {
                 barWidth++;
                 progressBarElement.style.width = barWidth + "%";
