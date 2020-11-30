@@ -19,15 +19,17 @@ body {
   height: 100px;
   position: sticky;
   top: -105px;
-  align-items: center;
-  transition: top .3s;
+  opacity: .7;
+  transition: top 1s, opacity 3s;
   border: 2px solid #CCC;
+  align-items: center;
   padding: 0 15px;
 }
 
 .header.active {
   top: 0;
-  transition: top .3s;
+  opacity: 1;
+  transition: top 1s, opacity .3s;
 }
 
 .header-logo {
