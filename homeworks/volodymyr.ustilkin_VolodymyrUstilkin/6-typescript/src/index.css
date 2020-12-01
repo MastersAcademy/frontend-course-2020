@@ -31,6 +31,10 @@
   font-size: 40px;
 }
 
+.cube-score-red {
+  background-color: #F00;
+}
+
 .key-container {
   margin-top: 100px;
   width: 100%;
