@@ -1,129 +1,103 @@
-import { Observable, Subscription } from 'rxjs';
+import { fromEvent, BehaviorSubject, Subject, interval, pipe } from 'rxjs';
+import { throttleTime, map, takeUntil } from 'rxjs/operators'
 import { getRandomKey, getRandomPoints } from './helpers/helpers';
 
-const PressedKeyPoint = {
-    rightKey: [5, 10],
-    wrongKey: [20, 25],
-    noKey: [10, 15],
-}
-
-class Game {
-    private score: number = 100;
+export class Game {
+    private score$ = new BehaviorSubject(100);
+    private stop$ = new Subject<void>();
     private currentKey: string = '';
-    private interval: number = 2000;
-    private timeoutId: any;
-    private subscriptionId: Subscription = new Subscription;
+    private isPressed = false;
+    private isFinished = false;
 
     constructor(
         private scoreElement: HTMLHeadingElement,
         private cubeScoreElement: HTMLSpanElement,
         private keyElement: HTMLDivElement,
         private cubeElement: HTMLDivElement,
-        private progressBarElement?: HTMLDivElement,
+        private progressBarElement: HTMLDivElement,
     ) { }
 
-    start(subscription: Observable<KeyboardEvent>) {
-        this.subscribeOnKeyPress(subscription)
-        this.startKeysInterval(this.interval);
+
+    start() {
+        this.init();
     }
 
     stop() {
-        this.unsubscribeOnKeyPress()
-        this.stopKeysInterval(this.timeoutId);
         this.clearData();
+        this.stop$.next();
+        this.stop$.complete();
+        this.isFinished = true;
     }
 
     restart() {
-        this.stopKeysInterval(this.timeoutId);
-        this.clearData();
+        this.stop();
+        setTimeout(() => this.init(), 1000);
+    }
+
+    private init() {
+        this.stop$ = new Subject<void>()
+        this.stop$.next();
+        this.isFinished = false;
+
+        interval(2000).pipe(
+            takeUntil(this.stop$)
+        ).subscribe(() => {
+            this.currentKey = getRandomKey()
+            this.keyElement.innerHTML = this.currentKey;
+            this.progressBarElement.style.animation = '2s infinite progrees-bar-animation';
+
+            setTimeout(() => {
+                if (!this.isPressed && !this.isFinished) {
+                    this.onKeyPress(false);
+                }
+                this.isPressed = false;
+            }, 2000)
+        });
+
+        fromEvent(document, 'keypress').pipe(
+            throttleTime(1500),
+            takeUntil(this.stop$),
+            map(e => (e as KeyboardEvent).key.toUpperCase() === this.currentKey),
+        ).subscribe((isKeyRight) => this.onKeyPress(isKeyRight));
+
+        this.score$.pipe(takeUntil(this.stop$)).subscribe((score) => this.showResult(score));
+    }
+
+    private onKeyPress(isKeyRight: boolean) {
+        this.isPressed = true;
+        const points = getRandomPoints(isKeyRight)
+        this.cubeScoreElement.innerHTML = `${isKeyRight ? '+' : '-'}${points}`
+        const keyElementStyle = isKeyRight ? 'key-container__key--pass' : 'key-container__key--fail'
+        this.keyElement.classList.remove('key-container__key--pass', 'key-container__key--fail');
+        this.keyElement.classList.add(keyElementStyle);
         setTimeout(() => {
-            this.startKeysInterval(this.interval);
-        }, 1300);
+            this.cubeScoreElement.innerHTML = '';
+            this.keyElement.classList.remove('key-container__key--pass', 'key-container__key--fail');
+        }, 1000)
+        this.score$.next(isKeyRight ? this.score$.value + points : this.score$.value - points);
+    }
+
+    private showResult(score: number) {
+        this.scoreElement.innerHTML = String(score);
+        this.cubeElement.style.width = `${score + 100}px`;
+        this.cubeElement.style.height = `${score + 100}px`;
+        if (score >= 200) {
+            this.stop();
+            alert('You are winner =)');
+        }
+        if (score <= 0) {
+            this.stop();
+            alert('You are looser =(');
+        }
     }
 
     private clearData() {
-        this.score = 100;
+        this.score$.next(100);
         this.currentKey = '';
         this.keyElement.innerHTML = '';
         this.cubeElement.style.width = '200px';
         this.cubeElement.style.height = '200px';
-    }
-
-    private startKeysInterval(interval: number) {
-        this.timeoutId = setInterval(() => {
-            this.setKey(getRandomKey())
-        }, interval)
-    }
-
-    private stopKeysInterval(timeoutId: number) {
-        clearInterval(timeoutId)
-    }
-
-    private setKey(key: string) {
-        this.currentKey = key;
-        this.keyElement.innerHTML = key;
-    }
-
-    private addScore(score: number) {
-        this.score = score;
-    }
-
-    private subscribeOnKeyPress(subscription: Observable<KeyboardEvent>) {
-        this.subscriptionId = subscription.subscribe((e) => {
-            this.showResult(e.key)
-        })
-    }
-
-    private unsubscribeOnKeyPress() {
-        this.subscriptionId.unsubscribe();
-    }
-
-    private showResult(key: string) {
-        const result = key.toUpperCase() === this.currentKey;
-        let score: number;
-        switch (result) {
-            case true:
-                score = getRandomPoints(PressedKeyPoint.rightKey);
-                this.cubeScoreElement.innerHTML = `+ ${score}`
-                this.addScore(this.score + score)
-                if (this.score >= 200) {
-                    this.stop();
-                    alert('You are winner =)')
-                    return;
-                }
-                this.scoreElement.innerHTML = String(this.score);
-                this.keyElement.classList.add('key-container__key--pass');
-                setTimeout(() => {
-                    this.cubeScoreElement.innerHTML = '';
-                    this.keyElement.classList.remove('key-container__key--pass');
-                }, 1000);
-                this.cubeElement.style.width = `${this.score + 100}px`;
-                this.cubeElement.style.height = `${this.score * 0.8 + 100} px`;
-                break
-            case false:
-                score = getRandomPoints(PressedKeyPoint.wrongKey);
-                this.cubeScoreElement.innerHTML = `- ${score}`
-                this.addScore(this.score - score)
-                if (this.score <= 0) {
-                    this.stop();
-                    alert('You are looser =(')
-                    return;
-                }
-                this.scoreElement.innerHTML = String(this.score);
-                this.keyElement.classList.add('key-container__key--fail');
-                setTimeout(() => {
-                    this.cubeScoreElement.innerHTML = '';
-                    this.keyElement.classList.remove('key-container__key--fail');
-                }, 1000)
-                this.cubeElement.style.width = `${this.score + 100}px`;
-                this.cubeElement.style.height = `${this.score * 0.8 + 100} px`;
-                break
-            default: {
-
-            }
-        }
+        this.progressBarElement.style.animation = '';
     }
 
 }
-
-export default Game;

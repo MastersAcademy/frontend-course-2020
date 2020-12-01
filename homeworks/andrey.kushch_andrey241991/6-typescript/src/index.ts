@@ -1,6 +1,4 @@
-import { fromEvent, Observable } from 'rxjs'
-import { throttleTime, map, pairwise } from 'rxjs/operators'
-import Game from './game';
+import {Game} from './game';
 import './style.css'
 const scoreElement = document.querySelector('[data-score]') as HTMLHeadingElement;
 const cubeElement = document.querySelector('[data-cube]') as HTMLDivElement;
@@ -14,21 +12,6 @@ const restartElement = document.querySelector('[data-restart]') as HTMLButtonEle
 
 const game = new Game(scoreElement, cubeScoreElement, keyElement, cubeElement, progressBarElement);
 
-const subscription = fromEvent(document, 'keypress')
-    .pipe(
-        throttleTime(1500),
-        map((e) => e),
-    );
-
-
-startElement.addEventListener('click', () => {
-    game.start(subscription as Observable<KeyboardEvent>)
-})
-
-finishElement.addEventListener('click', () => {
-    game.stop();
-})
-
-restartElement.addEventListener('click', () => {
-    game.restart();
-})
+startElement.addEventListener('click', () => { game.start() });
+finishElement.addEventListener('click', () => { game.stop() });
+restartElement.addEventListener('click', () => { game.restart() });
