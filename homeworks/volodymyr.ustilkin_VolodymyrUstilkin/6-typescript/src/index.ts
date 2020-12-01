@@ -13,6 +13,7 @@ class Game {
     private intervalId: number = null;
     private intervalEventDelay: number = 10;
     private currentEventTime: number = 0;
+    private wasRun: boolean = false;
 
     constructor(
         private scoreElement: HTMLHeadingElement,
@@ -25,6 +26,7 @@ class Game {
     }
 
     start() {
+        this.wasRun = true;
         if (this.intervalId != null) {
             return;
         }
@@ -38,9 +40,18 @@ class Game {
         this.intervalId = window.setInterval(Game.intervalEvent, this.intervalEventDelay, this);
     }
 
-    stopKeysInterval() {
+    private stopKeysInterval() {
         window.clearInterval(this.intervalId);
         this.intervalId = null;
+    }
+
+    stopGame() {
+        if (!this.wasRun) {
+            this.start();
+            this.wasRun = true;
+            return;
+        }
+        this.stopKeysInterval();
     }
 
     private static intervalEvent(current: Game) {
@@ -72,6 +83,11 @@ class Game {
     }
 
     restartGame() {
+        if (!this.wasRun) {
+            this.start();
+            this.wasRun = true;
+            return;
+        }
         this.stopKeysInterval();
         this.setScore(this.score);
         this.resetEvent();
@@ -79,7 +95,7 @@ class Game {
     }
 
     private setKey(key: string) {
-        if(!this.intervalId){
+        if (!this.intervalId) {
             return;
         }
         if (key.toUpperCase() === keyElement.innerHTML) {
@@ -124,5 +140,5 @@ class Game {
 const game = new Game(scoreElement, cubeScoreElement, keyElement, cubeElement, progressBarElement);
 
 startButtonElement.addEventListener('click', () => game.start());
-stopButtonElement.addEventListener('click', () => game.stopKeysInterval());
+stopButtonElement.addEventListener('click', () => game.stopGame());
 restartButtonElement.addEventListener('click', () => game.restartGame());
