@@ -1,10 +1,6 @@
-body {
+.body-class {
   width: 720px;
   margin: 0 auto;
-}
-
-section, div {
-  font-size: xx-large;
 }
 
 .score-container {
@@ -14,6 +10,7 @@ section, div {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 40px;
 }
 
 .red-cube-score-container {
@@ -31,6 +28,7 @@ section, div {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 40px;
 }
 
 .key-container {
@@ -40,6 +38,7 @@ section, div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 40px;
 }
 
 .key {
@@ -77,4 +76,5 @@ section, div {
 .control-container-button {
   width: 200px;
   height: 50px;
+  font-size: 20px;
 }
