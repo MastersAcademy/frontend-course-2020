@@ -31,6 +31,7 @@ class Game {
 
         this.startKeysInterval();
         Game.generateKey();
+        this.currentEventTime = 0;
     }
 
     private startKeysInterval() {
@@ -78,6 +79,9 @@ class Game {
     }
 
     private setKey(key: string) {
+        if(!this.intervalId){
+            return;
+        }
         if (key.toUpperCase() === keyElement.innerHTML) {
             let score: number = Game.generateNumber(5, 10);
             this.addScore(score);
@@ -97,7 +101,6 @@ class Game {
         let currentScore: number = Number.parseInt(this.scoreElement.innerHTML);
         this.cubeScoreElement.innerHTML = score.toString();
         this.setScore(currentScore + score);
-
     }
 
     private subscribeOnKeyPress() {
