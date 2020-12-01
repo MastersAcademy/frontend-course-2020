@@ -1,0 +1,91 @@
+.container,
+.buttonsGroup {
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonsGroup {
+  margin-bottom: 30px;
+  flex-direction: row;
+}
+
+.blockKey {
+  height: 100px;
+  width: 100px;
+  margin-top: 50px;
+  background-color: #EEE;
+  transition-duration: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-scores {
+  min-height: 60px;
+  font-size: 3em;
+}
+
+.blockVision {
+  height: 100px;
+  width: 100px;
+  background-color: #66D4F5;
+}
+
+.blockInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 220px;
+}
+
+.currentScore {
+  font-size: 1.8em;
+  opacity: 0;
+  transition: opacity .7s;
+  min-height: 50px;
+  margin: 20px 0;
+}
+
+.currentScore.active {
+  opacity: 1;
+  transition: opacity .7s;
+}
+
+.currentScore.finish {
+  opacity: 1;
+  transition: opacity .7s;
+  font-size: 2em;
+  text-align: center;
+}
+
+.loaderBlock {
+  width: 100px;
+}
+
+.progress_line {
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background: #F00;
+}
+
+.red {
+  transition-duration: .5s;
+  background: #F00;
+}
+
+.green {
+  transition-duration: .5s;
+  background: #080;
+}
+
+button {
+  font-size: 1.5em;
+}
