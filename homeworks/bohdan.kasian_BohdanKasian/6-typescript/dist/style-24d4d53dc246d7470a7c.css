@@ -1,0 +1,2 @@
+h2{margin:0}.cube-wrapper{display:flex;justify-content:center}.cube{background:#B22222;width:100px;height:100px;margin-bottom:50px;transition:all ease-in-out .1s}.key-cube{width:100px;height:100px;background:#A9A9A9;position:relative;display:flex;justify-content:center;align-items:center;font-size:25px}.progress-bar{position:absolute;left:0;top:calc(100% + 10px);height:5px;background:#00008B;width:10px}.btn-wrapper{display:flex;justify-content:space-between;align-items:center;font-size:20px}.btn-wrapper>p{background:#000;color:#FFF;padding:10px}
+
