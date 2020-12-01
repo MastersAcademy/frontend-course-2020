@@ -89,7 +89,6 @@ body {
 }
 
 .key-container__progress {
-  /* background-color: #00F; */
   flex: 1;
   width: 100%;
 }

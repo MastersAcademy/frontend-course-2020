@@ -48,7 +48,7 @@ export class Game {
 
             setTimeout(() => {
                 if (!this.isPressed && !this.isFinished) {
-                    this.onKeyPress(false);
+                    this.onKeyPress();
                 }
                 this.isPressed = false;
             }, 2000)
@@ -63,7 +63,7 @@ export class Game {
         this.score$.pipe(takeUntil(this.stop$)).subscribe((score) => this.showResult(score));
     }
 
-    private onKeyPress(isKeyRight: boolean) {
+    private onKeyPress(isKeyRight?: boolean) {
         this.isPressed = true;
         const points = getRandomPoints(isKeyRight)
         this.cubeScoreElement.innerHTML = `${isKeyRight ? '+' : '-'}${points}`

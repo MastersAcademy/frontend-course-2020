@@ -14,7 +14,7 @@ export function getRandomPoints(isKeyRight: boolean | undefined): number {
         return Math.floor(Math.random() * (to - from + 1) + from);
     }
 
-    if (!isKeyRight) {
+    if (isKeyRight === false) {
         const [from, to] = wrongKey;
         return Math.floor(Math.random() * (to - from + 1) + from);
     }
