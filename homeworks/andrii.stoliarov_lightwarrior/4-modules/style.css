@@ -1,0 +1,51 @@
+.frame {
+  border: 2px solid #DEDEDE;
+  border-radius: 5px;
+  padding: 20px;
+  width: 520px;
+  height: 330px;
+  margin: auto;
+}
+
+.form div {
+  margin: 10px 0;
+  color: #006400;
+}
+
+.form input {
+  width: 210px;
+  border-radius: 5px;
+  border: 2px solid #DEDEDE;
+  background-color: #F1F1F1;
+}
+
+.form button {
+  width: 220px;
+  border-radius: 5px;
+  border: 2px solid #CCC;
+  background-color: #DDD;
+}
+
+.frame-clock {
+  width: 220px;
+  height: 260px;
+  border: 2px solid #DEDEDE;
+  border-radius: 5px;
+  padding: 20px;
+  float: right;
+}
+
+.form .clock {
+  color: #00008B;
+}
+
+.title-date {
+  color: #8B0000;
+}
+
+.select {
+  width: 220px;
+  border-radius: 5px;
+  border: 2px solid #DEDEDE;
+  background-color: #F1F1F1;
+}

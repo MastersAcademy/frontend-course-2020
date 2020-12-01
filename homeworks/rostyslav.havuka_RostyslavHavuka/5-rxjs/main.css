@@ -1,0 +1,62 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: ". logo logo logo ."
+    ". pharagraph pharagraph pharagraph  ."
+    ". pharagraph pharagraph pharagraph  .";
+}
+
+.logo {
+  grid-area: logo;
+  background: #BABBBB;
+}
+
+.txt {
+  grid-area: pharagraph;
+}
+
+.text {
+  font-size: 19px;
+  font-family: monospace;
+}
+
+.header-first-logo {
+  background: #BABBBB;
+  color: #0B0C0C;
+  top: 0;
+  position: sticky;
+  transform: translateY(0);
+  transition: transform .5s;
+}
+
+.header-second-logo {
+  display: block;
+  background: #BABBBB;
+  color: #0B0C0C;
+  position: sticky;
+  top: 0;
+  transform: translateY(0);
+  transition: transform .5s;
+}
+
+.header-third-logo {
+  display: block;
+  background: #BABBBB;
+  color: #0B0C0C;
+  position: sticky;
+  top: 0;
+  transform: translateY(0);
+  transition: transform .5s;
+}
+
+.buy-now {
+  min-width: 250px;
+  min-height: 60px;
+  background: #FFFF5F;
+  justify-content: center;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
