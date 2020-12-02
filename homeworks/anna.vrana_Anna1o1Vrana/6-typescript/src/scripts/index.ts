@@ -60,7 +60,8 @@ class Game {
 
     private subscribeOnKeyPress(): void {
         document.addEventListener('keypress', event => {
-            this.updateScore(event.key.toUpperCase()); this.endGame()
+            this.updateScore(event.key.toUpperCase());
+            this.endGame();
         });
     }
 
@@ -78,15 +79,16 @@ class Game {
             alert('Congratulations!!! You awesome!!! ( ͡❛ ͜ʖ ͡❛)✌');
             containerElement.classList.add('finish');
             this.isGameStarted = false;
+            clearInterval(this.updateIntervalId);
             return;
         }
         if (this.score <= 0) {
             alert('You lose ( ͡❛ ͜ʖ ͡❛)');
             this.isGameStarted = false;
+            clearInterval(this.updateIntervalId);
             return;
         }
     }
-
 }
 
 const game = new Game(containerElement, scoreElement, keyElement, progressBarElement);
