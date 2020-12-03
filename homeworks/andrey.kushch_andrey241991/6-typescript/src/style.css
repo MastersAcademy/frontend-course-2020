@@ -1,0 +1,115 @@
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  background: rgb(133, 131, 131);
+  font-family: "Noto Sans", sans-serif;
+}
+
+.container {
+  padding-top: 8px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #484141;
+  background: #FFFF;
+  align-items: center;
+}
+
+.score {
+  font-size: 24px;
+  color: #000;
+}
+
+.cube-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 100%;
+}
+
+.cube-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cube-container__score {
+  font-size: 20px;
+  left: -40px;
+  position: absolute;
+  color: #000;
+}
+
+.cube-container__cube {
+  background-color: #F00;
+  width: 200px;
+  height: 200px;
+}
+
+.key-container {
+  border: 1px solid #0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100px;
+  height: 80px;
+  font-size: 44px;
+  text-align: center;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.key-container__key {
+  box-sizing: content-box;
+  border: 1px solid #000;
+  background-color: #FFFF;
+  flex: 4;
+  width: 100%;
+}
+
+.key-container__key--pass {
+  background-color: #008000;
+}
+
+.key-container__key--fail {
+  background-color: #F00;
+}
+
+.key-container__progress {
+  flex: 1;
+  width: 100%;
+}
+
+.buttons-container {
+  width: 200px;
+  justify-content: space-between;
+  display: flex;
+  margin-top: 40px;
+}
+
+@keyframes progrees-bar-animation {
+
+  from {
+    flex: 1;
+    width: 100%;
+    background-color: #00F;
+  }
+
+  to {
+    background-color: #F00;
+    width: 1px;
+  }
+}
