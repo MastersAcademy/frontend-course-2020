@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "gallery-spavel"
+  "defaultProject": "gallery-spavel",
+  "cli": {
+    "analytics": false
+  }
 }
