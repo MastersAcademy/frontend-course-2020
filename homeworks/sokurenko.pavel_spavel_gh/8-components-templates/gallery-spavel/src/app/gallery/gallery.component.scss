@@ -1,0 +1,17 @@
+.image {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../../assets/test.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 10px solid #0001;
+  background-clip: padding-box;
+}
+.image:hover {
+  border-color: #0003;
+}
+.image:active {
+  border-color: #0005;
+}

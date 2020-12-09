@@ -1,2 +1,8 @@
 <H1>Gallery</H1>
-<p>gallery works!</p>
+<div
+  class="image"
+  *ngFor="let image of images"
+  (click)="selectImageId($event)"
+  id="{{ image.id }}"
+  [ngStyle]="{ backgroundImage: 'url(' + image.urls.thumb + ')' }"
+></div>
