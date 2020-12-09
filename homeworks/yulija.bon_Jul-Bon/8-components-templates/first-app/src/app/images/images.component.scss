@@ -1,0 +1,38 @@
+.image-gallery {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__item {
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    max-height: 240px;
+    padding: 5px;
+  }
+}
+
+.selected {
+  border-color: #195577;
+}
+
+.image-block {
+  width: 80%;
+  max-width: 600px;
+  height: 500px;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  max-height: 100%;
+  object-fit: contain;
+}
