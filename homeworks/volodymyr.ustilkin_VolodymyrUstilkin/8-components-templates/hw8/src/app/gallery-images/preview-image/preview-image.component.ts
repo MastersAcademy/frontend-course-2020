@@ -1,31 +1,31 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-preview-image',
-  templateUrl: './preview-image.component.html',
-  styleUrls: ['./preview-image.component.css']
+    selector: 'app-preview-image',
+    templateUrl: './preview-image.component.html',
+    styleUrls: ['./preview-image.component.css']
 })
 export class PreviewImageComponent implements OnInit {
-  @Input() id: number;
-  @Input() smallUrl: string;
-  @Input() fullUrl: string;
-  @Input() isSelected: boolean;
-  @Input() showFullImage = false;
+    @Input() id: number;
+    @Input() smallUrl: string;
+    @Input() fullUrl: string;
+    @Input() isSelected: boolean;
+    @Input() showFullImage = false;
 
-  previewLoaded: boolean = false;
-  fullLoaded: boolean = false;
+    previewLoaded = false;
+    fullLoaded = false;
 
-  constructor() {
-  }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  completePreviewImageLoad() {
-    this.previewLoaded = true;
-  }
+    completePreviewImageLoad(): void {
+        this.previewLoaded = true;
+    }
 
-  completeFullImageLoad() {
-    this.fullLoaded = true;
-  }
+    completeFullImageLoad(): void {
+        this.fullLoaded = true;
+    }
 }

@@ -340,4 +340,4 @@ export const images: any = [
   },
   likes: 19
 }
-]
+];

@@ -28,7 +28,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "ofXK");
 
 
-// import {BrowserModule} from '@angular/platform-browser';
 
 
 
@@ -45,6 +44,7 @@ function GalleryImagesComponent_div_5_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", img_r1.id)("smallUrl", img_r1.smallUrl)("fullUrl", img_r1.fullUrl)("isSelected", img_r1.isSelected);
 } }
+// import {BrowserModule} from '@angular/platform-browser';
 class GalleryImagesComponent {
     constructor() {
     }
