@@ -1,0 +1,13 @@
+<h2>Gallery</h2>
+<div class="container">
+    <div class="imageItem" *ngFor="let image of images" [class.active]="image.urls.thumb === activeImage" >
+        <img (click)="showLargeImage(image)" [src]="image.urls.thumb">
+    </div>
+</div>
+<div>
+    <div class="largeImage">
+        <img [src]="selectedImage" alt="">
+    </div>
+</div>
+
+<!-- [ngClass]="{active: image === activeImage}" -->
