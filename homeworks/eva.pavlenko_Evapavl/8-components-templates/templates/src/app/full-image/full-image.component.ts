@@ -13,7 +13,7 @@ export class FullImageComponent implements OnInit {
 
   images: Image[] | [] = IMAGES;
 
-  @Input() index: number | undefined;
+  @Input() index: any;
 
   constructor(private dataService: DataService) {}
 

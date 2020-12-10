@@ -6,7 +6,8 @@
            [class.selected]="image === selectedImage"
            (click)="onSelect(image, index)">
         <div class="image-center">
-          <img src="{{image.urls.small}}" alt="img-small"/>
+          <img [class.no-active]="!isLoadedGif" src="https://i.gifer.com/4V0b.gif" alt="gif">
+          <img [class.active]="isLoadedImgs" [class.no-active]="!isLoadedImgs" (load)="uploaded()" src="{{image.urls.regular}}" alt="img-small"/>
         </div>
       </div>
     </div>

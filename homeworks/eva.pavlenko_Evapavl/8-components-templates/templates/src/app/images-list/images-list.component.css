@@ -47,6 +47,16 @@ h2 {
   justify-content: space-between;
 }
 
+.no-active {
+  display: none;
+}
+
+.active {
+  display: block;
+  max-width: 150px;
+  max-height: 150px;
+}
+
 button {
   cursor: pointer;
   border: 1px solid #CECECE;
