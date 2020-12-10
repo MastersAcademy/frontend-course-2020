@@ -1,0 +1,44 @@
+.box-gallery {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.box {
+  display: flex;
+}
+
+.gallery-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gallery-list {
+  list-style: none;
+  border: 1px solid #CCC;
+  margin: 10px;
+}
+
+.gallery-list:hover {
+  cursor: pointer;
+}
+
+.gallery-active {
+  border: 2px solid #F00;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
