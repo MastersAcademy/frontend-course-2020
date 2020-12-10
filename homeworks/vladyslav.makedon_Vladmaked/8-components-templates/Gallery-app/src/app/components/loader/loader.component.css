@@ -1,0 +1,5 @@
+.load {
+  text-align: center;
+  line-height: calc(80vw / 8 - 30px);
+  vertical-align: middle;
+}

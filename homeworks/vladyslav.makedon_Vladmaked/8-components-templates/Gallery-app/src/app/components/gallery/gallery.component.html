@@ -1,0 +1,17 @@
+<header>
+    <h1 class="header">Gallery</h1>
+</header>
+<ul class="gallery">
+    <li class="gallery__item" *ngFor="let image of images; let index = index">
+        <div class="gallery__image-wrapper" [ngStyle]="{border: selectedImage === image? '3px solid brown': '1px solid #000'}">
+            <app-gallery-item [image]="image"
+                              [selectedIndex]="index"
+                              (isLoadedImageEvent)="setImageLoadStatus($event)"
+                              (selectedImageEvent)="setSelectedImage($event)"
+                              (selectedImageIndexEvent)="setImageSelectedIndex($event)">
+            </app-gallery-item>
+            <app-loader *ngIf="!isLoadedImage" [ngStyle]="{display: isLoadedImage? 'none': 'block'}"></app-loader>
+        </div>
+    </li>
+</ul>
+<app-selected-image *ngIf="selectedImage" [imageSelectedIndex]="imageSelectedIndex" [selectedImage]="selectedImage"></app-selected-image>

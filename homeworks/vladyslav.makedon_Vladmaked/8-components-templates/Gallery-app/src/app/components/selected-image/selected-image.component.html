@@ -1,0 +1,9 @@
+<div class="big-image-wrapper">
+    <button class="btn" (click)="setPrevImage()" [disabled]="imageSelectedIndex === 0">
+        Prev
+    </button>
+    <img class="big-image" *ngIf="selectedImage" src="{{selectedImage.urls.small}}" alt="{{selectedImage.description}}">
+    <button class="btn" (click)="setNextImage()" [disabled]="imageSelectedIndex === images.length-1">
+        Next
+    </button>
+</div>
