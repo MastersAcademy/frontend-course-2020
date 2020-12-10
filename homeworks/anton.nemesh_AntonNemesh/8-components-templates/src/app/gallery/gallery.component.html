@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="gallery-wrapper">
+    <button class="container__button" (click)="decreaseNumberOfCurrentItem()">Prev</button>
+    <button class="container__button" (click)="increaseNumberOfCurrentItem()">Next</button>
+    <h2>Image #{{numberOfCurrentItem}}</h2>
+    <ul class="gallery">
+      <li class="gallery__item"
+          *ngFor="let imageItem of dataImages; index as i"
+          [class.gallery__item--active]="checkNumberOfCurrentItem(i)"
+          (click)="onSelect(i)">
+        <app-image [currentImage]="imageItem"></app-image>
+      </li>
+    </ul>
+  </div>
+  <div class="image-full-box">
+    <app-image-details [numberOfCurrentItem]="numberOfCurrentItem"></app-image-details>
+  </div>
+</div>
