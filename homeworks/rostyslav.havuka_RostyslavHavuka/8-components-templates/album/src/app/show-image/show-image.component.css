@@ -1,0 +1,9 @@
+
+.image {
+  overflow: hidden;
+  width: 190px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  outline-color: #DD0F0F;
+}

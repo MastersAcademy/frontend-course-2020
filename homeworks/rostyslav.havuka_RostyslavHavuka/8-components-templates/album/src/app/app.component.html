@@ -1,3 +1,9 @@
-<div *ngFor="let data of data">
-  <img src={{data.urls.thumb}}/>
+<div class="image-container" *ngIf="!isImageDownloaded">
+    <div *ngFor="let image of images" class="loader"></div>
+  </div>
+<div *ngIf="isImageDownloaded" class="image-container">
+  <div *ngFor="let image of images">
+    <app-show-image [image]="image" (onImageClick)="setCurrentImage($event)"></app-show-image>
+  </div>
 </div>
+<app-image [image]="currentImage"></app-image>

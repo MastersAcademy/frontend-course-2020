@@ -1,0 +1,16 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: .6fr .6fr;
+  grid-template-areas: ". . view-photo view-photo view-photo . ."
+    ". . view-photo view-photo view-photo . ."
+    ". . . . . . .";
+}
+.view-photo { grid-area: view-photo; }
+
+.image {
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
