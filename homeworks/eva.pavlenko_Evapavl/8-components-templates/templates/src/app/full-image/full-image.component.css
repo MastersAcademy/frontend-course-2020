@@ -1,0 +1,26 @@
+.block-full-image {
+  margin-top: 30px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.block-current-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.block-background {
+  background-color: #9E9C9C;
+  width: 400px;
+  height: 400px;
+}
+
+img {
+  display: flex;
+  max-width: 400px;
+  max-height: 400px;
+}
