@@ -3,7 +3,7 @@
 </header>
 <ul class="gallery">
     <li class="gallery__item" *ngFor="let image of images; let index = index">
-        <div class="gallery__image-wrapper" [ngStyle]="{border: selectedImage === image? '3px solid brown': '1px solid #000'}">
+        <div class="gallery__image-wrapper" [ngStyle]="{boxShadow: selectedImage === image? '0 0 20px rgba(228, 79, 54, 1)': '0 0 20px rgba(0,0,0,.5)'}">
             <app-gallery-item [image]="image"
                               [selectedIndex]="index"
                               (isLoadedImageEvent)="setImageLoadStatus($event)"
@@ -14,4 +14,9 @@
         </div>
     </li>
 </ul>
-<app-selected-image *ngIf="selectedImage" [imageSelectedIndex]="imageSelectedIndex" [selectedImage]="selectedImage"></app-selected-image>
+<app-selected-image *ngIf="selectedImage"
+                    [imageSelectedIndex]="imageSelectedIndex"
+                    [selectedImage]="selectedImage"
+                    (selectedImageEvent)="setSelectedImage($event)">
+
+</app-selected-image>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IMAGES, Images} from '../../images';
 
 @Component({
@@ -10,6 +10,7 @@ export class SelectedImageComponent implements OnInit {
   public images: Images[] = IMAGES;
   @Input() imageSelectedIndex: number = 0;
   @Input() selectedImage?: Images;
+  @Output() selectedImageEvent = new EventEmitter<Images>();
 
   constructor() {
   }
@@ -21,11 +22,13 @@ export class SelectedImageComponent implements OnInit {
   public setPrevImage(): void {
     this.imageSelectedIndex--;
     this.selectedImage = this.images.find((item, index) => index === this.imageSelectedIndex);
+    this.selectedImageEvent.emit(this.selectedImage);
   }
 
   public setNextImage(): void {
     this.imageSelectedIndex++;
     this.selectedImage = this.images.find((item, index) => index === this.imageSelectedIndex);
+    this.selectedImageEvent.emit(this.selectedImage);
   }
 
 }
