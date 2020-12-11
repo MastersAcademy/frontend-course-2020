@@ -17,6 +17,7 @@ export class GalleryComponent implements OnInit{
   public activePrevArrow : boolean = false;
   public activeNextArrow : boolean = false;
   public loadImageWindow : boolean = false;
+  public loadMainImage : boolean = true;
 
   private windowWidth : number = document.documentElement.offsetWidth;
   private iterator : number = 0;
@@ -53,6 +54,7 @@ export class GalleryComponent implements OnInit{
     }
 
     public galleryLoad(): void {
+      this.loadMainImage = false;
       const imgWIdth = this.imageNode.nativeElement.offsetWidth;
       const calcImgToEdge = (this.windowWidth - imgWIdth) / 2 - 80;
 
