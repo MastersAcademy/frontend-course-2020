@@ -1,12 +1,6 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: .6fr .6fr;
-  grid-template-areas: ". . view-photo view-photo view-photo . ."
-    ". . view-photo view-photo view-photo . ."
-    ". . . . . . .";
+div {
+  margin-left: 40.5%;
 }
-.view-photo { grid-area: view-photo; }
 
 .image {
   overflow: hidden;

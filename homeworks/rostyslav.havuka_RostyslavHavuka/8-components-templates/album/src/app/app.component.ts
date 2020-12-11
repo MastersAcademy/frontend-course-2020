@@ -10,16 +10,30 @@ export class AppComponent implements OnInit{
   images: Image[] = images;
   isImageDownloaded: boolean = false;
   loaderIsTrue: boolean = true;
-  currentImage: Image;
+  currentImage: {index: number, image: Image};
 
   ngOnInit() {
     setTimeout(() => {
-      this.isImageDownloaded = !this.isImageDownloaded
+      this.isImageDownloaded = !this.isImageDownloaded;
       this.loaderIsTrue = !this.loaderIsTrue;
-    }, 2000);
+    }, 800);
   }
 
-  setCurrentImage(image: Image) {
-    this.currentImage = image
+  nextButtonAction() {
+    if (this.currentImage.index < 19) {
+    const index = ++this.currentImage.index;
+    this.currentImage = { index, image: this.images[index] };
+    }
+  }
+
+  prevButtonAction() {
+    if (this.currentImage.index > 0) {
+    const index = --this.currentImage.index;
+    this.currentImage = { index, image: this.images[index] };
+    }
+  }
+
+  setCurrentImage(image: {index: number, image: Image}) {
+    this.currentImage = image;
   }
 }

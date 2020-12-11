@@ -1,10 +1,7 @@
-<div>
-  <img
+<img
     class="image"
-    (blur)="styleIsTrue()"
-    (click)="onClick()"
+    [class.focused]="image.id === currentImage?.image?.id"
+    (click)="onClick(image)"
     src="{{image?.urls?.thumb}}"
-    tabindex="0"
-  />
-</div>
+/>
 

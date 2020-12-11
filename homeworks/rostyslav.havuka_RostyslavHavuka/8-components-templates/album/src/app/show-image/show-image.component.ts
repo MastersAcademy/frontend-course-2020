@@ -4,19 +4,27 @@ import { Image } from 'src/models';
 @Component({
   selector: 'app-show-image',
   templateUrl: './show-image.component.html',
-  styleUrls: ['./show-image.component.css']
+  styleUrls: ['./show-image.component.css'],
 })
 export class ShowImageComponent implements OnInit {
-  constructor() {}
+  @Input() index: number;
   @Input() image: Image;
-  @Output() onImageClick: EventEmitter<Image> = new EventEmitter<Image>();
-  ngOnInit(): void {
+  @Input() currentImage: { index: number; image: Image };
+  @Output() onImageClick: EventEmitter<{
+    index: number;
+    image: Image;
+  }> = new EventEmitter<{ index: number; image: Image }>();
+
+  constructor() { };
+
+  ngOnInit(): void { };
+
+  isBlur(event: FocusEvent) {
+    event.stopImmediatePropagation();
   }
 
-  styleIsTrue() {}
-
-  onClick() {
-  this.onImageClick.emit(this.image);
+  onClick(image: Image) {
+    this.onImageClick.emit({ index: this.index, image });
   }
 
 }

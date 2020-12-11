@@ -1,9 +1,18 @@
 <div class="image-container" *ngIf="!isImageDownloaded">
-    <div *ngFor="let image of images" class="loader"></div>
-  </div>
+  <div *ngFor="let image of images" class="loader"></div>
+</div>
 <div *ngIf="isImageDownloaded" class="image-container">
-  <div *ngFor="let image of images">
-    <app-show-image [image]="image" (onImageClick)="setCurrentImage($event)"></app-show-image>
+  <div *ngFor="let image of images; index as i">
+    <app-show-image
+      [index]="i"
+      [currentImage]="currentImage"
+      [image]="image"
+      (onImageClick)="setCurrentImage($event)"
+    ></app-show-image>
   </div>
 </div>
-<app-image [image]="currentImage"></app-image>
+<div class="button-container">
+<button (click)="prevButtonAction()">Prev</button>
+<button (click)="nextButtonAction()">Next</button>
+</div>
+<app-image [currentImage]="currentImage"></app-image>
