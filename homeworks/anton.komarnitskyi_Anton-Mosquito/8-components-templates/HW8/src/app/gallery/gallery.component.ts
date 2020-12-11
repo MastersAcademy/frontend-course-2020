@@ -54,12 +54,13 @@ export class GalleryComponent implements OnInit{
     }
 
     public galleryLoad(): void {
-      this.loadMainImage = false;
       const imgWIdth = this.imageNode.nativeElement.offsetWidth;
       const calcImgToEdge = (this.windowWidth - imgWIdth) / 2 - 80;
 
       this.previousButton.nativeElement.style.left = `${calcImgToEdge}px`;
       this.nextButton.nativeElement.style.right = `${calcImgToEdge}px`;
+
+      this.loadMainImage = false;
     }
 
     public changeImage(direction : string) {

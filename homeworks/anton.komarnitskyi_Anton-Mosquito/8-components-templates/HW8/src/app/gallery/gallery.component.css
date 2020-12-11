@@ -188,8 +188,6 @@
   animation: rotateRing 2s linear infinite;
 }
 
-
-
 @keyframes rotate {
 
   0% {
@@ -225,5 +223,4 @@
   100% {
     transform: rotate(405deg);
   }
-
 }
