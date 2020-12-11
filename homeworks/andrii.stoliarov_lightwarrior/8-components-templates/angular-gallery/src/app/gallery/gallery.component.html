@@ -1,0 +1,17 @@
+<div class="images">
+  <div *ngFor="let image of images"
+    [class.selected]="image === selectedImage"
+    (click)="onSelect(image)">
+      <img [class.hide-img]="!loaded" src="https://nabir.np.gov.ua/images/loading.gif">
+      <img [class.hide-img]="loaded" (load)="loader()" src="{{image.urls.thumb}}">
+  </div>
+</div>
+
+<div class="regular">
+  <div>
+    <figure>
+      <figcaption>Image</figcaption>
+      <img [class.hide-img]="loaded" src="{{selectedImage.urls.small}}">
+    </figure>
+  </div>
+</div>

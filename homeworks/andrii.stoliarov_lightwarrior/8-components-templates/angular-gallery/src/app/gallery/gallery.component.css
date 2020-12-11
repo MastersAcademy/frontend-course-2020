@@ -1,0 +1,41 @@
+.images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 5em;  /* justify-content: center; */
+}
+
+.images div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #006400;
+  margin: 5px;
+}
+
+.hide-img {
+  display: none;
+}
+
+.images div.selected {
+  border: 5px solid #8B0000;
+}
+
+.regular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.regular figcaption {
+  text-align: center;
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+  font-weight: 700;
+  margin: 1em;
+}
+
+.regular img {
+  border: 7px solid #8B0000;
+}
