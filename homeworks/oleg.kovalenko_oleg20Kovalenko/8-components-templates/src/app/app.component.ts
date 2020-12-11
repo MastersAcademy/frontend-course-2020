@@ -1,18 +1,17 @@
-
 import { Component, OnInit } from '@angular/core';
 import { images } from './gallery';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   images = images;
   title = 'Gallery';
   subTitle = 'Image';
   itemAcrive: any;
-  load = true;
+  load: boolean = true;
 
   clickBox(item: any) {
     this.itemAcrive = item;
@@ -26,7 +25,5 @@ export class AppComponent implements OnInit{
     this.load = false;
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }

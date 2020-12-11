@@ -16,7 +16,36 @@
   flex-wrap: wrap;
 }
 
+.hidden {
+  display: none;
+}
+
+.loader {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  border: 16px solid #F3F3F3;
+  border-radius: 50%;
+  border-top: 16px solid #3498DB;
+  animation: spin 2s linear infinite;
+  width: 50px;
+  height: 50px;
+}
+
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .gallery-list {
+  position: relative;
   list-style: none;
   border: 1px solid #CCC;
   margin: 10px;
@@ -43,4 +72,3 @@
   justify-content: center;
   align-items: center;
 }
-
