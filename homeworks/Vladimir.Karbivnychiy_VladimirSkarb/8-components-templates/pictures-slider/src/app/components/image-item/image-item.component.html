@@ -1,0 +1,8 @@
+<div (click)="showFullImage()"
+     class="item-wrapper">
+  <img class="item" *ngIf="item"
+       [src]="item.urls.thumb"
+       [alt]="item.id"
+       (load)="hiddenLoader()">
+  <div class="lds-dual-ring" [class.hidden]="!loader"></div>
+</div>
