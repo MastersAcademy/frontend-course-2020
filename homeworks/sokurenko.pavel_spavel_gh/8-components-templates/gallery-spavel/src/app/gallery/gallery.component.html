@@ -1,13 +1,22 @@
 <H1>Gallery</H1>
-<div>{{ stringFromChild }}</div>
 <div
   class="image"
   [class.image-choose]="image.id === selectedImageId"
   *ngFor="let image of images"
   (click)="defineSelectedImageId($event)"
   id="{{ image.id }}"
-  [ngStyle]="{ backgroundImage: 'url(' + image.urls.thumb + ')' }"
-></div>
+>
+  <div [class.hidden]="loaded1" class="spinner-wrap">
+    <img class="spinner" src="../../assets/spinner.svg" alt="" />
+  </div>
+  <img
+    [class.hidden]="!loaded1"
+    src="{{ image.urls.thumb }}"
+    alt=""
+    (load)="loaded()"
+  />
+</div>
+
 <app-image
   [dataFromParent]="str"
   [imageIndex]="selectedImageIndex"

@@ -7,10 +7,11 @@ import { IMAGES } from '../../assets/data';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
+  public loaded1 = false;
   images = IMAGES;
   maxIndexOfImagesObj = this.images.length - 1;
 
-  public str = '../../../assets/test.jpg';
+  public str = '';
   public stringFromChild = '';
 
   selectedImageIndex = 0;
@@ -81,5 +82,11 @@ export class GalleryComponent implements OnInit {
   chooseImage(newIndex: number): void {
     this.str = this.images[newIndex].urls.regular;
     this.selectedImageId = this.images[newIndex].id; // сделать красиво и в другом месте
+  }
+
+
+  loaded(): void {
+    // console.log('test');
+    this.loaded1 = true;
   }
 }

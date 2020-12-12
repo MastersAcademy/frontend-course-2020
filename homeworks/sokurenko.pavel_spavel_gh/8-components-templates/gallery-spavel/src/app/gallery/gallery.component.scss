@@ -1,14 +1,16 @@
+div {
+  display: inline-block;
+}
 
 .image {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background-image: url("../../assets/test.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border: 10px solid #0001;
-  background-clip: padding-box;
+}
+
+.image > * {
+  pointer-events: none;
 }
 
 .image:hover {
@@ -21,4 +23,28 @@
 
 .image-choose {
   border-color: #F003;
+}
+
+.spinner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: yellowgreen;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+img.spinner {
+  width: 80%;
+  height: 80%;
+}
+
+.hidden {
+  display: none;
 }
