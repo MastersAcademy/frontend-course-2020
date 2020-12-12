@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+nav,
+header,
+footer,
+aside {
+  display: block;
+}
+
+html,
+body {
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 80px 200px 150px 150px;
+  grid-template-columns: 1fr;
+  width: 60%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.wrapper .wrapper__score {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  align-self: center;
+  justify-self: center;
+}
+
+.wrapper .wrapper__cube {
+  background-color: hsl(0, 100%, 50%);
+  align-self: center;
+  justify-self: center;
+  position: relative;
+}
+
+
+.wrapper .wrapper__cube .wrapper__cube-result {
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  transform: translate(-50%,-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 3.5rem;
+}
+
+.wrapper .wrapper__data-score {
+  align-self: center;
+  justify-self: center;
+  position: relative;
+}
+
+.wrapper .wrapper__data-score .wrapper__data-score-cube-score {
+  width: 70px;
+  height: 70px;
+  background-color: #808080;
+  position: relative;
+}
+
+.wrapper .wrapper__data-score .wrapper__data-score-cube-score.green {
+  background-color: hsl(120, 100%, 25%);
+}
+
+.wrapper .wrapper__data-score .wrapper__data-score-cube-score.red {
+  background-color: hsl(0, 100%, 50%);
+}
+
+.wrapper .wrapper__data-score .wrapper__data-score-cube-score .wrapper__data-score-key {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.wrapper__data-score .wrapper__data-score-my-progress {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper__data-score .wrapper__data-score-my-progress .wrapper__data-score-my-progress-progress-bar-left {
+  width: 0%;
+  height: 10px;
+  background-color: hsl(240, 100%, 50%);
+}
+
+.wrapper__data-score .wrapper__data-score-my-progress .wrapper__data-score-my-progress-progress-bar-right {
+  width: 0%;
+  height: 10px;
+  background-color: hsl(240, 100%, 50%);
+}
+
+.wrapper__data-score .wrapper__data-score-time {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+[data-game-form] {
+  align-self: center;
+  justify-self: center;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[data-game-form] p {
+  width: 100%;
+}
+
+.button {
+  position: relative;
+  width: 100px;
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: #000;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: url("../images/btn-bg2.png");
+  background-size: cover;
+  transform-origin: left;
+  transition: .5s;
+  z-index: -1;
+}
+
+.button:hover {
+  color: #FFF;
+}
+
+.button:hover::before {
+  width: 100%;
+}
+
+
+.paranja {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0,.5);
+}
+
+.paranja .paranja__popup {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #008B8B;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0,.5);
+}
+
+.paranja .paranja__popup .paranja__popup-text {
+  text-align: center;
+  font-size: 3rem;
+  color: #FFF;
+}
+
+.paranja .paranja__popup .paranja__popup-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
