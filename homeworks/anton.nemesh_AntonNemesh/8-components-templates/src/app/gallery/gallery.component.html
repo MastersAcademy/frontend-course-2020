@@ -7,7 +7,7 @@
         <app-image [currentImage]="imageItem"></app-image>
       </li>
     </ul>
-    <h1 class="gallery__title">Image #{{numberOfCurrentItem}}</h1>
+    <h1 class="gallery__title">Image</h1>
     <button class="gallery-wrapper__button gallery-wrapper__button--left" (click)="decreaseNumberOfCurrentItem()">Prev</button>
     <app-image-details class="image-full-box" [numberOfCurrentItem]="numberOfCurrentItem"></app-image-details>
     <button class="gallery-wrapper__button gallery-wrapper__button--right" (click)="increaseNumberOfCurrentItem()">Next</button>
