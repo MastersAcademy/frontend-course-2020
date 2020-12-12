@@ -10,6 +10,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ImageComponent implements OnInit {
 
   @Input() dataFromParent?: string;
+  @Input() imageIndex?: number;
+  @Input() imageMaxIndex?: number;
   @Output() sendEvent = new EventEmitter<string>();
 
   constructor() {}

@@ -8,7 +8,7 @@ import { IMAGES } from '../../assets/data';
 })
 export class GalleryComponent implements OnInit {
   images = IMAGES;
-  // syzeOfImagesObj = this.images.length;
+  maxIndexOfImagesObj = this.images.length - 1;
 
   public str = '../../assets/test.jpg';
   public stringFromChild = '';

@@ -8,4 +8,9 @@
   id="{{ image.id }}"
   [ngStyle]="{ backgroundImage: 'url(' + image.urls.thumb + ')' }"
 ></div>
-<app-image [dataFromParent]="str" (sendEvent)="applyData($event)"></app-image>
+<app-image
+  [dataFromParent]="str"
+  [imageIndex]="selectedImageIndex"
+  [imageMaxIndex]="maxIndexOfImagesObj"
+  (sendEvent)="applyData($event)"
+></app-image>

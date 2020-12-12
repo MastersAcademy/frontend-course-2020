@@ -6,7 +6,17 @@
   (click)="sendToParent()"
 ></div>
 
-<input type="button" value="<-" (click)="choosePrev()"/>
-<input type="button" value="->" (click)="chooseNext()"/>
+<input
+  [disabled]="imageIndex === 0"
+  type="button"
+  value="<-"
+  (click)="choosePrev()"
+/>
+<input
+  [disabled]="imageIndex === imageMaxIndex"
+  type="button"
+  value="->"
+  (click)="chooseNext()"
+/>
 
-<div><br>debug - {{ dataFromParent }}</div>
+<div><br />debug - {{ dataFromParent }}</div>
