@@ -384,66 +384,52 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _c0 = function (a0) { return { backgroundImage: a0 }; };
-// import { IMAGES } from '../../../assets/data';
 class ImageComponent {
     constructor() {
-        this.sendEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.newDirectionEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
-    ngOnInit() {
-    }
-    sendToParent() {
-        this.sendEvent.emit('Test from child');
-    }
+    ngOnInit() { }
     choosePrev() {
-        this.sendEvent.emit('prev');
+        this.newDirectionEvent.emit('prev');
     }
     chooseNext() {
-        this.sendEvent.emit('next');
+        this.newDirectionEvent.emit('next');
     }
 }
 ImageComponent.ɵfac = function ImageComponent_Factory(t) { return new (t || ImageComponent)(); };
-ImageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageComponent, selectors: [["app-image"]], inputs: { dataFromParent: "dataFromParent", imageIndex: "imageIndex", imageMaxIndex: "imageMaxIndex" }, outputs: { sendEvent: "sendEvent" }, decls: 9, vars: 6, consts: [[1, "image", 3, "ngStyle", "click"], ["type", "button", "value", "<-", 3, "disabled", "click"], ["type", "button", "value", "->", 3, "disabled", "click"]], template: function ImageComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "hr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "H1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Image");
+ImageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageComponent, selectors: [["app-image"]], inputs: { imageUrl: "imageUrl", imageIndex: "imageIndex", imageMaxIndex: "imageMaxIndex" }, outputs: { newDirectionEvent: "newDirectionEvent" }, decls: 5, vars: 5, consts: [["type", "button", "value", "Prev", 3, "disabled", "click"], [1, "image", 3, "ngStyle"], ["type", "button", "value", "Next", 3, "disabled", "click"]], template: function ImageComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "H1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Image");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ImageComponent_Template_div_click_3_listener() { return ctx.sendToParent(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ImageComponent_Template_input_click_2_listener() { return ctx.choosePrev(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ImageComponent_Template_input_click_4_listener() { return ctx.choosePrev(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ImageComponent_Template_input_click_5_listener() { return ctx.chooseNext(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ImageComponent_Template_input_click_4_listener() { return ctx.chooseNext(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](4, _c0, "url(" + ctx.dataFromParent + ")"));
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.imageIndex === 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](3, _c0, "url(" + ctx.imageUrl + ")"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.imageIndex === ctx.imageMaxIndex);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("debug - ", ctx.dataFromParent, "");
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgStyle"]], styles: [".image[_ngcontent-%COMP%] {\n  width: 200px;\n  height: 200px;\n  background-image: url('test.jpg');\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  border: 10px solid #0001;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2ltYWdlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0UsWUFBQTtFQUNBLGFBQUE7RUFDQSxpQ0FBQTtFQUNBLHdCQUFBO0VBQ0EsMkJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0FBQUYiLCJmaWxlIjoiaW1hZ2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5pbWFnZSB7XG4gIHdpZHRoOiAyMDBweDtcbiAgaGVpZ2h0OiAyMDBweDtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiLi4vLi4vLi4vYXNzZXRzL3Rlc3QuanBnXCIpO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYm9yZGVyOiAxMHB4IHNvbGlkICMwMDAxXG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ImageComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
                 selector: 'app-image',
                 templateUrl: './image.component.html',
-                styleUrls: ['./image.component.scss']
+                styleUrls: ['./image.component.scss'],
             }]
-    }], function () { return []; }, { dataFromParent: [{
+    }], function () { return []; }, { imageUrl: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }], imageIndex: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }], imageMaxIndex: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }], sendEvent: [{
+        }], newDirectionEvent: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
         }] }); })();
 
@@ -500,7 +486,7 @@ __webpack_require__.r(__webpack_exports__);
 function GalleryComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_div_2_Template_div_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.defineSelectedImageId($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_div_2_Template_div_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.selectImageEnevt($event); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -514,90 +500,72 @@ function GalleryComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("image-choose", image_r1.id === ctx_r0.selectedImageId);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", image_r1.id);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("hidden", ctx_r0.loaded1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("hidden", ctx_r0.isLoaded);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("hidden", !ctx_r0.loaded1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("hidden", !ctx_r0.isLoaded);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", image_r1.urls.thumb, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 class GalleryComponent {
     constructor() {
-        this.loaded1 = false;
         this.images = _assets_data__WEBPACK_IMPORTED_MODULE_1__["IMAGES"];
-        this.maxIndexOfImagesObj = this.images.length - 1;
-        this.str = '';
-        this.stringFromChild = '';
+        this.isLoaded = false;
         this.selectedImageIndex = 0;
+        this.selectedImageUrl = '';
+        this.maxIndexOfImagesObj = this.images.length - 1;
     }
-    ngOnInit() {
-        // this.syzeOfImagesObj = this.images.length;
-    }
-    defineSelectedImageId(event) {
-        var _a;
-        this.selectedImageId = event.target.id;
-        this.str = '' + ((_a = this.images.find(i => i.id === this.selectedImageId)) === null || _a === void 0 ? void 0 : _a.urls.regular);
-        this.defineSelectedImageIndex();
-        this.printIndex();
-    }
-    applyData(data) {
-        this.stringFromChild = data;
-        if (data === 'prev') {
-            this.choosePrev();
-        }
-        if (data === 'next') {
-            this.chooseNext();
-        }
-    }
-    printIndex() {
-        console.log(this.selectedImageIndex);
-    }
-    defineSelectedImageIndex() {
-        this.selectedImageIndex = this.images.findIndex(i => i.id === this.selectedImageId);
-        return this.selectedImageIndex;
-    }
-    choosePrev() {
-        if (this.selectedImageIndex === 0) {
-            this.selectedImageIndex = this.images.length - 1;
-        }
-        else {
-            this.selectedImageIndex--;
-        }
-        this.chooseImage(this.selectedImageIndex);
-        console.log('prev');
-    }
-    chooseNext() {
-        if (this.selectedImageIndex === this.images.length - 1) {
-            this.selectedImageIndex = 0;
-        }
-        else {
-            this.selectedImageIndex++;
-        }
-        this.chooseImage(this.selectedImageIndex);
-        console.log('next');
-    }
-    chooseImage(newIndex) {
-        this.str = this.images[newIndex].urls.regular;
-        this.selectedImageId = this.images[newIndex].id; // сделать красиво и в другом месте
-    }
+    ngOnInit() { }
     loaded() {
-        // console.log('test');
-        this.loaded1 = true;
+        this.isLoaded = true;
+        this.defineSelectedImageFromIndex(0);
+    }
+    selectImageEnevt(event) {
+        this.defineSelectedImageFromId(event.target.id);
+    }
+    defineSelectedImageFromId(newImageId) {
+        this.selectedImageId = newImageId;
+        const tmpImage = this.images.find((i) => i.id === this.selectedImageId);
+        this.selectedImageUrl = '' + (tmpImage === null || tmpImage === void 0 ? void 0 : tmpImage.urls.regular);
+        this.selectedImageIndex = this.images.findIndex((i) => i.id === this.selectedImageId);
+    }
+    defineSelectedImageFromIndex(newImageIndex) {
+        this.selectedImageUrl = this.images[newImageIndex].urls.regular;
+        this.selectedImageId = this.images[newImageIndex].id; // сделать красиво и в другом месте
+    }
+    swithcToNextImage(direction) {
+        if (direction === 'prev') {
+            if (this.selectedImageIndex === 0) {
+                this.selectedImageIndex = this.images.length - 1;
+            }
+            else {
+                this.selectedImageIndex--;
+            }
+        }
+        else if (direction === 'next') {
+            if (this.selectedImageIndex === this.images.length - 1) {
+                this.selectedImageIndex = 0;
+            }
+            else {
+                this.selectedImageIndex++;
+            }
+        }
+        this.defineSelectedImageFromIndex(this.selectedImageIndex);
     }
 }
 GalleryComponent.ɵfac = function GalleryComponent_Factory(t) { return new (t || GalleryComponent)(); };
-GalleryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GalleryComponent, selectors: [["app-gallery"]], decls: 4, vars: 4, consts: [["class", "image", 3, "image-choose", "id", "click", 4, "ngFor", "ngForOf"], [3, "dataFromParent", "imageIndex", "imageMaxIndex", "sendEvent"], [1, "image", 3, "id", "click"], [1, "spinner-wrap"], ["src", "../../assets/spinner.svg", "alt", "", 1, "spinner"], ["alt", "", 3, "src", "load"]], template: function GalleryComponent_Template(rf, ctx) { if (rf & 1) {
+GalleryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GalleryComponent, selectors: [["app-gallery"]], decls: 4, vars: 4, consts: [["class", "image", 3, "image-choose", "id", "click", 4, "ngFor", "ngForOf"], [3, "imageUrl", "imageIndex", "imageMaxIndex", "newDirectionEvent"], [1, "image", 3, "id", "click"], [1, "spinner-wrap"], ["src", "../../assets/spinner.svg", "alt", "", 1, "spinner"], ["alt", "", 3, "src", "load"]], template: function GalleryComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "H1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Gallery");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, GalleryComponent_div_2_Template, 4, 8, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "app-image", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("sendEvent", function GalleryComponent_Template_app_image_sendEvent_3_listener($event) { return ctx.applyData($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("newDirectionEvent", function GalleryComponent_Template_app_image_newDirectionEvent_3_listener($event) { return ctx.swithcToNextImage($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.images);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataFromParent", ctx.str)("imageIndex", ctx.selectedImageIndex)("imageMaxIndex", ctx.maxIndexOfImagesObj);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _image_image_component__WEBPACK_IMPORTED_MODULE_3__["ImageComponent"]], styles: ["div[_ngcontent-%COMP%] {\n  display: inline-block;\n}\n\n.image[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 100px;\n  height: 100px;\n  border: 10px solid #0001;\n}\n\n.image[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  pointer-events: none;\n}\n\n.image[_ngcontent-%COMP%]:hover {\n  border-color: #0003;\n}\n\n.image[_ngcontent-%COMP%]:active {\n  border-color: #0005;\n}\n\n.image-choose[_ngcontent-%COMP%] {\n  border-color: #F003;\n}\n\n.spinner-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  background-color: yellowgreen;\n}\n\nimg[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  overflow: hidden;\n}\n\nimg.spinner[_ngcontent-%COMP%] {\n  width: 80%;\n  height: 80%;\n}\n\n.hidden[_ngcontent-%COMP%] {\n  display: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2dhbGxlcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBQTtBQUNGOztBQUVBO0VBQ0UscUJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHdCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxvQkFBQTtBQUNGOztBQUVBO0VBQ0UsbUJBQUE7QUFDRjs7QUFFQTtFQUNFLG1CQUFBO0FBQ0Y7O0FBRUE7RUFDRSxtQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsNkJBQUE7QUFDRjs7QUFFQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsVUFBQTtFQUNBLFdBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRiIsImZpbGUiOiJnYWxsZXJ5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZGl2IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuXG4uaW1hZ2Uge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHdpZHRoOiAxMDBweDtcbiAgaGVpZ2h0OiAxMDBweDtcbiAgYm9yZGVyOiAxMHB4IHNvbGlkICMwMDAxO1xufVxuXG4uaW1hZ2UgPiAqIHtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5pbWFnZTpob3ZlciB7XG4gIGJvcmRlci1jb2xvcjogIzAwMDM7XG59XG5cbi5pbWFnZTphY3RpdmUge1xuICBib3JkZXItY29sb3I6ICMwMDA1O1xufVxuXG4uaW1hZ2UtY2hvb3NlIHtcbiAgYm9yZGVyLWNvbG9yOiAjRjAwMztcbn1cblxuLnNwaW5uZXItd3JhcCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGJhY2tncm91bmQtY29sb3I6IHllbGxvd2dyZWVuO1xufVxuXG5pbWcge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuaW1nLnNwaW5uZXIge1xuICB3aWR0aDogODAlO1xuICBoZWlnaHQ6IDgwJTtcbn1cblxuLmhpZGRlbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4iXX0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("imageUrl", ctx.selectedImageUrl)("imageIndex", ctx.selectedImageIndex)("imageMaxIndex", ctx.maxIndexOfImagesObj);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _image_image_component__WEBPACK_IMPORTED_MODULE_3__["ImageComponent"]], styles: ["div[_ngcontent-%COMP%] {\n  display: inline-block;\n}\n\n.image[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 100px;\n  height: 100px;\n  border: 10px solid #0001;\n}\n\n.image[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  pointer-events: none;\n}\n\n.image[_ngcontent-%COMP%]:hover {\n  border-color: #0003;\n}\n\n.image[_ngcontent-%COMP%]:active {\n  border-color: #0005;\n}\n\n.image-choose[_ngcontent-%COMP%] {\n  border-color: #F003;\n}\n\n.spinner-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  background-color: lime;\n}\n\nimg[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  overflow: hidden;\n}\n\nimg.spinner[_ngcontent-%COMP%] {\n  width: 80%;\n  height: 80%;\n}\n\n.hidden[_ngcontent-%COMP%] {\n  display: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2dhbGxlcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxxQkFBQTtBQUNGOztBQUVBO0VBQ0UscUJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHdCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxvQkFBQTtBQUNGOztBQUVBO0VBQ0UsbUJBQUE7QUFDRjs7QUFFQTtFQUNFLG1CQUFBO0FBQ0Y7O0FBRUE7RUFDRSxtQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7RUFDQSxZQUFBO0VBQ0Esc0JBQUE7QUFDRjs7QUFFQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsVUFBQTtFQUNBLFdBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRiIsImZpbGUiOiJnYWxsZXJ5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZGl2IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuXG4uaW1hZ2Uge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHdpZHRoOiAxMDBweDtcbiAgaGVpZ2h0OiAxMDBweDtcbiAgYm9yZGVyOiAxMHB4IHNvbGlkICMwMDAxO1xufVxuXG4uaW1hZ2UgPiAqIHtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5pbWFnZTpob3ZlciB7XG4gIGJvcmRlci1jb2xvcjogIzAwMDM7XG59XG5cbi5pbWFnZTphY3RpdmUge1xuICBib3JkZXItY29sb3I6ICMwMDA1O1xufVxuXG4uaW1hZ2UtY2hvb3NlIHtcbiAgYm9yZGVyLWNvbG9yOiAjRjAwMztcbn1cblxuLnNwaW5uZXItd3JhcCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYigwLCAyNTUsIDApO1xufVxuXG5pbWcge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuaW1nLnNwaW5uZXIge1xuICB3aWR0aDogODAlO1xuICBoZWlnaHQ6IDgwJTtcbn1cblxuLmhpZGRlbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GalleryComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
