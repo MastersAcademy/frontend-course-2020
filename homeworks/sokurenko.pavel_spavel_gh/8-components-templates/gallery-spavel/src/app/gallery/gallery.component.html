@@ -3,14 +3,15 @@
   class="image"
   [class.image-choose]="image.id === selectedImageId"
   *ngFor="let image of images"
-  (click)="defineSelectedImageId($event)"
+  (click)="selectImageEnevt($event)"
   id="{{ image.id }}"
 >
-  <div [class.hidden]="loaded1" class="spinner-wrap">
+  <div [class.hidden]="isLoaded" class="spinner-wrap">
     <img class="spinner" src="../../assets/spinner.svg" alt="" />
   </div>
+
   <img
-    [class.hidden]="!loaded1"
+    [class.hidden]="!isLoaded"
     src="{{ image.urls.thumb }}"
     alt=""
     (load)="loaded()"
@@ -18,8 +19,8 @@
 </div>
 
 <app-image
-  [dataFromParent]="str"
+  [imageUrl]="selectedImageUrl"
   [imageIndex]="selectedImageIndex"
   [imageMaxIndex]="maxIndexOfImagesObj"
-  (sendEvent)="applyData($event)"
+  (sendEvent)="swithcToNextImage($event)"
 ></app-image>

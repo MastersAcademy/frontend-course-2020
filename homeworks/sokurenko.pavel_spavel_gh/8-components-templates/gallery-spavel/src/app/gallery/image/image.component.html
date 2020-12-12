@@ -1,22 +1,19 @@
-<hr />
 <H1>Image</H1>
 <div
   class="image"
-  [ngStyle]="{ backgroundImage: 'url(' + dataFromParent + ')' }"
-  (click)="sendToParent()"
+  [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"
 ></div>
 
 <input
   [disabled]="imageIndex === 0"
   type="button"
-  value="<-"
+  value="Prev"
   (click)="choosePrev()"
 />
+
 <input
   [disabled]="imageIndex === imageMaxIndex"
   type="button"
-  value="->"
+  value="Next"
   (click)="chooseNext()"
 />
-
-<div><br />debug - {{ dataFromParent }}</div>

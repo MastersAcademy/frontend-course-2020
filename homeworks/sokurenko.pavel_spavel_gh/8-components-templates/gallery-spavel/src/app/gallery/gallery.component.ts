@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMAGES } from '../../assets/data';
 
 @Component({
@@ -7,86 +7,56 @@ import { IMAGES } from '../../assets/data';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
-  public loaded1 = false;
   images = IMAGES;
+  isLoaded = false;
   maxIndexOfImagesObj = this.images.length - 1;
 
-  public str = '';
-  public stringFromChild = '';
+  public selectedImageUrl = '';
 
   selectedImageIndex = 0;
   selectedImageId?: string;
 
-
   constructor() {}
 
-  ngOnInit(): void {
-    // this.syzeOfImagesObj = this.images.length;
+  ngOnInit(): void {}
+
+  selectImageEnevt(event: Event): void {
+    this.defineSelectedImageId((event.target as Element).id);
   }
 
-  defineSelectedImageId(event: Event): void {
-    this.selectedImageId = (event.target as Element).id;
-    this.str = '' + this.images.find(i => i.id === this.selectedImageId)?.urls.regular;
-
-    this.defineSelectedImageIndex();
-    this.printIndex();
+  defineSelectedImageId(newImageId: string): void {
+    this.selectedImageId = newImageId;
+    const tmpImage = this.images.find((i) => i.id === this.selectedImageId);
+    this.selectedImageUrl = '' + tmpImage?.urls.regular;
+    this.selectedImageIndex = this.images.findIndex(
+      (i) => i.id === this.selectedImageId
+    );
   }
 
-  applyData(data: string): void {
-    this.stringFromChild = data;
+
+  swithcToNextImage(data: string): void {
     if (data === 'prev') {
-      this.choosePrev();
+      if (this.selectedImageIndex === 0) {
+        this.selectedImageIndex = this.images.length - 1;
+      } else {
+        this.selectedImageIndex--;
+      }
+    } else if (data === 'next') {
+      if (this.selectedImageIndex === this.images.length - 1) {
+        this.selectedImageIndex = 0;
+      } else {
+        this.selectedImageIndex++;
+      }
     }
-
-    if (data === 'next') {
-      this.chooseNext();
-    }
-  }
-
-  printIndex(): void{
-
-    console.log(this.selectedImageIndex);
-  }
-
-  defineSelectedImageIndex(): number {
-    this.selectedImageIndex = this.images.findIndex(i => i.id === this.selectedImageId);
-    return this.selectedImageIndex;
-  }
-
-
-
-
-
-  choosePrev(): void {
-    if (this.selectedImageIndex === 0) {
-      this.selectedImageIndex = this.images.length - 1;
-    } else {
-      this.selectedImageIndex--;
-    }
-
     this.chooseImage(this.selectedImageIndex);
-    console.log('prev');
-  }
-
-  chooseNext(): void {
-    if (this.selectedImageIndex === this.images.length - 1) {
-      this.selectedImageIndex = 0;
-    } else {
-      this.selectedImageIndex++;
-    }
-
-    this.chooseImage(this.selectedImageIndex);
-    console.log('next');
   }
 
   chooseImage(newIndex: number): void {
-    this.str = this.images[newIndex].urls.regular;
+    this.selectedImageUrl = this.images[newIndex].urls.regular;
     this.selectedImageId = this.images[newIndex].id; // сделать красиво и в другом месте
   }
 
-
   loaded(): void {
-    // console.log('test');
-    this.loaded1 = true;
+    this.isLoaded = true;
   }
 }
