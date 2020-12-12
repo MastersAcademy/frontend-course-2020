@@ -1,0 +1,16 @@
+<ul class="list">
+  <li class="list-item" *ngFor="let image of galleryService.gallery;"
+      (click)="select($event, image.urls.small, image.id)"
+      [ngClass]="{'active': selectedItem === image.id}">
+
+    <img *ngIf="loading" src="/assets/preloader.gif" alt="loading" />
+    <img class="list-item__image" [hidden]="loading" (load)="onLoad()"
+         src="{{image.urls.thumb}} " alt="gallery image">
+
+  </li>
+</ul>
+
+<div class="preview-item">
+  <h2 class="head-line">Preview</h2>
+  <img class="preview-item__image" src="{{ currentItem}}" alt="">
+</div>
