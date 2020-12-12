@@ -124,13 +124,6 @@
   }
 }
 
-@media (max-width: 420px) {
-
-  .gallery-wrapper {
-    grid-template: 1fr auto .6fr / 40px 1fr 40px;
-  }
-}
-
 .gallery-wrapper__button--left {
   display: grid;
   grid-row: 3 / 4;
