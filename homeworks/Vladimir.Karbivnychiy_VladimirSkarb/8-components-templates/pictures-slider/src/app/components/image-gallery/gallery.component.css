@@ -20,7 +20,7 @@
   margin: 30px auto 0;
 }
 
-.full-image-container {
+.full-img-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -30,7 +30,7 @@
   margin: 20px auto 0;
 }
 
-.full-image {
+.full-img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -44,19 +44,19 @@
   cursor: pointer;
 }
 
-i {
+.arrow {
   border: solid #000;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 15px;
 }
 
-.right {
+.right-icon {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 
-.left {
+.left-icon {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }

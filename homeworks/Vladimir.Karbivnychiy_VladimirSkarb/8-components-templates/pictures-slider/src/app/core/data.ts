@@ -1,6 +1,6 @@
-import { DataInterface } from '../interfaces/dataInterface';
+import { Image } from '../interfaces/Image';
 
-export const dataImg: Array<DataInterface> = [
+export const dataImg: Array<Image> = [
   {
     id: 'YhWRSEdBXUE',
     description: null,

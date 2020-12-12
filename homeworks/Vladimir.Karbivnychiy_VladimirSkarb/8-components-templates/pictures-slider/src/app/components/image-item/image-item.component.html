@@ -3,6 +3,6 @@
   <img class="item" *ngIf="item"
        [src]="item.urls.thumb"
        [alt]="item.id"
-       (load)="hiddenLoader()">
+       (load)="hideLoader()">
   <div class="lds-dual-ring" [class.hidden]="!loader"></div>
 </div>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {dataImg} from '../../core/data';
-import {DataInterface} from '../../interfaces/dataInterface';
+import {Image} from '../../interfaces/Image';
 
 @Component({
   selector: 'app-gallery',
@@ -12,18 +12,25 @@ export class GalleryComponent implements OnInit{
   constructor() {
   }
 
-  list: Array<DataInterface> = dataImg;
-  fullImage?: DataInterface;
+  list: Array<Image> = dataImg;
+  fullImage?: Image;
+  loader: boolean = true;
 
   ngOnInit(): void {
     this.fullImage = this.list[0];
   }
 
   showItem(id: string): void {
-    this.fullImage = this.list.find((image: DataInterface) => image.id === id);
+    this.loader = true;
+    this.fullImage = this.list.find((image: Image) => image.id === id);
   }
 
-  nextEl(): void {
+  hideLoader(): void {
+    this.loader = false;
+  }
+
+  showNextEl(): void {
+    this.loader = true;
     if (this.fullImage) {
       const index = this.list.indexOf(this.fullImage);
       if (index === this.list.length - 1) {
@@ -34,7 +41,8 @@ export class GalleryComponent implements OnInit{
     }
   }
 
-  prevEl(): void {
+  showPrevEl(): void {
+    this.loader = true;
     if (this.fullImage) {
       const index = this.list.indexOf(this.fullImage);
       if (index === 0) {

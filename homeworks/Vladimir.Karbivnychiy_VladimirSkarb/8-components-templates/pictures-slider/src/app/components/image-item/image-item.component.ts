@@ -4,7 +4,7 @@ import {
   Input,
   Output
 } from '@angular/core';
-import {DataInterface} from '../../interfaces/dataInterface';
+import {Image} from '../../interfaces/Image';
 
 @Component({
   selector: 'app-image-item',
@@ -13,15 +13,15 @@ import {DataInterface} from '../../interfaces/dataInterface';
 })
 export class ImageItemComponent {
 
-  @Input() item?: DataInterface;
+  @Input() item: Image | undefined;
   @Output() showEvent: EventEmitter<string> = new EventEmitter();
 
-  loader: any = true;
+  loader: boolean = true;
 
   constructor() {
   }
 
-  hiddenLoader(): void {
+  hideLoader(): void {
     this.loader = false;
   }
 
