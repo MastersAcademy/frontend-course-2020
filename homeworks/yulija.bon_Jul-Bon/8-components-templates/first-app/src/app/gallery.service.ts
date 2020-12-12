@@ -7,14 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 
-
 export class GalleryService {
-
-  constructor() { }
-
-  // public getImages(): Image[] {
-  //   return IMAGES;
-  // }
 
   getImages(): Observable<Image[]> {
     return of(IMAGES);
