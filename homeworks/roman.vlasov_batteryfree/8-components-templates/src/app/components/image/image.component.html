@@ -1,0 +1,4 @@
+<div *ngIf="url" class="wrap-image">
+    <span *ngIf="loading">Loading...</span>
+    <img [hidden]="loading" (load)="onLoad()" class="image" [src]=imageBase64>
+</div>
