@@ -1,13 +1,13 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills"],{
 
-/***/ 1:
+/***/ 2:
 /*!********************************!*\
   !*** multi ./src/polyfills.ts ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Desktop/framework-portfolio/angular-gallery/gallery/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /home/user/Desktop/master-academy/homeworks/dmytro.shvets_Schweppes-JS/8-components-templates/src/polyfills.ts */"hN/g");
 
 
 /***/ }),
@@ -3038,5 +3038,5 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ })
 
-},[[1,"runtime"]]]);
-//# sourceMappingURL=polyfills.js.map
+},[[2,"runtime"]]]);
+//# sourceMappingURL=polyfills-es2015.js.map

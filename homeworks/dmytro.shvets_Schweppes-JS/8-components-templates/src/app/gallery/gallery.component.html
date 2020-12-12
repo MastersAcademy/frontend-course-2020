@@ -5,6 +5,8 @@
             class="plate"
             *ngFor="let image of images"
             [image]="image"
+            [class.selected]="image === selctedImage"
+            (click)=selecting(image);
         ></app-plate>
     </div>
 </div>

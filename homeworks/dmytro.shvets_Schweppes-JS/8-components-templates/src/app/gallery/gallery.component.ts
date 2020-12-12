@@ -9,10 +9,15 @@ import { data, Images } from './data';
 export class GalleryComponent implements OnInit {
   public title = 'Gallery';
   public images: Images = data;
+  public selctedImage: Images;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selecting(item: Images): void {
+    this.selctedImage = item;
   }
 
 }
