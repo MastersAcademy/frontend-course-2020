@@ -1,0 +1,11 @@
+<div class="gallary">
+  <app-gallary-item
+  *ngFor="let itemCard of cards"
+  [card]="itemCard"
+  ></app-gallary-item>
+</div>
+<div>
+  <button (click)="toggleSlide('prev')" [disabled]="isBtnPrevDisabled? 'disabled': null">Prev</button>
+  <img [ngStyle]="{width: '300px', height: '400px'}" [src]="currentSlide.urls.small" [alt]="currentSlide.id">
+  <button (click)="toggleSlide('next')" [disabled]="isBtnNextDisabled? 'disabled': null">Next</button>
+</div>

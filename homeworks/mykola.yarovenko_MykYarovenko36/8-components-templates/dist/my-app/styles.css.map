@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.scss"],"names":[],"mappings":";AAEA;EACC;AAAD,C","file":"styles.css","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');\n\nhtml {\n font-family: 'Roboto', sans-serif;\n}\n"],"sourceRoot":"webpack:///"}
