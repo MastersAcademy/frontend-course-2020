@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+.component-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .img-wrapper {
   margin: 15px auto;
   display: flex;

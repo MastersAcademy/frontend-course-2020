@@ -10,7 +10,10 @@ import {IMAGES, Img} from "../constants/data";
 export class AllImagesComponent implements OnInit {
 
   public images: Img[] = IMAGES;
-  // public active: Img | undefined;
+  public active: Img | undefined;
+  onActiveImg(activeImg: Img): any {
+    this.active = this.active?.id === activeImg.id ? undefined : activeImg;
+  }
 
   constructor() {
 
