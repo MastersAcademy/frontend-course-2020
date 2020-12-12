@@ -2,6 +2,7 @@
 <div>{{ stringFromChild }}</div>
 <div
   class="image"
+  [class.image-choose]="image.id === selectedImageId"
   *ngFor="let image of images"
   (click)="defineSelectedImageId($event)"
   id="{{ image.id }}"
