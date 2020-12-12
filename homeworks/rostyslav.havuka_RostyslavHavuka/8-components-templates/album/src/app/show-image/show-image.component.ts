@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Image } from 'src/models';
 
 @Component({
@@ -6,21 +6,21 @@ import { Image } from 'src/models';
   templateUrl: './show-image.component.html',
   styleUrls: ['./show-image.component.css'],
 })
-export class ShowImageComponent implements OnInit {
+
+export class ShowImageComponent {
   @Input() index: number;
   @Input() image: Image;
-  @Input() currentImage: { index: number; image: Image };
+  @Input() currentImage: { image: Image };
   @Output() onImageClick: EventEmitter<{
     index: number;
     image: Image;
   }> = new EventEmitter<{ index: number; image: Image }>();
+  loader: boolean = true;
 
   constructor() { };
 
-  ngOnInit(): void { };
-
-  isBlur(event: FocusEvent) {
-    event.stopImmediatePropagation();
+  imageDownloaded() {
+    this.loader = false
   }
 
   onClick(image: Image) {

@@ -1,7 +1,9 @@
 <img
     class="image"
-    [class.focused]="image.id === currentImage?.image?.id"
+    [class.image--focused]="image.id === currentImage?.image?.id"
     (click)="onClick(image)"
     src="{{image?.urls?.thumb}}"
+    (load)="imageDownloaded()"
+    [ngClass]="{loader: loader}"
 />
 

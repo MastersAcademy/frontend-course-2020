@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShowImageComponent } from './show-image.component';
 
 describe('ShowImageComponent', () => {
