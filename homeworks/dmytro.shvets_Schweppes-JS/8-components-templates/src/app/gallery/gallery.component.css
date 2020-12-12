@@ -1,35 +1,35 @@
 .h1 {
-    margin: 0;
-    height: 10%;
+  margin: 0;
+  height: 10%;
 }
 
 .container {
-    padding: 15px 0 15px 15px;
-    flex-grow: 1;
-    height: 90%;
-    width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+  padding: 15px 0 15px 15px;
+  flex-grow: 1;
+  height: 90%;
+  width: 100%;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 .scroll-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-y: scroll;
-    gap: 15px;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  gap: 15px;
+  height: 100%;
+  width: 100%;
 }
 
 .plate {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
-    overflow: hidden;
-    cursor: pointer;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000;
+  overflow: hidden;
+  cursor: pointer;
 }
