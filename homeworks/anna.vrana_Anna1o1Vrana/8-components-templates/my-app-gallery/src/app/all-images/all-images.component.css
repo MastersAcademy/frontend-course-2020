@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.img-wrapper {
+  margin: 15px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.items {
+  margin: 15px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.img {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.active {
+  border: 2px solid #FF0505;
+}
+
