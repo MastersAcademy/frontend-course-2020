@@ -30,8 +30,13 @@
   height: 100%;
   transition: transform .3s;
   border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
 .gallery__image-wrapper:hover {
   transform: scale(1.05);
+}
+
+.selected {
+  box-shadow: 0 0 20px rgba(228, 79, 54, 1);
 }

@@ -1,12 +1,12 @@
-export interface Images {
+export interface Image {
   id: string;
   description: string | null;
-  urls: Urls;
-  links?: Links;
+  urls: ImageUrls;
+  links?: ImageLinks;
   likes: number;
 }
 
-export interface Urls {
+export interface ImageUrls {
   raw: string;
   full: string;
   regular: string;
@@ -14,14 +14,14 @@ export interface Urls {
   thumb: string;
 }
 
-export interface Links {
+export interface ImageLinks {
   self: string;
   html: string;
   download: string;
   download_location: string;
 }
 
-export const IMAGES: Images[] = [
+export const IMAGES: Image[] = [
   {
     id: 'YhWRSEdBXUE',
     description: null,

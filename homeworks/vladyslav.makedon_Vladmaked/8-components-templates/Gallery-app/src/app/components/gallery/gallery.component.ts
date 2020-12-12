@@ -1,33 +1,34 @@
-import {Component, OnInit} from '@angular/core';
-import {Images, IMAGES} from '../../images';
+import {Component} from '@angular/core';
+import {Image, IMAGES} from '../../image';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent {
 
-  public images: Images[] = IMAGES;
-  public isLoadedImage: boolean = false;
-  public selectedImage?: Images;
-  public imageSelectedIndex: number = 0;
+  images: Image[] = IMAGES;
+  isLoadedImage: boolean = false;
+  selectedImage?: Image;
+  imageSelectedIndex: number = 0;
 
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
-  public setImageLoadStatus(imageLoadStatus: boolean): void {
+  setImageLoadStatus(imageLoadStatus: boolean): void {
     this.isLoadedImage = imageLoadStatus;
   }
 
-  public setSelectedImage(selectedImage: Images): void {
+  setSelectedImage(selectedImage: Image): void {
     this.selectedImage = selectedImage;
   }
 
-  public setImageSelectedIndex(imageSelectedIndex: number): void {
+  setImageSelectedIndex(imageSelectedIndex: number): void {
     this.imageSelectedIndex = imageSelectedIndex;
+  }
+
+  getIsImageSelected(image: Image): boolean {
+    return this.selectedImage === image;
   }
 }

@@ -1,5 +1,6 @@
 <img class="gallery__image"
      src="{{image.urls.thumb}}"
-     alt="{{image.description}}" (load)="setImageLoadStatus()"
+     alt="{{image.description}}"
+     (load)="setImageLoadStatus()"
      [ngStyle]="{display: isLoadedImage? 'block': 'none'}"
      (click)="setSelectedImage(image, selectedIndex)">
