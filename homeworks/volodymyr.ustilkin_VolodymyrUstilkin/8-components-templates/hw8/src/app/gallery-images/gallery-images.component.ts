@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {images} from './image-list';
-import {PreviewImageComponent} from './preview-image/preview-image.component';
-
+import {IPreviewImage} from "./preview-image/ipreview-image";
+import {PreviewImage} from "./preview-image/preview-image";
 // import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
@@ -10,8 +10,8 @@ import {PreviewImageComponent} from './preview-image/preview-image.component';
     styleUrls: ['./gallery-images.component.css']
 })
 export class GalleryImagesComponent implements OnInit {
-    images: PreviewImageComponent[];
-    mainImage: PreviewImageComponent;
+    images: IPreviewImage[];
+    mainImage: IPreviewImage;
 
     componentImgCompleteLoad(id: number): void {
         console.log('loaded: ' + id);
@@ -35,7 +35,7 @@ export class GalleryImagesComponent implements OnInit {
 
     loadImageUrls(): void {
         this.images = images.map((elem, index) => {
-            const img = new PreviewImageComponent();
+            const img = new PreviewImage();
             img.id = index;
             img.smallUrl = elem.urls.small;
             img.fullUrl = elem.urls.full;
