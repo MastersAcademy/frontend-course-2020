@@ -3,7 +3,6 @@
   padding: 5px 20px;
   height: 36px;
   align-self: center;
-  justify-self: center;
 }
 
 .gallery {
@@ -49,12 +48,14 @@
   display: grid;
   grid-row: 3 / 4;
   grid-column: 1 / 2;
+  justify-self: start;
 }
 
 .gallery-wrapper__button--right {
   display: grid;
   grid-row: 3 / 4;
   grid-column: 3 / 4;
+  justify-self: end;
 }
 
 .gallery__title {

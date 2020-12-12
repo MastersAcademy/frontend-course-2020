@@ -3,11 +3,6 @@
   display: grid;
   align-items: center;
   justify-items: center;
-  background-color: #EEE;
-}
-
-.header {
-  border-bottom: 1px solid #444;
 }
 
 .footer {
@@ -17,5 +12,4 @@
 
 .main {
   display: grid;
-  margin-bottom: 20px;
 }

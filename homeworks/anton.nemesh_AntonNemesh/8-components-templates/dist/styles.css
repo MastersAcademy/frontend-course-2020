@@ -1,11 +1,11 @@
 body {
-  margin: 0;
+  margin: 10px 20px;
 }
 
 app-root {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 .gallery__img--contain {
