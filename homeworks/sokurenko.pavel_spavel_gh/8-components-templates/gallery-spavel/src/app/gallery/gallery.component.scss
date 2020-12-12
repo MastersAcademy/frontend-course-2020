@@ -9,12 +9,15 @@
   border: 10px solid #0001;
   background-clip: padding-box;
 }
+
 .image:hover {
   border-color: #0003;
 }
+
 .image:active {
   border-color: #0005;
 }
+
 .image-choose {
   border-color: #F003;
 }
