@@ -1,7 +1,7 @@
 export class Image {
   id: string;
   description: null | string;
-  urls: object;
+  urls: any;
   links: object;
   likes: number;
 
@@ -9,7 +9,11 @@ export class Image {
     this.id = "ID";
     this.description = "Image url";
     this.urls = {
-
+      raw: '',
+      full: '',
+      regular: '',
+      small: '',
+      thumb: '',
     };
     this.links = {
 
@@ -17,3 +21,4 @@ export class Image {
     this.likes = 1;
   }
 }
+

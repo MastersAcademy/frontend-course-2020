@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Image} from '../images';
-import {IMAGES} from "../data-images";
+import { GalleryService } from '../gallery.service';
+
 
 @Component({
   selector: 'app-images',
@@ -9,20 +10,43 @@ import {IMAGES} from "../data-images";
 })
 export class ImagesComponent implements OnInit {
 
-  image: Image = {
-    id: 'IMAGE123'
+  public images: any;
+  public loading: boolean = true;
+  public selectedImage: Image | undefined;
+
+  public onSelect(image: Image): void {
+    this.selectedImage = image;
   }
 
-  images: Image[] = IMAGES;
+  constructor(private galleryService: GalleryService) {}
 
-  selectedImage: Image;
-  onSelect(image: Image): void {
-    this.selectedImage =  image;
+  // private getImages(): void {
+  //   this.images = this.galleryService.getImages();
+  // }
+
+  getImagesData(): void {
+    this.galleryService.getImages()
+      .subscribe(images => this.images = images);
   }
 
-  constructor() { }
+
+  //images = [];
+  // ngOnInit() {
+  //   this.isLoading = false;
+  //   this.galleryService.getImages().subscribe(res => {
+  //     this.images = res;
+  //     this.isLoading = false;
+  //     console.log('39', this.isLoading);
+  //   });
+  // }
 
   ngOnInit(): void {
+    this.getImagesData();
+    console.log(this.loading);
   }
 
+  onLoad():void {
+    this.loading= false;
+     console.log(this.loading);
+  }
 }
