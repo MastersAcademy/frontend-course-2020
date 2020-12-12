@@ -1,0 +1,11 @@
+<h1 class="h1">{{title}}</h1>
+<div class="container">
+    <div class="scroll-container">
+        <app-plate
+            class="plate"
+            *ngFor="let image of images"
+            [image]="image"
+        ></app-plate>
+    </div>
+</div>
+

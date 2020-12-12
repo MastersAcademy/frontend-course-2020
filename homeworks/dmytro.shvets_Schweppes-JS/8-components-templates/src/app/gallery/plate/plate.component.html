@@ -1,0 +1,8 @@
+<div class="loader" *ngIf="!isLoad"></div>
+<img 
+    #img
+    [src]="image['urls']['thumb']"
+    [ngClass]="{'landscape':isLandscape, 'portrait':isPortrait, 'hidden':!isLoad}"
+    (load)="hideLoader()"
+    (click)="sendingLink(image['urls']['regular'])"
+>
