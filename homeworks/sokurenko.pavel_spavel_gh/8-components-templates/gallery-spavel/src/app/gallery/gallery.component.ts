@@ -80,5 +80,6 @@ export class GalleryComponent implements OnInit {
 
   chooseImage(newIndex: number): void {
     this.str = this.images[newIndex].urls.regular;
+    this.selectedImageId = this.images[newIndex].id; // сделать красиво и в другом месте
   }
 }
