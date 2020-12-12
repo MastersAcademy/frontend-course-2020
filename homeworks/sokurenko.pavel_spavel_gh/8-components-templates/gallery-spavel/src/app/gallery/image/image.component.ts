@@ -1,25 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { IMAGES } from '../../../assets/data';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+// import { IMAGES } from '../../../assets/data';
 
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.scss']
 })
-export class ImageComponent implements OnInit {
-  images = IMAGES;
-  imageUrl: string;
 
-  constructor() {
-    this.imageUrl = this.images[0].urls.small;
-    this.setNewImageUrl(this.images[1].urls.small);
-  }
+export class ImageComponent implements OnInit {
+
+  @Input() dataFromParent?: string;
+  @Output() sendEvent = new EventEmitter<string>();
+
+  constructor() {}
 
   ngOnInit(): void {
   }
 
-  public setNewImageUrl(newUrl: string): void {
-    // const item1 = this.images.find(i => i.id === itemId);
-    this.imageUrl = newUrl;
+  public sendToParent(): void {
+    this.sendEvent.emit('Test from child');
   }
+
+  public choosePrev(): void {
+    this.sendEvent.emit('prev');
+  }
+  public chooseNext(): void {
+    this.sendEvent.emit('next');
+  }
+
 }

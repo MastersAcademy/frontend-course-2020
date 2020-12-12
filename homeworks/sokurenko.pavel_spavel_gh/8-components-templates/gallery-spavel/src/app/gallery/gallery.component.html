@@ -1,9 +1,10 @@
 <H1>Gallery</H1>
+<div>{{ stringFromChild }}</div>
 <div
   class="image"
   *ngFor="let image of images"
-  (click)="selectImageId($event)"
+  (click)="defineSelectedImageId($event)"
   id="{{ image.id }}"
   [ngStyle]="{ backgroundImage: 'url(' + image.urls.thumb + ')' }"
 ></div>
-<app-image></app-image>
+<app-image [dataFromParent]="str" (sendEvent)="applyData($event)"></app-image>
