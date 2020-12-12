@@ -1,8 +1,4 @@
 <H1>Image</H1>
-<div
-  class="image"
-  [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"
-></div>
 
 <input
   [disabled]="imageIndex === 0"
@@ -10,6 +6,11 @@
   value="Prev"
   (click)="choosePrev()"
 />
+
+<div
+  class="image"
+  [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"
+></div>
 
 <input
   [disabled]="imageIndex === imageMaxIndex"

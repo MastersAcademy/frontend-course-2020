@@ -9,17 +9,17 @@ export class ImageComponent implements OnInit {
   @Input() imageUrl?: string;
   @Input() imageIndex?: number;
   @Input() imageMaxIndex?: number;
-  @Output() sendEvent = new EventEmitter<string>();
+  @Output() newDirectionEvent = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   public choosePrev(): void {
-    this.sendEvent.emit('prev');
+    this.newDirectionEvent.emit('prev');
   }
 
   public chooseNext(): void {
-    this.sendEvent.emit('next');
+    this.newDirectionEvent.emit('next');
   }
 }
