@@ -10,7 +10,7 @@
                               (selectedImageEvent)="setSelectedImage($event)"
                               (selectedImageIndexEvent)="setImageSelectedIndex($event)">
             </app-gallery-item>
-            <app-loader *ngIf="!isLoadedImage" [ngStyle]="{display: isLoadedImage? 'none': 'block'}"></app-loader>
+            <app-loader *ngIf="!isLoadedImage"></app-loader>
         </div>
     </li>
 </ul>
