@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Image } from './image';
+import { Image } from './models/image';
 import { Observable, of } from "rxjs";
-import { IMAGES } from './data';
+import { IMAGES } from './mocks/data';
 
 @Injectable({
   providedIn: 'root'

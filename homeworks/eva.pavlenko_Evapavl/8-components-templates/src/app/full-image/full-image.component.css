@@ -3,10 +3,6 @@
   width: 100%;
 }
 
-h2 {
-  text-align: center;
-}
-
 .block-current-image {
   width: 100%;
   display: flex;
@@ -19,7 +15,7 @@ h2 {
   height: 400px;
 }
 
-img {
+.full-image {
   display: flex;
   max-width: 400px;
   max-height: 400px;

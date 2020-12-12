@@ -1,19 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Image } from '../image';
+import { Image } from '../models/image';
 import { DataService } from "../data.service";
-import { IMAGES } from "../data";
+import { IMAGES } from "../mocks/data";
 
 @Component({
   selector: 'app-full-image',
   templateUrl: './full-image.component.html',
   styleUrls: ['./full-image.component.css']
 })
-export class FullImageComponent implements OnInit {
+export class FullImageComponent {
 
-  images: Image[] | [] = IMAGES;
+  images: Image[] = IMAGES;
 
-  @Input() index: any;
+  @Input() index: number | undefined;
 
   constructor(private dataService: DataService) {}
 
@@ -21,6 +21,4 @@ export class FullImageComponent implements OnInit {
     this.images = this.dataService.images;
   }
 
-  ngOnInit(): void {
-  }
 }

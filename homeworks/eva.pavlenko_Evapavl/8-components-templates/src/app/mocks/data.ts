@@ -1,4 +1,4 @@
-import { Image } from "./image";
+import { Image } from "../models/image";
 
 export const IMAGES: Image[] = [
   {

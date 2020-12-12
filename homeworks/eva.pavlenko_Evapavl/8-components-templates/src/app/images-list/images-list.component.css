@@ -27,7 +27,7 @@
   justify-content: center;
 }
 
-img {
+.image-small {
   display: block;
   max-width: 150px;
   max-height: 150px;
@@ -37,7 +37,7 @@ img {
   border: 4px solid #A52A2A;
 }
 
-h2 {
+.image-h2 {
   text-align: center;
 }
 
@@ -57,7 +57,7 @@ h2 {
   max-height: 150px;
 }
 
-button {
+.button-dec-and-inc {
   cursor: pointer;
   border: 1px solid #CECECE;
   background-color: #A9A9A9;
@@ -67,6 +67,6 @@ button {
   width: 25%;
 }
 
-button:hover {
+.button-dec-and-inc:hover {
   box-shadow: inset 0 -20px 20px #FFF;
 }
