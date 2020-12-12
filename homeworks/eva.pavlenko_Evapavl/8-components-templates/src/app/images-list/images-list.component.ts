@@ -12,7 +12,7 @@ import { IMAGES } from "../mocks/data";
 export class ImagesListComponent implements OnInit {
   images: Image[] = IMAGES;
   selectedImage: void | Image | undefined;
-  index: any;
+  index: number = -1;
   disabledDec: boolean | undefined = false;
   disabledInc: boolean | undefined = false;
   isLoadedGif: boolean = true;
