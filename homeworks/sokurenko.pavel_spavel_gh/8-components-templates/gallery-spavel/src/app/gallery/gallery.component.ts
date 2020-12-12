@@ -10,7 +10,7 @@ export class GalleryComponent implements OnInit {
   images = IMAGES;
   maxIndexOfImagesObj = this.images.length - 1;
 
-  public str = '../../assets/test.jpg';
+  public str = '../../../assets/test.jpg';
   public stringFromChild = '';
 
   selectedImageIndex = 0;
