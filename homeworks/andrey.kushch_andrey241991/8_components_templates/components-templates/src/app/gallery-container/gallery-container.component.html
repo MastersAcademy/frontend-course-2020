@@ -1,0 +1,11 @@
+<div>
+  <app-image-gallery
+    [images]="images"
+    (setCurrentImg)="setCurrentImg($event)"
+  ></app-image-gallery>
+  <app-image-slider
+    [currentImg]="currentImg"
+    (onPrev)="onPrev()"
+    (onNext)="onNext()"
+  ></app-image-slider>
+</div>
