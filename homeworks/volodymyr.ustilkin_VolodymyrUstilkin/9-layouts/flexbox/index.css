@@ -262,7 +262,7 @@
 }
 
 .best-feature-in-the-world-customer-provider-button {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .join-us-caption {
@@ -448,13 +448,6 @@
   font-size: 22px;
   line-height: 26px;
   color: #FFF;
-}
-
-@media screen and (min-width: 600px) {
-
-  .footer-social {
-    flex-direction: row;
-  }
 }
 
 @media screen and (min-width: 1000px) {
