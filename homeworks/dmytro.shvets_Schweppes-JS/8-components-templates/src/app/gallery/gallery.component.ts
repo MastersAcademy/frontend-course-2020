@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { data, Images } from './data';
+import { Service } from '../services';
 
 @Component({
   selector: 'app-gallery',
@@ -9,15 +10,17 @@ import { data, Images } from './data';
 export class GalleryComponent implements OnInit {
   public title = 'Gallery';
   public images: Images[] = data;
-  public selctedImage: Images;
+  public selctedImage: Images; // default
 
-  constructor() { }
+  constructor(private service: Service) { }
 
   ngOnInit(): void {
+    this.service.selectedImage.subscribe(selctedImage => this.selctedImage = selctedImage);
   }
 
   selecting(item: Images): void {
     this.selctedImage = item;
+    console.log(this.selctedImage)
   }
 
 }
