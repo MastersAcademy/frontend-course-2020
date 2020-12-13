@@ -12,7 +12,7 @@ export class GalleryComponent implements OnInit {
 
   selectedImageIndex = 0;
   selectedImageId?: string;
-  public selectedImageUrl = '';
+  selectedImageUrl = '';
   maxIndexOfImagesObj = this.images.length - 1;
 
   constructor() {}

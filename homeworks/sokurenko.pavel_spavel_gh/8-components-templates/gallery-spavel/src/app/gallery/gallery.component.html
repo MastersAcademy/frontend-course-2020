@@ -8,10 +8,11 @@
     id="{{ image.id }}"
   >
     <div [class.hidden]="isLoaded" class="spinner-wrap">
-      <img class="spinner" src="../../assets/spinner.svg" alt="" />
+      <img class="img spinner" src="../../assets/spinner.svg" alt="" />
     </div>
 
     <img
+      class="img"
       [class.hidden]="!isLoaded"
       src="{{ image.urls.thumb }}"
       alt=""

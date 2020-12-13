@@ -11,11 +11,10 @@
   grid-template-columns: auto auto auto;
   justify-content: center;
   grid-gap: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 10rem;
 }
 
-
-input {
+.btn {
   background-color: #0001;
   border: none;
   width: 8rem;
@@ -25,11 +24,4 @@ input {
   width: 8rem;
   height: 8rem;
   background-color: #0001;
-}
-
-.grid-container-bottom {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  justify-content: center;
-  grid-gap: 2rem;
 }
