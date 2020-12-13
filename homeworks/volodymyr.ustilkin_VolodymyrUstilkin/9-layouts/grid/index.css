@@ -3,9 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif");
 @import url("https://fonts.googleapis.com/css2?family=Rubik");
 
-* {
+body, div, section, nav, img, figure, header, footer {
   margin: 0;
   padding: 0;
+}
+
+a:hover {
+  color: #000;
 }
 
 .font--poppins {
@@ -294,6 +298,7 @@
 }
 
 .join-us-form-container {
+  display: grid;
   margin: 100px auto 0;
   max-width: 708px;
   height: 566px;
@@ -303,8 +308,8 @@
 
 .join-us-form {
   display: block;
-  max-width: 400px;
-  margin: 107px auto 0;
+  width: 400px;
+  margin: 67px auto 0;
 }
 
 .join-us-form-label {

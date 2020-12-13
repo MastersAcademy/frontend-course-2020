@@ -8,6 +8,10 @@ body, div, section, nav, img, figure, header, footer {
   padding: 0;
 }
 
+a:hover {
+  color: #000;
+}
+
 .font--poppins {
   font-family: Poppins, sans-serif;
 }
@@ -282,6 +286,10 @@ body, div, section, nav, img, figure, header, footer {
 }
 
 .join-us-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 100px auto 0;
   max-width: 708px;
   height: 566px;
@@ -291,8 +299,7 @@ body, div, section, nav, img, figure, header, footer {
 
 .join-us-form {
   display: block;
-  max-width: 400px;
-  margin: 107px auto 0;
+  width: 400px;
 }
 
 .join-us-form-label {
@@ -332,7 +339,7 @@ body, div, section, nav, img, figure, header, footer {
 
 .join-us-sign-up {
   display: block;
-  margin-top: 30px;
+  margin: 30px auto 0;
   font-style: normal;
   font-weight: 100;
   font-size: 18px;
