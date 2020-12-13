@@ -13,10 +13,10 @@ interface Links{
   download_location: string;
 }
 
-export class ImagesData {
-  id!: string;
-  description!: string | null;
-  urls!: URL;
-  links!: Links;
-  likes!: number;
+export interface ImagesData {
+  id: string;
+  description: string;
+  urls: URL;
+  links: Links;
+  likes: number;
   }

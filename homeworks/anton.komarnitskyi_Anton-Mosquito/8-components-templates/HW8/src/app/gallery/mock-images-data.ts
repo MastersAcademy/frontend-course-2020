@@ -1,6 +1,6 @@
-import {ImagesData} from './images-data'
+import { ImagesData } from './images-data'
 
-export const IMAGES:ImagesData[] = [
+export const IMAGES : ImagesData[] = [
   {
       id: 'YhWRSEdBXUE',
       description: null,

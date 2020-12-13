@@ -1,4 +1,4 @@
-<h1 class="header">{{ title }}</h1>
+<h1 class="header">Gallery</h1>
 <div class="gallery__container">
   <div
     *ngFor="let item of items; let i = index"
@@ -22,7 +22,7 @@
     class="img-btn-prev"
     #imgBtnPrev
     (click)="changeImage('prev')"
-    [class.hidden]="activePrevArrow"
+    [class.hidden]="iterator === 0"
   >
     Prev
   </button>
@@ -31,7 +31,7 @@
     class="img-btn-next"
     #imgBtnNext
     (click)="changeImage('next')"
-    [class.hidden]="activeNextArrow"
+    [class.hidden]="iterator === items.length - 1"
   >
     Next
   </button>

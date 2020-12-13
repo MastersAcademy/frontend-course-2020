@@ -22,6 +22,7 @@
 
 .img-window img {
   max-width: 80vh;
+  max-height: 80vh;
   border: 1px solid #000;
 }
 
@@ -76,7 +77,7 @@
   width: 100%;
   cursor: pointer;
   display: none;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -98,8 +99,6 @@
   padding: 6px 10px;
   border-radius: 4px;
   background-color: #111;
-  position: absolute;
-  top: 48%;
   font-family: Arial, Helvetica, sans-serif;
   color: #FFF;
   cursor: pointer;
@@ -113,8 +112,6 @@
   padding: 6px 10px;
   border-radius: 4px;
   background-color: #111;
-  position: absolute;
-  top: 48%;
   font-family: Arial, Helvetica, sans-serif;
   color: #FFF;
   cursor: pointer;
@@ -128,7 +125,7 @@
 }
 
 .img-btn-prev.hidden,.img-btn-next.hidden {
-  display: none;
+  opacity: 0;
 }
 
 .img-window .spinner__main-image {
