@@ -1,5 +1,4 @@
 export interface Images {
-    [index: number]: {
         id: string,
         description: null | string,
         urls: {
@@ -16,10 +15,9 @@ export interface Images {
             download_location: string
         },
         likes: number
-    }
 }
 
-export const data: Images = [
+export const data: Images[] = [
     {
         id: 'YhWRSEdBXUE',
         description: null,

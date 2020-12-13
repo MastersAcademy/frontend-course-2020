@@ -8,7 +8,7 @@ import { data, Images } from './data';
 })
 export class GalleryComponent implements OnInit {
   public title = 'Gallery';
-  public images: Images = data;
+  public images: Images[] = data;
   public selctedImage: Images;
 
   constructor() { }

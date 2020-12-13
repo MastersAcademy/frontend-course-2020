@@ -3,8 +3,9 @@
     <div class="scroll-container">
         <app-plate
             class="plate"
-            *ngFor="let image of images"
+            *ngFor="let image of images; let i = index"
             [image]="image"
+            [index]="i"
             [class.selected]="image === selctedImage"
             (click)=selecting(image);
         ></app-plate>

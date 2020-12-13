@@ -12,10 +12,18 @@ export class ImageComponent implements OnInit {
 
   link: string;
 
-  constructor(private data: Service) { }
+  constructor(private service: Service) { }
 
   ngOnInit(): void {
-    this.data.currentLink.subscribe(link => this.link = link);
+    this.service.currentLink.subscribe(link => this.link = link);
+  }
+
+  previousImage() {
+    this.service.previousImage();
+  }
+
+  nextImage() {
+    this.service.nextImage();
   }
 
 }

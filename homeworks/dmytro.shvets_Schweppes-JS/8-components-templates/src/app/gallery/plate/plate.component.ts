@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ElementRef, AfterViewInit, ViewChild, AfterContentChecked } from '@angular/core';
-import { Images } from '../data';
+import { Component, Input, ElementRef, AfterViewInit, ViewChild, AfterContentChecked } from '@angular/core';
+import { Images} from '../data';
 import { Service } from '../../services';
 
 @Component({
@@ -7,9 +7,10 @@ import { Service } from '../../services';
   templateUrl: './plate.component.html',
   styleUrls: ['./plate.component.css']
 })
-export class PlateComponent implements AfterViewInit, OnInit {
+export class PlateComponent implements AfterViewInit {
 
   @Input() image: Images;
+  @Input() index: number;
 
   public isLandscape: boolean = false;
   public isPortrait: boolean = false;
@@ -18,7 +19,7 @@ export class PlateComponent implements AfterViewInit, OnInit {
   private width: number;
   private height: number;
 
-  constructor(private data: Service) { }
+  constructor(private service: Service) { }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -34,15 +35,12 @@ export class PlateComponent implements AfterViewInit, OnInit {
     }, 0);
   }
 
-  ngOnInit(): void {
-  }
-
   hideLoader(): void {
     this.isLoad = true;
   }
 
-  sendingLink = (link: string) => {
-    this.data.changingLink(link);
+  sendingLink() {
+    this.service.changingLink(this.index);
   }
   
   @ViewChild('img')
