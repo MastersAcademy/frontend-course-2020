@@ -1,0 +1,17 @@
+.tile {
+  border: solid 1px #CCC;
+  height: max-content;
+  width: max-content;
+  padding: 5px;
+  margin: 5px;
+}
+
+.tile:hover {
+  border: solid 3px #449;
+  padding: 3px;
+}
+
+.tail-select {
+  border: solid 3px #640C0C;
+  padding: 3px;
+}

@@ -1,0 +1,15 @@
+<div class="image-container">
+  <div *ngFor="let image of images; index as i">
+    <app-show-image
+      [index]="i"
+      [currentImage]="currentImage"
+      [image]="image"
+      (onImageClick)="setCurrentImage($event)"
+    ></app-show-image>
+  </div>
+</div>
+<div class="button-container">
+  <button class="button" (click)="prevButtonAction()">Prev</button>
+  <button class="button" (click)="nextButtonAction()">Next</button>
+</div>
+<app-image [currentImage]="currentImage"></app-image>
