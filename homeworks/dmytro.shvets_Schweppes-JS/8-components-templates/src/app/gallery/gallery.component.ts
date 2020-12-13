@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { data, Images } from './data';
 import { Service } from '../services';
 
@@ -10,9 +10,12 @@ import { Service } from '../services';
 export class GalleryComponent implements OnInit {
   public title = 'Gallery';
   public images: Images[] = data;
-  public selctedImage: Images; // default
+  public selctedImage: Images;
+  
+  @ViewChild('plate')
+  public plate: ElementRef;
 
-  constructor(private service: Service) { }
+  constructor(private service: Service) {}
 
   ngOnInit(): void {
     this.service.selectedImage.subscribe(selctedImage => this.selctedImage = selctedImage);
@@ -20,7 +23,6 @@ export class GalleryComponent implements OnInit {
 
   selecting(item: Images): void {
     this.selctedImage = item;
-    console.log(this.selctedImage)
   }
 
 }

@@ -2,6 +2,7 @@
 <img 
     #img
     [src]="image['urls']['thumb']"
+    class="img"
     [ngClass]="{'landscape':isLandscape, 'portrait':isPortrait, 'hidden':!isLoad}"
     (load)="hideLoader()"
     (click)="sendingLink()"

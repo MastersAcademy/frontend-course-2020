@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, AfterViewInit, ViewChild, AfterContentChecked } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 import { Images} from '../data';
 import { Service } from '../../services';
 

@@ -9,6 +9,14 @@
   background-position: center center;
 }
 
+.img {
+  transition: transform 0.25s;
+}
+
+.img:hover {
+  transform: scale(1.08);
+}
+
 .portrait {
   height: 100%;
   width: 80%;
