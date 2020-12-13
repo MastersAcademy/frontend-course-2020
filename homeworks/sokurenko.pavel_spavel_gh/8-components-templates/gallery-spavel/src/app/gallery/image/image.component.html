@@ -1,20 +1,41 @@
 <H1>Image</H1>
+<div class="grid-container">
+  <input
+    class="grid-btn-left"
+    [disabled]="imageIndex === 0"
+    type="button"
+    value="Prev"
+    (click)="choosePrev()"
+  />
 
-<input
-  [disabled]="imageIndex === 0"
-  type="button"
-  value="Prev"
-  (click)="choosePrev()"
+  <img
+  class="image grid-image-item"
+  src="{{ imageUrl }}"
+  alt=""
 />
 
-<div
-  class="image"
-  [ngStyle]="{ backgroundImage: 'url(' + imageUrl + ')' }"
-></div>
+  <input
+    [disabled]="imageIndex === imageMaxIndex"
+    type="button"
+    value="Next"
+    (click)="chooseNext()"
+  />
+</div>
 
-<input
-  [disabled]="imageIndex === imageMaxIndex"
-  type="button"
-  value="Next"
-  (click)="chooseNext()"
-/>
+<div class="grid-container-bottom">
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+</div>

@@ -58,6 +58,4 @@ export class GalleryComponent implements OnInit {
     }
     this.defineSelectedImageFromIndex(this.selectedImageIndex);
   }
-
-  
 }

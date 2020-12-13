@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
-// import { ImageComponent } from './image/image.component';
 import { ImageComponent } from './gallery/image/image.component';
 
 

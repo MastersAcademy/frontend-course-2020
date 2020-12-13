@@ -1,10 +1,35 @@
-
 .image {
-  width: 200px;
-  height: 200px;
-  background-image: url("../../../assets/test.jpg");
+  width: 28rem;
+  height: auto;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  border: 10px solid #0001
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  grid-gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+input {
+  background-color: #0001;
+  border: none;
+  width: 8rem;
+}
+
+.grid-item {
+  width: 8rem;
+  height: 8rem;
+  background-color: #0001;
+}
+
+.grid-container-bottom {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: center;
+  grid-gap: 2rem;
 }

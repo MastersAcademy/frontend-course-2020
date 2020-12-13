@@ -1,23 +1,25 @@
 <H1>Gallery</H1>
-<div
-  class="image"
-  [class.image-choose]="image.id === selectedImageId"
-  *ngFor="let image of images"
-  (click)="selectImageEnevt($event)"
-  id="{{ image.id }}"
->
-  <div [class.hidden]="isLoaded" class="spinner-wrap">
-    <img class="spinner" src="../../assets/spinner.svg" alt="" />
+<div class="grid-container margin-top">
+  <div
+    class="image"
+    [class.image-choose]="image.id === selectedImageId"
+    *ngFor="let image of images"
+    (click)="selectImageEnevt($event)"
+    id="{{ image.id }}"
+  >
+    <div [class.hidden]="isLoaded" class="spinner-wrap">
+      <img class="spinner" src="../../assets/spinner.svg" alt="" />
+    </div>
+
+    <img
+      [class.hidden]="!isLoaded"
+      src="{{ image.urls.thumb }}"
+      alt=""
+      (load)="loaded()"
+    />
   </div>
 
-  <img
-    [class.hidden]="!isLoaded"
-    src="{{ image.urls.thumb }}"
-    alt=""
-    (load)="loaded()"
-  />
 </div>
-
 <app-image
   [imageUrl]="selectedImageUrl"
   [imageIndex]="selectedImageIndex"
