@@ -3,6 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif");
 @import url("https://fonts.googleapis.com/css2?family=Rubik");
 
+body, div, section, nav, img, figure, header, footer {
+  margin: 0;
+  padding: 0;
+}
+
 .font--poppins {
   font-family: Poppins, sans-serif;
 }
@@ -347,6 +352,7 @@
   justify-content: flex-start;
   margin: 140px auto 0;
   background-color: #9B9BCA;
+  padding-bottom: 50px;
 }
 
 .footer-nav-container {
@@ -387,10 +393,8 @@
 
 .footer-social {
   display: flex;
-  flex-direction: column;
   align-items: center;
   margin-top: 79px;
-  margin-bottom: 50px;
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -406,7 +410,7 @@
 
 .footer-social-icons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .footer-social-ico-container {
