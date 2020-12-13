@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(rgb(255, 255, 255), rgba(183, 212, 236, 0.609));
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-container {
+    width: 1600px;
+    margin: 0 auto;
+    display: grid;
+}
+
+.navigation {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 116px auto;
+    height: 737px;
+    background-image: url(./images/img-1.jpg);
+    background-size: cover;
+    color: #696A86;
+}
+
+.nav-bar {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 3fr;
+    width: 1024px;
+    font-size: 1.33rem;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style: none;
+}
+
+.menu-item {
+}
+
+.presentation {
+    width: 1024px;
+}
+
+.services {
+    height: 693px;
+    background-color: #FFF;
+}
+
+.demo {
+    height: 780px;
+    background-image: url(./images/img-2.jpg);
+    background-size: 100% auto;
+}
+
+.features {
+    height: 1133px;
+    background-color: #FFF;
+}
+
+.login {
+    height: 1133px;
+    background-color: #FFF;
+}
+
+.footer {
+    height: 373px;
+    background-color: #9B9BCA;
+}
