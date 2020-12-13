@@ -10,7 +10,7 @@
 }
 
 .img {
-  transition: transform 0.25s;
+  transition: transform .25s;
 }
 
 .img:hover {
