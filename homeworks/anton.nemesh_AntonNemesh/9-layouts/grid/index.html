@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Dreammaker</title>
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="wrapper">
         <header class="header">
             <section class="header__small-box">
-                <a class="header__logo" href="/">DW</a>
+                <a class="header-logo" href="/"><span class="header-logo__text">DW</span></a>
                 <h1 class="header__site-name">Dreammaker</h1>
                 <nav class="header-navigation">
                     <a href="/" class="header-navigation__link">Home</a>
@@ -23,15 +26,15 @@
             </section>
             <section class="header__big-box">
                 <h1 class="header__tagline">
-                    Your awesome Dream
+                    Your awesome Dream <br>
                     maker consultant
                 </h1>
                 <p class="header__description">
-                    The occupational traffic permit is one of the most important things in the company
-                    when carrying out freight transport.  In fact, it is a prerequisite for
+                    The occupational traffic permit is one of the most important things in the company <br>
+                    when carrying out freight transport.  In fact, it is a prerequisite for <br>
                     doing business traffic at all.
                 </p>
-                <button class="header__button">
+                <button class="header__button--second">
                     Get started
                 </button>
             </section>
@@ -139,33 +142,64 @@
                 <h1 class="login__title">
                     Please join with us & get all kind of benifit
                 </h1>
-                <form action="action_page.php" method="post">
-                    <div class="imgcontainer">
-                        <img src="img_avatar2.png" alt="Avatar" class="avatar">
-                    </div>
-
-                    <div class="container">
-                        <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
-
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <button type="submit">Login</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
-                    </div>
-
-                    <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" class="cancelbtn">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
-                    </div>
+                <form class="login-card">
+                    <label class="login-card__label" for="login-card__label-name"><b>Name</b></label>
+                    <input id="login-card__label-name" placeholder="Enter Username" required>
+                    <label class="login-card__label" for="login-card__input-password"><b>Password</b></label>
+                    <input id="login-card__input-password" type="password" placeholder="Enter Password" required>
+                    <button type="submit">SIGN IN</button>
+                    <p class="login-card__registration">
+                        Don’t have an account ?
+                        <a href="/" class="login-card__reg-link">Sign up here</a>
+                    </p>
                 </form>
             </section>
         </main>
         <footer class="footer">
-
+            <ul class="footer-useful-links">
+                <li class="footer-useful-links__item">
+                    <h1 class="useful-links__title">Learn More</h1>
+                    <a href="" class="useful-links__link">Sell Fast</a>
+                    <a href="" class="useful-links__link">Buy Now</a>
+                    <a href="" class="useful-links__link">Membership</a>
+                    <a href="" class="useful-links__link">Banner Ads</a>
+                    <a href="" class="useful-links__link">Promotions</a>
+                </li>
+                <li class="footer-useful-links__item">
+                    <h1 class="useful-links__title">Help & Support</h1>
+                    <a href="" class="useful-links__link">FAQ</a>
+                    <a href="" class="useful-links__link">Stay Safe</a>
+                    <a href="" class="useful-links__link">Contact us</a>
+                </li>
+                <li class="footer-useful-links__item">
+                    <h1 class="useful-links__title">Social</h1>
+                    <a href="" class="useful-links__link">Blog</a>
+                    <a href="" class="useful-links__link">Facebook</a>
+                    <a href="" class="useful-links__link">Twitter</a>
+                    <a href="" class="useful-links__link">Youtube</a>
+                </li>
+                <li class="footer-useful-links__item">
+                    <h1 class="useful-links__title">About us</h1>
+                    <a href="" class="useful-links__link">About us</a>
+                    <a href="" class="useful-links__link">Career</a>
+                    <a href="" class="useful-links__link">Terms and Conditions</a>
+                    <a href="" class="useful-links__link">Privacy Policy</a>
+                    <a href="" class="useful-links__link">Sitemap</a>
+                </li>
+            </ul>
+            <p class="footer-copyright">Copyright @ 2019</p>
+            <ul class="footer-sn-links">
+                <li class="footer-sn-links__item">
+                    <a href="/" class="footer-sn-links__link"></a>
+                </li>
+                <li class="footer-sn-links__item">
+                    <a href="/" class="footer-sn-links__link"></a>
+                </li>
+                <li class="footer-sn-links__item">
+                    <a href="/" class="footer-sn-links__link"></a>
+                </li>
+            </ul>
+            <a href="/" class="footer-site-link"><span class="footer-site-link__logo">DW</span> Dreammaker</a>
         </footer>
     </div>
 </body>

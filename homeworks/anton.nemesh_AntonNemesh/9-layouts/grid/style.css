@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
+
+a {
+  text-decoration: none;
+  color: #717784;
+}
+
+.wrapper {
+  display: grid;
+  grid-template: 737px 1fr 373px / 1fr;
+  margin: 0 auto;
+  max-width: 1600px;
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+  color: #717784;
+}
+
+.main,
+.footer {
+  display: none;
+}
+
+.header {
+  display: grid;
+  grid-template: 116px 1fr / .2fr 80px 130px .6fr 240px .2fr;
+  background: no-repeat center 100% url("../src/img/Rectangle 2.jpg");
+  column-gap: 10px;
+}
+
+.header__small-box,
+.header__big-box {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-column: 1 / 7;
+  justify-items: center;
+  align-items: center;
+  grid-template: inherit;
+  column-gap: inherit;
+}
+
+.header__big-box {
+  row-gap: 15px;
+  grid-template-rows: 1.3fr .7fr .3fr .7fr 1fr;
+}
+
+.header__tagline,
+.header__description,
+.header__button--second {
+  grid-column: 2 / 7;
+  justify-self: start;
+  padding: 0;
+  margin: 0;
+}
+
+.header__tagline {
+  grid-row: 2 / 3;
+}
+
+.header__description {
+  grid-row: 3 / 4;
+}
+
+.header__button--second {
+  grid-row: 4 / 5;
+}
+
+.header-logo {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-self: start;
+  width: 72px;
+  height: 72px;
+  border-radius: 72px;
+  background-color: #C8C8C8;
+  grid-column: 2 / 3;
+}
+
+.header-logo__text {
+  font-size: 20px;
+  color: #FFF;
+  font-family: "Rammetto One", cursive;
+  text-shadow: 0 0 10px #5C5C5C;
+}
+
+.header__site-name {
+  grid-column: 3 / 4;
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  justify-self: start;
+}
+
+.header-navigation {
+  display: grid;
+  grid-template: 1fr / repeat(4, minmax(100px, 25%)) ;
+  grid-column: 4 / 5;
+  justify-self: end;
+}
+
+.header-navigation__link {
+  white-space: nowrap;
+}
+
+button {
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFF;
+  background-color: #9B9BCA;
+  border-radius: 4px;
+  border: none;
+  height: 60px;
+  width: 234px;
+}
+
+.header__button {
+  grid-column: 5 / 6;
+}
