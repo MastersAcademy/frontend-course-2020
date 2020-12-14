@@ -1,5 +1,4 @@
-import {Component, Directive, OnInit} from '@angular/core';
-import {GalleryService} from "../source/gallery.service";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-gallery',
@@ -8,20 +7,13 @@ import {GalleryService} from "../source/gallery.service";
 })
 
 export class GalleryComponent implements OnInit {
-
-  constructor(public galleryService: GalleryService) {}
-  ngOnInit(): void {
-  }
-  currentItemIndex:number = 0;
   currentItem = '';
   selectedItem:string = '';
 
-  select(event, id: string, idValue) {
-    this.currentItem = id;
-    this.selectedItem = idValue;
+  ngOnInit(): void {
   }
-  loading: boolean = true
-  onLoad() {
-    this.loading = false;
+
+  onClick(id) {
+    this.currentItem = id;
   }
 }

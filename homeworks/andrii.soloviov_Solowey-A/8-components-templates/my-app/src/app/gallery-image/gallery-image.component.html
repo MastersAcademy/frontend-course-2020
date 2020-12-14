@@ -1,0 +1,2 @@
+<img *ngIf="loading" src="/assets/preloader.gif" alt="loading" />
+<img class="list-item__image" [hidden]="loading" (load)="onLoad()" src="{{ currentImage.urls.thumb }} " alt="gallery image">

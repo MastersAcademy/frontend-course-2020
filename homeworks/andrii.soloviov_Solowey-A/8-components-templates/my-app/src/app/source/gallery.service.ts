@@ -1,22 +1,20 @@
-import {Injectable} from "@angular/core";
-
-export interface Gallery {
+export interface Images {
   id: string,
   description: string,
-  urls: {
-    thumb:string
-    raw:string
-    full:string
-    regular:string
-    small:string
-  },
+  urls: Urls,
   links: object,
   likes: number,
 }
 
-@Injectable({providedIn: 'root'})
-export class GalleryService {
-  public gallery: Gallery[] = [
+export interface Urls {
+  raw: string;
+  full: string;
+  regular: string;
+  small: string;
+  thumb: string;
+}
+
+export const IMAGES: Images[] = [
     {
       id: 'YhWRSEdBXUE',
       description: null,
@@ -359,4 +357,3 @@ export class GalleryService {
       likes: 19
     }
   ]
-}
