@@ -2,9 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
 
-a {
+.lnk {
   text-decoration: none;
   color: #717784;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 18px;
+  padding: 15px 64px;
+  color: #FFF;
+  background-color: #9B9BCA;
+  border-radius: 4px;
+  border: none;
 }
 
 .wrapper {
@@ -50,6 +60,10 @@ a {
 .header__button--second {
   grid-column: 2 / 7;
   justify-self: start;
+}
+
+.header__tagline,
+.header__description {
   padding: 0;
   margin: 0;
 }
@@ -102,17 +116,6 @@ a {
 
 .header-navigation__link {
   white-space: nowrap;
-}
-
-button {
-  font-weight: 600;
-  font-size: 18px;
-  color: #FFF;
-  background-color: #9B9BCA;
-  border-radius: 4px;
-  border: none;
-  height: 60px;
-  width: 234px;
 }
 
 .header__button {

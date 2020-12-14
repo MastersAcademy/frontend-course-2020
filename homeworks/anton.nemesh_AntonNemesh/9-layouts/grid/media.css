@@ -19,9 +19,8 @@
     grid-template: 116px 1fr / 0 80px 130px 1fr 190px 0;
   }
 
-  button {
-    height: 50px;
-    width: 180px;
+  .btn {
+    padding: 15px 42px;
     font-size: 16px;
   }
 }
@@ -36,9 +35,8 @@
     grid-template-rows: 1fr 1fr;
   }
 
-  button {
-    height: 40px;
-    width: 160px;
+  .btn {
+    padding: 15px 32px;
     font-size: 16px;
   }
 
