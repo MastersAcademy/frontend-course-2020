@@ -1,5 +1,5 @@
 import { Component, Input, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
-import { Images} from '../data';
+import { Images } from '../../models/Image';
 import { Service } from '../../services';
 
 @Component({
@@ -25,13 +25,8 @@ export class PlateComponent implements AfterViewInit {
     setTimeout(() => {
       this.width = this.img.nativeElement.offsetWidth;
       this.height = this.img.nativeElement.offsetHeight;
-      if (this.height < this.width) {
-        this.isLandscape = true;
-        this.isPortrait = false;
-      } else {
-        this.isLandscape = false;
-        this.isPortrait = true;
-      }
+      this.isLandscape = this.height < this.width;
+      this.isPortrait = !(this.height < this.width);
     }, 0);
   }
 

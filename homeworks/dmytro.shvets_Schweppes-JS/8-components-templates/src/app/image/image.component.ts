@@ -7,9 +7,6 @@ import { Service } from '../services';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
-
-  title = 'Image';
-
   link: string;
 
   constructor(private service: Service) { }

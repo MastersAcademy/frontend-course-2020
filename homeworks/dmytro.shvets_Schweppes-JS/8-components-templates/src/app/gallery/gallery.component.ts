@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { data, Images } from './data';
+import { data } from '../mocks/data';
+import { Images } from '../models/Image';
 import { Service } from '../services';
 
 @Component({
@@ -8,9 +9,8 @@ import { Service } from '../services';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  public title = 'Gallery';
   public images: Images[] = data;
-  public selctedImage: Images;
+  public selectedImage: Images;
   
   @ViewChild('plate')
   public plate: ElementRef;
@@ -18,11 +18,11 @@ export class GalleryComponent implements OnInit {
   constructor(private service: Service) {}
 
   ngOnInit(): void {
-    this.service.selectedImage.subscribe(selctedImage => this.selctedImage = selctedImage);
+    this.service.selectedImage.subscribe(selectedImage => this.selectedImage = selectedImage);
   }
 
   selecting(item: Images): void {
-    this.selctedImage = item;
+    this.selectedImage = item;
   }
 
 }
