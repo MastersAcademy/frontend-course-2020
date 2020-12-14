@@ -1,14 +1,12 @@
 <div class="component-wrapper">
-  <ul class="img-wrapper">
-    <li *ngFor="let img of images" (click)="onActiveImg(img)" class="{{ active?.id === img.id ? 'active' : '' }} items">
+  <ul class="img-wrapper images">
+    <li *ngFor="let img of images" (click)="onActiveImg(img)" class="{{ active?.id === img.id ? 'active' : '' }} images-item">
       <img src="{{img.urls.thumb}}" alt="" class="img">
     </li>
   </ul>
-  <div class="img-wrapper">
-    <div *ngIf="active">
+    <div *ngIf="active" class="images">
       <img src="{{ active?.urls?.small }}" alt="">
     </div>
-  </div>
 </div>
 
 

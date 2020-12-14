@@ -6,13 +6,17 @@
 
 .img-wrapper {
   margin: 15px auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   list-style: none;
 }
 
-.items {
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.images-item {
   margin: 10px;
   width: 200px;
   height: 200px;

@@ -4,30 +4,14 @@ export interface Img {
 }
 
 class Urls {
-  raw: string;
-  full: string;
-  regular: string;
-  small: string;
-  thumb: string;
-
-  constructor(raw: string, full: string, regular: string, small: string, thumb: string) {
-    this.raw = raw;
-    this.full = full;
-    this.regular = regular;
-    this.small = small;
-    this.thumb = thumb;
-  }
+  constructor(
+    public raw: string,
+    public full: string,
+    public regular: string,
+    public small: string,
+    public thumb: string
+  ) {}
 }
-
-// class Image {
-//   public id: number;
-//   public urls: Urls;
-//
-//   constructor(id: number) {
-//     this.id = id;
-//     this.urls = urls;
-//   }
-// }
 
 export const IMAGES: Img[] = [
   {

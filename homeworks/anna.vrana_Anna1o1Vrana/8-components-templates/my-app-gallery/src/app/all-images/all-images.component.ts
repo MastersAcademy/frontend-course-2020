@@ -15,10 +15,6 @@ export class AllImagesComponent implements OnInit {
     this.active = this.active?.id === activeImg.id ? undefined : activeImg;
   }
 
-  constructor() {
-
-  }
-
   ngOnInit(): void {
 
   }
