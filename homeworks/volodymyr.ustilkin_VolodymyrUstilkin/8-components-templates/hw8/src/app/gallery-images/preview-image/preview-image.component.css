@@ -1,0 +1,124 @@
+.preview-image-container {
+  height: 120px;
+  width: 120px;
+  margin: 10px;
+  border-style: solid;
+  border-color: #000;
+  border-width: 2px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-image-container-selected {
+  border-color: #F00;
+}
+
+.full-image-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.hide-element {
+  display: none;
+}
+
+
+.loader-spinner {
+  margin: 50% auto;
+  font-size: 15px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: loader-spinner-animation 1.5s infinite ease;
+  animation: loader-spinner-animation 1.5s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+@-webkit-keyframes loader-spinner-animation {
+
+  0%,
+  100% {
+    box-shadow: 0 -2.6em 0 0 #3700FF, 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .5), -1.8em -1.8em 0 0 rgba(55, 0, 255, .7);
+  }
+
+  12.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .7), 1.8em -1.8em 0 0 #3700FF, 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .5);
+  }
+
+  25% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .5), 1.8em -1.8em 0 0 rgba(55, 0, 255, .7), 2.5em 0 0 0 #3700FF, 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  37.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .5), 2.5em 0 0 0 rgba(55, 0, 255, .7), 1.75em 1.75em 0 0 #3700FF, 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  50% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .5), 1.75em 1.75em 0 0 rgba(55, 0, 255, .7), 0 2.5em 0 0 #3700FF, -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  62.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .5), 0 2.5em 0 0 rgba(55, 0, 255, .7), -1.8em 1.8em 0 0 #3700FF, -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  75% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .5), -1.8em 1.8em 0 0 rgba(55, 0, 255, .7), -2.6em 0 0 0 #3700FF, -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  87.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .5), -2.6em 0 0 0 rgba(55, 0, 255, .7), -1.8em -1.8em 0 0 #3700FF;
+  }
+}
+
+@keyframes loader-spinner-animation {
+
+  0%,
+  100% {
+    box-shadow: 0 -2.6em 0 0 #3700FF, 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .5), -1.8em -1.8em 0 0 rgba(55, 0, 255, .7);
+  }
+
+  12.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .7), 1.8em -1.8em 0 0 #3700FF, 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .5);
+  }
+
+  25% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .5), 1.8em -1.8em 0 0 rgba(55, 0, 255, .7), 2.5em 0 0 0 #3700FF, 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  37.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .5), 2.5em 0 0 0 rgba(55, 0, 255, .7), 1.75em 1.75em 0 0 #3700FF, 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  50% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .5), 1.75em 1.75em 0 0 rgba(55, 0, 255, .7), 0 2.5em 0 0 #3700FF, -1.8em 1.8em 0 0 rgba(55, 0, 255, .2), -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  62.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .5), 0 2.5em 0 0 rgba(55, 0, 255, .7), -1.8em 1.8em 0 0 #3700FF, -2.6em 0 0 0 rgba(55, 0, 255, .2), -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  75% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .5), -1.8em 1.8em 0 0 rgba(55, 0, 255, .7), -2.6em 0 0 0 #3700FF, -1.8em -1.8em 0 0 rgba(55, 0, 255, .2);
+  }
+
+  87.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(55, 0, 255, .2), 1.8em -1.8em 0 0 rgba(55, 0, 255, .2), 2.5em 0 0 0 rgba(55, 0, 255, .2), 1.75em 1.75em 0 0 rgba(55, 0, 255, .2), 0 2.5em 0 0 rgba(55, 0, 255, .2), -1.8em 1.8em 0 0 rgba(55, 0, 255, .5), -2.6em 0 0 0 rgba(55, 0, 255, .7), -1.8em -1.8em 0 0 #3700FF;
+  }
+}
+
