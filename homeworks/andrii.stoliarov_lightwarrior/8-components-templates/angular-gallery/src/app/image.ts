@@ -1,18 +1,11 @@
+import { from } from 'rxjs';
+import { Urls } from './urls-image'
+import { Links } from './links-image'
+
 export interface Image {
     id: string,
     description: string | null,
-    urls: {
-      raw: string,
-      full: string,
-      regular: string,
-      small: string,
-      thumb: string
-    },
-    links: {
-      self: string,
-      html: string,
-      download: string,
-      download_location: string
-    }
+    urls: Urls,
+    links: Links,
     likes: number
 }

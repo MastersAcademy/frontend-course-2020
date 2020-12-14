@@ -1,4 +1,3 @@
-import { from } from 'rxjs';
 import { Image } from './image';
 
 export const IMAGES: Image[] = [

@@ -2,22 +2,25 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 5em;  /* justify-content: center; */
+  margin: 0 5em;
 }
 
-.images div {
+.frame-image {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 200px;
+  height: 200px;
   border: 5px solid #006400;
   margin: 5px;
+  overflow: hidden;
 }
 
 .hide-img {
   display: none;
 }
 
-.images div.selected {
+.selected {
   border: 5px solid #8B0000;
 }
 
