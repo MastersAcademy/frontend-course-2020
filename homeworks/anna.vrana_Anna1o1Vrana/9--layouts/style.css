@@ -9,7 +9,8 @@
 }
 
 .header {
-  margin: 22px auto;
+  margin: 0 auto;
+  padding: 22px;
   position: sticky;
   top: 23px;
   background: rgba(196, 196, 196, .1);
@@ -274,8 +275,9 @@
   }
 
   .logo__letters {
-    padding: 19px;
+    padding: 18px 15px;
     font-size: 20px;
+    text-shadow: 1px 1px 2px #FFF;
   }
 
   .logo__description {
@@ -303,7 +305,7 @@
   }
 
   .top {
-    margin-top: -127px
+    margin-top: -180px
   }
 
   .top__headline {
