@@ -1,0 +1,27 @@
+.image {
+  width: 28rem;
+  height: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  grid-gap: 2rem;
+  padding-bottom: 10rem;
+}
+
+.btn {
+  background-color: #0001;
+  border: none;
+  width: 8rem;
+}
+
+.grid-item {
+  width: 8rem;
+  height: 8rem;
+  background-color: #0001;
+}
