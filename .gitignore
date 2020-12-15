@@ -61,6 +61,7 @@ typings/
 
 #IDE config
 .idea
+.vscode
 
 karma.conf.js
 protractor.conf.js
