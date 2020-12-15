@@ -1,9 +1,11 @@
 <section class="container">
-  <div *ngFor="let image of images; index as i" class="item">
-    <img
-      src="{{ image.urls.thumb }}"
-      alt=""
-      (click)="setCurrentImg.emit(i)"
-    />
-  </div>
+  <ng-container *ngFor="let image of images; index as i">
+    <div class="item" [ngClass]="i === imgPosition ? 'item--active' : ''">
+      <img
+        src="{{ image.urls.thumb }}"
+        alt=""
+        (click)="setCurrentImg.emit(i)"
+      />
+    </div>
+  </ng-container>
 </section>

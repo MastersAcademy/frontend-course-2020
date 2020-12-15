@@ -1,23 +1,28 @@
 import { Component } from '@angular/core';
 import { images } from "../data";
+import Image from '../models/image';
+const FIRST_IMG_POSITION: number = 0;
+const LAST_IMG_POSITION: number = images.length - 1
 
 @Component({
   selector: 'app-gallery-container',
-  templateUrl: './gallery-container.component.html',
-  styleUrls: ['./gallery-container.component.css']
+  templateUrl: './gallery-container.component.html'
 })
 export class GalleryContainerComponent {
-  images = images;
-  imgPosition = 0;
-  currentImg = images[0]
+  images: Image[] = images;
+  imgPosition: number = 0;
 
-  setCurrentImg(imgPosition: number) {
-    this.currentImg = images[imgPosition]
+  get currentImg(): Image {
+    return this.images[this.imgPosition];
+  }
+
+  setCurrentImg(position: number): void {
+    this.imgPosition = position;
   }
 
   onNext() {
-    if (this.imgPosition === images.length - 1) {
-      this.imgPosition = 0;
+    if (this.imgPosition === LAST_IMG_POSITION) {
+      this.imgPosition = FIRST_IMG_POSITION;
     } else {
       this.imgPosition++;
     }
@@ -25,8 +30,8 @@ export class GalleryContainerComponent {
   }
 
   onPrev() {
-    if (this.imgPosition === 0) {
-      this.imgPosition = images.length - 1;
+    if (this.imgPosition === FIRST_IMG_POSITION) {
+      this.imgPosition = LAST_IMG_POSITION;
     } else {
       this.imgPosition--;
     }

@@ -1,4 +1,5 @@
-export const images = [
+import Image from './models/image';
+export const images: Image[] = [
   {
     id: "YhWRSEdBXUE",
     description: null,

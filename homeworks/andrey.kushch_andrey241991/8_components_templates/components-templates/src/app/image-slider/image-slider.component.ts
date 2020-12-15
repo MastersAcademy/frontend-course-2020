@@ -1,4 +1,5 @@
 import { Input, Component, Output, EventEmitter } from '@angular/core';
+import Image from '../models/image';
 
 @Component({
   selector: 'app-image-slider',
@@ -6,7 +7,7 @@ import { Input, Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./image-slider.component.css']
 })
 export class ImageSliderComponent {
-  @Input() currentImg: any;
+  @Input() currentImg: Image = {} as Image;
   @Output() onPrev = new EventEmitter();
   @Output() onNext = new EventEmitter();
 }
