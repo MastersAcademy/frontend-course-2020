@@ -1,4 +1,4 @@
-<li class="list-item" *ngFor="let image of images;"
+<li class="gallery-list" *ngFor="let image of images;"
     (click)="select($event, image.urls.small, image.id)"
     [class.active]="selectedItem === image.id">
   <app-gallery-image class="image-wrap" [currentImage]="image"></app-gallery-image>

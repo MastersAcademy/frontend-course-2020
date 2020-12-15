@@ -1,20 +1,6 @@
-export interface Images {
-  id: string,
-  description: string,
-  urls: Urls,
-  links: object,
-  likes: number,
-}
+import { Image } from '../interfaces/image-interface';
 
-export interface Urls {
-  raw: string;
-  full: string;
-  regular: string;
-  small: string;
-  thumb: string;
-}
-
-export const IMAGES: Images[] = [
+export const IMAGES: Image[] = [
     {
       id: 'YhWRSEdBXUE',
       description: null,

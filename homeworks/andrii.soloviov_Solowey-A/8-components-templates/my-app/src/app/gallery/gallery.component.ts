@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-gallery',
@@ -6,14 +6,11 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./gallery.component.scss']
 })
 
-export class GalleryComponent implements OnInit {
+export class GalleryComponent {
   currentItem = '';
   selectedItem:string = '';
 
-  ngOnInit(): void {
-  }
-
-  onClick(id) {
+  onClick(id:string) {
     this.currentItem = id;
   }
 }
