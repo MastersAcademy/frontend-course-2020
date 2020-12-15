@@ -20,7 +20,7 @@
     <title>9-layouts</title>
 </head>
 <body>
-<header class="header ">
+<header class="header container-wrapper">
     <div class="container flex">
         <div class="logo">
             <span class="logo__letters">DW</span><span class="logo__description">Dreammaker</span>
@@ -41,7 +41,7 @@
                     <a class="nav__link" href="#services">Service</a>
                 </li>
                 <li class="nav__item">
-                <a class="nav__link" href="#">Setting</a>
+                    <a class="nav__link" href="#">Setting</a>
                 </li>
             </ul>
         </nav>
@@ -50,12 +50,14 @@
 </header>
 <section class="top">
     <div class="container">
-        <h1 class="top__headline">Your awesome Dream maker consultant</h1>
-        <p class="top__under-headline">The occupational traffic permit is one of the most important
-            things in the
-            company when carrying out freight transport. In fact, it is a prerequisite for
-            doing business traffic at all.</p>
-        <button class="btn top__btn">Get started</button>
+        <div class="container-wrapper">
+            <h1 class="top__headline">Your awesome Dream maker consultant</h1>
+            <p class="top__under-headline">The occupational traffic permit is one of the most important
+                things in the
+                company when carrying out freight transport. In fact, it is a prerequisite for
+                doing business traffic at all.</p>
+            <button class="btn top__btn">Get started</button>
+        </div>
     </div>
 </section>
 <section class="section" id="services">
@@ -64,7 +66,7 @@
         <p class="under-headline service__under-headline">The occupational traffic permit is one of the most important
             things in the company when carrying out freight transport. In fact, it is a prerequisite for doing business
             traffic at all. </p>
-        <ul class="list service__list flex">
+        <ul class="list service__list flex container-wrapper">
             <li class="service__item">
                 <i class="fas fa-palette service__icon"></i>
                 <h4 class="service__item__headline">Web design</h4>
@@ -98,15 +100,18 @@
 </section>
 <section class="demo">
     <div class="container">
-        <h2 class="demo__headline">First see how to expand or our demo </h2>
+        <div class="container-wrapper">
+            <h2 class="demo__headline ">First see how to expand or our demo </h2>
+        </div>
     </div>
 </section>
 <section class="section feature-section">
     <div class="container">
         <h2 class="section-headline feature__headline">First see how to expand or our demo </h2>
-        <p class="under-headline feature__under-headline">Here you get the best featured in the world and you can do the best thing
-            when carrying out freight transport.  In fact, it is a</p>
-        <ul class="list feature__list flex">
+        <p class="under-headline feature__under-headline">Here you get the best featured in the world and you can do the
+            best thing
+            when carrying out freight transport. In fact, it is a</p>
+        <ul class="list feature__list flex container-wrapper">
             <li class="feature__item">
                 <img src="images/customer.jpeg" alt="Customer" class="feature__img">
                 <h4 class="feature__item__headline">Customer</h4>
@@ -123,7 +128,7 @@
                 <p class="feature__item__text"> The occupational traffic permit is one
                     things in the company How do you
                     a commercial traffic permit for freight
-                    transport to your business?  </p>
+                    transport to your business? </p>
                 <button class="btn feature__btn">Learn more</button>
             </li>
         </ul>
@@ -131,65 +136,66 @@
 </section>
 <section class="form-section">
     <div class="container">
-    <h2 class="form__headline">Please join with us & get all kind of benifit</h2>
-    <form action="#" class="form">
-        <label for="name" class="label">Name</label>
+        <div class="container-wrapper">
+        <h2 class="form__headline">Please join with us & get all kind of benifit</h2>
+        <form action="#" class="form">
+            <label for="name" class="label">Name</label>
             <input type="text" id="name" class="input" placeholder="Hendrik Larsson">
-        <label for="password" class="label">Password</label>
-        <input type="text" id="password" class="input" placeholder="Your email address">
-        <p class="form-text">Don’t have an account ?<a href="#" class="form__link"> Sign up here</a> </p>
-    </form>
-
+            <label for="password" class="label">Password</label>
+            <input type="text" id="password" class="input" placeholder="Your email address">
+            <p class="form-text">Don’t have an account ?<a href="#" class="form__link"> Sign up here</a></p>
+        </form>
+        </div>
     </div>
 </section>
 <footer class="footer">
     <div class="container">
-    <ul class="list flex footer__list">
-        <li class="footer__item">
-            <h6 class="footer__headline">Learn More</h6>
-            <a class="footer__link">Sell Fast</a>
-            <a class="footer__link">Buy Now</a>
-            <a class="footer__link">Membership</a>
-            <a class="footer__link">Banner Ads</a>
-            <a class="footer__link">Promotions</a>
-        </li>
-        <li class="footer__item">
-            <h6 class="footer__headline">Help & Support</h6>
-            <a class="footer__link">FAQ</a>
-            <a class="footer__link">Stay Safe</a>
-            <a class="footer__link">Contact us</a>
-        </li>
-        <li class="footer__item">
-            <h6 class="footer__headline">Social</h6>
-            <a class="footer__link">Blog</a>
-            <a class="footer__link">Facebook</a>
-            <a class="footer__link">Twitter</a>
-            <a class="footer__link">Youtube</a>
-        </li>
-        <li class="footer__item">
-            <h6 class="footer__headline">About us</h6>
-            <a class="footer__link">About us</a>
-            <a class="footer__link">Career</a>
-            <a class="footer__link">Terms and Conditions</a>
-            <a class="footer__link">Privacy Policy</a>
-            <a class="footer__link">Sitemap</a>
-        </li>
-    </ul>
-        <div class="footer-bottom flex">
-<p class="footer-text">Copyright @ 2019</p>
+        <ul class="list flex footer__list container-wrapper">
+            <li class="footer__item">
+                <h6 class="footer__headline">Learn More</h6>
+                <a class="footer__link">Sell Fast</a>
+                <a class="footer__link">Buy Now</a>
+                <a class="footer__link">Membership</a>
+                <a class="footer__link">Banner Ads</a>
+                <a class="footer__link">Promotions</a>
+            </li>
+            <li class="footer__item">
+                <h6 class="footer__headline">Help & Support</h6>
+                <a class="footer__link">FAQ</a>
+                <a class="footer__link">Stay Safe</a>
+                <a class="footer__link">Contact us</a>
+            </li>
+            <li class="footer__item">
+                <h6 class="footer__headline">Social</h6>
+                <a class="footer__link">Blog</a>
+                <a class="footer__link">Facebook</a>
+                <a class="footer__link">Twitter</a>
+                <a class="footer__link">Youtube</a>
+            </li>
+            <li class="footer__item">
+                <h6 class="footer__headline">About us</h6>
+                <a class="footer__link">About us</a>
+                <a class="footer__link">Career</a>
+                <a class="footer__link">Terms and Conditions</a>
+                <a class="footer__link">Privacy Policy</a>
+                <a class="footer__link">Sitemap</a>
+            </li>
+        </ul>
+        <div class="footer-bottom flex ">
+            <p class="footer-text">Copyright @ 2019</p>
             <ul class="social__list list flex">
                 <li class="social__item">
-                    <a href="https://www.facebook.com/" class="social link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/" class="social__link"><i class="fab fa-facebook-f"></i></a>
                 </li>
                 <li class="social__item">
-                    <a href="https://twitter.com/?lang=ru" class="social link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/?lang=ru" class="social__link"><i class="fab fa-twitter"></i></a>
                 </li>
                 <li class="social__item">
-                    <a href="https://www.instagram.com/?hl=ru" class="social link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/?hl=ru" class="social__link"><i class="fab fa-instagram"></i></a>
                 </li>
             </ul>
-            <div class="logo">
-                <span class="logo__letters">DW</span><span class="logo__description">Dreammaker</span>
+            <div class="logo footer__logo">
+                <span class="logo__letters footer__logo__letters">DW</span><span class="logo__description footer__logo__description">Dreammaker</span>
             </div>
         </div>
     </div>
