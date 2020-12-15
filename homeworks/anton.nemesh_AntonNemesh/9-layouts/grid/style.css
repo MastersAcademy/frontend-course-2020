@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 
 .lnk {
   text-decoration: none;
@@ -17,6 +18,11 @@
   border: none;
 }
 
+h1, p {
+  padding: 0;
+  margin: 0;
+}
+
 .wrapper {
   display: grid;
   grid-template: 737px 1fr 373px / 1fr;
@@ -27,30 +33,48 @@
   color: #717784;
 }
 
-.main,
-.footer {
+.footer,
+section {
   display: none;
+}
+
+.great-service,
+.our-demo,
+.services-wrapper {
+  display: grid;
 }
 
 .header {
   display: grid;
-  grid-template: 116px 1fr / .2fr 80px 130px .6fr 240px .2fr;
+  grid-template: 1fr / .5fr 1100px .5fr;
   background: no-repeat center 100% url("../src/img/Rectangle 2.jpg");
   column-gap: 10px;
+}
+
+.header__wrapper {
+  display: grid;
+  grid-template: 116px 1fr / 80px 130px 1fr 240px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
 }
 
 .header__small-box,
 .header__big-box {
   display: grid;
   grid-template-rows: 1fr;
-  grid-column: 1 / 7;
-  justify-items: center;
   align-items: center;
-  grid-template: inherit;
+  grid-template-columns: inherit;
   column-gap: inherit;
 }
 
+.header__small-box {
+  grid-row: 1 / 2;
+  grid-column: 1 / 5;
+}
+
 .header__big-box {
+  grid-row: 2 / 3;
+  grid-column: 1 / 5;
   row-gap: 15px;
   grid-template-rows: 1.3fr .7fr .3fr .7fr 1fr;
 }
@@ -58,7 +82,6 @@
 .header__tagline,
 .header__description,
 .header__button--second {
-  grid-column: 2 / 7;
   justify-self: start;
 }
 
@@ -69,14 +92,21 @@
 }
 
 .header__tagline {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: 56px;
+  grid-column: 1 / 5;
   grid-row: 2 / 3;
+  line-height: 1;
 }
 
 .header__description {
+  grid-column: 1 / 5;
   grid-row: 3 / 4;
 }
 
 .header__button--second {
+  grid-column: 1 / 5;
   grid-row: 4 / 5;
 }
 
@@ -89,7 +119,6 @@
   height: 72px;
   border-radius: 72px;
   background-color: #C8C8C8;
-  grid-column: 2 / 3;
 }
 
 .header-logo__text {
@@ -100,7 +129,6 @@
 }
 
 .header__site-name {
-  grid-column: 3 / 4;
   font-size: 22px;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
@@ -110,7 +138,6 @@
 .header-navigation {
   display: grid;
   grid-template: 1fr / repeat(4, minmax(100px, 25%)) ;
-  grid-column: 4 / 5;
   justify-self: end;
 }
 
@@ -119,5 +146,90 @@
 }
 
 .header__button {
-  grid-column: 5 / 6;
+  justify-self: end;
+}
+
+.main {
+  display: grid;
+  grid-template: repeat(6, auto) / 1fr;
+  row-gap: 100px;
+}
+
+.great-service {
+  display: grid;
+  grid-template: .6fr .4fr / 1fr;
+  gap: 20px;
+  grid-row: 2 / 3;
+  justify-items: center;
+  text-align: center;
+}
+
+.great-service__title {
+  grid-auto-flow: row;
+}
+
+.great-service__text {
+  grid-auto-flow: row;
+}
+
+.services-wrapper {
+  grid-row: 3 / 4;
+  grid-template: 1fr / .5fr 1100px .5fr;
+}
+
+.services {
+  display: grid;
+  grid-column: 2 / 3;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  grid-template: 1fr / repeat(4,.25fr);
+  justify-items: center;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.services__item {
+  display: inline-grid;
+  width: 256px;
+  height: 256px;
+  grid-template: .4fr .2fr .4fr / 1fr;
+  justify-items: center;
+  text-align: center;
+  row-gap: 10px;
+}
+
+.services__icon {
+  display: inline-grid;
+  align-self: end;
+}
+
+.services__title {
+  display: inline-grid;
+  align-self: center;
+  font-size: 22px;
+}
+
+.services__description {
+  display: inline-grid;
+  align-self: start;
+  font-size: 16px;
+}
+
+.our-demo {
+  display: grid;
+  grid-row: 4 / 5;
+  grid-template: repeat(10, 1fr) / .5fr 1100px .5fr;
+  background: no-repeat center 100% url("../src/img/Rectangle 7.jpg");
+  min-height: 780px;
+  column-gap: 10px;
+}
+
+.our-demo__title {
+  grid-column: 2 / 3;
+  grid-row: 3 / 5;
+  font-family: "DM Serif Display", serif;
+  font-weight: 200;
+  color: #000;
+  line-height: 2em;
 }
