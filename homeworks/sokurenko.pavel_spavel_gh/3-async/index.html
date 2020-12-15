@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>spavel 3-async</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="script.js" defer></script>
+    </head>
+
+    <body>
+        <div data-lock class="lock lock-on">
+            <div class="text-lock">loading...</div>
+        </div>
+        <main>
+            <div class="filter-sort">
+                <input data-filter-input type="text" placeholder="Search.." />
+                <select data-sort-select>
+                    <option value="default">Default</option>
+                    <option value="az">A-Z</option>
+                    <option value="za">Z-A</option>
+                </select>
+            </div>
+            
+            <template data-post="template">
+                <article data-post="article" class="post">
+                    <header class="post-header">
+                        <h2 data-post="title" class="post-title"></h2>
+                    </header>
+                    <p data-post="body" class="post-content"></p>
+                </article>
+            </template>
+
+        </main>
+    </body>
+</html>

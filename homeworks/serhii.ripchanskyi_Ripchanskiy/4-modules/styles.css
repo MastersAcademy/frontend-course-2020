@@ -1,0 +1,25 @@
+.date__container {
+  border: 1px solid #808080;
+  padding: 5px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.date-city-time {
+  border: 1px solid #808080;
+  padding: 5px 10px;
+  height: 200px;
+  width: 200px;
+}
+
+.date__input, .date__btn {
+  box-sizing: border-box;
+  margin-top: 15px;
+  width: 150px;
+}
+
+.date__label::after {
+  content: "\a";
+  white-space: pre;
+}

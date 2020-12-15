@@ -1,0 +1,49 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Calibri", "Roboto", sans-serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 50px 25px;
+  display: flex;
+  justify-content: center;
+  width: 65%;
+}
+
+.form_box {
+  width: 80%;
+  margin-bottom: 40px;
+  display: flex;
+  border: 2px solid #1B202C;
+  border-radius: 8px;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.form {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label, .input,.parag {
+  margin-bottom: 20px;
+}
+
+.label, .current_hour_parag {
+  font-size: 25px;
+}
+
+.input, .btn, .select {
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.select_box {
+  margin-right: 20px;
+  border: 1px solid #1B202C;
+  padding: 20px;
+}

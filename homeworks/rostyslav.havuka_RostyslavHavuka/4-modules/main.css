@@ -1,0 +1,56 @@
+body {
+  background: #E0E0E0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  grid-template-areas: ". . . . ."
+    ". . input time ."
+    ". . getMonth .  ."
+    ". . getIsLong .  ."
+    ". . getShortest .  ."
+    ". . getFullWeeks .  .";
+}
+
+.input { grid-area: input; }
+.get-month { grid-area: getMonth; }
+.get-isLong { grid-area: getIsLong; }
+.get-shortest { grid-area: getShortest; }
+.get-full-weeks { grid-area: getFullWeeks; }
+.time { grid-area: time; }
+
+.button {
+  background-color: #EBEBEB;
+  color: #1B1B1B;
+  padding: 12px 21px;
+  text-align: center;
+  font-size: 14px;
+  transition-duration: .2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1B1B1B;
+  color: #EBEBEB;
+}
+
+.span {
+  font-size: 18px;
+  font-family: cursive;
+  font-weight: 500;
+  font-style: initial;
+}
+
+.input-date {
+  min-height: 33px;
+  border: 2.5px solid #1B1B1B;
+  border-radius: 4%;
+}
+
+.select {
+  width: 40%;
+  min-height: 30px;
+}
