@@ -3,8 +3,7 @@ import { Image } from '../image';
 
 @Component({
   selector: 'app-gallery-image',
-  templateUrl: './gallery-image.component.html',
-  styleUrls: ['./gallery-image.component.css']
+  templateUrl: './gallery-image.component.html'
 })
 export class GalleryImageComponent {
 
