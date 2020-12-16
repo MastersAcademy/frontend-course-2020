@@ -432,7 +432,7 @@ h1, p {
   grid-row: 3 / 4;
   grid-column: 1 / 3;
   justify-self: start;
-  align-self: center;
+  align-self: end;
 }
 
 .footer-sn-links {
@@ -442,11 +442,15 @@ h1, p {
   grid-row: 3 / 4;
   grid-column: 4 / 6;
   justify-self: start;
-  align-self: center;
+  align-self: end;
   list-style-type: none;
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
+}
+
+.footer-sn-links svg {
+  align-self: center;
 }
 
 .footer-sn-links__link {
@@ -456,14 +460,14 @@ h1, p {
   border-radius: 36px;
   background-color: #FFF;
   justify-items: center;
-  align-items: center;
+  align-self: center;
 }
 
 .footer-site-link {
   grid-row: 3 / 4;
   grid-column: 5 / 7;
   justify-self: end;
-  align-self: center;
+  align-self: end;
   color: #FFF;
   font-size: 22px;
 }
