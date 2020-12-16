@@ -1,0 +1,23 @@
+.big-image-wrapper {
+  width: 80vw;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: space-around;
+  height: 450px;
+}
+
+.btn {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.big-image {
+  width: 400px;
+  object-fit: contain;
+  display: block;
+}
