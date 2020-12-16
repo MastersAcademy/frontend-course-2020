@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from '../models/Image';
-import { data } from '../moks/data';
+import { data } from '../moсks/data';
 
 @Component({
     selector: 'app-gallary',
