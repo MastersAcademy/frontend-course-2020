@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { dataImage, dataGallary } from '../models/dataImage';
+import { Image } from '../models/Image';
 import { data } from '../moks/data';
 
 @Component({
@@ -8,21 +8,16 @@ import { data } from '../moks/data';
     styleUrls: ['./gallary.component.scss']
 })
 export class GallaryComponent implements OnInit {
-    cards: dataImage[];
+    cards: Image[];
     currentIndex: number = 0;
-    currentSlide: dataImage;
+    currentSlide: Image;
     btnPrevIsDisabled: boolean;
     btnNextIsDisabled: boolean;
     sliderIsHidden: boolean;
     itemIsActive: boolean;
 
     constructor () {
-        this.cards = data.map((item: dataGallary): dataImage => {
-            return {
-                'id': item.id,
-                'urls': item.urls,
-            };
-        });
+        this.cards = data;
         this.currentSlide = this.cards[this.currentIndex];
         this.btnPrevIsDisabled = false;
         this.btnNextIsDisabled = false;

@@ -1,4 +1,4 @@
-export interface dataGallary {
+export interface Image {
   id: string,
   description: null | string,
   urls: {
@@ -15,11 +15,4 @@ export interface dataGallary {
     download_location: string
   },
   likes: number
-}
-
-export interface dataImage {
-  id: string,
-  urls: {
-    [key: string]: string
-  },
 }
