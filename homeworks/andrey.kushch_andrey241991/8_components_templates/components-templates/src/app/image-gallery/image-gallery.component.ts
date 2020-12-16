@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import Image from '../models/image';
+import { Image } from '../models/image';
 
 @Component({
   selector: 'app-image-gallery',
@@ -7,7 +7,7 @@ import Image from '../models/image';
   styleUrls: ['./image-gallery.component.css']
 })
 export class ImageGalleryComponent {
-  @Input() images: Image[] = [] as Image[];
+  @Input() images: Image[] = [];
   @Input() imgPosition: Number = 0;
   @Output() setCurrentImg = new EventEmitter<number>();
 }

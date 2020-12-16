@@ -1,4 +1,4 @@
-interface Image {
+export interface Image {
     id: string;
     description: string | null;
     urls: {
@@ -16,5 +16,3 @@ interface Image {
     }
     likes: number,
 }
-
-export default Image;
