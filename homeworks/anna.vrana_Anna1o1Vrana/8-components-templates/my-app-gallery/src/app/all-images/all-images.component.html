@@ -1,6 +1,5 @@
 <ul class="img-wrapper images">
-  <li *ngFor="let img of images" (click)="onActiveImg(img)"
-      class="{{ active?.id === img.id ? 'active' : '' }} images-item">
+  <li *ngFor="let img of images" (click)="onActiveImg(img)" [class.active]="active" class="image">
     <img src="{{img.urls.thumb}}" alt="" class="img">
   </li>
 </ul>

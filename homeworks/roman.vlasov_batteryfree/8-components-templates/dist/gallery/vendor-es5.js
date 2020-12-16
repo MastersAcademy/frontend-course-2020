@@ -16845,7 +16845,7 @@
        * }
        * ```
        *
-      
+
        */
 
 
@@ -16957,7 +16957,7 @@
        * Use of this source code is governed by an MIT-style license that can be
        * found in the LICENSE file at https://angular.io/license
        */
-      // Below are constants for LView indices to help us look up LView members
+      // Below are data for LView indices to help us look up LView members
       // without having to remember the specific indices.
       // Uglify will inline these when minifying so there shouldn't be a cost.
 
@@ -17017,7 +17017,7 @@
 
       var TYPE = 1;
       /**
-       * Below are constants for LContainer indices to help us look up LContainer members
+       * Below are data for LContainer indices to help us look up LContainer members
        * without having to remember the specific indices.
        * Uglify will inline these when minifying so there shouldn't be a cost.
        */
@@ -17032,9 +17032,9 @@
        */
 
       var HAS_TRANSPLANTED_VIEWS = 2; // PARENT, NEXT, TRANSPLANTED_VIEWS_TO_REFRESH are indices 3, 4, and 5
-      // As we already have these constants in LView, we don't need to re-create them.
+      // As we already have these data in LView, we don't need to re-create them.
       // T_HOST is index 6
-      // We already have this constants in LView, we don't need to re-create it.
+      // We already have this data in LView, we don't need to re-create it.
 
       var NATIVE = 7;
       var VIEW_REFS = 8;
@@ -32264,7 +32264,7 @@
        * }
        *
        * var injector = Injector.resolveAndCreate([A]);
-      
+
        * try {
        *   injector.get(A);
        * } catch (e) {
@@ -65489,7 +65489,7 @@
        * Retrieves Gregorian-calendar eras for the given locale.
        * @param locale A locale code for the locale format rules to use.
        * @param width The required character width.
-      
+
        * @returns An array of localized era strings.
        * For example, `[AD, BC]` for `en-US`.
        * @see [Internationalization (i18n) Guide](https://angular.io/guide/i18n)
@@ -65560,7 +65560,7 @@
        * @returns The localized formatting string.
        * @see `FormatWidth`
        * @see [Internationalization (i18n) Guide](https://angular.io/guide/i18n)
-      
+
        * @publicApi
        */
 
@@ -75103,7 +75103,7 @@
        * single data type of the response.
        * A single overload version of the method handles each response type.
        * The value of `responseType` cannot be a union, as the combined signature could imply.
-      
+
        *
        * @usageNotes
        * Sample HTTP requests for the [Tour of Heroes](/tutorial/toh-pt0) application.

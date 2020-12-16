@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IMAGES, Img} from "../constants/data";
+import {IMAGES, Img} from "../data/data";
 
 @Component({
   selector: 'app-all-images',
@@ -12,14 +12,12 @@ export class AllImagesComponent implements OnInit {
 
   }
   public images: Img[] = IMAGES;
-  public active: Img | undefined;
-  onActiveImg(activeImg: Img): any {
+  public active?: Img;
+  onActiveImg(activeImg: Img): void {
     if (this.active?.id === activeImg.id){
       this.active = undefined;
     } else {
       this.active = activeImg;
     }
   }
-
-
 }

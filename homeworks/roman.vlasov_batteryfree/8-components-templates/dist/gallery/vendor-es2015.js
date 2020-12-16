@@ -8809,7 +8809,7 @@ function getNgLocaleIdDef(type) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Below are constants for LView indices to help us look up LView members
+// Below are data for LView indices to help us look up LView members
 // without having to remember the specific indices.
 // Uglify will inline these when minifying so there shouldn't be a cost.
 const HOST = 0;
@@ -8868,7 +8868,7 @@ const unusedValueExportToPlacateAjd = 1;
  */
 const TYPE = 1;
 /**
- * Below are constants for LContainer indices to help us look up LContainer members
+ * Below are data for LContainer indices to help us look up LContainer members
  * without having to remember the specific indices.
  * Uglify will inline these when minifying so there shouldn't be a cost.
  */
@@ -8882,9 +8882,9 @@ const TYPE = 1;
  */
 const HAS_TRANSPLANTED_VIEWS = 2;
 // PARENT, NEXT, TRANSPLANTED_VIEWS_TO_REFRESH are indices 3, 4, and 5
-// As we already have these constants in LView, we don't need to re-create them.
+// As we already have these data in LView, we don't need to re-create them.
 // T_HOST is index 6
-// We already have this constants in LView, we don't need to re-create it.
+// We already have this data in LView, we don't need to re-create it.
 const NATIVE = 7;
 const VIEW_REFS = 8;
 const MOVED_VIEWS = 9;
@@ -10373,7 +10373,7 @@ class NodeInjectorFactory {
     /**
      * Factory to invoke in order to create a new instance.
      */
-    factory, 
+    factory,
     /**
      * Set to `true` if the token is declared in `viewProviders` (or if it is component).
      */
@@ -11314,7 +11314,7 @@ function bloomHashBitOrFactory(token) {
     if (typeof token === 'string') {
         return token.charCodeAt(0) || 0;
     }
-    const tokenId = 
+    const tokenId =
     // First check with `hasOwnProperty` so we don't get an inherited ID.
     token.hasOwnProperty(NG_ELEMENT_ID) ? token[NG_ELEMENT_ID] : undefined;
     // Negative token IDs are used for special objects such as `Injector`
@@ -18531,7 +18531,7 @@ function tick(component) {
  *
  * @publicApi
  */
-const INJECTOR$1 = new InjectionToken('INJECTOR', 
+const INJECTOR$1 = new InjectionToken('INJECTOR',
 // Dissable tslint because this is const enum which gets inlined not top level prop access.
 // tslint:disable-next-line: no-toplevel-property-access
 -1 /* Injector */);
@@ -19270,12 +19270,12 @@ function resolveToken(token, record, records, parent, notFoundValue, flags) {
                     const childRecord = options & 2 /* CheckSelf */ ? records.get(depRecord.token) : undefined;
                     deps.push(tryResolveToken(
                     // Current Token to resolve
-                    depRecord.token, 
+                    depRecord.token,
                     // A record which describes how to resolve the token.
                     // If undefined, this means we don't have such a record
-                    childRecord, 
+                    childRecord,
                     // Other records we know about.
-                    records, 
+                    records,
                     // If we don't know how to resolve dependency and we should not check parent for it,
                     // than pass in Null injector.
                     !childRecord && !(options & 4 /* CheckParent */) ? Injector.NULL : parent, options & 1 /* Optional */ ? null : Injector.THROW_IF_NOT_FOUND, InjectFlags.Default));
@@ -21653,7 +21653,7 @@ class ResolvedReflectiveFactory {
     /**
      * Factory function which can return an instance of an object represented by a key.
      */
-    factory, 
+    factory,
     /**
      * Arguments (dependencies) to the `factory` function.
      */
@@ -22363,7 +22363,7 @@ function logUnknownElementError(tView, element, tNode, hasDirectives) {
         // The element is unknown if it's an instance of HTMLUnknownElement or it isn't registered
         // as a custom element. Note that unknown elements with a dash in their name won't be instances
         // of HTMLUnknownElement in browsers that support web components.
-        const isUnknown = 
+        const isUnknown =
         // Note that we can't check for `typeof HTMLUnknownElement === 'function'`,
         // because while most browsers return 'function', IE returns 'object'.
         (typeof HTMLUnknownElement !== 'undefined' && HTMLUnknownElement &&
@@ -30036,7 +30036,7 @@ class ViewRef {
      *
      * @internal
      */
-    _lView, 
+    _lView,
     /**
      * This represents the `LView` associated with the point where `ChangeDetectorRef` was
      * requested.
@@ -35209,7 +35209,7 @@ const SWITCH_COMPILE_PIPE = SWITCH_COMPILE_PIPE__POST_R3__;
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const ɵ0$e = (ngModule) => ngModule, ɵ1$3 = 
+const ɵ0$e = (ngModule) => ngModule, ɵ1$3 =
 /**
  * Decorator that marks the following class as an NgModule, and supplies
  * configuration metadata for it.
