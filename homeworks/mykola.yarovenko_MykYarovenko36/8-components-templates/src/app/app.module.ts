@@ -9,7 +9,7 @@ import { GallaryItemComponent } from './gallary-item/gallary-item.component';
   declarations: [
     AppComponent,
     GallaryComponent,
-    GallaryItemComponent,
+    GallaryItemComponent
   ],
   imports: [
     BrowserModule,

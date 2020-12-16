@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { dataItems } from '../app.component';
+import { dataItems } from '../dataItems';
 
 @Component({
   selector: 'app-gallary-item',
@@ -8,10 +8,19 @@ import { dataItems } from '../app.component';
 })
 
 export class GallaryItemComponent implements OnInit {
-  @Input() card!: dataItems;
-  constructor() {
-  }
+    @Input() card!: dataItems;
+    itemIsLoad: boolean;
+    cardId: string;
+    constructor () {
+        this.itemIsLoad = false;
+        this.cardId = '';
+    }
   ngOnInit(): void {
-    console.log(this.card)
+      this.itemIsLoad = false;
+  }
+
+  isLoad(): void {
+      this.cardId = this.card.id;
+      this.itemIsLoad = true;
   }
 }

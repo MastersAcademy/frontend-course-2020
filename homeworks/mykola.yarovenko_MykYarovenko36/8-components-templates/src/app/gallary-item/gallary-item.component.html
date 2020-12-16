@@ -1,5 +1,18 @@
-<img class="gallary-img" [ngStyle]="{
-  width: '100px',
-  height: '100px',
-  margin: '5px'
-  }" [src]="card.urls.thumb" [alt]="card.id">
+<div>
+<img
+    [ngStyle]="{
+        width: '100px',
+        height: '100px'
+    }"
+    [src]="card.urls.small"
+    (load)="isLoad()"
+    [id]="cardId"
+    [hidden]="itemIsLoad? null: 'hidden'"
+  >
+  <div *ngIf="!itemIsLoad" class="item-loader"><div></div><div></div></div>
+</div>
+
+
+
+
+

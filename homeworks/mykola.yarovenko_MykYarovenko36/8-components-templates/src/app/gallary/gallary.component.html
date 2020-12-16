@@ -1,11 +1,28 @@
-<div class="gallary">
-  <app-gallary-item
-  *ngFor="let itemCard of cards"
-  [card]="itemCard"
-  ></app-gallary-item>
-</div>
-<div>
-  <button (click)="toggleSlide('prev')" [disabled]="isBtnPrevDisabled? 'disabled': null">Prev</button>
-  <img [ngStyle]="{width: '300px', height: '400px'}" [src]="currentSlide.urls.small" [alt]="currentSlide.id">
-  <button (click)="toggleSlide('next')" [disabled]="isBtnNextDisabled? 'disabled': null">Next</button>
+<div class="gallary-container">
+    <div class="gallary-items-container">
+        <app-gallary-item
+            class="gallary-item"
+            [class.toggle]="itemCard.id === currentSlide.id && itemIsActive"
+            *ngFor="let itemCard of cards"
+            [card]="itemCard"
+            (click)="setSlide(itemCard.id)"
+        >
+        </app-gallary-item>
+    </div>
+    <div *ngIf="sliderIsHidden" class="gallary-slider-container">
+        <div class="slider-btn-container">
+            <button
+                (click)="toggleSlide('prev')"
+                [disabled]="btnPrevIsDisabled? 'disabled' : null"
+            > Prev </button>
+            <button
+                (click)="toggleSlide('next')"
+                [disabled]="btnNextIsDisabled? 'disabled' : null"
+            > Next </button>
+        </div>
+        <img class="slider-item"
+            [src]="currentSlide.urls.small"
+            alt="img"
+        >
+    </div>
 </div>
