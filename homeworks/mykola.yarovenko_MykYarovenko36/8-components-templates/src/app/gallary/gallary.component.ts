@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { dataImage } from '../dataImage';
+import { dataImage, dataGallary } from '../models/dataImage';
 import { data } from '../moks/data';
 
 @Component({
@@ -17,7 +17,7 @@ export class GallaryComponent implements OnInit {
     itemIsActive: boolean;
 
     constructor () {
-        this.cards = data.map((item): dataImage => {
+        this.cards = data.map((item: dataGallary): dataImage => {
             return {
                 'id': item.id,
                 'urls': item.urls,

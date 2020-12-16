@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { dataImage } from '../dataImage';
+import { dataImage } from '../models/dataImage';
 
 @Component({
   selector: 'app-gallary-item',
