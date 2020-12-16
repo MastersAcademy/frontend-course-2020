@@ -1,0 +1,19 @@
+:host {
+  --size-img: 100px
+}
+
+.wrap-image {
+  border: 1px solid #AAA;
+  background-color: #F7F4F4;
+  padding: 5px;
+  width: var(--size-img);
+  height: var(--size-img);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+}

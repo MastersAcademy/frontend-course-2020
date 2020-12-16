@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript</title>
+    <link rel="stylesheet" href="./src/main.css">
+</head>
+
+<body>
+    <div class="progress-bar" >
+        <div class="progress-bar__value" data-progress-bar></div>
+    </div>
+    <div class="menu">
+        <button type="button" data-key-again>Again</button>
+        <button type="button" data-key-start>Start</button>
+        <button type="button" data-key-stop>Finish Game</button>
+    </div>
+    <div class="points">
+        <span class="cube-score" data-cube-score>100</span>
+    </div>
+    <div class="square">
+        <div id="box" class="red-square" data-cube style="height: 80px; width: 80px;"></div>
+    </div>
+    <div class="action">
+        <span class="score" data-score></span>
+    </div>
+    <div class="button">
+        <span class="key" data-key></span>
+    </div>
+    </div>
+    <script src="./dist/bundle.js"></script>
+</body>
+
+</html>
