@@ -11,16 +11,18 @@ export class GallaryItemComponent implements OnInit {
     @Input() card!: dataImage;
     itemIsLoad: boolean;
     cardId: string;
+
     constructor () {
         this.itemIsLoad = false;
         this.cardId = '';
     }
-  ngOnInit(): void {
-      this.itemIsLoad = false;
-  }
 
-  isLoad(): void {
-      this.cardId = this.card.id;
-      this.itemIsLoad = true;
-  }
+    ngOnInit(): void {
+        this.itemIsLoad = false;
+    }
+
+    isLoad(): void {
+        this.cardId = this.card.id;
+        this.itemIsLoad = true;
+    }
 }
