@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class GalleryComponent implements OnInit {
 
   public array = Images;
-  public selectedItem: string;
+  public selectedItem: ImagesObj;
   public src :string;
 
   constructor() {
@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  increasePicture(picture: any) {
+  increasePicture(picture: ImagesObj) {
     this.selectedItem = picture;
     let source: string = picture.urls.small;
     this.src = source;
