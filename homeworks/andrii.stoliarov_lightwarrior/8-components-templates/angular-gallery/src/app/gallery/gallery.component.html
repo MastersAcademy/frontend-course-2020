@@ -1,0 +1,14 @@
+<div class="images">
+  <div class="frame-image" *ngFor="let image of images"
+    [class.selected]="image === selectedImage"
+    (click)="onSelect(image)">
+      <app-gallery-image [image]="image"></app-gallery-image>
+  </div>
+</div>
+
+<div class="regular">
+    <figure>
+      <figcaption class="figcaption">Image</figcaption>
+      <img src="{{selectedImage.urls.small}}">
+    </figure>
+</div>

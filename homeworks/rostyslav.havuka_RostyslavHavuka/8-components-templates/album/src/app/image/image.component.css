@@ -1,0 +1,10 @@
+.image-container {
+  margin-left: 41.5%;
+}
+
+.image {
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
