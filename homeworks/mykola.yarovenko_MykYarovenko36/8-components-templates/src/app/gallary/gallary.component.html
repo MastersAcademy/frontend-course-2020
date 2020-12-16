@@ -13,11 +13,11 @@
         <div class="slider-btn-container">
             <button
                 (click)="toggleSlide('prev')"
-                [disabled]="btnPrevIsDisabled? 'disabled' : null"
+                [disabled]="btnPrevIsDisabled"
             > Prev </button>
             <button
                 (click)="toggleSlide('next')"
-                [disabled]="btnNextIsDisabled? 'disabled' : null"
+                [disabled]="btnNextIsDisabled"
             > Next </button>
         </div>
         <img class="slider-item"

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { dataItems } from '../dataItems';
-import { data } from '../data';
+import { dataImage } from '../dataImage';
+import { data } from '../moks/data';
 
 @Component({
     selector: 'app-gallary',
@@ -8,15 +8,16 @@ import { data } from '../data';
     styleUrls: ['./gallary.component.scss']
 })
 export class GallaryComponent implements OnInit {
-    cards: dataItems[];
+    cards: dataImage[];
     currentIndex: number = 0;
-    currentSlide: dataItems;
+    currentSlide: dataImage;
     btnPrevIsDisabled: boolean;
     btnNextIsDisabled: boolean;
     sliderIsHidden: boolean;
     itemIsActive: boolean;
+
     constructor () {
-        this.cards = data.map((item): dataItems => {
+        this.cards = data.map((item): dataImage => {
             return {
                 'id': item.id,
                 'urls': item.urls,
@@ -28,8 +29,10 @@ export class GallaryComponent implements OnInit {
         this.sliderIsHidden = false;
         this.itemIsActive = false;
     }
+
     ngOnInit(): void {
     }
+
     toggleSlide(item: string): void {
         if (item === 'prev') {
             this.currentIndex--;
@@ -50,13 +53,12 @@ export class GallaryComponent implements OnInit {
 
     setSlide(id: string): void {
         this.cards.find((item, index):void => {
-            if (item.id === id) {
-              this.currentSlide = item;
-              this.currentIndex = index;
-              this.btnDisable();
-              this.sliderIsHidden = true;
-              this.itemIsActive = true;
-            }
+          if (item.id !== id) return;
+          this.currentSlide = item;
+          this.currentIndex = index;
+          this.btnDisable();
+          this.sliderIsHidden = true;
+          this.itemIsActive = true;
         });
    }
 }

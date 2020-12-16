@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { dataItems } from '../dataItems';
+import { dataImage } from '../dataImage';
 
 @Component({
   selector: 'app-gallary-item',
@@ -8,7 +8,7 @@ import { dataItems } from '../dataItems';
 })
 
 export class GallaryItemComponent implements OnInit {
-    @Input() card!: dataItems;
+    @Input() card!: dataImage;
     itemIsLoad: boolean;
     cardId: string;
     constructor () {
