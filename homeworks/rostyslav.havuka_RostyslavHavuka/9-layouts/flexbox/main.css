@@ -22,7 +22,7 @@ a {
 }
 
 .header {
-  background-image: url("/homeworks/rostyslav.havuka_RostyslavHavuka/9-layouts/images/Rectangle\ 2.jpg");
+  background-image: url("../images/Rectangle\ 2.jpg");
   height: 45em;
   object-fit: cover;
   background-repeat: no-repeat;
