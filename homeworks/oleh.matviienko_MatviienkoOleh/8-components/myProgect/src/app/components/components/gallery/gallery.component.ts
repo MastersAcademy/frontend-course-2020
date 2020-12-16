@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class GalleryComponent implements OnInit {
 
   public array = Images;
-  public selectedItem : any ;
+  public selectedItem: string;
+  public src :string;
 
   constructor() {
   }
@@ -16,19 +17,17 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  increasePicture(pictures:any) {
-    this.selectedItem = pictures;
-
-    const bigPicture = document.getElementById('bigPicture') as HTMLDivElement;
-    let src: any = pictures.urls.small;
-    bigPicture.setAttribute('Src', src);
+  increasePicture(picture: any) {
+    this.selectedItem = picture;
+    let source: string = picture.urls.small;
+    this.src = source;
   }
 }
 
 
 interface ImagesObj {
   id: string;
-  description: any;
+  description: string | null;
   urls: Urls;
   links: Links;
   likes: number;
