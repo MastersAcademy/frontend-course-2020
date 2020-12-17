@@ -1,0 +1,23 @@
+.pictures {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.pictures-item {
+  margin: 10px;
+  border: 2px solid #808080;
+  width: 200px;
+  height: 200px;
+}
+
+.pictures-item-active {
+  border-color: #D71414;
+}
+
+.big-picture {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
