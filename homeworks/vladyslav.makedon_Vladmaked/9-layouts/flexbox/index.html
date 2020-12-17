@@ -7,7 +7,7 @@
     <title>Dreammaker</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-body>
 <header class="header">
     <div class="header__top-row-wrapper">
         <div class="container">
@@ -16,7 +16,7 @@
                     <div class="top-row-header__logo-picture">DM</div>
                     <div class="top-row-header__logo-title">Dreammaker</div>
                 </a>
-                <nav class="top-row-header__navigation navigation-top-row-header">
+                <nav class="top-row-header__navigation navigation-top-row-header" data-top-row-header-navigation>
                     <a href="#" class="navigation-top-row-header__item">Home</a>
                     <a href="#" class="navigation-top-row-header__item">About us</a>
                     <a href="#" class="navigation-top-row-header__item">Service</a>
@@ -25,6 +25,12 @@
                         Contact us
                     </a>
                 </nav>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 32 32"
+                     class="top-row-header__burger-menu"
+                     data-top-row-header-burger-menu>
+                    <path d="M28 10H4a1 1 0 0 1 0-2h24a1 1 0 0 1 0 2zm0 7H4a1 1 0 0 1 0-2h24a1 1 0 0 1 0 2zm0 7H4a1 1 0 0 1 0-2h24a1 1 0 0 1 0 2z"/>
+                </svg>
             </div>
         </div>
     </div>
@@ -217,5 +223,6 @@
         </div>
     </div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
