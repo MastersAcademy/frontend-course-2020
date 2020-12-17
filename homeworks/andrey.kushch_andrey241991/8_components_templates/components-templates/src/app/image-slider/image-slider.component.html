@@ -1,5 +1,5 @@
 <section class="slider" *ngIf="currentImg">
-  <img src="assets/img/left-arrow.png" (click)="onPrev.emit()" />
+  <img src="assets/img/left-arrow.png" (click)="onPrev.emit(null)" />
   <img class="slider__img" src="{{ currentImg.urls.regular }}" alt="" />
-  <img src="assets/img/right-arrow.png" (click)="onNext.emit()" />
+  <img src="assets/img/right-arrow.png" (click)="onNext.emit(null)" />
 </section>

@@ -8,6 +8,6 @@ import { Image } from '../models/image';
 })
 export class ImageSliderComponent {
   @Input() currentImg?: Image;
-  @Output() onPrev = new EventEmitter();
-  @Output() onNext = new EventEmitter();
+  @Output() onPrev = new EventEmitter<null>();
+  @Output() onNext = new EventEmitter<null>();
 }
