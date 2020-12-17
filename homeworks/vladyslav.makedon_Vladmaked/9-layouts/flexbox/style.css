@@ -455,6 +455,10 @@ body {
     color: #FFF;
   }
 
+  .navigation-top-row-header__item:hover {
+    color: #9B9BCA;
+  }
+
   .top-row-header__burger-menu {
     display: block;
   }
