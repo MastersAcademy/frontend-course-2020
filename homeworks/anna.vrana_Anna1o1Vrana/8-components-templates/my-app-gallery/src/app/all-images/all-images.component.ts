@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {IMAGES, Img} from "../data/data";
+import {Component} from '@angular/core';
+import {Img} from "../data/Img";
+import {IMAGES} from "../data/data";
 
 @Component({
   selector: 'app-all-images',
@@ -7,17 +8,21 @@ import {IMAGES, Img} from "../data/data";
   styleUrls: ['./all-images.component.css']
 })
 
-export class AllImagesComponent implements OnInit {
-  ngOnInit(): void {
+export class AllImagesComponent {
 
-  }
   public images: Img[] = IMAGES;
   public active?: Img;
+  public loading: boolean = true;
+
   onActiveImg(activeImg: Img): void {
     if (this.active?.id === activeImg.id){
       this.active = undefined;
     } else {
       this.active = activeImg;
     }
+  }
+
+  hideLoader($event : any)  : void {
+    this.loading= false;
   }
 }

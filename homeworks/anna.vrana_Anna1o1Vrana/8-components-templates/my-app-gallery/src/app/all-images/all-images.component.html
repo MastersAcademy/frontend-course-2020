@@ -1,6 +1,8 @@
 <ul class="img-wrapper images">
   <li *ngFor="let img of images" (click)="onActiveImg(img)" [class.active]="active" class="image">
-    <img src="{{img.urls.thumb}}" alt="" class="img">
+    <div *ngIf="loading" class="loader-wrapper">loading....</div>
+    <img src="{{img.urls.thumb}}" alt="" class="img hide" [class.hide]="loading" (load)="hideLoader($event)">
+<!--    <img src="{{img.urls.thumb}}" alt="" class="img">-->
   </li>
 </ul>
 <h2 class="image-headline"> Image</h2>

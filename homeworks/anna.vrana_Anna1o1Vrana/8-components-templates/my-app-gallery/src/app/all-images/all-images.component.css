@@ -34,3 +34,12 @@
   border: 2px solid #FF0505;
 }
 
+.loader-wrapper {
+  background: #00C9C9;
+  width: 200px;
+  height: 200px;
+}
+
+.hide {
+  display: none;
+}
