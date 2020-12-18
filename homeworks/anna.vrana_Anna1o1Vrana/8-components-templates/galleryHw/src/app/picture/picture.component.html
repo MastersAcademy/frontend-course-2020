@@ -1,0 +1,6 @@
+<img src="{{currentImage.urls.thumb}}"
+     alt="gallery picture"
+     class="img hide"
+     [class.hide]="loading"
+     (load)="hideLoader($event)">
+
