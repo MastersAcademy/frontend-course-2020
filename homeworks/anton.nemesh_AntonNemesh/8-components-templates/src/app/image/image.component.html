@@ -1,0 +1,2 @@
+<img class="gallery__img--contain" [hidden]="!isLoaded" src="https://i.gifer.com/4V0b.gif">
+<img class="gallery__img--contain" [hidden]="isLoaded"  src="{{currentImage.urls.regular}}" (load)="imageUploaded()">
