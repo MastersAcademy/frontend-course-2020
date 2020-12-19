@@ -1,0 +1,166 @@
+@media (min-width: 678px) {
+
+  .header__menu {
+    font-size: 20px;
+  }
+
+  .header__description {
+    margin-left: 24px;
+  }
+
+  .header__headline {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .header__text {
+    width: 450px;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .header__btn {
+    margin-left: 0;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  /* services section*/
+
+  .services__headline {
+    font-size: 24px
+  }
+
+  .services__description {
+    margin: auto;
+    width: 600px;
+    font-size: 20px;
+  }
+
+  .tile-services__icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  .tile-services__headline {
+    font-size: 20px;
+  }
+
+  .tile-services__text {
+    font-size: 18px;
+  }
+
+  /* demo section */
+
+  .demo__headline {
+    font-size: 24px;
+  }
+
+  /* best-feature section */
+
+  .best-feature {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+
+  .best-feature__headline {
+    grid-column: 1 / span 2;
+    font-size: 24px;
+  }
+
+  .best-feature__text {
+    font-size: 20px;
+    margin: auto;
+    grid-column: 1 / span 2;
+  }
+
+  .best-feature-tail {
+    justify-self: center;
+    width: 350px;
+    height: 385px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .best-feature-tail__img {
+    width: 200px;
+    height: 110px;
+  }
+
+  .best-feature-tail__headline {
+    font-size: 20px;
+  }
+
+  .best-feature-tail__text {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .best-feature-tail__btn {
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  /* registration section */
+
+  .registration__headline {
+    font-size: 24px;
+  }
+
+  .form {
+    width: 650px;
+    height: 350px;
+    margin: 25px auto;
+    display: grid;
+  }
+
+  .form__input-description {
+    font-size: 18px;
+  }
+
+  .form__input {
+    font-size: 18px;
+    height: 45px;
+  }
+
+  .form__btn {
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  .form__text {
+    font-size: 18px;
+  }
+
+  .form__link {
+    font-size: 18px;
+  }
+
+  /* footer section */
+
+  .nav__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+
+  .nav__link-footer {
+    font-size: 20px;
+  }
+
+  .footer-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo-footer {
+    justify-self: end;
+  }
+}

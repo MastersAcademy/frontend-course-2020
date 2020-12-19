@@ -1,0 +1,163 @@
+@media (min-width: 991.98px) {
+
+  .container {
+    margin: 0 auto;
+    padding: 50px 0;
+    max-width: 1600px;
+  }
+
+  /* header section */
+
+  .header__wrap {
+    grid-template-areas: "logo nav" "header-description header-description";
+    grid-template-columns: 45% 65%;
+    align-items: center;
+  }
+
+  .header__menu {
+    display: none;
+  }
+
+  .logo {
+    margin-left: 25px;
+    grid-area: logo;
+    grid-template-columns: 80px 1fr;
+  }
+
+  .logo__circle {
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+  }
+
+  .logo__text {
+    font-size: 30px;
+  }
+
+  .nav {
+    grid-area: nav;
+    display: block;
+    width: auto;
+    border: none;
+    border-radius: 0;
+    position: static;
+    background-color: transparent;
+  }
+
+  .nav__link {
+    text-decoration: none;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .nav__link:hover {
+    border-radius: 16px;
+  }
+
+  .header__description {
+    margin-left: 75px;
+  }
+
+  .header__headline {
+    font-size: 45px;
+  }
+
+  .header__text {
+    width: 50%;
+  }
+
+  .header__btn {
+    height: 75px;
+  }
+
+  /* services section*/
+
+  .services {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .services__headline {
+    grid-column: 1 / span 4;
+    font-size: 24px;
+  }
+
+  .services__description {
+    grid-column: 1 / span 4;
+    font-size: 22px;
+    width: 900px;
+    padding-bottom: 50px;
+  }
+
+  /* demo section */
+
+  .demo {
+    height: 100vh;
+  }
+
+  .demo__headline {
+    font-size: 50px;
+    width: 800px;
+    text-align: left;
+    margin-left: 25px;
+  }
+
+  /* best-feature section */
+
+  .best-feature__headline {
+    font-size: 24px;
+  }
+
+  .best-feature__text {
+    font-size: 22px;
+    width: 900px;
+    padding-bottom: 50px;
+  }
+
+  .best-feature-tail__text {
+    font-size: 14px;
+  }
+
+  /* registration section */
+
+  .registration__headline {
+    font-size: 20px;
+  }
+
+  .form {
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  /* footer section */
+
+  .nav__list {
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .footer-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    align-items: center;
+  }
+
+  .logo-footer {
+    grid-column: 3;
+    margin-bottom: 0;
+  }
+
+  .footer__copyright {
+    grid-area: 1 / 1;
+  }
+
+  .footer__wrap-link {
+    grid-column: 2;
+  }
+}
