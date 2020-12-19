@@ -1,0 +1,39 @@
+.gallery {
+  background-color: hsl(0, 0%, 0%);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listPicture {
+  list-style-type: none;
+  display: inline;
+  border: 1px solid hsl(0, 0%, 0%);
+}
+
+.selected {
+  border: 1px solid hsl(0, 100%, 50%);
+}
+
+.Images {
+  height: 150px;
+  width: 140px;
+  margin: 15px;
+  background-image: url("img/a.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.topName {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+}

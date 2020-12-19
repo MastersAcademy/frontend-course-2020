@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="style/style.css">
+	<script src="js/scripts.js" defer></script>
+	<title>Async</title>
+</head>
+<body>
+<img src="assets/icons/masters_academy_logo.png" alt="Master Academy Logo" class="maLogo">
+<div class="container">
+	<div class="sorting border">
+		<div class="filterWrapper">
+            <label class="filterFont" for="filterInput">Фильтер: </label>
+            <input class="filterInput" data-filter-input type="text">
+        </div>
+		<div class="sortWrapper">
+            <label class="sortFont" for="sortSelect">Сортировать: </label>
+            <select data-sort-select class="sortSelect">
+                <option value="0">Без сортировки</option>
+                <option value="1">От А до Я</option>
+                <option value="-1">От Я до А</option>
+            </select>
+		</div>
+	</div>
+    <div class="messages border" data-messages-container></div>
+    <div class="loaderContainer" data-loader-container></div>
+</div>
+</body>
+</html>

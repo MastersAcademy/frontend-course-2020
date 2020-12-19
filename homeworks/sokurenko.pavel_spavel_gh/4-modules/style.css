@@ -1,0 +1,26 @@
+body {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.description {
+  background-color: #F0F8FF;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+.ans, .description {
+  padding: 5px;
+}
+
+.input-date {
+  display: block;
+  margin-top: 1em;
+}
+
+aside {
+  float: right;
+  border: 1px solid #222;
+  padding: 5em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}

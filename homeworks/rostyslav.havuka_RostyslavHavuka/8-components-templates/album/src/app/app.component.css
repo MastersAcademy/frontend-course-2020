@@ -1,0 +1,22 @@
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: auto auto;
+  grid-auto-flow: row;
+  gap: 20px;
+  margin-left: 100px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 32%;
+  margin-right: 27%;
+  margin-top: 10px;
+}
+
+.button {
+  min-width: 100px;
+  min-height: 100px;
+}
+
