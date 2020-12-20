@@ -459,11 +459,11 @@ body, html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
 }
 
-.titles-menu {
+.title-menu {
   font-size: 1.5rem;
   cursor: pointer;
 }
