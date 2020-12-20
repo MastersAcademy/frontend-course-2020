@@ -154,8 +154,9 @@
 }
 
 .service__icon {
-  color: #9D9D9D;
-  font-size: 60px;
+  width: 65px;
+  height: 65px;
+  fill: #9D9D9D;
 }
 
 .service__item__headline {
@@ -320,16 +321,17 @@
 }
 
 .social__list {
-  padding-left: 47%;
+  padding-left: 35%;
+  display: flex;
 }
 
 .social__link {
   margin-right: 32px;
-  font-size: 16px;
-  background: #FFF;
-  padding: 10px 12px;
-  border-radius: 50%;
-  color: #9B9BCA;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
 }
 
 .footer__logo {
@@ -745,3 +747,4 @@
     padding-left: 0;
   }
 }
+

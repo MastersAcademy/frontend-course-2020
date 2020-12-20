@@ -20,12 +20,11 @@
     <title>9-layouts</title>
 </head>
 <body>
-
 <section class="top">
     <picture>
-        <source media="(max-width: 640px)" type="image/avif" srcset="top-bg.avif">
-        <source media="(max-width: 1920px)" type="image/jpg" srcset="top-bg.jpg">
-        <img class="logo-img" src="top-bg.avif" alt="large">
+        <source media="(max-width: 640px)" type="image/avif" srcset="images/top-bg.avif">
+        <source media="(max-width: 1920px)" type="image/jpg" srcset="images/top-bg.jpg">
+        <img class="logo-img" src="images/stop-bg.avif" alt="large">
     </picture>
     <div class="container top-wrapper">
         <header class="header container-wrapper">
@@ -75,30 +74,36 @@
         <ul class="list service__list flex container-wrapper">
 
             <li class="service__item">
-                <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from
-                    <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
+                <svg class="service__icon">
+                    <use xlink:href="images/icons.svg#design"></use>
+                </svg>
                 <h4 class="service__item__headline">Web design</h4>
                 <p class="service__item__text">Here you can find all
                     web design and all of yours
                     designing meterials </p>
             </li>
             <li class="service__item">
-                <i class="fas fa-briefcase-medical service__icon"></i>
+                <svg class="service__icon">
+                    <use xlink:href="images/icons.svg#health"></use>
+                </svg>
                 <h4 class="service__item__headline">Health and study</h4>
                 <p class="service__item__text">Here you can find all
                     your primary health your
                     good health and education</p>
             </li>
             <li class="service__item">
-                <i class="fas fa-box-open service__icon"></i>
+                <svg class="service__icon">
+                    <use xlink:href="images/icons.svg#package"></use>
+                </svg>
                 <h4 class="service__item__headline">Packaging</h4>
                 <p class="service__item__text">Consistency in packaging
                     matter a lot. Give your attention
                     match design elements</p>
             </li>
             <li class="service__item">
-                <i class="fas fa-keyboard service__icon"></i>
+                <svg class="service__icon">
+                    <use xlink:href="images/icons.svg#content"></use>
+                </svg>
                 <h4 class="service__item__headline">Content writing</h4>
                 <p class="service__item__text"> It can be understood
                     that your fonts, sizes, headings,
@@ -194,13 +199,25 @@
             <p class="footer-text">Copyright @ 2019</p>
             <ul class="social__list list flex">
                 <li class="social__item">
-                    <a href="https://www.facebook.com/" class="social__link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/" class="social__link">
+                        <svg class="social-icon">
+                            <use xlink:href="images/icons.svg#facebook"></use>
+                        </svg>
+                    </a>
                 </li>
                 <li class="social__item">
-                    <a href="https://twitter.com/?lang=ru" class="social__link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/?lang=ru" class="social__link">
+                        <svg class="social-icon">
+                            <use xlink:href="images/icons.svg#twitter"></use>
+                        </svg>
+                    </a>
                 </li>
                 <li class="social__item">
-                    <a href="https://www.instagram.com/?hl=ru" class="social__link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/?hl=ru" class="social__link">
+                        <svg class="social-icon">
+                            <use xlink:href="images/icons.svg#instagram"></use>
+                        </svg>
+                    </a>
                 </li>
             </ul>
             <div class="logo footer__logo">
@@ -210,6 +227,5 @@
         </div>
     </div>
 </footer>
-<script src="https://kit.fontawesome.com/b3b489f420.js" crossorigin="anonymous"></script>
 </body>
 </html>
