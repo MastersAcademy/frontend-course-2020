@@ -10,10 +10,11 @@ body, html {
 
 .wrapper {
   width: 100%;
-  max-width: 1600px;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-bottom: 200px;
 }
 
 .header {
@@ -25,6 +26,7 @@ body, html {
   background-size: cover;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .center-container {
@@ -34,6 +36,7 @@ body, html {
 .header-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .header-logo-nav-box {
@@ -42,7 +45,7 @@ body, html {
   flex-direction: row;
   justify-content: space-between;
   height: 30%;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .header-logo {
@@ -85,8 +88,9 @@ body, html {
   list-style-type: none;
   font-family: Poppins, sans-serif;
   color: #717784;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
+  align-items: center;
 }
 
 .header-nav-list li {
@@ -102,12 +106,14 @@ body, html {
   border-radius: 10px;
   background-color: #9B9BCA;
   color: #FFF;
+  cursor: pointer;
 }
 
 .header-content {
   display: flex;
   flex-direction: column;
   width: 60%;
+  height: 50%;
 }
 
 .header-content-h2 {
@@ -149,6 +155,10 @@ body, html {
   color: #FFF;
   border: none;
   font-size: 1.2rem;
+}
+
+.header-content-button button:hover {
+  cursor: pointer;
 }
 
 .section-great-service {
@@ -209,6 +219,7 @@ body, html {
   text-align: center;
   width: 20%;
   padding: 2%;
+  border: 1px solid #FFF;
 }
 
 .great-service-box h3 {
@@ -261,7 +272,6 @@ body, html {
   justify-content: center;
   flex-direction: column;
   display: flex;
-  /*width: 65%;*/
 }
 
 .container-best-feature-text {
@@ -348,6 +358,7 @@ body, html {
 
 .best-feature-button:hover {
   background-color: #F01F35;
+  cursor: pointer;
 }
 
 .section-form {
@@ -381,28 +392,39 @@ body, html {
   color: #626780;
 }
 
-.form-box input, .form-box button {
+.form-box input {
   border: 1px solid #E5E5E5;
   border-radius: 5px;
   padding: 10px;
 }
 
-.form-box label,
-.form-box input,
-.form-box button {
-  margin: 10px 0;
-}
-
-.form-box button {
+.form-button {
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  padding: 10px;
   width: 50%;
   background-color: #9595C9;
   color: #FFF;
   font-weight: 600;
   font-family: Rubik, sans-serif;
+  margin: 10px 0;
+}
+
+.form-box label,
+.form-box input {
+  margin: 10px 0;
+}
+
+.form-button:hover {
+  cursor: pointer;
 }
 
 .red {
   color: #A52A2A;
+}
+
+.red:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -441,18 +463,24 @@ body, html {
   align-items: flex-start;
 }
 
+.titles-menu {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .menu-box {
   width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
-  font-size: 1.5rem;
+  padding: 5px;
 }
 
-.menu-box-list div {
-  padding-top: 5px;
+.menu-box-list a {
+  text-decoration: none;
   font-size: 1rem;
+  color: #FFF;
+  font-family: Poppins, sans-serif;
 }
 
 .container-cop {
@@ -473,14 +501,18 @@ body, html {
   display: flex;
   flex-direction: row;
   width: 25%;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
 }
 
-.cop-box img {
-  display: block;
-  max-width: 36px;
-  max-height: 36px;
+.cop-box-img {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.black-svg:hover {
+  fill: #1B202C;
 }
 
 .cop-box-logo-text {
@@ -488,6 +520,13 @@ body, html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.dw-text {
+  font-family: Rammetto One, sans-serif;
+  color: #FFF;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
@@ -548,16 +587,86 @@ body, html {
 
 @media screen and (max-width: 768px) {
 
-  .logo-image-box {
+  .center-container {
+    width: 90%;
+  }
+
+  .header-logo {
+    width: 30%;
+    justify-content: space-between;
+  }
+
+  .header-content {
+    height: 70%;
+    width: 80%;
+  }
+
+  .logo-text {
     width: 50%;
+  }
+
+  .logo-image-box {
+    width: 30%;
   }
 
   .header-nav {
     display: none;
   }
 
+  .header-content-button button {
+    font-size: .8rem;
+  }
+
+  .header-content-h2 h2 {
+    font-size: 1.9rem;
+  }
+
+  .header-content-p p {
+    font-size: .8rem;
+  }
+
+  .great-service-text {
+    width: 70%;
+  }
+
+  .great-service-boxs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   .great-service-box {
-    width: 46%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 95%;
+    padding: 2%;
+    border: 1px solid #FFF;
+  }
+
+  .great-service-text p {
+    font-size: .9rem;
+  }
+
+  .great-service-box h3 {
+    font-size: .8rem;
+  }
+
+  .great-service-box p {
+    font-size: .7rem;
+  }
+
+  .best-feature-text {
+    width: 70%;
+  }
+
+  .best-feature-box h4 {
+    font-size: 1rem;
+  }
+
+  .best-feature-box p {
+    font-size: .9rem;
   }
 
   .best-feature-button {
@@ -568,11 +677,79 @@ body, html {
     width: 97%;
   }
 
-  .menu-box {
+  .titles-menu {
+    font-size: .9rem;
+  }
+
+  .menu-box-list a {
     font-size: .8rem;
   }
 
-  .menu-box-list {
-    font-size: .6rem;
+  .cop-box {
+    font-size: .5rem;
+  }
+
+  .dw-text {
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .header-logo {
+    width: 50%;
+  }
+
+  .best-feature-button {
+    bottom: 0;
+    left: 30%;
+    padding: 10px 15px;
+    font-size: .7rem;
+  }
+
+  .container-second-big-image p {
+    font-size: 1.8rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  .form-box {
+    width: 90%;
+    padding: 5% 10%;
+  }
+
+  .section-form h2 {
+    width: 80%;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 40px;
+  }
+
+  .titles-menu {
+    font-size: .7rem;
+  }
+
+  .menu-box-list a {
+    font-size: .5rem;
+  }
+
+  .cop-box-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .cop-box {
+    font-size: .3rem;
+    width: 20%;
+  }
+
+  .dw-text {
+    font-size: .5rem;
+  }
+
+  .cop-box-img svg {
+    width: 20px;
+    height: 20px;
   }
 }
