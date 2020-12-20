@@ -14,11 +14,10 @@ body, html {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  margin-bottom: 200px;
 }
 
 .header {
-  width: 100%;
+  max-width: 100%;
   height: 737px;
   background: 100% url("./images/background-header.png");
   background-repeat: no-repeat;
@@ -459,6 +458,7 @@ body, html {
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
 }
@@ -469,7 +469,7 @@ body, html {
 }
 
 .menu-box {
-  width: 25%;
+  width: 23%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -678,7 +678,7 @@ body, html {
   }
 
   .titles-menu {
-    font-size: .9rem;
+    font-size: 1rem;
   }
 
   .menu-box-list a {
@@ -725,12 +725,8 @@ body, html {
     padding: 40px;
   }
 
-  .titles-menu {
-    font-size: .7rem;
-  }
-
-  .menu-box-list a {
-    font-size: .5rem;
+  .menu-box {
+    width: 45%;
   }
 
   .cop-box-img {
