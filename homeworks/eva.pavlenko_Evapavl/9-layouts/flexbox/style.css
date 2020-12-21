@@ -10,10 +10,12 @@ body, html {
 
 .wrapper {
   width: 100%;
+  max-width: 1600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  margin: 0 auto;
 }
 
 .header {
@@ -87,7 +89,7 @@ body, html {
   list-style-type: none;
   font-family: Poppins, sans-serif;
   color: #717784;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
   align-items: center;
 }
@@ -96,7 +98,7 @@ body, html {
   display: flex;
   padding: 10px;
   width: 20%;
-  color: #A1A1A1;
+  color: #717784;
   justify-content: center;
   align-items: center;
 }

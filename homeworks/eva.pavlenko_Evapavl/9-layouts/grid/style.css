@@ -14,6 +14,7 @@ body, html {
   min-height: 100%;
   display: grid;
   grid-template-rows: .5fr 1fr .5fr 1fr;
+  margin: 0 auto;
 }
 
 .header {
@@ -82,7 +83,7 @@ body, html {
 .header-nav-list li {
   display: grid;
   padding: 10px;
-  color: #A1A1A1;
+  color: #717784;
   justify-content: center;
   justify-items: center;
 }
@@ -231,7 +232,6 @@ body, html {
 .container-second-big-image {
   width: 70%;
   display: grid;
-  padding: 50px 100px;
 }
 
 .container-second-big-image p {
@@ -423,12 +423,12 @@ body, html {
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
+  justify-content: center;
 }
 
 .container-menu {
   display: grid;
   justify-content: center;
-  margin: 0;
 }
 
 .menu-boxs {
