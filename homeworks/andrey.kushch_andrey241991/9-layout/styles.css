@@ -150,6 +150,28 @@
   background-color: #CFD8DC;
 }
 
+/* stylelint-disable */
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+/* stylelint-enable */
+
 .visually-hidden {
   visibility: hidden;
 }
