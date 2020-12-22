@@ -1,0 +1,14 @@
+<div class = "gallery">
+    <span class = "topName">Gallery</span>
+    <ul id = "cont" class = "list">
+        <li class = "listPicture"
+         *ngFor = "let picture of array; let i = index"
+         (click) = "increasePicture(picture)"
+         [class.selected]="picture === selectedItem">
+            <img id = "one" class = "Images" src={{picture.urls.thumb}} alt="Logo">
+        </li>
+    </ul>
+</div>
+<div class = "content">
+    <img class = "bigPicture" id = "bigPicture" src={{src}}>
+</div>

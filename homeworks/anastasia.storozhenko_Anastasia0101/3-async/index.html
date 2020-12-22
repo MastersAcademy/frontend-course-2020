@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #cfaaaa;">
+    <div class="loader" data-loader>
+    </div>
+    <section class="container">
+        <div class="container__header">
+            <label for="input">Input title</label>
+            <input type="text" name="input" data-filter>
+            <div>
+                <select data-sort>
+                    <option selected>Default</option>
+                    <option value="a-z">A - Z</option>
+                    <option value="z-a">Z - A</option>
+                </select>
+            </div>
+        </div>
+        <ul class="container__list" data-posts>
+        </ul>
+    </section>
+    <script src="app.js"></script>
+</body>
+
+</html>

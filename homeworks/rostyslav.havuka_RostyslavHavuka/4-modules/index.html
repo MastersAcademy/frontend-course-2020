@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Modules</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="input">
+            <input class="input-date" id="inputDate" type="date" value="2020-11-11">
+        </div>
+        <div class="get-month">
+            <button class="button" id="getMonth" type="button">Get Month Fridays</button>
+            <span class="span" id="showMonth"></span>
+        </div>
+        <div class="get-isLong">
+            <button class="button" id="getIsLong" type="button">Is Month Long?</button>
+            <span class="span" id="showIsLong"></span>
+        </div>
+        <div class="get-shortest">
+            <button class="button" id="getShortest" type="button">Shortest Day Month</button>
+            <span class="span" id="showShortest"></span>
+        </div>
+        <div class="get-full-weeks">
+            <button class="button" id="getFullWeeks" type="button">Full Weeks in Month</button>
+            <span class="span" id="showFullWeeks"></span>
+        </div>
+        <div class="time">
+            <select class="select" id="timeList">
+                <option value="current">Current</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+                <option value="new-york">New-York</option>
+            </select>
+             <span id="showTime"></span>
+        </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

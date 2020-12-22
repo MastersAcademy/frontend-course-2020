@@ -1,0 +1,44 @@
+<h1 class="header">Gallery</h1>
+<div class="gallery__container">
+  <div
+    *ngFor="let item of items; let i = index"
+    (click)="onSelect(item, $event)"
+    [class.selected]="item === selectedItem"
+    class="gallery__container-items"
+    attr.data-gallery-id="{{ item.id }}"
+    #dataGalleryItem
+  >
+    <img src="{{ item.urls.regular }}" alt="" (load)="deleteSpinner()" />
+    <div class="spinner" *ngIf="loadImages">
+      <svg>
+        <circle cx="40" cy="40" r="15"></circle>
+      </svg>
+    </div>
+  </div>
+</div>
+<h2 class="header">Image</h2>
+<div class="img-window" data-galerry="container" [class.show]="loadImageWindow">
+  <button
+    class="img-btn-prev"
+    #imgBtnPrev
+    (click)="changeImage('prev')"
+    [class.hidden]="iterator === 0"
+  >
+    Prev
+  </button>
+  <img data-galerry="image" #currentImg (load)="galleryLoad()" />
+  <button
+    class="img-btn-next"
+    #imgBtnNext
+    (click)="changeImage('next')"
+    [class.hidden]="iterator === items.length - 1"
+  >
+    Next
+  </button>
+  <div class="spinner__main-image" *ngIf="loadMainImage">
+    <div class="ring">
+      Loading
+      <span></span>
+    </div>
+  </div>
+</div>

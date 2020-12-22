@@ -1,0 +1,32 @@
+<div [class.main-gallery-container]="true">
+  <div [class.text-center-x]="true"><h1>Gallery</h1></div>
+  <section [class.preview-images-container]="true">
+    <div *ngFor="let img of images; first as isFirst">
+      <app-preview-image [id]="img.id"
+                         [smallUrl]="img.smallUrl"
+                         [fullUrl]="img.fullUrl"
+                         [isSelected]="img.isSelected"
+                         (click)="setNewActiveImage(img.id)"
+      ></app-preview-image>
+    </div>
+
+  </section>
+  <div [class.text-center-x]="true"><h1>Image</h1></div>
+  <section [class.main-image-container]="true">
+    <div [class.main-image-navigate-container]="true">
+      <div [class.main-image-navigate]="true"
+           [class.hidden]="mainImage.id <= 0"
+           (click)="setNewActiveImage(mainImage.id - 1)"></div>
+    </div>
+    <div [class.main-image]="true">
+      <app-preview-image
+        [fullUrl]="mainImage.fullUrl"
+        [showFullImage]="true"></app-preview-image>
+    </div>
+    <div [class.main-image-navigate-container]="true">
+      <div [class.main-image-navigate]="true"
+           (click)="setNewActiveImage(mainImage.id + 1)"
+           [class.hidden]="mainImage.id >= images.length - 1"></div>
+    </div>
+  </section>
+</div>
