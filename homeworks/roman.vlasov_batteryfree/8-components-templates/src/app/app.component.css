@@ -1,0 +1,13 @@
+.wrap {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  width: 1024;
+}
+
+.wrap-image {
+  margin-left: 5px;
+  width: 500px;
+  height: 500px;
+  background-color: #F9F9F9;
+}
