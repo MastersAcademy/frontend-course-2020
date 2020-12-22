@@ -18,7 +18,7 @@ body, html {
   margin: 0 auto;
 }
 
-.header {
+.logo-nav-box {
   max-width: 100%;
   height: 737px;
   background: 100% url("./images/background-header.png");
@@ -34,13 +34,13 @@ body, html {
   width: 70%;
 }
 
-.header-container {
+.logo-nav-box-container {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.header-logo-nav-box {
+.header {
   padding-top: 30px;
   display: flex;
   flex-direction: row;
@@ -62,7 +62,6 @@ body, html {
   width: 40%;
 }
 
-
 .logo-image {
   max-width: 72px;
   max-height: 72px;
@@ -74,7 +73,7 @@ body, html {
   align-items: center;
   color: #505050;
   font-family: Roboto, sans-serif;
-  font-size: 1.2rem;
+  font-size: 22px;
   justify-content: center;
 }
 
@@ -90,7 +89,7 @@ body, html {
   font-family: Poppins, sans-serif;
   color: #717784;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 18px;
   align-items: center;
 }
 
@@ -98,9 +97,13 @@ body, html {
   display: flex;
   padding: 10px;
   width: 20%;
-  color: #717784;
   justify-content: center;
   align-items: center;
+}
+
+.header-nav-list a {
+  text-decoration: none;
+  color: #717784;
 }
 
 .header-nav-list li:hover {
@@ -117,15 +120,15 @@ body, html {
   height: 50%;
 }
 
-.header-content-h2 {
+.header-content-h1 {
   width: 80%;
-  height: 45%;
+  height: 50%;
 }
 
-.header-content-h2 h2 {
+.header-content-h1 h1 {
   color: #696A86;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 56px;
   font-family: DM serif Display;
   line-height: 100%;
 }
@@ -138,7 +141,7 @@ body, html {
   color: #696A86;
   font-weight: 400;
   font-family: Poppins, sans-serif;
-  font-size: 1.1rem;
+  font-size: 18px;
   line-height: 1.5rem;
 }
 
@@ -155,7 +158,7 @@ body, html {
   background-color: #9B9BCA;
   color: #FFF;
   border: none;
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
 .header-content-button button:hover {
@@ -192,11 +195,11 @@ body, html {
 }
 
 .great-service-text h3 {
-  font-size: 1.3rem;
+  font-size: 26px;
 }
 
 .great-service-text p {
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 .container-great-service-boxs {
@@ -224,11 +227,11 @@ body, html {
 }
 
 .great-service-box h3 {
-  font-size: 1rem;
+  font-size: 22px;
 }
 
 .great-service-box p {
-  font-size: .9rem;
+  font-size: 16px;
 }
 
 .great-service-box:hover {
@@ -258,7 +261,7 @@ body, html {
   width: 70%;
   color: #000;
   font-family: PT serif;
-  font-size: 2.5rem;
+  font-size: 48px;
 }
 
 .section-best-feature {
@@ -291,11 +294,11 @@ body, html {
 }
 
 .best-feature-text h3 {
-  font-size: 1.3rem;
+  font-size: 26px;
 }
 
 .best-feature-text p {
-  font-size: 1rem;
+  font-size: 18px;
 }
 
 .container-best-feature-boxs {
@@ -354,7 +357,7 @@ body, html {
   background-color: #9B9BCA;
   color: #FFF;
   border: none;
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
 .best-feature-button:hover {
@@ -371,7 +374,7 @@ body, html {
 
 .section-form h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 48px;
   font-family: PT serif;
   padding: 40px;
 }
@@ -466,7 +469,7 @@ body, html {
 }
 
 .title-menu {
-  font-size: 1.5rem;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -480,9 +483,13 @@ body, html {
 
 .menu-box-list a {
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
   color: #FFF;
   font-family: Poppins, sans-serif;
+}
+
+.menu-box-li {
+  list-style-type: none;
 }
 
 .container-cop {
@@ -490,6 +497,7 @@ body, html {
   display: flex;
   align-items: center;
   padding: 50px 0 0;
+  justify-content: center;
 }
 
 .cop-boxs {
@@ -503,8 +511,16 @@ body, html {
   display: flex;
   flex-direction: row;
   width: 25%;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.cop-box-imgs {
+  justify-content: flex-end;
+}
+
+.box-imgs {
+  width: 70%;
 }
 
 .cop-box-img {
@@ -543,47 +559,55 @@ body, html {
   }
 
   .header-nav {
-    font-size: .8rem;
+    font-size: 16px;
   }
 
   .header-content-button button {
-    font-size: 1rem;
+    font-size: 15px;
   }
 
-  .header-content-h2 h2 {
-    font-size: 2.2rem;
+  .header-content-h1 h1 {
+    font-size: 48px;
   }
 
   .header-content-p p {
-    font-size: .9rem;
+    font-size: 15px;
   }
 
   .great-service-text p {
-    font-size: .9rem;
+    font-size: 15px;
   }
 
   .great-service-box h3 {
-    font-size: .8rem;
+    font-size: 18px;
   }
 
   .great-service-box p {
-    font-size: .7rem;
+    font-size: 13px;
+  }
+
+  .best-feature-text h3 {
+    font-size: 18px;
+  }
+
+  .best-feature-text p {
+    font-size: 13px;
   }
 
   .best-feature-box h4 {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .best-feature-box p {
-    font-size: .9rem;
+    font-size: 13px;
   }
 
   .menu-box {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .menu-box-list {
-    font-size: .7rem;
+    font-size: 13px;
   }
 }
 
@@ -616,15 +640,15 @@ body, html {
   }
 
   .header-content-button button {
-    font-size: .8rem;
+    font-size: 15px;
   }
 
-  .header-content-h2 h2 {
-    font-size: 1.9rem;
+  .header-content-h1 h1 {
+    font-size: 48px;
   }
 
   .header-content-p p {
-    font-size: .8rem;
+    font-size: 15px;
   }
 
   .great-service-text {
@@ -648,15 +672,15 @@ body, html {
   }
 
   .great-service-text p {
-    font-size: .9rem;
+    font-size: 15px;
   }
 
   .great-service-box h3 {
-    font-size: .8rem;
+    font-size: 18px;
   }
 
   .great-service-box p {
-    font-size: .7rem;
+    font-size: 13px;
   }
 
   .best-feature-text {
@@ -664,11 +688,11 @@ body, html {
   }
 
   .best-feature-box h4 {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .best-feature-box p {
-    font-size: .9rem;
+    font-size: 13px;
   }
 
   .best-feature-button {
@@ -680,19 +704,19 @@ body, html {
   }
 
   .titles-menu {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .menu-box-list a {
-    font-size: .8rem;
+    font-size: 13px;
   }
 
   .cop-box {
-    font-size: .5rem;
+    font-size: 13px;
   }
 
   .dw-text {
-    font-size: .8rem;
+    font-size: 18px;
   }
 }
 
@@ -706,11 +730,11 @@ body, html {
     bottom: 0;
     left: 30%;
     padding: 10px 15px;
-    font-size: .7rem;
+    font-size: 13px;
   }
 
   .container-second-big-image p {
-    font-size: 1.8rem;
+    font-size: 36px;
     width: 100%;
     align-items: center;
   }
@@ -723,7 +747,7 @@ body, html {
   .section-form h2 {
     width: 80%;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 36px;
     padding: 40px;
   }
 
@@ -738,12 +762,12 @@ body, html {
   }
 
   .cop-box {
-    font-size: .3rem;
+    font-size: 10px;
     width: 20%;
   }
 
   .dw-text {
-    font-size: .5rem;
+    font-size: 13px;
   }
 
   .cop-box-img svg {

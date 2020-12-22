@@ -17,7 +17,7 @@ body, html {
   margin: 0 auto;
 }
 
-.header {
+.logo-nav-box {
   width: 100%;
   height: 737px;
   background: 100% url("./images/background-header.png");
@@ -33,12 +33,12 @@ body, html {
   grid-column-end: 3;
 }
 
-.header-container {
+.logo-nav-box-container {
   display: grid;
   grid-template-rows: 1fr 4fr;
 }
 
-.header-logo-nav-box {
+.header {
   padding-top: 30px;
   justify-content: space-between;
   max-height: 50%;
@@ -64,7 +64,7 @@ body, html {
   align-items: center;
   color: #505050;
   font-family: Roboto, sans-serif;
-  font-size: 1.2rem;
+  font-size: 22px;
   justify-content: center;
 }
 
@@ -76,7 +76,7 @@ body, html {
   font-family: Poppins, sans-serif;
   color: #717784;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 18px;
   justify-items: center;
 }
 
@@ -95,6 +95,11 @@ body, html {
   cursor: pointer;
 }
 
+.header-nav-list a {
+  text-decoration: none;
+  color: #717784;
+}
+
 .header-content {
   width: 60%;
   display: grid;
@@ -102,14 +107,14 @@ body, html {
   max-height: 60%;
 }
 
-.header-content-h2 {
+.header-content-h1 {
   width: 80%;
 }
 
-.header-content-h2 h2 {
+.header-content-h1 h1 {
   color: #696A86;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 56px;
   font-family: DM serif Display;
   line-height: 100%;
 }
@@ -118,7 +123,7 @@ body, html {
   color: #696A86;
   font-weight: 400;
   font-family: Poppins, sans-serif;
-  font-size: 1.1rem;
+  font-size: 18px;
   line-height: 1.5rem;
 }
 
@@ -175,11 +180,11 @@ body, html {
 }
 
 .great-service-text h3 {
-  font-size: 1.3rem;
+  font-size: 26px;
 }
 
 .great-service-text p {
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 .container-great-service-boxs {
@@ -205,11 +210,11 @@ body, html {
 }
 
 .great-service-box h3 {
-  font-size: 1rem;
+  font-size: 22px;
 }
 
 .great-service-box p {
-  font-size: .9rem;
+  font-size: 16px;
 }
 
 .great-service-box:hover {
@@ -237,7 +242,7 @@ body, html {
 .container-second-big-image p {
   color: #000;
   font-family: PT serif;
-  font-size: 2.5rem;
+  font-size: 48px;
 }
 
 .section-best-feature {
@@ -271,11 +276,11 @@ body, html {
 }
 
 .best-feature-text h3 {
-  font-size: 1.3rem;
+  font-size: 26px;
 }
 
 .best-feature-text p {
-  font-size: 1rem;
+  font-size: 18px;
 }
 
 .container-best-feature-boxs {
@@ -332,7 +337,7 @@ body, html {
   background-color: #9B9BCA;
   color: #FFF;
   border: none;
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
 .best-feature-button:hover {
@@ -349,7 +354,7 @@ body, html {
 
 .section-form h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 48px;
   font-family: PT serif;
   padding: 40px;
 }
@@ -441,19 +446,23 @@ body, html {
   display: grid;
   justify-content: center;
   padding: 10px;
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 
 .menu-box-list a {
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
   color: #FFF;
   font-family: Poppins, sans-serif;
   padding: 5px;
 }
 
+.menu-box-li {
+  list-style-type: none;
+}
+
 .title-menu {
-  font-size: 1.5rem;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -471,7 +480,7 @@ body, html {
 .cop-boxs {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 .cop-box {
@@ -479,14 +488,16 @@ body, html {
   align-items: center;
 }
 
-.cop-box-img {
+.cop-box-images {
+  width: 50%;
+  justify-self: flex-end;
+}
+
+.cop-box-imgs {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
-}
-
-.cop-box-img a {
-  margin-right: 10px;
+  justify-content: space-around;
 }
 
 .cop-box-logo-text {
@@ -512,70 +523,78 @@ body, html {
   }
 
   .header-nav {
-    font-size: .8rem;
+    font-size: 16px;
   }
 
   .header-content-button button {
-    font-size: 1rem;
+    font-size: 15px;
   }
 
-  .header-content-h2 h2 {
-    font-size: 2.2rem;
+  .header-content-h1 h1 {
+    font-size: 48px;
   }
 
   .header-content-p p {
-    font-size: .9rem;
+    font-size: 15px;
   }
 
   .great-service-text p {
-    font-size: .9rem;
+    font-size: 15px;
   }
 
   .great-service-box h3 {
-    font-size: .8rem;
+    font-size: 18px;
   }
 
   .great-service-box p {
-    font-size: .7rem;
+    font-size: 13px;
+  }
+
+  .best-feature-text h3 {
+    font-size: 18px;
+  }
+
+  .best-feature-text p {
+    font-size: 13px;
   }
 
   .best-feature-box h4 {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .best-feature-box p {
-    font-size: .9rem;
+    font-size: 13px;
   }
 
   .menu-box {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .menu-box-list {
-    font-size: .7rem;
+    font-size: 13px;
   }
 }
 
 @media screen and (max-width: 768px) {
 
-  .header {
+  .logo-nav-box-container {
     height: 700px;
-  }
-
-  .header-content-button button {
-    font-size: .8rem;
   }
 
   .header-logo-nav-box {
     grid-template-columns: 2fr;
   }
 
-  .header-content-h2 h2 {
-    font-size: 1.9rem;
+  .header-content-button button {
+    font-size: 15px;
+  }
+
+  .header-content-h1 h1 {
+    font-size: 48px;
   }
 
   .header-content-p p {
-    font-size: .8rem;
+    font-size: 15px;
   }
 
   .header-nav {
@@ -600,32 +619,28 @@ body, html {
     grid-template-rows: 1fr 1fr;
   }
 
-  .menu-box {
-    font-size: .8rem;
-  }
-
-  .menu-box-list {
-    font-size: .6rem;
-  }
-
   .great-service-text p {
-    font-size: .9rem;
+    font-size: 15px;
   }
 
   .great-service-box h3 {
-    font-size: .8rem;
+    font-size: 18px;
   }
 
   .great-service-box p {
-    font-size: .7rem;
+    font-size: 13px;
+  }
+
+  .best-feature-text {
+    width: 70%;
   }
 
   .best-feature-box h4 {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .best-feature-box p {
-    font-size: .9rem;
+    font-size: 13px;
   }
 
   .best-feature-button {
@@ -634,19 +649,19 @@ body, html {
   }
 
   .titles-menu {
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .menu-box-list a {
-    font-size: .8rem;
+    font-size: 13px;
   }
 
   .cop-box {
-    font-size: .5rem;
+    font-size: 13px;
   }
 
   .dw-text {
-    font-size: .8rem;
+    font-size: 18px;
   }
 
   .cop-box-logo-text {
@@ -715,6 +730,10 @@ body, html {
 
   .dw-text {
     font-size: .5rem;
+  }
+
+  .cop-box-images {
+    justify-self: center;
   }
 
   .cop-box-img svg {
