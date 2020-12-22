@@ -296,6 +296,11 @@
   .service-cards {
     grid-template-rows: 1fr 1fr;
     justify-content: space-around;
+    grid-auto-flow: row;
+  }
+
+  .card-item {
+    margin-bottom: 20px;
   }
 }
 
