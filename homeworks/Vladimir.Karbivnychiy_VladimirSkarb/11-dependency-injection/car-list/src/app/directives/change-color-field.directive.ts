@@ -16,7 +16,6 @@ export class ChangeColorFieldDirective implements AfterViewInit {
 
   ngAfterViewInit() {
     const protocol: string = this.el.nativeElement.children[1].innerHTML;
-    console.log(protocol)
     if (protocol === 'http') {
       this.el.nativeElement.children[0].style.color = 'red';
       this.el.nativeElement.classList.add('no-link');
