@@ -2,3 +2,11 @@ body, div, section {
   margin: 0;
   padding: 0;
 }
+
+.loader {
+  display: block;
+}
+
+.vehicleTable {
+  margin: 100px auto 0;
+}
