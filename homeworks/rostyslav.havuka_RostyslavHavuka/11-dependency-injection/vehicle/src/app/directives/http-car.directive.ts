@@ -18,7 +18,6 @@ export class ChangeHttp implements AfterViewInit {
       this.element.nativeElement.style.textDecoration = 'none';
       this.element.nativeElement.lastChild.style.textDecoration = 'none';
     }
-
   }
 
 }
