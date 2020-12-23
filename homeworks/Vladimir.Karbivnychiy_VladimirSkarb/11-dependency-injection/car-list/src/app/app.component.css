@@ -1,0 +1,70 @@
+.vehicle-section {
+  width: 500px;
+  margin: 15px auto 0;
+  font-size: 18px;
+  position: relative
+}
+
+.vehicle {
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+.vehicle-info {
+  display: flex;
+  justify-content: center;
+}
+
+.vehicle-info_title {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.no-link {
+  pointer-events: none;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.lds-dual-ring {
+  position: absolute;
+  top: 20vh;
+  right: 45%;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring::after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid;
+  border-color: #CCC transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+

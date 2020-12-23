@@ -1,0 +1,19 @@
+<section class="vehicle-section">
+  <div class="lds-dual-ring" [ngClass]="!loader?'hidden':'show'"></div>
+  <div *ngFor="let vehicle of vehicles"
+       class="vehicle">
+    <div class="vehicle-info link"
+         [appChangeColorField]='vehicle'>
+      <div class="vehicle-info_title">Added from:</div>
+      <div>{{ vehicle.post.protocol }}</div>
+    </div>
+    <div class="vehicle-info">
+      <div class="vehicle-info_title">Vehicle:</div>
+      <div>{{ vehicle | transformVehicle}}</div>
+    </div>
+    <div class="vehicle-info">
+      <div class="vehicle-info_title">Price:</div>
+      <div>{{vehicle.cost.amount | currency: vehicle.cost.currencyCode:'symbol-narrow'}}</div>
+    </div>
+  </div>
+</section>
