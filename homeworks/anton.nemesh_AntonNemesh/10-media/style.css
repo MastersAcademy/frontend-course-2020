@@ -38,6 +38,7 @@ h1, p {
   color: #717784;
 }
 
+
 .header {
   display: grid;
   grid-template: 1fr / .5fr 1100px .5fr;
