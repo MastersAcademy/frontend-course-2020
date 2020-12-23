@@ -65,8 +65,13 @@
   box-shadow: 0 0 5px 0 #9B9BCA;
 }
 
-.logo .p {
+.logo .paragraf {
   margin: 0;
+}
+
+.menu {
+  display: flex;
+  align-items: center ;
 }
 
 .menu-list {
@@ -86,16 +91,24 @@
   margin: 0 10px;
 }
 
-.menu-item:last-child {
+.btn-item {
   padding: 10px 40px;
-  margin-right: 0;
+  margin-left: 10px;
   border-radius: 10px;
   background-color: #9B9BCA;
   color: #FFF;
+  outline: none;
+  border: none;
   box-shadow: 0 0 5px 0 #9B9BCA;
+  font-size: 1.1rem;
+  transition: all .3s;
 }
 
-.menu-item:hover {
+.btn-item:focus {
+  box-shadow: 0 0 5px 3px #717784;
+}
+
+.btn-item:hover {
   transform: scale(1.1);
 }
 
@@ -108,7 +121,7 @@
   justify-content: center;
 }
 
-.presentation .h1 {
+.presentation .heading {
   margin: 0;
   max-width: 660px;
   width: 100%;
@@ -130,6 +143,10 @@
   box-shadow: 0 0 5px 0 #9B9BCA;
 }
 
+.start-btn:focus {
+  box-shadow: 0 0 5px 5px #717784;
+}
+
 .start-btn:hover {
   transform: scale(1.1);
 }
@@ -137,7 +154,7 @@
 .services {
   padding: 0 15px;
   width: 100%;
-  min-height: 693px;
+  min-height: 695px;
   background-color: #FFF;
   display: flex;
   align-items: center;
@@ -153,7 +170,7 @@
   text-align: center;
 }
 
-.services-info .p {
+.services-info .paragraf {
   max-width: 746px;
   width: 100%;
   text-align: center;
@@ -199,7 +216,7 @@
   background-position: left center;
 }
 
-.demo .h2 {
+.demo .title {
   max-width: 550px;
   width: 100%;
   height: 200px;
@@ -215,7 +232,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 1133px;
+  min-height: 1135px;
   background-color: #FFF;
   font-size: 1.2rem;
   padding: 0 15px;
@@ -224,19 +241,19 @@
 .features-info {
   max-width: 1024px;
   margin-top: 100px;
-  min-height: 211px;
+  min-height: 215px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.features-info .h2 {
+.features-info .title {
   text-align: center;
   width: 100%;
 }
 
-.features-info .p {
+.features-info .paragraf {
   max-width: 660px;
   width: 100%;
   text-align: center;
@@ -266,7 +283,7 @@
   text-align: center;
 }
 
-.features-item .h3 {
+.features-item .subtitle {
   color: rgba(0, 0, 0, .719);
 }
 
@@ -298,7 +315,7 @@
 
 .login {
   padding: 0 15px;
-  min-height: 1133px;
+  min-height: 1135px;
   background-color: #FFF;
   display: flex;
   justify-content: space-evenly;
@@ -306,7 +323,7 @@
   align-items: center;
 }
 
-.login .h2 {
+.login .title {
   display: flex;
   text-align: center;
   letter-spacing: 4px;
@@ -349,11 +366,15 @@
   outline: none;
 }
 
+.input:focus {
+  box-shadow: 0 0 5px 3px #717784;
+}
+
 .form-button {
   max-width: 220px;
   padding: 10px 0;
   border: none;
-  outline: none;
+  outline-style: none;
   background-color: #9B9BCA;
   color: rgb(245, 245, 245);
   font-size: 1.2rem;
@@ -362,9 +383,12 @@
   cursor: pointer;
 }
 
+.form-button:focus {
+  box-shadow: 0 0 5px 3px #717784;
+}
+
 .sign-up {
   text-decoration: none;
-  outline: none;
   color: #717784;
 }
 
@@ -377,7 +401,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 373px;
+  min-height: 375px;
   background-color: #9B9BCA;
   color: #FFF;
 }
@@ -397,6 +421,7 @@
 .footer-nav {
   width: 175px;
   display: flex;
+  flex-direction: column;
   align-items: start;
 }
 
@@ -407,7 +432,7 @@
   user-select: none;
 }
 
-.a {
+.link {
   list-style: none;
   color: #FFF;
   text-decoration: none;
@@ -422,11 +447,12 @@
   align-items: center;
 }
 
-.footer-bottom-container .p {
+.footer-bottom-container .paragraf {
   text-align: center;
 }
 
-.bold {
+.footer-heading {
+  margin: 0 0 5px 0;
   font-weight: 900;
 }
 
@@ -485,7 +511,7 @@
     padding-top: 30px;
   }
 
-  .presentation .h1 {
+  .presentation .heading {
     font-size: 2rem;
   }
 
@@ -502,7 +528,8 @@
   }
 
   .footer-nav {
-    justify-content: center;
+    align-items: center;
+    justify-content: start;
     text-align: center;
   }
 }
