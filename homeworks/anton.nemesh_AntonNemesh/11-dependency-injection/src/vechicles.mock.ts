@@ -1,5 +1,5 @@
 import * as faker from 'faker';
-import {IVehicle} from "./app/vechicle.model";
+import {IVehicle} from "./vechicle.model";
 
 
 const count = 20;

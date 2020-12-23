@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { VehicleService } from "./services";
 import { finalize } from "rxjs/operators";
-import { IVehicle } from "./vechicle.model";
+import { IVehicle } from "../vechicle.model";
 
 @Component({
   selector: 'app-root',

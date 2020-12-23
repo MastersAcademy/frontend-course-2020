@@ -234,7 +234,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_2__["VehicleService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 2, consts: [["class", "pre-loader", 4, "ngIf"], ["class", "table", "border", "1", 4, "ngIf"], [1, "pre-loader"], ["border", "1", 1, "table"], [1, "table__body"], [1, "table__row"], [1, "table__col"], ["class", "table__row", "appClickableLinks", "", 4, "ngFor", "ngForOf"], ["appClickableLinks", "", 1, "table__row"], ["href", "", 1, "table__link"], ["tabindex", "-1", "href", "", 1, "table__link"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 2, consts: [["class", "pre-loader", 4, "ngIf"], ["class", "table", 4, "ngIf"], [1, "pre-loader"], [1, "table"], [1, "table__body"], [1, "table__row"], [1, "table__col"], ["class", "table__row", "appClickableLinks", "", 4, "ngFor", "ngForOf"], ["appClickableLinks", "", 1, "table__row"], ["href", "", 1, "table__link"], ["tabindex", "-1", "href", "", 1, "table__link"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, AppComponent_h1_0_Template, 2, 0, "h1", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AppComponent_table_1_Template, 10, 1, "table", 1);
     } if (rf & 2) {

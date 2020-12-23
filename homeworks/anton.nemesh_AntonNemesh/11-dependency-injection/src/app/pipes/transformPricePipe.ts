@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IVehicle } from "../vechicle.model";
+import { IVehicle } from "../../vechicle.model";
 
 @Pipe({
   name: 'transformPrice'
