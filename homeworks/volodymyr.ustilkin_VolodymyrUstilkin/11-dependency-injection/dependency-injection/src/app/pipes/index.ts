@@ -1,7 +1,7 @@
-import {ConvertVehiclePipe} from "./convert-vehicle.pipe";
+import {TransformVehiclePipe} from "./transform-vehicle.pipe";
 
 export const appPipes = [
-  ConvertVehiclePipe
+  TransformVehiclePipe
 ]
 
-export {ConvertVehiclePipe} from "./convert-vehicle.pipe";
+export {TransformVehiclePipe} from "./transform-vehicle.pipe";

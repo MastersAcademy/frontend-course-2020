@@ -11,7 +11,7 @@
     <tr *ngFor="let vehicle of vehicles let i = index">
       <td>{{ i }}</td>
       <td appRedBackgroundColor>{{ vehicle.post.protocol }}</td>
-      <td>{{ vehicle | convertVehicle}}</td>
+      <td>{{ vehicle | transformVehicle}}</td>
       <td>{{ vehicle.cost.amount | currency : vehicle.cost.currencyCode}}</td>
     </tr>
   </table>
