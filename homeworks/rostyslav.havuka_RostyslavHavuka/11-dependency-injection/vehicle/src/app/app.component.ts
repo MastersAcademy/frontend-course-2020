@@ -14,7 +14,9 @@ export class AppComponent {
   cars: Car[] = [];
 
   constructor(private carService: CarService) {
+
   this.getCars();
+
   }
 
   private getCars(): void {

@@ -14,7 +14,7 @@ function getFakeVehicle() {
     manufacturer: faker.vehicle.manufacturer(),
     model: faker.vehicle.model(),
     type: faker.vehicle.type(),
-    vehicle: faker.vehicle.vehicle(),
+    vehicle: faker.vehicle.vehicle() ,
     vin: faker.vehicle.vin(),
 
     post: {

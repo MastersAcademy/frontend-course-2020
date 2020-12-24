@@ -1,3 +1,15 @@
 body {
   height: 100%;
 }
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #030303;
+}
+
+li {
+  width: 300px;
+  border: solid 1px #030303;
+  padding: 1px;
+}

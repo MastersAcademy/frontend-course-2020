@@ -1,11 +1,16 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 <mat-spinner *ngIf="areUsersLoading" style="margin: auto; margin-top: 10%;"></mat-spinner>
-
 <ul *ngIf="!areUsersLoading">
   <li *ngFor="let car of cars" class="mat-subheading-2">
-   <a class="mat-raised-button" href="https://www.google.com/search?q={{ car.vehicle }}" http>Added from <a href="https://www.google.com/search?q={{ car.vehicle }}">{{ car | protocolCar }}</a></a><br>
-   Vehicle: {{ car | infoCar }} <br>
-   Price: {{ car.cost.amount | currency }}
-    {{ car.cost.currencyCode}}
+    <a http href="{{ car | carLink }}">
+    <span>
+      Added from {{ car.post.protocol }}
+    </span>
+      <br>
+    Vehicle: {{ car | infoCar }}
+      <br>
+    Price: {{car.cost.amount | currency: car.cost.currencyCode:'symbol-narrow'}}
+    </a>
   </li>
 </ul>
+

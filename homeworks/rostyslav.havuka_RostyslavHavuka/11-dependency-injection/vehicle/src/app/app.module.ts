@@ -3,21 +3,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appServices } from './services';
-import { InfoCarPipe } from './pipes/info-car.pipe';
-import { ProtocolCarPipe } from './pipes/protocol-car.pipe';
+import { InfoCarPipe } from './pipes';
+import { CarLinkPipe } from './pipes';
+import { ChangeHttp } from './directives';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ChangeHttp } from './directives/http-car.directive';
 import {MatButtonModule} from '@angular/material/button';
-import { CurrencyCodeCarPipe } from './pipes/currency-code-car.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     InfoCarPipe,
-    ProtocolCarPipe,
     ChangeHttp,
-    CurrencyCodeCarPipe,
+    CarLinkPipe,
   ],
 
   imports: [
@@ -28,7 +26,7 @@ import { CurrencyCodeCarPipe } from './pipes/currency-code-car.pipe';
     MatButtonModule,
   ],
 
-  providers: [appServices],
+  providers: [...appServices],
 
   bootstrap: [AppComponent]
 })
