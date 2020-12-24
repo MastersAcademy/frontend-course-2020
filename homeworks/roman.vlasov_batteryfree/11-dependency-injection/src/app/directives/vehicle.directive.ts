@@ -3,8 +3,11 @@ import {
     Directive,
     Input,
     ElementRef,
-    Renderer2
+    Renderer2,
+    HostListener
 } from '@angular/core';
+
+import { Vehicle } from '../models'
 
 const pattern = /(^https)/;
 const url = 'https://www.google.com/search?q=';
@@ -15,23 +18,31 @@ const url = 'https://www.google.com/search?q=';
 
 export class VehicleDirective implements AfterViewInit {
 
-    @Input() appVehicle: string = '';
-    @Input() href: string | null = null;
+    @Input() vehicle: Vehicle;
+    @Input() protocol: boolean = false;
 
 
     constructor(private renderer: Renderer2, private elementRef: ElementRef) {
-        this.renderer.setAttribute(this.elementRef.nativeElement, 'href', '');
     }
 
     ngAfterViewInit(): void {
-        if (!pattern.test(this.appVehicle)) {
-            this.renderer.setStyle(this.elementRef.nativeElement, 'color', '#F00');
+        if (!pattern.test(this.vehicle.post.protocol) && this.protocol) {
+            this.renderer.addClass(this.elementRef.nativeElement, 'block-link');
         }
 
-        if (this.href !== null) {
-            this.renderer.setAttribute(this.elementRef.nativeElement, 'href',
-                `${url}${this.href.replace(/ /g, "+")}`);
-            this.renderer.setAttribute(this.elementRef.nativeElement, 'target', '_blank');
+        if (pattern.test(this.vehicle.post.protocol) && !this.protocol) {
+            this.renderer.addClass(this.elementRef.nativeElement, 'item-hover');
         }
+    }
+
+    @HostListener('click') onClick(): void {
+        if (pattern.test(this.vehicle.post.protocol) && !this.protocol) {
+            window.open(this.getURL(), '_blank');
+        }
+    }
+
+    private getURL(): string {
+        const encod: string = this.vehicle.vehicle.replace(/ /g, "+");
+        return `${url} ${encod}`
     }
 }

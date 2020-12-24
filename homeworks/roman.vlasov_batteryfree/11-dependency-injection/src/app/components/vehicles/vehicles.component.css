@@ -54,6 +54,7 @@
 
 .item {
   display: flex;
+  cursor: pointe;
 }
 
 .item__index {
@@ -83,4 +84,13 @@
   border-bottom: solid 1px #1E8A23;
   border-left: solid 1px #1E8A23;
   border-right: solid 1px #1E8A23;
+}
+
+.block-link {
+  color: #F00;
+}
+
+.item-hover:hover {
+  background-color: #B1DDB3;
+  cursor: pointer;
 }
