@@ -156,8 +156,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _directives_clickable_links_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./directives/clickable-links.directive */ "VHMx");
 /* harmony import */ var _pipes_transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pipes/transformVehicleModelPipe */ "kz/7");
-/* harmony import */ var _pipes_transformPricePipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pipes/transformPricePipe */ "URDV");
-
 
 
 
@@ -183,7 +181,7 @@ function AppComponent_table_1_tr_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](10, "transformPrice");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](10, "currency");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "a", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -194,7 +192,7 @@ function AppComponent_table_1_tr_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](6, 3, vehicle_r3));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](10, 5, vehicle_r3));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](10, 5, vehicle_r3.cost.amount, vehicle_r3.cost.currencyCode, "symbol-narrow"));
 } }
 function AppComponent_table_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 3);
@@ -210,7 +208,7 @@ function AppComponent_table_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Price");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, AppComponent_table_1_tr_9_Template, 12, 7, "tr", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, AppComponent_table_1_tr_9_Template, 12, 9, "tr", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -241,7 +239,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.areLoading);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.areLoading);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _directives_clickable_links_directive__WEBPACK_IMPORTED_MODULE_4__["ClickableLinksDirective"]], pipes: [_pipes_transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_5__["TransformVehicleModelPipe"], _pipes_transformPricePipe__WEBPACK_IMPORTED_MODULE_6__["transformPricePipe"]], styles: [".pre-loader[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\n\n.unclickable[_ngcontent-%COMP%] {\n  pointer-events: none;\n}\n\n.red-text[_ngcontent-%COMP%] {\n  color: #F00;\n}\n\n.table[_ngcontent-%COMP%] {\n  border: 2px solid #8A2BE2;\n  border-collapse: collapse;\n}\n\n.table__link[_ngcontent-%COMP%] {\n  color: #5165FF;\n}\n\n.table__col[_ngcontent-%COMP%] {\n  border: 2px solid #CCD2FF;\n  position: relative;\n  padding: 18px;\n}\n\n.table__row[_ngcontent-%COMP%]:hover, .table__row[_ngcontent-%COMP%]:focus-within {\n  background: #F2F3FF;\n  outline: none;\n}\n\n.table__link[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-decoration: none;\n  color: inherit;\n}\n\n.table__link[_ngcontent-%COMP%]:focus {\n  outline: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6Qix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixhQUFhO0FBQ2Y7O0FBRUE7O0VBRUUsbUJBQW1CO0VBQ25CLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixNQUFNO0VBQ04sU0FBUztFQUNULE9BQU87RUFDUCxRQUFRO0VBQ1IscUJBQXFCO0VBQ3JCLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJlLWxvYWRlciB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbn1cblxuLnVuY2xpY2thYmxlIHtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5yZWQtdGV4dCB7XG4gIGNvbG9yOiAjRjAwO1xufVxuXG4udGFibGUge1xuICBib3JkZXI6IDJweCBzb2xpZCAjOEEyQkUyO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xufVxuXG4udGFibGVfX2xpbmsge1xuICBjb2xvcjogIzUxNjVGRjtcbn1cblxuLnRhYmxlX19jb2wge1xuICBib3JkZXI6IDJweCBzb2xpZCAjQ0NEMkZGO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHBhZGRpbmc6IDE4cHg7XG59XG5cbi50YWJsZV9fcm93OmhvdmVyLFxuLnRhYmxlX19yb3c6Zm9jdXMtd2l0aGluIHtcbiAgYmFja2dyb3VuZDogI0YyRjNGRjtcbiAgb3V0bGluZTogbm9uZTtcbn1cblxuLnRhYmxlX19saW5rIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgY29sb3I6IGluaGVyaXQ7XG59XG5cbi50YWJsZV9fbGluazpmb2N1cyB7XG4gIG91dGxpbmU6IDA7XG59XG4iXX0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _directives_clickable_links_directive__WEBPACK_IMPORTED_MODULE_4__["ClickableLinksDirective"]], pipes: [_pipes_transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_5__["TransformVehicleModelPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["CurrencyPipe"]], styles: [".pre-loader[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\n\n.unclickable[_ngcontent-%COMP%] {\n  pointer-events: none;\n}\n\n.red-text[_ngcontent-%COMP%] {\n  color: #F00;\n}\n\n.table[_ngcontent-%COMP%] {\n  border: 2px solid #8A2BE2;\n  border-collapse: collapse;\n}\n\n.table__link[_ngcontent-%COMP%] {\n  color: #5165FF;\n}\n\n.table__col[_ngcontent-%COMP%] {\n  border: 2px solid #CCD2FF;\n  position: relative;\n  padding: 18px;\n}\n\n.table__row[_ngcontent-%COMP%]:hover, .table__row[_ngcontent-%COMP%]:focus-within {\n  background: #F2F3FF;\n  outline: none;\n}\n\n.table__link[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-decoration: none;\n  color: inherit;\n}\n\n.table__link[_ngcontent-%COMP%]:focus {\n  outline: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6Qix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixhQUFhO0FBQ2Y7O0FBRUE7O0VBRUUsbUJBQW1CO0VBQ25CLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixNQUFNO0VBQ04sU0FBUztFQUNULE9BQU87RUFDUCxRQUFRO0VBQ1IscUJBQXFCO0VBQ3JCLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxVQUFVO0FBQ1oiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJlLWxvYWRlciB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbn1cblxuLnVuY2xpY2thYmxlIHtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5yZWQtdGV4dCB7XG4gIGNvbG9yOiAjRjAwO1xufVxuXG4udGFibGUge1xuICBib3JkZXI6IDJweCBzb2xpZCAjOEEyQkUyO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xufVxuXG4udGFibGVfX2xpbmsge1xuICBjb2xvcjogIzUxNjVGRjtcbn1cblxuLnRhYmxlX19jb2wge1xuICBib3JkZXI6IDJweCBzb2xpZCAjQ0NEMkZGO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHBhZGRpbmc6IDE4cHg7XG59XG5cbi50YWJsZV9fcm93OmhvdmVyLFxuLnRhYmxlX19yb3c6Zm9jdXMtd2l0aGluIHtcbiAgYmFja2dyb3VuZDogI0YyRjNGRjtcbiAgb3V0bGluZTogbm9uZTtcbn1cblxuLnRhYmxlX19saW5rIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgY29sb3I6IGluaGVyaXQ7XG59XG5cbi50YWJsZV9fbGluazpmb2N1cyB7XG4gIG91dGxpbmU6IDA7XG59XG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -250,36 +248,6 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
                 styleUrls: ['./app.component.css']
             }]
     }], function () { return [{ type: _services__WEBPACK_IMPORTED_MODULE_2__["VehicleService"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "URDV":
-/*!*********************************************!*\
-  !*** ./src/app/pipes/transformPricePipe.ts ***!
-  \*********************************************/
-/*! exports provided: transformPricePipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transformPricePipe", function() { return transformPricePipe; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-
-
-class transformPricePipe {
-    transform(value) {
-        return `${value.cost.amount} ${value.cost.currencyCode}`;
-    }
-}
-transformPricePipe.ɵfac = function transformPricePipe_Factory(t) { return new (t || transformPricePipe)(); };
-transformPricePipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "transformPrice", type: transformPricePipe, pure: true });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](transformPricePipe, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"],
-        args: [{
-                name: 'transformPrice'
-            }]
-    }], null, null); })();
 
 
 /***/ }),
@@ -350,8 +318,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pipes */ "pFkP");
 /* harmony import */ var _directives_clickable_links_directive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./directives/clickable-links.directive */ "VHMx");
 /* harmony import */ var _pipes_transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pipes/transformVehicleModelPipe */ "kz/7");
-/* harmony import */ var _pipes_transformPricePipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pipes/transformPricePipe */ "URDV");
-
 
 
 
@@ -371,7 +337,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"]
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _directives_clickable_links_directive__WEBPACK_IMPORTED_MODULE_7__["ClickableLinksDirective"], _pipes_transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_8__["TransformVehicleModelPipe"], _pipes_transformPricePipe__WEBPACK_IMPORTED_MODULE_9__["transformPricePipe"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _directives_clickable_links_directive__WEBPACK_IMPORTED_MODULE_7__["ClickableLinksDirective"], _pipes_transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_8__["TransformVehicleModelPipe"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
@@ -451,25 +417,19 @@ const appServices = [
 /*!********************************!*\
   !*** ./src/app/pipes/index.ts ***!
   \********************************/
-/*! exports provided: appPipes, TransformVehicleModelPipe, transformPricePipe */
+/*! exports provided: appPipes, TransformVehicleModelPipe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appPipes", function() { return appPipes; });
 /* harmony import */ var _transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transformVehicleModelPipe */ "kz/7");
-/* harmony import */ var _transformPricePipe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./transformPricePipe */ "URDV");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TransformVehicleModelPipe", function() { return _transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_0__["TransformVehicleModelPipe"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "transformPricePipe", function() { return _transformPricePipe__WEBPACK_IMPORTED_MODULE_1__["transformPricePipe"]; });
-
 
 
 const appPipes = [
     _transformVehicleModelPipe__WEBPACK_IMPORTED_MODULE_0__["TransformVehicleModelPipe"],
-    _transformPricePipe__WEBPACK_IMPORTED_MODULE_1__["transformPricePipe"],
 ];
-
 
 
 
