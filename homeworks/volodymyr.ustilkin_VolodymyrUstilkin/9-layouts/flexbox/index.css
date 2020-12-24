@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins");
-@import url("https://fonts.googleapis.com/css2?family=Rammetto+One");
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif");
 @import url("https://fonts.googleapis.com/css2?family=Rubik");
 
 body, div, section, nav, img, figure, header, footer {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a:hover {
@@ -14,6 +13,7 @@ a:hover {
 
 .font--poppins {
   font-family: Poppins, sans-serif;
+  font-weight: 200;
 }
 
 .body {
@@ -42,7 +42,9 @@ a:hover {
 .header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
+  padding: 0 20px;
   width: 100%;
   background-image: url("images/header-background-image.jpeg");
   background-repeat: no-repeat;
@@ -52,6 +54,11 @@ a:hover {
 
 .header-nav {
   display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .header-nav-left {
@@ -63,9 +70,8 @@ a:hover {
   width: 72px;
   height: 72px;
   background-color: #C8C8C8;
-  font-family: Rammetto One, sans-serif;
+  font-family: "Rammetto One", sans-serif;
   font-style: normal;
-  font-weight: 100;
   font-size: 20px;
   line-height: 34px;
   color: #FFF;
@@ -86,14 +92,14 @@ a:hover {
   text-decoration: none;
 }
 
-.header-nav-right {
-  margin-left: 160px;
-}
-
 .header-describe {
-  margin-left: 60px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 100%;
+  max-width: 1100px;
+  padding-top: 10%;
+  padding-bottom: 20px;
 }
 
 .header-describe-caption {
@@ -104,9 +110,9 @@ a:hover {
 }
 
 .header-describe-content {
-  margin: 30px auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-style: normal;
-  font-weight: 100;
   font-size: 18px;
   line-height: 150%;
 }
@@ -129,7 +135,6 @@ a:hover {
 .provide-great-service-describe {
   margin-top: 12px;
   font-style: normal;
-  font-weight: 100;
   font-size: 18px;
   line-height: 40px;
   color: #626780;
@@ -179,7 +184,6 @@ a:hover {
 
 .provide-great-service-block-text {
   font-style: normal;
-  font-weight: 100;
   font-size: 16px;
   line-height: 20px;
   color: #626780;
@@ -218,7 +222,6 @@ a:hover {
 .best-feature-in-the-world-describe {
   margin: 12px auto 0;
   font-style: normal;
-  font-weight: 100;
   font-size: 18px;
   line-height: 30px;
   text-align: center;
@@ -264,7 +267,6 @@ a:hover {
 .best-feature-in-the-world-customer-provider-text {
   margin-top: 22px;
   font-style: normal;
-  font-weight: 100;
   font-size: 18px;
   line-height: 30px;
   color: #626780;
@@ -307,7 +309,6 @@ a:hover {
   width: 100%;
   margin: 30px auto 0;
   font-style: normal;
-  font-weight: 100;
   font-size: 16px;
   line-height: 40px;
   color: #626780;
@@ -320,7 +321,6 @@ a:hover {
   padding-left: 40px;
   height: 60px;
   border: 1px solid #9595C9;
-  box-sizing: border-box;
   border-radius: 5px;
   font-family: Rubik, serif;
   font-style: normal;
@@ -341,7 +341,6 @@ a:hover {
   display: block;
   margin: 30px auto 0;
   font-style: normal;
-  font-weight: 100;
   font-size: 18px;
   line-height: 40px;
   color: #626780;
@@ -392,7 +391,6 @@ a:hover {
   display: block;
   font-style: normal;
   text-decoration: none;
-  font-weight: 100;
   font-size: 16px;
   line-height: 24px;
   color: #E6E6E6;
@@ -444,7 +442,6 @@ a:hover {
 .footer-social-site-logo {
   font-family: "Rammetto One", sans-serif;
   font-style: normal;
-  font-weight: 100;
   font-size: 20px;
   line-height: 34px;
   color: #FFF;
@@ -463,9 +460,12 @@ a:hover {
 
 @media screen and (min-width: 1000px) {
 
-  .header-describe {
-    margin-left: 100px;
-    margin-top: 50px;
+  .header {
+    min-height: 737px;
+  }
+
+  .header-nav {
+    display: flex;
   }
 
   .footer-social {
@@ -493,23 +493,3 @@ a:hover {
     margin-left: 197px;
   }
 }
-
-@media screen and (min-width: 1600px) {
-
-  .header {
-    min-height: 737px;
-  }
-
-  .header-nav {
-    display: flex;
-    align-items: center;
-    margin-top: 22px;
-    margin-left: 245px;
-  }
-
-  .header-describe {
-    margin-left: 245px;
-    margin-top: 204px;
-  }
-}
-
