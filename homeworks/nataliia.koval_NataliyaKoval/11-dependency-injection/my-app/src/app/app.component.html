@@ -1,0 +1,7 @@
+<div *ngIf="areVehicleLoading">Loading</div>
+
+<div *ngFor="let vehicle of vehicles">
+    <p>Added from {{ vehicle.post.protocol }}</p>
+    <p>Vehicle	{{ vehicle | vehiclePipe}}</p>
+    <p>Price {{ vehicle.cost.amount | currency: vehicle.cost.currencyCode }}</p>
+</div>
