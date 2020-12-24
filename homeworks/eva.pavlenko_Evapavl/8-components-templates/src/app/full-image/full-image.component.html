@@ -1,0 +1,8 @@
+<div class="block-full-image">
+  <div class="block-current-image" *ngIf="!images[index]">
+    <div class="block-background"></div>
+  </div>
+  <div class="block-current-image" *ngIf="images[index]">
+    <img class="full-image" [src]="images[index].urls.full" alt="img-full"/>
+  </div>
+</div>
