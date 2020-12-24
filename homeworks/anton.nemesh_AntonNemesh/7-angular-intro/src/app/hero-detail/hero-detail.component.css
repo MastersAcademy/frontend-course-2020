@@ -1,0 +1,15 @@
+.hero-details {
+  font-size: 40px;
+}
+
+.hero-details--bold {
+  font-weight: 800;
+}
+
+.hero-details__text {
+  color: #444;
+}
+
+.hero-details__ID {
+  color: #F00;
+}
