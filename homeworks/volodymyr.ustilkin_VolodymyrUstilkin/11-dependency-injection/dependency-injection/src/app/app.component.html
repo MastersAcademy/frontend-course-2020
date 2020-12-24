@@ -9,7 +9,7 @@
     </tr>
     <tr *ngFor="let vehicle of vehicles let i = index">
       <td><a class="table-cell-link" [appLinkActive]="vehicle">{{ i }}</a></td>
-      <td appRedBackgroundColor><a class="table-cell-link" [appLinkActive]="vehicle">{{ vehicle.post.protocol }}</a></td>
+      <td><a class="table-cell-link" [appLinkActive]="vehicle" appRedBackgroundColor>{{ vehicle.post.protocol }}</a></td>
       <td><a class="table-cell-link" [appLinkActive]="vehicle">{{ vehicle | transformVehicle}}</a></td>
       <td><a class="table-cell-link" [appLinkActive]="vehicle">{{ vehicle.cost.amount | currency : vehicle.cost.currencyCode}}</a></td>
     </tr>
