@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehicleService } from "./services";
 import { finalize } from "rxjs/operators";
 import { IVehicle } from "../vechicle.model";
@@ -8,13 +8,11 @@ import { IVehicle } from "../vechicle.model";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public vehicles: IVehicle[] = [];
   public areLoading: boolean = true;
 
-  constructor(private vehicleService: VehicleService) {
-    this.getVehicles();
-  }
+  constructor(private vehicleService: VehicleService) {}
 
   private getVehicles(): void {
     this.vehicleService.getVehicles()
@@ -25,4 +23,6 @@ export class AppComponent {
       this.vehicles = vehicles;
     })
   }
+
+  ngOnInit() { this.getVehicles(); }
 }

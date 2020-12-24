@@ -221,7 +221,6 @@ class AppComponent {
         this.vehicleService = vehicleService;
         this.vehicles = [];
         this.areLoading = true;
-        this.getVehicles();
     }
     getVehicles() {
         this.vehicleService.getVehicles()
@@ -230,6 +229,7 @@ class AppComponent {
             this.vehicles = vehicles;
         });
     }
+    ngOnInit() { this.getVehicles(); }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_2__["VehicleService"])); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 2, consts: [["class", "pre-loader", 4, "ngIf"], ["class", "table", 4, "ngIf"], [1, "pre-loader"], [1, "table"], [1, "table__body"], [1, "table__row"], [1, "table__col"], ["class", "table__row", "appClickableLinks", "", 4, "ngFor", "ngForOf"], ["appClickableLinks", "", 1, "table__row"], ["href", "", 1, "table__link"], ["tabindex", "-1", "href", "", 1, "table__link"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
