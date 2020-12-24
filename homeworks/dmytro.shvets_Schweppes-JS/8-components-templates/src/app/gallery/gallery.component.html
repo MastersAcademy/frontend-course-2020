@@ -1,4 +1,4 @@
-<h1 class="h1">{{title}}</h1>
+<h1 class="h1">Gallery</h1>
 <div class="container">
     <div class="scroll-container">
         <app-plate
@@ -6,7 +6,7 @@
             *ngFor="let image of images; let i = index"
             [image]="image"
             [index]="i"
-            [class.selected]="image === selctedImage"
+            [class.selected]="image === selectedImage"
             (click)=selecting(image);
         ></app-plate>
     </div>

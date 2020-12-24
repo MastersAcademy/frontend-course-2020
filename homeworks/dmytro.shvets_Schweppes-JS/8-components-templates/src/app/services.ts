@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { data, Images } from './gallery/data';
+import { data } from './mocks/data';
+import { Images } from './models/Image';
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,20 @@
+<div [class.preview-image-container]="true"
+     [class.preview-image-container-selected]="isSelected"
+*ngIf="!showFullImage">
+
+  <img [src]="smallUrl"
+       [class.preview-image]="true"
+       [class.hide-element]="!previewLoaded"
+       (load)="completePreviewImageLoad()" alt="Loading..."/>
+
+  <div [class.loader-spinner]="true" [class.hide-element]="previewLoaded"></div>
+</div>
+
+<div [class.full-image-container]="true" *ngIf="showFullImage">
+  <img [src]="fullUrl"
+       [class.preview-image]="true"
+       [class.hide-element]="!fullLoaded"
+       (load)="completeFullImageLoad()" alt="Loading..."/>
+
+  <div [class.loader-spinner]="true" [class.hide-element]="fullLoaded"></div>
+</div>
