@@ -1,0 +1,14 @@
+<h1>Gallery</h1>
+
+<div class="container">
+    <div class="imageItem" *ngFor="let image of images" [class.active]="image.urls.thumb === activeImage" >
+        <mat-progress-spinner *ngIf="show" class=spinner mode="indeterminate"></mat-progress-spinner>
+
+        <img (click)="showLargeImage(image); addBorder(image)" (load)="hideSpinner()" [src]="image.urls.thumb">
+    </div>
+</div>
+<div>
+    <div>
+        <img class="largeImage" [src]="selectedImage" alt="">
+    </div>
+</div>
