@@ -1,0 +1,22 @@
+<H1>Image</H1>
+<div class="grid-container">
+  <button
+    class="btn"
+    [disabled]="imageIndex === 0"
+    type="button"
+    (click)="choosePrev()"
+  >
+    Prev
+  </button>
+
+  <img class="image grid-image-item" src="{{ imageUrl }}" alt="" />
+
+  <button
+    class="btn"
+    [disabled]="imageIndex === imageMaxIndex"
+    type="button"
+    (click)="chooseNext()"
+  >
+    Next
+  </button>
+</div>

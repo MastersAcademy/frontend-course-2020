@@ -1,0 +1,86 @@
+:root {
+  --filter-height: 65px;
+  --border-size: 3px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.border {
+  border: var(--border-size) solid #000;
+}
+
+.filters {
+  height: var(--filter-height);
+}
+
+.posts-place {
+  height: calc(100vh - var(--filter-height) - var(--border-size) * 2);
+  overflow: auto;
+  padding: 25px;
+}
+
+.posts-place__post {
+  margin: 15px 0;
+}
+
+.post {
+  padding: 25px;
+}
+
+.post__title {
+  margin-bottom: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.font--big {
+  font-size: 1.2rem;
+}
+
+.font--uppercase {
+  text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+}
+
+.--space-between {
+  justify-content: space-between;
+}
+
+.--space-evenly {
+  justify-content: space-evenly;
+}
+
+.--column {
+  flex-direction: column;
+}
+
+.--center {
+  align-items: center;
+}
+
