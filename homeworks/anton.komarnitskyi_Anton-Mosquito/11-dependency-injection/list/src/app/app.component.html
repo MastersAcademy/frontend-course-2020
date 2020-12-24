@@ -1,0 +1,37 @@
+<app-slider *ngIf="loading"></app-slider>
+
+<div class="wrapper">
+  <table
+    *ngFor="let element of vechicles"
+    #transfer
+    attr.data-protocol="{{ element.post.protocol }}"
+    attr.data-model="{{ element | transformModel }}"
+    class="list"
+  >
+    <tbody>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td [appChangeColor]="element">Added from</td>
+        <td>
+          {{ element.post.protocol }}
+        </td>
+      </tr>
+      <tr>
+        <td>Vehicle</td>
+        <td>
+          {{ element | transformDiscription }}
+        </td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>
+          {{ element.cost.amount | currency: element.cost.currencyCode:"code" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>

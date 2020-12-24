@@ -1,0 +1,33 @@
+.wrapper{
+  width: 60%;
+  margin: 5% auto;
+}
+
+.wrapper .list{
+  width: 100%;
+  border-collapse: separate;
+  margin-bottom: 20px;
+}
+
+.wrapper .list td, th{
+  padding: 10px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.wrapper .list tr:nth-child(odd){
+  background: #d4d4d4;
+}
+
+.wrapper .list tr:nth-child(even){
+  background: #e6e4e4;
+}
+
+.red{
+  color: #FF0000;
+  font-weight: 600;
+}
+
+.transport{
+  cursor: pointer;
+}
