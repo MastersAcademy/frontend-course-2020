@@ -23,13 +23,11 @@ export class AppComponent implements AfterContentInit {
   }
 
   getVehicles(): void {
-    console.log('start loading');
     this.areVehiclesLoading = true;
     this.vehicleService.getVehicles()
       .pipe(finalize(() => this.areVehiclesLoading = false))
       .subscribe(value => {
           this.vehicles = value;
-          console.log('loaded');
         }
       );
   }
