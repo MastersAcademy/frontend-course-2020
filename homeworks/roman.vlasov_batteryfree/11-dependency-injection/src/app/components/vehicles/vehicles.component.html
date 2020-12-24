@@ -7,8 +7,8 @@
     </div>
     <ul class="list">
         <li class="item" *ngFor="let vehicle of vehicles; let i = index">
-            <p class="item__index">{{i}}</p>
-            <p class="item__protocol" [appVehicle]="vehicle.post.protocol">{{vehicle.post.protocol}}</p>
+            <p class="item__index">{{i + 1}}</p>
+            <a class="item__link" [href]="vehicle.vehicle" [appVehicle]="vehicle.post.protocol">Added from</a>
             <p class="item__vehicle">{{ vehicle | transformVehicle }}</p>
             <p class="item__price">{{vehicle.cost.amount | currency : vehicle.cost.currencyCode : 'code'}}</p>
         </li>
