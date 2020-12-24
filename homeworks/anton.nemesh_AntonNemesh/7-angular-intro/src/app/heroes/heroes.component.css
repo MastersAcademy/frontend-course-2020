@@ -1,0 +1,8 @@
+.heroes {
+  font-size: 30px;
+}
+
+.selected {
+  font-weight: 800;
+  color: #F00;
+}
