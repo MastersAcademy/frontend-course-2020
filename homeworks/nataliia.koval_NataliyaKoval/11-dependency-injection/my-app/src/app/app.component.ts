@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehicleService } from './services';
 
 import { Vehicle } from './interfaces/vehicle.interface';
@@ -9,17 +9,19 @@ import { finalize } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   vehicles: Vehicle[] = [];
   areVehicleLoading: boolean = false;
 
   constructor(private vehicleService: VehicleService) {
+  }
+  
+  ngOnInit(): void {
     this.getVehicles();
   }
-
+  
   private getVehicles(): void {
-    console.log('getVehicles call');
     this.areVehicleLoading = true;
     
     this.vehicleService.getVehicle()
@@ -27,7 +29,6 @@ export class AppComponent {
       .subscribe((vehicles: Vehicle[]) => {
       
       this.vehicles = vehicles;
-      console.log('getVehicles ended');
     });
   }
 }
