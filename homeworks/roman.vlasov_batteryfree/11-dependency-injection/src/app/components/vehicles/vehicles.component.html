@@ -1,0 +1,16 @@
+<div class="vehicles">
+    <div class="head-list">
+        <p class="head-list__num-list">№</p>
+        <p class="head-list__added">Added from</p>
+        <p class="head-list__vehicle">Vehicle</p>
+        <p class="head-list__price">Price</p>
+    </div>
+    <ul class="list">
+        <li class="item" *ngFor="let vehicle of vehicles; let i = index">
+            <p class="item__index">{{i}}</p>
+            <p class="item__protocol" [appVehicle]="vehicle.post.protocol">{{vehicle.post.protocol}}</p>
+            <p class="item__vehicle">{{ vehicle | transformVehicle }}</p>
+            <p class="item__price">{{vehicle.cost.amount | currency : vehicle.cost.currencyCode : 'code'}}</p>
+        </li>
+    </ul>
+</div>
