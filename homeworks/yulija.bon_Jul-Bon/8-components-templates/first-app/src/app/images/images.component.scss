@@ -1,0 +1,138 @@
+.image-gallery {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__item {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    padding: 5px;
+    box-sizing: border-box;
+    position: relative;
+
+    &.selected {
+      border-color: #195577;
+    }
+  }
+}
+
+.image-block {
+  width: 80%;
+  max-width: 600px;
+  height: 500px;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.loader-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  margin: 100px auto;
+  font-size: 8px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+@-webkit-keyframes load5 {
+
+  0%,
+  100% {
+    box-shadow: 0 -2.6 0 0 #0F2B80, 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .5), -1.8em -1.8em 0 0 rgba(15,43,128, .7);
+  }
+
+  12.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .7), 1.8em -1.8em 0 0 #0F2B80, 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .5);
+  }
+
+  25% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .5), 1.8em -1.8em 0 0 rgba(15,43,128, .7), 2.5em 0 0 0 #0F2B80, 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  37.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .5), 2.5em 0 0 0 rgba(15,43,128, .7), 1.75em 1.75em 0 0 #0F2B80, 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  50% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .5), 1.75em 1.75em 0 0 rgba(15,43,128, .7), 0 2.5em 0 0 #0F2B80, -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  62.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .5), 0 2.5em 0 0 rgba(15,43,128, .7), -1.8em 1.8em 0 0 #0F2B80, -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  75% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .5), -1.8em 1.8em 0 0 rgba(15,43,128, .7), -2.6em 0 0 0 #0F2B80, -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  87.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .5), -2.6em 0 0 0 rgba(15,43,128, .7), -1.8em -1.8em 0 0 #0F2B80;
+  }
+}
+
+@keyframes load5 {
+
+  0%,
+  100% {
+    box-shadow: 0 -2.6em 0 0 #0F2B80, 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .5), -1.8em -1.8em 0 0 rgba(15,43,128, .7);
+  }
+
+  12.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .7), 1.8em -1.8em 0 0 #0F2B80, 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .5);
+  }
+
+  25% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .5), 1.8em -1.8em 0 0 rgba(15,43,128, .7), 2.5em 0 0 0 #0F2B80, 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  37.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .5), 2.5em 0 0 0 rgba(15,43,128, .7), 1.75em 1.75em 0 0 #0F2B80, 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  50% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, 02), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .5), 1.75em 1.75em 0 0 rgba(15,43,128, .7), 0 2.5em 0 0 #0F2B80, -1.8em 1.8em 0 0 rgba(15,43,128, .2), -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  62.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .5), 0 2.5em 0 0 rgba(15,43,128, .7), -1.8em 1.8em 0 0 #0F2B80, -2.6em 0 0 0 rgba(15,43,128, .2), -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  75% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .5), -1.8em 1.8em 0 0 rgba(15,43,128, .7), -2.6em 0 0 0 #0F2B80, -1.8em -1.8em 0 0 rgba(15,43,128, .2);
+  }
+
+  87.5% {
+    box-shadow: 0 -2.6em 0 0 rgba(15,43,128, .2), 1.8em -1.8em 0 0 rgba(15,43,128, .2), 2.5em 0 0 0 rgba(15,43,128, .2), 1.75em 1.75em 0 0 rgba(15,43,128, .2), 0 2.5em 0 0 rgba(15,43,128, .2), -1.8em 1.8em 0 0 rgba(15,43,128, .5), -2.6em 0 0 0 rgba(15,43,128, .7), -1.8em -1.8em 0 0 #0F2B80;
+  }
+}
