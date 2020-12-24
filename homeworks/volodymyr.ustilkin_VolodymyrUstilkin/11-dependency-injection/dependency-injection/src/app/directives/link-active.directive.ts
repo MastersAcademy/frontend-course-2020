@@ -8,7 +8,7 @@ export class LinkActiveDirective implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    if (this.appLinkActive.post.protocol !== 'http') {
+    if (this.appLinkActive.post.protocol === 'https') {
       this.el.nativeElement.href = `https://www.google.com/search?q=${this.appLinkActive.vehicle.trim().replace(' ', '+')}`;
     }
   }
