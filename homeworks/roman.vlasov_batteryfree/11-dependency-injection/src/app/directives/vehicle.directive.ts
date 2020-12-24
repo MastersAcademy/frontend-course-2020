@@ -13,7 +13,7 @@ export class VehicleDirective implements AfterViewInit {
 
     ngAfterViewInit(): void {
         if (!pattern.test(this.appVehicle)) {
-            this.elementRef.nativeElement.style.color = 'red';
+            this.elementRef.nativeElement.style.color = '#F00';
         }
     }
 }
