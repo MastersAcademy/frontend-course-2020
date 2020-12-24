@@ -317,10 +317,10 @@ h6 {
 }
 
 .wrapper .capture {
-  background-size: cover;
-  background-position: center;
   padding: 119px 753px 461px 297px;
   background: url("../img/d77aba3fa9b3826d40b3ed84f8617a00.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .wrapper .capture .capture__header {
@@ -901,6 +901,7 @@ Extra extra large	xxl	≥1400px */
     align-items: center;
     flex-direction: column;
     position: fixed;
+    width: 731px;
   }
 
   .header .navigation .navigation__menu.active {
