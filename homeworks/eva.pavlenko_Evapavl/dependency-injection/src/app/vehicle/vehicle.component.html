@@ -1,0 +1,29 @@
+<div class="load" *ngIf="areVehicleLoading">
+  Loading...
+</div>
+<div *ngIf="!areVehicleLoading">
+  <div class="container-vehicle" *ngFor="let vehicle of vehicles">
+    <div class="box-vehicle">
+      <div class="columns-vehicle">
+        <div class="colunm-vehicle-small">Field</div>
+        <div class="colunm-vehicle-big">Value</div>
+      </div>
+      <div class="columns-vehicle">
+        <div class="colunm-vehicle-small">Added from</div>
+        <div class="colunm-vehicle-big clicks" [changeBackgroundColor]='vehicle'
+             protocol="{{ vehicle.post.protocol }}">{{ vehicle.post.protocol }}</div>
+      </div>
+      <div class="columns-vehicle">
+        <div class="colunm-vehicle-small">Vehicle</div>
+        <div class="colunm-vehicle-big">
+          {{vehicle | transformVehicle}}
+        </div>
+      </div>
+      <div class="columns-vehicle">
+        <div class="colunm-vehicle-small">Price</div>
+        <div
+          class="colunm-vehicle-big">{{vehicle.cost.amount | currency: vehicle.cost.currencyCode:'symbol-narrow'}}</div>
+      </div>
+    </div>
+  </div>
+</div>
