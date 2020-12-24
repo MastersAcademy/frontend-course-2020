@@ -1,19 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appServices } from './services';
-import { VehiclePipe } from './pipes/vehicle.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { appPipes } from './pipes';
+import { appDirectives } from './directives';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VehiclePipe
+    ...appPipes,
+    ...appDirectives
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ...appServices,

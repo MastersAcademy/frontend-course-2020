@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { VehicleService } from './services';
 
-import { Vehicle } from './interfaces/vehicleInterface';
+import { Vehicle } from './interfaces/vehicle.interface';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -10,12 +10,9 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Vehicles';
 
   vehicles: Vehicle[] = [];
   areVehicleLoading: boolean = false;
-
-  
 
   constructor(private vehicleService: VehicleService) {
     this.getVehicles();
@@ -33,6 +30,4 @@ export class AppComponent {
       console.log('getVehicles ended');
     });
   }
-
-
 }

@@ -1,7 +1,11 @@
-<div *ngIf="areVehicleLoading">Loading</div>
-
-<div *ngFor="let vehicle of vehicles">
-    <p>Added from {{ vehicle.post.protocol }}</p>
-    <p>Vehicle	{{ vehicle | vehiclePipe}}</p>
-    <p>Price {{ vehicle.cost.amount | currency: vehicle.cost.currencyCode }}</p>
+<div class="wrapper">
+    <div class="spinner">
+        <mat-progress-spinner *ngIf="areVehicleLoading" mode="indeterminate"></mat-progress-spinner>
+    </div>
+    
+    <div class="vehicle" *ngFor="let vehicle of vehicles">
+        <p appHighlight><span>Added from: </span><span>{{ vehicle.post.protocol }}</span></p>
+        <p>Vehicle:	{{ vehicle | vehiclePipe}}</p>
+        <p>Price: {{ vehicle.cost.amount | currency: vehicle.cost.currencyCode }}</p>
+    </div>
 </div>

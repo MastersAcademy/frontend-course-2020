@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-import { Vehicle } from '../interfaces/vehicleInterface';
+import { Vehicle } from '../interfaces/vehicle.interface';
 import { MOCK_VEHICLES } from '../mocks/vehicles.mock';
 
 @Injectable()

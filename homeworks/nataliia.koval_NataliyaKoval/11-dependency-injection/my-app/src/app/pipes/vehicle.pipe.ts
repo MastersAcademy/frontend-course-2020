@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { Vehicle } from "../interfaces/vehicleInterface";
+import { Vehicle } from "../interfaces/vehicle.interface";
 
 @Pipe({
     name: "vehiclePipe"

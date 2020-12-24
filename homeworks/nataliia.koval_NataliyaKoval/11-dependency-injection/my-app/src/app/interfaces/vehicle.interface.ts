@@ -1,5 +1,5 @@
-import { Post } from './postInterface';
-import { Cost } from './costInterface';
+import { Post } from './post.interface';
+import { Cost } from './cost.interface';
 
 export interface Vehicle {
     color: string;
