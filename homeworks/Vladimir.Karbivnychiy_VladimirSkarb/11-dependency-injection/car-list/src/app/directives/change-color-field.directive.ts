@@ -1,15 +1,13 @@
 import {
+  Input,
   Directive,
-  ElementRef,
-  AfterViewInit, Input,
+  AfterViewInit,
 } from '@angular/core';
 
 @Directive({selector: '[appChangeColorField]'})
 export class ChangeColorFieldDirective implements AfterViewInit {
 
   @Input('appChangeColorField') link: HTMLAnchorElement | undefined
-
-  constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
     const protocol: string | undefined = this.link?.children[1].innerHTML;

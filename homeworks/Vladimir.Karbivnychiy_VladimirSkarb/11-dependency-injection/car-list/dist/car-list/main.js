@@ -171,9 +171,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class ChangeColorFieldDirective {
-    constructor(el) {
-        this.el = el;
-    }
     ngAfterViewInit() {
         var _a, _b, _c;
         const protocol = (_a = this.link) === null || _a === void 0 ? void 0 : _a.children[1].innerHTML;
@@ -183,12 +180,12 @@ class ChangeColorFieldDirective {
         }
     }
 }
-ChangeColorFieldDirective.ɵfac = function ChangeColorFieldDirective_Factory(t) { return new (t || ChangeColorFieldDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])); };
+ChangeColorFieldDirective.ɵfac = function ChangeColorFieldDirective_Factory(t) { return new (t || ChangeColorFieldDirective)(); };
 ChangeColorFieldDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: ChangeColorFieldDirective, selectors: [["", "appChangeColorField", ""]], inputs: { link: ["appChangeColorField", "link"] } });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChangeColorFieldDirective, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"],
         args: [{ selector: '[appChangeColorField]' }]
-    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }]; }, { link: [{
+    }], null, { link: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
             args: ['appChangeColorField']
         }] }); })();
