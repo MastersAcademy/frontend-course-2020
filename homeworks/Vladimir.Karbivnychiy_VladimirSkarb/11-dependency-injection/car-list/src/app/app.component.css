@@ -21,12 +21,10 @@
   font-weight: 600;
 }
 
-.no-link {
-  pointer-events: none;
-}
-
 .link {
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
 }
 
 .lds-dual-ring {
@@ -59,12 +57,3 @@
     transform: rotate(360deg);
   }
 }
-
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-

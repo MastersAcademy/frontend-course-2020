@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 
+import {finalize} from 'rxjs/operators';
+
 import {Vehicle} from './models';
 import {VehiclesService} from "./services";
-import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
+export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getVehicles();
@@ -23,7 +24,8 @@ export class AppComponent  implements OnInit{
   loader: boolean = true;
   vehicles: Vehicle[] = [];
 
-  private getVehicles(): any {
+  private getVehicles(): void {
+    this.loader = true;
     this.vehiclesService.getCar()
       .pipe(finalize(() => this.loader = false))
       .subscribe((vehicles) => {

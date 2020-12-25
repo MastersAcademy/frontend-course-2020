@@ -2,7 +2,7 @@ import {
   Pipe,
   PipeTransform
 } from '@angular/core';
-import {Vehicle} from "../models";
+import {Vehicle} from '../models';
 
 @Pipe({
   name: 'transformVehicle'
