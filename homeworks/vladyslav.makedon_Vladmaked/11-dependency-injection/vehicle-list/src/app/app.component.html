@@ -1,6 +1,6 @@
 <app-loader *ngIf="areVehiclesLoading"></app-loader>
 <ul *ngIf="!areVehiclesLoading" class="vehicle-list">
-    <li *ngFor="let vehicle of vehicles" class="vehicle-list__item">
+    <li *ngFor="let vehicle of vehicles" class="vehicle-list__item-wrapper">
         <app-vehicle [vehicle]="vehicle"></app-vehicle>
     </li>
 </ul>

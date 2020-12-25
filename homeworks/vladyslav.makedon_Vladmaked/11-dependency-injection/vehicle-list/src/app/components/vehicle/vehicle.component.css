@@ -1,5 +1,8 @@
-.vehicle-list-item {
-  margin-bottom: 5px;
+.vehicle-list__item {
+  margin: 5px 0;
+}
+
+.link {
   text-decoration: none;
   color: #FFF;
 }
@@ -7,4 +10,8 @@
 .vehicle-list-item__label {
   font-weight: 600;
   color: #F5BE22;
+}
+
+.vehicle-list-item__description {
+  margin-bottom: 5px;
 }

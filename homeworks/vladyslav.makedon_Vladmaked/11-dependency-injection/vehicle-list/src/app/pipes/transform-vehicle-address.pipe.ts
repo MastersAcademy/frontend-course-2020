@@ -8,6 +8,6 @@ import {Vehicle} from '../models';
 
 export class TransformVehicleAddressPipePipe implements PipeTransform {
   transform(vehicle: Vehicle): string {
-    return `https://www.google.com/search?q=${vehicle.vehicle.replace(/ /g, '+')}`;
+    return `https://www.google.com/search?q=${encodeURIComponent(vehicle.vehicle)}`;
   }
 }

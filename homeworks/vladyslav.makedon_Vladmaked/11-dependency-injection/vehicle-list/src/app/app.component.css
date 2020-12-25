@@ -2,7 +2,7 @@
   list-style: none;
 }
 
-.vehicle-list__item {
+.vehicle-list__item-wrapper {
   box-shadow: 0 0 10px rgba(0,0,0,.2);
   margin-bottom: 10px;
   border-radius: 10px;
@@ -12,6 +12,6 @@
   width: 50%;
 }
 
-.vehicle-list__item:hover {
+.vehicle-list__item-wrapper:hover {
   box-shadow: 0 0 10px #F5BE22;
 }
