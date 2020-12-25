@@ -1,0 +1,17 @@
+.vehicle-list {
+  list-style: none;
+}
+
+.vehicle-list__item {
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #151A22;
+  color: #FFF;
+  width: 50%;
+}
+
+.vehicle-list__item:hover {
+  box-shadow: 0 0 10px #F5BE22;
+}

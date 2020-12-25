@@ -1,0 +1,10 @@
+.vehicle-list-item {
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.vehicle-list-item__label {
+  font-weight: 600;
+  color: #F5BE22;
+}
