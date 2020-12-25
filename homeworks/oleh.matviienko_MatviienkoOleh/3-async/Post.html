@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="PostStyle.css">
+</head>
+<body>
+
+    <div class="preloader">
+        <div class="preloader__row">
+          <div class="preloader__item"></div>
+          <div class="preloader__item"></div>
+        </div>    
+    </div>
+
+    <div class = 'blockForPosts'>
+        <label for="inputOne">Filter: </label>
+        <input type= "text" class = 'inputOne' id = "inputOne" onkeyup = "sortByFilter()" placeholder="Search for titles.."></input>
+        <button id = "butAtoZ" onclick = "sortList()">Sort from A to Z</button>
+        <button id = "butZtoA"onclick = "sortListDir()" >Sort from Z to A</button>
+        <ul id = 'display' class = 'display'></ul>
+    </div>
+
+    <script src = 'PostToBackEnd2.js'></script>
+
+</body>
+</html>

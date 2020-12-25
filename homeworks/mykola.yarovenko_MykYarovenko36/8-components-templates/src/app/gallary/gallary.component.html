@@ -1,0 +1,28 @@
+<div class="gallary-container">
+    <div class="gallary-items-container">
+        <app-gallary-item
+            class="gallary-item"
+            [class.toggle]="itemCard.id === currentSlide.id && itemIsActive"
+            *ngFor="let itemCard of cards"
+            [card]="itemCard"
+            (click)="setSlide(itemCard.id)"
+        >
+        </app-gallary-item>
+    </div>
+    <div *ngIf="sliderIsHidden" class="gallary-slider-container">
+        <div class="slider-btn-container">
+            <button
+                (click)="toggleSlide('prev')"
+                [disabled]="btnPrevIsDisabled"
+            > Prev </button>
+            <button
+                (click)="toggleSlide('next')"
+                [disabled]="btnNextIsDisabled"
+            > Next </button>
+        </div>
+        <img class="slider-item"
+            [src]="currentSlide.urls.small"
+            alt="img"
+        >
+    </div>
+</div>
