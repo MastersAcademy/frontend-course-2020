@@ -106,6 +106,7 @@ h6 {
   top: 0;
   left: 0;
   z-index: 100;
+  background: rgba(196, 196, 196, .1);
 }
 
 .header .navigation {
