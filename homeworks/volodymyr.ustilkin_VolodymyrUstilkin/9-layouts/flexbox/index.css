@@ -1,11 +1,10 @@
 body, div, section, nav, img, figure, header, footer, html, p, form, label, input {
-  width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-a:hover {
+a, button:hover {
   color: #000;
 }
 
@@ -48,10 +47,10 @@ a:hover {
 .header-nav {
   display: none;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 22px;
   width: 100%;
-  max-width: 1100px;
+  background-color: rgba(196, 196, 196, .1);
 }
 
 .header-nav-left {
@@ -274,14 +273,11 @@ a:hover {
 
 .best-feature-in-the-world-customer-provider-text {
   padding: 22px 10px 0;
+  height: 220px;
   font-style: normal;
   font-size: 18px;
   line-height: 30px;
   color: #626780;
-}
-
-.best-feature-in-the-world-customer-provider-button {
-  margin-top: 78px;
 }
 
 .join-us-section {
@@ -309,6 +305,7 @@ a:hover {
   flex-direction: column;
   margin-top: 50px;
   padding: 0 10px 20px;
+  width: 100%;
   max-width: 708px;
   border-radius: 10px;
   box-shadow: 0 20px 40px rgba(149, 149, 201, .4);
@@ -385,6 +382,7 @@ a:hover {
 
 .footer-nav-container {
   display: flex;
+  justify-content: space-around;
   max-width: 400px;
   flex-wrap: wrap;
 }
@@ -414,13 +412,14 @@ a:hover {
 }
 
 .footer-social {
+  width: 100%;
+  max-width: 1000px;
   padding-top: 79px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 1000px;
 }
 
 .footer-year {
