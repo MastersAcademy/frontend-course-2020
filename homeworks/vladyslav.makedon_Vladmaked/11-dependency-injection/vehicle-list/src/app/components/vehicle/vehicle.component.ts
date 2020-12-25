@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
+
 import {Vehicle} from '../../models';
 
 @Component({
@@ -6,13 +7,10 @@ import {Vehicle} from '../../models';
   templateUrl: './vehicle.component.html',
   styleUrls: ['./vehicle.component.css']
 })
-export class VehicleComponent implements OnInit {
+export class VehicleComponent {
   @Input() vehicle!: Vehicle;
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
 }

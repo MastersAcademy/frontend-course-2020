@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {finalize} from 'rxjs/operators';
+
 import {Vehicle} from './models';
 import {VehicleService} from './services';
-import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',

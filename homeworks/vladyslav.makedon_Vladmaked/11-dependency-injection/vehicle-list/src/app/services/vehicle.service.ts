@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
+import {delay} from 'rxjs/operators';
+
 import {Vehicle} from '../models';
 import {MOCK_VEHICLES} from '../mocks';
-import {delay} from 'rxjs/operators';
 
 @Injectable()
 export class VehicleService {
