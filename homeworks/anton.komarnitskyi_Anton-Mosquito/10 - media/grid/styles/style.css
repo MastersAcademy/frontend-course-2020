@@ -107,6 +107,7 @@ h6 {
   left: 0;
   width: var(--main-width);
   z-index: 100;
+  background: rgba(196, 196, 196, .1);
 }
 
 .header .navigation {
