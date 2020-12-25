@@ -249,6 +249,7 @@ a:hover {
 }
 
 .customer-provider-section {
+  margin: 0 auto;
   padding: 10px 10px 0;
   max-width: 1000px;
   display: flex;
