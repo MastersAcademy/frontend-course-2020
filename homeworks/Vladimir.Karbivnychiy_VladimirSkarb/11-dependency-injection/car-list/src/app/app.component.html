@@ -2,9 +2,9 @@
   <div class="lds-dual-ring" *ngIf="loader"></div>
   <div *ngFor="let vehicle of vehicles"
        class="vehicle">
-    <a href="{{ vehicle | encodeVehicleLink }}"
+    <a #link href="{{ vehicle | encodeVehicleLink }}"
        class="vehicle-info link"
-       appChangeColorField
+       [appChangeColorField]="link"
        target="_blank">
         <span class="vehicle-info_title">Added from:</span>
         <span>{{ vehicle.post.protocol }}</span>

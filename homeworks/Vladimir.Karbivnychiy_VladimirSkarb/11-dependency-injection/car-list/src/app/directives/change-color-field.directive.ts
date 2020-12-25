@@ -1,19 +1,21 @@
 import {
   Directive,
   ElementRef,
-  AfterViewInit,
+  AfterViewInit, Input,
 } from '@angular/core';
 
 @Directive({selector: '[appChangeColorField]'})
 export class ChangeColorFieldDirective implements AfterViewInit {
 
+  @Input('appChangeColorField') link: HTMLAnchorElement | undefined
+
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
-    const protocol: string = this.el.nativeElement.children[1].innerText;
+    const protocol: string | undefined = this.link?.children[1].innerHTML;
     if (protocol === 'http') {
-      this.el.nativeElement.children[0].style.color = 'red';
-      this.el.nativeElement.style.pointerEvents = 'none'
+      this.link?.children[0].setAttribute('style', 'color: red');
+      this.link?.setAttribute('style', 'pointer-events: none');
     }
   }
 }
