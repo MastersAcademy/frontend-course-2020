@@ -50,8 +50,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       element.toArray().forEach((element: ElementRef) => {
         fromEvent<Event>(element.nativeElement, "click")
         .subscribe((event)=>{
-          const elementProtocol = (event.target as HTMLTableElement).dataset.protocol;
-          const elementModel = (event.target as HTMLTableElement).dataset.model;
+          const elementProtocol = (event.target as HTMLLIElement).dataset.protocol;
+          const elementModel = (event.target as HTMLLIElement).dataset.model;
           const uri = `https://www.google.com/search?q=${elementModel}`;
           const encoded = encodeURI(uri);
 

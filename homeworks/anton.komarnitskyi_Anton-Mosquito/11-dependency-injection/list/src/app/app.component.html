@@ -1,13 +1,12 @@
 <app-slider *ngIf="loading"></app-slider>
 
-<div class="wrapper">
-  <table
-    *ngFor="let element of vechicles"
-    #transfer
-    attr.data-protocol="{{ element.post.protocol }}"
-    attr.data-model="{{ element | transformModel }}"
-    class="list"
-  >
+<ul class="wrapper">
+  <li *ngFor="let element of vechicles"
+  #transfer
+  attr.data-protocol="{{ element.post.protocol }}"
+  attr.data-model="{{ element | transformModel }}"
+  class="list">
+    <table>
     <tbody>
       <tr>
         <th>Field</th>
@@ -33,5 +32,6 @@
       </tr>
     </tbody>
   </table>
-</div>
+</li>
+</ul>
 <router-outlet></router-outlet>

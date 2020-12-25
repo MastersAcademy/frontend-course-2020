@@ -1,18 +1,24 @@
 .wrapper {
   width: 60%;
   margin: 5% auto;
+  padding: 0;
 }
 
 .wrapper .list {
   width: 100%;
-  border-collapse: separate;
+  list-style: none;
   margin-bottom: 20px;
 }
 
-.wrapper .list td, th {
+.wrapper .list table {
+  width: 100%;
+  border-collapse: separate;
+  pointer-events: none;
+}
+
+.wrapper .list table td, th {
   padding: 10px;
   text-align: center;
-  pointer-events: none;
 }
 
 .wrapper .list tr:nth-child(odd) {
