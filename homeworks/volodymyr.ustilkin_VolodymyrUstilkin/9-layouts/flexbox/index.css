@@ -4,7 +4,7 @@ body, div, section, nav, img, figure, header, footer, html, p, form, label, inpu
   box-sizing: border-box;
 }
 
-a, button:hover {
+a:hover, button:hover {
   color: #000;
 }
 
@@ -554,8 +554,9 @@ a, button:hover {
   }
 
   .footer-nav-container {
+    width: 100%;
     max-width: 750px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
   }
 
