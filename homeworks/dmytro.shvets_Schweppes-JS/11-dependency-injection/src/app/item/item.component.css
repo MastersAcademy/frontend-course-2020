@@ -1,0 +1,27 @@
+.link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, .85);
+}
+
+.car-grid {
+  width: 100%;
+  font-size: 1.33rem;
+  border-collapse: collapse;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .5);
+}
+
+.car-grid td, .car-grid th {
+  padding: 6px 13px;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.highlight {
+  color: rgba(194, 23, 0, .65);
+}
+
+.disabled {
+  pointer-events: none;
+}

@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  background-color: #dfdfdf;
+}
+
+.container {
+  width: 80%;
+  margin: 150px auto;
+  background-color: #fffacd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 50px 0;
+}
+
+.header {
+  text-align: center;
+  color: #362e30;
+}
+
+.cube__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.cube {
+  width: 100px;
+  height: 100px;
+  background-color: #401310;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: width .3s, height .3s;
+}
+
+.key__wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.key {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid #381D2A;
+  font-size: 32px;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+  color: #2f4f4f;
+}
+
+.cubeScore {
+  font-size: 32px;
+  font-weight: 600;
+  color: #2f4f4f;
+  margin-bottom: 10px;
+  height: 50px;
+}
+
+.progressBar-wrapper {
+  width: 100px;
+  height: 20px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.progressBar {
+  width: 1%;
+  height: 100%;
+  background-color: darkslategrey;
+}
+
+.message {
+  position: fixed;
+  top:calc(100vh / 2 - 150px);
+  left: calc(100vw / 2 - 300px);
+  width: 600px;
+  height: 300px;
+  background-color: #FFF;
+  justify-content: center;
+  line-height: 300px;
+  vertical-align: middle;
+  display: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
