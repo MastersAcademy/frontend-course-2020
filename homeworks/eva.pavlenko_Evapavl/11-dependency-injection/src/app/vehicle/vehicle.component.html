@@ -1,7 +1,10 @@
-<div class="load" *ngIf="areVehicleLoading">
-  Loading...
-</div>
-<div *ngIf="!areVehicleLoading">
+<div *ngIf="areVehicleLoading; then loading else elseBlock"></div>
+<ng-template #loading>
+  <div class="load">
+    Loading...
+  </div>
+</ng-template>
+<ng-template #elseBlock>
   <div class="container-vehicle" *ngFor="let vehicle of vehicles">
     <div class="box-vehicle">
       <div class="columns-vehicle">
@@ -26,4 +29,4 @@
       </div>
     </div>
   </div>
-</div>
+</ng-template>
