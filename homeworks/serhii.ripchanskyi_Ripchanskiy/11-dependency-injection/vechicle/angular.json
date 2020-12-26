@@ -124,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "vechicle"
+  "defaultProject": "vechicle",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  }
 }
