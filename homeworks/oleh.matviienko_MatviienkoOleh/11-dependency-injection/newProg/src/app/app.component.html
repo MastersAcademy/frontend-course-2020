@@ -1,0 +1,6 @@
+<h1 class = "name_Of_List">Vehicles</h1>
+  <ul *ngFor = "let car of arrayOfVehicle" class = "list_Of_Cars">
+    <li>Added from : <span [class.begining_From_Http] = "car.post.protocol  === 'http'">{{car.post.protocol}}</span></li>
+    <li>Vehicle : {{ car.manufacturer }} - {{ car.model }} ({{ car.fuel }})</li>
+    <li>Price	: {{car.cost.amount}} + {{car.cost.currencyCode}}</li>
+  </ul>
