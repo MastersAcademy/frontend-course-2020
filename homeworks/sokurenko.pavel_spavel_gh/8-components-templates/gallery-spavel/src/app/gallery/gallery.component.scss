@@ -1,0 +1,53 @@
+.image {
+  width: 6rem;
+  height: 6rem;
+  border: 1rem solid #0001;
+}
+
+.image > * {
+  pointer-events: none;
+}
+
+.image:hover {
+  border-color: #0003;
+}
+
+.image:active {
+  border-color: #0005;
+}
+
+.image-choose {
+  border-color: #F003;
+}
+
+.spinner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #F003;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.spinner {
+  width: 80%;
+  height: 80%;
+}
+
+.hidden {
+  display: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: center;
+  grid-gap: 2rem;
+  padding-bottom: 2rem;
+}
