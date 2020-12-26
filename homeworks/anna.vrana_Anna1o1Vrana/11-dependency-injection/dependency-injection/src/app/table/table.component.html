@@ -1,0 +1,21 @@
+<div *ngIf="areVehicleLoading">Loading...</div>
+
+<table class="table" *ngIf="!areVehicleLoading">
+  <caption class="table-title">
+    List of cars
+  </caption>
+  <tr>
+    <th class="table-header"></th>
+    <th class="table-header">Added from</th>
+    <th scope="col" class="table-header">Vehicle</th>
+    <th scope="col" class="table-header">Price</th>
+  </tr>
+  <tr *ngFor="let vehicle of vehicles; let i=index">
+
+    <td>{{ i + 1 }}</td>
+    <td appDecorationProtocol>{{ vehicle.post.protocol }}</td>
+    <td>{{vehicle | transformVehiclePipe}}</td>
+    <td>{{ vehicle.cost.amount | currency: vehicle.cost.currencyCode : 'symbol-narrow'  }}</td>
+  </tr>
+
+</table>
