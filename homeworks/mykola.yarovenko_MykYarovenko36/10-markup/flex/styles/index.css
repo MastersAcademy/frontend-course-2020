@@ -12,7 +12,7 @@ body {
 }
 
 .app-wrapper {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -35,6 +35,10 @@ body {
     min-height: 737px;
   }
 
+  .header-nav-wrapper {
+    width: 80%;
+  }
+
   .h1 {
     font-size: 56px;
   }
@@ -44,14 +48,27 @@ body {
     height: 72px;
   }
 
+  .logo-container {
+    width: 220px;
+    height: 72px;
+  }
+
   .item-btn {
     width: 234px;
     height: 60px;
     font-size: 18px;
   }
 
+  .header-link {
+    font-size: 18px;
+  }
+
   .text-field {
     font-size: 18px;
+  }
+
+  .services-description-header {
+    font-size: 26px;
   }
 
   .demo-block {
@@ -70,12 +87,45 @@ body {
 
   .header {
     height: 116px;
+    flex-direction: row;
   }
 
-  .offers-card-btn-wrapper .item-btn {
-    width: 234px;
-    height: 60px;
+  .service-cards-wrapper {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .offers-card-container {
+    flex-direction: row;
+  }
+
+  .offers-card-wrapper {
+    width: 442px;
+    height: 570px;
+    margin: 50px;
+  }
+
+  .offers-card-content {
+    width: 442px;
+    height: 545px;
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(105, 106, 134, .1);
+  }
+
+  .offers-card-description {
     font-size: 18px;
+    max-width: 346px;
+    min-height: 120px;
+  }
+
+  .offers-card-img {
+    width: 340px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .offers-card-header {
+    font-size: 26px;
   }
 
   .registration-form-wrapper {
@@ -87,8 +137,30 @@ body {
     font-size: 48px;
   }
 
+  .input-field {
+    width: 400px;
+    height: 60px;
+    padding-left: 40px;
+    border-radius: 5px;
+    box-shadow: 0 20px 40px rgba(149, 149, 201, .2);
+    margin-bottom: 30px;
+  }
+
+  .sign-text {
+    font-size: 18px;
+  }
+
+  .form-submit-btn {
+    font-size: 16px;
+    width: 220px;
+  }
+
   .footer-nav-bar {
     width: 60%;
+  }
+
+  .footer-contact-links-wrapper {
+    flex-direction: row;
   }
 }
 
@@ -105,6 +177,10 @@ body {
     min-height: 737px;
   }
 
+  .header-nav-wrapper {
+    width: 90%;
+  }
+
   .h1 {
     font-size: 56px;
   }
@@ -114,14 +190,27 @@ body {
     height: 64px;
   }
 
+  .logo-container {
+    width: 190px;
+    height: 64px;
+  }
+
   .item-btn {
     width: 234px;
     height: 60px;
     font-size: 18px;
   }
 
+  .header-link {
+    font-size: 16px;
+  }
+
   .text-field {
     font-size: 18px;
+  }
+
+  .services-description-header {
+    font-size: 20px;
   }
 
   .demo-block {
@@ -140,6 +229,7 @@ body {
 
   .header {
     min-height: 116px;
+    flex-direction: row;
   }
 
   .header-nav-list-wrapper {
@@ -147,14 +237,47 @@ body {
     width: 60%;
   }
 
-  .offers-card-btn-wrapper .item-btn {
-    width: 234px;
-    height: 60px;
+  .service-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .offers-card-wrapper {
+    width: 442px;
+    height: 570px;
+    margin: 50px;
+  }
+
+  .offers-card-content {
+    width: 442px;
+    height: 545px;
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(105, 106, 134, .1);
+  }
+
+  .offers-card-description {
     font-size: 18px;
+    max-width: 346px;
+    min-height: 120px;
+  }
+
+  .offers-card-img {
+    width: 340px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .offers-card-header {
+    font-size: 26px;
+  }
+
+  .offers-card-container {
+    flex-direction: column;
   }
 
   .registration-form-wrapper {
-    width: 708px;
+    width: 608px;
     height: 566px;
   }
 
@@ -167,7 +290,7 @@ body {
   }
 }
 
-@media screen and (max-device-width: 768px) {
+@media screen and (max-device-width: 768px) and (min-device-width: 320px) {
 
   .app-wrapper {
     max-width: 768px;
@@ -180,23 +303,40 @@ body {
     min-height: 537px;
   }
 
+  .header-nav-wrapper {
+    width: 95%;
+  }
+
   .h1 {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .logo-icon {
-    width: 52px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-container {
+    width: 170px;
+    height: 42px;
   }
 
   .item-btn {
-    width: 184px;
-    height: 50px;
-    font-size: 16px;
+    width: 104px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .header-link {
+    font-size: 14px;
   }
 
   .text-field {
-    font-size: 16px;
+    font-size: 12px;
+  }
+
+  .services-description-header {
+    font-size: 18px;
   }
 
   .demo-block {
@@ -219,32 +359,97 @@ body {
 
   .header-nav-list-wrapper {
     order: 1;
-    width: 60%;
+    width: 100%;
   }
 
   .header-content {
-    width: 80%;
-    margin-bottom: 10%;
-    margin-left: 10%;
+    width: 90%;
+  }
+
+  .service-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .offers-card-container {
+    flex-direction: column;
+  }
+
+  .offers-card-wrapper {
+    width: 300px;
+    height: 420px;
+    margin: 10px;
+  }
+
+  .offers-card-content {
+    width: 300px;
+    height: 420px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(105, 106, 134, .1);
+  }
+
+  .offers-card-description {
+    font-size: 14px;
+    max-width: 346px;
+    min-height: 120px;
+  }
+
+  .offers-card-img {
+    width: 280px;
+    height: 150px;
+    border-radius: 5px;
+  }
+
+  .offers-card-header {
+    font-size: 20px;
   }
 
   .offers-card-btn-wrapper .item-btn {
-    width: 234px;
-    height: 60px;
-    font-size: 18px;
+    width: 180px;
+    height: 40px;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 
   .registration-form-wrapper {
-    width: 708px;
-    height: 566px;
+    width: 280px;
+    height: 366px;
   }
 
   .registration---header {
     font-size: 32px;
   }
 
+  .input-field {
+    width: 250px;
+    height: 40px;
+    padding-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(149, 149, 201, .2);
+    margin-bottom: 15px;
+  }
+
+  .sign-text {
+    font-size: 12px;
+  }
+
+  .form-submit-btn {
+    font-size: 16px;
+    width: 140px;
+    height: 40px;
+  }
+
   .footer-nav-bar {
     width: 80%;
+  }
+
+  .footer-contact-links-wrapper {
+    flex-direction: column;
+  }
+
+  .copyright {
+    margin-left: 10px;
   }
 }
 
@@ -260,8 +465,6 @@ body {
 }
 
 .logo-container {
-  width: 220px;
-  height: 72px;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -275,7 +478,7 @@ body {
 
 .header {
   background: rgba(196, 196, 196, .1);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -286,7 +489,6 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: 80%;
 }
 
 .header-nav-list-wrapper {
@@ -306,7 +508,6 @@ body {
 .header-link {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 18px;
   color: #717784;
 }
 
@@ -369,13 +570,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  white-space: nowrap;
+  text-align: center;
 }
 
-.description-header {
-  font-size: 26px;
+.services-description-header {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+
+.services-description-text {
+  max-width: 60%;
+  text-align: center;
 }
 
 .services-description .text-field {
@@ -387,10 +592,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.service-cards-wrapper {
-  display: inline-flex;
 }
 
 .service-icon {
@@ -491,14 +692,10 @@ body {
 
 .offers-card-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .offers-card-wrapper {
-  width: 442px;
-  height: 570px;
-  margin: 50px;
   display: flex;
   position: relative;
 }
@@ -508,27 +705,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 442px;
-  height: 545px;
   border-radius: 10px;
-  box-shadow: 0 20px 20px rgba(105, 106, 134, .1);
 }
 
 .offers-card-description {
-  font-size: 18px;
-  max-width: 346px;
-  min-height: 120px;
   text-align: center;
 }
 
-.offers-card-img {
-  width: 340px;
-  height: 150px;
-  border-radius: 10px;
-}
-
 .offers-card-header {
-  font-size: 26px;
   font-weight: 500;
   color: #000;
 }
@@ -562,6 +746,8 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
   min-height: 67px;
+  text-align: center;
+  width: 80%;
 }
 
 .registration-form-wrapper {
@@ -583,14 +769,8 @@ body {
 }
 
 .input-field {
-  width: 400px;
-  height: 60px;
-  padding-left: 40px;
-  border-radius: 5px;
   border: 1px solid #9595C9;
   box-sizing: border-box;
-  box-shadow: 0 20px 40px rgba(149, 149, 201, .2);
-  margin-bottom: 30px;
 }
 
 .registration-form .text-field {
@@ -615,13 +795,11 @@ body {
   border: 2px solid #9595C9;
 }
 
-.registration-form .item-btn {
+.form-submit-btn {
   border-radius: 5px;
   background: #9595C9;
   font-size: 16px;
-  font-weight: 700;
   font-family: "Rubik", sans-serif;
-  width: 220px;
 }
 
 .sign-link {
@@ -630,7 +808,6 @@ body {
 
 .sign-text {
   font-weight: 500;
-  font-size: 18px;
 }
 
 .footer {
@@ -671,7 +848,6 @@ body {
   padding: 0;
 }
 
-
 .footer-links-item {
   color: #E6E6E6;
   font-size: 16px;
@@ -679,16 +855,17 @@ body {
   font-weight: 400;
 }
 
-
 .footer-contact-links-wrapper {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 30px;
+  width: 80%;
+  align-self: center;
 }
 
 .contact-links {
   display: flex;
-  align-items: center;
   min-height: 40px;
 }
 
@@ -712,7 +889,6 @@ body {
   width: 36px;
   height: 36px;
   margin-left: 15px;
-  margin-right: 15px;
   --circleColor: #9B9BCA;
   --textColor: #FFF;
 }
