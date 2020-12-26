@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <div *ngIf="isLoading"> Loading...</div>
+    <div *ngIf="!isLoading">
+        <div *ngIf="itemData; else itemError">
+          <app-mock-wehicle
+              *ngFor="let item of cars"
+              [car]="item"
+          >
+         </app-mock-wehicle>
+        </div>
+        <ng-template #itemError>
+            <p>Something went wrong! try again later</p>
+        </ng-template>
+    </div>
+</div>
