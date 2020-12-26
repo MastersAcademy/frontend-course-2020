@@ -5,7 +5,7 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 })
 
 export class ChangeHttp implements AfterViewInit {
-  @Input() http;
+  @Input() http: HTMLElement;
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit(): void {
