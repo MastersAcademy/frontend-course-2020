@@ -355,6 +355,7 @@ a:focus, button:focus {
 }
 
 .join-us-form-input {
+  padding: 0 10px;
   display: block;
   width: 100%;
   height: 60px;
