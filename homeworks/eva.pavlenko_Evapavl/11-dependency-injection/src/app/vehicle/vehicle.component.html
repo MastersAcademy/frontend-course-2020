@@ -1,10 +1,7 @@
-<div *ngIf="areVehicleLoading; then loading else elseBlock"></div>
-<ng-template #loading>
-  <div class="load">
-    Loading...
-  </div>
-</ng-template>
-<ng-template #elseBlock>
+<div class="load" *ngIf="areVehicleLoading;else listModels">
+  Loading...
+</div>
+<ng-template #listModels>
   <div class="container-vehicle" *ngFor="let vehicle of vehicles">
     <div class="box-vehicle">
       <div class="columns-vehicle">
@@ -14,7 +11,8 @@
       <div class="columns-vehicle">
         <div class="colunm-vehicle-small">Added from</div>
         <div class="colunm-vehicle-big clicks" [changeBackgroundColor]='vehicle'
-             protocol="{{ vehicle.post.protocol }}">{{ vehicle.post.protocol }}</div>
+             protocol="{{ vehicle.post.protocol }}">{{ vehicle.post.protocol }}
+        </div>
       </div>
       <div class="columns-vehicle">
         <div class="colunm-vehicle-small">Vehicle</div>
@@ -25,7 +23,8 @@
       <div class="columns-vehicle">
         <div class="colunm-vehicle-small">Price</div>
         <div
-          class="colunm-vehicle-big">{{vehicle.cost.amount | currency: vehicle.cost.currencyCode:'symbol-narrow'}}</div>
+          class="colunm-vehicle-big">{{vehicle.cost.amount | currency: vehicle.cost.currencyCode:'symbol-narrow'}}
+        </div>
       </div>
     </div>
   </div>

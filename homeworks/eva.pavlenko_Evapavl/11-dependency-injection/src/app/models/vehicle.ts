@@ -1,5 +1,5 @@
-import { Post } from "./post";
-import { Cost } from "./cost";
+import {Post} from "./post";
+import {Cost} from "./cost";
 
 export interface Vehicle {
   color: string;
@@ -9,8 +9,16 @@ export interface Vehicle {
   type: string;
   vehicle: string;
   vin: string;
-  post: Post;
-  cost: Cost
+  post: {
+    slug: string;
+    protocol: string;
+  }
+  cost: {
+    account: string;
+    accountName: string;
+    amount: string;
+    currencyCode: string;
+  }
 }
 
 
