@@ -6,16 +6,18 @@ export interface Vehicle {
   type: string;
   vehicle: string;
   vin: string;
-  post: {
-    slug: string;
-    protocol: string;
-  }
-  cost: {
-    account: string;
-    accountName: string;
-    amount: string;
-    currencyCode: string;
-  }
+  post: Post;
+  cost: Cost;
 }
 
+export interface Cost {
+  account: string;
+  accountName: string;
+  amount: string;
+  currencyCode: string;
+}
 
+export interface Post {
+  slug: string;
+  protocol: string;
+}
