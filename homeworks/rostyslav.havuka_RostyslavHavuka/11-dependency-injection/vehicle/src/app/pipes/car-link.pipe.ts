@@ -7,7 +7,7 @@ import { Car } from '../model';
 export class CarLinkPipe implements PipeTransform {
 
   transform(car: Car): string {
-    return `https://www.google.com/search?q= + ${encodeURIComponent(car.vehicle)}`
+    return `https://www.google.com/search?q=${encodeURIComponent(car.vehicle)}`
   }
 
 }
