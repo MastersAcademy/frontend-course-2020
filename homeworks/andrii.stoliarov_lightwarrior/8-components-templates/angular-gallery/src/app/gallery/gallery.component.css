@@ -1,0 +1,44 @@
+.images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 5em;
+}
+
+.frame-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #006400;
+  margin: 5px;
+  overflow: hidden;
+}
+
+.hide-img {
+  display: none;
+}
+
+.selected {
+  border: 5px solid #8B0000;
+}
+
+.regular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.figcaption {
+  text-align: center;
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+  font-weight: 700;
+  margin: 1em;
+}
+
+.regular img {
+  border: 7px solid #8B0000;
+}

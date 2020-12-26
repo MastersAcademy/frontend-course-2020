@@ -1,0 +1,37 @@
+.message {
+  display: none;
+  font-size: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 320px) {
+
+  .message {
+    display: block;
+  }
+
+  .wrapper {
+    display: none;
+  }
+}
+
+.header,
+.footer {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.footer {
+  display: none;
+  border-top: 1px solid #444;
+}
+
+.main {
+  display: grid;
+}
