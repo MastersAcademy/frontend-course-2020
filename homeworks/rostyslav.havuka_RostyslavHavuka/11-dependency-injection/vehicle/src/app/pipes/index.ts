@@ -3,7 +3,6 @@ import { InfoCarPipe } from './info-car.pipe';
 
 export const AppPipes = [
   CarLinkPipe,
-
   InfoCarPipe,
 ];
 
