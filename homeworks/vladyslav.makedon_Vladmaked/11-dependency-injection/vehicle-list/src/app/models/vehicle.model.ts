@@ -1,3 +1,6 @@
+import {VehiclePost} from './vehicle-post.model';
+import {VehicleCost} from './vehicle-cost.model';
+
 export interface Vehicle {
   color: string;
   fuel: string;
@@ -6,18 +9,6 @@ export interface Vehicle {
   type: string;
   vehicle: string;
   vin: string;
-  post: Post;
-  cost: Cost;
-}
-
-export interface Post {
-  slug: string;
-  protocol: string;
-}
-
-export interface Cost {
-  account: string;
-  accountName: string;
-  amount: string;
-  currencyCode: string;
+  post: VehiclePost;
+  cost: VehicleCost;
 }
