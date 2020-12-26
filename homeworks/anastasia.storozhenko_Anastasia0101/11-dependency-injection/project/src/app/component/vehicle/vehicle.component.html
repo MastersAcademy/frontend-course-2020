@@ -1,0 +1,10 @@
+<div *ngIf="isLoading">Loading...</div>
+
+<ul *ngIf="!isLoading">
+  <li *ngFor="let vehicle of vehicles">
+    <p [class.protocol-http]="vehicle.post.protocol === 'http'">Added from: {{vehicle.post.protocol}}</p>
+    <p>Vehicle: {{vehicle | transformVehiclePipe}}</p>
+    <p>Price: {{vehicle.cost.amount | currency: vehicle.cost.currencyCode}}</p>
+  </li>
+</ul>
+
