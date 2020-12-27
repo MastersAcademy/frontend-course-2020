@@ -1,15 +1,13 @@
-/*style for table*/
-
 .table-title {
   padding: 15px;
-  color: #436D5D;
+  color: #43526D;
   text-align: center;
   font-size: 1.6rem;
   font-weight: 600;
 }
 
 .table-header {
-  background: #48B122;
+  background: #8622B1;
   color: #FFF;
   font-size: 1.3rem;
 }
@@ -22,13 +20,9 @@
   font-size: 1.2rem;
 }
 
-td, th {
+td, .table-header {
   border: 1px solid rgb(190, 190, 190);
   padding: 10px 20px;
-}
-
-th {
-  background-color: rgb(235, 235, 235);
 }
 
 td {
@@ -38,9 +32,3 @@ td {
 tr:nth-child(even) td {
   background-color: rgb(250, 250, 250);
 }
-
-tr:nth-child(odd) td {
-  //background-color: rgb(245, 245, 245);
-}
-
-/* new style*/
