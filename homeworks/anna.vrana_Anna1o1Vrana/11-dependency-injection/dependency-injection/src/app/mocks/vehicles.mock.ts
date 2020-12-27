@@ -4,8 +4,7 @@ import * as faker from 'faker';
 const count = 20;
 let seed = 1222;
 
-// tslint:disable-next-line:typedef
-function getFakeVehicle() {
+function getFakeVehicle(): any {
   seed += 1;
   faker.seed(seed);
 
