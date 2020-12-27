@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { VehicleService } from '../services'
 
-import { Vehicle } from "../models/vehicle.model";
+import { Vehicle } from "../models/vehicle.interface";
 import {finalize} from "rxjs/operators";
 
 @Component({
@@ -12,17 +12,17 @@ import {finalize} from "rxjs/operators";
 export class TableComponent {
   vehicles: Vehicle[] = [];
 
-  areVehicleLoading: boolean = false;
+  isVehicleLoading: boolean = false;
 
   constructor(private vehicleService: VehicleService) {
     this.getVehicle();
   }
 
   private getVehicle(): void {
-    this.areVehicleLoading = true;
+    this.isVehicleLoading = true;
 
     this.vehicleService.getVehicle()
-      .pipe(finalize( () => this.areVehicleLoading = false) )
+      .pipe(finalize( () => this.isVehicleLoading = false) )
       .subscribe(( vehicle: Vehicle[] ) => this.vehicles = vehicle);
   }
 
