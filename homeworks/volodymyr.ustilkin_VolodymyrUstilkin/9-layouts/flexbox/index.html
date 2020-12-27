@@ -84,7 +84,14 @@
 
     <section class="first-see-how-to-expand-section">
         <h2 class="first-see-how-to-expand-text">First see how to expand<br>or our demo</h2>
-        <img class="first-see-how-to-expand-image" src="images/expand-demo.png" alt="loading...">
+        <img class="first-see-how-to-expand-image"
+                 srcset="images/expand-demo-small-700.png 700w,
+                    images/expand-demo-medium-1200.png 1200w,
+                    images/expand-demo-full-1600.png 1600w"
+                 sizes="(max-width: 720px) 700w,
+                    (max-width: 1280px) 1200w"
+                 src="images/expand-demo-full-1600.png"
+             alt="loading...">
     </section>
 
     <section class="best-feature-in-the-world-section">
@@ -172,16 +179,15 @@
             <p class="footer-year">Copyright @ 2020</p>
             <div class="footer-social-icons">
                 <a class="footer-social-link" href="">
-                    <div class="footer-social-ico-container"><img class="footer-social-ico"
-                                                                  src="images/facebook-footer-ico.png" alt="fb"></div>
+                    <div class="footer-social-ico-container"><img class="footer-social-ico" src="icons/facebook-icon.svg" alt="fb"></div>
                 </a>
                 <a class="footer-social-link" href="">
-                    <div class="footer-social-ico-container"><img class="footer-social-ico"
-                                                                  src="images/twitter-footer-ico.png" alt="tv"></div>
+                    <div class="footer-social-ico-container"><img class="footer-social-ico" src="icons/twitter-icon.svg"
+                                                                  alt="tv"></div>
                 </a>
                 <a class="footer-social-link" href="">
-                    <div class="footer-social-ico-container"><img class="footer-social-ico"
-                                                                  src="images/instagram-footer-ico.png" alt="inst"></div>
+                    <div class="footer-social-ico-container"><img class="footer-social-ico" src="icons/instagram-icon.svg"
+                                                                  alt="inst"></div>
                 </a>
             </div>
             <div class="footer-social-site">
