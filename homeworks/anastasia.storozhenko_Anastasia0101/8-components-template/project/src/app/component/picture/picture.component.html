@@ -1,0 +1,3 @@
+<img class="img" [src]="picture.urls.thumb" (load)="onLoadPicture()" (click)="onClickPicture()">
+<app-loader *ngIf="isLoading"></app-loader>
+
