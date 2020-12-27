@@ -1,6 +1,6 @@
-<div *ngIf="isVehicleLoading">Loading...</div>
+<div *ngIf="isVehicleLoading; else vehicleLoadingBlock">Loading...</div>
 
-<table class="table" *ngIf="!isVehicleLoading">
+<table class="table" #vehicleLoadingBlock>
   <caption class="table-title">
     List of cars
   </caption>
