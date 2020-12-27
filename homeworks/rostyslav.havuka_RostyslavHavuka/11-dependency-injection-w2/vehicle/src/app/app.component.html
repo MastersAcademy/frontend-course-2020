@@ -1,0 +1,15 @@
+<div *ngIf="areUsersLoading">Loading...</div>
+<ul *ngIf="!areUsersLoading">
+  <li *ngFor="let car of cars" class="list">
+    <a href="{{ car | carLink }}" [http]="carlink" class="links">
+    <span #carlink>
+      Added from {{ car.post.protocol }}
+    </span>
+      <br>
+    Vehicle: {{ car | infoCar }}
+      <br>
+    Price: {{car.cost.amount | currency: car.cost.currencyCode:'symbol-narrow'}}
+    </a>
+  </li>
+</ul>
+

@@ -1,0 +1,11 @@
+.links {
+  display: block;
+  text-decoration: none;
+  color: #030303;
+}
+
+.list {
+  width: 300px;
+  border: solid 1px #030303;
+  padding: 1px;
+}
