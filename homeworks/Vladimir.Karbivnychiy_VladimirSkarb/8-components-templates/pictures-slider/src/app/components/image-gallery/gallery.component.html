@@ -1,0 +1,28 @@
+<section class="section-gallery">
+  <div class="img-wrapper">
+    <app-image-item
+      class="img-item"
+      *ngFor="let item of list; let i = index"
+      [item]="item"
+      [class.active]="list[i].id === fullImage?.id"
+      (showEvent)="showItem($event)">
+    </app-image-item>
+  </div>
+  <div *ngIf="fullImage"
+       class="full-img-container">
+    <button (click)="showPrevEl()"
+            class="btn">
+      <i class="arrow left-icon"></i>
+    </button>
+    <img *ngIf="fullImage"
+         class="full-img"
+         [src]="fullImage.urls.full"
+         [alt]="fullImage.id"
+         (load)="hideLoader()">
+    <div class="lds-dual-ring" [ngClass]="!loader?'hidden':'show'"></div>
+    <button (click)="showNextEl()"
+            class="btn">
+      <i class="arrow right-icon"></i>
+    </button>
+  </div>
+</section>

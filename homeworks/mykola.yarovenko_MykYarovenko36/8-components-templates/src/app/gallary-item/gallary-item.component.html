@@ -1,0 +1,18 @@
+<div>
+<img
+    class="gallary-item-image"
+    [src]="card.urls.small"
+    (load)="isLoad()"
+    [id]="cardId"
+    [hidden]="!itemIsLoad"
+  >
+  <div *ngIf="!itemIsLoad" class="item-loader">
+      <div class="loader-content"></div>
+      <div class="loader-content"></div>
+  </div>
+</div>
+
+
+
+
+

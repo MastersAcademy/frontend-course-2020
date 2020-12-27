@@ -1,0 +1,8 @@
+<div class="gallery">
+    <app-tile
+    *ngFor="let image of images"
+    [url]="image.urls.small"
+    [likes]="image.likes"
+    [id]="image.id"
+    ></app-tile>
+</div>

@@ -1,0 +1,10 @@
+<app-image-gallery
+  [imgPosition]="imgPosition"
+  [images]="images"
+  (setCurrentImg)="setCurrentImg($event)"
+></app-image-gallery>
+<app-image-slider
+  [currentImg]="currentImg"
+  (onPrev)="onPrev()"
+  (onNext)="onNext()"
+></app-image-slider>
