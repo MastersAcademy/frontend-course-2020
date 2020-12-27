@@ -1,0 +1,27 @@
+<div class="container">
+  <div *ngIf="vehiclesLoading" class="loading"></div>
+
+  <ul *ngIf="!vehiclesLoading">
+    <li *ngFor="let vehicle of vehicles" class="vehicle-list-item">
+
+      <div>
+        <span class="vehicle-label" appChange>Added from : <span class="vehicle-span"
+            appChange>{{ vehicle.post.protocol }}</span>
+        </span>
+      </div>
+
+      <div>
+        <span class="vehicle-label">Vehicle :</span>
+        <span class="vehicle-span">{{ vehicle | vehiclesPipe }}</span>
+      </div>
+
+      <div>
+        <span class="vehicle-label">Price :</span>
+        <span class="vehicle-span">{{ vehicle.cost.amount | currency }} {{ vehicle.cost.currencyCode }}</span>
+      </div>
+    </li>
+  </ul>
+
+</div>
+
+<router-outlet></router-outlet>
