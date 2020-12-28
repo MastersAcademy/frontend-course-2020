@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { MOCK_VEHICLES } from './mocks';
+import { VehicleService } from './services';
+import { Vehicle } from './models';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +9,17 @@ import { MOCK_VEHICLES } from './mocks';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public arrayOfVehicle: any = MOCK_VEHICLES;
+  arrayOfVehicles: Vehicle[] = [];
+  areVehiclesLoading: boolean = false;
 
-  constructor() {
-    console.log(this.arrayOfVehicle);
+  constructor(private vehiclesService: VehicleService) {
+    this.getVehicle();
+  }
+
+  private getVehicle(): void {
+    this.areVehiclesLoading = true;
+    this.vehiclesService.getVehicle()
+    .pipe(finalize(() => this.areVehiclesLoading = false))
+    .subscribe((vehicles: Vehicle[]) => this.arrayOfVehicles = vehicles);
   }
 }
