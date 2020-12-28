@@ -4,18 +4,18 @@
   <caption class="table-title">
     List of cars
   </caption>
-  <tr>
+  <tr class="table-row">
     <th class="table-header"></th>
     <th class="table-header">Added from</th>
     <th scope="col" class="table-header">Vehicle</th>
     <th scope="col" class="table-header">Price</th>
   </tr>
-  <tr *ngFor="let vehicle of vehicles; let i=index">
+  <tr *ngFor="let vehicle of vehicles; let i=index" class="table-row">
 
-    <td>{{ i + 1 }}</td>
-    <td appDecorationProtocol>{{ vehicle.post.protocol }}</td>
-    <td>{{vehicle | transformVehiclePipe}}</td>
-    <td>{{ vehicle.cost.amount | currency: vehicle.cost.currencyCode : 'symbol-narrow'  }}</td>
+    <td class="table-data">{{ i + 1 }}</td>
+    <td class="table-data" appDecorationProtocol>{{ vehicle.post.protocol }}</td>
+    <td class="table-data">{{vehicle | transformVehiclePipe}}</td>
+    <td class="table-data">{{ vehicle.cost.amount | currency: vehicle.cost.currencyCode : 'symbol-narrow'  }}</td>
   </tr>
 
 </table>
