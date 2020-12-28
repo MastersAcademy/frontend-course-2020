@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+* {
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=styles.css.map*/
