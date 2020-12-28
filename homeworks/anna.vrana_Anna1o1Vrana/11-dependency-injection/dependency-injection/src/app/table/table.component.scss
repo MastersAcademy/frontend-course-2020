@@ -1,3 +1,12 @@
+.loading {
+  background-color: #2864BD;
+  text-align: center;
+  color: #FFF;
+  height: 100vh;
+  font-size: 50px;
+  padding: 50px;
+}
+
 .table-title {
   padding: 15px;
   color: #383678;
@@ -7,7 +16,7 @@
 }
 
 .table-header {
-  background: #2864bd;
+  background: #2864BD;
   color: #FFF;
   font-size: 1.3rem;
 }
