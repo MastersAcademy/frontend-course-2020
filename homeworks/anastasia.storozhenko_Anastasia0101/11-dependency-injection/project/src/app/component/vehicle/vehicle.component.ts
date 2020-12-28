@@ -1,8 +1,5 @@
-import { Component } from '@angular/core';
-import { finalize } from 'rxjs/operators';
-
-import {Vehicle} from './models/vehicle.model';
-import {VehicleService} from './services/vehicle.service';
+import { Component, Input } from '@angular/core';
+import { Vehicle } from './models/vehicle.model';
 
 @Component({
   selector: 'app-vehicle',
@@ -10,20 +7,6 @@ import {VehicleService} from './services/vehicle.service';
   styleUrls: ['./vehicle.component.css']
 })
 export class VehicleComponent {
-  vehicles: Vehicle[] = [];
-  isLoading: boolean = true;
 
-  constructor(
-    private vehicleService: VehicleService,
-  ) {
-    this.getVehicles();
-  }
-
-  private getVehicles(): void {
-    this.vehicleService.getVehicles()
-      .pipe(finalize(() => this.isLoading = false))
-      .subscribe((vehicles: Vehicle[]) => {
-        this.vehicles = vehicles;
-      });
-  }
+  @Input() vehicle !: Vehicle;
 }
