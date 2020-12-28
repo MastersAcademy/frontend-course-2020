@@ -1,7 +1,7 @@
-import {PricePipe} from "./characteristics.pipe";
+import {TransformCharacteristicsPipe} from "./characteristics.pipe";
 
-export const appPrisePipe = [
-    PricePipe
+export const appCharacteristicsPipe = [
+    TransformCharacteristicsPipe
 ];
 
 export * from './characteristics.pipe'

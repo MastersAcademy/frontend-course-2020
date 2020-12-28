@@ -1,6 +1,6 @@
-<div *ngIf="areVehiclesLoading">Loading...</div>
-  <ul *ngFor = "let cars of arrayOfVehicles" class = "list_Of_Cars">
-    <li>Added from : <span [class.begining_From_Http] = "cars.post.protocol  === 'http'">{{cars.post.protocol}}</span></li>
-    <li>Vehicle : {{ cars | characteristicsPipe}}</li>
-    <li>Price	: {{ cars.cost.amount | currency: cars.cost.currencyCode: "symbol-narrow"}}</li>
+<div *ngIf = "areVehiclesLoading">Loading...</div>
+  <ul *ngFor = "let car of arrayOfVehicles" class = "list_Of_Cars">
+    <li>Added from : <span [class.begining_From_Http] = "car.post.protocol  === 'http'">{{car.post.protocol}}</span></li>
+    <li>Vehicle : {{ car | transformCharacteristicsPipe}}</li>
+    <li>Price	: {{ car.cost.amount | currency: car.cost.currencyCode: "symbol-narrow"}}</li>
   </ul>

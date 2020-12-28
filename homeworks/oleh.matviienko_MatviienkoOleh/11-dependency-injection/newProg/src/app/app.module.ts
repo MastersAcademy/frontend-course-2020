@@ -4,12 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appServices } from './services';
-import { appPrisePipe } from './pipes';
+import { appCharacteristicsPipe } from './pipes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ...appPrisePipe,
+    ...appCharacteristicsPipe,
   ],
   imports: [
     BrowserModule,
@@ -17,7 +17,7 @@ import { appPrisePipe } from './pipes';
   ],
   providers: [
     ...appServices,
-    ...appPrisePipe,
+    ...appCharacteristicsPipe,
   ],
   bootstrap: [AppComponent]
 })

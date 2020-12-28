@@ -2,10 +2,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {Vehicle} from '../models/vehicle.model';
 
 @Pipe({
-    name: 'characteristicsPipe'
+    name: 'transformCharacteristicsPipe'
 })
 
-export class PricePipe implements PipeTransform {
+export class TransformCharacteristicsPipe implements PipeTransform {
     transform(cars: Vehicle): string{
         return `${ cars.manufacturer } - ${ cars.model } (${ cars.fuel })`
     }
