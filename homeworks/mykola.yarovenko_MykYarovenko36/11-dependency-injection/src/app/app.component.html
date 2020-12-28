@@ -1,15 +1,17 @@
 <div class="wrapper">
-    <div *ngIf="isLoading"> Loading...</div>
+    <div *ngIf="isLoading" class="loader">
+      <img src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg" alt="Loading...">
+    </div>
     <div *ngIf="!isLoading">
-        <div *ngIf="itemData; else itemError">
-          <app-mock-wehicle
-              *ngFor="let item of cars"
-              [car]="item"
+        <div *ngIf="itemData; else itemError" class="cards-container">
+          <app-vehicle
+              *ngFor="let item of mockVehicles"
+              [vehicle]="item"
           >
-         </app-mock-wehicle>
+         </app-vehicle>
         </div>
         <ng-template #itemError>
-            <p>Something went wrong! try again later</p>
+            <p class="error-message">Something went wrong!  :-(</p>
         </ng-template>
     </div>
 </div>

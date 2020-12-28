@@ -1,4 +1,4 @@
-export interface Mock_Vehicles {
+export interface MockVehicle {
     color: string,
     fuel: string,
     manufacturer: string,

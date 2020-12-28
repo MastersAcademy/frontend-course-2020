@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 import { delay } from 'rxjs/operators';
-import { Mock_Vehicles } from './models/vehicles';
-import { CarsService } from './services';
+import { MockVehicle } from './models/vehicle';
+import { VehicleService } from './services';
 
 @Component({
     selector: 'app-root',
@@ -10,18 +10,18 @@ import { CarsService } from './services';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    cars: Mock_Vehicles[] = [];
+    mockVehicles: MockVehicle[] = [];
     itemData: boolean = false;
     isLoading: boolean = true;
-    constructor (private carsServices: CarsService) {
+    constructor (private vehicleServices: VehicleService) {
         this.getCars();
     }
     private getCars(): void {
-        this.carsServices.getCars().pipe(
+        this.vehicleServices.getVehicleLayouts().pipe(
           delay(2000),
           ).subscribe(
-                (arg : Mock_Vehicles[]) => {
-                    this.cars = arg;
+                (arg : MockVehicle[]) => {
+                    this.mockVehicles = arg;
                     this.itemData = true;
                     this.isLoading = false;
                 });

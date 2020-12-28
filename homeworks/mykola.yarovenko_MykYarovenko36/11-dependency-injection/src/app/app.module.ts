@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { appServices } from './services';
 import { appDirectives } from './directives';
 import { appPipes } from './pipes';
-import { MockWehicleComponent } from './mock-wehicle/mock-wehicle.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 @NgModule({
     declarations: [
-      AppComponent,
-      MockWehicleComponent,
       ...appDirectives,
       ...appPipes,
+      AppComponent,
+      VehicleComponent,
     ],
     imports: [
       BrowserModule,

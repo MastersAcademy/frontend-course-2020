@@ -1,7 +1,7 @@
-import { CarsService } from './cars.service';
+import { VehicleService } from './vehicle.service';
 
 export const appServices = [
-  CarsService,
+  VehicleService,
 ];
 
-export * from './cars.service';
+export * from './vehicle.service';

@@ -1,6 +1,9 @@
-import { LinkClicked } from './link-clicked.directive';
+import { LinkColor } from './color-link.directive';
+import { LinkAdress } from './adress-link.directive';
 
 export const appDirectives = [
-  LinkClicked,
+  LinkColor,
+  LinkAdress,
 ];
-export * from './link-clicked.directive';
+export * from './adress-link.directive';
+export * from './color-link.directive';
