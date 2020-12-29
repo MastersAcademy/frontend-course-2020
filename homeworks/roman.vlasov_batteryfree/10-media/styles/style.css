@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #626780;
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+.container {
+  margin: 0 16px;
+  padding-top: 16px;
+}
+
+/* header section */
+
+.header {
+  height: 100vh;
+  background: url("../img/bg-header-1.jpeg") no-repeat;
+  background-size: cover;
+}
+
+.header__wrap {
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-areas: "logotype menu" "header-description header-description";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px 1fr;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
+  grid-area: logotype
+}
+
+.logo:focus {
+  border: solid 1px #000;
+}
+
+.logo__circle {
+  color: #FFF;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #CCC;
+}
+
+.logo__text {
+  display: block;
+  font-size: 16px;
+  color: #FFF;
+}
+
+.header__checkbox {
+  display: none;
+}
+
+.header__menu {
+  display: block;
+  grid-area: menu;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.header__menu:hover {
+  background-color: #000;
+}
+
+.header__menu:focus {
+  background-color: #000;
+}
+
+.nav {
+  display: none;
+  color: #717784;
+  width: 150px;
+  background-color: #FFF;
+  border: solid 1px #717784;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+.nav__link {
+  text-decoration: none;
+  border-bottom: solid 1px #CCC;
+  padding: 5px;
+  color: #717784;
+}
+
+.nav__link:hover {
+  background-color: #000;
+}
+
+.nav__link:focus {
+  background-color: #000;
+}
+
+.header__checkbox:checked ~ .nav {
+  display: grid;
+}
+
+.header__description {
+  color: #696A86;
+  grid-area: header-description;
+}
+
+.header__headline {
+  font-size: 24px;
+  font-family: "DM Serif Display";
+  text-align: center;
+  padding-bottom: 16px;
+}
+
+.header__text {
+  text-align: justify;
+  padding-bottom: 16px;
+}
+
+.header__btn {
+  display: block;
+  margin: auto;
+  font-weight: 600;
+  color: #FFF;
+  width: 120px;
+  height: 40px;
+  background-color: #9B9BCA;
+  border-radius: 5px;
+  border: none;
+}
+
+.header__btn:hover {
+  background-color: #000;
+}
+
+.header__btn:focus {
+  background-color: #000;
+}
+
+/* services section*/
+
+.services__headline {
+  font-family: "DM Serif Display";
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.services__description {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.tile-services {
+  display: block;
+  text-decoration: none;
+  padding-top: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: solid 1px #CCC;
+  color: #626780;
+}
+
+.tile-services:hover {
+  border: solid 1px #000;
+  border-radius: 10px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.tile-services:focus {
+  border: solid 1px #000;
+  border-radius: 10px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.tile-services__icon {
+  display: block;
+  margin: auto;
+}
+
+.tile-services__headline {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-top: 16px;
+}
+
+.tile-services__text {
+  text-align: justify;
+}
+
+/* demo section */
+
+.demo {
+  height: 70vh;
+  background: url("../img/bg-demo-1.jpeg") no-repeat;
+  background-size: cover;
+}
+
+.demo__headline {
+  font-family: "DM Serif Display";
+  font-size: 20px;
+  text-align: center;
+}
+
+/* best-feature section */
+
+.best-feature__headline {
+  font-family: "DM Serif Display";
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.best-feature__text {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.best-feature-tail {
+  padding-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  height: 350px;
+  filter: drop-shadow(0 8px 20px #00000026);
+}
+
+.best-feature-tail__description {
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 1px #CCC;
+  height: 293px;
+  padding-top: 26px;
+}
+
+.best-feature-tail__img {
+  display: block;
+  margin: auto;
+  width: 60%;
+  max-height: 35%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.best-feature-tail__headline {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.best-feature-tail__text {
+  text-align: justify;
+  font-size: 12px;
+  margin-bottom: 26px;
+}
+
+.best-feature-tail__btn-wrap {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.best-feature-tail__btn {
+  display: block;
+  margin: auto;
+  font-weight: 600;
+  color: #FFF;
+  width: 120px;
+  height: 40px;
+  background-color: #9B9BCA;
+  filter: drop-shadow(0 8px 20px #00000026);
+  border-radius: 5px;
+  border: none;
+}
+
+.best-feature-tail__btn:hover {
+  background-color: #000;
+}
+
+.best-feature-tail__btn:focus {
+  background-color: #000;
+}
+
+/* registration section */
+
+.registration__headline {
+  font-family: "DM Serif Display";
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.form {
+  padding: 26px 10px;
+  border: solid 1px #9B9BCA;
+  border-radius: 5px;
+  box-shadow: 0 20px 40px #9595C966;
+  margin-bottom: 50px;
+}
+
+.form__label {
+  display: grid;
+  padding-top: 16px;
+}
+
+.form__input {
+  width: 95%;
+  padding-left: 10px;
+  margin: auto;
+  height: 25px;
+}
+
+.form__btn {
+  display: block;
+  margin: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #FFF;
+  width: 120px;
+  height: 40px;
+  text-transform: uppercase;
+  background-color: #9595C9;
+  border-radius: 5px;
+  border: none;
+}
+
+.form__btn:hover {
+  background-color: #000;
+}
+
+.form__btn:focus {
+  background-color: #000;
+}
+
+.form__link {
+  text-decoration: none;
+  color: #F01F35;
+}
+
+.form__link:hover {
+  color: #000;
+}
+
+.form__link:focus {
+  color: #000;
+}
+
+/* footer section */
+
+.footer {
+  background-color: #9B9BCA;
+  padding-bottom: 25px;
+}
+
+.nav__item {
+  list-style-type: none;
+  margin-bottom: 10px;
+  display: grid;
+}
+
+.nav__link-footer {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.nav__link-footer:hover {
+  color: #000;
+}
+
+.nav__link-footer:focus {
+  color: #000;
+}
+
+.nav__link-footer--bold {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer__link {
+  text-decoration: none;
+  fill: #FFF;
+}
+
+.footer__link:hover {
+  fill: #000;
+}
+
+.footer__link:focus {
+  fill: #000;
+}
+
+.footer__icon {
+  width: 35px;
+  margin: 5px;
+}
+
+.logo-footer {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+
+.logo-footer:focus {
+  border: solid 1px #000;
+}
+
+.logo-footer__dw {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #CCC;
+  color: #FFF;
+}
+
+.logo-footer__text {
+  color: #FFF;
+}
