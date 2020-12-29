@@ -1,7 +1,7 @@
 <div *ngIf="areUsersLoading">Loading...</div>
 <ul *ngIf="!areUsersLoading">
   <li *ngFor="let car of cars">
-    <a href="{{ car | carLink }}" [http]="carlink">
+    <a href="{{ car | carLink }}" [http]="carlink" style="text-decoration: none; color: #020202;">
     <span #carlink>
       Added from {{ car.post.protocol }}
     </span>
