@@ -1,14 +1,25 @@
-import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Renderer2, Input, ContentChild } from '@angular/core';
+import { Vehicle } from '../interfaces/vehicle';
+import { PostFieldProtocol } from './post-field-protocol.directive';
 
 @Directive({selector: '[appPostFieldVehicles]'})
 export class PostFieldVehicles implements AfterViewInit {
 
-  constructor (private el: ElementRef) {}
+  @Input('appPostFieldVehicles')
+  private readonly vehicle: Vehicle;
+
+  @ContentChild(PostFieldProtocol)
+  private readonly protocolDirective: PostFieldProtocol;
+
+  constructor (
+    private readonly el: ElementRef,
+    private readonly renderer: Renderer2,
+  ) {}
 
   ngAfterViewInit(): void {
-    if (this.el.nativeElement.firstChild.lastChild.textContent === 'http') {
-      this.el.nativeElement.firstChild.firstChild.style.color = 'red';
-      this.el.nativeElement.style.pointerEvents = 'none';
-    }
+    if (this.vehicle.post.protocol !== 'http') return;
+      this.protocolDirective.highlight();
+      this.renderer.removeAttribute(this.el.nativeElement, 'href');
   }
+
 }

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Vehicle } from '../models/vehicle.model';
+import { Vehicle } from '../interfaces/vehicle';
 
 @Pipe({ name: 'searchLinkPost' })
 export class SearchLinkPost implements PipeTransform {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Vehicle } from '../models/vehicle.model';
+import { Vehicle } from '../interfaces/vehicle';
 import { MOCK_VEHICLES } from '../mocks/vechicles.mock';
 import { delay } from 'rxjs/operators';
 

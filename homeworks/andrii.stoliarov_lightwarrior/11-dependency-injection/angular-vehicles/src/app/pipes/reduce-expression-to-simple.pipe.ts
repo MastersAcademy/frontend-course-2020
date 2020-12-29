@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Vehicle } from '../models/vehicle.model';
+import { Vehicle } from '../interfaces/vehicle';
 
-@Pipe({ name: 'tranformFieldVehicle' })
-export class TransformFieldVehicle implements PipeTransform {
+@Pipe({ name: 'reduceExpressionToSimple' })
+export class ReduceExpressionToSimple implements PipeTransform {
   transform(vehicle: Vehicle): string {
     return `${vehicle.manufacturer} - ${vehicle.model} (${vehicle.fuel})`;
   }

@@ -1,11 +1,10 @@
-import { from } from 'rxjs';
-import { TransformFieldVehicle } from './tranform-field-vehicle.pipe';
+import { ReduceExpressionToSimple } from './reduce-expression-to-simple.pipe';
 import { SearchLinkPost } from './search-link-post.pipe';
 
 export const appPipes = [
-  TransformFieldVehicle,
+  ReduceExpressionToSimple,
   SearchLinkPost
 ];
 
-export * from './tranform-field-vehicle.pipe';
+export * from './reduce-expression-to-simple.pipe';
 export * from './search-link-post.pipe';

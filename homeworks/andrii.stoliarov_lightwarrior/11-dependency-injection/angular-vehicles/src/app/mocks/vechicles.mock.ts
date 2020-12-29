@@ -1,9 +1,11 @@
 import * as faker from 'faker';
+import { Vehicle } from '../interfaces/vehicle';
+
 
 const count = 20;
 let seed = 1222;
 
-function getFakeVehicle() {
+function getFakeVehicle(): Vehicle {
   seed += 1;
   faker.seed(seed);
 
