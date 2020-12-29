@@ -9,15 +9,16 @@ import { Vehicle } from './models/vechicle';
 })
 export class AppComponent {
   vehicles: Vehicle[] = [];
-  areVehicleLoading = false;
+  isVehicleLoading = false;
 
-  constructor(private vehicleService: VehicleService) {
+  constructor(
+    private vehicleService: VehicleService) {
     this.setVehicleLoading(true);
     this.getVehicles();
   }
 
   setVehicleLoading(isLoading: boolean): void {
-    this.areVehicleLoading = isLoading;
+    this.isVehicleLoading = isLoading;
   }
 
   private getVehicles(): void {

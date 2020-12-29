@@ -6,11 +6,9 @@ import { Vehicle } from '../models/vechicle';
 
 @Injectable()
 export class VehicleService {
-    constructor() { }
-
     getVehicles(): Observable<Vehicle[]> {
         return of(MOCK_VEHICLES).pipe(
-            delay(3000)
+            delay(2000)
         );
     }
 }

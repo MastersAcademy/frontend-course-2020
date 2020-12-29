@@ -1,3 +1,15 @@
+interface post {
+    slug: string;
+    protocol: string;
+}
+
+interface cost {
+    account: string;
+    accountName: string;
+    amount: string;
+    currencyCode: string;
+}
+
 export interface Vehicle {
     color: string;
     fuel: string;
@@ -6,16 +18,6 @@ export interface Vehicle {
     type: string;
     vehicle: string;
     vin: string;
-
-    post: {
-        slug: string;
-        protocol: string;
-    };
-
-    cost: {
-        account: string;
-        accountName: string;
-        amount: string;
-        currencyCode: string;
-    };
+    post: post
+    cost: cost
 }
