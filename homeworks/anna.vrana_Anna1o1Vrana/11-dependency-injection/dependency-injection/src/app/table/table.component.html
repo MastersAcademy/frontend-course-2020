@@ -16,7 +16,7 @@
   <tr *ngFor="let vehicle of vehicles; let i=index" class="table-row">
 
     <td class="table-data">{{ i + 1 }}</td>
-    <td class="table-data" appDecorationProtocol>{{ vehicle.post.protocol }}</td>
+    <td class="table-data">{{ vehicle.post.protocol }}</td>
     <td class="table-data">{{vehicle | transformVehiclePipe}}</td>
     <td class="table-data">{{ vehicle.cost.amount | currency: vehicle.cost.currencyCode : 'symbol-narrow'  }}</td>
   </tr>
