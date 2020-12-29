@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ronya/projects/frontend-course-2020/homeworks/rostyslav.havuka_RostyslavHavuka/11-dependency-injection-w2/vehicle/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /home/ronya/projects/frontend-course-2020/homeworks/rostyslav.havuka_RostyslavHavuka/11-dependency-injection/vehicle/src/main.ts */"zUnb");
 
 
 /***/ }),
@@ -235,14 +235,14 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_car_service__WEBPACK_IMPORTED_MODULE_2__["CarService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 2, consts: [[4, "ngIf"], [4, "ngFor", "ngForOf"], [3, "href", "http"], ["carlink", ""]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 2, vars: 2, consts: [[4, "ngIf"], [4, "ngFor", "ngForOf"], [2, "text-decoration", "none", "color", "#020202", 3, "href", "http"], ["carlink", ""]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, AppComponent_div_0_Template, 2, 0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AppComponent_ul_1_Template, 2, 1, "ul", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.areUsersLoading);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.areUsersLoading);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _directives_http_car_directive__WEBPACK_IMPORTED_MODULE_4__["ChangeHttp"]], pipes: [_pipes_car_link_pipe__WEBPACK_IMPORTED_MODULE_5__["CarLinkPipe"], _pipes_info_car_pipe__WEBPACK_IMPORTED_MODULE_6__["InfoCarPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["CurrencyPipe"]], styles: [".links[_ngcontent-%COMP%] {\n  display: block;\n  text-decoration: none;\n  color: #030303;\n}\n\n.list[_ngcontent-%COMP%] {\n  width: 300px;\n  border: solid 1px #030303;\n  padding: 1px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsY0FBYztFQUNkLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixZQUFZO0FBQ2QiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGlua3Mge1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBjb2xvcjogIzAzMDMwMztcbn1cblxuLmxpc3Qge1xuICB3aWR0aDogMzAwcHg7XG4gIGJvcmRlcjogc29saWQgMXB4ICMwMzAzMDM7XG4gIHBhZGRpbmc6IDFweDtcbn1cbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _directives_http_car_directive__WEBPACK_IMPORTED_MODULE_4__["ChangeHttp"]], pipes: [_pipes_car_link_pipe__WEBPACK_IMPORTED_MODULE_5__["CarLinkPipe"], _pipes_info_car_pipe__WEBPACK_IMPORTED_MODULE_6__["InfoCarPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["CurrencyPipe"]], styles: ["body[_ngcontent-%COMP%] {\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIGhlaWdodDogMTAwJTtcbn1cbiJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{

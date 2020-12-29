@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ronya/projects/frontend-course-2020/homeworks/rostyslav.havuka_RostyslavHavuka/11-dependency-injection-w2/vehicle/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /home/ronya/projects/frontend-course-2020/homeworks/rostyslav.havuka_RostyslavHavuka/11-dependency-injection/vehicle/src/polyfills.ts */"hN/g");
 
 
 /***/ }),
