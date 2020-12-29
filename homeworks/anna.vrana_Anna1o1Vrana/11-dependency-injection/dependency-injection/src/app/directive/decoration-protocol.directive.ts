@@ -7,7 +7,7 @@ export class DecorationProtocolDirective {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    if( this.appDecorationProtocol ){
+    if(this.el.nativeElement.innerHTML === 'http'){
       this.el.nativeElement.style.color = '#FA0202'
     }
   }
