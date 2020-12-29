@@ -91,7 +91,7 @@ a:focus, button:focus {
   text-decoration: none;
 }
 
-.header {
+.hero-section {
   max-width: 1600px;
   display: flex;
   flex-direction: column;
@@ -105,7 +105,7 @@ a:focus, button:focus {
   background-size: cover;
 }
 
-.header-describe {
+.hero-section-describe {
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -115,14 +115,14 @@ a:focus, button:focus {
   padding-bottom: 30px;
 }
 
-.header-describe-caption {
+.hero-section-describe-caption {
   font-weight: 400;
   color: #696A86;
   font-size: 36px;
   line-height: 100%;
 }
 
-.header-describe-content {
+.hero-section-describe-content {
   padding-top: 30px;
   padding-bottom: 30px;
   max-width: 75%;
@@ -506,7 +506,7 @@ a:focus, button:focus {
 
 @media screen and (min-width: 600px) {
 
-  .header {
+  .hero-section {
     min-height: 737px;
   }
 
@@ -613,11 +613,11 @@ a:focus, button:focus {
     display: flex;
   }
 
-  .header-describe-caption {
+  .hero-section-describe-caption {
     font-size: 56px;
   }
 
-  .header-describe-content {
+  .hero-section-describe-content {
     font-size: 18px;
   }
 
