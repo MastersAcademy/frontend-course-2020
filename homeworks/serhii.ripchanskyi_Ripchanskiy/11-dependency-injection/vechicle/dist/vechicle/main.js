@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 class TransformWebsitePipe {
     transform(vehicle) {
         const uri = `${vehicle.manufacturer}+${vehicle.model}+(${vehicle.fuel})`;
-        return `https://www.google.com/search?q=${encodeURI(uri)}`;
+        return `https://www.google.com/search?q=${encodeURIComponent(uri)}`;
     }
 }
 TransformWebsitePipe.ɵfac = function TransformWebsitePipe_Factory(t) { return new (t || TransformWebsitePipe)(); };
@@ -295,14 +295,16 @@ function AppComponent_ul_3_Template(rf, ctx) { if (rf & 1) {
 class AppComponent {
     constructor(vehicleService) {
         this.vehicleService = vehicleService;
-        this.title = 'vehicle';
         this.vehicles = [];
-        this.areVehiclesLoading = false;
+        this.areVehiclesLoading = true;
+    }
+    ngOnInit() {
         this.getVehicles();
     }
     getVehicles() {
+        this.areVehiclesLoading = true;
         this.vehicleService.getVehicles()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["finalize"])(() => this.areVehiclesLoading = true))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["finalize"])(() => this.areVehiclesLoading = false))
             .subscribe((vehicles) => {
             this.vehicles = vehicles;
         });
@@ -317,9 +319,9 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AppComponent_ul_3_Template, 2, 1, "ul", 1);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.areVehiclesLoading);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.areVehiclesLoading);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.areVehiclesLoading);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _components_vehicle_vehicle_vehicle_component__WEBPACK_IMPORTED_MODULE_4__["VehicleComponent"]], styles: [".vehicle-list[_ngcontent-%COMP%] {\n  border: 1px solid #808080;\n  padding-left: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlCQUFBO0VBQ0Esa0JBQUE7QUFDRiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudmVoaWNsZS1saXN0IHtcbiAgYm9yZGVyOiAxcHggc29saWQgIzgwODA4MDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xufVxuIl19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -446,7 +448,7 @@ class ChangeLinkColorDirective {
         const protocolNode = this.el.querySelector('.vehicle-list__vehicle-item-protocol');
         if (protocolNode.innerHTML === 'http') {
             protocolNode.setAttribute('style', 'color: red');
-            this.el.removeAttribute("href");
+            this.el.removeAttribute('href');
         }
     }
 }
