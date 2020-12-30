@@ -11,10 +11,8 @@ import {Observable, merge, of} from "rxjs";
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent {
-  // vehicles: Vehicle[] = [];
 
-  isVehicleLoading: object;
+export class TableComponent {
 
   public vehicles$: Observable<Vehicle[]>;
   public loading$: Observable<boolean>;
@@ -33,7 +31,6 @@ export class TableComponent {
       of(true),
       this.vehicles$.pipe(
         map((vehicles: Vehicle[]) => {
-            console.log(vehicles);
             return false
           }
         )
