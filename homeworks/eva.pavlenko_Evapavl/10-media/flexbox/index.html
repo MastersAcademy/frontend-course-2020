@@ -9,15 +9,15 @@
 
 <body>
 <div class="wrapper">
-    <header class="header">
+    <section class="logo-nav-box">
         <picture>
             <source media="(max-width: 640px)" srcset="./images/header-small.jpg">
             <source media="(max-width: 1920px)" srcset="./images/header-medium.jpg">
             <img class="logo-img" src="./images/header-large.jpg" alt="large">
         </picture>
         <div class="header-position-container">
-            <div class="header-container center-container">
-                <div class="header-logo-nav-box">
+            <header class="logo-nav-box-container center-container">
+                <header class="header">
                     <div class="header-logo">
                         <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="36" cy="36" r="36" fill="#C8C8C8"/>
@@ -45,17 +45,17 @@
                     </div>
                     <nav class="header-nav">
                         <ul class="header-nav-list">
-                            <li>Home</li>
-                            <li>About us</li>
-                            <li>Service</li>
-                            <li>Setting</li>
-                            <li>Contact us</li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="#">Setting</a></li>
+                            <li><a href="#">Contact us</a></li>
                         </ul>
                     </nav>
-                </div>
+                </header>
                 <div class="header-content">
-                    <div class="header-content-h2">
-                        <h2>Your awesome Dream maker consultant</h2>
+                    <div class="header-content-h1">
+                        <h1>Your awesome Dream maker consultant</h1>
                     </div>
                     <div class="header-content-p">
                         <p>
@@ -68,9 +68,9 @@
                         <button>Get started</button>
                     </div>
                 </div>
-            </div>
+            </header>
         </div>
-    </header>
+    </section>
     <section class="section-great-service">
         <div class="container-great-service center-container">
             <div class="container-great-service-text">
@@ -187,10 +187,10 @@
             <div class="container-form-box">
                 <div class="form-box">
                     <label for="name">Name</label>
-                    <input id="name" type="text" placeholder="">
-                    <label for="password">Password</label>
-                    <input type="text" id="password" placeholder="Your email address">
-                    <button>SIGN IN</button>
+                    <input id="name" type="text" placeholder="Your name">
+                    <label for="email">Password</label>
+                    <input type="email" id="email" placeholder="Your email address">
+                    <button class="form-button">SIGN IN</button>
                     <p>Don’t have an account ?<span class="red"> Sign up here</span></p>
                 </div>
             </div>
@@ -201,48 +201,44 @@
             <div class="footer-center">
                 <div class="container-menu">
                     <div class="menu-boxs">
-                        <div class="menu-box">Learn More</div>
-                        <div class="menu-box">Help & Support</div>
-                        <div class="menu-box">Social</div>
-                        <div class="menu-box">About us</div>
-                    </div>
-                </div>
-                <div class="container-menu">
-                    <div class="menu-boxs">
                         <div class="menu-box">
-                            <div class="menu-box-list">
-                                <div>Sell Fast</div>
-                                <div>Buy Now</div>
-                                <div>Membership</div>
-                                <div>Banner Ads</div>
-                                <div>Promotions</div>
-                            </div>
+                            <header class="title-menu">Learn More</header>
+                            <ul class="menu-box-list">
+                                <li class="menu-box-li"><a href="#">Sell Fast</a></li>
+                                <li class="menu-box-li"><a href="#">Buy Now</a></li>
+                                <li class="menu-box-li"><a href="#">Membership</a></li>
+                                <li class="menu-box-li"><a href="#">Banner Ads</a></li>
+                                <li class="menu-box-li"><a href="#">Promotions</a></li>
+                            </ul>
                         </div>
                         <div class="menu-box">
-                            <div class="menu-box-list">
-                                <div>FAQ</div>
-                                <div>Stay Safe</div>
-                                <div>Contact us</div>
-                            </div>
+                            <header class="title-menu">Help & Support</header>
+                            <ul class="menu-box-list">
+                                <li class="menu-box-li"><a href="#">FAQ</a></li>
+                                <li class="menu-box-li"><a href="#">Stay Safe</a></li>
+                                <li class="menu-box-li"><a href="#">Contact us</a></li>
+                            </ul>
                         </div>
                         <div class="menu-box">
-                            <div class="menu-box-list">
-                                <div>Blog</div>
-                                <div>Facebook</div>
-                                <div>Facebook</div>
-                                <div>Facebook</div>
-                                <div>Youtube</div>
-                            </div>
+                            <header class="title-menu">Social</header>
+                            <ul class="menu-box-list">
+                                <li class="menu-box-li"><a href="#">Blog</a></li>
+                                <li class="menu-box-li"><a href="#">Facebook</a></li>
+                                <li class="menu-box-li"><a href="#">Facebook</a></li>
+                                <li class="menu-box-li"><a href="#">Facebook</a></li>
+                                <li class="menu-box-li"><a href="#">Youtube</a></li>
+                            </ul>
                         </div>
                         <div class="menu-box">
-                            <div class="menu-box-list">
-                                <div>About us</div>
-                                <div>Career</div>
-                                <div>Terms and Conditions</div>
-                                <div>Terms and Conditions</div>
-                                <div>Privacy Policy</div>
-                                <div>Sitemap</div>
-                            </div>
+                            <header class="title-menu">About us</header>
+                            <ul class="menu-box-list">
+                                <li class="menu-box-li"><a href="#">About us</a></li>
+                                <li class="menu-box-li"><a href="#">Career</a></li>
+                                <li class="menu-box-li"><a href="#">Terms and Conditions</a></li>
+                                <li class="menu-box-li"><a href="#">Terms and Conditions</a></li>
+                                <li class="menu-box-li"><a href="#">Privacy Policy</a></li>
+                                <li class="menu-box-li"><a href="#">Sitemap</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -251,18 +247,39 @@
         <div class="container-cop">
             <div class="cop-boxs">
                 <div class="cop-box">Copyright @ 2019</div>
-                <div class="cop-box"></div>
-                <div class="cop-box">
-                    <!--                    <img src="./images/facebook.png" alt="">-->
-                    <svg class="social-icon">
-                        <use xlink:href="sprite.svg#facebook"></use>
-                    </svg>
-                    <svg class="social-icon">
-                        <use xlink:href="sprite.svg#twiter"></use>
-                    </svg>
-                    <svg class="social-icon">
-                        <use xlink:href="sprite.svg#instagram"></use>
-                    </svg>
+                <div class="cop-box cop-box-imgs">
+                    <div class="box-imgs">
+                        <svg style="display: none">
+                            <defs>
+                                <div class="cop-box-img">
+                                    <a href="">
+                                        <svg width="36px" height="36px" viewBox="0 0 36 36" fill="none">
+                                            <circle class="black-svg" cx="18" cy="18" r="18" fill="white"/>
+                                            <path
+                                                d="M19.6496 28V17.9988H22.6079L23 14.5524H19.6496L19.6546 12.8274C19.6546 11.9285 19.7461 11.4468 21.1296 11.4468H22.9791V8H20.0203C16.4663 8 15.2153 9.6719 15.2153 12.4835V14.5528H13V17.9992H15.2153V28H19.6496Z"
+                                                fill="#9B9BCA"/>
+                                        </svg>
+                                    </a>
+                                    <a href="">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                            <circle class="black-svg" cx="18" cy="18" r="18" fill="white"/>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M17.7791 14.6391L17.74 13.9902C17.623 12.3087 18.6504 10.7727 20.2762 10.1769C20.8745 9.96507 21.8889 9.93859 22.5523 10.124C22.8123 10.2034 23.3066 10.4682 23.6577 10.7066L24.295 11.1435L24.9973 10.9184C25.3876 10.7992 25.9078 10.6006 26.1419 10.4682C26.363 10.3491 26.5581 10.2828 26.5581 10.3226C26.5581 10.5476 26.0769 11.3156 25.6737 11.7393C25.1274 12.3351 25.2835 12.3881 26.389 11.9909C27.0524 11.7658 27.0653 11.7658 26.9353 12.0173C26.8572 12.1498 26.454 12.6132 26.0248 13.0369C25.2965 13.7652 25.2575 13.8446 25.2575 14.4537C25.2575 15.3937 24.8153 17.3534 24.3731 18.4259C23.5537 20.4384 21.7979 22.5172 20.0421 23.5632C17.571 25.033 14.2804 25.4037 11.5102 24.543C10.5868 24.2517 9 23.5102 9 23.3779C9 23.3381 9.48119 23.2852 10.0665 23.2719C11.2891 23.2455 12.5116 22.9012 13.5521 22.2921L14.2545 21.8684L13.448 21.5904C12.3035 21.1931 11.276 20.2795 11.016 19.4189C10.9379 19.1409 10.9639 19.1276 11.6922 19.1276L12.4466 19.1144L11.8093 18.8098C11.0549 18.4259 10.3656 17.777 10.0275 17.115C9.78032 16.6384 9.46825 15.4334 9.55929 15.3408C9.58524 15.3011 9.85841 15.3805 10.1706 15.4864C11.0679 15.8174 11.185 15.738 10.6648 15.1819C9.68929 14.1756 9.39016 12.6794 9.85841 11.2626L10.0795 10.6271L10.9379 11.4877C12.6937 13.2223 14.7617 14.2551 17.1288 14.5596L17.7791 14.6391Z"
+                                                  fill="#9B9BCA"/>
+                                        </svg>
+                                    </a>
+                                    <a href="">
+                                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                            <circle class="black-svg" cx="18" cy="18" r="18" fill="white"/>
+                                            <path
+                                                d="M18.0018 13.8978C15.7316 13.8978 13.9005 15.7293 13.9005 18C13.9005 20.2707 15.7316 22.1022 18.0018 22.1022C20.2719 22.1022 22.1031 20.2707 22.1031 18C22.1031 15.7293 20.2719 13.8978 18.0018 13.8978ZM18.0018 20.667C16.5347 20.667 15.3354 19.4709 15.3354 18C15.3354 16.5291 16.5312 15.333 18.0018 15.333C19.4724 15.333 20.6682 16.5291 20.6682 18C20.6682 19.4709 19.4688 20.667 18.0018 20.667ZM23.2274 13.73C23.2274 14.262 22.7991 14.6868 22.2708 14.6868C21.739 14.6868 21.3142 14.2584 21.3142 13.73C21.3142 13.2016 21.7426 12.7732 22.2708 12.7732C22.7991 12.7732 23.2274 13.2016 23.2274 13.73ZM25.9438 14.7011C25.8831 13.4194 25.5904 12.2841 24.6516 11.3487C23.7165 10.4133 22.5814 10.1205 21.2999 10.0562C19.9793 9.98126 16.0207 9.98126 14.7001 10.0562C13.4222 10.1169 12.2871 10.4097 11.3484 11.3451C10.4096 12.2805 10.1205 13.4158 10.0562 14.6975C9.98126 16.0185 9.98126 19.9779 10.0562 21.2989C10.1169 22.5806 10.4096 23.7159 11.3484 24.6513C12.2871 25.5867 13.4186 25.8795 14.7001 25.9438C16.0207 26.0187 19.9793 26.0187 21.2999 25.9438C22.5814 25.8831 23.7165 25.5903 24.6516 24.6513C25.5868 23.7159 25.8795 22.5806 25.9438 21.2989C26.0187 19.9779 26.0187 16.0221 25.9438 14.7011ZM24.2376 22.7163C23.9592 23.416 23.4202 23.9551 22.717 24.2372C21.664 24.6549 19.1654 24.5585 18.0018 24.5585C16.8381 24.5585 14.336 24.6513 13.2866 24.2372C12.5869 23.9587 12.048 23.4196 11.766 22.7163C11.3484 21.6631 11.4447 19.1639 11.4447 18C11.4447 16.8361 11.3519 14.3334 11.766 13.2837C12.0444 12.584 12.5834 12.0449 13.2866 11.7628C14.3395 11.3451 16.8381 11.4415 18.0018 11.4415C19.1654 11.4415 21.6676 11.3487 22.717 11.7628C23.4166 12.0413 23.9556 12.5804 24.2376 13.2837C24.6552 14.3369 24.5588 16.8361 24.5588 18C24.5588 19.1639 24.6552 21.6666 24.2376 22.7163Z"
+                                                fill="#9B9BCA"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </defs>
+                        </svg>
+                    </div>
                 </div>
                 <div class="cop-box">
                     <div class="cop-box-logo-text">
