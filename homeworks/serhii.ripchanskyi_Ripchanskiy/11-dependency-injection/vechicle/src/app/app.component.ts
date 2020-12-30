@@ -10,17 +10,19 @@ import { VehicleService } from './services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'vehicle';
   vehicles: Vehicle[] = [];
-  areVehiclesLoading: boolean = false;
+  areVehiclesLoading: boolean = true;
 
-  constructor(private vehicleService: VehicleService) {
+  constructor(private vehicleService: VehicleService) {}
+
+  ngOnInit(): void {
     this.getVehicles();
   }
 
   private getVehicles(): void {
+    this.areVehiclesLoading = true;
     this.vehicleService.getVehicles()
-      .pipe(finalize(() => this.areVehiclesLoading = true))
+      .pipe(finalize(() => this.areVehiclesLoading = false))
       .subscribe((vehicles: Vehicle[]) => {
         this.vehicles = vehicles;
       });

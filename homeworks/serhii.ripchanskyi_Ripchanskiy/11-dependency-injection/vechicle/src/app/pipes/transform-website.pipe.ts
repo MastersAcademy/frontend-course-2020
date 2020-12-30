@@ -7,7 +7,7 @@ import { Vehicle } from '../models';
 
 export class TransformWebsitePipe implements PipeTransform {
   transform(vehicle: Vehicle): string {
-    const uri = `${ vehicle.manufacturer }+${ vehicle.model }+(${ vehicle.fuel })`
-    return `https://www.google.com/search?q=${encodeURI(uri)}`
+    const uri = `${ vehicle.manufacturer }+${ vehicle.model }+(${ vehicle.fuel })`;
+    return `https://www.google.com/search?q=${encodeURIComponent(uri)}`;
   }
 }
