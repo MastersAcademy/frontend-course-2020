@@ -1,11 +1,11 @@
-import {Directive, Renderer2, ElementRef, Input} from '@angular/core';
-import {Vehicle} from "../models/vehicle.interface";
+import { Directive, Renderer2, ElementRef, Input } from '@angular/core';
+import { Vehicle } from "../models/vehicle.interface";
 
 @Directive({selector: '[appDecorationProtocol]'})
 
 export class DecorationProtocolDirective {
-  @Input() appDecorationProtocol: string;
-  private readonly vehicle: Vehicle
+  @Input('appDecorationProtocol')
+  private vehicle: Vehicle;
 
   constructor(
     private render: Renderer2,
@@ -14,7 +14,7 @@ export class DecorationProtocolDirective {
 
 
   ngAfterViewInit(): void {
-    if( this.el.nativeElement.innerHTML === 'http'){
+    if( this.vehicle.post.protocol === 'http') {
       this.render.addClass(this.el.nativeElement, 'protocol-http');
     }
   }
