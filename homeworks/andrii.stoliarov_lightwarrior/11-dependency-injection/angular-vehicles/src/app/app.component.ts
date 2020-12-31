@@ -1,5 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { Vehicle } from './interfaces/vehicle';
 import { ListVehiclesService } from './services/list-vehicles.service';
@@ -9,26 +8,20 @@ import { ListVehiclesService } from './services/list-vehicles.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent {
 
   vehicles: Vehicle[] = [];
-
-  private subscription: Subscription;
 
   loading: boolean = false;
 
   constructor(private listVehiclesService: ListVehiclesService) {
-    this.subscription = this.getVehicles();
+    this.getVehicles();
   }
 
-  private getVehicles(): Subscription {
+  private getVehicles(): void {
     this.loading = true;
-    return this.listVehiclesService.getVehicles()
+    this.listVehiclesService.getVehicles()
       .pipe(finalize(() => this.loading = false))
       .subscribe((vehicles: Vehicle[]) => this.vehicles = vehicles);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

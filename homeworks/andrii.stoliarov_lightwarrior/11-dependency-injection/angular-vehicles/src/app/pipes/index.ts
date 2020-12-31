@@ -1,10 +1,10 @@
-import { ReduceExpressionToSimple } from './reduce-expression-to-simple.pipe';
+import { MakesExpressionShort } from './makes-expression-short.pipe';
 import { SearchLinkPost } from './search-link-post.pipe';
 
 export const appPipes = [
-  ReduceExpressionToSimple,
+  MakesExpressionShort,
   SearchLinkPost
 ];
 
-export * from './reduce-expression-to-simple.pipe';
+export * from './makes-expression-short.pipe';
 export * from './search-link-post.pipe';
