@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { VehicleService } from './services';
 import { Vehicle } from './models/vechicle';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Vehicle } from './models/vechicle';
 export class AppComponent {
   vehicles: Vehicle[] = [];
   isVehicleLoading = false;
+  subscription: Subscription = null;
 
   constructor(
     private vehicleService: VehicleService) {
@@ -17,12 +19,16 @@ export class AppComponent {
     this.getVehicles();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
+
   setVehicleLoading(isLoading: boolean): void {
     this.isVehicleLoading = isLoading;
   }
 
   private getVehicles(): void {
-    this.vehicleService.getVehicles().subscribe((vehicles: Vehicle[]) => {
+    this.subscription =  this.vehicleService.getVehicles().subscribe((vehicles: Vehicle[]) => {
       this.vehicles = vehicles;
       this.setVehicleLoading(false);
     });

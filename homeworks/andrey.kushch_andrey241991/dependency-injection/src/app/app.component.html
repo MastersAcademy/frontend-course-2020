@@ -13,7 +13,7 @@
           class="table-item"
           [class.--color-red]="vehicle.post.protocol === 'http'"
         >
-          {{ vehicle | vehiclePipe }}
+          {{ vehicle.post.protocol }}
         </td>
         <td class="table-item">
           {{ vehicle | vehiclePipe: true }}

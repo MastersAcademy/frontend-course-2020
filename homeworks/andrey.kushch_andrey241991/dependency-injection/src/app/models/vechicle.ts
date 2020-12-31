@@ -1,9 +1,9 @@
-interface post {
+interface Post {
     slug: string;
     protocol: string;
 }
 
-interface cost {
+interface Cost {
     account: string;
     accountName: string;
     amount: string;
@@ -18,6 +18,6 @@ export interface Vehicle {
     type: string;
     vehicle: string;
     vin: string;
-    post: post
-    cost: cost
+    post: Post
+    cost: Cost
 }
