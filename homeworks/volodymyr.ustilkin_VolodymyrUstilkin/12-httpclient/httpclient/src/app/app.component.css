@@ -42,6 +42,7 @@
   border-color: #808080;
   border-style: solid;
   border-width: 2px;
+  font-size: 20px;
 }
 
 .pagination-current {
@@ -58,7 +59,13 @@
   flex-direction: column;
   margin: 0 auto;
   padding: 20px;
-  max-width: 150px;
+  max-width: 350px;
+  font-size: 20px;
+}
+
+.item-count-input {
+  padding: 5px;
+  font-size: 20px;
 }
 
 .loader {

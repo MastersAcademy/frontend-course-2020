@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   updatePagination(): number[] {
-    const offset = 4;
+    const offset = 3;
     const pagination: number[] = []
     const startPage = this.usersPage.page - offset > 1 ? this.usersPage.page - offset : 1;
     const endPage = this.usersPage.page + offset <= this.usersPage.total_pages
