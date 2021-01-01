@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {UsersPage} from "../models/UsersPage";
-import {UserRequestOptions} from "../models/UserRequestOptions";
+import {UsersPage} from "../models/users.page";
+import {UserRequestOptions} from "../models/user.request.options";
 
 @Injectable()
 export class UserService {
