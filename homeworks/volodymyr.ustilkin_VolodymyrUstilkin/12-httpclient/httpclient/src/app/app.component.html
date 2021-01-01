@@ -15,7 +15,7 @@
     <div class="pagination-element" *ngIf="usersPage.page > 1" (click)="changePage(usersPage.page - 1)">&#8249;</div>
     <div class="pagination-element" *ngIf="usersPage.page > 1" (click)="changePage(1)">&laquo;</div>
 
-    <div *ngFor="let page of getPagination()"
+    <div *ngFor="let page of pagination"
          class="pagination-element"
          [class.pagination-current]="page === usersPage.page"
          (click)="changePage(page)">

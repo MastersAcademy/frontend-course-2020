@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "./services";
-import {UserRequestOptions} from "./models/UserRequestOptions";
-import {UsersPage} from "./models/UsersPage";
 import {Subscription} from "rxjs";
 import {finalize} from "rxjs/operators";
+import {UsersPage} from "./models/users.page";
+import {UserRequestOptions} from "./models/user.request.options";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   usersPage: UsersPage;
   pageOptions: UserRequestOptions;
+  pagination: number[];
   loading: boolean;
 
   constructor(private userService: UserService) {
@@ -36,8 +37,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.userService
         .getUsers(this.pageOptions)
         .pipe(finalize(() => this.loading = this.userService.loading))
-        .subscribe((page: UsersPage) => this.usersPage = page)
-
+        .subscribe((page: UsersPage) => {
+          this.usersPage = page;
+          this.pagination = this.updatePagination();
+        })
     );
   }
 
@@ -51,16 +54,18 @@ export class AppComponent implements OnInit, OnDestroy {
     this.loadUsers();
   }
 
-  getPagination(): number[] {
+  updatePagination(): number[] {
+    const offset = 4;
     const pagination: number[] = []
-    const startPage = this.usersPage.page - 2 > 1 ? this.usersPage.page - 2 : 1;
-    const endPage = this.usersPage.page + 2 <= this.usersPage.total_pages ? this.usersPage.page + 2 : this.usersPage.total_pages;
+    const startPage = this.usersPage.page - offset > 1 ? this.usersPage.page - offset : 1;
+    const endPage = this.usersPage.page + offset <= this.usersPage.total_pages
+      ? this.usersPage.page + offset
+      : this.usersPage.total_pages;
 
     for (let i: number = startPage; i <= endPage; i++) {
       pagination.push(i);
     }
-    console.log(pagination);
+
     return pagination;
   }
-
 }
