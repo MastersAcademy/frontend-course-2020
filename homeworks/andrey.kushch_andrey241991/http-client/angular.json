@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "http-client"
+  "defaultProject": "http-client",
+  "cli": {
+    "analytics": false
+  }
 }
