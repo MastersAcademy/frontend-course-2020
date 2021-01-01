@@ -1,0 +1,33 @@
+<div class="loader" *ngIf="loading"></div>
+
+<div *ngIf="!loading">
+  <div class="user-section">
+    <div class="user-card" *ngFor="let user of usersPage.data">
+      <div class="user-avatar"><img src="{{user.avatar}}" alt="loading avatar..."/></div>
+      <div>id = {{user.id}}</div>
+      <div>email = {{user.email}}</div>
+      <div>first name = {{user.first_name}}</div>
+      <div>last name = {{user.last_name}}</div>
+    </div>
+  </div>
+
+  <div class="pagination-section" *ngIf="usersPage.total_pages > 1">
+    <div class="pagination-element" *ngIf="usersPage.page > 1" (click)="changePage(usersPage.page - 1)">&#8249;</div>
+    <div class="pagination-element" *ngIf="usersPage.page > 1" (click)="changePage(1)">&laquo;</div>
+
+    <div *ngFor="let page of getPagination()"
+         class="pagination-element"
+         [class.pagination-current]="page === usersPage.page"
+         (click)="changePage(page)">
+      {{page}}
+    </div>
+
+    <div class="pagination-element" *ngIf="usersPage.page < usersPage.total_pages" (click)="changePage(usersPage.total_pages)">&raquo;</div>
+    <div class="pagination-element" *ngIf="usersPage.page < usersPage.total_pages" (click)="changePage(usersPage.page + 1)">&#8250;</div>
+  </div>
+
+  <div class="item-count-selection">
+    <label for="cards_per_page">Items per page: </label>
+    <input id="cards_per_page" value="{{usersPage.per_page}}" (change)="changeNumberCardsPerPage($event)" type="number">
+  </div>
+</div>
