@@ -36,7 +36,8 @@ class UserRequestInterceptor {
         this.userService = userService;
     }
     intercept(req, next) {
-        req = req.clone({ headers: req.headers.set('accept-language', 'en-En') });
+        req = req.clone({ headers: req.headers.set('Accept-Language', 'en-En') });
+        req = req.clone({ headers: req.headers.append('token', 'jklsdjfuwesofidu5465186') });
         return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((event) => {
             if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpResponse"]) {
                 this.userService.stopLoader();

@@ -10,7 +10,8 @@ export class UserRequestInterceptor implements HttpInterceptor {
   constructor(private userService: UserService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = req.clone({headers: req.headers.set('accept-language', 'en-En')});
+    req = req.clone({headers: req.headers.set('Accept-Language', 'en-En')});
+    req = req.clone({headers: req.headers.append('token', 'jklsdjfuwesofidu5465186')});
 
     return next.handle(req).pipe(
       tap((event) => {
