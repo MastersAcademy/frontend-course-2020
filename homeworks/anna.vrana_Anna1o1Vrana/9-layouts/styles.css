@@ -96,7 +96,7 @@
   border: 1px solid #F01F35;
 }
 
-.top {
+.hero-section {
   position: relative;
   top: 0;
   left: 0;
@@ -104,18 +104,18 @@
   margin: 0 auto;
 }
 
-.top-wrapper {
+.hero-section-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
 
-.top__picture {
+.hero-section__picture {
   width: 100%;
 }
 
-.top__headline {
+.hero-section__headline {
   margin: 0;
   max-width: 548px;
   font-family: "DM Serif Display", serif;
@@ -128,7 +128,7 @@
   font-weight: 400;
 }
 
-.top__under-headline {
+.hero-section__text {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin: 0;
@@ -390,7 +390,7 @@
     border-radius: 10px;
   }
 
-  .top__headline {
+  .hero-section__headline {
     width: 70%;
     padding: 188px 0 30px;
     font-size: 56px;
@@ -402,14 +402,14 @@
     line-height: 27px;
   }
 
-  .top__under-headline {
+  .hero-section__text {
     padding-bottom: 30px;
     max-width: 751px;
     font-size: 18px;
     line-height: 27px;
   }
 
-  .top__btn {
+  .hero-section__btn {
     margin-bottom: 120px;
   }
 
@@ -549,11 +549,11 @@
     border-radius: 8px;
   }
 
-  .top {
+  .hero-section {
     margin-top: 0;
   }
 
-  .top__headline {
+  .hero-section__headline {
     padding: 5% 0 20px;
     font-size: 26px;
     line-height: 36px;
@@ -565,14 +565,14 @@
     line-height: 27px;
   }
 
-  .top__under-headline {
+  .hero-section__text {
     padding-bottom: 25px;
     font-size: 13px;
     line-height: 17px;
     max-width: 458px;
   }
 
-  .top__btn {
+  .hero-section__btn {
     margin-bottom: 70px;
   }
 
@@ -666,18 +666,18 @@
     /*border: 1px solid #9B9BCA;*/
   }
 
-  .top {
+  .hero-section {
     margin-top: 0;
   }
 
-  .top__headline {
+  .hero-section__headline {
     display: none;
     /*padding: 150px 0 20px;*/
     /*font-size: 36px;*/
     /*line-height: 36px;*/
   }
 
-  .top__under-headline {
+  .hero-section__text {
     display: none;
     /*font-size: 18px;*/
     /*line-height: 27px;*/
@@ -690,11 +690,11 @@
     max-width: 250px;
   }
 
-  .top__under-headline {
+  .hero-section__text {
     padding-bottom: 20px;
   }
 
-  .top__btn {
+  .hero-section__btn {
     margin: 28px 0 0;
   }
 
