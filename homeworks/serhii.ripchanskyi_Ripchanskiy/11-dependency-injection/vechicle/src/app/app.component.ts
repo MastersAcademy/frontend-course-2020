@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { Vehicle } from './models/';
@@ -9,7 +9,7 @@ import { VehicleService } from './services';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   vehicles: Vehicle[] = [];
   areVehiclesLoading: boolean = true;
 
