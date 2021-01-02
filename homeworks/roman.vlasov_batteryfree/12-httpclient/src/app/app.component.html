@@ -1,0 +1,3 @@
+<app-loader class="loader" *ngIf="isLoading"></app-loader>
+<app-tiles *ngIf="!isLoading" [users]="users"></app-tiles>
+<app-pagination [totalPages]="totalPages" (onClick)="loadPage($event)"></app-pagination>

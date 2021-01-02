@@ -1,0 +1,19 @@
+.tile {
+  width: 200px;
+  height: 290px;
+  border: solid 1px #006781;
+  background-color: #CBD8FA;
+}
+
+.tile__avatar {
+  display: block;
+  margin:  10px;
+  width: 180px;
+  height: 180px ;
+  border: solid 1px #006781;
+}
+
+.tile__description {
+  padding-top: 8px;
+  margin-left: 10px;
+}

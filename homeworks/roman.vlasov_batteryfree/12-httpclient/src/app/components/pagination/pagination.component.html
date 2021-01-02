@@ -1,0 +1,13 @@
+<ul class="pagination">
+    <li class="pagination__item">
+        <button class="pagination__btn" [disabled]="currentPage === 1"
+            (click)="selectPage(currentPage-1)">&laquo;</button>
+    </li>
+    <li class="pagination__item" *ngFor="let page of pages">
+        <button class="pagination__btn" (click)="selectPage(page)">{{page}}</button>
+    </li>
+    <li class="pagination__item">
+        <button class="pagination__btn" [disabled]="currentPage === totalPages"
+            (click)="selectPage(currentPage+1)">&raquo;</button>
+    </li>
+</ul>

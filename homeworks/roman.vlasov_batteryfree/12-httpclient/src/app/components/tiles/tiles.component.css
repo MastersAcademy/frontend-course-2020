@@ -1,0 +1,11 @@
+.tiles {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 436px;
+  margin: auto;
+}
+
+.tile {
+  margin: 8px;
+}
