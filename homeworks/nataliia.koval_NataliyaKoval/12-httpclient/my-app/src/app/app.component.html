@@ -1,6 +1,10 @@
-<div class="card" *ngFor="let user of users">
+<div class="card" *ngFor="let user of users | paginate: {itemsPerPage: 2, currentPage: page, totalItems: total}">
     <img src="{{user.avatar}}" alt="">
     <p>{{user.first_name}}</p>
     <p>{{user.last_name}}</p>
     <p>{{user.email}}</p>
 </div>
+
+<!-- <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

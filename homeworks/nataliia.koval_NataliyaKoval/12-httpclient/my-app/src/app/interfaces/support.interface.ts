@@ -1,4 +1,4 @@
-export interface SupportInterface {
+export interface Support {
     text: string;
     url: string;
 }
