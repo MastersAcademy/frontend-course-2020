@@ -1,7 +1,19 @@
 <section class="container">
-  <ng-container *ngFor="let user of users">
-    <app-user-card [user]="user">
-    </app-user-card>
-  </ng-container>
-  <app-pagination></app-pagination>
+  <div *ngIf="loaderService.isLoading.value; else content">Loading...</div>
+
+  <ng-template #content>
+    <div class="content-wrapper">
+      <app-user-card
+        class="user-card"
+        *ngFor="let user of users.data"
+        [user]="user"
+      >
+      </app-user-card>
+    </div>
+    <app-pagination
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (setCurrentPage)="setCurrentPage($event)"
+    ></app-pagination>
+  </ng-template>
 </section>

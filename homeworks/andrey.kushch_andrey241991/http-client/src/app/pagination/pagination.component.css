@@ -1,3 +1,22 @@
-h2 {
-  font-size: 22px;
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__item {
+  padding: 10px;
+  background: rgb(128, 128, 128);
+  border: 1px solid #000;
+  color: #FFF;
+}
+
+.pagination__item--active {
+  background: #FFF;
+  border: 1px solid #000;
+  color: rgb(128, 128, 128);
+}
+
+.pagination__item:hover {
+  cursor: pointer
 }

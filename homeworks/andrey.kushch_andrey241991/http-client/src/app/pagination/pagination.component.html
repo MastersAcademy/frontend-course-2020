@@ -1,1 +1,11 @@
-<p>pagination works!</p>
+<section class="pagination">
+  <ng-container *ngFor="let item of [].constructor(totalPages); let i = index">
+    <span
+      class="pagination__item"
+      [class.pagination__item--active]="i+1 === currentPage"
+      (click)="setCurrentPage.emit(i + 1)"
+    >
+      {{ i + 1 }}
+    </span>
+  </ng-container>
+</section>

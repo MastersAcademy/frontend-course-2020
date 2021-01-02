@@ -1,4 +1,4 @@
-interface Data {
+export interface Data {
     id: number
     email: string
     first_name: string
@@ -6,7 +6,7 @@ interface Data {
     avatar: string
 }
 
-interface Support {
+export interface Support {
     url: string
     text: string
 }
