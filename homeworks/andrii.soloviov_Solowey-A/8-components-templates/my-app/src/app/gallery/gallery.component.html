@@ -1,0 +1,10 @@
+<ul class="gallery-list-wrap">
+  <app-gallery-item class="list"
+  (onClick)="onClick($event)"
+  ></app-gallery-item>
+</ul>
+
+<div class="preview-item">
+  <h2 class="head-line">Preview</h2>
+  <img class="preview-item__image" src="{{currentItem}}" alt="">
+</div>

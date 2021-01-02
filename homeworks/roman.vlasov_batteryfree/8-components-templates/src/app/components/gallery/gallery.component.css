@@ -1,0 +1,9 @@
+.gallery {
+  border: 1px solid #CCC;
+  width: 300px;
+  height: 510px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-y: auto;
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://6-typescript/./src/scripts/index.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;YAEA,OAAO,CAAC,GAAG,CAAC,kBAAkB,CAAC,CAAC;QAChC,CAAC","file":"bundle.js","sourcesContent":["import '../styles/style.css';\nimport '../styles/normalize.css';\nconsole.log('hello TypeScript');\n"],"sourceRoot":""}

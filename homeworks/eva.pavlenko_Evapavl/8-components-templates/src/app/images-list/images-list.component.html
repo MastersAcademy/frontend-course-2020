@@ -1,0 +1,23 @@
+<div>
+  <div *ngIf="images" class="gallery-box">
+    <div class="box-image"
+         *ngFor="let image of images; index as index">
+      <div class="container-image"
+           [class.selected]="image === selectedImage"
+           (click)="onSelect(image, index)">
+        <div class="image-center">
+          <img class="image-small" [class.no-active]="!isLoadedGif" src="https://i.gifer.com/VAyR.gif" alt="gif">
+          <img class="image-small" [class.active]="isLoadedImgs" [class.no-active]="!isLoadedImgs" (load)="uploaded()" src="{{image.urls.regular}}" alt="img-small"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2 class="image-h2">Image</h2>
+    <div class="block-button">
+      <button class="button-dec-and-inc" [disabled]="disabledDec" (click)="dec()">Prev</button>
+      <button class="button-dec-and-inc" [disabled]="disabledInc" (click)="inc()">Next</button>
+    </div>
+  </div>
+  <app-full-image [index]="index"></app-full-image>
+</div>

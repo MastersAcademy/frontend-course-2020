@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4-modules</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="date-wrapper">
+        <h4 class="date-header">Date:</h4>
+        <label for="input-date"></label>
+        <input type="date" id="input-date" class="input-date" data-date>
+        <button class="btn" data-get-fridays>Get month fridays</button>
+        <p class="result" data-fridays></p>
+        <button class="btn" data-month-long>Is month long?</button>
+        <p class="result" data-result-month-long></p>
+        <button class="btn" data-shortest-week>Days of shortest week in month</button>
+        <p class="result" data-result-shortest-week></p>
+        <button class="btn" data-full-weeks>Full weeks in month</button>
+        <p class="result" data-result-full-weeks></p>
+    </div>
+    <div class="time-wrapper">
+    </div>
+</div>
+<script type="module" src="scripts/main.js"></script>
+</body>
+</html>
