@@ -388,8 +388,8 @@ class UserService {
     getUsers(usersPerPage, currentPage) {
         const options = {
             params: {
-                page: String(currentPage),
-                per_page: String(usersPerPage),
+                page: `${currentPage}`,
+                per_page: `${usersPerPage}`,
             }
         };
         return this.http.get('https://reqres.in/api/users', options);
