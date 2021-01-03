@@ -1,10 +1,19 @@
 <app-loader></app-loader>
 
-<div class="card" *ngFor="let user of users | paginate: {itemsPerPage: 2, currentPage: page, totalItems: total}">
-    <img src="{{user.avatar}}" alt="">
-    <p>{{user.first_name}}</p>
-    <p>{{user.last_name}}</p>
-    <p>{{user.email}}</p>
-</div>
-
-<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+<section>
+    <div class="container">
+        <div class="cards">
+            <div class="cards_item" *ngFor="let user of users | paginate: {itemsPerPage: 2, currentPage: page, totalItems: total}">
+                <img class="avatar" src="{{user.avatar}}" alt="">
+                <p><b>First name:</b> {{user.first_name}}</p>
+                <p><b>Last name:</b> {{user.last_name}}</p>
+                <p><b>Email:</b> {{user.email}}</p>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+        
+    </div>
+</section>

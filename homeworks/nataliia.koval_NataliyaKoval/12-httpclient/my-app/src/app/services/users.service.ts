@@ -1,10 +1,10 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { Info } from '../interfaces/info.interface';
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 
 export class UsersService {
     
@@ -16,5 +16,3 @@ export class UsersService {
        return this.http.get<Info>(this.ROOT_URL, options); 
     }  
 }
-
-// `https://reqres.in/api/users?page=1&per_page=2`
