@@ -21,7 +21,7 @@ footer {
 .container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 960px;
+  max-width: 480px;
   min-height: 100%;
   margin: 0 auto;
   justify-content: center;
@@ -48,12 +48,13 @@ footer {
 
 .user-card__avatar {
   min-height: 128px;
+  border-radius: 5px;
 }
 
 .dropdown-wrap {
   padding: 20px 0;
-  max-width: 960px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .dropdown-wrap select {
@@ -77,6 +78,7 @@ footer {
   text-decoration: none;
   transition: background-color .3s;
   border: 1px solid #DDD;
+  border-radius: 5px;
   margin: 0 4px;
 }
 
@@ -93,7 +95,7 @@ footer {
 
 .paginator-wrap {
   width: 100%;
-  padding: 20px 0;
+  padding: 60px 0 20px;
 }
 
 .cards-wrap {
@@ -104,4 +106,12 @@ footer {
 
 .loader {
   height: 150px;
+}
+
+.card-wrap {
+  margin: 0 auto;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 10px 10px 40px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
 }

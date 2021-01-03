@@ -13,12 +13,14 @@
     <img *ngIf="loaderVisible | async" class="loader" src="https://ledlenser.net.ua/wp-content/uploads/2017/11/loader-1.gif">
     <div *ngIf="contentVisible | async"  class="cards-wrap">
       <section *ngFor="let user of usersData" class="user-card">
-        <div class="user-card__img-wrap">
-          <img src="{{user.avatar}}" alt="" class="user-card__avatar">
-        </div>
-        <div class="user-card__inf-wrap">
-          <h1 class="user-card__firstname">{{user.first_name}} {{user.last_name}}</h1>
-          <p>{{user.email}}</p>
+        <div class="card-wrap">
+          <div class="user-card__img-wrap">
+            <img src="{{user.avatar}}" alt="" class="user-card__avatar">
+          </div>
+          <div class="user-card__inf-wrap">
+            <h1 class="user-card__firstname">{{user.first_name}} {{user.last_name}}</h1>
+            <p>{{user.email}}</p>
+          </div>
         </div>
       </section>
     </div>
