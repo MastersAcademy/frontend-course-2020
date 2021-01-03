@@ -15,63 +15,87 @@
     <title>9-layouts</title>
 </head>
 <body>
-<div class="container">
-    <section class="hero-section">
-        <picture class="hero-section__picture">
-            <source type="image/avif" srcset="images/hero-section-picture.avif">
-            <source type="image/jpg" srcset="images/hero-section-picture.jpg">
-            <img class="logo-img" src="images/hero-section-picture.jpg" alt="awesome dream">
-        </picture>
-        <div class="container hero-section-wrapper">
-            <header class="header container-wrapper">
-                <div class="container flex">
-                    <div class="logo">
-                        <span class="logo__letters">
-                            DW
-                        </span>
-                        <span class="logo__description">
-                            Dreammaker
-                        </span>
-                    </div>
-                    <nav class="nav flex">
-                        <input id="menu__toggle" type="checkbox" class="menu__toggle"/>
-                        <label class="menu__btn" for="menu__toggle"></label>
-                        <ul class="nav__list list flex">
-                            <li class="nav__item">
-                                <a class="nav__link" href="#">Home</a>
-                            </li>
-                            <li class="nav__item">
-                                <a class="nav__link" href="#">About us</a>
-                            </li>
-                            <li class="nav__item">
-                                <a class="nav__link" href="#services">Service</a>
-                            </li>
-                            <li class="nav__item">
-                                <a class="nav__link" href="#">Setting</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <button class="btn" type="button">
-                        Contact us
-                    </button>
-                </div>
-            </header>
-            <div class="container-wrapper">
-                <h1 class="hero-section__headline">
-                    Your awesome Dream maker consultant
-                </h1>
-                <p class="hero-section__text">
-                    The occupational traffic permit is one of the most important
-                    things in the
-                    company when carrying out freight transport. In fact, it is a prerequisite for
-                    doing business traffic at all.
-                </p>
-                <button class="btn hero-section__btn" type="button">
-                    Get started
-                </button>
+<section class="hero-section container">
+    <picture class="hero-section__picture">
+        <source type="image/avif" srcset="images/hero-section-picture.avif">
+        <source type="image/jpg" srcset="images/hero-section-picture.jpg">
+        <img class="logo-img" src="images/hero-section-picture.jpg" alt="awesome dream">
+    </picture>
+    <div class="hero-section-wrapper">
+        <header class="header flex">
+            <div class="logo">
+                <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
+                     class="logo">
+                    <circle cx="36" cy="36" r="36" fill="#C8C8C8"/>
+                </svg>
+                <svg class="logo-letters" id="logo-letters" width="53" height="30" viewBox="0 0 53 30" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d)">
+                        <path
+                            d="M4.20117 5.4043C8.15299 5.11133 10.7311 4.96484 11.9355 4.96484C13.1465 4.96484 14.1003 5.07878 14.7969 5.30664C15.5 5.52799 16.1283 5.83724 16.6816 6.23438C17.7559 6.99609 18.5664 8.00846 19.1133 9.27148C19.6667 10.5345 19.9434 11.8138 19.9434 13.1094C19.9434 14.4049 19.7318 15.5378 19.3086 16.5078C18.8919 17.4714 18.3125 18.2852 17.5703 18.9492C16.0534 20.3229 14.0905 21.0065 11.6816 21H4.20117V5.4043ZM10.2754 10.3555V16.3027C10.6204 16.0098 10.9948 15.7201 11.3984 15.4336C12.9479 14.3203 13.7227 13.1549 13.7227 11.9375C13.7227 11.3451 13.5469 10.7982 13.1953 10.2969C12.8438 9.78906 12.3848 9.53516 11.8184 9.53516C11.2585 9.53516 10.7441 9.80859 10.2754 10.3555ZM27.1211 5.4043L28.9082 10.9609L32.8047 5.73633C32.9349 5.56055 33.0326 5.44661 33.0977 5.39453C33.1628 5.34245 33.2604 5.31641 33.3906 5.31641C33.5208 5.31641 33.6868 5.45638 33.8887 5.73633L37.5215 10.9023L39.2793 5.4043H44.8652L39.7676 20.5996C39.5462 21.2507 39.1719 21.5762 38.6445 21.5762C38.1172 21.5762 37.6452 21.2767 37.2285 20.6777L32.8633 14.3789L28.166 20.6973C27.7428 21.2572 27.2708 21.5371 26.75 21.5371C26.2292 21.5371 25.8483 21.2116 25.6074 20.5605L20.1191 5.4043H27.1211Z"
+                            fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_d" x="0.201172" y="0.964844" width="52.6641" height="28.6113"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                           values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                            <feOffset dx="2" dy="2"/>
+                            <feGaussianBlur stdDeviation="3"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
+
+            <span class="header__logo-description">
+                Dreammaker
+            </span>
+
+            <nav class="nav flex">
+                <input id="menu__toggle" type="checkbox" class="menu__toggle"/>
+                <label class="menu__btn" for="menu__toggle">Menu</label>
+                <ul class="nav__list list flex">
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">About us</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#services">Service</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Setting</a>
+                    </li>
+                    <li class="nav__link">
+                        <button class="btn" type="button">
+                            Contact us
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+        <div class="container-wrapper">
+            <h1 class="hero-section__headline">
+                Your awesome Dream maker consultant
+            </h1>
+            <p class="hero-section__text">
+                The occupational traffic permit is one of the most important
+                things in the
+                company when carrying out freight transport. In fact, it is a prerequisite for
+                doing business traffic at all.
+            </p>
+            <button class="btn hero-section__btn" type="button">
+                Get started
+            </button>
         </div>
-    </section>
+    </div>
+</section>
 </div>
 <section class="section" id="services">
     <div class="container">
@@ -335,3 +359,6 @@
 </footer>
 </body>
 </html>
+
+
+
