@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoaderService, UserService} from "./services";
 import {Subject} from "rxjs";
-import {IUsersAPIModel, IUserModel} from "../models";
+import {IUsersAPIModel, IUsersModel} from "../models";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import {IUsersAPIModel, IUserModel} from "../models";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  public usersData: IUserModel[];
+  public usersData: IUsersModel[];
   public totalUsers: number;
   public totalPages: number;
 

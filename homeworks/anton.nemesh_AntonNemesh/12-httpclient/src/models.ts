@@ -1,4 +1,4 @@
-export interface IUserModel{
+export interface IUsersModel{
   avatar: string;
   email: string;
   first_name: string;
@@ -16,6 +16,6 @@ export interface IUsersAPIModel{
   per_page: number;
   total: number;
   total_pages: number;
-  data: IUserModel[];
+  data: IUsersModel[];
   support: IUsersAPISupportModel;
 }
