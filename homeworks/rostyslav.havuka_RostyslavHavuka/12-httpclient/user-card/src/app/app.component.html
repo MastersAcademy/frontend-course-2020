@@ -1,0 +1,19 @@
+<div class="container">
+  <div *ngFor="let user of users">
+  <div class="container-image">
+    <img src="{{ user.avatar }} " alt="">
+  </div>
+  <div class="container-info">
+    {{ user.first_name }}
+    {{ user.last_name }} <br>
+    {{ user.email }}
+  </div>
+</div>
+</div>
+<div class="button-container">
+<div *ngFor="let item of items">
+  <button (click)="getUser($event)">  
+    {{ item }}
+  </button>
+</div>
+</div>
