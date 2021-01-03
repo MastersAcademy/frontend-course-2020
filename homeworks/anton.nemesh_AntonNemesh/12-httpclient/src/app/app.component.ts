@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoaderService, UserService} from "./services";
 import {Subject} from "rxjs";
-import {IUserModel} from "../models";
+import {IUsersAPIModel, IUserModel} from "../models";
 
 @Component({
   selector: 'app-root',
@@ -22,10 +22,10 @@ export class AppComponent implements OnInit{
   constructor(private userService: UserService, private loaderService: LoaderService) {}
 
   changeState() {
-    this.userService.getUsers(this.usersPerPage, this.currentPage).subscribe((data: any) => {
-      this.usersData =  data.data;
-      this.totalUsers = data.total;
-      this.totalPages = data.total_pages;
+    this.userService.getUsers(this.usersPerPage, this.currentPage).subscribe((usersAPIData: IUsersAPIModel) => {
+      this.usersData =  usersAPIData.data;
+      this.totalUsers = usersAPIData.total;
+      this.totalPages = usersAPIData.total_pages;
     })
   }
 

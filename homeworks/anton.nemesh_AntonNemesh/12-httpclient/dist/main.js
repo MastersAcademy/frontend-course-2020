@@ -195,10 +195,10 @@ class AppComponent {
         this.contentVisible = this.loaderService.contentVisible;
     }
     changeState() {
-        this.userService.getUsers(this.usersPerPage, this.currentPage).subscribe((data) => {
-            this.usersData = data.data;
-            this.totalUsers = data.total;
-            this.totalPages = data.total_pages;
+        this.userService.getUsers(this.usersPerPage, this.currentPage).subscribe((usersAPIData) => {
+            this.usersData = usersAPIData.data;
+            this.totalUsers = usersAPIData.total;
+            this.totalPages = usersAPIData.total_pages;
         });
     }
     selectedView(event) {
