@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { UserService } from './services/user.service';
-import { User } from './models/user.model';
+import { Page } from './models/page.model';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +10,37 @@ import { User } from './models/user.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  pages: number[] = [];
+
+  pageConfix = {
+    page: 1,
+    perPage: 2,
+  };
+
   title = 'httpclient';
 
-  userData: User[] = [];
+  pageData: Page | undefined;
+
   private subscription: Subscription = new Subscription();
 
   constructor(private userService: UserService) {}
 
 
-
   ngOnInit(): void {
-    this.subscription.add(this.userService.getUsers().subscribe((users: User[]) => {
-      this.userData = users;
-      console.log('ok');
+    this.updatePageFromSerrver();
+  }
+
+  updatePageFromSerrver(): void {
+    this.subscription.add(this.userService.getUsers(this.pageConfix.page, this.pageConfix.perPage).subscribe((users: Page) => {
+      this.pageData = users;
+      this.pages = Array(this.pageData.total_pages).fill(undefined).map((x, i) => (i + 1));
     }));
+  }
+
+  selectPage(pageNumber: number): void {
+    this.pageConfix.page = pageNumber;
+    this.updatePageFromSerrver();
   }
 
   ngOnDestroy(): void {

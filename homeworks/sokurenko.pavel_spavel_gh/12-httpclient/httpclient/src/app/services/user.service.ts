@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/user.model';
+// import { map, tap } from 'rxjs/operators';
 import { Page } from '../models/page.model';
 
 @Injectable({providedIn: 'root'})
@@ -10,19 +9,19 @@ import { Page } from '../models/page.model';
 export class UserService {
   ROOT_URL = 'https://reqres.in/api/users';
   options = {
-    params: { page: '2' },
+    params: {
+      page: '1',
+      per_page: '2',
+      delay: '1'
+    },
     headers: { Authorization: 'i2ojjfsoiejfs9' }
   };
 
   constructor(private http: HttpClient) { }
-  // constructor() { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<Page>(this.ROOT_URL, this.options).pipe(
-      map(({ data }) => data)
-    );
+  getUsers(getPageId: string | number, usersPerPage: string | number): Observable<Page> {
+    this.options.params.page = getPageId.toString();
+    this.options.params.per_page = usersPerPage.toString();
+    return this.http.get<Page>(this.ROOT_URL, this.options).pipe();
   }
-
-
-
 }

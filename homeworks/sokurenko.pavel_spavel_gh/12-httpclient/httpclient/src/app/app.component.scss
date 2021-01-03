@@ -56,8 +56,17 @@
   width: 20rem;
   height: 20rem;
   background-color: #0003;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin-bottom: 2rem;
   border-radius: 1rem;
+}
+
+
+.inline-block-text {
+  display: inline-block;
+  height: 1em;
 }
 
 .user-name {
@@ -66,7 +75,6 @@
 }
 
 .user-name-text {
-  display: inline;
   font-size: 1.25rem;
   font-weight: 600;
 }
