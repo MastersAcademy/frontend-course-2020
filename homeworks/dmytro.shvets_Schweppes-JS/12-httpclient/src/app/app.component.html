@@ -1,0 +1,35 @@
+<div class="loader" *ngIf="!isLoaded">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="410px" height="410px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <circle cx="84" cy="50" r="10" fill="#1d0e0b">
+        <animate attributeName="r" repeatCount="indefinite" dur="0.25510204081632654s" calcMode="spline" keyTimes="0;1" values="10;0" keySplines="0 0.5 0.5 1" begin="0s"></animate>
+        <animate attributeName="fill" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="discrete" keyTimes="0;0.25;0.5;0.75;1" values="#1d0e0b;#f3e7c9;#d88c51;#774023;#1d0e0b" begin="0s"></animate>
+    </circle><circle cx="16" cy="50" r="10" fill="#1d0e0b">
+      <animate attributeName="r" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="0s"></animate>
+      <animate attributeName="cx" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="0s"></animate>
+    </circle><circle cx="50" cy="50" r="10" fill="#774023">
+      <animate attributeName="r" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.25510204081632654s"></animate>
+      <animate attributeName="cx" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.25510204081632654s"></animate>
+    </circle><circle cx="84" cy="50" r="10" fill="#d88c51">
+      <animate attributeName="r" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.5102040816326531s"></animate>
+      <animate attributeName="cx" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.5102040816326531s"></animate>
+    </circle><circle cx="16" cy="50" r="10" fill="#f3e7c9">
+      <animate attributeName="r" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.7653061224489796s"></animate>
+      <animate attributeName="cx" repeatCount="indefinite" dur="1.0204081632653061s" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.7653061224489796s"></animate>
+    </circle>
+  </svg>
+</div>
+<div class="card-container" *ngIf="isLoaded">
+  <app-card
+  *ngFor="let user of userData"
+  class="app-card"
+  [user]="user"
+  ></app-card>
+</div>
+<div class="button-container" *ngIf="isLoaded">
+  <app-button
+    class="button"
+    *ngFor="let pageNumber of totalPages"
+    [pageNumber]="pageNumber"
+    (click)="loadNextPage(pageNumber)"
+  ></app-button>
+</div>

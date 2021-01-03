@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  padding: 15px;
+  font-family: "Ubuntu", sans-serif;
+  background-image: url("./assets/background.svg");
+  background-position: center center;
+}
+
+.app-container {
+  width: 95vw;
+}
