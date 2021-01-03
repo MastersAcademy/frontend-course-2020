@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoaderService, UserService} from "./services";
 import {Subject} from "rxjs";
+import {IUserModel} from "../models";
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,12 @@ import {Subject} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  public usersData: any;
-  public totalUsers: string;
-  public totalPages: string;
+  public usersData: IUserModel[];
+  public totalUsers: number;
+  public totalPages: number;
 
-  public currentPage: string = '1';
-  public usersPerPage: string = '2';
+  public currentPage: number = 1;
+  public usersPerPage: number = 2;
 
   public loaderVisible: Subject<boolean> = this.loaderService.loaderVisible;
   public contentVisible: Subject<boolean> = this.loaderService.contentVisible;
@@ -28,19 +29,19 @@ export class AppComponent implements OnInit{
     })
   }
 
-  changePage(event): void {
-    this.currentPage = event.target.innerText;
+  selectedView(event): void {
+    this.usersPerPage = event.target.value;
+    this.currentPage = 1;
     this.changeState();
   }
 
-  selectedView(event): void {
-    this.usersPerPage = event.target.value;
-    this.currentPage = '1';
+  changePage(page: number): void {
+    this.currentPage = page;
     this.changeState();
   }
 
   checkNumbOfCurrentPage(page: number): boolean {
-    return this.currentPage === String(page);
+    return this.currentPage === page;
   }
 
   ngOnInit() {

@@ -174,7 +174,7 @@ function AppComponent_div_15_Template(rf, ctx) { if (rf & 1) {
 function AppComponent_a_21_Template(rf, ctx) { if (rf & 1) {
     const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_a_21_Template_a_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.changePage($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_a_21_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r8); const page_r6 = ctx.index; const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.changePage(page_r6 + 1); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -189,8 +189,8 @@ class AppComponent {
     constructor(userService, loaderService) {
         this.userService = userService;
         this.loaderService = loaderService;
-        this.currentPage = '1';
-        this.usersPerPage = '2';
+        this.currentPage = 1;
+        this.usersPerPage = 2;
         this.loaderVisible = this.loaderService.loaderVisible;
         this.contentVisible = this.loaderService.contentVisible;
     }
@@ -201,17 +201,17 @@ class AppComponent {
             this.totalPages = data.total_pages;
         });
     }
-    changePage(event) {
-        this.currentPage = event.target.innerText;
-        this.changeState();
-    }
     selectedView(event) {
         this.usersPerPage = event.target.value;
-        this.currentPage = '1';
+        this.currentPage = 1;
+        this.changeState();
+    }
+    changePage(page) {
+        this.currentPage = page;
         this.changeState();
     }
     checkNumbOfCurrentPage(page) {
-        return this.currentPage === String(page);
+        return this.currentPage === page;
     }
     ngOnInit() {
         this.changeState();
@@ -377,9 +377,7 @@ const appServices = [
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 
 
 
@@ -390,18 +388,18 @@ class UserService {
     getUsers(usersPerPage, currentPage) {
         const options = {
             params: {
-                page: currentPage,
-                per_page: usersPerPage,
+                page: String(currentPage),
+                per_page: String(usersPerPage),
             }
         };
-        return this.http.get('https://reqres.in/api/users', options).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])((data) => console.log(data)));
+        return this.http.get('https://reqres.in/api/users', options);
     }
 }
-UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
 UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),

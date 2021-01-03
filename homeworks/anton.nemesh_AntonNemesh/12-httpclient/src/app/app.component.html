@@ -31,7 +31,7 @@
     <div class="center">
       <div class="pagination">
         <a *ngFor="let item of [].constructor(totalPages); let page = index"
-           (click)="changePage($event)"
+           (click)="changePage(page + 1)"
            [class.active]="checkNumbOfCurrentPage(page + 1)"
            href="#">
           {{page + 1}}
