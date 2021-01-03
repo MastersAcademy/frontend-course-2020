@@ -17,9 +17,7 @@ export class UserService {
   
   getUsers(): Observable<User[]> {
     return this.http.get<Page>(this.ROOT_URL, this.options).pipe(
-      delay(1000),
-      map(({ data }) => data)
-
+      map(({ data }) => data),
     );
   }
 }

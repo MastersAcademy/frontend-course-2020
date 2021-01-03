@@ -1,4 +1,14 @@
-<div class="container">
+<div *ngIf="isLoading | async" class="overlay">
+  <mat-progress-spinner class="spinner" [color]="'primary'" [mode]="'indeterminate'" [value]="50">
+  </mat-progress-spinner>
+</div>
+
+<div *ngIf="isContent" class="overlay">
+  <mat-progress-spinner class="spinner" [color]="'primary'" [mode]="'indeterminate'" [value]="50">
+  </mat-progress-spinner>
+</div>
+
+<div *ngIf="!isContent"  class="container">
   <div *ngFor="let user of users">
   <div class="container-image">
     <img src="{{ user.avatar }} " alt="">
@@ -10,7 +20,7 @@
   </div>
 </div>
 </div>
-<div class="button-container">
+<div *ngIf="!isContent" class="button-container">
 <div *ngFor="let item of items">
   <button (click)="getUser($event)">  
     {{ item }}

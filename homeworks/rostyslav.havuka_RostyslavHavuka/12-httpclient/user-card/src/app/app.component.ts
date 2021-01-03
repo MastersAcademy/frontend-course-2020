@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { User } from './models/user.model';
 import { UserService } from './services/user.service'
+import { LoaderService } from './services/loader.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,20 +14,22 @@ import { UserService } from './services/user.service'
 
 export class AppComponent implements OnInit{
   users: User[] = [];
-  pageOfItems: Array<any> = [];
   items: Array<number> = [1, 2, 3];
-
-  constructor(private userService: UserService) {}
+  isLoading: Subject<boolean> = this.loaderService.isLoading;
+  isContent!: boolean;
+  constructor(private userService: UserService, private loaderService: LoaderService) {}
 
   ngOnInit() {
     this.getUsers(0,2)
-  
+    this.isLoading.subscribe((e) => console.log(e));
   }
 
   getUsers(a: number, b: number) {
+    this.isContent = true;
     this.userService.getUsers()
+    .pipe(finalize(() => this.isContent = false))
     .subscribe((user) => {
-      this.users = user.slice(a, b)
+      this.users = user.slice(a, b);
     });
   }
 
