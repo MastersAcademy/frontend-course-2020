@@ -1,0 +1,107 @@
+h1 {
+  margin: 20px 0 0;
+}
+
+p {
+  margin: 10px 0 0;
+}
+
+header {
+  flex: 0 0 auto;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 960px;
+  min-height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 40px 0 0;
+}
+
+.user-card__img-wrap,
+.user-card__inf-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.user-card__inf-wrap {
+  flex-direction: column;
+  text-align: center;
+}
+
+.user-card__avatar {
+  min-height: 128px;
+}
+
+.dropdown-wrap {
+  padding: 20px 0;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.dropdown-wrap select {
+  font-size: 18px;
+  font-family: Liberation serif;
+  padding: 8px 16px;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: #000;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #DDD;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: #FFF;
+  border: 1px solid #4CAF50;
+  pointer-events: none;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #DDD;
+}
+
+.paginator-wrap {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.cards-wrap {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.loader {
+  height: 150px;
+}
