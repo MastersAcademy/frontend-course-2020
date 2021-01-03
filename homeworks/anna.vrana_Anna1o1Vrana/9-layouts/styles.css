@@ -663,7 +663,7 @@ img {
 
   .header__logo-description {
     position: relative;
-    top: 61px;
+    top: 15px;
     display: block;
     font-size: 22px;
   }
@@ -674,6 +674,7 @@ img {
 
   .nav__list {
     display: flex;
+    margin: -40px 0 0 90px;
   }
 
   .menu__btn {
@@ -738,8 +739,8 @@ img {
   }
 
   .demo__headline {
-    margin-top: -55%;
-    padding-bottom: 44%;
+    margin-top: -40%;
+    padding-bottom: 31%;
     max-width: 550px;
     font-size: 48px;
     line-height: 62px;
@@ -777,5 +778,7 @@ img {
 /*Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 @media (min-width: 1200px) {
 
-
+  img {
+    width: 100%;
+  }
 }
