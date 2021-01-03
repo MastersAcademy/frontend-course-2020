@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { UsersService } from './services/users.service';
 
 import { Info } from './interfaces/info.interface';
 import { User } from './interfaces/user.interface';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +12,14 @@ import { User } from './interfaces/user.interface';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   info?: Info;
   users: User[] = [];
   total: number = 0;
   page: number = 1;
   pageSize: number = 2;
-    
+  areCardsLoaded: boolean = false;
+  private subscription: Subscription = new Subscription();   
   constructor(private usersService: UsersService){}
 
   ngOnInit() {
@@ -47,16 +48,19 @@ export class AppComponent implements OnInit {
   getInfo() {
     let options = this.getRequestParams (this.page, this.pageSize);
 
-    this.usersService.getInfo(options)
+    this.subscription.add(this.usersService.getInfo(options)
       .subscribe(info => {
-        console.log(info);
         this.total = info.total;
         this.users = info.data;
-      })
+      }));
   }
   
   pageChanged(event: any) {
     this.page = event;
     this.getInfo();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
