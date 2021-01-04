@@ -1,0 +1,42 @@
+.container {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.horizontal-line {
+  margin: .5rem 0;
+}
+
+.loader {
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  color: #F00;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.user-card {
+  padding: 1rem;
+  border: #CCC 1px dotted;
+  margin: .7rem 0;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.padding-zero {
+  padding: 0;
+}
+
+.margin-left {
+  margin-left: 3rem;
+}

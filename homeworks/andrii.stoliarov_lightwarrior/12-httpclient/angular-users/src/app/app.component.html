@@ -1,0 +1,18 @@
+
+<div class="container">
+  <h1>Users cards</h1>
+  <hr class="horizontal-line">
+  <span class="loader" *ngIf="loading; else cards">Loading...</span>
+  <ng-template #cards>
+    <div class="flex-container">
+      <div *ngFor="let user of userData | paginate: {itemsPerPage: 2, currentPage: currentPage}" class="user-card">
+        <div><img src="{{ user.avatar }}" alt="avatar"></div>
+        <p><span class="font-bold">First name: </span>{{ user.first_name }}</p>
+        <p><span class="font-bold">Last name: </span>{{ user.last_name }}</p>
+        <p><span class="font-bold">Email: </span>{{ user.email }}</p>
+      </div>
+    </div>
+  </ng-template>
+  <hr class="horizontal-line">
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
