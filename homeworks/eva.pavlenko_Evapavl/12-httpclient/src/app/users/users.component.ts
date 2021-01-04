@@ -1,10 +1,9 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import {UserService} from "../services/user.service";
-import {User} from "../models/user.model";
-import {Subscription} from "rxjs";
-import {LoadingService} from "../services/loading.service";
+import { UserService } from "../services/user.service";
+import { User } from "../models/user.model";
+import { Subscription } from "rxjs";
+import { LoadingService } from "../services/loading.service";
 
 @Component({
   selector: 'app-users',
@@ -48,9 +47,11 @@ export class UsersComponent implements OnInit, OnDestroy {
         'Accept-Language': '000kkhg'
       }
     }
+
     if (page) {
       options.params.page = page;
     }
+
     if (pageSize) {
       options.params.per_page = pageSize;
     }
@@ -68,13 +69,13 @@ export class UsersComponent implements OnInit, OnDestroy {
       }))
   }
 
-  handlePageChange(event: any) {
+  handlePageChange(event: number) {
     this.page = event;
     this.getUsers();
   }
 
-  handlePageSizeChange(event: any) {
-    this.pageSize = event.target.value;
+  handlePageSizeChange(event: Event) {
+    if(event.currentTarget) this.pageSize = event.currentTarget.value;
     this.page = 1;
     this.getUsers();
   }
@@ -82,4 +83,5 @@ export class UsersComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscrition.unsubscribe()
   }
+
 }

@@ -9,7 +9,7 @@
   font-size: 20px;
 }
 
-.two-users {
+.users {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -17,7 +17,7 @@
   flex-wrap: wrap;
 }
 
-.one-user {
+.user {
   width: 40%;
   border: 1px solid #000;
   border-radius: 10px;
@@ -28,13 +28,13 @@
   align-items: center;
 }
 
-.center-content-data {
+.user-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.photo-avatar {
+.user-photo-avatar {
   width: 100%;
   display: flex;
   justify-content: center;

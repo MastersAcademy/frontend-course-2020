@@ -11,14 +11,14 @@
       </option>
     </select>
   </label>
-  <div class="two-users">
+  <div class="users">
     <div *ngFor="let user of usersData | paginate : {
                   itemsPerPage: pageSize,
                   currentPage: page,
                   totalItems: count
-}" class="one-user">
-      <div class="center-content-data">
-        <div class="photo-avatar"><img class="photo" src="{{user.avatar}}" alt="avatar"></div>
+}" class="user">
+      <div class="user-center">
+        <div class="user-photo-avatar"><img class="photo" src="{{user.avatar}}" alt="avatar"></div>
         <p class="user-first-name"><span class="description">Name: </span> {{user.first_name}}</p>
         <p class="user-last-name"><span class="description">Last Name: </span>{{user.last_name}}</p>
         <p class="user-email"><span class="description">E-mail: </span>{{user.email}}</p>
