@@ -4,8 +4,6 @@ import {Observable} from "rxjs";
 import {User} from "../models/user.model";
 import {Page} from "../models/page.model";
 import {map} from "rxjs/operators";
-import data
-  from "../../../../../../rostyslav.havuka_RostyslavHavuka/8-components-templates/album/dist/album/assets/data";
 
 @Injectable({
   providedIn: "root"
@@ -22,7 +20,7 @@ export class UserService {
       params: new HttpParams().set('page', '1')
     }
     return this.http.get<Page>(this.Root_URL, options).pipe(
-      map(({ data }) => data, console.log(data)),
+      map(({ data }) => data),
     );
   }
 }

@@ -1,9 +1,6 @@
-<h1 class="home-work-headline"> Home Work №12 'Http Client'</h1>
-<h2 class="headline">Users cards</h2>
-<ul class="cards-list">
-  <li class="user-card" *ngFor="let user of userData">
-    <img class="user-avatar" src="{{user.avatar}}" alt="user photo">
-    <p class="user-name">{{user.first_name}} {{user.last_name}}</p>
-    <p class="user-email">{{user.email}}</p>
-  </li>
-</ul>
+<li class="user-card">
+  <img class="user-avatar" src="{{user.avatar}}" alt="user photo">
+  <p class="user-name">{{user.first_name}} {{user.last_name}}</p>
+  <p class="user-email">{{user.email}}</p>
+</li>
+
