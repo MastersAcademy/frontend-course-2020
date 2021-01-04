@@ -180,11 +180,9 @@ class AppComponent {
         this.subscription.add(this.userService.getUsers().subscribe((users) => {
             this.totalPages = Array(users.total / parseInt(users.per_page)).fill('').map((x, i) => i + 1);
             this.userData = users.data;
-            console.log(this.isLoaded);
         }));
     }
     loadNextPage(pageNumber) {
-        console.log(this.isLoaded);
         this.userService.changingPage(pageNumber);
         this.sendingRequest();
     }
@@ -400,6 +398,7 @@ class LoaderInterceptor {
         this.loaderService = loaderService;
     }
     intercept(req, next) {
+        req = req.clone({ headers: req.headers.set('Accept-Language', 'da;q=1, en-GB;q=0.8, en;q=0.7') });
         this.loaderService.hidden();
         return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["delay"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["finalize"])(() => {
             this.loaderService.visible();

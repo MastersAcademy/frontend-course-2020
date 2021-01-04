@@ -34,13 +34,10 @@ export class AppComponent implements OnDestroy, OnInit {
     this.subscription.add(this.userService.getUsers().subscribe((users: Page) => {
       this.totalPages = Array(users.total / parseInt(users.per_page)).fill('').map((x, i) => i + 1);
       this.userData = users.data;
-
-      console.log(this.isLoaded)
     }));
   }
 
   loadNextPage(pageNumber: number) {
-    console.log(this.isLoaded)
     this.userService.changingPage(pageNumber);
     this.sendingRequest();
   }
