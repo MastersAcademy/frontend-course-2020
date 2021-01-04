@@ -1,13 +1,13 @@
-<ul class="img-wrapper images">
-  <li *ngFor="let img of images; index as i"
-      class="image"
-      (click)="onSelect(img)"
-      [class.selected]="img == selectedImg">
+<div class="img-wrapper images">
 
-    <app-picture [currentImage]="img"></app-picture>
+  <app-picture [currentImage]="img"
+               *ngFor="let img of images; index as i"
+               class="image"
+               (click)="onSelect(img)"
+               [class.selected]="img == selectedImg">
+  </app-picture>
 
-  </li>
-</ul>
+</div>
 
 <h2 class="image-headline">Image</h2>
 <app-selected-picture [selectedImg]="selectedImg"></app-selected-picture>

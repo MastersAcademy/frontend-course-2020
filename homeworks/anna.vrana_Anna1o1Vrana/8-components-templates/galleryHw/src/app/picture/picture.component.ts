@@ -8,7 +8,7 @@ import {Img} from '../data/Img';
 })
 
 export class PictureComponent {
-  @Input() currentImage: any;
+  @Input() currentImage: Img;
   selectedImg: Img;
   loading = true;
 

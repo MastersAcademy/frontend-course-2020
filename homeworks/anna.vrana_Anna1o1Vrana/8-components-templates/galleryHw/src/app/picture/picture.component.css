@@ -6,12 +6,12 @@
   background: #0A2BA1;
 }
 
-.loading div {
+.loading .circle {
   animation: loading 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
   transform-origin: 40px 40px;
 }
 
-.loading div::after {
+.loading .circle::after {
   content: " ";
   display: block;
   position: absolute;
@@ -22,74 +22,74 @@
   margin: -4px 0 0 -4px;
 }
 
-.loading div:nth-child(1) {
+.loading .circle:nth-child(1) {
   animation-delay: -.036s;
 }
 
-.loading div:nth-child(1)::after {
+.loading .circle:nth-child(1)::after {
   top: 63px;
   left: 63px;
 }
 
-.lds-roller div:nth-child(2) {
+.loading .circle:nth-child(2) {
   animation-delay: -.072s;
 }
 
-.loading div:nth-child(2)::after {
+.loading .circle:nth-child(2)::after {
   top: 68px;
   left: 56px;
 }
 
-.loading div:nth-child(3) {
+.loading .circle:nth-child(3) {
   animation-delay: -.108s;
 }
 
-.loading div:nth-child(3)::after {
+.loading .circle:nth-child(3)::after {
   top: 71px;
   left: 48px;
 }
 
-.loading div:nth-child(4) {
+.loading .circle:nth-child(4) {
   animation-delay: -.144s;
 }
 
-.loading div:nth-child(4)::after {
+.loading .circle:nth-child(4)::after {
   top: 72px;
   left: 40px;
 }
 
-.loading div:nth-child(5) {
+.loading .circle:nth-child(5) {
   animation-delay: -.18s;
 }
 
-.loading div:nth-child(5)::after {
+.loading .circle:nth-child(5)::after {
   top: 71px;
   left: 32px;
 }
 
-.loading div:nth-child(6) {
+.loading .circle:nth-child(6) {
   animation-delay: -.216s;
 }
 
-.loading div:nth-child(6)::after {
+.loading .circle:nth-child(6)::after {
   top: 68px;
   left: 24px;
 }
 
-.loading div:nth-child(7) {
+.loading .circle:nth-child(7) {
   animation-delay: -.252s;
 }
 
-.loading div:nth-child(7)::after {
+.loading .circle:nth-child(7)::after {
   top: 63px;
   left: 17px;
 }
 
-.loading div:nth-child(8) {
+.loading .circle:nth-child(8) {
   animation-delay: -.288s;
 }
 
-.loading div:nth-child(8)::after {
+.loading .circle:nth-child(8)::after {
   top: 56px;
   left: 12px;
 }
