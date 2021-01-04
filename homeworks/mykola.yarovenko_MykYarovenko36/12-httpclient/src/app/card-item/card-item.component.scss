@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgba(156, 209, 224, .39);
+  border-radius: 5px;
+  width: 250px;
+  height: 350px;
+  margin: 20px;
+}
+
+.user-photo {
+  padding-top: 20px;
+}

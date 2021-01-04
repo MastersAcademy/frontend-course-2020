@@ -1,0 +1,22 @@
+<div class="page-wrapper">
+    <button
+      (click)="toggleSlide('prev')"
+      [disabled]="prevBtnDisabled"
+      class="page-btn"
+    >Prev
+    </button>
+    <div class="items-wrapper">
+        <app-card-item class="card-item" *ngFor="let item of newState" [itemsState]="item">
+        </app-card-item>
+    </div>
+    <button
+      (click)="toggleSlide('next')"
+      [disabled]="nextBtnDisabled"
+      class="page-btn"
+    >Next</button>
+</div>
+
+
+
+
+

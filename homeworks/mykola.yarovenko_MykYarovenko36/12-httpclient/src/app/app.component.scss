@@ -1,0 +1,27 @@
+.app-wrapper {
+  width: 700px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.card-wrapper {
+  width: 690px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnContainer {
+  display: inline-flex;
+  height: 50px;
+}
+
+.pageBtn {
+  width: 50px;
+  height: 50px;
+}
