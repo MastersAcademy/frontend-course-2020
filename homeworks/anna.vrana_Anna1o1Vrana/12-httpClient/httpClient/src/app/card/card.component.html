@@ -1,4 +1,4 @@
-<li class="user-card">
+<li class="user-card" *ngIf="user">
   <img class="user-avatar" src="{{user.avatar}}" alt="user photo">
   <p class="user-name">{{user.first_name}} {{user.last_name}}</p>
   <p class="user-email">{{user.email}}</p>
