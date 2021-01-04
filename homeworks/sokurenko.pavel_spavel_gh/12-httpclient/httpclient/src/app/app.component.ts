@@ -16,8 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
   pages: number[] = [];
 
   pageConfig = {
-    page: 1,
-    perPage: 2,
+    page: '1',
+    perPage: '2',
   };
 
   title = 'httpclient';
@@ -44,13 +44,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   selectPage(pageNumber: number): void {
-    this.pageConfig.page = pageNumber;
+    this.pageConfig.page = pageNumber.toString();
     this.updatePageFromSerrver();
   }
 
-  changePerPage(newPerPage: number ): void {
-    this.pageConfig.page = 1;
-    this.pageConfig.perPage = newPerPage;
+  changePerPage(event: Event ): void {
+    this.pageConfig.page = (1).toString();
+    this.pageConfig.perPage = (event.target as HTMLInputElement).value;
     this.updatePageFromSerrver();
   }
 
