@@ -27,4 +27,13 @@
       >{{ number }}</a
     >
   </div>
+
+  <div class="per-page-selector-position">
+    <select (change)="changePerPage($event.target.value)" class="per-page-selector" size="1" name="perPageSelector">
+      <option selected value="4">2</option>
+      <option value="4">4</option>
+      <option value="6">6</option>
+      <option value="12">12</option>
+    </select>
+  </div>
 </div>

@@ -24,7 +24,7 @@
   justify-content: center;
   grid-template-columns: auto auto;
   column-gap: 3rem;
-  row-gap: 1rem;
+  row-gap: 2rem;
 }
 
 .page-title {
@@ -133,4 +133,22 @@
 .pagination a:hover:not(.active) {
   background-color: #93959744;
   color: #000;
+}
+
+
+.per-page-selector-position {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  // align-items: center;
+}
+
+.per-page-selector {
+  margin: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: .25rem;
+  background: none;
+  border: none;
 }

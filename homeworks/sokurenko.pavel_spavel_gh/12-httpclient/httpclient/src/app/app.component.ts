@@ -48,6 +48,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.updatePageFromSerrver();
   }
 
+  changePerPage(newPerPage: number ): void {
+    this.pageConfig.page = 1;
+    this.pageConfig.perPage = newPerPage;
+    this.updatePageFromSerrver();
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
