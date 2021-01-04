@@ -7,15 +7,17 @@
 .main-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 0;
-  height: 100vh;
-  padding: 15px;
+  min-height: 100vh;
   font-family: "Ubuntu", sans-serif;
   background-image: url("./assets/background.svg");
   background-position: center center;
 }
 
 .app-container {
-  width: 95vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
