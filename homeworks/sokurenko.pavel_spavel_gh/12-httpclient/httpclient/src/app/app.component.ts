@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
+import { LoaderService } from './services/loader.service';
 import { UserService } from './services/user.service';
 import { Page } from './models/page.model';
 
@@ -13,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   pages: number[] = [];
 
-  pageConfix = {
+  pageConfig = {
     page: 1,
     perPage: 2,
   };
@@ -24,22 +26,25 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription = new Subscription();
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, public loaderService: LoaderService) {}
 
+  isLoading: Subject<boolean> = this.loaderService.isLoading;
+  startLoader = true;
 
   ngOnInit(): void {
     this.updatePageFromSerrver();
+    this.isLoading.subscribe(() => this.startLoader = false);
   }
 
   updatePageFromSerrver(): void {
-    this.subscription.add(this.userService.getUsers(this.pageConfix.page, this.pageConfix.perPage).subscribe((users: Page) => {
+    this.subscription.add(this.userService.getUsers(this.pageConfig.page, this.pageConfig.perPage).subscribe((users: Page) => {
       this.pageData = users;
       this.pages = Array(this.pageData.total_pages).fill(undefined).map((x, i) => (i + 1));
     }));
   }
 
   selectPage(pageNumber: number): void {
-    this.pageConfix.page = pageNumber;
+    this.pageConfig.page = pageNumber;
     this.updatePageFromSerrver();
   }
 

@@ -1,7 +1,8 @@
+<div *ngIf="startLoader" class="page-loader">loading</div>
 <div class="grid-wrap">
   <h1 class="page-title">{{ title }}</h1>
 
-  <div class="user-profile-card" *ngFor="let user of pageData.data">
+  <div class="user-profile-card" [class.user-card-wait]="isLoading | async"  *ngFor="let user of pageData.data">
     <div
       class="user-avatar"
       style="background-image: url( {{ user.avatar }} );"

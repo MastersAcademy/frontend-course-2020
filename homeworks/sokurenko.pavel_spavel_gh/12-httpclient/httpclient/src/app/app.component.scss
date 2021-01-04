@@ -7,6 +7,16 @@
   color: #454647;
 }
 
+.page-loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 .grid-wrap {
   display: grid;
   justify-items: center;
@@ -24,8 +34,7 @@
   background-size: 100% .3em;
   background-position: 0 88%;
   cursor: pointer;
-  // background: none;
-  // box-shadow: 0px -1em 0px 0px #0F05, 0px 10px 0px 0px #F005;
+  margin: 2rem 0;
 }
 
 
@@ -49,6 +58,10 @@
 
 .user-profile-card:hover {
   box-shadow: 0 0 0 .6rem #0001;
+}
+
+.user-card-wait {
+  opacity: .5;
 }
 
 .user-avatar {
