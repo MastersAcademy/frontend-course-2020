@@ -12,7 +12,7 @@ export class PictureComponent {
   selectedImg: Img;
   loading = true;
 
-  hideLoader($event: any): void {
+  hideLoader(): void {
     this.loading = false;
     console.log('loader');
   }

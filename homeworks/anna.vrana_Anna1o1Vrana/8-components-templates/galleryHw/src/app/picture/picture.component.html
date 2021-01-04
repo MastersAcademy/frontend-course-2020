@@ -1,6 +1,19 @@
+<div *ngIf="loading; else pictureLoadingBlock" class="loading">
+  <div class="loading">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<ng-template #pictureLoadingBlock></ng-template>
 <img src="{{currentImage.urls.thumb}}"
      alt="gallery picture"
-     class="img hide"
-     [class.hide]="loading"
-     (load)="hideLoader($event)">
+     class="img" (load)="hideLoader()">
+
 
