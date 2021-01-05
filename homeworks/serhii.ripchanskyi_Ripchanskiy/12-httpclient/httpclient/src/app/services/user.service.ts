@@ -8,6 +8,7 @@ import { PageRequestParams } from "../models";
 @Injectable()
 export class UserService {
   USERS_API_URL = 'https://reqres.in/api/users';
+  loader: boolean = true;
 
   constructor(private http: HttpClient) {}
 
@@ -15,5 +16,17 @@ export class UserService {
     return this.http.get<UsersPage>(this.USERS_API_URL, params).pipe(
       map((page) => page)
     )
+  }
+
+  startLoader(): void {
+    this.loader = true;
+  }
+
+  stopLoader(): void {
+    this.loader = false;
+  }
+
+  getLoader(): boolean {
+    return this.loader;
   }
 }

@@ -21,7 +21,9 @@ export class AppComponent implements OnInit, OnDestroy {
   itemsPerPage: number [];
   areUsersLoading: boolean = true;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    this.areUsersLoading = userService.getLoader();
+  }
 
   ngOnInit(): void {
     this.getUsers();
@@ -33,10 +35,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private getUsers(): void {
     const MAX_ITEMS_PER_PAGE = 6;
-    this.areUsersLoading = true;
+    this.userService.startLoader();
     this.subscription.add(
     this.userService.getUsers(this.pageRequestParams)
-      .pipe(finalize(() => this.areUsersLoading = false))
+      .pipe(finalize(() => {
+        this.userService.stopLoader();
+        this.areUsersLoading = this.userService.getLoader();
+      }))
       .subscribe((users: UsersPage) => {
         this.users = users;
         this.currentPage = users.page;
