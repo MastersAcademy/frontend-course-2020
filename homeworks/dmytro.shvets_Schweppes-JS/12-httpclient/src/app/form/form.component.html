@@ -1,0 +1,16 @@
+<form>
+  <label for="card-number" class="lable__card-number">Card on page</label>
+    <select
+      name="cardOption"
+      class="card-number"
+      id="card-number"
+      [ngModel]="selected"
+      (change)="onChange($event)"
+    >
+      <option
+        *ngFor="let option of cardOption"
+        class="card-option"
+        [value]="option"
+      >{{option}}</option>
+    </select>
+</form>

@@ -18,13 +18,8 @@
     </circle>
   </svg>
 </div>
+<app-form *ngIf="isLoaded"></app-form>
 <div class="card-container" *ngIf="isLoaded">
-  <select class="card-number">
-    <option class="card-option" value="1">1</option>
-    <option class="card-option" value="2">2</option>
-    <option class="card-option" value="3">3</option>
-    <option class="card-option" value="4">4</option>
-  </select>
   <app-card
     *ngFor="let user of userData"
     class="app-card"

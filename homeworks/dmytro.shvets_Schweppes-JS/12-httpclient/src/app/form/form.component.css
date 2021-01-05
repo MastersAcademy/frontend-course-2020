@@ -1,0 +1,15 @@
+.lable__card-number {
+  color: rgba(241, 223, 163, .966);
+  font-size: 1.23rem;
+  margin-right: 5px;
+}
+
+.card-number {
+  color: rgba(241, 223, 163, .966);
+  font-size: 1.23rem;
+  background-color: #2A426E;
+}
+
+.card-option {
+  background-color: #2A426E;
+}

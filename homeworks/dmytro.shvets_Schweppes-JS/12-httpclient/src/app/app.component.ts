@@ -4,7 +4,6 @@ import { LoaderService } from './services/loader.service';
 import { User } from './models/User';
 import { Page } from './models/Page';
 import { Subject, Subscription } from 'rxjs';
-import { delay, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +37,7 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   loadNextPage(pageNumber: number) {
+    console.log(pageNumber)
     this.userService.changingPage(pageNumber);
     this.sendingRequest();
   }

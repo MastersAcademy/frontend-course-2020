@@ -8,8 +8,9 @@ import { Params } from '../models/Params';
   providedIn: 'root'
 })
 export class UserService {
-  ROOT_URL = 'https://reqres.in/api/users';
-  options = {
+  public cardPerPage = 2;
+  public ROOT_URL = 'https://reqres.in/api/users';
+  public options = {
     params: { page: '1', per_page: '2' }
   }
 
@@ -20,6 +21,19 @@ export class UserService {
   }
 
   changingPage(pageNumber: number): Params {
-    return this.options.params = { page: pageNumber.toString(), per_page: '2' }
+    return this.options.params = {
+      page: pageNumber.toString(),
+      per_page: this.options.params.per_page
+    }
+  }
+
+  changingCardNumber(cardNumber: number): Params {
+    return (
+      this.cardPerPage = cardNumber,
+      this.options.params = {
+        page: this.options.params.page,
+        per_page: cardNumber.toString()
+      }
+    )
   }
 }
