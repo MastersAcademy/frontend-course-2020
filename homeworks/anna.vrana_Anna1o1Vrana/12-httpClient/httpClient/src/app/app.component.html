@@ -1,10 +1,11 @@
 <h1 class="home-work-headline"> Home Work №12 'Http Client'</h1>
 <h2 class="headline">Users cards</h2>
-<ul class="cards-list">
+<div class="cards-list">
+
 <app-card
   *ngFor="let user of userData"
 [user]="user">
-
 </app-card>
-<!--  <app-pagination>  </app-pagination>-->
-</ul>
+
+</div>
+<app-pagination>  </app-pagination>

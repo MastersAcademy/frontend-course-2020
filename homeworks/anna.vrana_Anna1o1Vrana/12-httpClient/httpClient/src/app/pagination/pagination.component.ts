@@ -6,12 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  // public page: number;
-  // public collectionSize: number;
-  // public itemsPerPage: number = 4;
-
-
-
 
   constructor(
 
@@ -20,8 +14,5 @@ export class PaginationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onPageChanged() {
-    // this.loadPage();
-  }
 
 }
