@@ -14,7 +14,7 @@
   background-position: center center;
 }
 
-.app-container {
+.main-container__app-container {
   width: 100%;
   padding: 15px 0;
   display: flex;

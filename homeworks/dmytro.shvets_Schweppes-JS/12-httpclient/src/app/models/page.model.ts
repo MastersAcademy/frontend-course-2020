@@ -1,5 +1,4 @@
-import { from } from "rxjs";
-import { User } from './User';
+import { User } from './user.model';
 
 export interface Page {
   page: string,

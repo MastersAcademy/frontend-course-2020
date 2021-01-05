@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { AppComponent } from '../app.component';
-import { ClickEvent } from '../models/Event';
+import { ClickEvent } from '../models/event.models';
 
 @Component({
   selector: 'app-form',
@@ -12,7 +12,7 @@ export class FormComponent implements OnInit {
 
   public cardOption: number[] = [1, 2, 3, 4]
 
-  public selected: number = this.userService.cardPerPage;
+  public selected: string = this.userService.options.params.per_page;
 
   constructor(
     private userService: UserService,
@@ -23,8 +23,7 @@ export class FormComponent implements OnInit {
   }
 
   onChange(event: ClickEvent) {
-    this.selected = event.target.value;
-    this.userService.changingCardNumber(event.target.value);
+    this.userService.changingCardNumber(event.target.value.toString());
     this.appComponent.sendingRequest();
   }
 

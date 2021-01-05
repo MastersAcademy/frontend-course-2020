@@ -19,18 +19,17 @@
   </svg>
 </div>
 <app-form *ngIf="isLoaded"></app-form>
-<div class="card-container" *ngIf="isLoaded">
+<div class="app-container__card-container" *ngIf="isLoaded">
   <app-card
     *ngFor="let user of userData"
-    class="app-card"
+    class="card-container__app-card"
     [user]="user"
   ></app-card>
 </div>
-<div class="button-container" *ngIf="isLoaded">
+<div class="app-container__button-container" *ngIf="isLoaded">
   <app-button
-    class="button"
     *ngFor="let pageNumber of totalPages"
     [pageNumber]="pageNumber"
-    (click)="loadNextPage(pageNumber)"
+    (click)="sendingRequest(pageNumber)"
   ></app-button>
 </div>
