@@ -11,19 +11,20 @@ import { DefaultUsersPage } from './models/users-page';
 })
 export class AppComponent implements OnInit {
     state!: User[];
-    currentPage!: string | null;
+    page!: string | null;
     reqPageBtn!: number;
     isLoading!: boolean;
     isEmpty!: boolean;
+    reqPages!: number[];
     constructor(
       private userServise: UserServise,
     ) {}
     getUsers():void {
-      this.currentPage = this.currentPage === null? '1' : localStorage.getItem('page');
+      this.page = localStorage.getItem('page') === null? '1' : localStorage.getItem('page');
       this.userServise.getUsers(
         {
           params: {
-            page: this.currentPage,
+            page: this.page,
           }
         }
       ).pipe(
@@ -36,16 +37,28 @@ export class AppComponent implements OnInit {
           (item: DefaultUsersPage):void => {
             this.isLoading = false;
             this.state = item.data;
-            this.reqPageBtn = item.page;
             this.isEmpty = item.data.length === 0;
+            this.reqPageBtn = item.page;
+            this.reqPages = Array.from(Array(item.total_pages).keys()).map(item => item + 1);
           },
           (error) => {
             console.error(error);
           }
-    );
-  }
+      );
+    }
 
-  ngOnInit() {
-    this.getUsers();
-  }
+    personsOnPage(event: any): void {
+      localStorage.setItem('per_page', event.currentTarget.value);
+      localStorage.setItem('page', '1');
+      this.getUsers();
+    }
+
+    ngOnInit() {
+      localStorage.clear();
+      this.getUsers();
+    }
+
+    ngOnDestroy() {
+      this.userServise.unsubscribe();
+    }
 }

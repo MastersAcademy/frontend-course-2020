@@ -9,6 +9,7 @@ import { appServices } from './services';
 import { appDirectives } from './directives';
 import { AuthInterceptor } from './interceptor/auth.interseptor';
 import { CardItemComponent } from './card-item/card-item.component';
+import { PaginationItemComponent } from './pagination-item/pagination-item.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CardItemComponent } from './card-item/card-item.component';
     AppComponent,
     CardComponent,
     CardItemComponent,
+    PaginationItemComponent,
   ],
   imports: [
     BrowserModule,

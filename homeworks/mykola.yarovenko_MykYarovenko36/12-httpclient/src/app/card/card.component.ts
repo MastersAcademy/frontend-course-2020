@@ -6,13 +6,14 @@ import { User } from '../models/user';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
+
 export class CardComponent implements OnInit {
-  @Input() state!: any;
+  @Input() state!: User[];
   newState!: User[];
-  sliceCount: number = 0;
+  spliceCount: number = 0;
   prevBtnDisabled!: boolean;
   nextBtnDisabled!: boolean;
-
+  stateLength!: number;
   constructor() {}
 
   stateToCopy(count: number):User[] {
@@ -20,23 +21,23 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.newState = this.stateToCopy(this.sliceCount);
+     this.newState = this.stateToCopy(this.spliceCount);
      this.isBtnDisabled();
   }
 
   isBtnDisabled(): void {
-    this.prevBtnDisabled = this.sliceCount === 0  || this.newState.length === 0;
-    this.nextBtnDisabled = this.sliceCount === 4  || this.newState.length === 0;
+    this.prevBtnDisabled = this.spliceCount === 0  || this.newState.length === 0;
+    this.nextBtnDisabled = this.spliceCount === this.state.length - 2;
   }
 
   toggleSlide(item: string): void {
     if (item === 'next') {
-      this.sliceCount++;
+      this.spliceCount++;
     }
     if (item === 'prev') {
-      this.sliceCount--;
+      this.spliceCount--;
     }
-    this.newState = this.stateToCopy(this.sliceCount);
+    this.newState = this.stateToCopy(this.spliceCount);
     this.isBtnDisabled();
   }
 }
