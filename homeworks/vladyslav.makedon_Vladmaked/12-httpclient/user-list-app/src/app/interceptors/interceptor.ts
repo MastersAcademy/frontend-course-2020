@@ -1,11 +1,15 @@
 import {HttpEvent, HttpEventType, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
-import {tap} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
+
+import {LoaderService} from '../services';
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
-  areUsersLoading$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(private loaderService: LoaderService) {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const cloned = req.clone({
@@ -17,7 +21,7 @@ export class Interceptor implements HttpInterceptor {
       tap((event) => {
         if (event.type === HttpEventType.Response) {
           if (event.status === 200) {
-            this.areUsersLoading$.next(false);
+            this.loaderService.areUsersLoading$.next(false);
           }
         }
       })

@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {User} from '../../models';
-import {UserService} from '../../services';
 import {HttpParams} from '@angular/common/http';
 
-import {Interceptor} from '../../interceptors';
+import {User} from '../../models';
+import {LoaderService, UserService} from '../../services';
 
 @Component({
   selector: 'app-user-list',
@@ -16,13 +15,12 @@ export class UserListComponent {
   params!: HttpParams;
   areUsersLoading = false;
 
-  constructor(private userService: UserService, private interceptor: Interceptor) {
+  constructor(private userService: UserService, private loaderService: LoaderService) {
     this.setQueryParams(2, 1);
     this.getUsers(this.params);
-    this.interceptor.areUsersLoading$
+    this.loaderService.areUsersLoading$
       .subscribe((areUsersLoading) => {
         this.areUsersLoading = areUsersLoading;
-        console.log(this.areUsersLoading);
       });
   }
 

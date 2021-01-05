@@ -1,1 +1,9 @@
-/* eslint:disable:no-empty-source */
+.loader {
+  display: flex;
+  align-items: center;
+  height: 30vh;
+}
+
+.loader__text {
+  font-size: 36px;
+}

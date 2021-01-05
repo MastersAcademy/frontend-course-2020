@@ -1,16 +1,19 @@
-<ul *ngIf="!areUsersLoading; else loader">
-    <li *ngFor="let user of users">
-        <app-user-list-item [user]="user"></app-user-list-item>
-    </li>
-</ul>
+<div class="container">
+    <ul *ngIf="!areUsersLoading; else loader" class="user-list">
+        <li *ngFor="let user of users" class="user-list__item-wrapper">
+            <app-user-list-item [user]="user"></app-user-list-item>
+        </li>
+    </ul>
 
-<div class="pagination">
-    <button *ngFor="let page of totalPages; let i = index"
-            (click)="setQueryParams(2,i+1); getUsers(this.params)">
-        {{i + 1}}
-    </button>
+    <div class="pagination">
+        <button *ngFor="let page of totalPages; let i = index"
+                (click)="setQueryParams(2,i+1); getUsers(this.params)"
+        class="btn">
+            {{i + 1}}
+        </button>
+    </div>
+
+    <ng-template #loader>
+        <app-user-list-loader></app-user-list-loader>
+    </ng-template>
 </div>
-
-<ng-template #loader>
-    <app-user-list-loader></app-user-list-loader>
-</ng-template>
