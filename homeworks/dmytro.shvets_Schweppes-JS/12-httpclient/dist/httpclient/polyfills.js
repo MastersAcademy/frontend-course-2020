@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Desktop/masters-academy/homeworks/dmytro.shvets_Schweppes-JS/12-httpclient/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\frontend-course-2020\homeworks\dmytro.shvets_Schweppes-JS\12-httpclient\src\polyfills.ts */"hN/g");
 
 
 /***/ }),
