@@ -1,0 +1,52 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.users {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.user {
+  width: 40%;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  align-items: center;
+}
+
+.user-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-photo-avatar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  width: 150px;
+  height: 150px;
+}
+
+.user-first-name, .user-last-name, .user-email {
+  font-size: 18px;
+  font-family: "Calibri", "Roboto", sans-serif;
+  text-align: center;
+}
