@@ -3,9 +3,10 @@
 <div class="cards-list">
 
 <app-card
-  *ngFor="let user of userData"
+  *ngFor="let user of userData | paginate: { itemsPerPage: 2, currentPage: currentPage }"
 [user]="user">
 </app-card>
 
 </div>
-<app-pagination>  </app-pagination>
+<pagination-controls (pageChange)="currentPage = $event" class="pagination-controls"></pagination-controls>
+

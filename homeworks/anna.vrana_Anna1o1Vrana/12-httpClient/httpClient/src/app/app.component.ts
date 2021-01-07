@@ -7,9 +7,10 @@ import {UserService} from "./services/user.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
  public userData: User[] = [];
-
+  currentPage: number = 1;
   constructor(
     private userService: UserService,
   ) {  }

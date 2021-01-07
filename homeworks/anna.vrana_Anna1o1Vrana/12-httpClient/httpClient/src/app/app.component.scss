@@ -1,5 +1,6 @@
 .home-work-headline,
-.headline {
+.headline,
+.pagination-controls {
   text-align: center;
 }
 
@@ -13,4 +14,8 @@
   justify-content: center;
   flex-wrap: wrap;
   list-style: none;
+}
+
+.pagination-controls {
+  padding: 25px;
 }
