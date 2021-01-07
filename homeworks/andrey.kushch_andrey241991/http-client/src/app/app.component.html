@@ -1,11 +1,11 @@
 <section class="container">
-  <div *ngIf="loaderService.isLoading.value; else content">Loading...</div>
+  <div *ngIf="isLoading; else content">Loading...</div>
 
   <ng-template #content>
     <div class="content-wrapper">
       <app-user-card
         class="user-card"
-        *ngFor="let user of users.data"
+        *ngFor="let user of users"
         [user]="user"
       >
       </app-user-card>
@@ -13,7 +13,7 @@
     <app-pagination
       [currentPage]="currentPage"
       [totalPages]="totalPages"
-      (setCurrentPage)="setCurrentPage($event)"
+      (currentPageChanged)="currentPageChanged($event)"
     ></app-pagination>
   </ng-template>
 </section>

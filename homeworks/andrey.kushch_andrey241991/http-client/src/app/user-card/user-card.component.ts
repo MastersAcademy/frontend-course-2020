@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Data } from '../models/user';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-user-card',
@@ -7,5 +7,5 @@ import { Data } from '../models/user';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent {
-  @Input() user: Data;
+  @Input() user: User;
 }

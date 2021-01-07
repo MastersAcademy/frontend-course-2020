@@ -1,9 +1,9 @@
 <section class="pagination">
-  <ng-container *ngFor="let item of [].constructor(totalPages); let i = index">
+  <ng-container *ngFor="let item of totalPagesAsArray; let i = index">
     <span
       class="pagination__item"
-      [class.pagination__item--active]="i+1 === currentPage"
-      (click)="setCurrentPage.emit(i + 1)"
+      [class.pagination__item--active]="getIsPageActive(i)"
+      (click)="changeCurrentPage(i)"
     >
       {{ i + 1 }}
     </span>

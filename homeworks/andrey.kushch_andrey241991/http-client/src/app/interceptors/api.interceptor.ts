@@ -6,10 +6,10 @@ import { LoaderService } from '../services';
 
 @Injectable()
 export class ParamInterceptor implements HttpInterceptor {
-    constructor(public loaderService: LoaderService) { }
+    constructor(private readonly loaderService: LoaderService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        this.loaderService.isLoading.next(true);
+        this.loaderService.enableLoading();
         const paramReq = req.clone({
             headers: req.headers.set(
                 'Accept-Language',
@@ -19,11 +19,7 @@ export class ParamInterceptor implements HttpInterceptor {
 
         return next.handle(paramReq).pipe(
             delay(2000),
-            finalize(
-                () => {
-                    this.loaderService.isLoading.next(false);
-                }
-            )
+            finalize(() => this.loaderService.disableLoading())
         );
     }
 }
