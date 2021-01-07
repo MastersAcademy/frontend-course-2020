@@ -11,16 +11,23 @@ import {map} from "rxjs/operators";
 
 export class UserService {
   Root_URL = 'https://reqres.in/api/users';
-
+  options = {
+    params: { page: '1' },
+    headers: { 'Alternates': 'new header https://reqres.in/api/users' }
+  }
 
   constructor(private http: HttpClient) { }
 
   getUsers():Observable<User[]> {
-    const options = {
-      params: new HttpParams().set('page', '1')
-    }
-    return this.http.get<Page>(this.Root_URL, options).pipe(
+    // const options = {
+    //   params: new HttpParams().set('page', '1'),
+    //   // headers: new Headers().append('new':'headers')
+    //   // headers: { 'Option Header'}
+    // }
+    return this.http.get<Page>(this.Root_URL, this.options).pipe(
       map(({ data }) => data),
     );
   }
+
+
 }
