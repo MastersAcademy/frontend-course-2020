@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Asynchronous Application</title>
+   <link rel="icon" type="image/png" href="https://img.icons8.com/ultraviolet/40/000000/pull-request.png">
+   <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+   <script src="./script.js" defer></script>
+</head>
+<body class="body">
+   <div class="app-container">
+      <div class="top-container">
+         <div class="filter-container">
+            <h3 class="h3">Filter by :</h3>
+            <input type="text" class="input" data-input>
+         </div>
+         <div class="sort-container">
+            <h3 class="h3">Sort by :</h3>
+            <select class="sort" data-sort>
+               <option class="sort-option">Default</option>
+               <option class="sort-option">From A to Z</option>
+               <option class="sort-option">From Z to A</option>
+            </select>
+         </div>
+      </div>
+      <div class="middle-container" data-middle-container>
+         <div class="preloader-container" data-preloader-container>
+            <div class="post">
+               <div class="title-container">
+                  <h2 class="h2 preloader"></h2>
+                  <i class="fas fa-times-circle preloader"></i>
+               </div>
+               <div class="text-container">
+                  <p class="text preloader"></p>
+               </div>
+            </div>
+            <div class="post">
+               <div class="title-container">
+                  <h2 class="h2 preloader"></h2>
+                  <i class="fas fa-times-circle preloader"></i>
+               </div>
+               <div class="text-container">
+                  <p class="text preloader"></p>
+               </div>
+            </div>
+            <div class="post">
+               <div class="title-container">
+                  <h2 class="h2 preloader"></h2>
+                  <i class="fas fa-times-circle preloader"></i>
+               </div>
+               <div class="text-container">
+                  <p class="text preloader"></p>
+               </div>
+            </div>
+            <div class="post">
+               <div class="title-container">
+                  <h2 class="h2 preloader"></h2>
+                  <i class="fas fa-times-circle preloader"></i>
+               </div>
+               <div class="text-container">
+                  <p class="text preloader"></p>
+               </div>
+            </div>
+            <div class="post">
+               <div class="title-container">
+                  <h2 class="h2 preloader"></h2>
+                  <i class="fas fa-times-circle preloader"></i>
+               </div>
+               <div class="text-container">
+                  <p class="text preloader"></p>
+               </div>
+            </div>
+            <div class="post">
+               <div class="title-container">
+                  <h2 class="h2 preloader"></h2>
+                  <i class="fas fa-times-circle preloader"></i>
+               </div>
+               <div class="text-container">
+                  <p class="text preloader"></p>
+               </div>
+            </div>
+         </div>
+         <div class="post-container hidden" data-post-container>
+            <template data-tamplate-post>
+               <div class="post" data-post>
+                  <div class="title-container">
+                     <h2 class="h2" data-title></h2>
+                     <i class="fas fa-times-circle" data-delete-button></i>
+                  </div>
+                  <div class="text-container">
+                     <p class="text" data-text></p>
+                  </div>
+               </div>
+            </template>
+         </div>
+      </div>
+   </div>
+</body>
+</html

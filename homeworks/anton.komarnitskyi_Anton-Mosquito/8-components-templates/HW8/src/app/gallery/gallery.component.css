@@ -1,0 +1,223 @@
+.header {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.gallery__container {
+  display: grid;
+  margin: 2rem auto;
+  width: 90%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+
+.gallery__container .gallery__container-items {
+  height: 150px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.img-window img {
+  max-width: 80vh;
+  max-height: 80vh;
+  border: 1px solid #000;
+}
+
+.gallery__container .gallery__container-items img {
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.gallery__container .gallery__container-items.selected {
+  border-color: hsl(0, 100%, 50%);
+}
+
+.gallery__container .gallery__container-items .spinner {
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery__container .gallery__container-items .spinner svg {
+  width: 40px;
+  height: 40px;
+  animation: rotate 2s linear infinite;
+}
+
+.gallery__container .gallery__container-items .spinner svg circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 3;
+  stroke: #00A1FF;
+  stroke-linecap: round;
+  stroke-dasharray: 94;
+  stroke-dashoffset: 94;
+  animation: animate 4s linear infinite;
+}
+
+
+.img-window {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.img-window.show {
+  display: flex;
+}
+
+.img-window .header__image {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  text-align: center;
+  font-size: 2.5rem;
+  width: 100%;
+}
+
+.img-btn-prev {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+}
+
+.img-btn-next {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+}
+
+.img-btn-prev:hover,.img-btn-next:hover {
+  opacity: .8;
+}
+
+.img-btn-prev.hidden,.img-btn-next.hidden {
+  opacity: 0;
+}
+
+.img-window .spinner__main-image {
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-window .spinner__main-image .ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border: 3px solid #3C3C3C;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 150px;
+  font-size: 1.5rem;
+  color: #00A1FF;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #00A1FF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.img-window .spinner__main-image .ring::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid #00A1FF;
+  border-right: 3px solid #00A1FF;
+  border-radius: 50%;
+  animation: rotate 2s linear infinite;
+}
+
+.img-window .spinner__main-image .ring span {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: rotateRing 2s linear infinite;
+}
+
+@keyframes rotate {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate {
+
+  0%,100% {
+    stroke-dashoffset: 94;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  50.1% {
+    stroke-dashoffset: 170;
+  }
+}
+
+@keyframes rotateRing {
+
+  0% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(405deg);
+  }
+}

@@ -1,0 +1,39 @@
+<div *ngIf="startLoader" class="page-loader">loading</div>
+<div class="grid-wrap">
+  <h1 class="page-title">{{ title }}</h1>
+
+  <div class="user-profile-card" [class.user-card-wait]="isLoading | async"  *ngFor="let user of pageData?.data">
+  <div
+    class="user-avatar"
+    [style.background-image]="'url(' + user.avatar + ')'"
+  ></div>    
+    <div class="user-name">
+      <span class="user-first-name user-name-text inline-block-text">
+        {{ user.first_name }} &nbsp;
+      </span>
+      <span class="user-second-name user-name-text inline-block-text">
+        {{ user.last_name }}
+      </span>
+    </div>
+    <div class="user-email inline-block-text">{{ user.email }}</div>
+  </div>
+
+  <div class="pagination">
+    <a
+      *ngFor="let number of pages"
+      href="#"
+      [class.active]="pageData?.page === number"
+      (click)="selectPage(number)"
+      >{{ number }}</a
+    >
+  </div>
+
+  <div class="per-page-selector-position">
+    <select (change)="changePerPage($event)" class="per-page-selector" size="1" name="perPageSelector">
+      <option selected value="4">2</option>
+      <option value="4">4</option>
+      <option value="6">6</option>
+      <option value="12">12</option>
+    </select>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F9F9F9;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #FEFEFE;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+.header {
+  padding: 30px;
+  background-color: #AEACB7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(0);
+  transition: transform .4s;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.article {
+  padding: 40px;
+  margin: 80px auto 20px;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+}
