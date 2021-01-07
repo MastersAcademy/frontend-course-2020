@@ -1,0 +1,3 @@
+<p [class.protocol-http]="vehicle.post.protocol === 'http'">Added from: {{vehicle.post.protocol}}</p>
+<p>Vehicle: {{vehicle | transformVehiclePipe}}</p>
+<p>Price: {{vehicle.cost.amount | currency: vehicle.cost.currencyCode}}</p>
