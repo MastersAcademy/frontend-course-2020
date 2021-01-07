@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { UserListResponse } from '../models/user';
@@ -11,6 +11,8 @@ export class UserService {
     }
 
     getUsers(page: number): Observable<UserListResponse> {
-        return this.http.get<UserListResponse>(`${this.BASE_API}users?page=${page}`);
+        let params = new HttpParams();
+        params = params.append('page', String(page));
+        return this.http.get<UserListResponse>(`${this.BASE_API}users`, {params});
     }
 }
