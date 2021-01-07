@@ -1,0 +1,30 @@
+<section class="container">
+  <div *ngIf="isVehicleLoading; else content">Loading...</div>
+
+  <ng-template #content>
+    <table>
+      <tr class="table-item">
+        <th class="table-item">Added from</th>
+        <th class="table-item">Vehicle</th>
+        <th class="table-item">Price</th>
+      </tr>
+      <tr class="table-item" *ngFor="let vehicle of vehicles">
+        <td
+          class="table-item"
+          [class.--color-red]="vehicle.post.protocol === 'http'"
+        >
+          {{ vehicle.post.protocol }}
+        </td>
+        <td class="table-item">
+          {{ vehicle | vehiclePipe: true }}
+        </td>
+        <td class="table-item">
+          {{
+            vehicle.cost.amount
+              | currency: vehicle.cost.currencyCode:"symbol-narrow"
+          }}
+        </td>
+      </tr>
+    </table>
+  </ng-template>
+</section>
