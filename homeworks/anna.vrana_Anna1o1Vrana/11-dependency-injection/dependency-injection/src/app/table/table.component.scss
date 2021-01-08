@@ -1,0 +1,44 @@
+.loading {
+  background-color: #2864BD;
+  text-align: center;
+  color: #FFF;
+  height: 100vh;
+  font-size: 50px;
+  padding: 50px;
+}
+
+.table-title {
+  padding: 15px;
+  color: #383678;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.table-header {
+  background: #2864BD;
+  color: #FFF;
+  font-size: 1.3rem;
+}
+
+.table {
+  margin: 15px auto;
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.table-data, .table-header {
+  border: 1px solid rgb(180, 180, 180);
+  padding: 10px 20px;
+}
+
+
+.table-row:nth-child(even) .table-data {
+  background-color: rgb(239, 241, 243);
+}
+
+.protocol-http {
+  color: #FA0202;
+}
