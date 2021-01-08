@@ -7,11 +7,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyInterceptor } from './interceptor/interceptor';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './services/loading.service';
+import { RadioChoiseComponent }from './radio-choise/radio-choise.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    LoaderComponent,
+    RadioChoiseComponent
   ],
   imports: [
     BrowserModule,

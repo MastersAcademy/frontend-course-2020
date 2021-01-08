@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <label for="contactChoice1">
+    <input
+      type="radio"
+      id="contactChoice1"
+      name="digits"
+      checked
+      data-info="2"
+      (change)="handleChange($event)"
+    />
+    <svg>
+      <use xlink:href="../../assets/sprite.svg#two"></use>
+    </svg>
+  </label>
+  <label for="contactChoice2">
+    <input
+      type="radio"
+      id="contactChoice2"
+      name="digits"
+      data-info="4"
+      (change)="handleChange($event)"
+    />
+    <svg>
+      <use xlink:href="../../assets/sprite.svg#four"></use>
+    </svg>
+  </label>
+  <label for="contactChoice3">
+    <input
+      type="radio"
+      id="contactChoice3"
+      name="digits"
+      data-info="6"
+      (change)="handleChange($event)"
+    />
+    <svg>
+      <use xlink:href="../../assets/sprite.svg#six"></use>
+    </svg>
+  </label>
+</div>

@@ -24,10 +24,20 @@ export class AppComponent {
 
   constructor(private userService: UserService, private loaderService: LoaderService) {}
 
-  private getUsers() :void{
+  public getUsers() :void{
     this.subscription.add(this.userService.getUsers(this.quantityCardsOfPage,this.page).subscribe((users: User[]) => {
       this.userData = users;
     }));
+  }
+
+  public createPagination() :void{
+    this.subscription.add(this.userService.getQuantityOfUsers().subscribe((page: Page) => {
+      const count = Math.ceil(page.total / this.quantityCardsOfPage);
+      range(1,count).pipe(
+        map(i => this.quantityButton.push(i)))
+        .subscribe();
+        this.loadingPagination = true;
+      }));
   }
 
   public changePage(event:MouseEvent) :void {
@@ -43,16 +53,17 @@ export class AppComponent {
     }
   }
 
+  public updateQuantityCardsOfPage(value:number) :void{
+    this.page = 1;
+    this.quantityButton.length = 0;
+    this.quantityCardsOfPage = value;
+    this.getUsers();
+    this.createPagination();
+  }
+
   ngOnInit() :void{
     this.getUsers();
-
-    this.subscription.add(this.userService.getQuantityOfUsers().subscribe((page: Page) => {
-      const count = Math.ceil(page.total / this.quantityCardsOfPage);
-      range(1,count).pipe(
-        map(i => this.quantityButton.push(i)))
-        .subscribe();
-        this.loadingPagination = true;
-      }));
+    this.createPagination();
   }
 
   ngAfterViewInit() :void {
@@ -61,10 +72,9 @@ export class AppComponent {
         fromEvent<Event>(element.nativeElement, "click")
         .subscribe((event)=> {
 
-          const innerData = (event.target as HTMLElement).dataset.page;
+          const innerData = (event.target as HTMLElement).innerText;
           this.page = Number(innerData);
           this.getUsers();
-
         });
       });
     }));

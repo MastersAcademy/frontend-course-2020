@@ -1,3 +1,6 @@
+<app-radio-choise
+  (changeQuantityOfCards)="updateQuantityCardsOfPage($event)"
+></app-radio-choise>
 <app-loader></app-loader>
 <section class="wrapper">
   <ng-container *ngIf="isLoadingContent | async">
@@ -33,7 +36,7 @@
       #buttons
       [class.active]="i === page - 1"
     >
-      <a href="#" attr.data-page="{{ i + 1 }}">{{ i + 1 }}</a>
+      <a href="#">{{ i + 1 }}</a>
     </li>
     <li>
       <a
