@@ -1,28 +1,18 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    request = request.clone({
-      headers: request.headers.set('Accept-Language', 'RANDOM TEXT')
+  intercept(initialRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const request = initialRequest.clone({
+      headers: initialRequest.headers.set('Accept-Language', 'en-US,en;q=0.9,fr;q=0.8,de;q=0.7,*;q=0.5').append('Auth', 'RANDOM TEXT')
     })
-    request = request.clone({
-      headers: request.headers.append('Auth', 'RANDOM TEXT')
-    });
 
-    return next.handle(request).pipe(
-      tap((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse) {
-          // console.log('Loading');
-        }
-      })
-    );
+    return next.handle(request);
   }
 
 }

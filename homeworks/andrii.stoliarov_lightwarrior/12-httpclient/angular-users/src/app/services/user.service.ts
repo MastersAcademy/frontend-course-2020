@@ -1,9 +1,10 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { User } from '../interfaces/user';
-import { Page } from '../interfaces/page';
+import { UsersResponse } from '../interfaces/users-response';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -13,9 +14,9 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     const options = {
-      params: new HttpParams().set('per_page', '6')
+      params: {per_page: '6'}
     };
-    return this.http.get<Page>(this.ROOT_URL, options).pipe(
+    return this.http.get<UsersResponse>(this.ROOT_URL, options).pipe(
       map(({ data }) => data),
       delay(2000)
     );
