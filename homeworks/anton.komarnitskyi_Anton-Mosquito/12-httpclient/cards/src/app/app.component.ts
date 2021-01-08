@@ -61,7 +61,7 @@ export class AppComponent {
         fromEvent<Event>(element.nativeElement, "click")
         .subscribe((event)=> {
 
-          const innerData = (event.target as HTMLElement).innerText;
+          const innerData = (event.target as HTMLElement).dataset.page;
           this.page = Number(innerData);
           this.getUsers();
 
