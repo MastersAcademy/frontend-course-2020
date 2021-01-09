@@ -1,0 +1,29 @@
+.pageBtn {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 25px;
+  box-sizing: border-box;
+  border: none;
+  background-color: rgb(14, 90, 177);
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, .5);
+}
+
+.pageBtn:hover {
+  transform: scale(1.1);
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.pageBtn:focus, .pageBtn:active {
+  outline: none;
+  border: 2px solid rgb(255, 255, 255);
+  transform: scale(.9);
+  box-shadow: none;
+  font-size: 22px;
+  font-weight: 600;
+}
