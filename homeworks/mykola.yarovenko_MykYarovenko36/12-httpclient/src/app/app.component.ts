@@ -1,64 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServise } from './services';
-import { delay, map } from 'rxjs/operators';
+import { LoaderService, PagePersonsService, PageService, UserServise } from './services';
+import { Subscription } from 'rxjs';
+
 import { User }  from './models/user';
 import { DefaultUsersPage } from './models/users-page';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent implements OnInit {
     state!: User[];
-    page!: string | null;
-    reqPageBtn!: number;
     isLoading!: boolean;
-    isEmpty!: boolean;
     reqPages!: number[];
+    stateSubscription!: Subscription;
+    loaderSubscription!: Subscription;
     constructor(
       private userServise: UserServise,
+      private pagePersonsService: PagePersonsService,
+      private pageServise: PageService,
+      private loaderService: LoaderService,
     ) {}
+
     getUsers():void {
-      this.page = localStorage.getItem('page') === null? '1' : localStorage.getItem('page');
-      this.userServise.getUsers(
-        {
-          params: {
-            page: this.page,
-          }
+      this.stateSubscription =
+      this.userServise.getUsers().subscribe(
+        (item: DefaultUsersPage):void => {
+          this.state = item.data;
+          this.reqPages = Array.from(Array(item.total_pages).keys()).map(item => item + 1);
+        },
+        (error: ErrorEvent): void => {
+          console.error(error);
         }
-      ).pipe(
-        map((item) => {
-          this.isLoading = true;
-          return item;
-        }),
-        delay(2000)
-      ).subscribe(
-          (item: DefaultUsersPage):void => {
-            this.isLoading = false;
-            this.state = item.data;
-            this.isEmpty = item.data.length === 0;
-            this.reqPageBtn = item.page;
-            this.reqPages = Array.from(Array(item.total_pages).keys()).map(item => item + 1);
-          },
-          (error) => {
-            console.error(error);
-          }
       );
+      this.loaderSubscription = this.loaderService.Loader$.subscribe(
+        (isLoading: boolean): void => {
+          this.isLoading = isLoading;
+        }
+      )
     }
 
     personsOnPage(event: any): void {
-      localStorage.setItem('per_page', event.currentTarget.value);
-      localStorage.setItem('page', '1');
+      this.pagePersonsService.SetPagePersons(event.currentTarget.value);
+      this.pageServise.SetCurrentPage(1);
+      this.getUsers();
+    }
+
+    togglePage(value: number): void{
+      this.pageServise.SetCurrentPage(value);
       this.getUsers();
     }
 
     ngOnInit() {
-      localStorage.clear();
       this.getUsers();
     }
 
     ngOnDestroy() {
-      this.userServise.unsubscribe();
+      this.stateSubscription.unsubscribe();
+      this.loaderSubscription.unsubscribe();
     }
 }

@@ -1,12 +1,9 @@
 .page-wrapper {
   display: flex;
-  flex-direction: row;
+  width: 600px;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-}
-
-.items-wrapper {
-  display: inline-flex;
 }
 
 .page-btn {
