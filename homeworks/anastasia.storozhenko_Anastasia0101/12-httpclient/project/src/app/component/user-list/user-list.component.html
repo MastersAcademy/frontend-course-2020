@@ -1,0 +1,16 @@
+<div *ngIf="loading">
+  <app-loader></app-loader>
+</div>
+
+<div *ngIf="!loading">
+  <ul class="display-list">
+    <li *ngFor="let user of userData" class="user-item">
+      <app-user [user]="user"></app-user>
+    </li>
+  </ul>
+  <ul class="display-list">
+    <li *ngFor="let number of totalPage">
+      <button (click)="onClickBtn(number + 1)">{{number + 1}}</button>
+    </li>
+  </ul>
+</div>
