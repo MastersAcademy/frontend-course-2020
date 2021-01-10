@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { delay, finalize } from "rxjs/operators";
+import { delay, finalize, tap } from "rxjs/operators";
 import { UserService } from '../services';
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {

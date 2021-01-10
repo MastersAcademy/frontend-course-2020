@@ -4,20 +4,6 @@
   justify-content: center;
 }
 
-.button-container {
-  margin-top: 20px;
-  margin-right: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.button-container button {
-  width: 50px;
-  height: 50px;
-  margin: 1px;
-}
-
 .overlay {
   position: fixed;
   display: block;

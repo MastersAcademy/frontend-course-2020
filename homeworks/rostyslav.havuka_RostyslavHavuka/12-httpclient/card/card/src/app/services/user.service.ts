@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { Page } from '../models/page.model';
 import { UserRequestOptions } from '../models/user.requset.option';
@@ -11,25 +11,20 @@ import { UserRequestOptions } from '../models/user.requset.option';
 export class UserService {
   ROOT_URL = 'https://reqres.in/api/users';
 
-  loader: boolean = true;
+  boolSubject: Subject<boolean>;
 
-  constructor(private http: HttpClient) { }
-    
-  options = {
-    params: {
-      page: '1',
-      per_page: '2',
-    }
-  }
+  constructor(private http: HttpClient) {
+    this.boolSubject = new Subject<boolean>();
+   }
 
   getUsers(options: UserRequestOptions): Observable<User[]> {
+    this.boolSubject.next(true);
     return this.http.get<Page>(this.ROOT_URL, options).pipe(
-      delay(1000),
       map(({ data }) => data),
     );
   }
 
   hideLoader(): void {
-    this.loader = false;
+    this.boolSubject.next(false);
   }
 }
