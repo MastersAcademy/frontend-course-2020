@@ -12,19 +12,16 @@ export class UserService {
   ROOT_URL = 'https://reqres.in/api/users';
 
   boolSubject: Subject<boolean>;
-
+  myBool$: Observable<boolean>;
+  
   constructor(private http: HttpClient) {
     this.boolSubject = new Subject<boolean>();
+    this.myBool$ = this.boolSubject.asObservable();
    }
 
   getUsers(options: UserRequestOptions): Observable<User[]> {
-    this.boolSubject.next(true);
     return this.http.get<Page>(this.ROOT_URL, options).pipe(
       map(({ data }) => data),
     );
-  }
-
-  hideLoader(): void {
-    this.boolSubject.next(false);
   }
 }

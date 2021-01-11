@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService) {
     this.pageOptions = new UserRequestOptions();
-    this.userService.boolSubject.subscribe((newBool: boolean) => { this.isLoading = newBool });
+    this.userService.myBool$.subscribe((newBool: boolean) => { this.isLoading = newBool });
   }
 
   ngOnInit() {
