@@ -1,0 +1,32 @@
+.wrap-loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  color: #FFF;
+  background-color: #00F;
+  visibility: visible;
+  animation: loader 5s infinite ease-in-out;
+  padding: 10px;
+}
+
+@keyframes loader {
+
+  0% {
+    opacity: 0;
+    background-color: #00F;
+  }
+
+  50% {
+    opacity: 1;
+    background-color: #3D4F4B;
+  }
+
+  100% {
+    opacity: 0;
+    background-color: #F00;
+  }
+}

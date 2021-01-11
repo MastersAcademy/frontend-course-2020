@@ -1,0 +1,37 @@
+.gallary-container {
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.gallary-items-container {
+  width: 520px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+.gallary-slider-container {
+  width: 400px;
+  height: 535px;
+  margin: 0 auto;
+}
+
+.gallary-item {
+  width: 100px;
+  height: 100px;
+
+  &.toggle {
+    border: 5px solid #444;
+  }
+}
+
+.slider-item {
+  max-width: 400px;
+  max-height: 500px;
+}
+
+.slider-btn-container {
+  margin-bottom: 10px;
+}
