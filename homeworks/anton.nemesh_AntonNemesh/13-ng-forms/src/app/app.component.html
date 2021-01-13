@@ -1,0 +1,12 @@
+<form [formGroup]="loginForm">
+    <label for="email">Email</label>
+    <input formControlName="email" id="email" type="text" placeholder="Enter Email">
+
+    <label for="psw">Password</label>
+    <input formControlName="password" id="psw" type="password" placeholder="Enter Password">
+
+    <button [class.disabled]="loginForm.invalid" type="submit" (click)="submit($event)">Login</button>
+
+    <label for="remember">Remember me</label>
+    <input formControlName="remember" id="remember" type="checkbox" name="remember">
+</form>

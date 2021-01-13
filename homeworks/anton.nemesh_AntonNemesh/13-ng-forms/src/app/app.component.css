@@ -1,0 +1,34 @@
+form {
+  border: 3px solid #F1F1F1;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #FFF;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: .8;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.disabled:hover {
+  opacity: 1;
+}
