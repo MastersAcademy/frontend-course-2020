@@ -1,0 +1,12 @@
+<ul class="pictures">
+  <li *ngFor="let picture of pictures" class="pictures-item" [class.pictures-item-active]="picture === activePicture">
+    <app-picture [picture]="picture" (active)="setActivePicture(picture)"></app-picture>
+  </li>
+</ul>
+
+<div *ngIf="activePicture" class="big-picture">
+  <img [src]="activePicture.urls.small">
+</div>
+
+
+
