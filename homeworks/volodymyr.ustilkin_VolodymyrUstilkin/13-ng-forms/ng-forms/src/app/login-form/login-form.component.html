@@ -1,0 +1,20 @@
+<form class="login-form" [formGroup]="formLogin" (submit)="onSubmit()">
+  <div class="container">
+    <label for="login-form-email" class="display--block">Email:</label>
+    <input id="login-form-email" type="text" class="display--block text-input" formControlName="email"/>
+  </div>
+
+  <div class="container">
+    <label for="login-form-password" class="display--block">Password:</label>
+    <input id="login-form-password" type="password" class="display--block text-input" formControlName="password"/>
+  </div>
+
+  <div class="container">
+    <input id="login-form-checkbox" type="checkbox" class="login-remember-checkbox" checked="" formControlName="remember"/>
+    <label for="login-form-checkbox">Remember me</label>
+  </div>
+
+  <div class="container">
+    <button type="submit" class="login-form-button">Submit</button>
+  </div>
+</form>
