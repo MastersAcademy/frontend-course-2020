@@ -1,0 +1,26 @@
+<section>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <input class="form__input" type="text" name="email" formControlName="email">
+    </div>
+    <div class="validation"
+      *ngIf="email.invalid && email.touched"
+    >
+      <small *ngIf="email.errors?.required">This field cannot be empty</small>
+      <small *ngIf="email.errors?.email">Enter the real email</small>
+    </div>
+    
+    <div>
+      <input class="form__input" type="password" name="password" formControlName="password">
+    </div>
+    <div class="validation"
+      *ngIf="password.invalid && password.touched"
+    >
+      <small *ngIf="password.errors?.required">This field cannot be empty</small>
+      <small *ngIf="password.errors?.minlength">Password must be at least 6 characters long</small>
+    </div>
+    
+    <input type="checkbox"> 
+    <button type="submit" [disabled]='form.invalid'>Submit</button>
+  </form>
+</section>

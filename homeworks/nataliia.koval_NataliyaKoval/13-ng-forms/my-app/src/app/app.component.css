@@ -1,0 +1,10 @@
+.form__input {
+  border: 1px solid rgb(3, 40, 161);
+  width: 300px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.ng-invalid .ng-touched {
+  border: 1px solid rgb(207, 84, 84);
+}
