@@ -1,0 +1,11 @@
+<p>Vehicle list:</p>
+<div *ngIf="areVehiclesLoading">Loading...</div>
+<ul *ngIf="!areVehiclesLoading" class="vehicle-list">
+  <app-vehicle class="vehicle"
+               *ngFor="let vehicle of vehicles"
+               [vehicle]="vehicle"
+  ></app-vehicle>
+</ul>
+
+
+

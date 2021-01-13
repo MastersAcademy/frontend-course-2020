@@ -1,0 +1,27 @@
+<div *ngIf="isLoading" class="overlay">
+<mat-progress-spinner class="spinner" 
+[color]="'primary'" 
+[mode]="'indeterminate'" 
+[value]="50">
+</mat-progress-spinner>
+</div>
+
+<div *ngIf="!isLoading"  class="container">
+  <div *ngFor="let user of users">
+  <div class="container-image">
+    <img src="{{ user.avatar }} " alt="">
+  </div>
+  <div class="container-info">
+    {{ user.first_name }}
+    {{ user.last_name }} <br>
+    {{ user.email }}
+  </div>
+</div>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center" 
+[collectionSize]="12" 
+[pageSize]="2" 
+(pageChange)="onPageChanged($event)">
+</ngb-pagination>
+

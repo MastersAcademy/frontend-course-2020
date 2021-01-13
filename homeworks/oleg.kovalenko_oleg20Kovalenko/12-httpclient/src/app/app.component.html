@@ -1,0 +1,23 @@
+<div class="box">
+  <div *ngIf="loading" class="loading"></div>
+  <div *ngIf="!loading" class="users">
+    <div class="user-list">
+      <div *ngFor="let user of userData | paginate: {
+      itemsPerPage: pageSize,
+      currentPage: page,
+      totalItems: count }">
+        <div class="user-card">
+          <img src="{{ user.avatar }}" alt="">
+          <p>ID: {{ user.id }}</p><br>
+          <p>First Name: {{ user.first_name }}</p><br>
+          <p>Last Name: {{ user.last_name }}</p><br>
+          <p>Email: {{ user.email }} </p>
+        </div>
+      </div>
+    </div>
+    <div class="paginator">
+      <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
