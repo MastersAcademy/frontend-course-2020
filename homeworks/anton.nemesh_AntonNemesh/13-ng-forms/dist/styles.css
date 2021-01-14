@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+  max-width: 320px;
+  margin: 0 auto;
+}
 
 
 /*# sourceMappingURL=styles.css.map*/

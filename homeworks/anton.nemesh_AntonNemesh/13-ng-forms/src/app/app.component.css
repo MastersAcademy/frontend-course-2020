@@ -1,7 +1,3 @@
-form {
-  border: 3px solid #F1F1F1;
-}
-
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -11,14 +7,24 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+input[type=checkbox] {
+  height: 16px;
+  width: 16px;
+  margin: 4px 0 0 10px;
+}
+
 button {
   background-color: #4CAF50;
   color: #FFF;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin-top: 20px;
   border: none;
   cursor: pointer;
   width: 100%;
+}
+
+label {
+  font-size: 18px;
 }
 
 button:hover {

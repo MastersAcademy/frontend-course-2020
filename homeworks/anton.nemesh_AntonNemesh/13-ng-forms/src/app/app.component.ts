@@ -47,6 +47,10 @@ export class AppComponent implements OnInit {
            localStorage.getItem('password') !== null;
   }
 
+  public get Errors() {
+    return this.loginForm.controls.email.value;
+  }
+
   public updateFormLS() {
     if (this.checkLocalStorage()) {
       const email = window.atob(localStorage.getItem('email'));
