@@ -1,0 +1,9 @@
+<label>
+  <div class="form-label"> {{label}}</div>
+  <input class="form-input" [type]="fieldTextType ? 'text' : 'password'" [formControl]="nativeControl"/>
+  <span *ngIf="label === 'Password'">
+  <span (click)="toggleFieldTextType()">
+    <img alt="eye" class="toggle-img" src="https://img.icons8.com/android/344/visible.png">
+  </span>
+  </span>
+</label>
