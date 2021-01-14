@@ -35,6 +35,8 @@ export class LoginFormComponent implements OnInit {
     if (this.loginForm.value.checkbox) {
       const encode: string = btoa(JSON.stringify(this.loginForm.value));
       localStorage.setItem('user', encode);
+    } else {
+      localStorage.removeItem('user');
     }
     this.loginForm.reset();
     alert(info)
