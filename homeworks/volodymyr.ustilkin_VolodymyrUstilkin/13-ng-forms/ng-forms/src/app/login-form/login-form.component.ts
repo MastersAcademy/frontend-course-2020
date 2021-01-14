@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 
 const EMAIL = 'email';
@@ -9,12 +9,16 @@ const PASSWORD = 'password';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements AfterViewInit {
+export class LoginFormComponent implements AfterViewInit, AfterContentInit {
   formLogin: FormGroup = new FormGroup({
-    email: new FormControl('', this.emailValidate),
+    // email: new FormControl('111', this.emailValidate),
+    email: new FormControl('', Validators.email),
     password: new FormControl('', Validators.required),
     remember: new FormControl(''),
   });
+
+  emailValidateError: string = '';
+  passwordValidateError:string = '';
 
   emailValidate(control: AbstractControl): ValidationErrors | null {
     const emailRegExp = /^(?![.0-9])([a-z0-9_.\-]*)(?<![.])@(?![.])([a-z0-9_.\-]+)\.([a-z0-9_.\-]+)(?<![.])$/i;
@@ -30,6 +34,9 @@ export class LoginFormComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+  }
+
+  ngAfterContentInit(): void {
     const email = localStorage.getItem(EMAIL);
     const pass = localStorage.getItem(PASSWORD);
 
@@ -58,16 +65,13 @@ export class LoginFormComponent implements AfterViewInit {
   private handleErrors() {
     const controls = this.formLogin.controls;
 
-    let errors = 'Errors:';
     if (controls.email.errors) {
-      errors += '\nIncorrect email';
+      this.emailValidateError = 'Incorrect email';
     }
 
     if (controls.password.errors) {
-      errors += '\nIncorrect password';
+      this.passwordValidateError = 'Incorrect password';
     }
-
-    alert(errors);
   }
 
   private saveForm() {

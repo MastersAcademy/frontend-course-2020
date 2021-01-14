@@ -1,16 +1,25 @@
 <form class="login-form" [formGroup]="formLogin" (submit)="onSubmit()">
   <div class="container">
-    <label for="login-form-email" class="display--block">Email:</label>
-    <input id="login-form-email" type="text" class="display--block text-input" formControlName="email"/>
+    <app-custom-input
+      labelName="Email:"
+      inputType="text"
+      formControlName="email"
+      [labelErrorValue]="emailValidateError">
+    </app-custom-input>
   </div>
 
   <div class="container">
-    <label for="login-form-password" class="display--block">Password:</label>
-    <input id="login-form-password" type="password" class="display--block text-input" formControlName="password"/>
+    <app-custom-input
+      labelName="Password:"
+      inputType="password"
+      formControlName="password"
+      inputTypeChangeButtonDisplay="true"
+      [labelErrorValue]="passwordValidateError"
+    ></app-custom-input>
   </div>
-
   <div class="container">
-    <input id="login-form-checkbox" type="checkbox" class="login-remember-checkbox" checked="" formControlName="remember"/>
+    <input id="login-form-checkbox" type="checkbox" class="login-remember-checkbox" checked=""
+           formControlName="remember"/>
     <label for="login-form-checkbox">Remember me</label>
   </div>
 

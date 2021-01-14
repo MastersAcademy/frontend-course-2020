@@ -1,0 +1,15 @@
+<div class="custom-input-container">
+  <label class="custom-input-label">
+    <p class="label-name">{{labelName}}</p>
+    <div class="input-button-container">
+      <input [type]="inputType" class="text-input" [formControl]="textInput" (change)="onInputChange($event)"/>
+      <div
+        class="input-show-hide-button"
+        [class.input-show-hide-button-hide-icon]="inputType !== 'password'"
+        [class.display--none]="!inputTypeChangeButtonDisplay"
+        (click)="changeTextInputType()">
+      </div>
+    </div>
+  </label>
+  <label class="custom-input-label error-message-label">{{labelErrorValue}}</label>
+</div>
