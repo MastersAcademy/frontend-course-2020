@@ -4,7 +4,8 @@
       labelName="Email:"
       inputType="text"
       formControlName="email"
-      [labelErrorValue]="emailValidateError">
+      [labelErrorValue]="emailValidateError"
+      (keypress)="emailValidateError = ''">
     </app-custom-input>
   </div>
 
@@ -15,6 +16,7 @@
       formControlName="password"
       inputTypeChangeButtonDisplay="true"
       [labelErrorValue]="passwordValidateError"
+      (keypress)="passwordValidateError = ''"
     ></app-custom-input>
   </div>
   <div class="container">

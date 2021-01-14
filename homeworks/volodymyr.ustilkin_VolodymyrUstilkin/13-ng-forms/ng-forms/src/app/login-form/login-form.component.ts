@@ -11,8 +11,7 @@ const PASSWORD = 'password';
 })
 export class LoginFormComponent implements AfterViewInit, AfterContentInit {
   formLogin: FormGroup = new FormGroup({
-    // email: new FormControl('111', this.emailValidate),
-    email: new FormControl('', Validators.email),
+    email: new FormControl('', this.emailValidate),
     password: new FormControl('', Validators.required),
     remember: new FormControl(''),
   });
