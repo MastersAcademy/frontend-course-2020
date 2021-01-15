@@ -1,0 +1,84 @@
+<form  class="main-container__form" [formGroup]="loginInfoControl">
+
+  <label
+  class="form__label"
+  for="email"
+  [ngClass]="{highlighted: (!loginInfoControl.controls.email.valid && loginInfoControl.controls.email.touched)}"
+>{{
+  (!loginInfoControl.controls.email.valid && loginInfoControl.controls.email.touched) ? 
+  "Plese, input corect part followed before and after '@'" :
+  "Email Address"
+}}</label>
+
+  <input
+    type="email"
+    class="form__input"
+    placeholder="example@address.com"
+    name="email"
+    formControlName="email"
+    #emailInput
+    autocomplete="on"
+  >
+
+  <label
+    class="form__label"
+    for="password"
+    [ngClass]="{highlighted: (!loginInfoControl.controls.password.valid && loginInfoControl.controls.password.touched)}"
+  >{{
+    (!loginInfoControl.controls.password.valid && loginInfoControl.controls.password.touched) ? 
+    'Plese, include minimum eight characters, at least one letter and one number' :
+    'Password'
+  }}</label>
+
+  <input
+    [type]="passwordType"
+    class="form__input"
+    placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
+    name="password"
+    formControlName="password"
+    #passwordInput
+    autocomplete="on"
+  >
+
+  <div class="form__checkbox-container">
+
+    <input
+      class="checkbox-container__checkbox-remembrance"
+      type="checkbox"
+      checked
+      name="remembrance"
+      #remembranceInput
+      [checked]="isRemebered"
+    >
+    
+    <label
+      class="checkbox-container__remembrance-label"
+      for="remembrance"
+    >Remeber me</label>
+    
+    <input
+      class="checkbox-container__checkbox-visibility"
+      type="checkbox"
+      name="visibility"
+      (change)="showingPassword(visibilityInput)"
+      #visibilityInput
+    >
+    
+    <label
+      class="checkbox-container__visibility-icon"
+      for="visibility"
+    >
+      <i class="far" [ngClass]="{
+        'fa-eye': !visibilityInput.checked,
+        'fa-eye-slash': visibilityInput.checked}"
+      ></i>
+    </label>
+    
+  </div>
+
+  <button
+    (click)="onSubmit(remembranceInput)"
+    class="form__button"
+  >Log in</button>
+  
+</form>
