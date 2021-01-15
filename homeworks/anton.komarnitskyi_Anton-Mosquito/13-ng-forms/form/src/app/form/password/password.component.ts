@@ -62,7 +62,7 @@ export class PasswordComponent implements ControlValueAccessor {
   public handle(event : Event, input: HTMLInputElement) : void {
     let element = (event.target as SVGImageElement);
     const attributes = (event.target as HTMLOrSVGScriptElement).dataset.svg;
-    const basePath : string = '../../assets/media/sprite.svg#';
+    const basePath : string = './assets/media/sprite.svg#';
     const nameOfFirstSVG: string = 'view';
     const nameOfSecondSVG: string = 'view-close';
 
