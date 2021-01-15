@@ -4,23 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markup</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=PT+Serif&family=Poppins:wght@400;500;600&family=Rammetto+One&family=Roboto&family=Rubik:wght@300;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="./styles/flex-layout.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="app-wrapper">
         <section class="header-block">
+            <img
+            class="block-background-img"
+            srcset="
+            ./assets/images/header-desktop.jpg 1024w,
+            ./assets/images/header-tablet.jpg 768w,
+            ./assets/images/header-small.jpg 576w,
+            "
+            src="./assets/images/header-orign.jpg";
+            sizes=
+            "(max-width: 576px) 576w,
+            (max-width: 768px) 768w,
+            1024w"
+            alt="">
             <header class="header">
                 <div class="header-nav-wrapper">
                     <div class="logo-container">
                         <a href="" class="logo-icon-link default-link">
                             <svg class="logo-icon">
-                                <use xlink:href="./assets/icons/sprite.svg#logo">
+                                <use xlink:href="./assets/icons/logo.svg#logo">
                                 </use>
                             </svg>
                         </a>
@@ -50,11 +64,13 @@
                                     Setting
                                 </a>
                             </li>
+                            <li class="list-item">
+                                <a class="header-link default-link" href="">
+                                    Contact us
+                                </a>
+                            </li>
                         </ul>
                     </nav>
-                    <button class="item-btn btn-contact-us" type="button">
-                        Contact us
-                    </button>
                 </div>
             </header>
             <div class="header-content-wrapper">
@@ -155,6 +171,21 @@
             </div>
         </section>
         <section class="demo-block">
+            <img
+              class="block-background-img"
+              srcset="
+                ./assets/images/demo-desktop.jpg 1024w,
+                ./assets/images/demo-tablet.jpg 768w,
+                ./assets/images/demo-small-1.jpg 576w,
+                ./assets/images/demo-small.jpg 420w,
+              "
+              src="./assets/images/demo-orign.jpg";
+              sizes=
+                "(max-width: 420px) 420w,
+                 (max-width: 576px) 576w,
+                 (max-width: 768px) 768w,
+                 1024w"
+            alt="">
             <div class="demo--content-wrapper">
                 <div class="demo-header">
                     <h2 class="demo-header-content">
@@ -188,7 +219,7 @@
                             </p>
                         </div>
                         <div class="offers-card-btn-wrapper">
-                            <button class="customer-card-btn item-btn" type="button">
+                            <button class="card-btn item-btn" type="button">
                                 Refer anyone
                             </button>
                         </div>
@@ -205,7 +236,7 @@
                             </p>
                         </div>
                         <div class="offers-card-btn-wrapper">
-                            <button type="button" class="provider-card-btn item-btn">
+                            <button type="button" class="card-btn item-btn">
                                 Learn more
                             </button>
                         </div>
@@ -222,7 +253,7 @@
                             Name
                         </label>
                         <input type="text" id="name" class="input-field input-field-name"
-                            placeholder="Hendrik Larsson" />
+                            placeholder="Your login name" />
                         <label class="text-field" for="password">
                             Password
                         </label>
@@ -246,27 +277,27 @@
                 <div class="footer-nav-bar-links-container">
                     <h5 class="footer-links-header">Help & Support</h5>
                     <ul class="footer-links-list">
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Sell Fast
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Buy Now
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Membership
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Banner Ads
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Promotions
                             </a>
@@ -276,17 +307,17 @@
                 <div class="footer-nav-bar-links-container">
                     <h5 class="footer-links-header">link head</h5>
                     <ul class="footer-links-list">
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 FAQ
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Stay Safe
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Contact us
                             </a>
@@ -298,22 +329,22 @@
                         Social
                     </h5>
                     <ul class="footer-links-list">
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Blog
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Facebook
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Twitter
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Youtube
                             </a>
@@ -325,27 +356,27 @@
                         About us
                     </h5>
                     <ul class="footer-links-list">
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 About us
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Career
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Terms and Conditions
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Privacy Policy
                             </a>
                         </li>
-                        <li class="list-item">
+                        <li class="footer-list-item">
                             <a class="footer-links-item default-link" href="">
                                 Sitemap
                             </a>
@@ -381,7 +412,7 @@
                     <div class="logo-container">
                         <a href="" class="logo-link contact-link default-link">
                             <svg class="footer-logo footer-icons">
-                                <use xlink:href="./assets/icons/sprite.svg#logo-small">
+                                <use xlink:href="./assets/icons/logo.svg#logo-small">
                                 </use>
                             </svg>
                         </a>
@@ -394,4 +425,5 @@
         </footer>
     </div>
 </body>
+
 </html>
