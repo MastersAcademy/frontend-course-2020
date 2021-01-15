@@ -1,0 +1,14 @@
+.user-list__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-user-list__img {
+  object-fit: scale-down;
+  margin-bottom: 10px;
+}
+
+.item-user-list__text {
+  margin: 5px 0;
+  font-weight: 500;
+}
