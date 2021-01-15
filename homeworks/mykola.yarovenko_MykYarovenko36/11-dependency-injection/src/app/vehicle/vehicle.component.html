@@ -1,0 +1,56 @@
+<a class="card-link" [requestData]="subscribeURL">
+  <div class="card" [protocolType]="vehicleItem.post.protocol">
+    <div>
+      <div class="card-field">
+        <p>
+          Field
+        </p>
+        <hr>
+      </div>
+      <div class="card-field">
+        <p>
+          Added from :
+        </p>
+      </div>
+      <div class="card-field">
+        <p>
+          Vehicle :
+        </p>
+      </div>
+      <div class="card-field">
+        <p>
+          Price :
+        </p>
+      </div>
+    </div>
+    <div>
+      <div class="card-field">
+        <p>
+          Value
+        </p>
+        <hr>
+      </div>
+      <div>
+        <div class="card-field">
+          <p>
+            {{vehicleItem.post.slug}}
+          </p>
+        </div>
+        <div class="card-field">
+          <p>
+            {{cardDescription}}
+          </p>
+        </div>
+        <div class="card-field">
+          <p>
+            {{vehicleItem.cost.amount | currency: vehicleItem.cost.currencyCode: "symbol-narrow"}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card-image">
+      <img src="../../assets/car.jpg" alt="image">
+    </div>
+  </div>
+  </a>
+
