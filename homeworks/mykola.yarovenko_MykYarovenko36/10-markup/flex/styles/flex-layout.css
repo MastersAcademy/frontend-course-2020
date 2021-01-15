@@ -380,15 +380,16 @@ body {
   color: #717784;
 }
 
+.service-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media screen and (min-device-width: 320px) {
 
   .services-description-header {
     font-size: 1.125em;
-  }
-
-  .service-cards-wrapper {
-    display: flex;
-    justify-content: center;
   }
 }
 
@@ -397,23 +398,12 @@ body {
   .services-description-header {
     font-size: 1.25em;
   }
-
-  .service-cards-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 }
 
 @media screen and (min-device-width: 1024px) {
 
   .services-description-header {
     font-size: 1.6em;
-  }
-
-  .service-cards-wrapper {
-    display: inline-flex;
-    justify-content: center;
   }
 }
 
