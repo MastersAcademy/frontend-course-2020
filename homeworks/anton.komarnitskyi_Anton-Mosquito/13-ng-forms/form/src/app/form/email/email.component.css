@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.wrapper .field__name {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #607D8B;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.wrapper .field__input {
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #607D8B;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #607D8B;
+  background: transparent;
+  border-radius: 30px;
+}
+
+.wrapper .field__input.valid {
+  box-shadow: 0 0 5px   #008000, 0 0 6px  #008000, 0 0 7px   #008000, 0 0 8px #008000, 0 0 9px   #008000;
+}
+
+.wrapper .field__input.invalid {
+  box-shadow: 0 0 5px   #F00, 0 0 6px  #F00, 0 0 7px   #F00, 0 0 8px #F00, 0 0 9px  #F00;
+}
+
+.wrapper .field__input.untouched {
+  box-shadow: none;
+}
+
+.wrapper .field__error {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.wrapper .field__error .field__error-message {
+  color: #F00;
+}

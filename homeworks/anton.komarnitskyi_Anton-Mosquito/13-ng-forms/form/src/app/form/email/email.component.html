@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <span class="field__name">Enter your email</span>
+  <input
+    type="email"
+    class="field__input"
+    (input)="eventStarted($event)"
+    [class.invalid]="
+      _objectForControlsEmail.invalid &&
+      (_objectForControlsEmail.touched || _objectForControlsEmail.dirty)
+    "
+    [class.valid]="_objectForControlsEmail.valid"
+    [class.untouched]="_objectForControlsEmail.pristine"
+    value="{{ value }}"
+  />
+  <div
+    class="field__error"
+    *ngIf="
+      _objectForControlsEmail.invalid &&
+      (_objectForControlsEmail.touched || _objectForControlsEmail.dirty)
+    "
+  >
+    <span
+      class="field__error-message"
+      *ngIf="_objectForControlsEmail.errors?.required"
+      >This field is required</span
+    >
+    <span
+      class="field__error-message"
+      *ngIf="_objectForControlsEmail.errors?.email"
+      >Enter the right email address</span
+    >
+  </div>
+</div>
