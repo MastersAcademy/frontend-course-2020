@@ -1,0 +1,18 @@
+<a class="vehicle-list__item vehicle-list-item link" [appChangeColor]="vehicle.post.protocol"
+   href="{{vehicle | transformVehicleAddressPipe}}"
+   [appChangePointerEvents]="vehicle.post.protocol">
+    <span class="vehicle-list-item__label">Added from: </span>
+    <span class="vehicle-list-item__description">{{vehicle.post.protocol}}</span>
+</a>
+<div class="vehicle-list__item vehicle-list-item">
+    <label class="vehicle-list-item__label">Vehicle: </label>
+    <span class="vehicle-list-item__description">
+        {{vehicle | transformVehiclePipe}}
+    </span>
+</div>
+<div class="vehicle-list__item vehicle-list-item">
+    <label class="vehicle-list-item__label">Price: </label>
+    <span class="vehicle-list-item__description">
+        {{ vehicle.cost.amount | currency: vehicle.cost.currencyCode :'symbol-narrow'}}
+    </span>
+</div>

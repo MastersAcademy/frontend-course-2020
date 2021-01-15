@@ -1,0 +1,46 @@
+.pre-loader {
+  font-size: 20px;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+.red-text {
+  color: #F00;
+}
+
+.table {
+  border: 2px solid #8A2BE2;
+  border-collapse: collapse;
+}
+
+.table__link {
+  color: #5165FF;
+}
+
+.table__col {
+  border: 2px solid #CCD2FF;
+  position: relative;
+  padding: 18px;
+}
+
+.table__row:hover,
+.table__row:focus-within {
+  background: #F2F3FF;
+  outline: none;
+}
+
+.table__link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.table__link:focus {
+  outline: 0;
+}

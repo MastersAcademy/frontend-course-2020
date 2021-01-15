@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+    <article class="posts" data-promise="mainContainer">
+        <section class="posts__container">
+            <form action="" class="posts__container-interface">
+                <input type="text" class="posts__container-interface-filter" data-promise="filter"/>
+                <select class="posts__container-interface-sort" data-promise="sort">
+                    <option value="" selected></option>
+                    <option value="sort_to_lower">A - Z</option>
+                    <option value="sort_to_biger">Z - A</option>
+                </select>
+            </form>
+        </section>
+        <section class="posts__wrapper" data-promise="post-wrapper">
+            <div class="posts__post-container" data-promise="post-wrapper-main"></div>
+            <div class="posts__post-container-clone hidden" data-promise="post-wrapper-secondary"></div>
+        </section>
+    </article>
+    <div class="loader" data-promise="loader">
+        <span class="loader__color"></span>
+        <span class="loader__color"></span>
+    </div>
+    <script src="./script/index.js"></script>
+</body>
+</html>

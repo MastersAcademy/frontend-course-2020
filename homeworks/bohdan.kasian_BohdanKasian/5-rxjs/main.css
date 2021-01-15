@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  height: 50px;
+  border-radius: 0 0 8px 8px;
+  background: #070018;
+  transition: all .4s ease-in-out;
+}
+
