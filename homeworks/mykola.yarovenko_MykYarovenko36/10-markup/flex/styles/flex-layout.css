@@ -86,7 +86,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 5px;
+  margin: 0;
+  padding: 0;
 }
 
 .logo-container {
@@ -120,7 +121,7 @@ body {
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .header-nav-list-wrapper {
