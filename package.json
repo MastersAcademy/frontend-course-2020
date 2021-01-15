@@ -50,8 +50,7 @@
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.0",
         "lint-staged": "^10.4.0",
-        "stylelint": "^13.7.1",
-        "webfontloader": "^1.6.28"
+        "stylelint": "^13.7.1"
     },
     "devDependencies": {
         "eslint-plugin-no-jquery": "^2.5.0",
