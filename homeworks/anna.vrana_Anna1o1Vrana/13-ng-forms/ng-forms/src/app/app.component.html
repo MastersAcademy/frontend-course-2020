@@ -1,0 +1,51 @@
+<form [formGroup]="authorizationForm"
+      (ngSubmit)="onSubmit()"
+      class="authorization-form">
+  <div class="login-block">
+    <label for="email"> Email:
+      <input
+        formControlName="email"
+        required
+        type="email"
+        id="email"
+        class="input-field"
+        placeholder="enter email">
+    </label>
+    <div *ngIf="isControlInvalid('email')"
+         class="alert-danger">
+      * Please, enter valid email address
+    </div>
+  </div>
+  <div class="password-block">
+    <label for="password">Password:
+      <input
+        formControlName="password"
+        required
+        type="password"
+        id="password"
+        class="input-field"
+        placeholder="enter password">
+    </label>
+    <div *ngIf="isControlInvalid('password')"
+         class="alert-danger">
+      * Please, enter valid password address
+    </div>
+  </div>
+
+  <label for="checkbox">
+    Remember me
+    <input
+      formControlName="checkbox"
+      type="checkbox"
+      id="checkbox"
+      class="checkbox">
+  </label>
+  <button type="submit" class="btn" [disabled]="!authorizationForm.valid">
+    Submit
+  </button>
+</form>
+
+<div class="result">
+  <p>Status: {{authorizationForm.status}}</p>
+  <p>Data: {{authorizationForm.value| json}}</p>
+</div>
