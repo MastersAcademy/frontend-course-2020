@@ -9,7 +9,7 @@
         *ngIf="form.get('email').invalid && form.get('email').touched"
         class="validation"
       >
-        <small *ngIf="form.get('email').errors.required">
+        <small *ngIf="form.get('email')?.errors.required">
           The field cannot be empty.
         </small>
         <small *ngIf="form.get('email').errors.email">
@@ -22,7 +22,7 @@
       <label>Password: </label>
       <input class="field-input" type="password" placeholder="enter password" formControlName="password">
       <div
-        *ngIf="form.get('password')!.invalid && form.get('password').touched"
+        *ngIf="form.get('password').invalid && form.get('password').touched"
         class="validation"
       >
         <small *ngIf="form.get('password').errors.required">

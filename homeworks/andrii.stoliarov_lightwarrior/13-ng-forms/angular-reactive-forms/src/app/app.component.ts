@@ -8,8 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  form!: FormGroup;
-
+  form: any;
   private encodedDataEmail: string = '';
   private decodedDataEmail: string = '';
   private encodedDataPassword: string = '';
@@ -28,6 +27,7 @@ export class AppComponent implements OnInit {
         Validators.required
       ])
     });
+
   }
 
   submit() {
