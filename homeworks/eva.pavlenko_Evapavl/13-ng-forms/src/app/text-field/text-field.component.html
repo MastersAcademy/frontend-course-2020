@@ -3,7 +3,13 @@
   <input class="form-input" [type]="fieldTextType ? 'text' : 'password'" [formControl]="nativeControl"/>
   <span *ngIf="label === 'Password'">
   <span (click)="toggleFieldTextType()">
+    <span *ngIf="fieldTextType">
     <img alt="eye" class="toggle-img" src="https://img.icons8.com/android/344/visible.png">
+      </span>
+    <span *ngIf="!fieldTextType">
+  <img alt="eye" class="toggle-img"
+       src="https://www.flaticon.com/svg/vstatic/svg/565/565655.svg?token=exp=1610823945~hmac=29f3439096ac6ef22e0681cf1abdb1d6">
   </span>
+    </span>
   </span>
 </label>

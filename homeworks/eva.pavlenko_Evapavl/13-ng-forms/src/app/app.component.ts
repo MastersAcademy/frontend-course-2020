@@ -40,12 +40,13 @@ export class AppComponent implements OnInit {
   }
 
   public showData() {
-    if (this.loginForm.value.rememberMe) {
+    if (this.loginForm.value.rememberMe && this.loginForm.value.email && this.loginForm.value.password) {
       const dataInputs: string = btoa(JSON.stringify(this.loginForm.value));
       localStorage.setItem('data', dataInputs)
+      alert(`
+    Email: ${this.email}
+    Password: ${this.password}
+    `)
     }
-
-    alert(`Email: ${this.email}
-           Password ${this.password}`)
   }
 }
