@@ -1,3 +1,4 @@
+import { formatCurrency } from '@angular/common';
 import { Component, OnInit, HostListener} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   form!: FormGroup;
+
   private encodedDataEmail: string = '';
   private decodedDataEmail: string = '';
   private encodedDataPassword: string = '';

@@ -22,7 +22,7 @@
       <label>Password: </label>
       <input class="field-input" type="password" placeholder="enter password" formControlName="password">
       <div
-        *ngIf="form.get('password').invalid && form.get('password').touched"
+        *ngIf="form.get('password')!.invalid && form.get('password').touched"
         class="validation"
       >
         <small *ngIf="form.get('password').errors.required">
