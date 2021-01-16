@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
 
   checkLocalStorage() {
     if (localStorage.getItem('inputsData')) {
-      const data = this.decodInputsData();
+      const data = this.decodeInputsData();
       this.form.setValue({
         email: data.email,
         password: data.password,
@@ -49,23 +49,25 @@ export class AppComponent implements OnInit{
       alert(`You email: ${this.email.value}, password: ${this.password.value}`);
       
       if (this.rememberMe.value) {
-        this.encodInputsData();
+        this.encodeInputsData();
         this.saveToLocalStorage();
+      } else {
+        localStorage.removeItem('inputsData');
       }
     }
   }
 
-  encodInputsData() {
+  encodeInputsData() {
     const encodedInputsData: string = window.btoa(JSON.stringify(this.form.value));
     return encodedInputsData;
   }
 
   saveToLocalStorage(): void {
-    const encodedInputsData = this.encodInputsData();
+    const encodedInputsData = this.encodeInputsData();
     localStorage.setItem('inputsData', encodedInputsData);
   }
 
-  decodInputsData() {
+  decodeInputsData() {
     const decodedInputsData: string = atob(<string>localStorage.getItem('inputsData'));
     const inputsData = JSON.parse(decodedInputsData);
     return inputsData;
