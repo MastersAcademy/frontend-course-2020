@@ -67,11 +67,13 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.subscription.add(fromEvent<Event>(this.form.nativeElement, 'submit').subscribe((e) => {
-      if (this.stateEmail && this.statePassword) {
+      if (this.stateEmail && this.statePassword && this.stateCheckbox) {
         alert(`Email - ${this.stateEmail}, password - ${this.statePassword}`)
         localStorage.setItem("email", JSON.stringify(btoa(this.stateEmail)));
         localStorage.setItem("password", JSON.stringify(btoa(this.statePassword)));
         localStorage.setItem("remember", JSON.stringify(this.stateCheckbox));
+      } else {
+        alert(`Email - ${this.stateEmail}, password - ${this.statePassword}`)
       }
       this.emailControl.reset();
       this.passwordControl.reset();
