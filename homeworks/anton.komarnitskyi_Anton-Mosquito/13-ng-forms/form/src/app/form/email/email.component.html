@@ -4,12 +4,13 @@
     type="email"
     class="field__input"
     (input)="eventStarted($event)"
+    (blur) ="deleteClass($event)"
     [class.invalid]="
-      _objectForControlsEmail.invalid &&
-      (_objectForControlsEmail.touched || _objectForControlsEmail.dirty)
+    _objectForControlsEmail.invalid &&
+    (_objectForControlsEmail.touched || _objectForControlsEmail.dirty)
     "
     [class.valid]="_objectForControlsEmail.valid"
-    [class.untouched]="_objectForControlsEmail.pristine"
+    [class.touched]="_objectForControlsEmail.pristine"
     value="{{ value }}"
   />
   <div

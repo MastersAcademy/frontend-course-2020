@@ -65,19 +65,24 @@ export class PasswordComponent implements ControlValueAccessor {
     const basePath : string = './assets/media/sprite.svg#';
     const nameOfFirstSVG: string = 'view';
     const nameOfSecondSVG: string = 'view-close';
+    const child = element.children[0] as SVGImageElement;
 
     switch (attributes) {
       case nameOfFirstSVG:
-        element.href.baseVal = `${basePath}${nameOfSecondSVG}`;
+        child.href.baseVal = `${basePath}${nameOfSecondSVG}`;
         element.dataset.svg = nameOfSecondSVG;
         input.setAttribute('type', 'text');
       break;
       case nameOfSecondSVG:
-        element.href.baseVal = `${basePath}${nameOfFirstSVG}`;
+        child.href.baseVal = `${basePath}${nameOfFirstSVG}`;
         element.dataset.svg = nameOfFirstSVG;
         input.setAttribute('type', 'password');
       break;
     }
   }
 
+  public deleteClass(event:Event) :void{
+    (event.target as HTMLInputElement).classList.remove('valid');
+    this.message = '';
+  }
 }

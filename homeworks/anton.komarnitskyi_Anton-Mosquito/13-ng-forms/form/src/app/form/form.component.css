@@ -39,7 +39,6 @@
   width: 50%;
 }
 
-
 .wrapper .content .form-box .form-box__header {
   color: #607D8B;
   font-weight: 600;
@@ -65,7 +64,7 @@
   font-weight: 600;
   color: #607D8B;
   letter-spacing: 2px;
-  transition: .5s;
+  transition: .4s;
   cursor: pointer;
   transition-delay: 0s;
   background: transparent;
@@ -94,7 +93,7 @@
   height: 2px;
   background: #AA076B;
   box-shadow: 5px -8px 0  #AA076B, 5px 8px 0 #AA076B;
-  transition: width .5s, left .5s, height .5s,box-shadow .5s;
+  transition: width .4s, left .4s, height .4s,box-shadow .4s;
   transition-delay: 1s,.5s,0s,0s;
   border-radius: 30px;
 }
@@ -117,7 +116,7 @@
   height: 2px;
   background: #AA076B;
   box-shadow: -5px -8px 0  #AA076B, -5px 8px 0 #AA076B;
-  transition: width .5s, left .5s, height .5s,box-shadow .5s;
+  transition: width .4s, right .4s, height .4s,box-shadow .4s;
   transition-delay: 1s,.5s,0s,0s;
   border-radius: 30px;
 }

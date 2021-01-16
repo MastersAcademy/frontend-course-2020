@@ -33,7 +33,7 @@
   box-shadow: 0 0 5px   #F00, 0 0 6px  #F00, 0 0 7px   #F00, 0 0 8px #F00, 0 0 9px  #F00;
 }
 
-.wrapper .field__input.untouched {
+.wrapper .field__input.touched {
   box-shadow: none;
 }
 

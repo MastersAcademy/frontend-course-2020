@@ -52,4 +52,8 @@ export class EmailComponent implements OnInit,ControlValueAccessor {
   public eventStarted (event:Event) : void{
     this.value = (event.target as HTMLInputElement).value;
   }
+
+  public deleteClass(event:Event) :void{
+    (event.target as HTMLInputElement).classList.remove('valid');
+  }
 }
