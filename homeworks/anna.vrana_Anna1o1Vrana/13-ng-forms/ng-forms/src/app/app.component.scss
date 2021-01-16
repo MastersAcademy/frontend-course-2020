@@ -3,17 +3,12 @@
   margin: 25px auto;
   display: flex;
   justify-content: flex-end;
-  //align-items: center;
 }
 
 .input-field {
   margin: 15px 25px 15px 5px;
   padding: 10px 15px;
   font-size: 14px;
-}
-
-.input-field .ng-touched.ng-invalid {
-  border: 1px solid #F60E0E;
 }
 
 .checkbox {
@@ -36,22 +31,9 @@
   }
 }
 
-.result {
-  display: flex;
-  justify-content: center;
-}
-
-.result p {
-  padding: 25px;
-}
-
 .disabled {
   background-color: #065E1B;
   cursor: auto;
-}
-
-.hidden {
-  display: none;
 }
 
 .alert-danger {

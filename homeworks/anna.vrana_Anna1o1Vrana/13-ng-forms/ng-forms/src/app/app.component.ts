@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -6,7 +6,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ng-forms';
   authorizationForm = new FormGroup({
     email: new FormControl('',
@@ -24,28 +24,37 @@ export class AppComponent {
     return control.invalid && control.touched;
   }
 
-  onSubmit() {
+  saveInLocalStorage(): void {
+    let email = btoa(`${this.authorizationForm.value.email}`)
+    let password = btoa(`${this.authorizationForm.value.password}`)
+    let checkbox = btoa(`${this.authorizationForm.value.checkbox}`)
+    localStorage.setItem('email', email)
+    localStorage.setItem('password', password)
+    localStorage.setItem('checkbox', checkbox)
+
+    console.log(localStorage.getItem('email'))
+    console.log(localStorage.getItem('password'))
+  }
+
+  onSubmit(): void {
     const authorizationData = 'Login: ' + `${this.authorizationForm.value.email}` + '     Password: ' + `${this.authorizationForm.value.password}`;
-    if(this.authorizationForm.value.checkbox === true) {
+    if (this.authorizationForm.value.checkbox === true) {
       console.log('remembered')
+      this.saveInLocalStorage()
+      alert(authorizationData)
     } else {
       alert(authorizationData)
     }
+  }
 
-
-
-    // alert('Login: ' + `${this.authorizationForm.value.email}` + '     Password: ' + this.authorizationForm.value.password);
-   // const local = localStorage.setItem(JSON.stringify(`${this.authorizationForm.value.email}`), JSON.stringify(`${this.authorizationForm.value.password}`))
-   //  console.log(local)
-    // alert(`Login: ${this.authorizationForm.value.email},  Password: ${this.authorizationForm.value.password}`)
-
-    // const controls = this.authorizationForm.controls;
-    // if (this.authorizationForm.invalid) {
-    //   Object.keys(controls)
-    //     .forEach(controlName => controls[controlName].markAsTouched());
-    //   return;
-    // } else {
-    //   console.log(this.authorizationForm.value);
-    // }
+  ngOnInit() {
+    if (localStorage.getItem('email') && localStorage.getItem('password')) {
+      this.authorizationForm.setValue(
+        {
+          'email': atob(localStorage.getItem('email')),
+          'password': atob(localStorage.getItem('password')),
+          'checkbox': atob(localStorage.getItem('checkbox'))
+        })
+    }
   }
 }
