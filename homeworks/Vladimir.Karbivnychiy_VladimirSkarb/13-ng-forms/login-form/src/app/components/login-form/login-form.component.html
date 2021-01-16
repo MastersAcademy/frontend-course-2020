@@ -1,0 +1,38 @@
+<section class="form-section">
+  <form class="user-login_form"
+        [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="user-input">
+      <label class="label-form">
+        Email:
+        <input type="email" formControlName="email" required id="email">
+      </label>
+      <div class="error"
+           *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched"
+      >
+        Incorrect email
+      </div>
+    </div>
+
+    <div class="user-input">
+      <label class="label-form">
+        Password:
+        <input type="password" formControlName="password" required>
+      </label>
+      <div class="error"
+           *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
+      >
+        Minimum length password must be of 8 characters
+      </div>
+    </div>
+    <label>
+      <input class="user-checkbox"
+             type="checkbox"
+             formControlName="checkbox"
+             value="check">
+      Remember me
+    </label>
+    <button class="user-submit_btn"
+            type="submit"
+            [disabled]="!loginForm.valid">Submit</button>
+  </form>
+</section>

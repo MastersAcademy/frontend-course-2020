@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to top, #FFEFBA, #FFF);
+}
+
+.box-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  border-radius: 20px;
+  background: linear-gradient(to left, #005AA7, #FFFDE4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.form-control {
+  width: 300px;
+  padding: 10px 20px;
+  outline: none;
+  border-radius: 20px;
+  font-size: 18px;
+  border: none;
+}
+
+.form-control::placeholder {
+  color: #CCC;
+}
+
+.form-checkbox {
+  padding-bottom: 20px;
+}
+
+.check {
+  outline: none;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.form-group__title {
+  padding-bottom: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid rgb(245, 4, 4);
+}
+
+input.ng-valid {
+  border: 2px solid rgb(1, 158, 1);
+}
+
+.error {
+  color: rgb(245, 4, 4);
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.btn {
+  width: 150px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  box-shadow: 0 0 15px #FFF;
+}
