@@ -1,0 +1,21 @@
+<li class="vehicle-list__vehicle-item">
+  <a class="vehicle-list__vehicle-item-link"
+     target="_blank"
+     #el
+     href="{{ vehicle | transformWebsite }}"
+     [appChangeLinkColor]="el"
+  >
+    <div>
+      <span class="label">Added from:</span>
+      <span class="vehicle-list__vehicle-item-protocol">{{ vehicle.post.protocol }}</span>
+    </div>
+  </a>
+  <div>
+    <span class="label">Vehicle:</span>
+    {{ vehicle | transformVehicle }}
+  </div>
+  <div>
+    <span class="label">Price:</span>
+    {{ vehicle.cost.amount | currency: vehicle.cost.currencyCode:'symbol-narrow' }}
+  </div>
+</li>
