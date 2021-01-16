@@ -1,0 +1,17 @@
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="showInputData(inputEmail.value, inputPassword.value)" class="container__form">
+
+    <label for="email">Email: </label>
+    <input type="email" name="email" formControlName="email" [(ngModel)]="savedEmail" [email]="true" #inputEmail/>
+
+    <label for="password">Password: </label>
+    <input type="password" name="password" formControlName="password" [(ngModel)]="savedPassword" #inputPassword/>
+
+    <div>
+      <input type="checkbox" (change)="checkCheckBox($event)" name="isRemember">
+      <label for="isRemember">Remember me</label>
+    </div>
+
+    <button type="submit" [disabled]="!userForm.valid" (click)="saveInputData(inputEmail.value, inputPassword.value)" class="btn">Submit</button>
+  </form>
+</div>
