@@ -122,7 +122,7 @@ class AppComponent {
     }
     checkLocalStorage() {
         if (localStorage.getItem('inputsData')) {
-            const data = this.decodInputsData();
+            const data = this.decodeInputsData();
             this.form.setValue({
                 email: data.email,
                 password: data.password,
@@ -134,20 +134,23 @@ class AppComponent {
         if (this.form.valid) {
             alert(`You email: ${this.email.value}, password: ${this.password.value}`);
             if (this.rememberMe.value) {
-                this.encodInputsData();
+                this.encodeInputsData();
                 this.saveToLocalStorage();
+            }
+            else {
+                localStorage.removeItem('inputsData');
             }
         }
     }
-    encodInputsData() {
+    encodeInputsData() {
         const encodedInputsData = window.btoa(JSON.stringify(this.form.value));
         return encodedInputsData;
     }
     saveToLocalStorage() {
-        const encodedInputsData = this.encodInputsData();
+        const encodedInputsData = this.encodeInputsData();
         localStorage.setItem('inputsData', encodedInputsData);
     }
-    decodInputsData() {
+    decodeInputsData() {
         const decodedInputsData = atob(localStorage.getItem('inputsData'));
         const inputsData = JSON.parse(decodedInputsData);
         return inputsData;
@@ -194,7 +197,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.password.invalid && ctx.password.touched);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.form.invalid);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"]], styles: [".form__container[_ngcontent-%COMP%] {\n  max-width: 600px;\n  margin: 50px auto;\n  display: flex;\n  justify-content: center;\n  align-items: space-between;\n  border: 1px solid rgb(115, 23, 207);\n  padding: 100px 20px;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.form__input[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n\n.input__item[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid rgb(21, 15, 121);\n  border-radius: 4px;\n}\n\n.input__validation[_ngcontent-%COMP%] {\n  color: rgb(139, 39, 64);\n}\n\n.button__submit[_ngcontent-%COMP%] {\n  padding: 5px 10px;\n  width: 50%;\n  color: rgb(21, 15, 121);\n  text-transform: uppercase;\n  border: 1px solid rgb(21, 15, 121);\n  border-radius: 4px;\n  font-size: 18px;\n  box-shadow: rgb(21, 15, 121) 2px 2px 8px 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLDBCQUEwQjtFQUMxQixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLHlDQUF5QztBQUMzQzs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxhQUFhO0VBQ2Isa0NBQWtDO0VBQ2xDLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0VBQ1YsdUJBQXVCO0VBQ3ZCLHlCQUF5QjtFQUN6QixrQ0FBa0M7RUFDbEMsa0JBQWtCO0VBQ2xCLGVBQWU7RUFDZiw0Q0FBNEM7QUFDOUMiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZm9ybV9fY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiA2MDBweDtcbiAgbWFyZ2luOiA1MHB4IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogc3BhY2UtYmV0d2VlbjtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiKDExNSwgMjMsIDIwNyk7XG4gIHBhZGRpbmc6IDEwMHB4IDIwcHg7XG4gIGZvbnQtZmFtaWx5OiBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmO1xufVxuXG4uZm9ybV9faW5wdXQge1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uaW5wdXRfX2l0ZW0ge1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZzogMTBweDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiKDIxLCAxNSwgMTIxKTtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuXG4uaW5wdXRfX3ZhbGlkYXRpb24ge1xuICBjb2xvcjogcmdiKDEzOSwgMzksIDY0KTtcbn1cblxuLmJ1dHRvbl9fc3VibWl0IHtcbiAgcGFkZGluZzogNXB4IDEwcHg7XG4gIHdpZHRoOiA1MCU7XG4gIGNvbG9yOiByZ2IoMjEsIDE1LCAxMjEpO1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjEsIDE1LCAxMjEpO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgYm94LXNoYWRvdzogcmdiKDIxLCAxNSwgMTIxKSAycHggMnB4IDhweCAycHg7XG59Il19 */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"]], styles: [".form__container[_ngcontent-%COMP%] {\n  max-width: 600px;\n  margin: 50px auto;\n  display: flex;\n  justify-content: center;\n  align-items: space-between;\n  border: 1px solid rgb(115, 23, 207);\n  padding: 100px 20px;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.form__input[_ngcontent-%COMP%] {\n  margin-bottom: 30px;\n}\n\n.input__item[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 10px;\n  border: 1px solid rgb(21, 15, 121);\n  border-radius: 4px;\n}\n\n.input__validation[_ngcontent-%COMP%] {\n  color: rgb(139, 39, 64);\n  position: absolute;\n}\n\n.button__submit[_ngcontent-%COMP%] {\n  padding: 5px 10px;\n  width: 50%;\n  color: rgb(21, 15, 121);\n  text-transform: uppercase;\n  border: 1px solid rgb(21, 15, 121);\n  border-radius: 4px;\n  font-size: 18px;\n  box-shadow: rgb(21, 15, 121) 2px 2px 8px 2px;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLDBCQUEwQjtFQUMxQixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLHlDQUF5QztBQUMzQzs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxhQUFhO0VBQ2Isa0NBQWtDO0VBQ2xDLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsVUFBVTtFQUNWLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsa0NBQWtDO0VBQ2xDLGtCQUFrQjtFQUNsQixlQUFlO0VBQ2YsNENBQTRDO0VBQzVDLGVBQWU7QUFDakIiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZm9ybV9fY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiA2MDBweDtcbiAgbWFyZ2luOiA1MHB4IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogc3BhY2UtYmV0d2VlbjtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiKDExNSwgMjMsIDIwNyk7XG4gIHBhZGRpbmc6IDEwMHB4IDIwcHg7XG4gIGZvbnQtZmFtaWx5OiBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmO1xufVxuXG4uZm9ybV9faW5wdXQge1xuICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuXG4uaW5wdXRfX2l0ZW0ge1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZzogMTBweDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiKDIxLCAxNSwgMTIxKTtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuXG4uaW5wdXRfX3ZhbGlkYXRpb24ge1xuICBjb2xvcjogcmdiKDEzOSwgMzksIDY0KTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xufVxuXG4uYnV0dG9uX19zdWJtaXQge1xuICBwYWRkaW5nOiA1cHggMTBweDtcbiAgd2lkdGg6IDUwJTtcbiAgY29sb3I6IHJnYigyMSwgMTUsIDEyMSk7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYigyMSwgMTUsIDEyMSk7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBib3gtc2hhZG93OiByZ2IoMjEsIDE1LCAxMjEpIDJweCAycHggOHB4IDJweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
