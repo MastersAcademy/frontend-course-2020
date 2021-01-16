@@ -1,0 +1,33 @@
+<section class="user-list_section">
+  <div class="lds-dual-ring" *ngIf="loader"></div>
+  <div *ngIf="userList">
+    <div class="user-select">
+      <p class="user-select_title">Items per page:</p>
+      <p><select class="custom-select"
+                 *ngIf="queryParams.params.per_page"
+                 [(ngModel)]="queryParams.params.per_page"
+                 (change)="changeItemsOnPage(queryParams.params.per_page)">
+        <option
+          *ngFor="let element of elementsOnPage"
+          [value]="element"
+        >{{ element }}
+        </option>
+      </select></p>
+    </div>
+    <div class="user-list">
+      <app-user
+        class="user-card"
+        *ngFor="let user of userList"
+        [user]="user">
+      </app-user>
+    </div>
+    <ul class="pagination">
+      <li class="pagination-list"
+          *ngFor="let page of pages"
+          (click)="changePage(page)"
+          [class.active]="currentPage===page">
+        {{page + 1}}
+      </li>
+    </ul>
+  </div>
+</section>
