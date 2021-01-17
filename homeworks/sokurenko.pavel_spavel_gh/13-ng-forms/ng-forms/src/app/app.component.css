@@ -1,1 +1,15 @@
-/**/
+.form {
+  display: grid;
+  row-gap: 1rem;
+  width: 20rem;
+}
+
+input, button {
+  padding: .6rem;
+}
+
+input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+  margin-right: .35em;
+}
