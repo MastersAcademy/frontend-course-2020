@@ -202,7 +202,7 @@ class AppComponent {
         this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            remember: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](''),
+            remember: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](false),
         });
     }
     updateState() {
@@ -228,9 +228,6 @@ class AppComponent {
     checkLocalStorage() {
         return localStorage.getItem('email') !== null &&
             localStorage.getItem('password') !== null;
-    }
-    get Errors() {
-        return this.loginForm.controls.email.value;
     }
     updateFormLS() {
         if (this.checkLocalStorage()) {

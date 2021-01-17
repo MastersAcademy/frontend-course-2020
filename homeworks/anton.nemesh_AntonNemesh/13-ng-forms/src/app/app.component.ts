@@ -10,8 +10,8 @@ export class AppComponent implements OnInit {
   public readonly loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    remember: new FormControl(''),
-  })
+    remember: new FormControl(false),
+  });
 
   public email: string;
   public password: string;
@@ -45,10 +45,6 @@ export class AppComponent implements OnInit {
   public checkLocalStorage(): boolean {
     return localStorage.getItem('email') !== null &&
            localStorage.getItem('password') !== null;
-  }
-
-  public get Errors() {
-    return this.loginForm.controls.email.value;
   }
 
   public updateFormLS() {
