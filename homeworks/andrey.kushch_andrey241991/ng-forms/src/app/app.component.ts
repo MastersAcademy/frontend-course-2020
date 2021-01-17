@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'ng-forms';
   private email: string = '';
   private password: string = '';
-  private signInControl: FormGroup;
+  private signInControl?: FormGroup;
   private EMAIL_KEY: string = 'EMAIL_KEY';
   private PASSWORD_KEY: string = 'PASSWORD_KEY';
 
@@ -34,9 +34,9 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const email = this.signInControl.get('loginControl')?.value;
-    const password = this.signInControl.get('passwordControl')?.value;
-    const rememberControl = this.signInControl.get('rememberControl')?.value;
+    const email = this.signInControl?.get('loginControl')?.value;
+    const password = this.signInControl?.get('passwordControl')?.value;
+    const rememberControl = this.signInControl?.get('rememberControl')?.value;
     alert(`Email is ${email}, Password is ${password}`)
     if (rememberControl) {
       this.setOnLocalStorage(email, password)
