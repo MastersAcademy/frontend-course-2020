@@ -1,0 +1,14 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 20px auto;
+  font-size: 20px;
+}
+
+.form-item {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 40px;
+}

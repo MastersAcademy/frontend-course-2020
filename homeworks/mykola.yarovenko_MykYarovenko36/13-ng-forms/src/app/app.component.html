@@ -1,0 +1,29 @@
+<div class="form-wrapper">
+<fieldset [formGroup]="formGroupData">
+  <p class="form-item">
+    <span>login:</span>
+    <input
+      type="text"
+      placeholder="example@mail.com"
+      formControlName="login">
+  </p>
+  <p class="form-item">
+    <span>password:</span>
+    <input
+      type="password"
+      placeholder="password from any 5"
+      formControlName="password"
+    >
+  </p>
+</fieldset>
+<hr>
+    <button
+      type="submit"
+      (click)="setLoginFormData()"
+      [disabled]="formIsDisabled">SIGN IN</button>
+    <p>remember me ?
+    <input
+      type="checkbox"
+      [(ngModel)]="formIsRememberd"
+    ></p>
+</div>
