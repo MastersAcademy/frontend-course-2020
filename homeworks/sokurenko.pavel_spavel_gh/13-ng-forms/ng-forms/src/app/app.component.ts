@@ -9,7 +9,7 @@ import {  FormGroup, FormControl } from '@angular/forms';
 export class AppComponent {
   title = 'ng-forms';
 
-  profileForm = new FormGroup({
+  authForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
     remember: new FormControl(''),
@@ -20,16 +20,16 @@ export class AppComponent {
 
 
   public onSubmit(): void {
-    // console.warn(this.profileForm.value);
+    // console.warn(this.authForm.value);
     this.printFormFieldsAlert();
   }
 
   public printFormFieldsAlert(): void {
     alert(
       '\nFORM FIELDS\n\n' +
-      'email:  ' + this.profileForm.value.email +
-      '\npassword:  ' + this.profileForm.value.password +
-      '\nremember:  ' + this.profileForm.value.remember
+      'email:  ' + this.authForm.value.email +
+      '\npassword:  ' + this.authForm.value.password +
+      '\nremember:  ' + this.authForm.value.remember
       );
   }
 }

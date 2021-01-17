@@ -1,9 +1,9 @@
-<form [formGroup]="profileForm" class="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="authForm" class="form" (ngSubmit)="onSubmit()">
   <input type="text" formControlName="email" placeholder="email">
   <input type="password" formControlName="password" placeholder="password">
   <label>
     <input formControlName="remember" type="checkbox" name="" id="remember" class="form-checkbox">
     remember me
   </label>
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit" [disabled]="!authForm.valid">Submit</button>
 </form>
