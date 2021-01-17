@@ -39,10 +39,6 @@ function TextFieldComponent_span_4_span_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx_r2.imgSource, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
 function TextFieldComponent_span_4_Template(rf, ctx) { if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
@@ -50,7 +46,7 @@ function TextFieldComponent_span_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TextFieldComponent_span_4_Template_span_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.toggleFieldTextType(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, TextFieldComponent_span_4_span_2_Template, 2, 0, "span", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, TextFieldComponent_span_4_span_3_Template, 2, 1, "span", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, TextFieldComponent_span_4_span_3_Template, 2, 0, "span", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -86,7 +82,7 @@ class TextFieldComponent {
     registerOnTouched(fn) { }
 }
 TextFieldComponent.ɵfac = function TextFieldComponent_Factory(t) { return new (t || TextFieldComponent)(); };
-TextFieldComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TextFieldComponent, selectors: [["app-text-field"]], inputs: { label: "label" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([provideCustomControl(() => TextFieldComponent)])], decls: 5, vars: 4, consts: [[1, "form-label"], [1, "form-input", 3, "type", "formControl"], [4, "ngIf"], [3, "click"], ["alt", "eye", "src", "https://img.icons8.com/android/344/visible.png", 1, "toggle-img"], ["alt", "eye", 1, "toggle-img", 3, "src"]], template: function TextFieldComponent_Template(rf, ctx) { if (rf & 1) {
+TextFieldComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TextFieldComponent, selectors: [["app-text-field"]], inputs: { label: "label" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([provideCustomControl(() => TextFieldComponent)])], decls: 5, vars: 4, consts: [[1, "form-label"], [1, "form-input", 3, "type", "formControl"], [4, "ngIf"], [3, "click"], ["alt", "eye", "src", "https://img.icons8.com/android/344/visible.png", 1, "toggle-img"], ["alt", "eye", "src", "assets/images/invisible.png", 1, "toggle-img"]], template: function TextFieldComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "label");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
