@@ -4,11 +4,11 @@
   width: 20rem;
 }
 
-input, button {
+.air {
   padding: .6rem;
 }
 
-input[type=checkbox] {
+.form-checkbox {
   width: 1em;
   height: 1em;
   margin-right: .35em;
