@@ -81,7 +81,7 @@ class TextFieldComponent {
     registerOnTouched(fn) { }
 }
 TextFieldComponent.ɵfac = function TextFieldComponent_Factory(t) { return new (t || TextFieldComponent)(); };
-TextFieldComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TextFieldComponent, selectors: [["app-text-field"]], inputs: { label: "label" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([provideCustomControl(() => TextFieldComponent)])], decls: 5, vars: 4, consts: [[1, "form-label"], [1, "form-input", 3, "type", "formControl"], [4, "ngIf"], [3, "click"], ["alt", "eye", "src", "https://img.icons8.com/android/344/visible.png", 1, "toggle-img"], ["alt", "eye", "src", "https://www.flaticon.com/svg/vstatic/svg/565/565655.svg?token=exp=1610823945~hmac=29f3439096ac6ef22e0681cf1abdb1d6", 1, "toggle-img"]], template: function TextFieldComponent_Template(rf, ctx) { if (rf & 1) {
+TextFieldComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TextFieldComponent, selectors: [["app-text-field"]], inputs: { label: "label" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([provideCustomControl(() => TextFieldComponent)])], decls: 5, vars: 4, consts: [[1, "form-label"], [1, "form-input", 3, "type", "formControl"], [4, "ngIf"], [3, "click"], ["alt", "eye", "src", "https://img.icons8.com/android/344/visible.png", 1, "toggle-img"], ["alt", "eye", "src", "../../assets/images/invisible.png", 1, "toggle-img"]], template: function TextFieldComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "label");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
@@ -205,10 +205,15 @@ class AppComponent {
         if (this.loginForm.value.rememberMe && this.loginForm.value.email && this.loginForm.value.password) {
             const dataInputs = btoa(JSON.stringify(this.loginForm.value));
             localStorage.setItem('data', dataInputs);
+        }
+        if (this.loginForm.value.email && this.loginForm.value.password) {
             alert(`
     Email: ${this.email}
     Password: ${this.password}
     `);
+        }
+        if (!this.loginForm.value.email && !this.loginForm.value.password) {
+            alert('Please enter a value email and password');
         }
     }
 }
