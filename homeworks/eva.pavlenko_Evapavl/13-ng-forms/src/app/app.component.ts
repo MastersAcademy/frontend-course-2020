@@ -44,14 +44,18 @@ export class AppComponent implements OnInit {
       const dataInputs: string = btoa(JSON.stringify(this.loginForm.value));
       localStorage.setItem('data', dataInputs)
     }
-    if (this.loginForm.value.email && this.loginForm.value.password) {
+
+    if(this.loginForm.status === 'VALID'){
       alert(`
     Email: ${this.email}
     Password: ${this.password}
     `)
-    }
-    if (!this.loginForm.value.email && !this.loginForm.value.password) {
+    } else if (!this.loginForm.value.email && !this.loginForm.value.password) {
       alert('Please enter a value email and password')
     }
+  }
+
+  isPasswordFieldValid(value: string) {
+    return this.loginForm.controls[value].invalid && !this.loginForm.controls[value].pristine
   }
 }
