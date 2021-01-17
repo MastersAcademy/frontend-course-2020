@@ -20,6 +20,7 @@ export class TextFieldComponent implements OnInit, ControlValueAccessor {
   public nativeControl: FormControl = new FormControl('');
   private emitTextChange!: EmitTextChange;
   fieldTextType: boolean = true;
+  imgSource: string = 'https://www.flaticon.com/svg/vstatic/svg/565/565655.svg?token=exp=1610905149~hmac=9d7b05b1a0ae05d5aa5e8d16503c4fcc';
 
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
