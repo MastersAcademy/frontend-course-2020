@@ -1,0 +1,34 @@
+<form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label class="login-form__label">
+      Email:
+      <input type="email" formControlName="email" required>
+    </label>
+    <div class="error" *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+      <span *ngIf="form.get(['email']).hasError('required')">
+        Email is <strong>required</strong>
+      </span>
+      <span *ngIf="form.get(['email']).hasError('email')">
+        Email is not <strong>valid</strong>
+      </span>
+    </div>
+
+    <label class="login-form__label">
+      Password:
+      <input type="password" formControlName="password" required>
+    </label>
+    <div class="error" *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+      <span *ngIf="form.get(['password']).hasError('required')">
+        Password is <strong>required</strong>
+      </span>
+      <span *ngIf="form.get(['password']).hasError('minlength')">
+        Password must be at least 8 characters
+      </span>
+    </div>
+  <br>
+  <label>
+    <input type="checkbox" formControlName="rememberMe" value="check">
+    Remember me
+  </label>
+  <br>
+  <button class="btn" type="submit" [disabled]="!form.valid">Submit</button>
+</form>
