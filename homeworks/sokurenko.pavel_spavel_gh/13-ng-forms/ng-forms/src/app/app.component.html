@@ -1,10 +1,9 @@
-<div class="form">
-  <input [(ngModel)]="form.email" type="text" name="" id="" placeholder="email">
-  <input [(ngModel)]="form.password" type="password" name="" id="" placeholder="password">
-  <div class="remember">
-    <input [(ngModel)]="form.remember" type="checkbox" name="" id="remember" class="form-checkbox">
-    <label for="remember" style="user-select: none">remember me</label>
-  </div>
-  <button (click)="submit()" type="button">submit {{ text }}</button>
-</div>
-
+<form [formGroup]="profileForm" class="form" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="email" placeholder="email">
+  <input type="password" formControlName="password" placeholder="password">
+  <label>
+    <input formControlName="remember" type="checkbox" name="" id="remember" class="form-checkbox">
+    remember me
+  </label>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>

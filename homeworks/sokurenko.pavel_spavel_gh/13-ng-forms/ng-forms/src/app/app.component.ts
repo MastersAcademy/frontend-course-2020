@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {  FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,27 +8,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-forms';
-  text = '';
 
-  form  = {
-    email: '123',
-    password: '321',
-    remember: false
-  };
+  profileForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+    remember: new FormControl(''),
+  });
 
-  public submit(): void {
-    // console.log(a);
-    // console.log(b);
-    // alert('Warning');
+
+
+
+
+  public onSubmit(): void {
+    // console.warn(this.profileForm.value);
     this.printFormFieldsAlert();
   }
 
   public printFormFieldsAlert(): void {
     alert(
       '\nFORM FIELDS\n\n' +
-      'email:  ' + this.form.email.toString() +
-      '\npassword:  ' + this.form.password.toString() +
-      '\nremember:  ' + this.form.remember
+      'email:  ' + this.profileForm.value.email +
+      '\npassword:  ' + this.profileForm.value.password +
+      '\nremember:  ' + this.profileForm.value.remember
       );
   }
 }
