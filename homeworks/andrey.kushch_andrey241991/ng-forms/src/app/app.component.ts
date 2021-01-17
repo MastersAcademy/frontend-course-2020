@@ -8,9 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'ng-forms';
-  private email: string = '';
-  private password: string = '';
-  private signInControl?: FormGroup;
+  email: string = '';
+  password: string = '';
+  signInControl!: FormGroup;
   private EMAIL_KEY: string = 'EMAIL_KEY';
   private PASSWORD_KEY: string = 'PASSWORD_KEY';
 
