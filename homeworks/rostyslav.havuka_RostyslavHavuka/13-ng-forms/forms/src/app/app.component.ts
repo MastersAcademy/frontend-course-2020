@@ -11,7 +11,6 @@ export class AppComponent implements OnInit{
   form: FormGroup;
   formEmail: string = '';
   formPassword: string = '';
-  isChecked: boolean;
   codeEmail: string;
   codePassword: string;
   passwordError: string;
