@@ -50,5 +50,8 @@ export class AppComponent implements OnInit {
     Password: ${this.password}
     `)
     }
+    if (!this.loginForm.value.email && !this.loginForm.value.password) {
+      alert('Please enter a value email and password')
+    }
   }
 }
