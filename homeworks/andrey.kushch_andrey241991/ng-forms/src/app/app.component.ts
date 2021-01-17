@@ -8,43 +8,38 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'ng-forms';
-  // loginControl: FormControl;
-  signInControl: FormGroup;
-
+  private email: string = '';
+  private password: string = '';
+  private signInControl: FormGroup;
+  private EMAIL_KEY: string = 'EMAIL_KEY';
+  private PASSWORD_KEY: string = 'PASSWORD_KEY';
 
   ngOnInit() {
-    // this.loginControl = new FormControl('', [Validators.required, Validators.email, Validators.minLength(10)]);
-    // this.loginControl.valueChanges.subscribe((value) => console.log(value))
-    // this.loginControl.statusChanges.subscribe((status) => console.log(status))
-
+    this.getFromLocalStorage()
     this.signInControl = new FormGroup({
-      loginControl: new FormControl('', [Validators.required, Validators.email, Validators.minLength(10)]),
-      passwordControl: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      loginControl: new FormControl(this.email, [Validators.required, Validators.email, Validators.minLength(10)]),
+      passwordControl: new FormControl(this.password, [Validators.required, Validators.minLength(8)]),
       rememberControl: new FormControl(false)
     });
-    this.signInControl.valueChanges.subscribe((value) => console.log(value))
   }
 
-  setOnLocalStorage(){
-
+  setOnLocalStorage(email: string, password: string): void {
+    localStorage.setItem(this.EMAIL_KEY, btoa(email))
+    localStorage.setItem(this.PASSWORD_KEY, btoa(password))
   }
 
-  getFromLocalStorage(){
-
+  getFromLocalStorage(): void {
+    this.email = atob(localStorage.getItem(this.EMAIL_KEY) || '');
+    this.password = atob(localStorage.getItem(this.PASSWORD_KEY) || '');
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const email = this.signInControl.get('loginControl')?.value;
     const password = this.signInControl.get('passwordControl')?.value;
     const rememberControl = this.signInControl.get('rememberControl')?.value;
-
     alert(`Email is ${email}, Password is ${password}`)
-
-    // const message = this.signInControl.value;
-    // alert(message);
-    // TODO: Use EventEmitter with form value
-    console.log(rememberControl);
+    if (rememberControl) {
+      this.setOnLocalStorage(email, password)
+    }
   }
-
-
 }
