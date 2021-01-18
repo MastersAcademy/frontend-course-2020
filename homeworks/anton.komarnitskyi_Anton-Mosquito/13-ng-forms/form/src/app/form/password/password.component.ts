@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, ElementRef, forwardRef, Input, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,8 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ValidationErrors 
 })
 export class PasswordComponent implements ControlValueAccessor {
 
+  @ViewChild('field') field? : ElementRef;
+
   private _password = '';
   public message? : string;
 
@@ -23,6 +25,7 @@ export class PasswordComponent implements ControlValueAccessor {
   actionTouch = (value:string)=> {};
 
   constructor() { }
+
   writeValue(str: string): void {
     this._password = str;
   }
@@ -51,11 +54,16 @@ export class PasswordComponent implements ControlValueAccessor {
   public eventStarted (event:Event) : void {
     this.password = (event.target as HTMLInputElement).value;
 
+    this.deleteErorrs();
+  }
+
+  public deleteErorrs() :void {
     let objectErorrs : ValidationErrors | null = this.objectForControlsPassword.errors;
+
     this.message = objectErorrs?.myValidator.message;
 
-    if (objectErorrs?.myValidator.message === 'Complex password'){
-      this.objectForControlsPassword.setErrors(null);
+    if (!objectErorrs?.myValidator){
+      this.message = 'Complex password';
     }
   }
 
@@ -84,5 +92,9 @@ export class PasswordComponent implements ControlValueAccessor {
   public deleteClass(event:Event) :void{
     (event.target as HTMLInputElement).classList.remove('valid');
     this.message = '';
+  }
+
+  public deleteClassSumbit() : void{
+    this.field?.nativeElement.classList.remove('untouched');
   }
 }

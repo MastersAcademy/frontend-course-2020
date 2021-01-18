@@ -6,18 +6,17 @@
     (input)="eventStarted($event)"
     (blur) ="deleteClass($event)"
     [class.invalid]="
-    _objectForControlsEmail.invalid &&
-    (_objectForControlsEmail.touched || _objectForControlsEmail.dirty)
+    _objectForControlsEmail.invalid
     "
     [class.valid]="_objectForControlsEmail.valid"
     [class.touched]="_objectForControlsEmail.pristine"
     value="{{ value }}"
+    #email
   />
   <div
     class="field__error"
     *ngIf="
-      _objectForControlsEmail.invalid &&
-      (_objectForControlsEmail.touched || _objectForControlsEmail.dirty)
+      _objectForControlsEmail.invalid && _objectForControlsEmail.touched
     "
   >
     <span

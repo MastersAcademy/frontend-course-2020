@@ -7,10 +7,12 @@
         <app-email
           [formControl]="emailControl"
           [objectForControlsEmail]="emailControl"
+          #inputFromEmail
         ></app-email>
         <app-password
           [formControl]="passwordControl"
           [objectForControlsPassword]="passwordControl"
+          #inputFromPassword
         ></app-password>
         <app-checkbox [formControl]="checkboxControl"></app-checkbox>
         <div class="form-box__field">

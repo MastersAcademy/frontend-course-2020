@@ -46,7 +46,6 @@ export class CheckboxComponent implements ControlValueAccessor, AfterViewInit{
 
   public handleChange (event:Event) : void{
     this.value = (event.target as HTMLFormElement).checked;
-    console.log(this.value);
   }
 
   ngAfterViewInit(): void {
@@ -55,8 +54,5 @@ export class CheckboxComponent implements ControlValueAccessor, AfterViewInit{
     } else {
       this.chekcbox.nativeElement.removeAttribute('checked');
     }
-
   }
-
-
 }

@@ -2,13 +2,18 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { FormControl, Validators } from '@angular/forms';
 import { fromEvent, Subscription } from 'rxjs';
 import { passwordValidator } from './custom-validation/password';
+import { EmailComponent } from './email/email.component';
+import { PasswordComponent } from './password/password.component';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  @ViewChild('inputFromEmail') inputFromEmail!: EmailComponent;
+  @ViewChild('inputFromPassword') inputFromPassword!: PasswordComponent;
 
   @ViewChild('form') form!: HTMLFormElement;
 
@@ -67,18 +72,51 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.subscription.add(fromEvent<Event>(this.form.nativeElement, 'submit').subscribe((e) => {
-      if (this.stateEmail && this.statePassword && this.stateCheckbox) {
-        alert(`Email - ${this.stateEmail}, password - ${this.statePassword}`)
-        localStorage.setItem("email", JSON.stringify(btoa(this.stateEmail)));
-        localStorage.setItem("password", JSON.stringify(btoa(this.statePassword)));
+
+      if (this.emailControl.valid && this.passwordControl.valid && this.stateCheckbox) {
+        alert(`Email - ${this.stateEmail}, password - ${this.statePassword}`);
+        localStorage.setItem("email", JSON.stringify(btoa(this.stateEmail!)));
+        localStorage.setItem("password", JSON.stringify(btoa(this.statePassword!)));
         localStorage.setItem("remember", JSON.stringify(this.stateCheckbox));
-      } else {
-        alert(`Email - ${this.stateEmail}, password - ${this.statePassword}`)
+
+        this.resetForm();
+
+      } else if(this.emailControl.valid && this.passwordControl.valid && !this.stateCheckbox){
+        alert(`Email - ${this.stateEmail}, password - ${this.statePassword}`);
+
+        this.resetForm();
+
+      } else if (this.emailControl.invalid && this.passwordControl.invalid) {
+
+        this.callWarningMessageEmail();
+        this.callWarningMessagePassword();
+
+      } else if (this.emailControl.invalid){
+
+        this.callWarningMessageEmail();
+
+      } else if (this.passwordControl.invalid){
+
+        this.callWarningMessagePassword();
+
       }
-      this.emailControl.reset();
-      this.passwordControl.reset();
-      this.checkboxControl.reset();
     }))
+  }
+
+  private callWarningMessageEmail() :void {
+    this.inputFromEmail.deleteClassSumbit();
+    this.emailControl.markAsTouched();
+  }
+
+  private callWarningMessagePassword() :void {
+    this.inputFromPassword.deleteClassSumbit();
+    this.passwordControl.markAsTouched();
+  }
+
+  private resetForm() :void {
+    this.emailControl.reset();
+    this.passwordControl.reset();
+    this.checkboxControl.reset();
   }
 
   ngOnDestroy(): void {

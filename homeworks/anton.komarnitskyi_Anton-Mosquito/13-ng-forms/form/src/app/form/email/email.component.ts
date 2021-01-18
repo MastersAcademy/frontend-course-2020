@@ -1,5 +1,5 @@
-import { Component, forwardRef, Input, OnInit} from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, ElementRef, forwardRef, Input, OnInit, ViewChild} from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-email',
@@ -14,6 +14,8 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class EmailComponent implements OnInit,ControlValueAccessor {
 
+  @ViewChild('email') email? : ElementRef;
+
   private _email = '';
 
   @Input() objectForControlsEmail! : FormControl;
@@ -26,6 +28,7 @@ export class EmailComponent implements OnInit,ControlValueAccessor {
 
   }
   writeValue(str: string): void {
+
     this._email = str;
   }
   registerOnChange(fn: any): void {
@@ -55,5 +58,9 @@ export class EmailComponent implements OnInit,ControlValueAccessor {
 
   public deleteClass(event:Event) :void{
     (event.target as HTMLInputElement).classList.remove('valid');
+  }
+
+  public deleteClassSumbit() : void{
+    this.email?.nativeElement.classList.remove('touched');
   }
 }

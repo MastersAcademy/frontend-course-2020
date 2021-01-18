@@ -46,9 +46,7 @@ export function passwordValidator(formControl:FormControl) {
         myValidator: { message : "Average password"}
       };
     } else if (password.length >= 8 && rating >= 3){
-      return {
-        myValidator: { message : "Complex password"}
-      };
+      return null
     } else if (password.length >= 6 && rating === 1) {
       return {
         myValidator: { message : "Simple password"}
@@ -59,9 +57,7 @@ export function passwordValidator(formControl:FormControl) {
       };
     }
     else if (password.length >= 6 && rating === 4){
-      return {
-        myValidator: { message : "Complex password"}
-      };
+      return null;
     } else {
       return null
     }
