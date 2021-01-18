@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginForm } from './models/login-form';
 
 @Component({
   selector: 'app-root',
@@ -9,57 +8,51 @@ import { LoginForm } from './models/login-form';
 })
 
 export class AppComponent implements OnInit {
-  nameControl!: FormControl;
-  passControl!: FormControl;
-  rememberControl!: FormControl;
   formGroupData!: FormGroup;
-  formIsDisabled: boolean = true;
-  formIsRememberd!: boolean;
-  formFields!: LoginForm;
-  login = '';
-  password = '';
+  login!: string | null;
+  password!: string | null;
+  rememberForm!: boolean;
+  hide: boolean = true;
 
-  ngOnInit() {
-    let item = localStorage.getItem('loginParams');
-    item === null?  (this.setLoginForm(), this.formIsRememberd = true) : (this.getLoginFormData(item), this.setLoginForm(), this.formIsRememberd = true, this.formIsDisabled = false);
+  toggleHidePass() {
+    this.hide = !this.hide;
   }
 
-  setLoginForm() {
+  ngOnInit() {
+      this.getStore();
       this.formGroupData = new FormGroup({
-          login: new FormControl(this.login, [
-            Validators.email,
-            Validators.required]),
-          password: new FormControl(this.password, [
-            Validators.required,
-            Validators.minLength(5),
-          ]),
-      });
-      this.formGroupData.statusChanges.subscribe(
-          (status): void => {
-              status === 'INVALID'? this.formIsDisabled = true :
-              this.formIsDisabled = false;
-          });
-      this.formGroupData.valueChanges.subscribe(
-          (value) => {
-              this.formFields = value;
-          }
-      );
+      login: new FormControl(this.login, [
+          Validators.email,
+          Validators.required]),
+      password: new FormControl(this.password, [
+          Validators.required,
+          Validators.minLength(5),
+        ]),
+      rememberForm: new FormControl(Boolean),
+    });
+  }
+
+  public getStore():void {
+    let stor = localStorage.getItem('loginParams');
+    if (stor !== null) {
+      let savedForm = JSON.parse(stor);
+      this.login = atob(savedForm.item);
+      this.password = atob(savedForm.key);
+    } else {
+      this.login = null;
+      this.password = null;
+    }
   }
 
   public setLoginFormData(): void {
       const formData = {
-        item: btoa(this.formFields.login),
-        key: btoa(this.formFields.password)
+        item: btoa(this.formGroupData.value.login),
+        key: btoa(this.formGroupData.value.password)
       }
-      const message = `Your login is saved. login-name: ${this.formFields.login}, password: ${this.formFields.password}`;
-      this.formIsRememberd? (localStorage.setItem('loginParams', JSON.stringify(formData)),
+      const message = `Your login is saved. login-name: ${this.formGroupData.value.login}, password: ${this.formGroupData.value.password}`;
+      this.formGroupData.value.rememberForm? (localStorage.setItem('loginParams', JSON.stringify(formData)),
       alert(message)) : alert(message);
-  }
-
-  private getLoginFormData(item: string): void {
-      const savedForm = JSON.parse(item);
-      this.login = atob(savedForm.item);
-      this.password = atob(savedForm.key);
+      this.formGroupData.reset();
   }
 }
 
