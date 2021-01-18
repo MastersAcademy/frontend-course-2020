@@ -1,0 +1,19 @@
+<div class="page">
+    <ul *ngIf="!areUsersLoading; else loader" class="user-list">
+        <li *ngFor="let item of data" class="user-list__item-wrapper">
+            <app-user-list-item [item]="item"></app-user-list-item>
+        </li>
+    </ul>
+
+    <div class="pagination">
+        <button *ngFor="let page of totalPagesArray; let i = index"
+                class="btn"
+                (click)="getUsers(2, i+1)">
+            {{i + 1}}
+        </button>
+    </div>
+
+    <ng-template #loader>
+  <app-user-list-loader></app-user-list-loader>
+    </ng-template>
+</div>
