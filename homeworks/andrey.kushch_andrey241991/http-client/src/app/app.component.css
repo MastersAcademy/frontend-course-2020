@@ -1,0 +1,16 @@
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.user-card {
+  width: 40%;
+}

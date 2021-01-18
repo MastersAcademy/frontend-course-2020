@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.vehicle-list-item {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.vehicle-label {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.vehicle-span {
+  font-size: 18px;
+  color: #808080;
+}
+
+.loading {
+  border: 16px solid #F3F3F3;
+  border-radius: 50%;
+  border-top: 16px solid #3498DB;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
