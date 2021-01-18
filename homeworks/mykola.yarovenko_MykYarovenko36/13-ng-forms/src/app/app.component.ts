@@ -8,11 +8,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 
 export class AppComponent implements OnInit {
+  LOGIN = /^[a-z0-9._-]{2,}\@[a-z0-9]+\.[a-z]{2,}$/i;
+  PASSWORD = /^[a-z0-9]{5,}$/i;
   formGroupData!: FormGroup;
   login!: string | null;
   password!: string | null;
   rememberForm!: boolean;
   hide: boolean = true;
+  passControl!: FormControl;
 
   toggleHidePass() {
     this.hide = !this.hide;
@@ -22,11 +25,12 @@ export class AppComponent implements OnInit {
       this.getStore();
       this.formGroupData = new FormGroup({
       login: new FormControl(this.login, [
-          Validators.email,
-          Validators.required]),
+          Validators.required,
+          Validators.pattern(this.LOGIN),
+        ]),
       password: new FormControl(this.password, [
           Validators.required,
-          Validators.minLength(5),
+          Validators.pattern(this.PASSWORD),
         ]),
       rememberForm: new FormControl(Boolean),
     });
