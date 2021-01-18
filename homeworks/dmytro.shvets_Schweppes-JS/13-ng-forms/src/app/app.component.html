@@ -1,14 +1,10 @@
 <form  class="main-container__form" [formGroup]="loginInfoControl">
 
   <label
-  class="form__label"
-  for="email"
-  [ngClass]="{highlighted: (!loginInfoControl.controls.email.valid && loginInfoControl.controls.email.touched)}"
->{{
-  (!loginInfoControl.controls.email.valid && loginInfoControl.controls.email.touched) ? 
-  "Plese, input corect part followed before and after '@'" :
-  "Email Address"
-}}</label>
+    class="form__label"
+    for="email"
+    [ngClass]="{highlighted: isEmailIncorrect}"
+  >{{emailLabel}}</label>
 
   <input
     type="email"
@@ -18,17 +14,14 @@
     formControlName="email"
     #emailInput
     autocomplete="on"
+    (blur)="onEmailBlur()"
   >
 
   <label
     class="form__label"
     for="password"
-    [ngClass]="{highlighted: (!loginInfoControl.controls.password.valid && loginInfoControl.controls.password.touched)}"
-  >{{
-    (!loginInfoControl.controls.password.valid && loginInfoControl.controls.password.touched) ? 
-    'Plese, include minimum eight characters, at least one letter and one number' :
-    'Password'
-  }}</label>
+    [ngClass]="{highlighted: isPasswordIncorrect}"
+  >{{passwordLabel}}</label>
 
   <input
     [type]="passwordType"
@@ -38,6 +31,7 @@
     formControlName="password"
     #passwordInput
     autocomplete="on"
+    (blur)="onPasswordBlur()"
   >
 
   <div class="form__checkbox-container">
