@@ -145,7 +145,6 @@ img {
 .btn:hover,
 .btn:focus {
   background-color: #F01F35;
-  /*border: 1px solid #F01F35;*/
 }
 
 /*Hero section*/
@@ -179,26 +178,40 @@ img {
 }
 
 .section {
+  padding: 40px 25px;
   color: #626780;
   text-align: center;
 }
 
 .section-headline {
+  margin: 0 auto;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: #626780;
+  line-height: 39px;
 }
 
-.under-headline {
-  margin: 0 auto;
+.section__text {
+  margin: 12px auto 0;
   font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.service__list {
+  padding: 0;
 }
 
 .service__item {
   margin: 0 auto;
+  padding: 13px;
+  max-width: 100px;
   text-align: center;
   color: #626780;
   font-family: "Poppins", sans-serif;
+}
+
+.service__item:hover {
+  border: 1px solid #E5E5E5;
 }
 
 .service__icon {
@@ -212,18 +225,19 @@ img {
   font-weight: 600;
   padding: 21px 0 12px;
   font-size: 22px;
-  line-height: 40px;
 }
 
 .service__item__text {
-  margin: 0 auto;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  display: none;
 }
 
 .feature-section {
   font-family: "Poppins", sans-serif;
+}
+
+.demo__headline {
+  padding: 15px;
+  margin: 0;
 }
 
 .feature__img {
@@ -400,6 +414,9 @@ img {
 /*Малые девайсы («ландшафтные телефоны», >= 576px)*/
 @media (min-width: 576px) {
 
+  .container {
+    max-width: 700px;
+  }
 
   .logo__letters {
     padding: 12px;
@@ -417,6 +434,9 @@ img {
     font-size: 18px;
   }
 
+  .nav {
+    margin-left: 480px;
+  }
 
   .btn {
     padding: 10px 35px;
@@ -430,42 +450,14 @@ img {
   }
 
   .hero-section__headline {
-    padding: 150px 0 20px;
+    max-width: 455px;
+    padding: 30px 15px 20px;
     font-size: 36px;
     line-height: 36px;
   }
 
-  .hero-section__text {
-    display: none;
-    /*font-size: 18px;*/
-    /*line-height: 27px;*/
-    /*max-width: 250px;*/
-  }
-
-  .hero-section__text {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    margin: 0;
-    color: #696A86;
-  }
-
-  .under-headline {
-    font-size: 18px;
-    line-height: 27px;
-    max-width: 250px;
-  }
-
-  .hero-section__text {
-    padding-bottom: 20px;
-  }
-
   .hero-section__btn {
-    margin: 28px 0 0;
-  }
-
-  .section {
-    margin: 50px auto;
-    text-align: center;
+    margin: 30px 15px 0;
   }
 
   .service__under-headline {
@@ -478,20 +470,22 @@ img {
 
   .service__item {
     padding: 10px;
-    margin: 0 5px 15px;
     max-width: 145px;
   }
 
   .service__item__headline {
     font-weight: 500;
-    padding: 18px;
+    padding: 21px 0 12px;
     font-size: 22px;
     line-height: 27px;
   }
 
   .service__item__text {
-    font-size: 14px;
-    line-height: 18px;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
   }
 
   .demo__headline {
@@ -524,7 +518,7 @@ img {
   }
 }
 
-/*Средние девайсы («таблетки», >= 768px)*/
+/*Средние девайсы («таблетки», > 768px)*/
 @media (min-width: 768px) {
 
   .hero-section-wrapper {
@@ -533,7 +527,7 @@ img {
   }
 
   .container {
-    max-width: 700px;
+    max-width: 900px;
   }
 
   .logo__letters {
@@ -575,24 +569,23 @@ img {
     line-height: 36px;
   }
 
-  .under-headline {
-    max-width: 400px;
+  .hero-section__text {
+    display: block;
     font-size: 18px;
-    line-height: 27px;
-  }
-
-  .hero-section__btn {
-    margin-bottom: 70px;
+    max-width: 550px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    color: #696A86;
   }
 
   .section {
-    margin: 70px auto;
     text-align: center;
+    padding: 60px 25px;
   }
 
   .service__item {
     padding: 15px;
-    margin-right: 10px;
     max-width: 250px;
   }
 
@@ -604,11 +597,16 @@ img {
     justify-content: center;
   }
 
+  .container-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
   .demo__headline {
     font-weight: 400;
     max-width: 350px;
     margin-top: -40%;
-    padding-bottom: 25%;
+    padding: 0 35px 25%;
     font-size: 36px;
     line-height: 52px;
   }
@@ -653,7 +651,6 @@ img {
 
   .container {
     max-width: 1600px;
-    width: 100%;
   }
 
   .logo__letters {
@@ -674,7 +671,7 @@ img {
 
   .nav__list {
     display: flex;
-    margin: -40px 0 0 90px;
+    margin: -40px 0 0 60px;
   }
 
   .menu__btn {
@@ -686,40 +683,34 @@ img {
   }
 
   .btn {
-    padding: 16px 66px;
+    padding: 16px 36px;
     border-radius: 10px;
   }
 
   .hero-section__headline {
-    width: 70%;
-    padding: 188px 0 30px;
-    font-size: 56px;
-    line-height: 56px;
-  }
-
-  .under-headline {
-    font-size: 18px;
-    line-height: 27px;
+    max-width: 550px;
+    padding: 55px 0 25px;
+    font-size: 46px;
+    line-height: 46px;
   }
 
   .hero-section__text {
-    padding-bottom: 30px;
-    max-width: 751px;
-    font-size: 18px;
+    max-width: 670px;
     line-height: 27px;
   }
 
   .hero-section__btn {
-    margin-bottom: 120px;
+    margin-bottom: 60px;
   }
 
   .section {
-    margin: 100px auto;
-    text-align: center;
+    margin: 70px auto;
+    padding: 0 15px;
   }
 
   .service__list {
-    margin-top: 100px;
+    max-width: 1000px;
+    margin: 70px auto 0;
     padding: 0;
   }
 
@@ -778,7 +769,22 @@ img {
 /*Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 @media (min-width: 1200px) {
 
-  img {
-    width: 100%;
+  .hero-section__headline {
+    padding: 188px 0 30px;
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  .hero-section__btn {
+    margin-bottom: 120px;
+  }
+
+  .section {
+    margin: 100px auto;
+    text-align: center;
+  }
+
+  .demo__headline {
+    margin-top: -60%;
   }
 }
