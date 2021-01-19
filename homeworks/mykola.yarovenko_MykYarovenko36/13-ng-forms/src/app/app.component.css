@@ -44,6 +44,7 @@
   box-sizing: border-box;
   border: none;
   font-size: 18px;
+  border-radius: 5px;
 }
 
 .field-input:focus {
@@ -80,7 +81,7 @@
 }
 
 .submit-btn:disabled {
-  background-color: rgba(230, 11, 11, .7);
+  background-color: rgba(204, 192, 192, .7);
 }
 
 .btn-container-field {
@@ -89,10 +90,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.field-text-checkbox {
-  width: 160px;
 }
 
 .pass-container {
@@ -116,5 +113,14 @@
   align-items: center;
   width: 40px;
   height: 40px;
+}
+
+.field-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.field-invalid {
+  box-shadow: 0 0 2px 5px rgba(253, 0, 0, .575);
 }
 

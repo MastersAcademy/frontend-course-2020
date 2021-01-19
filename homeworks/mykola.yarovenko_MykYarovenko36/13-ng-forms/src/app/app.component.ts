@@ -15,7 +15,8 @@ export class AppComponent implements OnInit {
   password!: string | null;
   rememberForm!: boolean;
   hide: boolean = true;
-  passControl!: FormControl;
+  loginIsError!: boolean;
+  passwordIsError!: boolean;
 
   toggleHidePass() {
     this.hide = !this.hide;
@@ -34,7 +35,11 @@ export class AppComponent implements OnInit {
         ]),
       rememberForm: new FormControl(Boolean),
     });
-  }
+    this.formGroupData.valueChanges.subscribe(() => {
+        this.loginIsError = this.formGroupData.controls.login.errors !== null;
+        this.passwordIsError = this.formGroupData.controls.password.errors !== null;
+    })
+}
 
   public getStore():void {
     let stor = localStorage.getItem('loginParams');
