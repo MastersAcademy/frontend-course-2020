@@ -1,0 +1,21 @@
+<div *ngIf="loading$ | async; else vehicleLoadingBlock" class="loading">Loading...</div>
+<ng-template #vehicleLoadingBlock>
+<table class="table">
+  <caption class="table-title">
+    List of cars
+  </caption>
+  <tr class="table-row">
+    <th class="table-header"></th>
+    <th class="table-header">Added from</th>
+    <th scope="col" class="table-header">Vehicle</th>
+    <th scope="col" class="table-header">Price</th>
+  </tr>
+  <tr *ngFor="let vehicle of vehicles$ | async; let i=index">
+    <td class="table-data">{{ i + 1 }}</td>
+    <td class="table-data" [appDecorationProtocol]="vehicle">{{ vehicle.post.protocol }}</td>
+    <td class="table-data">{{vehicle | transformVehiclePipe}}</td>
+    <td class="table-data">{{ vehicle.cost.amount | currency: vehicle.cost.currencyCode : 'symbol-narrow'  }}</td>
+  </tr>
+
+</table>
+</ng-template>

@@ -1,0 +1,19 @@
+.card {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  background: rgb(128, 128, 128);
+  font-size: 26px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin-bottom: 6px;
+  max-width: 200px;
+  align-self: center;
+}

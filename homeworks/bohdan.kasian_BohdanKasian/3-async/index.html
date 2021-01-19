@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+    <link rel="stylesheet" href="preload.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="preloader">
+    <div class="preloader__row">
+        <div class="preloader__item"></div>
+        <div class="preloader__item"></div>
+    </div>
+</div>
+<section class="container">
+    <div class="content-container">
+        <span data-response-text class="response"></span>
+        <div  class="row content-container_pd write-container">
+            <input data-search type="text" class="write-container_input-field">
+            <div class="dropdown">
+                <p data-sort-title class="dropdown_title">Sorting</p>
+                <ul data-listener-sort class="dropdown-box">
+                    <li data-sort-AZ class="dropdown_item">from A to Z</li>
+                    <li data-sort-ZA class="dropdown_item">from Z to A</li>
+                    <li data-sort-none class="dropdown_item">No sorting</li>
+                </ul>
+            </div>
+        </div>
+        <ul data-posts-container class="content-container_pd content">
+
+        </ul>
+    </div>
+
+
+</section>
+<script type="module" src="main.js"></script>
+</body>
+</html>

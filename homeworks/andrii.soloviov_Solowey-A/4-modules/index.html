@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4-modules</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+    <div class="calendar-info">
+        <label for="choice-date">Date:</label>
+        <input type="date" id="choice-date" name="trip-start" value="2020-11-13" data-date>
+
+        <button class="button" data-get-fridays>Get month fridays<span class="over"></span></button>
+        <p>Month fridays: <span data-get-fridays-output></span></p>
+
+        <button class="button" data-get-short-long>Is month long<span class="over"></span></button>
+        <p>Is month long? <span data-get-short-long-output></span></p>
+
+        <button class="button" data-get-short-week>Days of shortest week in month<span class="over"></span></button>
+        <p>Days of shortest week in month:<span data-get-short-week-output></span></p>
+
+        <button class="button" data-get-full-week>Full weeks in month<span class="over"></span></button>
+        <p>Full weeks in month:<span data-get-full-week-output></span></p>
+    </div>
+    <div class="clock">
+        <label for="time-zone" data-clock></label>
+        <select name="" id="time-zone" data-choice>
+            <option value="local">Current</option>
+            <option value="tokyo">Tokyo</option>
+            <option value="london">London</option>
+            <option value="new-york">New York</option>
+        </select>
+    </div>
+</div>
+
+<script src="js/index.js" type="module"></script>
+</body>
+</html>

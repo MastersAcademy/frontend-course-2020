@@ -1,0 +1,15 @@
+.form-label {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 10px;
+  border-radius: 8px;
+  width: 60%;
+}
+
+.toggle-img {
+  width: 24px;
+  height: 24px;
+}
