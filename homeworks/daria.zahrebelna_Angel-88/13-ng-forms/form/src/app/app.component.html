@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <h1 class="form-title">Sing in</h1>
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="control">
+            <label for="email" class="control__label">email</label>
+            <input type="email"
+                   id="email"
+                   class="control__input"
+                   placeholder="Your email"
+                   formControlName="email">
+            <div *ngIf="form.controls['email'].touched && form.controls['email'].invalid"
+                 class="validation">
+                <small *ngIf="form.controls['email'].errors?.required">Enter your email</small>
+                <small *ngIf="form.controls['email'].errors?.email">Email must be email</small>
+            </div>
+        </div>
+        <div class="control">
+            <label for="password" class="control__label">password</label>
+            <input type="password"
+                   id="password"
+                   class="control__input"
+                   placeholder="Your password"
+                   formControlName="password">
+            <div *ngIf="form.controls['password'].touched && form.controls['password'].invalid"
+                 class="validation">
+                <small *ngIf="form.controls['password'].errors?.required">Enter your password</small>
+                <small *ngIf="form.controls['password'].errors?.minlength">
+                    The password must be at least
+                    {{form.controls['password'].errors?.minlength.requiredLength}}
+                    characters long.
+                </small>
+            </div>
+        </div>
+        <div class="checkbox-control">
+            <input type="checkbox"
+                   id="checkbox"
+            class="checkbox-control__input"
+            formControlName="checkbox">
+            <label for="checkbox" class="checkbox-control__label">remember me</label>
+        </div>
+
+        <button type="submit"
+                class="form__btn"
+                [disabled]="form.invalid">
+            Sing in
+        </button>
+    </form>
+</div>
