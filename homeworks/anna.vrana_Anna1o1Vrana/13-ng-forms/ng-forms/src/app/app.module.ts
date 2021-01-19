@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { appServices } from './service'
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ...appServices,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

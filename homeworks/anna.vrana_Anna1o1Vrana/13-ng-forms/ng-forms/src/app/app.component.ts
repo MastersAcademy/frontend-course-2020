@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {SaveAuthService} from "./service";
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,11 @@ export class AppComponent implements OnInit {
     checkbox: new FormControl()
   })
 
+  constructor(private saveService: SaveAuthService) {
+  }
+
   isControlInvalid(controlName: string): boolean {
-    const control = this.authorizationForm.controls[controlName];
+    const control = this.authorizationForm.get(controlName);
     return control.invalid && control.touched;
   }
 
@@ -36,15 +40,15 @@ export class AppComponent implements OnInit {
     console.log(localStorage.getItem('password'))
   }
 
+  onRemember(){
+    if(this.authorizationForm.value.checkbox === true) {
+      this.saveInLocalStorage()
+    }
+  }
   onSubmit(): void {
     const authorizationData = 'Login: ' + `${this.authorizationForm.value.email}` + '     Password: ' + `${this.authorizationForm.value.password}`;
-    if (this.authorizationForm.value.checkbox === true) {
-      console.log('remembered')
-      this.saveInLocalStorage()
-      alert(authorizationData)
-    } else {
-      alert(authorizationData)
-    }
+    alert(authorizationData)
+    this.onRemember()
   }
 
   ngOnInit() {
