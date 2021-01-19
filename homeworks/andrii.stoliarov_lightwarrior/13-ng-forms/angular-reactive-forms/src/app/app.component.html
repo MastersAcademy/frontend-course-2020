@@ -3,29 +3,29 @@
 
   <form class="form-container" [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-control">
-      <label>Email: </label>
-      <input class="field-input" type="text" placeholder="enter email" formControlName="email">
+      <label for="emailCaption">Email: </label>
+      <input id="emailCaption" class="field-input" type="text" placeholder="enter email" formControlName="email">
       <div
-        *ngIf="form.get('email').invalid && form.get('email').touched"
+        *ngIf="isInvalidAndTouched('email')"
         class="validation"
       >
-        <small *ngIf="form.get('email')?.errors.required">
+        <small *ngIf="isRequired('email')">
           The field cannot be empty.
         </small>
-        <small *ngIf="form.get('email').errors.email">
+        <small *ngIf="isErrors('email')">
           Enter correct email.
         </small>
       </div>
     </div>
 
     <div class="form-control">
-      <label>Password: </label>
-      <input class="field-input" type="password" placeholder="enter password" formControlName="password">
+      <label for="passwordCaption">Password: </label>
+      <input id="passwordCaption" class="field-input" type="password" placeholder="enter password" formControlName="password">
       <div
-        *ngIf="form.get('password').invalid && form.get('password').touched"
+        *ngIf="isInvalidAndTouched('password')"
         class="validation"
       >
-        <small *ngIf="form.get('password').errors.required">
+        <small *ngIf="isRequired('password')">
           The field cannot be empty.
         </small>
     </div>

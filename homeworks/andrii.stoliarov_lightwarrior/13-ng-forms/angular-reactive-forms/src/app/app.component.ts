@@ -1,6 +1,5 @@
-import { formatCurrency } from '@angular/common';
-import { Component, OnInit, HostListener} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +13,10 @@ export class AppComponent implements OnInit {
   private encodedDataPassword: string = '';
   private decodedDataPassword: string = '';
 
+  constructor(private fb: FormBuilder) {}
+
   ngOnInit() {
-    this.form = new FormGroup({
+    this.form = this.fb.group({
       email: new FormControl('', [
         Validators.email,
         Validators.required
@@ -28,6 +29,28 @@ export class AppComponent implements OnInit {
       ])
     });
 
+    const getLocalStorageEmail: string = localStorage.getItem('email') || '';
+    const getLocalStoragePassword: string = localStorage.getItem('password') || '';
+
+    this.decodedDataEmail = window.atob(getLocalStorageEmail);
+    this.decodedDataPassword = window.atob(getLocalStoragePassword);
+
+    this.form.patchValue({
+      email: this.decodedDataEmail,
+      password: this.decodedDataPassword
+    });
+  }
+
+  isInvalidAndTouched(fieldName: string): boolean {
+    return (this.form.get(fieldName).invalid && this.form.get(fieldName).touched);
+  }
+
+  isRequired(fieldName: string): boolean {
+    return this.form.get(fieldName).errors.required;
+  }
+
+  isErrors(fieldName: string): boolean {
+    return this.form.get(fieldName).errors.email;
   }
 
   submit() {
@@ -46,20 +69,6 @@ export class AppComponent implements OnInit {
     }
 
    this.form.reset();
-  }
-
-  @HostListener('window:load')
-  onLoadForm(): void {
-    const getLocalStorageEmail: string = localStorage.getItem('email') || '';
-    const getLocalStoragePassword: string = localStorage.getItem('password') || '';
-
-    this.decodedDataEmail = window.atob(getLocalStorageEmail);
-    this.decodedDataPassword = window.atob(getLocalStoragePassword);
-
-    this.form.patchValue({
-      email: this.decodedDataEmail,
-      password: this.decodedDataPassword
-    });
   }
 
 }
