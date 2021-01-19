@@ -1,0 +1,40 @@
+.container {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.horizontal-line {
+  margin: .5rem 0;
+}
+
+.loader {
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  color: #F00;
+}
+
+.vehicle-post {
+  padding: 1rem;
+  border: #CCC 1px dotted;
+  margin: .7rem 0;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.padding-zero {
+  padding: 0;
+}
+
+.vehicle-link {
+  text-decoration: none;
+}
+
+.vehicle-link:hover {
+  color: #666;
+}

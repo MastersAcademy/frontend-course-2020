@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Vechicles list</h1>
+  <hr class="horizontal-line">
+  <span class="loader" *ngIf="loading; else list">Loading...</span>
+  <ng-template #list>
+    <ul class="post-list padding-zero">
+      <li *ngFor="let vehicle of vehicles" class="vehicle-post">
+        <a class="vehicle-link" appPostFieldVehicles href="{{ vehicle | searchLinkPost }}">
+          <div>
+            <span>Added from: </span>
+            <span>{{ vehicle.post.protocol }}</span>
+          </div>
+          <div>
+            <span>Vehicle: </span>
+            <span>{{ vehicle | makesExpressionShort }}</span>
+          </div>
+          <div>
+            <span>Price: </span>
+            <span>{{ vehicle.cost.amount | currency: vehicle.cost.currencyCode: 'symbol-narrow' }}</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </ng-template>
+</div>
