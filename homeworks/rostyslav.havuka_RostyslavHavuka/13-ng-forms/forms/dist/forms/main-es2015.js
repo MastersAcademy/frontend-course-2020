@@ -282,7 +282,7 @@ EmailInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
                 useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => EmailInputComponent),
                 multi: true
             }
-        ])], decls: 3, vars: 2, consts: [["type", "email", "name", "email", 3, "ngModel", "ngModelChange"], ["for", "email"]], template: function EmailInputComponent_Template(rf, ctx) { if (rf & 1) {
+        ])], decls: 3, vars: 2, consts: [["type", "email", "name", "email", "placeholder", "Enter Email", 3, "ngModel", "ngModelChange"], ["for", "email"]], template: function EmailInputComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EmailInputComponent_Template_input_ngModelChange_0_listener($event) { return ctx.value = $event; })("ngModelChange", function EmailInputComponent_Template_input_ngModelChange_0_listener($event) { return ctx.updateValue($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -370,7 +370,7 @@ PasswordInputComponentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0
                 useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => PasswordInputComponentComponent),
                 multi: true
             }
-        ])], decls: 4, vars: 3, consts: [["name", "password", 3, "ngModel", "type", "ngModelChange"], ["type", "checkbox", 3, "change"], ["for", "password"]], template: function PasswordInputComponentComponent_Template(rf, ctx) { if (rf & 1) {
+        ])], decls: 4, vars: 3, consts: [["placeholder", "Enter password", "name", "password", 3, "ngModel", "type", "ngModelChange"], ["type", "checkbox", 3, "change"], ["for", "password"]], template: function PasswordInputComponentComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function PasswordInputComponentComponent_Template_input_ngModelChange_0_listener($event) { return ctx.value = $event; })("ngModelChange", function PasswordInputComponentComponent_Template_input_ngModelChange_0_listener($event) { return ctx.updateValue($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
