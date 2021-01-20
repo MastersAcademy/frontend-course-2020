@@ -10,20 +10,15 @@ import {FormBuilder} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'ng-forms';
-  authorizationForm = this.fb.group({
-    email: new FormControl('',
-      [Validators.required,
-        Validators.email]),
-    password: new FormControl('',
-      [Validators.required,
-        Validators.pattern(/[A-z]/)]
-    ),
-    checkbox: new FormControl()
+  authorizationForm = this.FormBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password:['', [Validators.required]],
+    rememberMe:['']
   })
 
   constructor(
     private saveService: SaveAuthService,
-    private fb: FormBuilder) {
+    private FormBuilder: FormBuilder) {
   }
 
   isControlInvalid(controlName: string): boolean {
@@ -32,27 +27,19 @@ export class AppComponent implements OnInit {
   }
 
   onRemember() {
-    if (this.authorizationForm.value.checkbox === true) {
-      // this.saveInLocalStorage()
+    if (this.authorizationForm.value.checkbox) {
       this.saveService.saveData(this.authorizationForm.value)
     }
   }
 
   onSubmit(): void {
-    const authorizationData = 'Login: ' + `${this.authorizationForm.value.email}` + '     Password: ' + `${this.authorizationForm.value.password}`;
+    const authorizationData = `Login:  ${this.authorizationForm.value.email}     Password:  ${this.authorizationForm.value.password}`;
     alert(authorizationData)
     this.onRemember()
   }
 
   ngOnInit() {
-    if (localStorage.getItem('data')) {
-      const dataEncode = JSON.parse(atob(localStorage.getItem('data')))
-      this.authorizationForm.setValue({
-        'email': dataEncode.email,
-        'password': dataEncode.password,
-        'checkbox': ''
-      })
-    }
+    this.saveService.checkLocalStorage(this.authorizationForm)
 
   }
 }
