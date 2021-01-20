@@ -29,8 +29,10 @@ export class UserHistoryCheckerService {
   addUserLink(link: string){
     this.userPathsHistory.push(link);
     if (this.userPathsHistory.length > this.maxCompletedLinksLength) {
-      this.userPathsHistory = this.userPathsHistory.slice(this.userPathsHistory[1]);
+      this.userPathsHistory = this.userPathsHistory.slice(this.userPathsHistory.length - this.maxCompletedLinksLength);
     }
+
+    this.checkUserPathsHistory();
   }
 
   checkUserPathsHistory() :string{
@@ -40,10 +42,14 @@ export class UserHistoryCheckerService {
       }
 
       // 2 object reverse iteration
-      for (let i: number = obj.message.length - 1, k: number = 1; i >= 0; i--, k++) {
-        if (obj.message[i] === this.userPathsHistory[this.userPathsHistory.length - k]) {
-          return obj.message;
+      for (let i: number = obj.journey.length - 1, k: number = 1; i >= 0; i--, k++) {
+        if (obj.journey[i] !== this.userPathsHistory[this.userPathsHistory.length - k]) {
+          return;
         }
+        console.log(obj.message);
+        debugger
+        this.userPathsHistory = this.userPathsHistory.slice(-1);
+        return;
       }
     });
     return
