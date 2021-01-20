@@ -1,0 +1,31 @@
+.app-wrapper {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnContainer {
+  display: inline-flex;
+  height: 50px;
+}
+
+.drop-list-wrapper {
+  margin: 5px auto;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.drop-list {
+  width: 40px;
+  height: 25px;
+  font-size: 18px;
+}
