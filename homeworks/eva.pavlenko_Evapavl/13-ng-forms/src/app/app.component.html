@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="form-box">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="showData()">
+      <app-text-field class="form-text-field" formControlName="email" label="Email"></app-text-field>
+      <div class="error-message" *ngIf="isPasswordFieldValid('email')">
+        Invalid email
+      </div>
+      <app-text-field class="form-text-field" formControlName="password" label="Password"></app-text-field>
+      <div class="error-message" *ngIf="isPasswordFieldValid('password')">
+        Invalid password
+      </div>
+      <div class="form-checkbox">
+        <label>
+          <input value="checkbox" formControlName="rememberMe" type="checkbox"/>
+          Remember me
+        </label>
+      </div>
+      <div>
+        <button class="form-button">submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>
