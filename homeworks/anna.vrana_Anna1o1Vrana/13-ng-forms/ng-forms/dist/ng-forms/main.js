@@ -93,16 +93,14 @@ function AppComponent_div_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 class AppComponent {
-    constructor(saveService, fb) {
+    constructor(saveService, FormBuilder) {
         this.saveService = saveService;
-        this.fb = fb;
+        this.FormBuilder = FormBuilder;
         this.title = 'ng-forms';
-        this.authorizationForm = this.fb.group({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern(/[A-z]/)]),
-            checkbox: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]()
+        this.authorizationForm = this.FormBuilder.group({
+            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            rememberMe: ['']
         });
     }
     isControlInvalid(controlName) {
@@ -110,29 +108,21 @@ class AppComponent {
         return control.invalid && control.touched;
     }
     onRemember() {
-        if (this.authorizationForm.value.checkbox === true) {
-            // this.saveInLocalStorage()
+        if (this.authorizationForm.value.checkbox) {
             this.saveService.saveData(this.authorizationForm.value);
         }
     }
     onSubmit() {
-        const authorizationData = 'Login: ' + `${this.authorizationForm.value.email}` + '     Password: ' + `${this.authorizationForm.value.password}`;
+        const authorizationData = `Login:  ${this.authorizationForm.value.email}     Password:  ${this.authorizationForm.value.password}`;
         alert(authorizationData);
         this.onRemember();
     }
     ngOnInit() {
-        if (localStorage.getItem('data')) {
-            const dataEncode = JSON.parse(atob(localStorage.getItem('data')));
-            this.authorizationForm.setValue({
-                'email': dataEncode.email,
-                'password': dataEncode.password,
-                'checkbox': ''
-            });
-        }
+        this.saveService.checkLocalStorage(this.authorizationForm);
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service__WEBPACK_IMPORTED_MODULE_2__["SaveAuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 16, vars: 4, consts: [[1, "authorization-form", 3, "formGroup", "ngSubmit"], [1, "login-block"], ["for", "email"], ["formControlName", "email", "required", "", "type", "email", "id", "email", "placeholder", "enter email", 1, "input-field"], ["class", "alert-danger", 4, "ngIf"], [1, "password-block"], ["for", "password"], ["formControlName", "password", "required", "", "type", "password", "id", "password", "placeholder", "enter password", 1, "input-field"], ["for", "checkbox"], ["formControlName", "checkbox", "type", "checkbox", "id", "checkbox", 1, "checkbox"], ["type", "submit", 1, "btn", 3, "disabled"], [1, "alert-danger"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 16, vars: 4, consts: [[1, "authorization-form", 3, "formGroup", "ngSubmit"], [1, "login-block"], ["for", "email"], ["formControlName", "email", "required", "", "type", "email", "id", "email", "placeholder", "enter email", 1, "input-field"], ["class", "alert-danger", 4, "ngIf"], [1, "password-block"], ["for", "password"], ["formControlName", "password", "required", "", "type", "password", "id", "password", "placeholder", "enter password", 1, "input-field"], ["for", "checkbox"], ["formControlName", "rememberMe", "type", "checkbox", "id", "checkbox", 1, "checkbox"], ["type", "submit", 1, "btn", 3, "disabled"], [1, "alert-danger"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function AppComponent_Template_form_ngSubmit_0_listener() { return ctx.onSubmit(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
@@ -245,8 +235,21 @@ __webpack_require__.r(__webpack_exports__);
 
 class SaveAuthService {
     saveData(data) {
+        console.log('saved');
         let auth = btoa(JSON.stringify(data));
+        console.log(auth);
         localStorage.setItem('data', auth);
+    }
+    checkLocalStorage(form) {
+        if (localStorage.getItem('data')) {
+            console.log(localStorage.getItem('data'));
+            const dataEncode = JSON.parse(atob(localStorage.getItem('data')));
+            form.setValue({
+                'email': dataEncode.email,
+                'password': dataEncode.password,
+                'rememberMe': false
+            });
+        }
     }
 }
 SaveAuthService.ɵfac = function SaveAuthService_Factory(t) { return new (t || SaveAuthService)(); };
