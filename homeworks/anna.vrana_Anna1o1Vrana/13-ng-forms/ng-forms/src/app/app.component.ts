@@ -26,10 +26,9 @@ export class AppComponent implements OnInit {
     return control.invalid && control.touched;
   }
 
-  onRemember() {
+  onRemember(): void {
     if (this.authorizationForm.value.rememberMe) {
       this.saveService.saveData(this.authorizationForm.value)
-      console.log(this.saveService.saveData(this.authorizationForm.value))
     }
   }
 
@@ -39,7 +38,7 @@ export class AppComponent implements OnInit {
     this.onRemember()
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const dataEncode = this.saveService.checkLocalStorage()
     this.authorizationForm.setValue({
       'email': dataEncode.email,

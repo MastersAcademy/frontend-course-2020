@@ -110,7 +110,6 @@ class AppComponent {
     onRemember() {
         if (this.authorizationForm.value.rememberMe) {
             this.saveService.saveData(this.authorizationForm.value);
-            console.log(this.saveService.saveData(this.authorizationForm.value));
         }
     }
     onSubmit() {
@@ -241,11 +240,8 @@ __webpack_require__.r(__webpack_exports__);
 
 class SaveAuthService {
     saveData(data) {
-        console.log('saved');
-        console.log(data);
         let auth = btoa(JSON.stringify(data));
-        console.log(auth);
-        localStorage.setItem('data', auth);
+        return localStorage.setItem('data', auth);
     }
     checkLocalStorage() {
         if (localStorage.getItem('data')) {
