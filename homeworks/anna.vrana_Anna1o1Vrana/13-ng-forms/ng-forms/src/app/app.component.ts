@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 import {SaveAuthService} from "./service";
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {SaveAuthService} from "./service";
 })
 export class AppComponent implements OnInit {
   title = 'ng-forms';
-  authorizationForm = new FormGroup({
+  authorizationForm = this.fb.group({
     email: new FormControl('',
       [Validators.required,
         Validators.email]),
@@ -20,7 +21,9 @@ export class AppComponent implements OnInit {
     checkbox: new FormControl()
   })
 
-  constructor(private saveService: SaveAuthService) {
+  constructor(
+    private saveService: SaveAuthService,
+    private fb: FormBuilder) {
   }
 
   isControlInvalid(controlName: string): boolean {
