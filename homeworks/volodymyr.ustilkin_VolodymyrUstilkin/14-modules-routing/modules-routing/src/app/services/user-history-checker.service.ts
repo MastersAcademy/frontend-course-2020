@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserHistoryCheckerService {
-
   private userPathsHistory = [];
-
   private completedPaths = [
     {
       message: 'User tends to home',
@@ -22,7 +21,7 @@ export class UserHistoryCheckerService {
     }
   ]
 
-  addUserLink(link: string){
+  addUserLink(link: string) {
     this.userPathsHistory.push(link);
     this.checkUserPathsHistory();
   }
