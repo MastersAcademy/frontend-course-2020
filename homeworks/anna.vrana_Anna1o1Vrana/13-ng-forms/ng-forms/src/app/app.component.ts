@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
   title = 'ng-forms';
   authorizationForm = this.FormBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password:['', [Validators.required]],
-    rememberMe:['']
+    password: ['', [Validators.required]],
+    rememberMe: ['']
   })
 
   constructor(
@@ -27,8 +27,9 @@ export class AppComponent implements OnInit {
   }
 
   onRemember() {
-    if (this.authorizationForm.value.checkbox) {
+    if (this.authorizationForm.value.rememberMe) {
       this.saveService.saveData(this.authorizationForm.value)
+      console.log(this.saveService.saveData(this.authorizationForm.value))
     }
   }
 
@@ -39,7 +40,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.saveService.checkLocalStorage(this.authorizationForm)
-
+    const dataEncode = this.saveService.checkLocalStorage()
+    this.authorizationForm.setValue({
+      'email': dataEncode.email,
+      'password': dataEncode.password,
+      'rememberMe': false
+    })
   }
 }

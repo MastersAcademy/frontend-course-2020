@@ -6,20 +6,15 @@ export class SaveAuthService {
 
   saveData(data) {
     console.log('saved')
+    console.log(data)
     let auth = btoa(JSON.stringify(data))
     console.log(auth)
     localStorage.setItem('data', auth)
   }
 
-  checkLocalStorage(form) {
+  checkLocalStorage() {
     if (localStorage.getItem('data')) {
-      console.log(localStorage.getItem('data'))
-      const dataEncode = JSON.parse(atob(localStorage.getItem('data')))
-      form.setValue({
-        'email': dataEncode.email,
-        'password': dataEncode.password,
-        'rememberMe': false
-      })
+      return JSON.parse(atob(localStorage.getItem('data')))
     }
   }
 

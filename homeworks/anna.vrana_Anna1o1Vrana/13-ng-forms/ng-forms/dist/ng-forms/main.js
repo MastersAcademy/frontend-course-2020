@@ -108,8 +108,9 @@ class AppComponent {
         return control.invalid && control.touched;
     }
     onRemember() {
-        if (this.authorizationForm.value.checkbox) {
+        if (this.authorizationForm.value.rememberMe) {
             this.saveService.saveData(this.authorizationForm.value);
+            console.log(this.saveService.saveData(this.authorizationForm.value));
         }
     }
     onSubmit() {
@@ -118,7 +119,12 @@ class AppComponent {
         this.onRemember();
     }
     ngOnInit() {
-        this.saveService.checkLocalStorage(this.authorizationForm);
+        const dataEncode = this.saveService.checkLocalStorage();
+        this.authorizationForm.setValue({
+            'email': dataEncode.email,
+            'password': dataEncode.password,
+            'rememberMe': false
+        });
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service__WEBPACK_IMPORTED_MODULE_2__["SaveAuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"])); };
@@ -236,19 +242,14 @@ __webpack_require__.r(__webpack_exports__);
 class SaveAuthService {
     saveData(data) {
         console.log('saved');
+        console.log(data);
         let auth = btoa(JSON.stringify(data));
         console.log(auth);
         localStorage.setItem('data', auth);
     }
-    checkLocalStorage(form) {
+    checkLocalStorage() {
         if (localStorage.getItem('data')) {
-            console.log(localStorage.getItem('data'));
-            const dataEncode = JSON.parse(atob(localStorage.getItem('data')));
-            form.setValue({
-                'email': dataEncode.email,
-                'password': dataEncode.password,
-                'rememberMe': false
-            });
+            return JSON.parse(atob(localStorage.getItem('data')));
         }
     }
 }
