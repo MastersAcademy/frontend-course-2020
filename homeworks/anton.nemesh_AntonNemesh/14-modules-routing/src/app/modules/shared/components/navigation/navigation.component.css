@@ -1,0 +1,12 @@
+.navigation {
+  display: flex;
+  font-size: 18px;
+}
+
+.navigation__link {
+  padding-right: 30px;
+}
+
+.navigation__link:last-child {
+  padding-right: 0;
+}
