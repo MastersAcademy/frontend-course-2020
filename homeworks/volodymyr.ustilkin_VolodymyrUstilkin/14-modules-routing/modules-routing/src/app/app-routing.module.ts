@@ -6,10 +6,10 @@ import {AccountComponent} from "./modules/account/components/account/account.com
 import {AccessoriesComponent} from "./modules/accessories/components/accessories/accessories.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [UserHistoryGuard]},
   {path: 'home', component: HomeComponent, canActivate: [UserHistoryGuard]},
   {path: 'account', component: AccountComponent, canActivate: [UserHistoryGuard]},
-  {path: 'accessories', component: AccessoriesComponent, canActivate: [UserHistoryGuard]}
+  {path: 'accessories', component: AccessoriesComponent, canActivate: [UserHistoryGuard]},
+  {path: '**', component: HomeComponent, canActivate: [UserHistoryGuard]}
 ];
 
 @NgModule({

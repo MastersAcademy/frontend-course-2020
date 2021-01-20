@@ -669,10 +669,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _modules_home_components_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"], canActivate: [_guards_user_history_guard__WEBPACK_IMPORTED_MODULE_3__["UserHistoryGuard"]] },
     { path: 'home', component: _modules_home_components_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"], canActivate: [_guards_user_history_guard__WEBPACK_IMPORTED_MODULE_3__["UserHistoryGuard"]] },
     { path: 'account', component: _modules_account_components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"], canActivate: [_guards_user_history_guard__WEBPACK_IMPORTED_MODULE_3__["UserHistoryGuard"]] },
-    { path: 'accessories', component: _modules_accessories_components_accessories_accessories_component__WEBPACK_IMPORTED_MODULE_5__["AccessoriesComponent"], canActivate: [_guards_user_history_guard__WEBPACK_IMPORTED_MODULE_3__["UserHistoryGuard"]] }
+    { path: 'accessories', component: _modules_accessories_components_accessories_accessories_component__WEBPACK_IMPORTED_MODULE_5__["AccessoriesComponent"], canActivate: [_guards_user_history_guard__WEBPACK_IMPORTED_MODULE_3__["UserHistoryGuard"]] },
+    { path: '**', component: _modules_home_components_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"], canActivate: [_guards_user_history_guard__WEBPACK_IMPORTED_MODULE_3__["UserHistoryGuard"]] }
 ];
 class AppRoutingModule {
 }
