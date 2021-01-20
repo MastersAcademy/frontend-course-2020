@@ -22,36 +22,35 @@ export class UserHistoryCheckerService {
     }
   ]
 
-  private maxCompletedLinksLength = Math.max(...this.completedPaths.map((link) => link.journey.length));
-
-  constructor() {}
-
   addUserLink(link: string){
     this.userPathsHistory.push(link);
-    if (this.userPathsHistory.length > this.maxCompletedLinksLength) {
-      this.userPathsHistory = this.userPathsHistory.slice(this.userPathsHistory.length - this.maxCompletedLinksLength);
-    }
-
     this.checkUserPathsHistory();
   }
 
-  checkUserPathsHistory() :string{
-    this.completedPaths.forEach((obj) => {
-      if (obj.journey.length > this.userPathsHistory.length) {
-        return;
-      }
+  checkUserPathsHistory() {
+    let partialEquals: boolean = false;
 
-      // 2 object reverse iteration
-      for (let i: number = obj.journey.length - 1, k: number = 1; i >= 0; i--, k++) {
-        if (obj.journey[i] !== this.userPathsHistory[this.userPathsHistory.length - k]) {
+    this.completedPaths.forEach((obj) => {
+      for (let i: number = 0; i < this.userPathsHistory.length; i++) {
+
+        if (obj.journey[i] !== this.userPathsHistory[i]) {
           return;
         }
-        console.log(obj.message);
-        debugger
-        this.userPathsHistory = this.userPathsHistory.slice(-1);
-        return;
+
+        if (i === this.userPathsHistory.length - 1) {
+          partialEquals = true;
+        }
+
+        if (i === obj.journey.length - 1) {
+          console.log(obj.message);
+          this.userPathsHistory = this.userPathsHistory.slice(-1);
+          return;
+        }
       }
     });
-    return
+
+    if (!partialEquals) {
+      this.userPathsHistory = this.userPathsHistory.slice(-1);
+    }
   }
 }
