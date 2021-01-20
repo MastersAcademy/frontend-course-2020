@@ -1,2 +1,3 @@
-<input [(ngModel)]="value" (ngModelChange)="updateValue($event)" type="email" name="email" placeholder="Enter Email">
-<label for="email">{{ errorEmail }}</label>
+<label for="email">{{ email }}</label>
+<br>
+<input [(ngModel)]="value" (ngModelChange)="updateValue($event)" type="email" name="email" placeholder="Email">

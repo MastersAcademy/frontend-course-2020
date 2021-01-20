@@ -1,9 +1,10 @@
 <form class="container" [formGroup]="form" (ngSubmit)="submitForm()">
-  <app-email-input [formControlName]="'email'" [errorEmail]="emailErrorMessage()"> </app-email-input>
-  <app-password-input-component [errorPass]="passwordErrorMessage()" [formControlName]="'password'"></app-password-input-component>
-  <button class="button-submit" [disabled]="!form.valid" type="submit">Submit</button>
+  <app-email-input [formControlName]="'email'" [email]="labelEmail()"> </app-email-input>
+  <app-password-input-component [labelPass]="labelPassword()" [formControlName]="'password'"></app-password-input-component>
   <th class="check-remember">
   <label>Remember Me</label>
   <input type="checkbox" [formControlName]="'checkboxRemember'">
-  </th>
+</th>
+<br>
+<button class="button-submit" [disabled]="!form.valid" type="submit">Submit</button>
 </form>

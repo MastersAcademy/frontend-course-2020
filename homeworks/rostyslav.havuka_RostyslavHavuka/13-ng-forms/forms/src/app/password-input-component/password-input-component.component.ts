@@ -18,7 +18,7 @@ export class PasswordInputComponentComponent  implements ControlValueAccessor{
   type: boolean;
   onChange = (value: any) => {};
   onTouch = () => {};
-  @Input() errorPass: string;
+  @Input() labelPass: string;
 
   writeValue(value) {
     this.value = value
@@ -42,7 +42,6 @@ export class PasswordInputComponentComponent  implements ControlValueAccessor{
   showPass(event) {
    if (event.target.checked === true) {
       this.type = true;
-      console.log(this.errorPass);
     } else {
      this.type = false;
     }

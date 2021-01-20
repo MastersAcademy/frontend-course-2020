@@ -60,15 +60,19 @@ export class AppComponent implements OnInit{
     }
   }
 
-  emailErrorMessage() {
+  labelEmail() {
     if (this.form.get("email").hasError('email')) {
       return 'Not a valid!'
+    } else {
+      return 'Email:'
     }
   }
 
-  passwordErrorMessage() {
+  labelPassword() {
     if (this.form.get("password").hasError('minlength')) {
       return 'Min 6 lenght!';
+    } else {
+      return 'Password:'
     }
   }
 }

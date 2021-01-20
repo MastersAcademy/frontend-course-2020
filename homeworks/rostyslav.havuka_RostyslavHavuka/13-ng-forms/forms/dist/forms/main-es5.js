@@ -206,17 +206,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         }
       }, {
-        key: "emailErrorMessage",
-        value: function emailErrorMessage() {
+        key: "labelEmail",
+        value: function labelEmail() {
           if (this.form.get("email").hasError('email')) {
             return 'Not a valid!';
+          } else {
+            return 'Email:';
           }
         }
       }, {
-        key: "passwordErrorMessage",
-        value: function passwordErrorMessage() {
+        key: "labelPassword",
+        value: function labelPassword() {
           if (this.form.get("password").hasError('minlength')) {
             return 'Min 6 lenght!';
+          } else {
+            return 'Password:';
           }
         }
       }]);
@@ -231,9 +235,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
-      decls: 9,
+      decls: 10,
       vars: 7,
-      consts: [[1, "container", 3, "formGroup", "ngSubmit"], [3, "formControlName", "errorEmail"], [3, "errorPass", "formControlName"], ["type", "submit", 1, "button-submit", 3, "disabled"], [1, "check-remember"], ["type", "checkbox", 3, "formControlName"]],
+      consts: [[1, "container", 3, "formGroup", "ngSubmit"], [3, "formControlName", "email"], [3, "labelPass", "formControlName"], [1, "check-remember"], ["type", "checkbox", 3, "formControlName"], ["type", "submit", 1, "button-submit", 3, "disabled"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
@@ -246,21 +250,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "app-password-input-component", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "th", 3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Submit");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "th", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "label");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Remember Me");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Remember Me");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "input", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "input", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Submit");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -272,23 +278,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControlName", "email")("errorEmail", ctx.emailErrorMessage());
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControlName", "email")("email", ctx.labelEmail());
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("errorPass", ctx.passwordErrorMessage())("formControlName", "password");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("labelPass", ctx.labelPassword())("formControlName", "password");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.form.valid);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControlName", "checkboxRemember");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.form.valid);
         }
       },
-      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _email_input_email_input_component__WEBPACK_IMPORTED_MODULE_2__["EmailInputComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _password_input_component_password_input_component_component__WEBPACK_IMPORTED_MODULE_3__["PasswordInputComponentComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"]],
-      styles: [".container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n\n.button-submit[_ngcontent-%COMP%] {\n  display: block;\n  width: 100px;\n  margin-top: 5px;\n}\n\n.check-remember[_ngcontent-%COMP%] {\n  display: flex;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0FBQ3hCOztBQUVBO0VBQ0UsY0FBYztFQUNkLFlBQVk7RUFDWixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsYUFBYTtBQUNmIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbn1cblxuLmJ1dHRvbi1zdWJtaXQge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMHB4O1xuICBtYXJnaW4tdG9wOiA1cHg7XG59XG5cbi5jaGVjay1yZW1lbWJlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG4iXX0= */"]
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _email_input_email_input_component__WEBPACK_IMPORTED_MODULE_2__["EmailInputComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["EmailValidator"], _password_input_component_password_input_component_component__WEBPACK_IMPORTED_MODULE_3__["PasswordInputComponentComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"]],
+      styles: [".container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n\n.button-submit[_ngcontent-%COMP%] {\n  display: block;\n  width: 100px;\n  margin-bottom: 10px;\n}\n\n.check-remember[_ngcontent-%COMP%] {\n  display: flex;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0FBQ3hCOztBQUVBO0VBQ0UsY0FBYztFQUNkLFlBQVk7RUFDWixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG4uYnV0dG9uLXN1Ym1pdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB3aWR0aDogMTAwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5cbi5jaGVjay1yZW1lbWJlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG4iXX0= */"]
     });
     /*@__PURE__*/
 
@@ -490,7 +496,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       type: EmailInputComponent,
       selectors: [["app-email-input"]],
       inputs: {
-        errorEmail: "errorEmail"
+        email: "email"
       },
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
         provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
@@ -499,34 +505,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }),
         multi: true
       }])],
-      decls: 3,
+      decls: 4,
       vars: 2,
-      consts: [["type", "email", "name", "email", "placeholder", "Enter Email", 3, "ngModel", "ngModelChange"], ["for", "email"]],
+      consts: [["for", "email"], ["type", "email", "name", "email", "placeholder", "Email", 3, "ngModel", "ngModelChange"]],
       template: function EmailInputComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "label", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EmailInputComponent_Template_input_ngModelChange_0_listener($event) {
-            return ctx.value = $event;
-          })("ngModelChange", function EmailInputComponent_Template_input_ngModelChange_0_listener($event) {
-            return ctx.updateValue($event);
-          });
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "label", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function EmailInputComponent_Template_input_ngModelChange_3_listener($event) {
+            return ctx.value = $event;
+          })("ngModelChange", function EmailInputComponent_Template_input_ngModelChange_3_listener($event) {
+            return ctx.updateValue($event);
+          });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.value);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.email);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.errorEmail);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.value);
         }
       },
       directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"]],
@@ -550,7 +560,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }]
         }]
       }], null, {
-        errorEmail: [{
+        email: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }]
       });
@@ -629,7 +639,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function showPass(event) {
           if (event.target.checked === true) {
             this.type = true;
-            console.log(this.errorPass);
           } else {
             this.type = false;
           }
@@ -647,7 +656,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       type: PasswordInputComponentComponent,
       selectors: [["app-password-input-component"]],
       inputs: {
-        errorPass: "errorPass"
+        labelPass: "labelPass"
       },
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
         provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
@@ -656,42 +665,46 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }),
         multi: true
       }])],
-      decls: 4,
+      decls: 5,
       vars: 3,
-      consts: [["placeholder", "Enter password", "name", "password", 3, "ngModel", "type", "ngModelChange"], ["type", "checkbox", 3, "change"], ["for", "password"]],
+      consts: [["for", "password"], ["placeholder", "Enter password", "name", "password", 3, "ngModel", "type", "ngModelChange"], ["type", "checkbox", 3, "change"]],
       template: function PasswordInputComponentComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "label", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function PasswordInputComponentComponent_Template_input_ngModelChange_0_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function PasswordInputComponentComponent_Template_input_ngModelChange_3_listener($event) {
             return ctx.value = $event;
-          })("ngModelChange", function PasswordInputComponentComponent_Template_input_ngModelChange_0_listener($event) {
+          })("ngModelChange", function PasswordInputComponentComponent_Template_input_ngModelChange_3_listener($event) {
             return ctx.updateValue($event);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "input", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function PasswordInputComponentComponent_Template_input_change_1_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function PasswordInputComponentComponent_Template_input_change_4_listener($event) {
             return ctx.showPass($event);
           });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label", 2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.labelPass);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.value)("type", ctx.type ? "text" : "password");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.errorPass);
         }
       },
       directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"]],
@@ -715,7 +728,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }]
         }]
       }], null, {
-        errorPass: [{
+        labelPass: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
         }]
       });
