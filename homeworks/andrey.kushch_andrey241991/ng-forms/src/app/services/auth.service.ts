@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Auth } from '../models/Auth';
 
-export interface Auth {
-    email: string,
-    password: string
-}
 
 @Injectable()
 export class AuthService {
 
-    public setOnLocalStorage(email: string, password: string): void {
+    public setData(email: string, password: string): void {
         const auth = { 'email': email, 'password': password };
         localStorage.setItem('auth', btoa(JSON.stringify(auth)));
     }
 
-    public getFromLocalStorage(): Auth {
+    public getData(): Auth {
         const value = localStorage.getItem('auth');
-        let result = null;
         if (value) {
-            result = JSON.parse(atob(value))
+            return JSON.parse(atob(value))
         }
-        return result;
+        return {
+            email: '',
+            password: ''
+        }
     }
 }

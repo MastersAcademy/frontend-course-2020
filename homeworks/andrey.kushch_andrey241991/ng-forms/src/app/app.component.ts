@@ -14,21 +14,19 @@ export class AppComponent {
 
 
   constructor(private readonly authService: AuthService, private formBuilder: FormBuilder) {
-    const auth: Auth = authService.getFromLocalStorage();
+    const auth: Auth = authService.getData();
     this.signInControl = this.formBuilder.group({
-      loginControl: [auth?.email || ' ', [Validators.required, Validators.email, Validators.minLength(10)]],
-      passwordControl: [auth?.password ||  '', [Validators.required, Validators.minLength(8)]],
-      rememberControl: [false]
+      login: [auth.email, [Validators.required, Validators.email]],
+      password: [auth.password, Validators.required],
+      remember: [false]
     });
   }
 
   onSubmit(): void {
-    const email = this.signInControl?.get('loginControl')?.value;
-    const password = this.signInControl?.get('passwordControl')?.value;
-    const rememberControl = this.signInControl?.get('rememberControl')?.value;
-    alert(`Email is ${email}, Password is ${password}`)
-    if (rememberControl) {
-      this.authService.setOnLocalStorage(email, password)
+    const { login, password, remember } = this.signInControl.value;
+    alert(`Email is ${login}, Password is ${password}`)
+    if (remember) {
+      this.authService.setData(login, password)
     }
   }
 }
