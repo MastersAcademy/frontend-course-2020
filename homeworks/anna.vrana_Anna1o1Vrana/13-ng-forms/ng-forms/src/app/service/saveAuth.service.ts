@@ -6,10 +6,8 @@ import {DataModel} from "../models/data.model";
 export class SaveAuthService {
 
 saveData(data) {
-  let auth=`${data}`
-  console.log({auth})
+  let auth=btoa(JSON.stringify(data))
   localStorage.setItem('data', auth)
-  console.log(localStorage.getItem(auth))
 }
 
 }
