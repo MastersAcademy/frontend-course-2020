@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
+import { Form } from '../interfaces/form.interface';
 
 @Injectable()
 export class EncodeDataFormService {
-  private tempForm: any;
-
   private encodedDataEmail: string = '';
   private encodedDataPassword: string = '';
 
-  constructor() {}
-
-  setDataLocalStorage() {
-    this.tempForm = form;
-    const formData = {...this.tempForm.value};
-
-    this.encodedDataEmail = window.btoa(formData.email);
-    this.encodedDataPassword = window.btoa(formData.password);
+  setDataLocalStorage(data: Form): void {
+    this.encodedDataEmail = window.btoa(data.email);
+    this.encodedDataPassword = window.btoa(data.password);
 
     localStorage.setItem('email', this.encodedDataEmail);
     localStorage.setItem('password', this.encodedDataPassword);
   }
+
+  getDecodedDataEmail(): string {
+    const getLocalStorageEmail: string = localStorage.getItem('email') || '';
+
+    return window.atob(getLocalStorageEmail);
+  }
+
+  getDecodedDataPassword(): string {
+    const getLocalStoragePassword: string = localStorage.getItem('password') || '';
+
+    return window.atob(getLocalStoragePassword);
+  }
+
 }

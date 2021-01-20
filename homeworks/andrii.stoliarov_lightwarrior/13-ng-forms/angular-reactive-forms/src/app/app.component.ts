@@ -10,10 +10,8 @@ import { EncodeDataFormService } from './services';
 export class AppComponent implements OnInit {
 
   form: any;
-
-  private decodedDataEmail: string = '';
-
-  private decodedDataPassword: string = '';
+  private dataEmail: string = '';
+  private dataPassword: string = '';
 
   constructor(private fb: FormBuilder, private encodeDataFormService: EncodeDataFormService) {}
 
@@ -31,19 +29,16 @@ export class AppComponent implements OnInit {
       ])
     });
 
-    const getLocalStorageEmail: string = localStorage.getItem('email') || '';
-    const getLocalStoragePassword: string = localStorage.getItem('password') || '';
-
-    this.decodedDataEmail = window.atob(getLocalStorageEmail);
-    this.decodedDataPassword = window.atob(getLocalStoragePassword);
+    this.dataEmail = this.encodeDataFormService.getDecodedDataEmail();
+    this.dataPassword = this.encodeDataFormService.getDecodedDataPassword();
 
     this.form.patchValue({
-      email: this.decodedDataEmail,
-      password: this.decodedDataPassword
+      email: this.dataEmail,
+      password: this.dataPassword
     });
   }
 
-  isInvalidAndTouched(fieldName: string): boolean {
+  isControlInvalid(fieldName: string): boolean {
     return (this.form.get(fieldName).invalid && this.form.get(fieldName).touched);
   }
 
@@ -55,6 +50,15 @@ export class AppComponent implements OnInit {
     return this.form.get(fieldName).errors.email;
   }
 
+  getFieldRequiredError(fieldName: string): string {
+    return 'The field cannot be empty.';
+  }
+
+  getFieldError(fieldName: string): string {
+    return 'Enter correct email.';
+  }
+
+
   submit() {
     if (this.form.invalid) return;
 
@@ -63,7 +67,7 @@ export class AppComponent implements OnInit {
     alert(`Login successfully. Email: ${formData.email}, password: ${formData.password}`)
 
     if (formData.checkbox) {
-      this.encodeDataFormService.setDataLocalStorage();
+      this.encodeDataFormService.setDataLocalStorage(formData);
     }
 
    this.form.reset();

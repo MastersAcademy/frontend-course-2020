@@ -6,14 +6,14 @@
       <label for="emailCaption">Email: </label>
       <input id="emailCaption" class="field-input" type="text" placeholder="enter email" formControlName="email">
       <div
-        *ngIf="isInvalidAndTouched('email')"
+        *ngIf="isControlInvalid('email')"
         class="validation"
       >
         <small *ngIf="isRequired('email')">
-          The field cannot be empty.
+          {{ getFieldRequiredError('email') }}
         </small>
         <small *ngIf="isErrors('email')">
-          Enter correct email.
+          {{ getFieldError('email') }}
         </small>
       </div>
     </div>
@@ -22,18 +22,18 @@
       <label for="passwordCaption">Password: </label>
       <input id="passwordCaption" class="field-input" type="password" placeholder="enter password" formControlName="password">
       <div
-        *ngIf="isInvalidAndTouched('password')"
+        *ngIf="isControlInvalid('password')"
         class="validation"
       >
         <small *ngIf="isRequired('password')">
-          The field cannot be empty.
+          {{ getFieldRequiredError('password') }}
         </small>
     </div>
     </div>
 
     <div class="form-control">
-      <input type="checkbox" formControlName="checkbox">
-      <label> remember me</label>
+      <input id="checkboxCaption" type="checkbox" formControlName="checkbox">
+      <label for="checkboxCaption"> remember me</label>
     </div>
 
     <button class="btn" type="submit" [disabled]="form.invalid">Login</button>
