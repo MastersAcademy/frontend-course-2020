@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-form',
@@ -8,48 +8,40 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  public email: string = '';
-  public password: string = '';
-  public savedEmail: string = '';
-  public savedPassword: string = '';
-  public isChecked: boolean = false;
+  userForm: FormGroup;
 
-  constructor(private localStorageService: LocalStorageService) {}
-
-  userForm = new FormGroup({
-    email: new FormControl(this.email, [
-      Validators.required,
-      Validators.minLength(10)
-    ]),
-    password: new FormControl(this.password, [
-      Validators.required,
-      Validators.minLength(4)
-    ])
-  });
-
-  ngOnInit() {
-    this.getData('email', 'password');
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {
+    this.userForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      isRememberUserData: [false]
+    })
   }
 
-  public saveInputData(valueEmail: string, valuePassword: string) {
-    if (this.isChecked) {
-      this.localStorageService.set('email', valueEmail);
-      this.localStorageService.set('password', valuePassword);
-      return;
+  ngOnInit() {
+    this.restoreData();
+  }
+
+  public saveInputData(): void {
+    if(this.userForm.value.isRememberUserData) {
+      this.authService.set(this.userForm.value);
     }
     return;
   }
 
-  private getData(keyEmail: string, keyPassword: string) {
-    this.savedEmail = this.localStorageService.get(keyEmail);
-    this.savedPassword = this.localStorageService.get(keyPassword);
+  private restoreData() {
+    this.userForm.patchValue(this.authService.get());
   }
 
-  public showInputData(email: string, password: string): void {
-    alert('Email: ' + email + '   Password: ' + password);
+  public showInputData(): void {
+    alert('Email: ' + this.userForm.value.email + 'Password: ' + this.userForm.value.password);
   }
-
-  public checkCheckBox(value: any): void {
-    this.isChecked = value.target.checked;
+  
+  public onFormSubmit() {
+    this.showInputData();
+    this.saveInputData();
   }
 }
