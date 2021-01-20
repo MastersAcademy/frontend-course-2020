@@ -1,36 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Auth } from './services/auth.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './services';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'ng-forms';
-  email: string = '';
-  password: string = '';
   signInControl!: FormGroup;
-  private EMAIL_KEY: string = 'EMAIL_KEY';
-  private PASSWORD_KEY: string = 'PASSWORD_KEY';
 
-  ngOnInit() {
-    this.getFromLocalStorage()
-    this.signInControl = new FormGroup({
-      loginControl: new FormControl(this.email, [Validators.required, Validators.email, Validators.minLength(10)]),
-      passwordControl: new FormControl(this.password, [Validators.required, Validators.minLength(8)]),
-      rememberControl: new FormControl(false)
+
+  constructor(private readonly authService: AuthService, private formBuilder: FormBuilder) {
+    const auth: Auth = authService.getFromLocalStorage();
+    this.signInControl = this.formBuilder.group({
+      loginControl: [auth?.email || ' ', [Validators.required, Validators.email, Validators.minLength(10)]],
+      passwordControl: [auth?.password ||  '', [Validators.required, Validators.minLength(8)]],
+      rememberControl: [false]
     });
-  }
-
-  setOnLocalStorage(email: string, password: string): void {
-    localStorage.setItem(this.EMAIL_KEY, btoa(email))
-    localStorage.setItem(this.PASSWORD_KEY, btoa(password))
-  }
-
-  getFromLocalStorage(): void {
-    this.email = atob(localStorage.getItem(this.EMAIL_KEY) || '');
-    this.password = atob(localStorage.getItem(this.PASSWORD_KEY) || '');
   }
 
   onSubmit(): void {
@@ -39,7 +28,7 @@ export class AppComponent implements OnInit {
     const rememberControl = this.signInControl?.get('rememberControl')?.value;
     alert(`Email is ${email}, Password is ${password}`)
     if (rememberControl) {
-      this.setOnLocalStorage(email, password)
+      this.authService.setOnLocalStorage(email, password)
     }
   }
 }
