@@ -1,17 +1,21 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
+import { AuthorizationDataModel } from "../models/authorizationData.model";
 
 @Injectable()
 
 export class SaveAuthService {
 
-  saveData(data) {
+  saveData(data: AuthorizationDataModel): void {
+    console.log(typeof data)
     let auth = btoa(JSON.stringify(data))
-    return localStorage.setItem('data', auth)
+    localStorage.setItem('data', auth)
   }
 
-  checkLocalStorage() {
+  getData(): AuthorizationDataModel {
     if (localStorage.getItem('data')) {
       return JSON.parse(atob(localStorage.getItem('data')))
+    } else {
+      return null
     }
   }
 

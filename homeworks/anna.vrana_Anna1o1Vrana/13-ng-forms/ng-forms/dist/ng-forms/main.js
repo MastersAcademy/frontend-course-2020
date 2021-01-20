@@ -100,7 +100,7 @@ class AppComponent {
         this.authorizationForm = this.FormBuilder.group({
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-            rememberMe: ['']
+            rememberMe: [false]
         });
     }
     isControlInvalid(controlName) {
@@ -118,7 +118,7 @@ class AppComponent {
         this.onRemember();
     }
     ngOnInit() {
-        const dataEncode = this.saveService.checkLocalStorage();
+        const dataEncode = this.saveService.getData();
         this.authorizationForm.setValue({
             'email': dataEncode.email,
             'password': dataEncode.password,
@@ -240,12 +240,16 @@ __webpack_require__.r(__webpack_exports__);
 
 class SaveAuthService {
     saveData(data) {
+        console.log(typeof data);
         let auth = btoa(JSON.stringify(data));
-        return localStorage.setItem('data', auth);
+        localStorage.setItem('data', auth);
     }
-    checkLocalStorage() {
+    getData() {
         if (localStorage.getItem('data')) {
             return JSON.parse(atob(localStorage.getItem('data')));
+        }
+        else {
+            return null;
         }
     }
 }

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
-import {SaveAuthService} from "./service";
-import {FormBuilder} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Validators } from "@angular/forms";
+import { SaveAuthService } from "./service";
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   authorizationForm = this.FormBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
-    rememberMe: ['']
+    rememberMe: [false]
   })
 
   constructor(
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const dataEncode = this.saveService.checkLocalStorage()
+    const dataEncode = this.saveService.getData()
     this.authorizationForm.setValue({
       'email': dataEncode.email,
       'password': dataEncode.password,
