@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ripchanskiy/Desktop/Sergey/Programming/MOC-2020/frontend-course-2020/homeworks/serhii.ripchanskyi_Ripchanskiy/13-ng-forms/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /home/new_user/Projects/frontend-course-2020/homeworks/serhii.ripchanskyi_Ripchanskiy/13-ng-forms/src/polyfills.ts */"hN/g");
 
 
 /***/ }),
