@@ -97,9 +97,10 @@ class AppComponent {
         this.saveService = saveService;
         this.FormBuilder = FormBuilder;
         this.title = 'ng-forms';
-        this.authorizationForm = this.FormBuilder.group({
-            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
-            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+        this.dataEncode = this.saveService.getData();
+        this.authorizationForm = FormBuilder.group({
+            email: [this.dataEncode.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
+            password: [this.dataEncode.password, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
             rememberMe: [false]
         });
     }
@@ -116,14 +117,6 @@ class AppComponent {
         const authorizationData = `Login:  ${this.authorizationForm.value.email}     Password:  ${this.authorizationForm.value.password}`;
         alert(authorizationData);
         this.onRemember();
-    }
-    ngOnInit() {
-        const dataEncode = this.saveService.getData();
-        this.authorizationForm = this.FormBuilder.group({
-            email: [dataEncode.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
-            password: [dataEncode.password, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-            rememberMe: [false]
-        });
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service__WEBPACK_IMPORTED_MODULE_2__["SaveAuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"])); };
@@ -247,13 +240,11 @@ class SaveAuthService {
         if (localStorage.getItem('data')) {
             return JSON.parse(atob(localStorage.getItem('data')));
         }
-        else {
-            return {
-                email: '',
-                password: '',
-                rememberMe: false
-            };
-        }
+        return {
+            email: '',
+            password: '',
+            rememberMe: false
+        };
     }
 }
 SaveAuthService.ɵfac = function SaveAuthService_Factory(t) { return new (t || SaveAuthService)(); };

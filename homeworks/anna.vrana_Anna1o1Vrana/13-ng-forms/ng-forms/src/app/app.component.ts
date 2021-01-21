@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators } from "@angular/forms";
-import { SaveAuthService } from "./service";
-import { FormBuilder } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormGroup, Validators, FormBuilder} from "@angular/forms";
+import {SaveAuthService} from "./service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'ng-forms';
-  authorizationForm = this.FormBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
-    rememberMe: [false]
-  })
+  authorizationForm: FormGroup;
+  dataEncode = this.saveService.getData()
 
   constructor(
     private saveService: SaveAuthService,
     private FormBuilder: FormBuilder) {
+
+    this.authorizationForm = FormBuilder.group({
+
+      email: [this.dataEncode.email, [Validators.required, Validators.email]],
+      password: [this.dataEncode.password, [Validators.required]],
+      rememberMe: [false]
+
+    });
+
   }
 
   isControlInvalid(controlName: string): boolean {
@@ -36,15 +41,5 @@ export class AppComponent implements OnInit {
     const authorizationData = `Login:  ${this.authorizationForm.value.email}     Password:  ${this.authorizationForm.value.password}`;
     alert(authorizationData)
     this.onRemember()
-
-  }
-
-  ngOnInit(): void {
-    const dataEncode = this.saveService.getData()
-      this.authorizationForm = this.FormBuilder.group({
-        email: [dataEncode.email, [Validators.required, Validators.email]],
-        password: [dataEncode.password, [Validators.required]],
-        rememberMe: [false]
-      })
   }
 }

@@ -13,12 +13,11 @@ export class SaveAuthService {
   getData(): AuthorizationData {
     if (localStorage.getItem('data')) {
       return JSON.parse(atob(localStorage.getItem('data')))
-    } else {
-      return {
-        email: '',
-        password: '',
-        rememberMe: false
-      }
+    }
+    return {
+      email: '',
+      password: '',
+      rememberMe: false
     }
   }
 
