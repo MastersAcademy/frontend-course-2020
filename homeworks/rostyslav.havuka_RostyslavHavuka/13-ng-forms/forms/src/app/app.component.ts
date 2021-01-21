@@ -10,10 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit{
   form: FormGroup;
   formEmailValue: string = '';
-  formPassword: string = '';
-  codeEmail: string;
-  codePassword: string;
-  passwordError: string;
+  formPasswordValue: string = '';
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
@@ -24,30 +21,27 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.codeEmail = localStorage.getItem("email");
-    this.codePassword = localStorage.getItem("password");
-
-    if (this.codeEmail && this.codePassword !== null) {
-      this.codeEmail = atob(this.codeEmail);
-      this.codePassword = atob(this.codePassword);
+    this.formEmailValue = this.form.get("email").value;
+    this.formPasswordValue = this.form.get("password").value;
+    this.formEmailValue = localStorage.getItem("email");
+    this.formPasswordValue = localStorage.getItem("password");
+    if (this.formPasswordValue && this.formEmailValue !== null) {
+      this.formEmailValue = atob(this.formEmailValue);
+      this.formPasswordValue = atob(this.formPasswordValue);
     } else {
-      this.codeEmail = '';
-      this.codePassword = '';
+      this.formEmailValue = '';
+      this.formPasswordValue = '';
     }
     this.form.patchValue({
-      email: this.codeEmail,
-      password: this.codePassword
+      email: this.formEmailValue,
+      password: this.formPasswordValue
     })
   }
 
   submitForm() {
     if (this.form.get("checkboxRemember").value === true) {
-      this.formEmailValue = this.form.get("email").value;
-      this.formPassword = this.form.get("password").value;
-      this.codeEmail = btoa(this.formEmailValue);
-      this.codePassword = btoa(this.formPassword);
-      localStorage.setItem("email", this.codeEmail);
-      localStorage.setItem("password", this.codePassword);
+      localStorage.setItem("email", btoa(this.formEmailValue));
+      localStorage.setItem("password", btoa(this.formPasswordValue));
     } else {
       localStorage.clear();
     }

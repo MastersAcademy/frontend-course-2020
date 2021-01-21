@@ -81,7 +81,7 @@ class AppComponent {
     constructor(formBuilder) {
         this.formBuilder = formBuilder;
         this.formEmailValue = '';
-        this.formPassword = '';
+        this.formPasswordValue = '';
         this.form = this.formBuilder.group({
             email: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
             password: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)]],
@@ -89,29 +89,27 @@ class AppComponent {
         });
     }
     ngOnInit() {
-        this.codeEmail = localStorage.getItem("email");
-        this.codePassword = localStorage.getItem("password");
-        if (this.codeEmail && this.codePassword !== null) {
-            this.codeEmail = atob(this.codeEmail);
-            this.codePassword = atob(this.codePassword);
+        this.formEmailValue = this.form.get("email").value;
+        this.formPasswordValue = this.form.get("password").value;
+        this.formEmailValue = localStorage.getItem("email");
+        this.formPasswordValue = localStorage.getItem("password");
+        if (this.formPasswordValue && this.formEmailValue !== null) {
+            this.formEmailValue = atob(this.formEmailValue);
+            this.formPasswordValue = atob(this.formPasswordValue);
         }
         else {
-            this.codeEmail = '';
-            this.codePassword = '';
+            this.formEmailValue = '';
+            this.formPasswordValue = '';
         }
         this.form.patchValue({
-            email: this.codeEmail,
-            password: this.codePassword
+            email: this.formEmailValue,
+            password: this.formPasswordValue
         });
     }
     submitForm() {
         if (this.form.get("checkboxRemember").value === true) {
-            this.formEmailValue = this.form.get("email").value;
-            this.formPassword = this.form.get("password").value;
-            this.codeEmail = btoa(this.formEmailValue);
-            this.codePassword = btoa(this.formPassword);
-            localStorage.setItem("email", this.codeEmail);
-            localStorage.setItem("password", this.codePassword);
+            localStorage.setItem("email", btoa(this.formEmailValue));
+            localStorage.setItem("password", btoa(this.formPasswordValue));
         }
         else {
             localStorage.clear();
@@ -129,7 +127,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 10, vars: 5, consts: [[1, "container", 3, "formGroup", "ngSubmit"], ["formControlName", "email", 3, "emailForm"], ["formControlName", "password", 3, "passForm"], [1, "check-remember"], ["type", "checkbox", 3, "formControlName"], ["type", "submit", 1, "button-submit", 3, "disabled"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 10, vars: 3, consts: [[1, "container", 3, "formGroup", "ngSubmit"], ["formControlName", "email"], ["formControlName", "password"], [1, "check-remember"], ["type", "checkbox", 3, "formControlName"], ["type", "submit", 1, "button-submit", 3, "disabled"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function AppComponent_Template_form_ngSubmit_0_listener() { return ctx.submitForm(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-email-input", 1);
@@ -147,11 +145,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.form);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("emailForm", ctx.formGroup());
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("passForm", ctx.formGroup());
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControlName", "checkboxRemember");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.form.valid);
@@ -247,7 +241,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class EmailInputComponent {
-    constructor() {
+    constructor(controlContaine) {
+        this.controlContaine = controlContaine;
+        this.label = 'Email:';
         this.onChange = (value) => { };
         this.onTouch = () => { };
     }
@@ -267,18 +263,16 @@ class EmailInputComponent {
         this.value = val;
         this.onChange(val);
         this.onTouch();
+        this.updatelabel();
     }
-    labelEmail() {
-        if (this.emailForm.get("email").hasError('email')) {
-            return 'Not a valid!';
-        }
-        else {
-            return 'Email:';
-        }
+    updatelabel() {
+        this.label = this.controlContaine.control.get("email").hasError('email') ?
+            'Not a valid!' :
+            'Email:';
     }
 }
-EmailInputComponent.ɵfac = function EmailInputComponent_Factory(t) { return new (t || EmailInputComponent)(); };
-EmailInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EmailInputComponent, selectors: [["app-email-input"]], inputs: { emailForm: "emailForm" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
+EmailInputComponent.ɵfac = function EmailInputComponent_Factory(t) { return new (t || EmailInputComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"])); };
+EmailInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EmailInputComponent, selectors: [["app-email-input"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
             {
                 provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
                 useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => EmailInputComponent),
@@ -294,7 +288,7 @@ EmailInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.labelEmail());
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.label);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.value);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"]], styles: ["body[_ngcontent-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZW1haWwtaW5wdXQvZW1haWwtaW5wdXQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGNBQWM7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9lbWFpbC1pbnB1dC9lbWFpbC1pbnB1dC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuIl19 */"] });
@@ -312,9 +306,7 @@ EmailInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
                     }
                 ]
             }]
-    }], null, { emailForm: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }] }); })();
+    }], function () { return [{ type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"] }]; }, null); })();
 
 
 /***/ }),
@@ -336,7 +328,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class PasswordInputComponentComponent {
-    constructor() {
+    constructor(controlContaine) {
+        this.controlContaine = controlContaine;
         this.onChange = (value) => { };
         this.onTouch = () => { };
     }
@@ -358,15 +351,11 @@ class PasswordInputComponentComponent {
         this.onTouch();
     }
     showPass(event) {
-        if (event.target.checked === true) {
-            this.type = true;
-        }
-        else {
-            this.type = false;
-        }
+        this.type = event.target.checked ?
+            'password' : 'text';
     }
     labelPassword() {
-        if (this.passForm.get("password").hasError('minlength')) {
+        if (this.controlContaine.control.get("password").hasError('minlength')) {
             return 'Min 6 lenght!';
         }
         else {
@@ -374,8 +363,8 @@ class PasswordInputComponentComponent {
         }
     }
 }
-PasswordInputComponentComponent.ɵfac = function PasswordInputComponentComponent_Factory(t) { return new (t || PasswordInputComponentComponent)(); };
-PasswordInputComponentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PasswordInputComponentComponent, selectors: [["app-password-input-component"]], inputs: { passForm: "passForm" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
+PasswordInputComponentComponent.ɵfac = function PasswordInputComponentComponent_Factory(t) { return new (t || PasswordInputComponentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"])); };
+PasswordInputComponentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PasswordInputComponentComponent, selectors: [["app-password-input-component"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
             {
                 provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
                 useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => PasswordInputComponentComponent),
@@ -396,14 +385,13 @@ PasswordInputComponentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.labelPassword());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.value)("type", ctx.type ? "text" : "password");
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"]], styles: ["body[_ngcontent-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFzc3dvcmQtaW5wdXQtY29tcG9uZW50L3Bhc3N3b3JkLWlucHV0LWNvbXBvbmVudC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsY0FBYztBQUNoQiIsImZpbGUiOiJzcmMvYXBwL3Bhc3N3b3JkLWlucHV0LWNvbXBvbmVudC9wYXNzd29yZC1pbnB1dC1jb21wb25lbnQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICBkaXNwbGF5OiBibG9jaztcbn1cbiJdfQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.value)("type", ctx.type);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"]], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PasswordInputComponentComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
                 selector: 'app-password-input-component',
                 templateUrl: './password-input-component.component.html',
-                styleUrls: ['./password-input-component.component.css'],
                 providers: [
                     {
                         provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
@@ -412,9 +400,7 @@ PasswordInputComponentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0
                     }
                 ]
             }]
-    }], null, { passForm: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }] }); })();
+    }], function () { return [{ type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"] }]; }, null); })();
 
 
 /***/ }),
