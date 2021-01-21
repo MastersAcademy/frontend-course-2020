@@ -55,22 +55,23 @@ __webpack_require__.r(__webpack_exports__);
 
 class EncodeDataFormService {
     constructor() {
-        this.encodedDataEmail = '';
-        this.encodedDataPassword = '';
+        this.dataFormFilds = {
+            email: '',
+            password: ''
+        };
     }
-    setDataLocalStorage(data) {
-        this.encodedDataEmail = window.btoa(data.email);
-        this.encodedDataPassword = window.btoa(data.password);
-        localStorage.setItem('email', this.encodedDataEmail);
-        localStorage.setItem('password', this.encodedDataPassword);
+    set(data) {
+        this.dataFormFilds.email = window.btoa(data.email);
+        this.dataFormFilds.password = window.btoa(data.password);
+        localStorage.setItem('dataFields', JSON.stringify(this.dataFormFilds));
     }
-    getDecodedDataEmail() {
-        const getLocalStorageEmail = localStorage.getItem('email') || '';
-        return window.atob(getLocalStorageEmail);
-    }
-    getDecodedDataPassword() {
-        const getLocalStoragePassword = localStorage.getItem('password') || '';
-        return window.atob(getLocalStoragePassword);
+    get() {
+        this.dataFormFilds = JSON.parse((localStorage.getItem('dataFields') || ''));
+        const decodedDataEmail = window.atob(this.dataFormFilds.email);
+        const decodedDataPassword = window.atob(this.dataFormFilds.password);
+        this.dataFormFilds.email = decodedDataEmail;
+        this.dataFormFilds.password = decodedDataPassword;
+        return this.dataFormFilds;
     }
 }
 EncodeDataFormService.ɵfac = function EncodeDataFormService_Factory(t) { return new (t || EncodeDataFormService)(); };
@@ -102,60 +103,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function AppComponent_div_8_small_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r2.getFieldRequiredError("email"), " ");
-} }
-function AppComponent_div_8_small_2_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r3.getFieldError("email"), " ");
-} }
 function AppComponent_div_8_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AppComponent_div_8_small_1_Template, 2, 1, "small", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AppComponent_div_8_small_2_Template, 2, 1, "small", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "small");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.isRequired("email"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.isErrors("email"));
-} }
-function AppComponent_div_13_small_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r4.getFieldRequiredError("password"), " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.getContolError("email"));
 } }
 function AppComponent_div_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AppComponent_div_13_small_1_Template, 2, 1, "small", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "small");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.isRequired("password"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r1.getContolError("password"));
 } }
 class AppComponent {
     constructor(fb, encodeDataFormService) {
         this.fb = fb;
         this.encodeDataFormService = encodeDataFormService;
-        this.dataEmail = '';
-        this.dataPassword = '';
     }
     ngOnInit() {
         this.form = this.fb.group({
@@ -166,31 +139,21 @@ class AppComponent {
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
                 _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required
             ]),
-            checkbox: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](false, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required
-            ])
+            checkbox: [false]
         });
-        this.dataEmail = this.encodeDataFormService.getDecodedDataEmail();
-        this.dataPassword = this.encodeDataFormService.getDecodedDataPassword();
-        this.form.patchValue({
-            email: this.dataEmail,
-            password: this.dataPassword
-        });
+        const { email, password } = this.encodeDataFormService.get();
+        this.form.patchValue({ email, password });
     }
     isControlInvalid(fieldName) {
         return (this.form.get(fieldName).invalid && this.form.get(fieldName).touched);
     }
-    isRequired(fieldName) {
-        return this.form.get(fieldName).errors.required;
-    }
-    isErrors(fieldName) {
-        return this.form.get(fieldName).errors.email;
-    }
-    getFieldRequiredError(fieldName) {
-        return 'The field cannot be empty.';
-    }
-    getFieldError(fieldName) {
-        return 'Enter correct email.';
+    getContolError(controlName) {
+        const control = this.form.get(controlName);
+        if (control.errors.required)
+            return 'The field cannot be empty';
+        if (control.errors.email)
+            return 'Enter correct email';
+        return null;
     }
     submit() {
         if (this.form.invalid)
@@ -198,13 +161,13 @@ class AppComponent {
         const formData = Object.assign({}, this.form.value);
         alert(`Login successfully. Email: ${formData.email}, password: ${formData.password}`);
         if (formData.checkbox) {
-            this.encodeDataFormService.setDataLocalStorage(formData);
+            this.encodeDataFormService.set(formData);
         }
         this.form.reset();
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_2__["EncodeDataFormService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 20, vars: 4, consts: [[1, "container"], [1, "form-container", 3, "formGroup", "ngSubmit"], [1, "form-control"], ["for", "emailCaption"], ["id", "emailCaption", "type", "text", "placeholder", "enter email", "formControlName", "email", 1, "field-input"], ["class", "validation", 4, "ngIf"], ["for", "passwordCaption"], ["id", "passwordCaption", "type", "password", "placeholder", "enter password", "formControlName", "password", 1, "field-input"], ["id", "checkboxCaption", "type", "checkbox", "formControlName", "checkbox"], ["for", "checkboxCaption"], ["type", "submit", 1, "btn", 3, "disabled"], [1, "validation"], [4, "ngIf"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 20, vars: 4, consts: [[1, "container"], [1, "form-container", 3, "formGroup", "ngSubmit"], [1, "form-control"], ["for", "emailCaption"], ["id", "emailCaption", "type", "text", "placeholder", "enter email", "formControlName", "email", 1, "field-input"], ["class", "validation", 4, "ngIf"], ["for", "passwordCaption"], ["id", "passwordCaption", "type", "password", "placeholder", "enter password", "formControlName", "password", 1, "field-input"], ["id", "checkboxCaption", "type", "checkbox", "formControlName", "checkbox"], ["for", "checkboxCaption"], ["type", "submit", 1, "btn", 3, "disabled"], [1, "validation"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Angular reactive forms");
@@ -216,14 +179,14 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Email: ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "input", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, AppComponent_div_8_Template, 3, 2, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, AppComponent_div_8_Template, 3, 1, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "label", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Password: ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "input", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, AppComponent_div_13_Template, 2, 1, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, AppComponent_div_13_Template, 3, 1, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "input", 8);
