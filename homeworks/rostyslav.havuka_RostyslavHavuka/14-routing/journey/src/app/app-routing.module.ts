@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 import { AccessoriesComponent } from './components/accessories/accessories.component';
 import { AccountComponent } from './components/account/account.component';
 import { HomeComponent } from './components/home/home.component';
@@ -9,7 +10,7 @@ const routes: Routes = [
   {path: '', component: SharedComponent},
   {path: 'home', component: HomeComponent},
   {path: 'account', component: AccountComponent},
-  {path: 'accessories', component: AccessoriesComponent}
+  {path: 'accessories', component: AccessoriesComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
