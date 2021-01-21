@@ -10,8 +10,6 @@ import { EncodeDataFormService } from './services';
 export class AppComponent implements OnInit {
 
   form: any;
-  private dataEmail: string = '';
-  private dataPassword: string = '';
 
   constructor(private fb: FormBuilder, private encodeDataFormService: EncodeDataFormService) {}
 
@@ -24,17 +22,12 @@ export class AppComponent implements OnInit {
       password: new FormControl('', [
         Validators.required
       ]),
-      checkbox: new FormControl(false, [
-        Validators.required
-      ])
+      checkbox: [false]
     });
 
-    this.dataEmail = this.encodeDataFormService.getDecodedDataEmail();
-    this.dataPassword = this.encodeDataFormService.getDecodedDataPassword();
-
     this.form.patchValue({
-      email: this.dataEmail,
-      password: this.dataPassword
+      email: this.encodeDataFormService.get().email,
+      password: this.encodeDataFormService.get().password
     });
   }
 
@@ -42,22 +35,22 @@ export class AppComponent implements OnInit {
     return (this.form.get(fieldName).invalid && this.form.get(fieldName).touched);
   }
 
-  isRequired(fieldName: string): boolean {
-    return this.form.get(fieldName).errors.required;
-  }
-
-  isErrors(fieldName: string): boolean {
-    return this.form.get(fieldName).errors.email;
-  }
-
   getFieldRequiredError(fieldName: string): string {
-    return 'The field cannot be empty.';
+    if (this.form.get(fieldName).errors.required) {
+      return 'The field cannot be empty.';
+    } else {
+      return '';
+    }
   }
 
   getFieldError(fieldName: string): string {
-    return 'Enter correct email.';
-  }
+    if (this.form.get(fieldName).errors.email) {
+      return 'Enter correct email.';
+    } else {
+      return '';
+    }
 
+  }
 
   submit() {
     if (this.form.invalid) return;
@@ -67,7 +60,7 @@ export class AppComponent implements OnInit {
     alert(`Login successfully. Email: ${formData.email}, password: ${formData.password}`)
 
     if (formData.checkbox) {
-      this.encodeDataFormService.setDataLocalStorage(formData);
+      this.encodeDataFormService.set(formData);
     }
 
    this.form.reset();

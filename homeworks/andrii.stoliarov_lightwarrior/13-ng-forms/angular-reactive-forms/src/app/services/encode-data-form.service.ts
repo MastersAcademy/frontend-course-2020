@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Form } from '../interfaces/form.interface';
+import { Credentials } from '../interfaces';
 
 @Injectable()
 export class EncodeDataFormService {
-  private encodedDataEmail: string = '';
-  private encodedDataPassword: string = '';
+  dataFormFilds: Credentials = {
+    email: '',
+    password: ''
+  };
 
-  setDataLocalStorage(data: Form): void {
-    this.encodedDataEmail = window.btoa(data.email);
-    this.encodedDataPassword = window.btoa(data.password);
+  set(data: Credentials): void {
+    this.dataFormFilds.email = window.btoa(data.email);
+    this.dataFormFilds.password = window.btoa(data.password);
 
-    localStorage.setItem('email', this.encodedDataEmail);
-    localStorage.setItem('password', this.encodedDataPassword);
+    localStorage.setItem('dataFields', JSON.stringify(this.dataFormFilds));
   }
 
-  getDecodedDataEmail(): string {
-    const getLocalStorageEmail: string = localStorage.getItem('email') || '';
+  get(): Credentials {
+    this.dataFormFilds = JSON.parse((localStorage.getItem('dataFields') || ''));
 
-    return window.atob(getLocalStorageEmail);
-  }
+    const decodedDataEmail: string = window.atob(this.dataFormFilds.email);
+    const decodedDataPassword: string = window.atob(this.dataFormFilds.password);
 
-  getDecodedDataPassword(): string {
-    const getLocalStoragePassword: string = localStorage.getItem('password') || '';
+    this.dataFormFilds.email = decodedDataEmail;
+    this.dataFormFilds.password = decodedDataPassword;
 
-    return window.atob(getLocalStoragePassword);
+    return this.dataFormFilds;
   }
 
 }
