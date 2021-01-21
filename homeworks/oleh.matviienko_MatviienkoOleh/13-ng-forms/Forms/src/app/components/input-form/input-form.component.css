@@ -1,0 +1,25 @@
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: hsl(0, 0%, 100%);
+  background-color: rgb(218, 165, 32);
+}
+
+.marginBottom {
+  margin-bottom: 10px;
+}
+
+.inputStyle {
+  height: 35px;
+  width: 300px;
+}
+
+.btn_Sumbit {
+  height: 35px;
+  width: 150px;
+}

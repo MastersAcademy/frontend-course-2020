@@ -1,0 +1,49 @@
+<div class="container">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-control">
+            <label for="email"></label>
+            <input type="email" id="email"
+                   class="form-control__input"
+                   placeholder="Your email"
+                   autocomplete="off"
+                   formControlName="email">
+            <div *ngIf="form.controls['email'].touched && form.controls['email'].invalid"
+                 class="validation">
+                <small *ngIf="form.controls['email'].errors?.required">Enter your email</small>
+                <small *ngIf="form.controls['email'].errors?.email">Email must be email</small>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="password"></label>
+            <input type="password" id="password"
+                   class="form-control__input"
+                   placeholder="Your password"
+                   autocomplete="off"
+                   formControlName="password">
+            <div *ngIf="form.controls['password'].touched && form.controls['password'].invalid"
+                 class="validation">
+                <small *ngIf="form.controls['password'].errors?.required">Enter your password</small>
+                <small *ngIf="form.controls['password'].errors?.minlength">
+                    The password must be at least
+                    {{form.controls['password'].errors?.minlength.requiredLength}}
+                    characters long. Now it's
+                    {{form.controls['password'].errors?.minlength.actualLength}}
+                    characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-control-checkbox-wrapper">
+            <input type="checkbox" id="checkbox"
+                   class="form-control-checkbox__input"
+                   formControlName="checkbox">
+            <label for="checkbox" class="form-control-checkbox__label">remember me</label>
+        </div>
+
+        <button type="submit"
+                class="login-form__btn"
+                [disabled]="form.invalid"
+        >Login
+        </button>
+    </form>
+
+</div>

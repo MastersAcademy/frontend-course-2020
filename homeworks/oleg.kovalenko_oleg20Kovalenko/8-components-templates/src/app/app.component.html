@@ -1,0 +1,17 @@
+<div class="box-gallery">
+  <h2>{{title}}</h2>
+  <div class="box">
+    <ul class="gallery-item">
+      <li class="gallery-list" *ngFor="let item of images" (click)="clickBox(item)"
+        [class.gallery-active]="clickActive(item)">
+        <img class="img" src="{{item.urls.small}}" alt="Loading..." (load)="loader()">
+        <div class="loader" [class.hidden]="!load"></div>
+      </li>
+    </ul>
+  </div>
+  <h2>{{subTitle}}</h2>
+  <div class="gallery">
+    <img src="{{itemAcrive.urls.small}}" alt="Loading..." *ngIf="itemAcrive !== undefined">
+  </div>
+</div>
+<router-outlet></router-outlet>
