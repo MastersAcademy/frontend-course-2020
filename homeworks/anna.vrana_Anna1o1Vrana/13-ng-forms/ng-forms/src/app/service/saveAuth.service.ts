@@ -14,7 +14,11 @@ export class SaveAuthService {
     if (localStorage.getItem('data')) {
       return JSON.parse(atob(localStorage.getItem('data')))
     } else {
-      return null
+      return {
+        email: '',
+        password: '',
+        rememberMe: false
+      }
     }
   }
 

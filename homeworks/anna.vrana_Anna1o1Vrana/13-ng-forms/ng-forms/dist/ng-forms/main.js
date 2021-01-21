@@ -119,20 +119,11 @@ class AppComponent {
     }
     ngOnInit() {
         const dataEncode = this.saveService.getData();
-        if (dataEncode) {
-            this.authorizationForm = this.FormBuilder.group({
-                email: [dataEncode.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
-                password: [dataEncode.password, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-                rememberMe: [false]
-            });
-        }
-        else {
-            this.authorizationForm = this.FormBuilder.group({
-                email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
-                password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
-                rememberMe: [false]
-            });
-        }
+        this.authorizationForm = this.FormBuilder.group({
+            email: [dataEncode.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
+            password: [dataEncode.password, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            rememberMe: [false]
+        });
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service__WEBPACK_IMPORTED_MODULE_2__["SaveAuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"])); };
@@ -257,7 +248,11 @@ class SaveAuthService {
             return JSON.parse(atob(localStorage.getItem('data')));
         }
         else {
-            return null;
+            return {
+                email: '',
+                password: '',
+                rememberMe: false
+            };
         }
     }
 }

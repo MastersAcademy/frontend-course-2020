@@ -36,22 +36,15 @@ export class AppComponent implements OnInit {
     const authorizationData = `Login:  ${this.authorizationForm.value.email}     Password:  ${this.authorizationForm.value.password}`;
     alert(authorizationData)
     this.onRemember()
+
   }
 
   ngOnInit(): void {
     const dataEncode = this.saveService.getData()
-    if(dataEncode) {
       this.authorizationForm = this.FormBuilder.group({
         email: [dataEncode.email, [Validators.required, Validators.email]],
         password: [dataEncode.password, [Validators.required]],
         rememberMe: [false]
       })
-    } else {
-      this.authorizationForm = this.FormBuilder.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
-        rememberMe: [false]
-      })
-    }
   }
 }
