@@ -40,10 +40,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const dataEncode = this.saveService.getData()
-    this.authorizationForm.setValue({
-      'email': dataEncode.email,
-      'password': dataEncode.password,
-      'rememberMe': false
-    })
+    if(dataEncode) {
+      this.authorizationForm = this.FormBuilder.group({
+        email: [dataEncode.email, [Validators.required, Validators.email]],
+        password: [dataEncode.password, [Validators.required]],
+        rememberMe: [false]
+      })
+    } else {
+      this.authorizationForm = this.FormBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required]],
+        rememberMe: [false]
+      })
+    }
   }
 }

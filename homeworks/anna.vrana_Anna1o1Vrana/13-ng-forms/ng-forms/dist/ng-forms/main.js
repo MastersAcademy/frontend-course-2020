@@ -119,11 +119,20 @@ class AppComponent {
     }
     ngOnInit() {
         const dataEncode = this.saveService.getData();
-        this.authorizationForm.setValue({
-            'email': dataEncode.email,
-            'password': dataEncode.password,
-            'rememberMe': false
-        });
+        if (dataEncode) {
+            this.authorizationForm = this.FormBuilder.group({
+                email: [dataEncode.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
+                password: [dataEncode.password, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                rememberMe: [false]
+            });
+        }
+        else {
+            this.authorizationForm = this.FormBuilder.group({
+                email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
+                password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                rememberMe: [false]
+            });
+        }
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_service__WEBPACK_IMPORTED_MODULE_2__["SaveAuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"])); };
@@ -240,7 +249,6 @@ __webpack_require__.r(__webpack_exports__);
 
 class SaveAuthService {
     saveData(data) {
-        console.log(typeof data);
         let auth = btoa(JSON.stringify(data));
         localStorage.setItem('data', auth);
     }
