@@ -1,0 +1,75 @@
+.wrapper {
+  position: relative;
+  top: 88px;
+  width: 100%;
+  min-height: calc(100vh - 88px);
+  background: url("../../../assets/media/undraw_personal_training_0dqn.svg"), #151729;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 100px;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.content .contentBx {
+  font-size: 4rem;
+  color: #FFF;
+}
+
+.content .contentBx p {
+  font-size: 1.1rem;
+  color: #FFF;
+  font-weight: 300;
+  margin: 20px 0
+}
+
+.content .contentBx a {
+  font-size: 2rem;
+  padding: 10px 30px;
+  background: #00BCD4;
+  color: #FFF;
+  font-weight: 500;
+  letter-spacing: 4px;
+}
+
+.wrapper .sci {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+}
+
+.wrapper .sci li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .sci li a {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  filter: invert(1);
+  transform: scale(.5);
+}
+
+@media (max-width:991px) {
+
+  .wrapper {
+    top: 60px;
+    min-height: calc(100vh - 60px);
+  }
+
+  .content .contentBx h2 {
+    font-size: 2.5rem;
+  }
+
+  .content .contentBx p {
+    font-size: 1rem;
+  }
+}

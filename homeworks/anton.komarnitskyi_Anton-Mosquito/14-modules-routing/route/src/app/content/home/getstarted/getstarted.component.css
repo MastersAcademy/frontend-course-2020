@@ -1,0 +1,140 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #151729;
+  z-index: 99999999;
+  overflow: hidden;
+}
+
+.text {
+  position: absolute;
+  top: -10%;
+  text-align: justify;
+  font-size: 10px;
+  line-height: 10px;
+  background: url("../../../../assets/media/pexels-john-rocha-226326.webp");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+.wrapper .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2rem;
+  color: #FFF;
+  padding: 5px 10px;
+  position: relative;
+  display: inline-block;
+  color: #00BCD4;
+  text-decoration: none;
+  overflow: hidden;
+  transition: .5s;
+  z-index: 200;
+}
+
+.wrapper .btn:hover {
+  background: #00BCD4;
+  color: #050801;
+  box-shadow: 0 0 5px #00BCD4, 0 0 25px #00BCD4, 0 0 50px #00BCD4, 0 0 200px #00BCD4;
+}
+
+.wrapper .btn span {
+  position: absolute;
+  display: block;
+}
+
+.wrapper .btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00BCD4);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+
+.wrapper .btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #00BCD4);
+  animation: animate2 1s linear infinite;
+  animation-delay: .25s;
+}
+
+@keyframes animate2 {
+
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+
+.wrapper .btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent,#00BCD4);
+  animation: animate3 1s linear infinite;
+  animation-delay: .5s;
+}
+
+@keyframes animate3 {
+
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+
+.wrapper .btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #00BCD4);
+  animation: animate4 1s linear infinite;
+  animation-delay: .75s;
+}
+
+@keyframes animate4 {
+
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
