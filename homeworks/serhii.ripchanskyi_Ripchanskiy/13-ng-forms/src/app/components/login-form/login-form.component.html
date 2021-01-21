@@ -1,7 +1,7 @@
 <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <label class="login-form__label">
       Email:
-      <input type="email" formControlName="email" required>
+      <input class="login-form__input" type="email" formControlName="email" required>
     </label>
     <div class="error" *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
       <span *ngIf="form.get(['email']).hasError('required')">
@@ -14,7 +14,7 @@
 
     <label class="login-form__label">
       Password:
-      <input type="password" formControlName="password" required>
+      <input class="login-form__input" type="password" formControlName="password" required>
     </label>
     <div class="error" *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
       <span *ngIf="form.get(['password']).hasError('required')">
@@ -26,7 +26,7 @@
     </div>
   <br>
   <label>
-    <input type="checkbox" formControlName="rememberMe" value="check">
+    <input class="login-form__input" type="checkbox" formControlName="rememberMe" value="check">
     Remember me
   </label>
   <br>
