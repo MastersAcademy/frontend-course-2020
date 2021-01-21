@@ -156,8 +156,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, AppComponent);
 
         this.formBuilder = formBuilder;
-        this.formEmailValue = '';
-        this.formPasswordValue = '';
         this.form = this.formBuilder.group({
           email: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
           password: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(6)]],
@@ -168,30 +166,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AppComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.formEmailValue = this.form.get("email").value;
-          this.formPasswordValue = this.form.get("password").value;
-          this.formEmailValue = localStorage.getItem("email");
-          this.formPasswordValue = localStorage.getItem("password");
-
-          if (this.formPasswordValue && this.formEmailValue !== null) {
-            this.formEmailValue = atob(this.formEmailValue);
-            this.formPasswordValue = atob(this.formPasswordValue);
+          if (localStorage.length != 0) {
+            this.form.patchValue({
+              email: atob(localStorage.getItem("email")),
+              password: atob(localStorage.getItem("password"))
+            });
           } else {
-            this.formEmailValue = '';
-            this.formPasswordValue = '';
+            this.form.patchValue({
+              email: "",
+              password: ""
+            });
           }
-
-          this.form.patchValue({
-            email: this.formEmailValue,
-            password: this.formPasswordValue
-          });
         }
       }, {
         key: "submitForm",
         value: function submitForm() {
           if (this.form.get("checkboxRemember").value === true) {
-            localStorage.setItem("email", btoa(this.formEmailValue));
-            localStorage.setItem("password", btoa(this.formPasswordValue));
+            localStorage.setItem("email", btoa(this.form.get("email").value));
+            localStorage.setItem("password", btoa(this.form.get("password").value));
           } else {
             localStorage.clear();
           }
@@ -202,11 +194,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else {
             alert('There is a problem with the form');
           }
-        }
-      }, {
-        key: "formGroup",
-        value: function formGroup() {
-          return this.form;
         }
       }]);
 
@@ -221,8 +208,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       type: AppComponent,
       selectors: [["app-root"]],
       decls: 10,
-      vars: 3,
-      consts: [[1, "container", 3, "formGroup", "ngSubmit"], ["formControlName", "email"], ["formControlName", "password"], [1, "check-remember"], ["type", "checkbox", 3, "formControlName"], ["type", "submit", 1, "button-submit", 3, "disabled"]],
+      vars: 2,
+      consts: [[1, "container", 3, "formGroup", "ngSubmit"], ["formControlName", "email"], ["formControlName", "password"], [1, "check-remember"], ["type", "checkbox", "formControlName", "checkboxRemember"], ["type", "submit", 1, "button-submit", 3, "disabled"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
@@ -251,7 +238,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Submit");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " Submit ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -261,11 +248,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.form);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControlName", "checkboxRemember");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.form.valid);
         }
@@ -523,7 +506,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       },
       directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"]],
-      styles: ["body[_ngcontent-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZW1haWwtaW5wdXQvZW1haWwtaW5wdXQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGNBQWM7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9lbWFpbC1pbnB1dC9lbWFpbC1pbnB1dC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuIl19 */"]
+      encapsulation: 2
     });
     /*@__PURE__*/
 
@@ -533,7 +516,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         args: [{
           selector: 'app-email-input',
           templateUrl: './email-input.component.html',
-          styleUrls: ['./email-input.component.css'],
           providers: [{
             provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
             useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () {
@@ -618,20 +600,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.value = val;
           this.onChange(val);
           this.onTouch();
+          this.updateLabel();
         }
       }, {
         key: "showPass",
         value: function showPass(event) {
-          this.type = event.target.checked ? 'password' : 'text';
+          this.type = event.target.checked ? "text" : "password";
         }
       }, {
-        key: "labelPassword",
-        value: function labelPassword() {
-          if (this.controlContaine.control.get("password").hasError('minlength')) {
-            return 'Min 6 lenght!';
-          } else {
-            return 'Password:';
-          }
+        key: "updateLabel",
+        value: function updateLabel() {
+          this.label = this.controlContaine.control.get("password").hasError("minlength") ? "Min 6 lenght!" : "Password:";
         }
       }]);
 
@@ -687,7 +666,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         if (rf & 2) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.labelPassword());
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.label);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
@@ -703,8 +682,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PasswordInputComponentComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'app-password-input-component',
-          templateUrl: './password-input-component.component.html',
+          selector: "app-password-input-component",
+          templateUrl: "./password-input-component.component.html",
           providers: [{
             provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
             useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () {

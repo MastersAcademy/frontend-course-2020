@@ -7,10 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   form: FormGroup;
-  formEmailValue: string = '';
-  formPasswordValue: string = '';
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
@@ -21,27 +19,22 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.formEmailValue = this.form.get("email").value;
-    this.formPasswordValue = this.form.get("password").value;
-    this.formEmailValue = localStorage.getItem("email");
-    this.formPasswordValue = localStorage.getItem("password");
-    if (this.formPasswordValue && this.formEmailValue !== null) {
-      this.formEmailValue = atob(this.formEmailValue);
-      this.formPasswordValue = atob(this.formPasswordValue);
+    if (localStorage.length != 0) {
+      this.form.patchValue({
+        email: atob(localStorage.getItem("email")),
+        password: atob(localStorage.getItem("password"))
+      })
     } else {
-      this.formEmailValue = '';
-      this.formPasswordValue = '';
+      this.form.patchValue({
+        email: "",
+        password: ""
+      })
     }
-    this.form.patchValue({
-      email: this.formEmailValue,
-      password: this.formPasswordValue
-    })
   }
-
   submitForm() {
     if (this.form.get("checkboxRemember").value === true) {
-      localStorage.setItem("email", btoa(this.formEmailValue));
-      localStorage.setItem("password", btoa(this.formPasswordValue));
+      localStorage.setItem("email", btoa(this.form.get("email").value));
+      localStorage.setItem("password", btoa(this.form.get("password").value));
     } else {
       localStorage.clear();
     }
@@ -50,11 +43,7 @@ export class AppComponent implements OnInit{
       const userData: string = `Email: ${this.form.get("email").value} | Password: ${this.form.get("password").value}`;
       alert(userData);
     } else {
-        alert('There is a problem with the form');
+      alert('There is a problem with the form');
     }
-  }
-
-  formGroup() {
-    return this.form;
   }
 }
