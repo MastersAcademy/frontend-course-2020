@@ -18,7 +18,7 @@ export class PasswordInputComponentComponent  implements ControlValueAccessor{
   type: boolean;
   onChange = (value: any) => {};
   onTouch = () => {};
-  @Input() labelPass: string;
+  @Input() passForm;
 
   writeValue(value) {
     this.value = value
@@ -38,7 +38,6 @@ export class PasswordInputComponentComponent  implements ControlValueAccessor{
     this.onTouch();
   }
 
-
   showPass(event) {
    if (event.target.checked === true) {
       this.type = true;
@@ -46,4 +45,13 @@ export class PasswordInputComponentComponent  implements ControlValueAccessor{
      this.type = false;
     }
   }
+
+  labelPassword() {
+    if (this.passForm.get("password").hasError('minlength')) {
+      return 'Min 6 lenght!';
+    } else {
+      return 'Password:'
+    }
+  }
+
 }

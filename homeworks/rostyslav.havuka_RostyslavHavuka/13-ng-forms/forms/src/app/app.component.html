@@ -1,6 +1,6 @@
 <form class="container" [formGroup]="form" (ngSubmit)="submitForm()">
-  <app-email-input [formControlName]="'email'" [email]="labelEmail()"> </app-email-input>
-  <app-password-input-component [labelPass]="labelPassword()" [formControlName]="'password'"></app-password-input-component>
+  <app-email-input formControlName="email" [emailForm]="formGroup()"> </app-email-input>
+  <app-password-input-component [passForm]="formGroup()" formControlName="password"></app-password-input-component>
   <th class="check-remember">
   <label>Remember Me</label>
   <input type="checkbox" [formControlName]="'checkboxRemember'">

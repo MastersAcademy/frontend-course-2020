@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class EmailInputComponent implements ControlValueAccessor{
 
-  @Input() email: string;
+  @Input() emailForm;
   value: string;
   onChange = (value: any) => {};
   onTouch = () => {};
@@ -36,6 +36,14 @@ export class EmailInputComponent implements ControlValueAccessor{
     this.value = val;
     this.onChange(val);
     this.onTouch();
+  }
+
+  labelEmail() {
+    if (this.emailForm.get("email").hasError('email')) {
+      return 'Not a valid!'
+    } else {
+      return 'Email:'
+    }
   }
 
 }

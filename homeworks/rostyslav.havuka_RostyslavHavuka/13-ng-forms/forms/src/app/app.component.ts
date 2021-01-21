@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class AppComponent implements OnInit{
   form: FormGroup;
-  formEmail: string = '';
+  formEmailValue: string = '';
   formPassword: string = '';
   codeEmail: string;
   codePassword: string;
@@ -42,9 +42,9 @@ export class AppComponent implements OnInit{
 
   submitForm() {
     if (this.form.get("checkboxRemember").value === true) {
-      this.formEmail = this.form.get("email").value;
+      this.formEmailValue = this.form.get("email").value;
       this.formPassword = this.form.get("password").value;
-      this.codeEmail = btoa(this.formEmail);
+      this.codeEmail = btoa(this.formEmailValue);
       this.codePassword = btoa(this.formPassword);
       localStorage.setItem("email", this.codeEmail);
       localStorage.setItem("password", this.codePassword);
@@ -60,19 +60,7 @@ export class AppComponent implements OnInit{
     }
   }
 
-  labelEmail() {
-    if (this.form.get("email").hasError('email')) {
-      return 'Not a valid!'
-    } else {
-      return 'Email:'
-    }
-  }
-
-  labelPassword() {
-    if (this.form.get("password").hasError('minlength')) {
-      return 'Min 6 lenght!';
-    } else {
-      return 'Password:'
-    }
+  formGroup() {
+    return this.form;
   }
 }
