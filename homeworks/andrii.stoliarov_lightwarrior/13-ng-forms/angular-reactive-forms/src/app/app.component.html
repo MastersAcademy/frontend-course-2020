@@ -9,8 +9,7 @@
         *ngIf="isControlInvalid('email')"
         class="validation"
       >
-        <small>{{ getFieldRequiredError('email') }}</small>
-        <small>{{ getFieldError('email') }}</small>
+        <small>{{ getContolError('email') }}</small>
       </div>
     </div>
 
@@ -21,7 +20,7 @@
         *ngIf="isControlInvalid('password')"
         class="validation"
       >
-        <small>{{ getFieldRequiredError('password') }}</small>
+        <small>{{ getContolError('password') }}</small>
     </div>
     </div>
 

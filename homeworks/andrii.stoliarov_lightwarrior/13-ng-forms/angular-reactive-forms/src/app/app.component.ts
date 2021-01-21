@@ -25,31 +25,21 @@ export class AppComponent implements OnInit {
       checkbox: [false]
     });
 
-    this.form.patchValue({
-      email: this.encodeDataFormService.get().email,
-      password: this.encodeDataFormService.get().password
-    });
+    const { email, password } = this.encodeDataFormService.get();
+
+    this.form.patchValue({ email, password });
+
   }
 
   isControlInvalid(fieldName: string): boolean {
     return (this.form.get(fieldName).invalid && this.form.get(fieldName).touched);
   }
 
-  getFieldRequiredError(fieldName: string): string {
-    if (this.form.get(fieldName).errors.required) {
-      return 'The field cannot be empty.';
-    } else {
-      return '';
-    }
-  }
-
-  getFieldError(fieldName: string): string {
-    if (this.form.get(fieldName).errors.email) {
-      return 'Enter correct email.';
-    } else {
-      return '';
-    }
-
+  getContolError(controlName: string): string | null {
+    const control = this.form.get(controlName);
+    if (control.errors.required) return 'The field cannot be empty';
+    if (control.errors.email) return 'Enter correct email';
+    return null;
   }
 
   submit() {
