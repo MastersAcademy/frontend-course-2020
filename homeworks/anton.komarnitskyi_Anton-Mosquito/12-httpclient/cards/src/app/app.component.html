@@ -1,0 +1,51 @@
+<app-radio-choise
+  (changeQuantityOfCards)="updateQuantityCardsOfPage($event)"
+></app-radio-choise>
+<app-loader></app-loader>
+<section class="wrapper">
+  <ng-container *ngIf="isLoadingContent | async">
+    <div *ngFor="let user of userData" class="container">
+      <div class="container__card">
+        <div class="content">
+          <div class="imgBx">
+            <img [src]="user.avatar" [alt]="user.first_name" />
+          </div>
+          <div class="contentBx">
+            <h3>
+              {{ user.first_name }}<br /><span>{{ user.last_name }}</span>
+            </h3>
+          </div>
+          <p class="email">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ul class="pagination" *ngIf="loadingPagination">
+    <li>
+      <a
+        href="#"
+        data-page="prev"
+        (click)="changePage($event)"
+        [class.disabled]="page === 1"
+        >< Prev</a
+      >
+    </li>
+    <li
+      *ngFor="let button of quantityButton; let i = index"
+      class="pageNumber"
+      #buttons
+      [class.active]="i === page - 1"
+    >
+      <a href="#">{{ i + 1 }}</a>
+    </li>
+    <li>
+      <a
+        href="#"
+        data-page="next"
+        (click)="changePage($event)"
+        [class.disabled]="page === quantityButton.length"
+        >Next ></a
+      >
+    </li>
+  </ul>
+</section>

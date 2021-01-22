@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  background-color: #AC5353;
+  font-size: 25px;
+  font-family: "Georgia", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 35px;
+  font-style: italic;
+  font-weight: 600;
+  background-color: #936C6C;
+  margin: 0 auto;
+  width: 800px;
+  padding: 20px;
+  transition: all .3s;
+  position: fixed;
+  height: 40px;
+}
+
+.content {
+  margin: 0 auto;
+  width: 800px;
+  background-color: #FFE6E6;
+  padding: 50px 20px 20px;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}

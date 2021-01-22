@@ -1,0 +1,30 @@
+.button {
+  background: #E376D1;
+  color: #F7F2F2;
+  width: 50.1%;
+  height: 50px;
+  text-align: center;
+  border-radius: 1rem;
+  font-size: 1.2em;
+}
+
+.chat {
+  width: 50%;
+  border-radius: 1rem;
+  background-color: #FFB6C1;
+  font-size: 20px;
+  overflow-y: scroll;
+  height: 450px;
+}
+
+.messageInput {
+  margin-left: 2px;
+  text-align: center;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 1.2em;
+  font-family: Verdana;
+  color: #080707;
+  width: 49.5%;
+  height: 50px;
+}

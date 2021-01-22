@@ -1,0 +1,2 @@
+<img *ngIf="loaded" src="https://nabir.np.gov.ua/images/loading.gif">
+<img [class.hide-img]="loaded" (load)="loader()" src="{{image.urls.thumb}}">
