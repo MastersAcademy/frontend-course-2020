@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Router } from "@angular/router";
 import { IJourneyRules } from "../models";
 
 @Injectable({
   providedIn: 'root'
 })
 export class JourneyService {
-  public history: string[] = [];
-  public rules = [
+
+  private history: string[] = [];
+  private rules = [
     {
       message: 'User tends to home',
       journey: ['/home', '/account', '/home']
@@ -22,20 +22,17 @@ export class JourneyService {
     }
   ];
 
-  constructor(private router: Router) {
-  }
-
-  public checkStep(step: string): boolean {
+  private checkStep(step: string): boolean {
     if (this.history.length >= 3) { this.clearHistory() }
     return (step !== '');
   }
 
-  public saveStep(step: string): void {
-    if (this.checkStep(step)) { this.history.push(`/${step}`) }
+  private clearHistory(): void {
+    this.history = [];
   }
 
-  public clearHistory(): void {
-    this.history = [];
+  public saveStep(step: string): void {
+    if (this.checkStep(step)) { this.history.push(`/${step}`) }
   }
 
   public showMessage(): void {
@@ -48,10 +45,8 @@ export class JourneyService {
       this.rules.forEach((item: IJourneyRules) => {
         if (JSON.stringify(this.history) === JSON.stringify(item.journey)) {
           console.log(item.message);
-          this.router.navigateByUrl('');
         }
       });
     }
-
   }
 }

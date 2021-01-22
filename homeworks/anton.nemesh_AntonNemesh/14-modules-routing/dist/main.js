@@ -23,13 +23,10 @@ module.exports = __webpack_require__(/*! /home/ntnnmsh/Documents/Masters Academy
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JourneyService", function() { return JourneyService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
-
 
 
 class JourneyService {
-    constructor(router) {
-        this.router = router;
+    constructor() {
         this.history = [];
         this.rules = [
             {
@@ -52,13 +49,13 @@ class JourneyService {
         }
         return (step !== '');
     }
+    clearHistory() {
+        this.history = [];
+    }
     saveStep(step) {
         if (this.checkStep(step)) {
             this.history.push(`/${step}`);
         }
-    }
-    clearHistory() {
-        this.history = [];
     }
     showMessage() {
         if (this.history[0] === '/accessories' ||
@@ -69,20 +66,19 @@ class JourneyService {
             this.rules.forEach((item) => {
                 if (JSON.stringify(this.history) === JSON.stringify(item.journey)) {
                     console.log(item.message);
-                    this.router.navigateByUrl('');
                 }
             });
         }
     }
 }
-JourneyService.ɵfac = function JourneyService_Factory(t) { return new (t || JourneyService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"])); };
+JourneyService.ɵfac = function JourneyService_Factory(t) { return new (t || JourneyService)(); };
 JourneyService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: JourneyService, factory: JourneyService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](JourneyService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }]; }, null); })();
+    }], null, null); })();
 
 
 /***/ }),
