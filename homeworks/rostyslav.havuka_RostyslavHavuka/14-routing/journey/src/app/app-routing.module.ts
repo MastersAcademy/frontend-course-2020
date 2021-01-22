@@ -7,9 +7,9 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedComponent } from './components/shared/shared.component';
 
 const routes: Routes = [
-  {path: '', component: SharedComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'account', component: AccountComponent},
+  {path: '', component: SharedComponent, canActivate: [AuthGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
   {path: 'accessories', component: AccessoriesComponent, canActivate: [AuthGuard]}
 ];
 

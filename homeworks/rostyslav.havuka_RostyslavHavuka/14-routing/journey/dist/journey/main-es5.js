@@ -99,13 +99,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var routes = [{
       path: '',
-      component: _components_shared_shared_component__WEBPACK_IMPORTED_MODULE_6__["SharedComponent"]
+      component: _components_shared_shared_component__WEBPACK_IMPORTED_MODULE_6__["SharedComponent"],
+      canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }, {
       path: 'home',
-      component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]
+      component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
+      canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }, {
       path: 'account',
-      component: _components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"]
+      component: _components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"],
+      canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }, {
       path: 'accessories',
       component: _components_accessories_accessories_component__WEBPACK_IMPORTED_MODULE_3__["AccessoriesComponent"],

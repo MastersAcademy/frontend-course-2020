@@ -12,7 +12,7 @@ export class SharedComponent  {
   constructor(private location: Location, private history: HistoryService) {}
 
   ngOnInit() {
-    this.history.showHistory(this.location.path())
+    this.history.showHistory(this.location.path());
     this.history.history();
   }
 }
