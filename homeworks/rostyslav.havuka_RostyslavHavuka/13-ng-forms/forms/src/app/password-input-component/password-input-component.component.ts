@@ -17,7 +17,7 @@ import {
   ],
 })
 export class PasswordInputComponentComponent implements ControlValueAccessor {
-  constructor(public controlContaine: ControlContainer) {}
+  constructor(public controlContainer: ControlContainer) {}
   label: string;
   value: string;
   type: "password" | "text";
@@ -48,7 +48,8 @@ export class PasswordInputComponentComponent implements ControlValueAccessor {
   }
 
   updateLabel() {
-    this.label = this.controlContaine.control
-    .get("password").hasError("minlength")? "Min 6 lenght!": "Password:";
+    this.label = this.controlContainer.control.get("password").hasError("minlength") ?
+      "Min 6 lenght!":
+      "Password:";
   }
 }

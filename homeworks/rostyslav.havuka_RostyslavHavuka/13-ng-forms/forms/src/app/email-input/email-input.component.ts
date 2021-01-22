@@ -13,7 +13,7 @@ import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angu
   ]
 })
 export class EmailInputComponent implements ControlValueAccessor {
-  constructor(public controlContaine: ControlContainer) { }
+  constructor(public controlContainer: ControlContainer) { }
 
   label: string = 'Email:';
   value: string;
@@ -40,7 +40,7 @@ export class EmailInputComponent implements ControlValueAccessor {
   }
 
   updatelabel() {
-    this.label = this.controlContaine.control.get("email").hasError('email') ?
+    this.label = this.controlContainer.control.get("email").hasError('email') ?
       'Not a valid!' :
       'Email:';
   }

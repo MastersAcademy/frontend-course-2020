@@ -171,11 +171,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               email: atob(localStorage.getItem("email")),
               password: atob(localStorage.getItem("password"))
             });
-          } else {
-            this.form.patchValue({
-              email: "",
-              password: ""
-            });
           }
         }
       }, {
@@ -413,10 +408,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var EmailInputComponent =
     /*#__PURE__*/
     function () {
-      function EmailInputComponent(controlContaine) {
+      function EmailInputComponent(controlContainer) {
         _classCallCheck(this, EmailInputComponent);
 
-        this.controlContaine = controlContaine;
+        this.controlContainer = controlContainer;
         this.label = 'Email:';
 
         this.onChange = function (value) {};
@@ -450,7 +445,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "updatelabel",
         value: function updatelabel() {
-          this.label = this.controlContaine.control.get("email").hasError('email') ? 'Not a valid!' : 'Email:';
+          this.label = this.controlContainer.control.get("email").hasError('email') ? 'Not a valid!' : 'Email:';
         }
       }]);
 
@@ -569,10 +564,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var PasswordInputComponentComponent =
     /*#__PURE__*/
     function () {
-      function PasswordInputComponentComponent(controlContaine) {
+      function PasswordInputComponentComponent(controlContainer) {
         _classCallCheck(this, PasswordInputComponentComponent);
 
-        this.controlContaine = controlContaine;
+        this.controlContainer = controlContainer;
 
         this.onChange = function (value) {};
 
@@ -610,7 +605,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "updateLabel",
         value: function updateLabel() {
-          this.label = this.controlContaine.control.get("password").hasError("minlength") ? "Min 6 lenght!" : "Password:";
+          this.label = this.controlContainer.control.get("password").hasError("minlength") ? "Min 6 lenght!" : "Password:";
         }
       }]);
 

@@ -24,13 +24,9 @@ export class AppComponent implements OnInit {
         email: atob(localStorage.getItem("email")),
         password: atob(localStorage.getItem("password"))
       })
-    } else {
-      this.form.patchValue({
-        email: "",
-        password: ""
-      })
     }
   }
+  
   submitForm() {
     if (this.form.get("checkboxRemember").value === true) {
       localStorage.setItem("email", btoa(this.form.get("email").value));

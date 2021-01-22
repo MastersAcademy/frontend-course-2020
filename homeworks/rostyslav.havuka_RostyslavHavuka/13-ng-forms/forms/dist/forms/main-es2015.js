@@ -93,12 +93,6 @@ class AppComponent {
                 password: atob(localStorage.getItem("password"))
             });
         }
-        else {
-            this.form.patchValue({
-                email: "",
-                password: ""
-            });
-        }
     }
     submitForm() {
         if (this.form.get("checkboxRemember").value === true) {
@@ -230,8 +224,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class EmailInputComponent {
-    constructor(controlContaine) {
-        this.controlContaine = controlContaine;
+    constructor(controlContainer) {
+        this.controlContainer = controlContainer;
         this.label = 'Email:';
         this.onChange = (value) => { };
         this.onTouch = () => { };
@@ -255,7 +249,7 @@ class EmailInputComponent {
         this.updatelabel();
     }
     updatelabel() {
-        this.label = this.controlContaine.control.get("email").hasError('email') ?
+        this.label = this.controlContainer.control.get("email").hasError('email') ?
             'Not a valid!' :
             'Email:';
     }
@@ -316,8 +310,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class PasswordInputComponentComponent {
-    constructor(controlContaine) {
-        this.controlContaine = controlContaine;
+    constructor(controlContainer) {
+        this.controlContainer = controlContainer;
         this.onChange = (value) => { };
         this.onTouch = () => { };
     }
@@ -340,8 +334,9 @@ class PasswordInputComponentComponent {
         this.type = event.target.checked ? "text" : "password";
     }
     updateLabel() {
-        this.label = this.controlContaine.control
-            .get("password").hasError("minlength") ? "Min 6 lenght!" : "Password:";
+        this.label = this.controlContainer.control.get("password").hasError("minlength") ?
+            "Min 6 lenght!" :
+            "Password:";
     }
 }
 PasswordInputComponentComponent.ɵfac = function PasswordInputComponentComponent_Factory(t) { return new (t || PasswordInputComponentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"])); };
