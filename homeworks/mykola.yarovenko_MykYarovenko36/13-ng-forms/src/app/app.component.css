@@ -1,0 +1,126 @@
+.wrapper {
+  background-color: rgba(35, 97, 151, .123);
+  width: 100%;
+  min-height: 624px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  background-color: rgb(29, 83, 131, .2);
+}
+
+.form {
+  width: 380px;
+  height: 290px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 8px rgb(118, 125, 131, .3);
+}
+
+.form-field {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.btn-container {
+  display: inline-flex;
+  border-top: 3px solid rgb(118, 125, 131);
+  justify-content: space-around;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+
+.field-input {
+  width: 230px;
+  height: 40px;
+  box-sizing: border-box;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.field-input:focus {
+  outline: none;
+}
+
+.field-text {
+  font-size: 1.125em;
+  font-weight: 700;
+  width: 130px;
+  text-align: start;
+  padding-left: 20px;
+}
+
+.submit-btn {
+  width: 140px;
+  box-sizing: border-box;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: rgb(80, 172, 26);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.submit-btn:active {
+  border: none;
+  background-color: rgb(80, 172, 26, .7);
+}
+
+.submit-btn:hover {
+  transform: scale(1.025);
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background-color: rgba(204, 192, 192, .7);
+}
+
+.btn-container-field {
+  width: 220px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pass-container {
+  position: relative;
+  display: block;
+}
+
+.hide-pass-icon {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.fas {
+  color: rgb(0, 0, 0);
+  font-family: FontAwesome, sans-serif;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.field-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.field-invalid {
+  box-shadow: 0 0 2px 5px rgba(253, 0, 0, .575);
+}
+

@@ -1,0 +1,18 @@
+.user-list__item {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.item-user-list__img-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.item-user-list__img {
+  object-fit: unset;
+  width: 100%;
+  height: 100%;
+}
