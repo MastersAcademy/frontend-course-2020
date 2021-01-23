@@ -1,0 +1,27 @@
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 8px;
+  display: inline-block;
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+}
+
+span {
+  display: block;
+  color: #F00;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.text-field-wrapper {
+  position: relative;
+}
+
+.error-message {
+  height: 20px;
+  text-align: center;
+}

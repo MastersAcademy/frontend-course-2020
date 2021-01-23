@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="form-wrapper">
+    <form class="form"
+          [formGroup]="formGroupData"
+          (ngSubmit)="setLoginFormData()"
+    >
+      <div class="form-field">
+        <div class="field-text">login:</div>
+        <input class="field-input"
+            [class.field-invalid]="loginIsError"
+            type="text"
+            placeholder="example@mail.com"
+            formControlName="login">
+      </div>
+      <div class="form-field">
+        <div class="field-text">password:</div>
+        <div class="pass-container">
+          <input class="field-input"
+              [class.field-invalid]="passwordIsError"
+              [type]="hide ? 'password' : 'text'"
+              placeholder="more than any 5"
+              formControlName="password">
+
+          <span class="hide-pass-icon" (click)="toggleHidePass()">
+            <i class="fas fa-eye-slash" *ngIf="hide"></i>
+            <i class="fas fa-eye" *ngIf="!hide"></i>
+          </span>
+        </div>
+        <hr>
+      </div>
+      <div class="btn-container">
+        <button class="submit-btn"
+            type="submit"
+            [disabled]="formGroupData.invalid">
+          SIGN IN
+        </button>
+        <div class="btn-container-field">
+          <div class="field-text field-text-checkbox">remember me</div>
+          <input class="field-checkbox" type="checkbox" formControlName="rememberForm">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
