@@ -1,0 +1,24 @@
+<div class="vehicle-list__item vehicle-list-item" [appChangeColor]="vehicle.post.protocol">
+    <span class="vehicle-list-item__label">
+        Added from:
+    </span>
+    <span class="vehicle-list-item__value">
+        {{vehicle.post.protocol}}
+    </span>
+</div>
+<div class="vehicle-list__item vehicle-list-item">
+    <span class="vehicle-list-item__label">
+        Vehicle:
+    </span>
+    <span class="vehicle-list-item__value">
+        {{vehicle | transformVehiclePipe}}
+    </span>
+</div>
+<div class="vehicle-list__item vehicle-list-item">
+    <span class="vehicle-list-item__label">
+        Price:
+    </span>
+    <span class="vehicle-list-item__value">
+        {{vehicle.cost.amount | currency: vehicle.cost.currencyCode : 'symbol-narrow'}}
+    </span>
+</div>
