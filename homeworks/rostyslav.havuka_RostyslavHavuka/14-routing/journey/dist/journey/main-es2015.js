@@ -50,15 +50,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-<<<<<<< HEAD
     { path: '', component: _components_shared_shared_component__WEBPACK_IMPORTED_MODULE_6__["SharedComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]] },
     { path: 'home', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]] },
     { path: 'account', component: _components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]] },
-=======
-    { path: '', component: _components_shared_shared_component__WEBPACK_IMPORTED_MODULE_6__["SharedComponent"] },
-    { path: 'home', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
-    { path: 'account', component: _components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"] },
->>>>>>> 13-ng-forms
     { path: 'accessories', component: _components_accessories_accessories_component__WEBPACK_IMPORTED_MODULE_3__["AccessoriesComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]] }
 ];
 class AppRoutingModule {
@@ -101,21 +95,12 @@ class AppComponent {
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 1, vars: 0, template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "router-outlet");
-<<<<<<< HEAD
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]], encapsulation: 2 });
-=======
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"] });
->>>>>>> 13-ng-forms
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
                 selector: 'app-root',
-<<<<<<< HEAD
                 templateUrl: './app.component.html'
-=======
-                templateUrl: './app.component.html',
-                styleUrls: ['./app.component.css']
->>>>>>> 13-ng-forms
             }]
     }], null, null); })();
 
