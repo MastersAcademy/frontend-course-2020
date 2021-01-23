@@ -7,13 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   form: FormGroup;
-  formEmail: string = '';
-  formPassword: string = '';
-  codeEmail: string;
-  codePassword: string;
-  passwordError: string;
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
@@ -24,30 +19,18 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.codeEmail = localStorage.getItem("email");
-    this.codePassword = localStorage.getItem("password");
-
-    if (this.codeEmail && this.codePassword !== null) {
-      this.codeEmail = atob(this.codeEmail);
-      this.codePassword = atob(this.codePassword);
-    } else {
-      this.codeEmail = '';
-      this.codePassword = '';
+    if (localStorage.length != 0) {
+      this.form.patchValue({
+        email: atob(localStorage.getItem("email")),
+        password: atob(localStorage.getItem("password"))
+      })
     }
-    this.form.patchValue({
-      email: this.codeEmail,
-      password: this.codePassword
-    })
   }
-
+  
   submitForm() {
     if (this.form.get("checkboxRemember").value === true) {
-      this.formEmail = this.form.get("email").value;
-      this.formPassword = this.form.get("password").value;
-      this.codeEmail = btoa(this.formEmail);
-      this.codePassword = btoa(this.formPassword);
-      localStorage.setItem("email", this.codeEmail);
-      localStorage.setItem("password", this.codePassword);
+      localStorage.setItem("email", btoa(this.form.get("email").value));
+      localStorage.setItem("password", btoa(this.form.get("password").value));
     } else {
       localStorage.clear();
     }
@@ -56,23 +39,7 @@ export class AppComponent implements OnInit{
       const userData: string = `Email: ${this.form.get("email").value} | Password: ${this.form.get("password").value}`;
       alert(userData);
     } else {
-        alert('There is a problem with the form');
-    }
-  }
-
-  labelEmail() {
-    if (this.form.get("email").hasError('email')) {
-      return 'Not a valid!'
-    } else {
-      return 'Email:'
-    }
-  }
-
-  labelPassword() {
-    if (this.form.get("password").hasError('minlength')) {
-      return 'Min 6 lenght!';
-    } else {
-      return 'Password:'
+      alert('There is a problem with the form');
     }
   }
 }

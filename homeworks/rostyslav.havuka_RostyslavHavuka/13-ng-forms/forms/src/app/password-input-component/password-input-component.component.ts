@@ -1,49 +1,55 @@
-import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef } from "@angular/core";
+import {
+  ControlContainer,
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+} from "@angular/forms";
 
 @Component({
-  selector: 'app-password-input-component',
-  templateUrl: './password-input-component.component.html',
-  styleUrls: ['./password-input-component.component.css'],
+  selector: "app-password-input-component",
+  templateUrl: "./password-input-component.component.html",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PasswordInputComponentComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class PasswordInputComponentComponent  implements ControlValueAccessor{
+export class PasswordInputComponentComponent implements ControlValueAccessor {
+  constructor(public controlContainer: ControlContainer) {}
+  label: string;
   value: string;
-  type: boolean;
+  type: "password" | "text";
   onChange = (value: any) => {};
   onTouch = () => {};
-  @Input() labelPass: string;
 
   writeValue(value) {
-    this.value = value
-  };
+    this.value = value;
+  }
 
   registerOnChange(fn: any) {
     this.onChange = fn;
-  };
+  }
 
   registerOnTouched(fn: any) {
     this.onTouch = fn;
-  };
+  }
 
   updateValue(val) {
     this.value = val;
     this.onChange(val);
     this.onTouch();
+    this.updateLabel();
   }
 
-
   showPass(event) {
-   if (event.target.checked === true) {
-      this.type = true;
-    } else {
-     this.type = false;
-    }
+    this.type = event.target.checked ? "text" : "password";
+  }
+
+  updateLabel() {
+    this.label = this.controlContainer.control.get("password").hasError("minlength") ?
+      "Min 6 lenght!":
+      "Password:";
   }
 }

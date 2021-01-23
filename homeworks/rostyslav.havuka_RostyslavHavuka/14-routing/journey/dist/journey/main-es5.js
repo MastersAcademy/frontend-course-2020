@@ -99,6 +99,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var routes = [{
       path: '',
+<<<<<<< HEAD
       component: _components_shared_shared_component__WEBPACK_IMPORTED_MODULE_6__["SharedComponent"],
       canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
     }, {
@@ -109,6 +110,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       path: 'account',
       component: _components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"],
       canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]]
+=======
+      component: _components_shared_shared_component__WEBPACK_IMPORTED_MODULE_6__["SharedComponent"]
+    }, {
+      path: 'home',
+      component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]
+    }, {
+      path: 'account',
+      component: _components_account_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountComponent"]
+>>>>>>> 13-ng-forms
     }, {
       path: 'accessories',
       component: _components_accessories_accessories_component__WEBPACK_IMPORTED_MODULE_3__["AccessoriesComponent"],
@@ -204,7 +214,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       },
       directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]],
+<<<<<<< HEAD
       encapsulation: 2
+=======
+      styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"]
+>>>>>>> 13-ng-forms
     });
     /*@__PURE__*/
 
@@ -213,7 +227,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
           selector: 'app-root',
+<<<<<<< HEAD
           templateUrl: './app.component.html'
+=======
+          templateUrl: './app.component.html',
+          styleUrls: ['./app.component.css']
+>>>>>>> 13-ng-forms
         }]
       }], null, null);
     })();

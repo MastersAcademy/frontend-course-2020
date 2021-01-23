@@ -1,10 +1,9 @@
-import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef} from '@angular/core';
+import { ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-email-input',
   templateUrl: './email-input.component.html',
-  styleUrls: ['./email-input.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -13,12 +12,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class EmailInputComponent implements ControlValueAccessor{
+export class EmailInputComponent implements ControlValueAccessor {
+  constructor(public controlContainer: ControlContainer) { }
 
-  @Input() email: string;
+  label: string = 'Email:';
   value: string;
-  onChange = (value: any) => {};
-  onTouch = () => {};
+  onChange = (value: any) => { };
+  onTouch = () => { };
 
   writeValue(value) {
     this.value = value
@@ -36,6 +36,12 @@ export class EmailInputComponent implements ControlValueAccessor{
     this.value = val;
     this.onChange(val);
     this.onTouch();
+    this.updatelabel()
   }
 
+  updatelabel() {
+    this.label = this.controlContainer.control.get("email").hasError('email') ?
+      'Not a valid!' :
+      'Email:';
+  }
 }
