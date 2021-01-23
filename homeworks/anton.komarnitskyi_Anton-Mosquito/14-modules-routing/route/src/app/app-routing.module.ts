@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './content/home/home.component';
 import { TravelingGuard } from './services/guards/traveling.guard';
 import { CustomPreloadingStrategy } from './services/preloadStrategy/custom-preload-strategy';
 
 const routes: Routes = [
-  {path : '', component : HomeComponent},
+  {path : '', redirectTo : '/home', pathMatch : 'full'},
   {path : 'home', loadChildren: () => import('./content/home/home.module').then(m => m.HomeModule), canActivate : [TravelingGuard]},
   {path : 'account', loadChildren: () => import('./content/account/account.module').then(m => m.AccountModule), canActivate : [TravelingGuard]},
   {path : 'accessories', loadChildren: () => import('./content/accessories/accessories.module').then(m => m.AccessoriesModule), canActivate : [TravelingGuard]},
