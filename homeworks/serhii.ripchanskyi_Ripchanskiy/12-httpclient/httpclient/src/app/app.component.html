@@ -1,0 +1,27 @@
+<div class="loader" *ngIf="areUsersLoading">Loading</div>
+<div *ngIf="!areUsersLoading" class="users">
+  <div class="user-card" *ngFor="let user of users.data">
+    <img src="{{user.avatar}}" alt="user-avatar" class="user-avatar"/>
+    <div>{{user.first_name}} {{user.last_name}}</div>
+    <div>{{user.email}}</div>
+  </div>
+</div>
+
+<div *ngIf="pages && pages.length > 1" class="pagination">
+  <div *ngFor="let page of pages"
+       class="pagination__page-item"
+       [class.pagination__page-item_current]="page == currentPage"
+       (click)="onChangePage(page)">
+    {{page}}
+  </div>
+
+  <select class="pagination__page-items-count" (change)="onChangeItemsPerPage($event.target.value)">
+    <option *ngFor="let number of itemsPerPage">
+      {{number}}
+    </option>
+  </select>
+</div>
+
+
+
+

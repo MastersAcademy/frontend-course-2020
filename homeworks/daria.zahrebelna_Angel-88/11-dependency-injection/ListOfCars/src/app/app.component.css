@@ -1,0 +1,16 @@
+.vehicle-list {
+  margin-top: 50px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.vehicle-list__item-wrapper {
+  background-color: #390038;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  width: 40%;
+  padding: 10px;
+}
