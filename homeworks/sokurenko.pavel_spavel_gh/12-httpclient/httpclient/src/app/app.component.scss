@@ -1,0 +1,154 @@
+/*
+    Page
+*/
+
+* {
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #454647;
+}
+
+.page-loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.grid-wrap {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  column-gap: 3rem;
+  row-gap: 2rem;
+}
+
+.page-title {
+  grid-column: 1 / 3;
+  background-image: linear-gradient(0deg, #F5DF4D 0%, #F5DF4D 100%);
+  background-repeat: no-repeat;
+  background-size: 100% .3em;
+  background-position: 0 88%;
+  cursor: pointer;
+  margin: 2rem 0;
+}
+
+
+/*
+  user cards
+*/
+
+.user-profile-card {
+  background-color: #FFF;
+  border: 2px solid #0003;
+  border-radius: 2rem;
+  box-shadow: 0 0 0 0 #0000;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: grid;
+  row-gap: .5rem;
+  transition: box-shadow ease .2s;
+  cursor: pointer;
+  justify-items: start;
+}
+
+.user-profile-card:hover {
+  box-shadow: 0 0 0 .6rem #0001;
+}
+
+.user-card-wait {
+  opacity: .5;
+}
+
+.user-avatar {
+  grid-row: 1 / 2;
+  width: 20rem;
+  height: 20rem;
+  background-color: #0003;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+
+.inline-block-text {
+  display: inline-block;
+  height: 1em;
+}
+
+.user-name {
+  grid-row: 2 / 3;
+  margin-left: 1rem;
+}
+
+.user-name-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.user-email {
+  margin-left: 1rem;
+  grid-row: 3 / 4;
+  letter-spacing: .1rem;
+}
+
+.user-email:hover {
+  background-image: linear-gradient(0deg, #F5DF4D 0%, #F5DF4D 100%);
+  background-repeat: no-repeat;
+  background-size: 100% .3em;
+  background-position: 0 100%;
+  cursor: pointer;
+}
+
+
+/*
+    pagination
+*/
+
+.pagination {
+  margin-top: 2rem;
+  grid-column: 1 / 3;
+  display: inline-block;
+}
+
+.pagination a {
+  background-color: #FFF;
+  padding: 1rem 2rem;
+  margin: 0 .2rem;
+  border-radius: .5rem;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #F5DF4D;
+  color: #000;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #93959744;
+  color: #000;
+}
+
+
+.per-page-selector-position {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  // align-items: center;
+}
+
+.per-page-selector {
+  margin: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: .25rem;
+  background: none;
+  border: none;
+}

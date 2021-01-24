@@ -1,0 +1,17 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.container__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  width: 15%;
+  height: 30px;
+  border: none;
+  background-color: rgb(165, 42, 42);
+  margin-top: 10px;
+}

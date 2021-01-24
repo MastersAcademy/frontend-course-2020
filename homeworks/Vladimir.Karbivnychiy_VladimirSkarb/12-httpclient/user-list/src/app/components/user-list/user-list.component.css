@@ -1,0 +1,78 @@
+.user-list_section {
+  width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.user-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.user-card {
+  width: 175px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.pagination {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-list {
+  list-style-type: none;
+  cursor: pointer;
+  border: 1px solid #000;
+  margin-right: 3px;
+  padding: 5px 10px;
+}
+
+.user-select {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-select_title {
+  margin-right: 5px;
+}
+
+.active {
+  background-color: #CCC;
+  color: #FFF;
+  border: none;
+}
+
+.lds-dual-ring {
+  position: absolute;
+  top: 15vh;
+  right: 42%;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring::after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid;
+  border-color: #CCC transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
