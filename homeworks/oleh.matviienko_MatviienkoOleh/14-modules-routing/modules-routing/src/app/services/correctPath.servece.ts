@@ -25,10 +25,10 @@ export class correctPathService {
 
     findPath(url: string) {
         this.currentUrl.push(url);
-        const currentUrlString: string = JSON.stringify(this.currentUrl)
+        const currentUrlString: string = this.currentUrl.toString();
         
         for(let i = 0; i < this.mockList.length; i++) {
-            if (currentUrlString.includes(JSON.stringify(this.mockList[i].journey))){
+            if (currentUrlString.includes(this.mockList[i].journey.toString())){
                 console.log(this.mockList[i].message)
                 this.currentUrl = [];
             }
