@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-submit {
+  display: block;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.check-remember {
+  display: flex;
+}
