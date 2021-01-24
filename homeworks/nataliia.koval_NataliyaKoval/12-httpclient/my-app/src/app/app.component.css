@@ -1,0 +1,31 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+}
+
+.cards_item {
+  padding: 30px 40px;
+  border: solid rgb(49, 3, 109) 1px;
+  font-size: 22px;
+  font-family: Montserrat;
+}
+
+.avatar {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.pagination {
+  margin-top: 50px;
+  padding-top: 50px;
+  text-align: center;
+  font-size: 25px;
+}

@@ -1,0 +1,9 @@
+<form [formGroup]="authForm" class="form" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="email" placeholder="email" class="air">
+  <input type="password" formControlName="password" placeholder="password (min 8 chars)" class="air">
+  <label>
+    <input formControlName="remember" type="checkbox" name="" id="remember" class="form-checkbox">
+    remember me
+  </label>
+  <button type="submit" [disabled]="!authForm.valid" class="air">Submit</button>
+</form>
