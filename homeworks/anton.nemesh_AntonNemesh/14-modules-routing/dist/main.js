@@ -52,23 +52,30 @@ class JourneyService {
     clearHistory() {
         this.history = [];
     }
+    checkHistory() {
+        if (this.history.length === 2) {
+            this.history.forEach((item) => {
+                if (item === '/accessories') {
+                    this.clearHistory();
+                }
+            });
+        }
+        return (this.history.length !== 3);
+    }
     saveStep(step) {
         if (this.checkStep(step)) {
             this.history.push(`/${step}`);
         }
     }
     showMessage() {
-        if (this.history[0] === '/accessories' ||
-            this.history[1] === '/accessories') {
-            this.clearHistory();
+        if (this.checkHistory()) {
+            return;
         }
-        if (this.history.length === 3) {
-            this.rules.forEach((item) => {
-                if (JSON.stringify(this.history) === JSON.stringify(item.journey)) {
-                    console.log(item.message);
-                }
-            });
-        }
+        this.rules.forEach((item) => {
+            if (JSON.stringify(this.history) === JSON.stringify(item.journey)) {
+                console.log(item.message);
+            }
+        });
     }
 }
 JourneyService.ɵfac = function JourneyService_Factory(t) { return new (t || JourneyService)(); };

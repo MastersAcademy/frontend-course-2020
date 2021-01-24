@@ -31,22 +31,27 @@ export class JourneyService {
     this.history = [];
   }
 
+  private checkHistory(): boolean {
+    if (this.history.length === 2) {
+      this.history.forEach((item: string) => {
+        if (item === '/accessories') {
+          this.clearHistory();
+        }
+      })
+    }
+    return (this.history.length !== 3);
+  }
+
   public saveStep(step: string): void {
     if (this.checkStep(step)) { this.history.push(`/${step}`) }
   }
 
   public showMessage(): void {
-    if (this.history[0] === '/accessories' ||
-        this.history[1] === '/accessories') {
-      this.clearHistory();
-    }
-
-    if (this.history.length === 3) {
-      this.rules.forEach((item: IJourneyRules) => {
-        if (JSON.stringify(this.history) === JSON.stringify(item.journey)) {
-          console.log(item.message);
-        }
-      });
-    }
+    if (this.checkHistory()) { return }
+    this.rules.forEach((item: IJourneyRules) => {
+      if (JSON.stringify(this.history) === JSON.stringify(item.journey)) {
+        console.log(item.message);
+      }
+    });
   }
 }
