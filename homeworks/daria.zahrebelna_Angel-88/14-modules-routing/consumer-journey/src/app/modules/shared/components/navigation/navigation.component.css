@@ -1,0 +1,17 @@
+.navigation {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: #FFF5EE;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.navigation__link_active {
+  color: #DC143C;
+}
