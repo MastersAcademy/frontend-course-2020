@@ -1,0 +1,24 @@
+.error {
+  color: #B50404;
+  text-align: end;
+  font-size: 12px;
+}
+
+.login-form__input {
+  margin: 0;
+}
+
+.login-form {
+  width: 300px;
+  margin: 20px auto;
+  border: 1px solid #2F4F4F;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-form__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
