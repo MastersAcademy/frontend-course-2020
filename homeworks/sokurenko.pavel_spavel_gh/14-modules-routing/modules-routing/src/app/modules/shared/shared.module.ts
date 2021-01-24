@@ -4,7 +4,9 @@ import { NavComponent } from './components/nav/nav.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavComponent,
+  ],
   imports: [
     CommonModule
   ],
