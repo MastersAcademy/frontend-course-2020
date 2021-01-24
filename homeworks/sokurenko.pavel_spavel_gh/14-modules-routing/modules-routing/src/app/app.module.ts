@@ -13,7 +13,7 @@ import { modules } from './modules';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    modules,
+    ...modules,
   ],
   providers: [],
   bootstrap: [AppComponent]
