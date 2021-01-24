@@ -270,7 +270,6 @@ class CheckRoutingService {
         ];
     }
     createPaths(url) {
-        console.log(url);
         if (url === '' || url === '/') {
             return;
         }

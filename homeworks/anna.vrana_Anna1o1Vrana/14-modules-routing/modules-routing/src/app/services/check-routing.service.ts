@@ -21,7 +21,6 @@ export class CheckRoutingService {
   ]
 
   createPaths(url: string): void {
-    console.log(url)
     if (url === ''|| url === '/'){
       return}
     if(this.paths.length < 3) {
