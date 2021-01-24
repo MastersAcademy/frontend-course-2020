@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from './components/nav/nav.component';
 
 
-
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NavComponent
   ]
 })
 export class SharedModule { }
