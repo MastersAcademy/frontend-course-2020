@@ -6,11 +6,11 @@ import {AccessoriesComponent} from "./modules/accessories/components/accessories
 import {RoutingGuard} from "./guard/routing.guard";
 
 const routes: Routes = [
+  {path: '', component: HomeComponent, canActivate: [RoutingGuard]},
   {path: 'home', component: HomeComponent, canActivate: [RoutingGuard]},
   {path: 'account', component: AccountComponent, canActivate: [RoutingGuard]},
   {path: 'accessories', component: AccessoriesComponent, canActivate: [RoutingGuard]},
-  {path: '', component: AccessoriesComponent, canActivate: [RoutingGuard]},
-  {path: '**', redirectTo: '/'}
+  // {path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({

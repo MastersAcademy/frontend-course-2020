@@ -21,7 +21,10 @@ export class CheckRoutingService {
   ]
 
   createPaths(url: string): void {
-    if (this.paths.length < 3) {
+    console.log(url)
+    if (url === ''|| url === '/'){
+      return}
+    if(this.paths.length < 3) {
       this.paths.push(url)
     } else {
       this.setNewPaths()
@@ -41,6 +44,8 @@ export class CheckRoutingService {
   }
 
   comparePaths(): void {
+    console.log(this.movingPaths)
+    console.log(this.paths)
     if (JSON.stringify(this.movingPaths[0]['journey']) === JSON.stringify(this.paths)) {
       console.log(this.movingPaths[0]['message'])
       this.setNewPaths()
