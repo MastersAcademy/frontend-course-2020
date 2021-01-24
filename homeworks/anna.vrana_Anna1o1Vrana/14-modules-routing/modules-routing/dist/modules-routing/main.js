@@ -291,8 +291,6 @@ class CheckRoutingService {
         }
     }
     comparePaths() {
-        console.log(this.movingPaths);
-        console.log(this.paths);
         if (JSON.stringify(this.movingPaths[0]['journey']) === JSON.stringify(this.paths)) {
             console.log(this.movingPaths[0]['message']);
             this.setNewPaths();
