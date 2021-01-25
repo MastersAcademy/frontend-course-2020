@@ -21,9 +21,10 @@ export class CheckRoutingService {
   ]
 
   createPaths(url: string): void {
-    if (url === ''|| url === '/'){
-      return}
-    if(this.paths.length < 3) {
+    if (url === '' || url === '/') {
+      return
+    }
+    if (this.paths.length < 3) {
       this.paths.push(url)
     } else {
       this.setNewPaths()
