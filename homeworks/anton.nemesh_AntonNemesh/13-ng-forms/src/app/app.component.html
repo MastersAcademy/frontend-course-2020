@@ -1,0 +1,9 @@
+<form [formGroup]="loginForm">
+    <app-text-field [nameOfField]="'email'" formControlName="email"></app-text-field>
+    <app-password-field formControlName="password"></app-password-field>
+
+    <label for="remember">Remember me</label>
+    <input formControlName="remember" id="remember" type="checkbox" name="remember">
+
+    <button [class.disabled]="loginForm.invalid" type="submit" (click)="submit($event)">Login</button>
+</form>

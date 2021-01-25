@@ -1,0 +1,32 @@
+<section>
+  <div class="form__container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form__input">
+        <label for="input__email">Email</label>
+        <input class="input__item" id="input__email" type="text" name="email" placeholder="Email" formControlName="email">
+        
+        <div class="input__validation" *ngIf="email.invalid && email.touched">
+          <small *ngIf="email.errors?.required">This field mustn't be empty</small>
+          <small *ngIf="email.errors?.email">Enter the real email</small>
+        </div>
+      </div>
+            
+      <div class="form__input">
+        <label for="input__password">Password</label>
+        <input class="input__item" id="input__password" type="password" name="password" placeholder="Password" formControlName="password">
+
+        <div class="input__validation" *ngIf="password.invalid && password.touched">
+          <small *ngIf="password.errors?.required">This field mustn't be empty</small>
+          <small *ngIf="password.errors?.minlength">Password must be at least 6 characters long</small>
+        </div>
+      </div>
+      
+      <div class="form__input">
+        <input type="checkbox" formControlName="rememberMe"> 
+        <span>Remember me</span>
+      </div>
+      
+      <button class="button__submit" type="submit" [disabled]='form.invalid'>Submit</button>
+    </form>
+  </div>
+</section>

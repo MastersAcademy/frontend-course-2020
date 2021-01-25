@@ -1,0 +1,15 @@
+.app-form__title {
+  color: rgba(241, 223, 163, .966);
+  font-size: 1.23rem;
+  margin-right: 5px;
+}
+
+.app-form__card-number {
+  color: rgba(241, 223, 163, .966);
+  font-size: 1.23rem;
+  background-color: #2A426E;
+}
+
+.app-form__card-option {
+  background-color: #2A426E;
+}
