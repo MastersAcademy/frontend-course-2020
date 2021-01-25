@@ -26,35 +26,31 @@ export class CheckRoutingService {
     }
     if (this.paths.length < 3) {
       this.paths.push(url)
+      console.log(this.paths)
     } else {
-      this.setNewPaths()
+      this.resetPaths()
       this.paths.push(url)
     }
     this.comparePaths()
   }
 
-  setNewPaths(): void {
+  resetPaths(): void {
     this.paths = []
   }
 
-  checkPaths(): void {
-    if (this.paths[0] === '/accessories' || this.paths[1] === '/accessories' || this.paths[0] === '/') {
-      this.setNewPaths()
-    }
-  }
-
   comparePaths(): void {
+
     if (JSON.stringify(this.movingPaths[0]['journey']) === JSON.stringify(this.paths)) {
       console.log(this.movingPaths[0]['message'])
-      this.setNewPaths()
+      this.resetPaths()
     }
     if (JSON.stringify(this.movingPaths[1]['journey']) === JSON.stringify(this.paths)) {
       console.log(this.movingPaths[1]['message'])
-      this.setNewPaths()
+      this.resetPaths()
     }
     if (JSON.stringify(this.movingPaths[2]['journey']) === JSON.stringify(this.paths)) {
       console.log(this.movingPaths[2]['message'])
-      this.setNewPaths()
+      this.resetPaths()
     }
   }
 
