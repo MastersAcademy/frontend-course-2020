@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class TrackingService {
 
-  models = [
+  journeyPattern = [
     {
       message: 'User tends to home',
       journey: ['/home', '/account', '/home']
@@ -24,14 +24,14 @@ export class TrackingService {
 
   constructor() { }
 
-  trackingUrlPattern(url: string): void {
+  trackingUrl(url: string): void {
     this.urlHistory.push(url);
     this.urlHistory.shift();
     this.detectPattern();
   }
 
   detectPattern(): void {
-    for (const model of this.models) {
+    for (const model of this.journeyPattern) {
       if (model.journey.toString() === this.urlHistory.toString()) {
         console.log(model.message);
       }

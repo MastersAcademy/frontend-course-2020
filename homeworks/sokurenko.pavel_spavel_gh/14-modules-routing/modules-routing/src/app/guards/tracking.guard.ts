@@ -14,7 +14,7 @@ export class TrackingGuard implements CanActivate {
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       // console.log(123);
       // console.log(state.url);
-      this.trackingService.trackingUrlPattern((state.url).toString());
+      this.trackingService.trackingUrl((state.url).toString());
       return true;
   }
 
