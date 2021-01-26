@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
-export class JourneyService {
+export class JourneyService implements OnInit {
   private currentPathes: string[] = [];
   private journeyPathes = [
       {
@@ -18,6 +18,10 @@ export class JourneyService {
       }
   ];
 
+  ngOnInit() {
+    this.currentPathes = ['/home'];
+  }
+
   public checkPath(url: string): void {
       this.currentPathes.push(url);
       if(this.currentPathes.length === 3) {
@@ -33,6 +37,6 @@ export class JourneyService {
         console.log(item.message);
         }
     })
-    this.currentPathes = [];
+    this.currentPathes.splice(0, 2);
   }
 }
