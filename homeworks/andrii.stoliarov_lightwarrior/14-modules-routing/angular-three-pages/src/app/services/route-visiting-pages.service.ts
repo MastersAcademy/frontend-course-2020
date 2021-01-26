@@ -10,6 +10,18 @@ export class RouteVisitingPagesService {
     this.journey.push(url);
   }
 
+  clearJourneyArray() {
+    this.journey = [];
+  };
+
+  showMassage(index: number): void {
+    if (USERTENDS[index].journey.length !== this.journey.length) return;
+
+    console.log(USERTENDS[index].message);
+    this.clearJourneyArray();
+  }
+
+
   checkPath() {
     const lengthJourneyArray: number = this.journey.length;
     const stringJourney: string = this.journey.join('');
@@ -18,17 +30,12 @@ export class RouteVisitingPagesService {
     );
 
     if (index !== -1) {
-      if (USERTENDS[index].journey.length === lengthJourneyArray) {
-        console.log(USERTENDS[index].message);
-        this.journey = [];
-      }
+      this.showMassage(index);
     } else {
       const currentTransition: string = this.journey[lengthJourneyArray - 1];
-      this.journey = [];
+      this.clearJourneyArray();
       this.setTransition(currentTransition);
     }
   }
 
 }
-
-

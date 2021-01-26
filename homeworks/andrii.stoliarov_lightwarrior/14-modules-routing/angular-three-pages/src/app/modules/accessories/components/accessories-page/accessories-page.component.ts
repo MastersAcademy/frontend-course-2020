@@ -1,15 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-accessories-page',
-  templateUrl: './accessories-page.component.html',
-  styleUrls: ['./accessories-page.component.css']
+  templateUrl: './accessories-page.component.html'
 })
-export class AccessoriesPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class AccessoriesPageComponent {}

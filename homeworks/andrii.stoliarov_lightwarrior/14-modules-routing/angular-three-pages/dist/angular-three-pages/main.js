@@ -239,9 +239,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AccountPageComponent {
-    constructor() { }
-    ngOnInit() {
-    }
 }
 AccountPageComponent.ɵfac = function AccountPageComponent_Factory(t) { return new (t || AccountPageComponent)(); };
 AccountPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AccountPageComponent, selectors: [["app-account-page"]], decls: 5, vars: 0, template: function AccountPageComponent_Template(rf, ctx) { if (rf & 1) {
@@ -252,15 +249,14 @@ AccountPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "p");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui autem earum aliquid, tempore vero commodi hic veritatis, dolores alias saepe reprehenderit repellat laboriosam fugiat voluptatibus adipisci, minus dicta excepturi! Officiis.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, directives: [_shared_components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_1__["NavigationComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhY2NvdW50LXBhZ2UuY29tcG9uZW50LmNzcyJ9 */"] });
+    } }, directives: [_shared_components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_1__["NavigationComponent"]], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AccountPageComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
                 selector: 'app-account-page',
-                templateUrl: './account-page.component.html',
-                styleUrls: ['./account-page.component.css']
+                templateUrl: './account-page.component.html'
             }]
-    }], function () { return []; }, null); })();
+    }], null, null); })();
 
 
 /***/ }),
@@ -281,9 +277,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AccessoriesPageComponent {
-    constructor() { }
-    ngOnInit() {
-    }
 }
 AccessoriesPageComponent.ɵfac = function AccessoriesPageComponent_Factory(t) { return new (t || AccessoriesPageComponent)(); };
 AccessoriesPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AccessoriesPageComponent, selectors: [["app-accessories-page"]], decls: 5, vars: 0, template: function AccessoriesPageComponent_Template(rf, ctx) { if (rf & 1) {
@@ -294,15 +287,14 @@ AccessoriesPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "p");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora iusto dolores, corrupti itaque modi, nihil officia ex ipsum recusandae ab fugit optio repellat quidem aperiam illum! Accusantium exercitationem eveniet quae!");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, directives: [_shared_components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_1__["NavigationComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhY2Nlc3Nvcmllcy1wYWdlLmNvbXBvbmVudC5jc3MifQ== */"] });
+    } }, directives: [_shared_components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_1__["NavigationComponent"]], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AccessoriesPageComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
                 selector: 'app-accessories-page',
-                templateUrl: './accessories-page.component.html',
-                styleUrls: ['./accessories-page.component.css']
+                templateUrl: './accessories-page.component.html'
             }]
-    }], function () { return []; }, null); })();
+    }], null, null); })();
 
 
 /***/ }),
@@ -399,19 +391,26 @@ class RouteVisitingPagesService {
     setTransition(url) {
         this.journey.push(url);
     }
+    clearJourneyArray() {
+        this.journey = [];
+    }
+    ;
+    showMassage(index) {
+        if (_data__WEBPACK_IMPORTED_MODULE_1__["USERTENDS"][index].journey.length !== this.journey.length)
+            return;
+        console.log(_data__WEBPACK_IMPORTED_MODULE_1__["USERTENDS"][index].message);
+        this.clearJourneyArray();
+    }
     checkPath() {
         const lengthJourneyArray = this.journey.length;
         const stringJourney = this.journey.join('');
         const index = _data__WEBPACK_IMPORTED_MODULE_1__["USERTENDS"].findIndex(item => item.journey.slice(0, lengthJourneyArray).join('') === stringJourney);
         if (index !== -1) {
-            if (_data__WEBPACK_IMPORTED_MODULE_1__["USERTENDS"][index].journey.length === lengthJourneyArray) {
-                console.log(_data__WEBPACK_IMPORTED_MODULE_1__["USERTENDS"][index].message);
-                this.journey = [];
-            }
+            this.showMassage(index);
         }
         else {
             const currentTransition = this.journey[lengthJourneyArray - 1];
-            this.journey = [];
+            this.clearJourneyArray();
             this.setTransition(currentTransition);
         }
     }
@@ -617,9 +616,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class HomePageComponent {
-    constructor() { }
-    ngOnInit() {
-    }
 }
 HomePageComponent.ɵfac = function HomePageComponent_Factory(t) { return new (t || HomePageComponent)(); };
 HomePageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomePageComponent, selectors: [["app-home-page"]], decls: 5, vars: 0, template: function HomePageComponent_Template(rf, ctx) { if (rf & 1) {
@@ -630,15 +626,14 @@ HomePageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "p");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis numquam error dicta obcaecati perferendis recusandae natus quis corporis explicabo quia ea, doloribus provident fuga vero voluptatum quos nesciunt aliquam! Id!");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, directives: [_shared_components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_1__["NavigationComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJob21lLXBhZ2UuY29tcG9uZW50LmNzcyJ9 */"] });
+    } }, directives: [_shared_components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_1__["NavigationComponent"]], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HomePageComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
                 selector: 'app-home-page',
-                templateUrl: './home-page.component.html',
-                styleUrls: ['./home-page.component.css']
+                templateUrl: './home-page.component.html'
             }]
-    }], function () { return []; }, null); })();
+    }], null, null); })();
 
 
 /***/ }),
