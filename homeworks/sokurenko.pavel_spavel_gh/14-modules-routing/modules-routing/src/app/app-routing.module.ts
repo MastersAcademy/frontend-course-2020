@@ -4,12 +4,14 @@ import { AccessoriesComponent } from './modules/accessories/components/accessori
 import { AccountComponent } from './modules/account/components/account/account.component';
 import { HomeComponent } from './modules/home/components/home/home.component';
 
+import { TrackingGuard } from './guards/tracking.guard';
+
 const routes: Routes = [
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent},
-  { path: 'account', component: AccountComponent},
-  { path: 'accessories', component: AccessoriesComponent},
-  { path: '**', component: HomeComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full', canActivate: [TrackingGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [TrackingGuard] },
+  { path: 'account', component: AccountComponent, canActivate: [TrackingGuard] },
+  { path: 'accessories', component: AccessoriesComponent, canActivate: [TrackingGuard] },
+  { path: '**', component: HomeComponent, canActivate: [TrackingGuard] },
 ];
 
 @NgModule({
