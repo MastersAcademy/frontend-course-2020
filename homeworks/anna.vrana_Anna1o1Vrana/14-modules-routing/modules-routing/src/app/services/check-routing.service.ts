@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {MovingPathsInterface} from "../models/movingPaths.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,8 @@ export class CheckRoutingService {
     }
     if (this.paths.length < 3) {
       this.paths.push(url)
-      console.log(this.paths)
     } else {
       this.resetPaths()
-      this.paths.push(url)
     }
     this.comparePaths()
   }
@@ -38,20 +37,20 @@ export class CheckRoutingService {
     this.paths = []
   }
 
-  comparePaths(): void {
+  checkPaths(): void {
+    if (this.paths[0] === '/accessories' || this.paths[1] === '/accessories') {
+      this.resetPaths();
+    }
+  }
 
-    if (JSON.stringify(this.movingPaths[0]['journey']) === JSON.stringify(this.paths)) {
-      console.log(this.movingPaths[0]['message'])
-      this.resetPaths()
-    }
-    if (JSON.stringify(this.movingPaths[1]['journey']) === JSON.stringify(this.paths)) {
-      console.log(this.movingPaths[1]['message'])
-      this.resetPaths()
-    }
-    if (JSON.stringify(this.movingPaths[2]['journey']) === JSON.stringify(this.paths)) {
-      console.log(this.movingPaths[2]['message'])
-      this.resetPaths()
-    }
+  comparePaths() {
+    this.checkPaths()
+    this.movingPaths.forEach((item: MovingPathsInterface) => {
+      if (JSON.stringify(this.paths) === JSON.stringify(item.journey)) {
+        console.log(item.message)
+        this.resetPaths()
+      }
+    })
   }
 
 }

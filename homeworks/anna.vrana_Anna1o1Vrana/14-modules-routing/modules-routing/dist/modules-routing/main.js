@@ -275,30 +275,28 @@ class CheckRoutingService {
         }
         if (this.paths.length < 3) {
             this.paths.push(url);
-            console.log(this.paths);
         }
         else {
             this.resetPaths();
-            this.paths.push(url);
         }
         this.comparePaths();
     }
     resetPaths() {
         this.paths = [];
     }
+    checkPaths() {
+        if (this.paths[0] === '/accessories' || this.paths[1] === '/accessories') {
+            this.resetPaths();
+        }
+    }
     comparePaths() {
-        if (JSON.stringify(this.movingPaths[0]['journey']) === JSON.stringify(this.paths)) {
-            console.log(this.movingPaths[0]['message']);
-            this.resetPaths();
-        }
-        if (JSON.stringify(this.movingPaths[1]['journey']) === JSON.stringify(this.paths)) {
-            console.log(this.movingPaths[1]['message']);
-            this.resetPaths();
-        }
-        if (JSON.stringify(this.movingPaths[2]['journey']) === JSON.stringify(this.paths)) {
-            console.log(this.movingPaths[2]['message']);
-            this.resetPaths();
-        }
+        this.checkPaths();
+        this.movingPaths.forEach((item) => {
+            if (JSON.stringify(this.paths) === JSON.stringify(item.journey)) {
+                console.log(item.message);
+                this.resetPaths();
+            }
+        });
     }
 }
 CheckRoutingService.ɵfac = function CheckRoutingService_Factory(t) { return new (t || CheckRoutingService)(); };
