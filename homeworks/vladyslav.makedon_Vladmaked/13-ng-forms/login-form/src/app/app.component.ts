@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
+import {UserDataService} from './services';
+import {UserData} from './models';
 
 @Component({
   selector: 'app-root',
@@ -7,52 +10,70 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  form!: FormGroup;
+  userDataForm!: FormGroup;
+  userData!: UserData;
+
+  constructor(private formBuilder: FormBuilder, private userDataService: UserDataService) {
+  }
 
   ngOnInit(): void {
-    this.initForm();
-    this.getFormState();
+    this.initializeUserDataForm();
+    this.getUserData();
+    this.setUserDataFormState();
   }
 
-  initForm(): void {
-    this.form = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      checkbox: new FormControl('')
+  initializeUserDataForm(): void {
+    this.userDataForm = this.formBuilder.group({
+      userData: this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        isCheckboxRememberMe: false
+      })
     });
   }
 
-  getFormState(): void {
-    let email = '';
-    let password = '';
-    const checkbox = '';
-    if (localStorage.getItem('email')) {
-      email = atob(localStorage.getItem('email') || '');
-    }
-    if (localStorage.getItem('password')) {
-      password = atob(localStorage.getItem('password') || '');
-    }
-    this.form.setValue({
-      email,
-      password,
-      checkbox
-    });
+
+  getUserData(): void {
+    this.userData = this.userDataService.getUserData();
+  }
+
+  setUserDataFormState(): void {
+    const userData = this.userData;
+    this.userDataForm.setValue({userData});
   }
 
   submit(): void {
-    if (this.form.invalid) {
+    if (this.userDataForm.invalid) {
       return;
     }
 
-    if (this.form.value.checkbox === true) {
-      localStorage.setItem('email', btoa(this.form.value.email));
-      localStorage.setItem('password', btoa(this.form.value.password));
-    } else {
-      localStorage.clear();
-    }
+    this.userDataService.saveUserData(this.userDataForm.value.userData);
 
-    alert(`Email: ${this.form.value.email}\nPassword: ${this.form.value.password}`);
+    const email = this.userDataForm.value.userData.email;
+    const password = this.userDataForm.value.userData.password;
+    alert(`Email: ${email}\nPassword: ${password}`);
 
-    this.form.reset();
+    this.userDataForm.reset();
+  }
+
+  isFormControlInvalid(formControl: string): boolean | undefined {
+    return this.userDataForm
+      .get(`userData.${formControl}`)?.touched && this.userDataForm.get(`userData.${formControl}`)?.invalid;
+  }
+
+  isEmailErrorInFormControl(): boolean {
+    return this.userDataForm.get('userData.email')?.errors?.email;
+  }
+
+  isErrorInFormControl(formControl: string, errorType: string): boolean {
+    return this.userDataForm.get(`userData.${formControl}`)?.errors?.[errorType];
+  }
+
+  getFormControlActualLength(): number {
+    return this.userDataForm.get('userData.password')?.errors?.minlength.actualLength;
+  }
+
+  getFormControlMinLength(): number {
+    return this.userDataForm.get('userData.password')?.errors?.minlength.requiredLength;
   }
 }
