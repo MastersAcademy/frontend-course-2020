@@ -14,6 +14,9 @@ export class PathService {
                 console.log('Result is', item.message)
             }
         })
+    }
+
+    private clearData(): void {
         this.actualPathes = [];
     }
 
@@ -21,6 +24,7 @@ export class PathService {
         this.actualPathes.push(url);
         if (this.actualPathes.length === 3) {
             this.showResult()
+            this.clearData();
         }
     }
 
