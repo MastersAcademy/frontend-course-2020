@@ -1,0 +1,13 @@
+.name_Of_List {
+  margin-left: 6%;
+}
+
+.list_Of_Cars {
+  list-style-type: none;
+  border: 1px solid hsl(0, 0%, 0%);
+  width: 300px;
+}
+
+.begining_From_Http {
+  color: hsl(0, 100%, 50%);
+}

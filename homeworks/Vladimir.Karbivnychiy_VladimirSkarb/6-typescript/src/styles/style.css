@@ -1,0 +1,39 @@
+.cube-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cube {
+  width: 150px;
+  height: 150px;
+  background-color: #F00;
+  margin: 0 auto;
+}
+
+.key {
+  width: 150px;
+  height: 150px;
+  background-color: #A2AFA3;
+  font-size: 50px;
+  text-align: center;
+  margin: 100px auto 0;
+  line-height: 145px;
+}
+
+.cube-score {
+  position: absolute;
+  left: 500px;
+  top: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.score {
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.wrapper-cube {
+  height: 200px;
+}

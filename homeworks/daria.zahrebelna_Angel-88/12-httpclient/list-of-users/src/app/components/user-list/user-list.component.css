@@ -1,0 +1,32 @@
+.page {
+  max-width: 80%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.user-list {
+  list-style: none;
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.user-list__item-wrapper {
+  margin: 15px;
+  background-color: #A098A9;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 15px;
+  margin: 0 10px;
+  background-color: #A098A9;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #D5CFD7;
+}

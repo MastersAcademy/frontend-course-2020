@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+h1 {
+  position: absolute;
+  letter-spacing: 1em;
+  color: #0002;
+}
+.margin-top {
+  margin-top: 6rem;
+}
+input, button {
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map*/
