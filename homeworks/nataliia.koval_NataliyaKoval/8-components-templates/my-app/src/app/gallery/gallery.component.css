@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.active {
+  border: 3px rgb(245, 75, 98) solid;
+}
+
+.imageItem {
+  margin: auto;
+}
+
+.largeImage {
+  margin: auto;
+}
+
+.spinner {
+  margin: 50px auto;
+  z-index: 2;
+}
+
+h1 {
+  color: rgb(4, 109, 201);
+  text-align: center;
+  font-size: 35px;
+}

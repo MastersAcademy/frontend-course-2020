@@ -1,0 +1,16 @@
+<a href="https://www.google.com/search?q={{ car.vehicle }}" class="link" target="_blank">
+  <table class="car-grid">
+      <tr appProtocol>
+        <td class="bold">Added from<a href=""></a></td>
+        <td>{{car.post.protocol}}<a href=""></a></td>
+      </tr>
+      <tr>
+        <td class="bold">Vehicle</td>
+        <td>{{ car | carInfo }}</td>
+      </tr>
+      <tr>
+        <td class="bold">Price</td>
+        <td>{{ car.cost.amount | currency: car.cost.currencyCode:'symbol-narrow' }}</td>
+      </tr>
+  </table>
+</a>

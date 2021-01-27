@@ -1,0 +1,12 @@
+.container-account {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.account-link {
+  cursor: pointer;
+  font-size: 18px;
+  font-family: Poppins, sans-serif;
+  color: #0A2BA1;
+  padding: 5px;
+}

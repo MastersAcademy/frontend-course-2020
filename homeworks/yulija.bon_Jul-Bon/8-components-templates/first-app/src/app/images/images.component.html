@@ -1,0 +1,13 @@
+<ul class="image-gallery">
+  <li class="image-gallery__item"
+      *ngFor="let image of images" (click)="onSelect(image)"
+      [class.selected]="image === selectedImage">
+
+    <div *ngIf="loading" class="loader-wrap"><div class="loader"></div></div>
+    <img src="{{image.urls.small}}" class="image-gallery__image image" alt="" (load)="onLoad()">
+  </li>
+</ul>
+
+<div *ngIf="selectedImage" class="image-block">
+  <img src="{{selectedImage.urls.regular}}" class="image-block__full-image image" alt="">
+</div>

@@ -1,0 +1,39 @@
+.h1 {
+  margin: 0;
+  height: 10%;
+}
+
+.container {
+  padding: 15px 0 15px 15px;
+  flex-grow: 1;
+  height: 90%;
+  width: 100%;
+  box-shadow: 0 0 10px 1px #888;
+}
+
+.scroll-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  gap: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+.plate {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, .164);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.selected {
+  border: 2px solid #52B788;
+}

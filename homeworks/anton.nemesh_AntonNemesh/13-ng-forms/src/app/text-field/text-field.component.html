@@ -1,0 +1,10 @@
+<label for="{{ nameOfField }}">{{ nameOfField | titlecase }}</label>
+<div class="text-field-wrapper">
+  <input [formControl]="currentFieldControl"
+         id="{{ nameOfField }}"
+         type="{{ getTypeOfField(nameOfField) }}"
+         placeholder="Enter {{ nameOfField | titlecase }}">
+  <ng-content></ng-content>
+</div>
+<span class="error-message" *ngIf="isTouched">{{ errorMessage }}</span>
+<span class="error-message" *ngIf="!isTouched"></span>
