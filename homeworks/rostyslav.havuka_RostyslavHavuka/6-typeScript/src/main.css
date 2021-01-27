@@ -1,0 +1,53 @@
+.red-square {
+  background-color: #EE0606;
+  position: fixed;
+  right: 49%;
+  top: 33%;
+}
+
+.key {
+  position: fixed;
+  right: 41.8%;
+  top: 34.7%;
+  font-size: 40px;
+  color: #020202
+}
+
+.cube-score {
+  position: fixed;
+  right: 41.5%;
+  top: 28%;
+  font-size: 30px;
+}
+
+.score {
+  position: fixed;
+  right: 41.5%;
+  top: 43%;
+  font-size: 30px;
+}
+
+.menu {
+  position: fixed;
+  right: 46%;
+  top: 20%;
+}
+
+.progress-bar {
+  width: 100%;
+  max-width: 190px;
+  position: fixed;
+  right: 46.2%;
+  top: 15%;
+  background: #AECFBC;
+}
+
+.progress-bar__value {
+  width: 0%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+
+.hidden {
+  display: none;
+}

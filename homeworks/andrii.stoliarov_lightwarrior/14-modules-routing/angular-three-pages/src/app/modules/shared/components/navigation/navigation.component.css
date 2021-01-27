@@ -1,0 +1,13 @@
+.navigation-list {
+  list-style: none;
+  display: flex;
+}
+
+.navigation-link {
+  text-decoration: none;
+  padding-right: 15px;
+}
+
+.navigation-link:hover {
+  color: #666;
+}

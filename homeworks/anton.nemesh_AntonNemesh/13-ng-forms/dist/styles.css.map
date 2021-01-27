@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/styles.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,cAAc;AAChB","file":"styles.css","sourcesContent":[".container {\n  max-width: 320px;\n  margin: 0 auto;\n}\n"],"sourceRoot":"webpack:///"}

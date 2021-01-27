@@ -1,0 +1,15 @@
+.form {
+  display: grid;
+  row-gap: 1rem;
+  width: 20rem;
+}
+
+.air {
+  padding: .6rem;
+}
+
+.form-checkbox {
+  width: 1em;
+  height: 1em;
+  margin-right: .35em;
+}

@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.head-cub-num {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.cube {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background-color: #F00;
+}
+
+.cube-num {
+  display: flex;
+  align-items: center;
+  margin-right: 260px;
+  font-size: 25px;
+  transition: .2s;
+  opacity: 0;
+}
+
+.cube-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 70px;
+  width: 100px;
+  height: 100px;
+  background-color: #FAEBD7;
+}
+
+.cube-score-letters {
+  font-size: 30px;
+}
+
+.myProgress {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.myBar {
+  width: 1%;
+  height: 15px;
+  background-color: #1E90FF;
+}
+
+.hidden {
+  font-size: 25px;
+  opacity: 1;
+}
