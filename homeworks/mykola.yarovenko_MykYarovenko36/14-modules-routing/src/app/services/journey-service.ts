@@ -1,9 +1,9 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
-export class JourneyService implements OnInit {
-  private currentPathes: string[] = [];
-  private journeyPathes = [
+export class JourneyService {
+  private currentPaths: string[] = [];
+  private journeyPaths = [
       {
           message: 'User tends to home',
           journey: ['/home', '/account', '/home'],
@@ -18,25 +18,27 @@ export class JourneyService implements OnInit {
       }
   ];
 
-  ngOnInit() {
-    this.currentPathes = ['/home'];
+  private clearPaths = (): void => {
+    this.currentPaths = [];
+  };
+
+  private initLastPath = (): void => {
+     this.currentPaths = [`${this.currentPaths.pop()}`];
   }
 
-  public checkPath(url: string): void {
-      this.currentPathes.push(url);
-      if(this.currentPathes.length === 3) {
-          this.showResult();
-      }
+  public checkPath = (url: string): void => {
+    if (this.currentPaths.length < 3 && url !== '/') this.currentPaths.push(url);
+    if (this.currentPaths.length === 3) {
+        const path = this.currentPaths.join('');
+        this.journeyPaths.forEach((item) => {
+            item.journey.join('').includes(path)? (
+                this.showResult(item.message), this.clearPaths()
+                ) : this.initLastPath();
+        });
+    }
   }
 
-  private showResult(): void {
-    const path = this.currentPathes.join('');
-    this.journeyPathes.forEach( item => {
-        let result = path === item.journey.join('');
-        if (result) {
-        console.log(item.message);
-        }
-    })
-    this.currentPathes.splice(0, 2);
+  private showResult = (message: string): void => {
+    console.log(message);
   }
 }

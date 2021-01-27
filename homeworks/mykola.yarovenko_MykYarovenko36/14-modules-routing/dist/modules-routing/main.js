@@ -283,8 +283,8 @@ __webpack_require__.r(__webpack_exports__);
 
 class JourneyService {
     constructor() {
-        this.currentPathes = [];
-        this.journeyPathes = [
+        this.currentPaths = [];
+        this.journeyPaths = [
             {
                 message: 'User tends to home',
                 journey: ['/home', '/account', '/home'],
@@ -298,25 +298,25 @@ class JourneyService {
                 journey: ['/home', '/account', '/accessories'],
             }
         ];
-    }
-    ngOnInit() {
-        this.currentPathes = ['/home'];
-    }
-    checkPath(url) {
-        this.currentPathes.push(url);
-        if (this.currentPathes.length === 3) {
-            this.showResult();
-        }
-    }
-    showResult() {
-        const path = this.currentPathes.join('');
-        this.journeyPathes.forEach(item => {
-            let result = path === item.journey.join('');
-            if (result) {
-                console.log(item.message);
+        this.clearPaths = () => {
+            this.currentPaths = [];
+        };
+        this.initLastPath = () => {
+            this.currentPaths = [`${this.currentPaths.pop()}`];
+        };
+        this.checkPath = (url) => {
+            if (this.currentPaths.length < 3 && url !== '/')
+                this.currentPaths.push(url);
+            if (this.currentPaths.length === 3) {
+                const path = this.currentPaths.join('');
+                this.journeyPaths.forEach((item) => {
+                    item.journey.join('').includes(path) ? (this.showResult(item.message), this.clearPaths()) : this.initLastPath();
+                });
             }
-        });
-        this.currentPathes.splice(0, 2);
+        };
+        this.showResult = (message) => {
+            console.log(message);
+        };
     }
 }
 JourneyService.ɵfac = function JourneyService_Factory(t) { return new (t || JourneyService)(); };
