@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: footer;
+  background-color: #123552;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .7);
+  opacity: .9;
+}
+
+.footer__menu {
+  margin: 0;
+  list-style: none;
+}
+
+.menu__item {
+  margin: 4px 0;
+  opacity: .7;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.menu__item:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
