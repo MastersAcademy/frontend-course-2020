@@ -1,0 +1,23 @@
+<div class="app-wrapper">
+  <div class="drop-list-wrapper">
+    Persons on page
+    <select class="drop-list" (change)="personsOnPage($event)">
+      <option value="2">2</option>
+      <option value="4">4</option>
+      <option value="6">6</option>
+    </select>
+  </div>
+  <img *ngIf="isLoading"
+    src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg"
+    alt="Loading..." class="loader">
+  <div class="card-wrapper" *ngIf="!isLoading">
+    <app-card [state]="state">
+    </app-card>
+  </div>
+  <div class="btnContainer" *ngIf="!isLoading">
+    <app-pagination-item *ngFor="let count of reqPages" [pageNumber]="count" class="pageBtn"
+      (click)="togglePage(count)">
+    </app-pagination-item>
+  </div>
+</div>
+

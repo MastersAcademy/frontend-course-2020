@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.scss"],"names":[],"mappings":"AAAA;AAEA;EACE;EACA;EACA;AAAF;AAGA;EACE;AAAF,C","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\n\nimg {\n  width: 100%;\n  max-width: 100%;\n  vertical-align: middle;\n}\n\n* {\n  box-sizing: border-box;\n}\n"],"sourceRoot":"webpack:///"}

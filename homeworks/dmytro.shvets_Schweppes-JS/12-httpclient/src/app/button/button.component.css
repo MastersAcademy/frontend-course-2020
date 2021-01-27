@@ -1,0 +1,33 @@
+.button__page-number {
+  margin: 0;
+  color: rgba(241, 198, 163, .589);
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+.button-container__button {
+  cursor: pointer;
+  position: relative;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 6px solid rgba(104, 76, 76, .856);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 10px 10px rgb(80, 46, 18) , 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+.button-container__button::after {
+  position: absolute;
+  content: "";
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 3px solid rgba(104, 76, 76, .8);
+  background-color: rgb(80, 76, 34);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}

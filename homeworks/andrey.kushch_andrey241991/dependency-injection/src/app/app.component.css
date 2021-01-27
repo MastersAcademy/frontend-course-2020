@@ -1,0 +1,20 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table-item {
+  border: 1px solid #DDD;
+  text-align: left;
+  padding: 8px;
+}
+
+.table-item:nth-child(even) {
+  background-color: #DDD;
+}
+
+.--color-red {
+  color: rgb(248, 14, 14);
+}
