@@ -1,8 +1,6 @@
 import {AfterContentInit, Component} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-
-const EMAIL = 'email';
-const PASSWORD = 'password';
+import {AuthService, IAuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-login-form',
@@ -29,17 +27,15 @@ export class LoginFormComponent implements AfterContentInit {
     return errors.length === 0 ? null : errors;
   }
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder, private authService:AuthService) {}
 
   ngAfterContentInit(): void {
-    const email = localStorage.getItem(EMAIL);
-    const pass = localStorage.getItem(PASSWORD);
+    const auth : IAuthService = this.authService.getAuth();
 
     this.formLogin.setValue({
-      email: email ? atob(email) : '',
-      password: pass ? atob(pass) : '',
-      remember: (email || pass) ? 'checked' : ''
+      email: auth.email,
+      password: auth.password,
+      remember: (auth.email || auth.password) ? 'checked' : ''
     });
   }
 
@@ -71,7 +67,6 @@ export class LoginFormComponent implements AfterContentInit {
   }
 
   private saveForm() {
-    localStorage.setItem(EMAIL, btoa(this.formLogin.value.email));
-    localStorage.setItem(PASSWORD, btoa(this.formLogin.value.password));
+    this.authService.saveAuth(this.formLogin.value.email, this.formLogin.value.password);
   }
 }

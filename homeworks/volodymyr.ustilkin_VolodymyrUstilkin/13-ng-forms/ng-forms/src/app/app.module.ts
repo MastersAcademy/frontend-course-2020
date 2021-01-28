@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginFormComponent } from './login-form/login-form.component';
 import { CustomInputComponent } from './custom-input/custom-input.component';
+import {services} from "./services";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ...services
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
