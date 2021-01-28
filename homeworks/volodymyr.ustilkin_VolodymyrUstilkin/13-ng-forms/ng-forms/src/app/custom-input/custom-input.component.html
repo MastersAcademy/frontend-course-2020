@@ -14,7 +14,7 @@
     <p class="label-name">{{labelName}}</p>
     <div class="input-button-container">
       <input [type]="inputType" class="text-input" [formControl]="textInput" (change)="onInputChange($event)"/>
-      <div
+      <button type="button"
         class="input-show-hide-button"
         [class.display--none]="!inputTypeChangeButtonDisplay"
         (click)="changeTextInputType()">
@@ -22,7 +22,7 @@
           <use href="#show-icon" *ngIf="isInputTypePassword"></use>
           <use href="#hide-icon" *ngIf="!isInputTypePassword"></use>
         </svg>
-      </div>
+      </button>
     </div>
   </label>
   <label class="custom-input-label error-message-label">{{labelErrorValue}}</label>
