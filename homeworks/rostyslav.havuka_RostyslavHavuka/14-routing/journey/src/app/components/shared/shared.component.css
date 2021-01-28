@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.link {
+  font-size: 40px;
+  text-decoration: none;
+  margin-right: 10px;
+  color: #A52A2A;
+  border: solid 1px #000001;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.link:hover {
+  opacity: .5;
+  padding: 1px;
+}
