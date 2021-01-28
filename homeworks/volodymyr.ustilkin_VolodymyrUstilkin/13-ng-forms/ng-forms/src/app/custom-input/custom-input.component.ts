@@ -26,6 +26,10 @@ export class CustomInputComponent implements ControlValueAccessor {
   onTouched = () => {};
   onChange = (value: any) => {};
 
+  get isInputTypePassword(): boolean {
+    return this.inputType !== 'password';
+  }
+
   onInputChange(event: Event) {
     const val = (event.target as HTMLInputElement).value;
 
