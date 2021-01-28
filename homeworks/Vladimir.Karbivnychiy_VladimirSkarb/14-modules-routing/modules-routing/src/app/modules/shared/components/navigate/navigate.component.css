@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #0A7899;
+  font-size: 18px;
+}
+
+.link:hover {
+  color: #EE0606;
+}
