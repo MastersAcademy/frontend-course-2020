@@ -12,7 +12,7 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from "@angular/for
   }]
 })
 export class CustomInputComponent implements ControlValueAccessor {
-  textInput = new FormControl('');
+  readonly textInput = new FormControl('');
 
   @Input() labelName: string = '';
   @Input() inputType: string;
