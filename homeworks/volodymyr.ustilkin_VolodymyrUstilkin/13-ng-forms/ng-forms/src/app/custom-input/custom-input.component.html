@@ -13,7 +13,7 @@
   <label class="custom-input-label">
     <p class="label-name">{{labelName}}</p>
     <div class="input-button-container">
-      <input [type]="inputType" class="text-input" [formControl]="textInput" (change)="onInputChange($event)"/>
+      <input [type]="inputType" class="text-input" [formControl]="textInput"/>
       <button type="button"
         class="input-show-hide-button"
         [class.display--none]="!inputTypeChangeButtonDisplay"

@@ -19,7 +19,7 @@ enum InputType {
     multi: true
   }]
 })
-export class CustomInputComponent implements ControlValueAccessor {
+export class CustomInputComponent implements ControlValueAccessor, OnInit {
   readonly textInput = new FormControl('');
 
   @Input() labelName: string = '';
@@ -38,14 +38,14 @@ export class CustomInputComponent implements ControlValueAccessor {
     return this.inputType !== InputType.password;
   }
 
-  onInputChange(event: Event) {
-    const val = (event.target as HTMLInputElement).value;
-
-    if (this.textInput.errors) {
-      this.labelErrorValue = this.textInput.errors[0];
-    }
-    this.onChange(val);
-  };
+  ngOnInit() {
+    this.textInput.valueChanges.subscribe(value => {
+      if (this.textInput.errors) {
+        this.labelErrorValue = this.textInput.errors[0];
+      }
+      this.onChange(value);
+    })
+  }
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
