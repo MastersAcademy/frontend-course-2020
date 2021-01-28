@@ -31,8 +31,8 @@ export class CustomInputComponent implements ControlValueAccessor, OnInit {
 
   constructor() {}
 
-  onTouched = () => {};
-  onChange = (value: any) => {};
+  onTouched: Function = () => {};
+  onChange: Function = (value: Function) => {};
 
   get isInputTypePassword(): boolean {
     return this.inputType !== InputType.password;
@@ -47,11 +47,11 @@ export class CustomInputComponent implements ControlValueAccessor, OnInit {
     })
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: Function): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: Function): void {
     this.onTouched = fn;
   }
 
