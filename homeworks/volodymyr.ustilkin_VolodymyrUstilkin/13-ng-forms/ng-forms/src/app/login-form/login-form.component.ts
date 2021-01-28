@@ -1,5 +1,5 @@
 import {AfterContentInit, AfterViewInit, Component} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 
 const EMAIL = 'email';
 const PASSWORD = 'password';
@@ -10,7 +10,7 @@ const PASSWORD = 'password';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements AfterViewInit, AfterContentInit {
-  formLogin: FormGroup = new FormGroup({
+  formLogin: FormGroup = this.formBuilder.group({
     email: new FormControl('', this.emailValidate),
     password: new FormControl('', Validators.required),
     remember: new FormControl(''),
@@ -29,7 +29,7 @@ export class LoginFormComponent implements AfterViewInit, AfterContentInit {
     return errors.length === 0 ? null : errors;
   }
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngAfterViewInit(): void {
