@@ -29,8 +29,6 @@ export class CustomInputComponent implements ControlValueAccessor, OnInit {
 
   private previousInputType: InputType;
 
-  constructor() {}
-
   onTouched: Function = () => {};
   onChange: Function = (value: Function) => {};
 

@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Component} from '@angular/core';
+import {AfterContentInit, Component} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 
 const EMAIL = 'email';
@@ -9,7 +9,7 @@ const PASSWORD = 'password';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements AfterViewInit, AfterContentInit {
+export class LoginFormComponent implements AfterContentInit {
   formLogin: FormGroup = this.formBuilder.group({
     email: new FormControl('', this.emailValidate),
     password: new FormControl('', Validators.required),
@@ -30,9 +30,6 @@ export class LoginFormComponent implements AfterViewInit, AfterContentInit {
   }
 
   constructor(private formBuilder: FormBuilder) {
-  }
-
-  ngAfterViewInit(): void {
   }
 
   ngAfterContentInit(): void {
