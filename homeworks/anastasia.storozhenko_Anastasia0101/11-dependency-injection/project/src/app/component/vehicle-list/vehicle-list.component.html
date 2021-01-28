@@ -1,0 +1,8 @@
+<div *ngIf="isLoading">Loading...</div>
+
+<ul #elseBlock>
+  <li *ngFor="let vehicle of vehicles$ | async">
+    <app-vehicle [vehicle]="vehicle"></app-vehicle>
+  </li>
+</ul>
+

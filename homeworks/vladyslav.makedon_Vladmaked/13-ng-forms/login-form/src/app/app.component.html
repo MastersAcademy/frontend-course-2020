@@ -1,0 +1,60 @@
+<div class="container">
+    <form class="login-form" [formGroup]="userDataForm" (ngSubmit)="submit()">
+        <div formGroupName="userData">
+            <div class="form-control">
+                <label>
+                    <input type="email"
+                           class="form-control__input"
+                           placeholder="Your email"
+                           autocomplete="off"
+                           formControlName="email">
+                </label>
+                <div *ngIf="isFormControlInvalid('email');"
+                     class="validation">
+                    <small *ngIf="isErrorInFormControl('email', 'required')">
+                        Enter your email
+                    </small>
+                    <small *ngIf="isErrorInFormControl('email', 'email')">
+                        Email must be email
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label>
+                    <input type="password"
+                           class="form-control__input"
+                           placeholder="Your password"
+                           autocomplete="off"
+                           formControlName="password">
+                </label>
+                <div *ngIf="isFormControlInvalid('password');"
+                     class="validation">
+                    <small *ngIf="isErrorInFormControl('password', 'required')">
+                        Enter your password
+                    </small>
+                    <small *ngIf="isErrorInFormControl('password', 'minlength')">
+                        The password must be at least {{getFormControlMinLength()}}
+                        characters long. Now it's {{getFormControlActualLength()}} characters.
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-control-checkbox-wrapper">
+                <input type="checkbox"
+                       id="checkbox"
+                       class="form-control-checkbox__input"
+                       formControlName="isCheckboxRememberMe">
+                <label for="checkbox" class="form-control-checkbox__label">Remember me</label>
+            </div>
+        </div>
+
+        <button type="submit"
+                class="login-form__btn"
+                [disabled]="userDataForm.invalid"
+                [ngClass]="{tooltip: userDataForm.invalid}"
+                data-tooltip-title="Enter correct data"
+        >Login
+        </button>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+<form class = "inputForm" [formGroup] = "profileForm" (ngSubmit)="onSubmit()">
+    <label for="" class = "marginBottom">
+        <div class = "marginBottom">Email:</div>
+        <input type="text" formControlName = "email" class = "marginBottom inputStyle">
+    </label>
+
+    <label for="" class = "marginBottom">
+        <div class = "marginBottom">Password:</div>
+        <input type="text" formControlName = "password" class = "marginBottom inputStyle">
+    </label>
+
+    <label for="" class = "marginBottom">
+        remember me
+        <input type = "checkbox" formControlName = "checkbox" value = "check" class = "marginBottom">
+    </label>
+
+    <button type="submit" [disabled]="!profileForm.valid" class = "btn_Sumbit">Submit</button>
+</form>
