@@ -28,4 +28,8 @@ export class AuthService {
 
     return {email : '', password: ''};
   }
+
+  clearAuth() {
+    localStorage.clear();
+  }
 }

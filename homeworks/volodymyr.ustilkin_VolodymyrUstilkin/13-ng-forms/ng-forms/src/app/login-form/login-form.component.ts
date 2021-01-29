@@ -40,15 +40,15 @@ export class LoginFormComponent implements AfterContentInit {
   }
 
   onSubmit() {
-    if (!this.formLogin.valid) {
+    if (this.formLogin.invalid) {
       this.handleErrors();
       return;
     }
 
     if (this.formLogin.value.remember) {
-      this.saveForm();
+      this.authService.saveAuth(this.formLogin.value.email, this.formLogin.value.password);
     } else {
-      localStorage.clear();
+      this.authService.clearAuth();
     }
 
     alert(`EMAIL: ${this.formLogin.value.email}\nPASSWORD: ${this.formLogin.value.password}`);
@@ -64,9 +64,5 @@ export class LoginFormComponent implements AfterContentInit {
     if (controls.password.errors) {
       this.passwordValidateError = 'Incorrect password';
     }
-  }
-
-  private saveForm() {
-    this.authService.saveAuth(this.formLogin.value.email, this.formLogin.value.password);
   }
 }
