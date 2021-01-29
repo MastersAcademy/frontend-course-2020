@@ -1,0 +1,18 @@
+.login {
+  width: 500px;
+  margin: 25px auto;
+  padding-bottom: 30px;
+}
+
+.login__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__action {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-left: 16px;
+  padding-right: 16px;
+}
