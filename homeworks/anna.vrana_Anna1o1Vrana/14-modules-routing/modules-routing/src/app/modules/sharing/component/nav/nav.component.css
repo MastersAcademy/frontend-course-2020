@@ -1,0 +1,27 @@
+.nav {
+  padding: 20px;
+  background-color: #B4E3E3;
+}
+
+.router-link {
+  padding: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #0B0C0C;
+}
+
+.router-link:not(:last-child) {
+  border-right: 1px solid #A3A8A8;
+}
+
+.router-link:hover {
+  color: #2765CB;
+  background-color: #00C9C9;
+  transition: background-color 2s;
+}
+
+.active {
+  color: #921515;
+  background-color: #00C9C9;
+  transition: background-color 2s;
+}
