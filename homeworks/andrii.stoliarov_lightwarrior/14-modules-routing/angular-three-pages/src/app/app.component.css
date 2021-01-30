@@ -1,0 +1,22 @@
+.container {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.post-page {
+  padding: 1rem;
+  border: #CCC 1px dotted;
+  margin: .7rem 0;
+}
+
+.caption-link {
+  text-decoration: none;
+}
+
+.caption-link:hover {
+  color: #666;
+}
