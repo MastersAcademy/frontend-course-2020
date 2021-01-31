@@ -79,7 +79,7 @@ header .navigation li a.active {
     position: relative;
     width: 30px;
     height: 30px;
-    background: url("../../../assets/media/menu.webp");
+    background: url("../../assets/media/menu.webp");
     background-position: center;
     background-size: 30px;
     background-repeat: no-repeat;
@@ -88,7 +88,7 @@ header .navigation li a.active {
   }
 
   .toogleMenu.active {
-    background: url("../../../assets/media/close.webp");
+    background: url("../../assets/media/close.webp");
     background-position: center;
     background-size: px;
     background-repeat: no-repeat;
