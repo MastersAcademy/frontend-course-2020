@@ -1,0 +1,17 @@
+<div *ngIf="areVehiclesLoading" class="loader">Loading...</div>
+<div *ngIf="!areVehiclesLoading">
+  <table class="vehicle-table">
+    <tr>
+      <th>#</th>
+      <th>Added from</th>
+      <th>Vehicle</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let vehicle of vehicles let i = index">
+      <td><a class="table-cell-link" [appLinkActive]="vehicle">{{ i }}</a></td>
+      <td><a class="table-cell-link" [appLinkActive]="vehicle" appRedBackgroundColor>{{ vehicle.post.protocol }}</a></td>
+      <td><a class="table-cell-link" [appLinkActive]="vehicle">{{ vehicle | transformVehicle}}</a></td>
+      <td><a class="table-cell-link" [appLinkActive]="vehicle">{{ vehicle.cost.amount | currency : vehicle.cost.currencyCode}}</a></td>
+    </tr>
+  </table>
+</div>
