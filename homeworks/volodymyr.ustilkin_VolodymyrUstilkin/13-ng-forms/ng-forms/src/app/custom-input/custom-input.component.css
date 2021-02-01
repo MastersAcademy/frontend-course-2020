@@ -1,0 +1,41 @@
+.custom-input-container {
+  display: block;
+  width: 100%;
+}
+
+.custom-input-label {
+  display: block;
+}
+
+.label-name {
+  width: 100%;
+  display: block;
+}
+
+.input-button-container {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.text-input {
+  padding: 5px 10px;
+  font-size: 30px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.input-show-hide-button {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  border: none;
+  outline: none;
+  background-color: rgba(255,255,255,0);
+}
+
+.error-message-label {
+  font-size: 20px;
+  color: #F00;
+  padding-top: 5px;
+}
