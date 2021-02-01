@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  display: grid;
+  grid-template: auto / auto 1fr;
+  margin: 20px auto 0;
+  max-width: 1100px;
+  min-height: 100px;
+  border: #999 solid 2px;
+}
+
+.nav {
+  padding: 10px;
+  height: 100%;
+  border-right: #999898 solid 1px;
+}
+
+.content {
+  padding: 10px;
+  font-size: 20px;
+}

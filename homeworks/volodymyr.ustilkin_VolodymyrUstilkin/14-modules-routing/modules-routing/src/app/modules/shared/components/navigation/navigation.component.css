@@ -1,0 +1,16 @@
+.nav-element {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #00F;
+  color: #FFF;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.nav-element:first-child {
+  margin-top: 0;
+}
