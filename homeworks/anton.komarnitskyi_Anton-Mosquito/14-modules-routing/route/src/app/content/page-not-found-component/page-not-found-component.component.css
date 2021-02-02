@@ -1,0 +1,56 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../../../assets/media/undraw_page_not_found_su7k.svg"), #151729;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  z-index: 99999999;
+}
+
+.wrapper .content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.wrapper .content .content__message-main {
+  position: relative;
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 20px;
+  color: #111;
+  background: #FFF;
+  font-weight: 300;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.wrapper .content .content__message-additional {
+  color: #FFF;
+  font-size: 1.2em;
+}
+
+.wrapper .content .content__link {
+  position: relative;
+  display: inline-block;
+  padding: 10px 25px;
+  background: #FF0562;
+  color: #FFF;
+  text-decoration: none;
+  margin-top: 25px;
+  border-radius: 25px;
+  border-bottom: 4px solid #D00D56;
+}
+
+
+@media (max-width:991px) {
+
+  .wrapper {
+    top: 60px;
+    min-height: calc(100vh - 60px);
+  }
+}

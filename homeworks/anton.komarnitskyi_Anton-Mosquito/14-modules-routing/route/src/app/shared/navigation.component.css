@@ -1,0 +1,97 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #151729;
+  z-index: 1000;
+}
+
+header .logo {
+  position: relative;
+  font-size: 2rem;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+header .navigation {
+  position: relative;
+  display: flex;
+}
+
+header .navigation li {
+  list-style: none;
+}
+
+header .navigation li a {
+  color: #FFF;
+  margin-right: 40px;
+  display: block;
+  text-decoration: none;
+}
+
+header .navigation li a:hover {
+  color: #00BCD4;
+}
+
+header .navigation li a.active {
+  color: #00BCD4;
+}
+
+
+@media (max-width:991px) {
+
+  header {
+    padding: 15px 40px;
+  }
+
+  header .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  header .navigation.active {
+    display: flex;
+  }
+
+  header .navigation li a {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .toogleMenu {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url("../../assets/media/menu.webp");
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 11;
+  }
+
+  .toogleMenu.active {
+    background: url("../../assets/media/close.webp");
+    background-position: center;
+    background-size: px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
