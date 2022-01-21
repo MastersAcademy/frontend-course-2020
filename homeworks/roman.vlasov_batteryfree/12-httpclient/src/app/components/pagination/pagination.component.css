@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  width: 438px;
+  margin: auto
+}
+
+.pagination__item {
+  margin: 1px;
+}
+
+.pagination__btn {
+  width: 25px;
+  height: 25px;
+  background-color: #CBD8FA;
+  outline: none;
+  border: none;
+}
+
+.pagination__btn:hover {
+  background-color: #006781;
+  color: #FFF;
+}
+
+.pagination__btn:focus {
+  background-color: #006781;
+  color: #FFF;
+}
