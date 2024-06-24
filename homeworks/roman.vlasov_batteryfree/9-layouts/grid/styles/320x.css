@@ -1,0 +1,136 @@
+@media (min-width: 320px) {
+
+  .header__menu {
+    font-size: 18px;
+  }
+
+  .nav {
+    width: 250px;
+  }
+
+  .header__headline {
+    font-size: 26px;
+  }
+
+  .header__text {
+    padding-bottom: 18px;
+    text-align: center;
+  }
+
+  /* services section*/
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__headline {
+    grid-column: 1 / span 2;
+    font-size: 22px
+  }
+
+  .services__description {
+    grid-column: 1 / span 2;
+  }
+
+  .tile-services {
+    border-bottom: none;
+    max-width: 250px;
+    margin: 16px;
+    justify-self: center;
+  }
+
+  .tile-services__icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  .tile-services__headline {
+    font-size: 18px;
+  }
+
+  .tile-services__text {
+    text-align: center;
+  }
+
+  /* demo section */
+
+  .demo__headline {
+    font-size: 22px;
+  }
+
+  /* best-feature section */
+
+  .best-feature__headline {
+    font-size: 22px;
+  }
+
+  .best-feature-tail {
+    height: 380px;
+  }
+
+  .best-feature-tail__description {
+    height: 325px;
+  }
+
+  .best-feature-tail__img {
+    max-width: 350px;
+    max-height: 55%;
+  }
+
+  .best-feature-tail__headline {
+    font-size: 20px;
+  }
+
+  .best-feature-tail__text {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* registration section */
+
+  .registration__headline {
+    font-size: 22px;
+  }
+
+  .form__input-description {
+    font-size: 16px;
+  }
+
+  .form__input {
+    font-size: 16px;
+  }
+
+  .form__text-wrap {
+    text-align: center;
+  }
+
+  .form__text {
+    font-size: 16px;
+  }
+
+  .form__link {
+    font-size: 16px;
+  }
+
+  /* footer section */
+
+  .nav__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+
+  .nav__link-footer {
+    font-size: 20px;
+  }
+
+  .footer-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo-footer {
+    justify-self: end;
+  }
+}
